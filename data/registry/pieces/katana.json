@@ -1,0 +1,35 @@
+{
+  "id": "katana",
+  "package": "@activepieces/piece-katana",
+  "display_name": "Katana",
+  "display_name_ar": "Katana",
+  "description": "Katana is a cloud-based manufacturing ERP software for inventory, production, and order management.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Creates a new customer in Katana."
+    },
+    {
+      "name": "create_sales_order",
+      "display_name": "Create Sales Order",
+      "description": "Creates a new sales order in Katana."
+    },
+    {
+      "name": "find_customer",
+      "display_name": "Find Customer",
+      "description": "Find a customer by name, email, or phone number."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/katana"
+}

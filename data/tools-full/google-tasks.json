@@ -1,0 +1,27 @@
+{
+  "id": "google-tasks",
+  "displayName": "Google Tasks",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_task": {
+      "displayName": "Add Task",
+      "description": "Add a new task to a specified task list",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Triggers when a task is created",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

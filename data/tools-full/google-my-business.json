@@ -1,0 +1,42 @@
+{
+  "id": "google-my-business",
+  "displayName": "Google My Business",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create-reply": {
+      "displayName": "Create or Update Reply",
+      "description": "Create or update a reply to a review if it already exists",
+      "props": [
+        {
+          "name": "reviewName",
+          "displayName": "Review Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "You can find the review name from new review trigger"
+        },
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Comment to be added to the review"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_review": {
+      "displayName": "New Review",
+      "description": "Triggers when there is new review",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "seek-table",
+  "package": "@activepieces/piece-seek-table",
+  "display_name": "SeekTable",
+  "display_name_ar": "",
+  "description": "Generate and automate reports from SeekTable.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "share_report_email",
+      "display_name": "Share Report by Email",
+      "description": "Sends report in email body with optional attachments."
+    },
+    {
+      "name": "upload_csv",
+      "display_name": "Upload CSV File",
+      "description": "Uploads a CSV file and creates new or refreshes existing CSV cube."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_csv_cube",
+      "display_name": "New CSV Cube",
+      "description": "Triggers when a new CSV cube is added to your SeekTable account.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_report",
+      "display_name": "New Report",
+      "description": "Triggers when a new report is added to your SeekTable account.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,256 @@
+{
+  "id": "exa",
+  "displayName": "Exa",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "find_similar_links": {
+      "displayName": "Find Similar Links",
+      "description": "Find pages similar to a given URL.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Reference URL to find semantically similar links."
+        },
+        {
+          "name": "numResults",
+          "displayName": "Number of Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to return (max 100)."
+        },
+        {
+          "name": "includeDomains",
+          "displayName": "Include Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of domains to include in results."
+        },
+        {
+          "name": "excludeDomains",
+          "displayName": "Exclude Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of domains to exclude from results."
+        },
+        {
+          "name": "startCrawlDate",
+          "displayName": "Start Crawl Date (ISO)",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include links crawled after this date (ISO format)."
+        },
+        {
+          "name": "endCrawlDate",
+          "displayName": "End Crawl Date (ISO)",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include links crawled before this date (ISO format)."
+        },
+        {
+          "name": "startPublishedDate",
+          "displayName": "Start Published Date (ISO)",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only include links published after this date (ISO format)."
+        },
+        {
+          "name": "endPublishedDate",
+          "displayName": "End Published Date (ISO)",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only include links published before this date (ISO format)."
+        },
+        {
+          "name": "includeText",
+          "displayName": "Include Text",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Strings that must be present in the webpage text (max 1 string of up to 5 words)."
+        },
+        {
+          "name": "excludeText",
+          "displayName": "Exclude Text",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Strings that must not be present in the webpage text (max 1 string of up to 5 words)."
+        }
+      ]
+    },
+    "generate_answer": {
+      "displayName": "Ask AI",
+      "description": "Provides direct answers to queries by summarizing results.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Ask a question to get summarized answers from the web."
+        },
+        {
+          "name": "text",
+          "displayName": "Include Text Content",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, includes full text content from the search results"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the Exa model to use for the answer."
+        }
+      ]
+    },
+    "get_contents": {
+      "displayName": "Get Contents",
+      "description": "Retrieve clean HTML content from specified URLs.",
+      "props": [
+        {
+          "name": "urls",
+          "displayName": "URLs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of URLs to crawl"
+        },
+        {
+          "name": "text",
+          "displayName": "Return Full Text",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, returns full page text. If false, disables text return."
+        },
+        {
+          "name": "livecrawl",
+          "displayName": "Livecrawl Option",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Options for livecrawling pages."
+        },
+        {
+          "name": "livecrawlTimeout",
+          "displayName": "Livecrawl Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout for livecrawling in milliseconds."
+        },
+        {
+          "name": "subpages",
+          "displayName": "Number of Subpages",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of subpages to crawl."
+        },
+        {
+          "name": "subpageTarget",
+          "displayName": "Subpage Target",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Keyword(s) to find specific subpages."
+        }
+      ]
+    },
+    "perform_search": {
+      "displayName": "Perform Search",
+      "description": "Search query to find related articles and data.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search query to find related articles and data."
+        },
+        {
+          "name": "type",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of search to perform."
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Category of data to focus the search on."
+        },
+        {
+          "name": "numResults",
+          "displayName": "Number of Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to return (max 100)."
+        },
+        {
+          "name": "includeDomains",
+          "displayName": "Include Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Limit results to only these domains."
+        },
+        {
+          "name": "excludeDomains",
+          "displayName": "Exclude Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Exclude results from these domains."
+        },
+        {
+          "name": "startCrawlDate",
+          "displayName": "Start Crawl Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only include results crawled after this ISO date."
+        },
+        {
+          "name": "endCrawlDate",
+          "displayName": "End Crawl Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only include results crawled before this ISO date."
+        },
+        {
+          "name": "startPublishedDate",
+          "displayName": "Start Published Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only include results published after this ISO date."
+        },
+        {
+          "name": "endPublishedDate",
+          "displayName": "End Published Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only include results published before this ISO date."
+        },
+        {
+          "name": "includeText",
+          "displayName": "Include Text",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Strings that must be present in the text of results."
+        },
+        {
+          "name": "excludeText",
+          "displayName": "Exclude Text",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Strings that must not be present in the text of results."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

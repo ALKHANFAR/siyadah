@@ -1,0 +1,73 @@
+{
+  "id": "monday",
+  "package": "@activepieces/piece-monday",
+  "display_name": "monday.com",
+  "display_name_ar": "monday.com",
+  "description": "Work operating system for businesses",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "monday_create_column",
+      "display_name": "Create Column",
+      "description": "Creates a new column in board."
+    },
+    {
+      "name": "monday_create_group",
+      "display_name": "Create Group",
+      "description": "Creates a new group in board."
+    },
+    {
+      "name": "monday_create_item",
+      "display_name": "Create Item",
+      "description": "Creates a new item inside a board."
+    },
+    {
+      "name": "monday_create_update",
+      "display_name": "Create Update",
+      "description": "Creates a new update."
+    },
+    {
+      "name": "monday_get_board_values",
+      "display_name": "Get Board Values",
+      "description": "Gets a list of board's items."
+    },
+    {
+      "name": "monday_get_item_column_values",
+      "display_name": "Get an Item's Column Values",
+      "description": "Gets column values of an item."
+    },
+    {
+      "name": "monday_update_column_values_of_item",
+      "display_name": "Update Column Values of Specific Item",
+      "description": "Updates multiple columns values of specific item."
+    },
+    {
+      "name": "monday_update_item_name",
+      "display_name": "Update Item Name",
+      "description": "Updates an item name."
+    },
+    {
+      "name": "monday_upload_file_to_column",
+      "display_name": "Upload File to Column",
+      "description": "Upload a file to a column in Monday."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "monday_new_item_in_board",
+      "display_name": "New Item in Board",
+      "description": "Triggers when a new item is created in board.",
+      "type": "instant"
+    },
+    {
+      "name": "monday_specific_column_updated",
+      "display_name": "Specific Column Value Updated in Board",
+      "description": "Triggers when a specific column value is updated in board.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/monday"
+}

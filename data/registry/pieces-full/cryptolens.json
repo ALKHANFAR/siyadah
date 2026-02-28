@@ -1,0 +1,47 @@
+{
+  "id": "cryptolens",
+  "package": "@activepieces/piece-cryptolens",
+  "display_name": "Cryptolens",
+  "display_name_ar": "",
+  "description": "Cryptolens is a Software Licensing as a Service (SLaaS) platform that provides developers with tools to manage software licenses, protect against piracy, and analyze usage data.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addCustomer",
+      "display_name": "Add Customer",
+      "description": "Add a new customer to your Cryptolens account"
+    },
+    {
+      "name": "blockKey",
+      "display_name": "Block Key",
+      "description": "Block a license key to prevent it from being accessible by most Web API methods"
+    },
+    {
+      "name": "createKey",
+      "display_name": "Create Key",
+      "description": "Create a new license key for a product"
+    },
+    {
+      "name": "extendLicense",
+      "display_name": "Extend License",
+      "description": "Extend a license key by a specified number of days"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newApiEvent",
+      "display_name": "Product ID",
+      "description": "Filter events for a specific product (optional)",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

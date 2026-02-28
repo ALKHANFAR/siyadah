@@ -1,0 +1,815 @@
+{
+  "id": "airtop",
+  "displayName": "Airtop",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "click": {
+      "displayName": "Click",
+      "description": "Execute a click interaction in a specific browser window.",
+      "props": [
+        {
+          "name": "elementDescription",
+          "displayName": "Element Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Describe the element to click (e.g. \"Login button\")."
+        },
+        {
+          "name": "clientRequestId",
+          "displayName": "Client Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional ID to track this request."
+        },
+        {
+          "name": "clickType",
+          "displayName": "Click Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of click to perform (default: left click)."
+        },
+        {
+          "name": "scrollWithin",
+          "displayName": "Scroll Within",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Describe the scrollable area to search within (e.g. \"main content area\")."
+        },
+        {
+          "name": "analysisScope",
+          "displayName": "Page Analysis Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Controls how much of the page is visually analyzed (default: auto)."
+        },
+        {
+          "name": "resultSelectionStrategy",
+          "displayName": "Result Selection Strategy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to select from multiple matches (default: auto)."
+        },
+        {
+          "name": "partitionDirection",
+          "displayName": "Partition Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to partition screenshots for analysis (default: vertical)."
+        },
+        {
+          "name": "maxScanScrolls",
+          "displayName": "Maximum Scan Scrolls",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of scrolls in scan mode (default: 50)."
+        },
+        {
+          "name": "scanScrollDelay",
+          "displayName": "Scan Scroll Delay (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delay between scrolls in scan mode (default: 1000ms)."
+        },
+        {
+          "name": "overlapPercentage",
+          "displayName": "Overlap Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Percentage of overlap between screenshot chunks (default: 30)."
+        },
+        {
+          "name": "waitForNavigation",
+          "displayName": "Wait for Navigation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for page navigation to complete after clicking (default: false)."
+        },
+        {
+          "name": "navigationWaitUntil",
+          "displayName": "Navigation Wait Until",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "When to consider navigation complete (default: load)."
+        },
+        {
+          "name": "navigationTimeoutSeconds",
+          "displayName": "Navigation Timeout (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Max seconds to wait for navigation (default: 30)."
+        },
+        {
+          "name": "costThresholdCredits",
+          "displayName": "Maximum Credits to Spend",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the credit cost exceeds this amount. Set to 0 to disable."
+        },
+        {
+          "name": "timeThresholdSeconds",
+          "displayName": "Maximum Time (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the operation takes longer than this. Set to 0 to disable."
+        }
+      ]
+    },
+    "create-browser-window": {
+      "displayName": "Create New Browser Window",
+      "description": "Opens a new window within a session, optionally navigating to a URL.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Initial URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to open in the new window. Default: https://www.google.com"
+        },
+        {
+          "name": "screenResolution",
+          "displayName": "Screen Resolution",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Fixed dimensions for the browser window. Affects live view size."
+        },
+        {
+          "name": "customResolution",
+          "displayName": "Custom Resolution",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom resolution in format \"widthxheight\" (e.g., \"1440x900\"). Leave blank to use selected resolution above."
+        },
+        {
+          "name": "waitUntil",
+          "displayName": "Page Load Strategy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "When to consider the page loaded. Default: load"
+        },
+        {
+          "name": "waitUntilTimeoutSeconds",
+          "displayName": "Page Load Timeout (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum time to wait for page loading. Default: 30 seconds"
+        }
+      ]
+    },
+    "create-session": {
+      "displayName": "Create Session",
+      "description": "Starts a new browser session in Airtop.",
+      "props": [
+        {
+          "name": "profileName",
+          "displayName": "Profile Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of a profile to load into the session."
+        },
+        {
+          "name": "extensionIds",
+          "displayName": "Extension IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of Chrome extension IDs from Google Web Store."
+        },
+        {
+          "name": "useAirtopProxy",
+          "displayName": "Use Airtop Proxy?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable Airtop-provided proxy. If disabled, configure a custom proxy."
+        },
+        {
+          "name": "proxyConfig",
+          "displayName": "Custom Proxy Configuration",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Choose how to configure your proxy settings"
+        },
+        {
+          "name": "proxyType",
+          "displayName": "Proxy Configuration Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to configure your proxy settings"
+        },
+        {
+          "name": "proxyUrl",
+          "displayName": "Proxy URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The proxy URL (e.g., http://proxy.example.com:8080)"
+        },
+        {
+          "name": "proxyAdvanced",
+          "displayName": "Advanced Proxy Settings",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 format (e.g., \"US\", \"GB\"). Use \"global\" for random countries."
+        },
+        {
+          "name": "proxyCountry",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 format (e.g., \"US\", \"GB\"). Use \"global\" for random countries."
+        },
+        {
+          "name": "proxySticky",
+          "displayName": "Sticky IP",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Try to maintain the same IP address for up to 30 minutes"
+        },
+        {
+          "name": "proxyUsername",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Username for proxy authentication"
+        },
+        {
+          "name": "proxyPassword",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for proxy authentication"
+        },
+        {
+          "name": "proxyList",
+          "displayName": "Proxy List",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Configure multiple proxies with domain patterns"
+        },
+        {
+          "name": "domainPattern",
+          "displayName": "Domain Pattern",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Domain pattern (e.g., \"*.example.com\"). Use ? for single character, * for multiple."
+        },
+        {
+          "name": "relayUrl",
+          "displayName": "Proxy URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Proxy URL for this domain pattern"
+        },
+        {
+          "name": "solveCaptcha",
+          "displayName": "Solve Captcha",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically solve captcha challenges."
+        },
+        {
+          "name": "timeoutMinutes",
+          "displayName": "Session Timeout (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How long before the session times out due to inactivity (1-10080 minutes). Default: 10."
+        }
+      ]
+    },
+    "hover-element": {
+      "displayName": "Hover on an Element",
+      "description": "Moves mouse pointer over an element in the browser window.",
+      "props": [
+        {
+          "name": "elementDescription",
+          "displayName": "Element Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Describe the element to hover, e.g. \"the search box input in the top right corner\"."
+        },
+        {
+          "name": "clientRequestId",
+          "displayName": "Client Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional ID to track this request."
+        },
+        {
+          "name": "scrollWithin",
+          "displayName": "Scroll Within",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Describe the scrollable area to search within (e.g. \"main content area\")."
+        },
+        {
+          "name": "analysisScope",
+          "displayName": "Page Analysis Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Controls how much of the page is visually analyzed (default: auto)."
+        },
+        {
+          "name": "resultSelectionStrategy",
+          "displayName": "Result Selection Strategy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to select from multiple matches (default: auto)."
+        },
+        {
+          "name": "partitionDirection",
+          "displayName": "Partition Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to partition screenshots for analysis (default: vertical)."
+        },
+        {
+          "name": "maxScanScrolls",
+          "displayName": "Maximum Scan Scrolls",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of scrolls in scan mode (default: 50)."
+        },
+        {
+          "name": "scanScrollDelay",
+          "displayName": "Scan Scroll Delay (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delay between scrolls in scan mode (default: 1000ms)."
+        },
+        {
+          "name": "overlapPercentage",
+          "displayName": "Overlap Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Percentage of overlap between screenshot chunks (default: 30)."
+        },
+        {
+          "name": "waitForNavigation",
+          "displayName": "Wait for Navigation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for page navigation to complete after hovering (default: false)."
+        },
+        {
+          "name": "navigationWaitUntil",
+          "displayName": "Navigation Wait Until",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "When to consider navigation complete (default: load)."
+        },
+        {
+          "name": "navigationTimeoutSeconds",
+          "displayName": "Navigation Timeout (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Max seconds to wait for navigation (default: 30)."
+        },
+        {
+          "name": "costThresholdCredits",
+          "displayName": "Maximum Credits to Spend",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the credit cost exceeds this amount. Set to 0 to disable."
+        },
+        {
+          "name": "timeThresholdSeconds",
+          "displayName": "Maximum Time (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the operation takes longer than this. Set to 0 to disable."
+        }
+      ]
+    },
+    "page-query": {
+      "displayName": "Page Query",
+      "description": "Query a page to extract data or ask a question given the data on the page.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question or instruction for Airtop to answer about the current page."
+        },
+        {
+          "name": "clientRequestId",
+          "displayName": "Client Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An optional ID for your internal tracking."
+        },
+        {
+          "name": "outputSchema",
+          "displayName": "Output Schema (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON schema defining the structure of the output. Must be valid JSON schema format."
+        },
+        {
+          "name": "includeVisualAnalysis",
+          "displayName": "Visual Analysis",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Whether to include visual analysis of the page (default: auto)"
+        },
+        {
+          "name": "optimizeUrls",
+          "displayName": "Optimize URLs",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Improve scraping performance by optimizing URLs (default: auto)"
+        },
+        {
+          "name": "costThresholdCredits",
+          "displayName": "Maximum Credits to Spend",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the credit cost exceeds this amount. Set to 0 to disable."
+        },
+        {
+          "name": "timeThresholdSeconds",
+          "displayName": "Maximum Time (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the operation takes longer than this. Set to 0 to disable."
+        },
+        {
+          "name": "followPaginationLinks",
+          "displayName": "Follow Pagination Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, Airtop will attempt to load more content from pagination, scrolling, etc. (default: false)"
+        }
+      ]
+    },
+    "paginated-extraction": {
+      "displayName": "Paginated Extraction",
+      "description": "Extract content from paginated or dynamically loaded pages.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Instructions on what to extract and how to paginate (e.g. \"Navigate through 3 pages and extract titles and prices\")."
+        },
+        {
+          "name": "clientRequestId",
+          "displayName": "Client Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional ID to track this request."
+        },
+        {
+          "name": "outputSchema",
+          "displayName": "Output Schema (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON schema defining the structure of the output. Must be valid JSON schema format."
+        },
+        {
+          "name": "scrollWithin",
+          "displayName": "Scroll Within",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Describe the scrollable area (e.g. \"results container in middle of page\")."
+        },
+        {
+          "name": "paginationMode",
+          "displayName": "How to Load More Content",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose how to navigate through pages (default: auto)"
+        },
+        {
+          "name": "interactionMode",
+          "displayName": "Speed vs Accuracy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Balance between speed and accuracy (default: auto)"
+        },
+        {
+          "name": "optimizeUrls",
+          "displayName": "Optimize URLs",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Improve scraping performance by optimizing URLs (default: auto)"
+        },
+        {
+          "name": "costThresholdCredits",
+          "displayName": "Maximum Credits to Spend",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the credit cost exceeds this amount. Set to 0 to disable."
+        },
+        {
+          "name": "timeThresholdSeconds",
+          "displayName": "Maximum Time (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the operation takes longer than this. Set to 0 to disable."
+        }
+      ]
+    },
+    "smart-scrape": {
+      "displayName": "Smart Scrape",
+      "description": "Scrape a page and return the data as Markdown.",
+      "props": [
+        {
+          "name": "clientRequestId",
+          "displayName": "Client Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional ID to track this request on your end."
+        },
+        {
+          "name": "costThresholdCredits",
+          "displayName": "Maximum Credits to Spend",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the credit cost exceeds this amount. Set to 0 to disable."
+        },
+        {
+          "name": "timeThresholdSeconds",
+          "displayName": "Maximum Time (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Abort if the operation takes longer than this. Set to 0 to disable."
+        }
+      ]
+    },
+    "take-screenshot": {
+      "displayName": "Take Screenshot",
+      "description": "Captures a screenshot of the current window.",
+      "props": [
+        {
+          "name": "clientRequestId",
+          "displayName": "Client Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional ID for tracking this request"
+        },
+        {
+          "name": "format",
+          "displayName": "Screenshot Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to return the screenshot. Default: base64 for viewport, url for page/scan"
+        },
+        {
+          "name": "scope",
+          "displayName": "Screenshot Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "What part of the page to capture. Default: auto"
+        },
+        {
+          "name": "maxHeight",
+          "displayName": "Max Height (pixels)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum height of screenshot. Will scale down if needed, preserving aspect ratio."
+        },
+        {
+          "name": "maxWidth",
+          "displayName": "Max Width (pixels)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum width of screenshot. Will scale down if needed, preserving aspect ratio."
+        },
+        {
+          "name": "quality",
+          "displayName": "JPEG Quality (1-100)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Image quality for JPEG compression. Higher = better quality. Note: Feature in development."
+        },
+        {
+          "name": "enableVisualAnalysis",
+          "displayName": "Enable Advanced Visual Analysis",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable advanced visual analysis features for better page processing"
+        },
+        {
+          "name": "visualAnalysisConfig",
+          "displayName": "Visual Analysis Settings",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Override main scope setting for visual analysis. Default: auto"
+        },
+        {
+          "name": "analysisScope",
+          "displayName": "Analysis Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Override main scope setting for visual analysis. Default: auto"
+        },
+        {
+          "name": "partitionDirection",
+          "displayName": "Partition Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to split the screenshot into chunks. Default: vertical"
+        },
+        {
+          "name": "resultSelectionStrategy",
+          "displayName": "Result Selection Strategy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to select the best match when multiple results found. Default: auto"
+        },
+        {
+          "name": "maxScanScrolls",
+          "displayName": "Max Scan Scrolls",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of scrolls in scan mode. Default: 50"
+        },
+        {
+          "name": "overlapPercentage",
+          "displayName": "Overlap Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Percentage of overlap between screenshot chunks. Default: 30"
+        },
+        {
+          "name": "scanScrollDelay",
+          "displayName": "Scroll Delay (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delay between scrolls in scan mode. Default: 1000ms"
+        },
+        {
+          "name": "costThresholdCredits",
+          "displayName": "Maximum Credits to Spend",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Stop screenshot if it costs more than this. Leave blank for default limit."
+        },
+        {
+          "name": "timeThresholdSeconds",
+          "displayName": "Maximum Time (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Stop screenshot if it takes longer than this. Leave blank for default timeout."
+        }
+      ]
+    },
+    "terminate-session": {
+      "displayName": "Terminate Session",
+      "description": "Ends an existing browser session in Airtop.",
+      "props": []
+    },
+    "type": {
+      "displayName": "Type",
+      "description": "Type into a browser window at the specified field.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Type",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to type into the browser window."
+        },
+        {
+          "name": "elementDescription",
+          "displayName": "Element Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Describe the element (e.g., \"search box\", \"username field\")."
+        },
+        {
+          "name": "clearInputField",
+          "displayName": "Clear Input Field Before Typing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Clear the input field before typing text."
+        },
+        {
+          "name": "pressEnterKey",
+          "displayName": "Press Enter After Typing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Press Enter key after typing text."
+        },
+        {
+          "name": "pressTabKey",
+          "displayName": "Press Tab After Typing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Press Tab key after typing text (after Enter if both enabled)."
+        },
+        {
+          "name": "waitForNavigation",
+          "displayName": "Wait for Navigation After Typing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for page navigation to complete after typing (default: false)."
+        },
+        {
+          "name": "navigationTimeoutSeconds",
+          "displayName": "Navigation Timeout (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Max time to wait for navigation after typing (default: 30)."
+        },
+        {
+          "name": "navigationWaitUntil",
+          "displayName": "Navigation Wait Strategy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Condition to consider navigation complete (default: load)."
+        },
+        {
+          "name": "analysisScope",
+          "displayName": "Page Analysis Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Controls how much of the page is analyzed to find the input (default: auto)."
+        },
+        {
+          "name": "visualAnalysisMaxScrolls",
+          "displayName": "Max Scrolls (Scan Mode)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of scrolls in scan mode (default: 50)."
+        },
+        {
+          "name": "visualAnalysisOverlap",
+          "displayName": "Chunk Overlap (%)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Percentage of overlap between visual chunks (default: 30)."
+        },
+        {
+          "name": "visualAnalysisDirection",
+          "displayName": "Partition Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Direction to partition screenshots (default: vertical)."
+        },
+        {
+          "name": "visualAnalysisStrategy",
+          "displayName": "Result Selection Strategy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to select from multiple matches (default: auto)."
+        },
+        {
+          "name": "visualAnalysisScrollDelay",
+          "displayName": "Scroll Delay (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delay between scrolls in scan mode (default: 1000ms)."
+        },
+        {
+          "name": "scrollWithin",
+          "displayName": "Scroll Within",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Describe the scrollable container (e.g., \"table body\", \"product list\")."
+        },
+        {
+          "name": "clientRequestId",
+          "displayName": "Client Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional request ID for traceability."
+        },
+        {
+          "name": "costThresholdCredits",
+          "displayName": "Max Credits to Spend",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Cancel if this limit is exceeded. Set 0 to disable."
+        },
+        {
+          "name": "timeThresholdSeconds",
+          "displayName": "Max Time to Wait (Seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Cancel if exceeded. Set 0 to disable."
+        }
+      ]
+    },
+    "upload-file-to-session": {
+      "displayName": "Upload File to Sessions",
+      "description": "Push an existing file to one or more sessions, making it available for use in file inputs or downloads.",
+      "props": [
+        {
+          "name": "sessionIds",
+          "displayName": "Session IDs",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select one or more sessions to make the file available on. Leave empty to make available to all sessions."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

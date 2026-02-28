@@ -1,0 +1,27 @@
+{
+  "id": "bamboohr",
+  "package": "@activepieces/piece-bamboohr",
+  "display_name": "BambooHR",
+  "display_name_ar": "BambooHR",
+  "description": "BambooHR integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "reportFieldChanged",
+      "display_name": "Report Field Changed",
+      "description": "Triggers when a specific field in a BambooHR report changes for any employee.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bamboohr"
+}

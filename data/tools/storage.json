@@ -1,0 +1,46 @@
+{
+  "id": "storage",
+  "package": "@activepieces/piece-store",
+  "version": "0.3.0",
+  "category": "A_essential",
+  "auth": {
+    "required": false
+  },
+  "actions": {
+    "store_put": {
+      "displayName": "Put",
+      "description": "Store a value",
+      "props": []
+    },
+    "store_get": {
+      "displayName": "Get",
+      "description": "Retrieve a value",
+      "props": []
+    },
+    "store_append": {
+      "displayName": "Append",
+      "description": "Append to list",
+      "props": []
+    },
+    "store_remove": {
+      "displayName": "Remove",
+      "description": "Remove a value",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "KEY_NOT_FOUND",
+      "cause": "Key doesn't exist in storage",
+      "auto_fix": "Use default_value parameter",
+      "severity": "low"
+    }
+  ],
+  "limits": {
+    "max_value_size_kb": 512
+  },
+  "notes": "Used for idempotency keys, counters, and flow state. Project-scoped key-value store.",
+  "displayName": "Storage",
+  "description": "Store and retrieve data"
+}

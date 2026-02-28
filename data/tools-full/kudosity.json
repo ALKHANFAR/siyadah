@@ -1,0 +1,196 @@
+{
+  "id": "kudosity",
+  "displayName": "Kudosity",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addUpdateContact": {
+      "displayName": "Add / Update Contact",
+      "description": "Create or update a list member in Kudosity",
+      "props": [
+        {
+          "name": "listId",
+          "displayName": "List ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Numeric ID of the recipient list (found in the list page URL)."
+        },
+        {
+          "name": "msisdn",
+          "displayName": "MSISDN",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number with country code, e.g., +1234567890"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "firstName",
+          "displayName": "First name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom fields",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "cancelSms": {
+      "displayName": "Cancel SMS",
+      "description": "Cancel a scheduled SMS message in Kudosity",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Numeric ID assigned to the message sent"
+        }
+      ]
+    },
+    "deleteContact": {
+      "displayName": "Delete Contact",
+      "description": "Remove a list member from a Kudosity recipient list",
+      "props": [
+        {
+          "name": "listId",
+          "displayName": "List ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Numeric ID of the recipient list (found in the list page URL)."
+        },
+        {
+          "name": "msisdn",
+          "displayName": "MSISDN",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number with country code (e.g., +1234567890)"
+        }
+      ]
+    },
+    "formatNumber": {
+      "displayName": "Format Number",
+      "description": "Format a phone number to international E.164 format",
+      "props": [
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Country code or name (e.g., US, AU, NZ) to determine the number format"
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number in local format (spaces, hyphens, and other characters will be removed)"
+        }
+      ]
+    },
+    "getSmsInfo": {
+      "displayName": "Get SMS info",
+      "description": "Retrieve details for a sent SMS by ID",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The message ID to retrieve (UUID returned when sending)"
+        }
+      ]
+    },
+    "sendSms": {
+      "displayName": "Send SMS",
+      "description": "Send an SMS message via Kudosity",
+      "props": [
+        {
+          "name": "sender",
+          "displayName": "Sender",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sender number or alphanumeric sender that is assigned to your account"
+        },
+        {
+          "name": "recipient",
+          "displayName": "Recipient",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Destination number (local or E.164 format)"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Body of the SMS message"
+        },
+        {
+          "name": "messageRef",
+          "displayName": "Message Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional reference string to correlate messages with your system"
+        },
+        {
+          "name": "trackLinks",
+          "displayName": "Track Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable link tracking for this message"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "linkHit": {
+      "displayName": "Link Hit",
+      "description": "Triggered when a tracked link in a message is clicked",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "smsReceived": {
+      "displayName": "SMS received",
+      "description": "Triggered when an inbound SMS is received",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "smsSent": {
+      "displayName": "SMS Sent",
+      "description": "Triggered when an SMS sent",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

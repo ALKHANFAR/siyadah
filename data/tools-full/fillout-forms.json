@@ -1,0 +1,117 @@
+{
+  "id": "fillout-forms",
+  "displayName": "Fillout Forms",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "findFormByTitle": {
+      "displayName": "Find Form by Title",
+      "description": "Finds an existing forms by title.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Form Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The (partial or full) title of the form to search for."
+        }
+      ]
+    },
+    "getFormResponses": {
+      "displayName": "Get Form Responses",
+      "description": "Fetch all responses for a Fillout form, with optional filters.",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Max number of submissions to retrieve (1-150)."
+        },
+        {
+          "name": "afterDate",
+          "displayName": "After Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter submissions after this date (YYYY-MM-DDTHH:mm:ss.sssZ)."
+        },
+        {
+          "name": "beforeDate",
+          "displayName": "Before Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter submissions before this date (YYYY-MM-DDTHH:mm:ss.sssZ)."
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Starting position for fetching submissions."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "By default, only finished submissions are returned. Select \"In Progress\" to get unfinished submissions instead."
+        },
+        {
+          "name": "includeEditLink",
+          "displayName": "Include Edit Link",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include a link to edit the submission."
+        },
+        {
+          "name": "includePreview",
+          "displayName": "Include Preview",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include preview responses."
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort order."
+        },
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter for submissions containing this text."
+        }
+      ]
+    },
+    "getSingleResponse": {
+      "displayName": "Get Single Response",
+      "description": "Retrieves a specific submission from a form.",
+      "props": [
+        {
+          "name": "includeEditLink",
+          "displayName": "Include Edit Link",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include a link to edit the submission."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-form-response": {
+      "displayName": "New Form Response",
+      "description": "Triggers when a new submission is received for a selected Fillout form.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

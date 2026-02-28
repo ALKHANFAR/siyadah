@@ -1,0 +1,45 @@
+{
+  "id": "gemini",
+  "package": "@activepieces/piece-google-gemini",
+  "display_name": "Google Gemini",
+  "display_name_ar": "جيميناي",
+  "description": "Use the new Gemini models from Google",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "chat_gemini",
+      "display_name": "Chat Gemini",
+      "description": "Chat with Google Gemini"
+    },
+    {
+      "name": "generate_content_from_image",
+      "display_name": "Generate Content from Image",
+      "description": "Generate content using Google Gemini using the \"gemini-pro-vision\" model"
+    },
+    {
+      "name": "generate_content_with_filesearch",
+      "display_name": "Generate Content with File Search",
+      "description": "Generate content with file search functionality."
+    },
+    {
+      "name": "generate_content",
+      "display_name": "Generate Content",
+      "description": "Generate content using Google Gemini using the \"gemini-pro\" model"
+    },
+    {
+      "name": "text-to-speech",
+      "display_name": "Text to Speech",
+      "description": "Converts text to audio file."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-gemini"
+}

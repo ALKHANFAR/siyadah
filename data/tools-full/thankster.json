@@ -1,0 +1,219 @@
+{
+  "id": "thankster",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "send_handwritten_cards": {
+      "displayName": "Send Cards",
+      "description": "Automatically send handwritten cards.",
+      "props": [
+        {
+          "name": "templateID",
+          "displayName": "Select a Thankster Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "If you are passing text or images from prior steps in this step into the Thankster template chosen above, be sure to select a template that has corresponding text or images boxes to pass it into. Either way, the font and style of your cards will be taken from the template you select."
+        },
+        {
+          "name": "fname",
+          "displayName": "Sender Firstname",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sender first name."
+        },
+        {
+          "name": "lname",
+          "displayName": "Sender Lastname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sender last name."
+        },
+        {
+          "name": "company",
+          "displayName": "Sender Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter sender company name."
+        },
+        {
+          "name": "address",
+          "displayName": "Sender Address1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter sender address1."
+        },
+        {
+          "name": "address2",
+          "displayName": "Sender Address2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter sender address2."
+        },
+        {
+          "name": "city",
+          "displayName": "Sender City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter sender city."
+        },
+        {
+          "name": "state",
+          "displayName": "Sender State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter sender state."
+        },
+        {
+          "name": "zip",
+          "displayName": "Sender Zip",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter sender zip."
+        },
+        {
+          "name": "country",
+          "displayName": "Sender Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If not US, type the two character country code."
+        },
+        {
+          "name": "r_fname",
+          "displayName": "Receiver Firstname",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Receiver first name."
+        },
+        {
+          "name": "r_lname",
+          "displayName": "Receiver Lastname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Receiver last name."
+        },
+        {
+          "name": "r_company",
+          "displayName": "Receiver Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Receiver company name."
+        },
+        {
+          "name": "r_address",
+          "displayName": "Receiver Address1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Receiver address1."
+        },
+        {
+          "name": "r_address2",
+          "displayName": "Receiver Address2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Receiver address2."
+        },
+        {
+          "name": "r_city",
+          "displayName": "Receiver City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Receiver city."
+        },
+        {
+          "name": "r_state",
+          "displayName": "Receiver State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Receiver state."
+        },
+        {
+          "name": "r_zip",
+          "displayName": "Receiver Zip",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Receiver zip."
+        },
+        {
+          "name": "r_country",
+          "displayName": "Receiver Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If not US, type the two character country code."
+        },
+        {
+          "name": "api_text_one",
+          "displayName": "Text One",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional - if left blank, it will take the message from your Thankster template. Otherwise, map this to an api text box in the Thankster template being in Thankster Template field, 200 character maximum suggested."
+        },
+        {
+          "name": "api_text_two",
+          "displayName": "Text Two",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional - if left blank, it will take the message from your Thankster template. Otherwise, map this to an api text box in the Thankster template being in Thankster Template field, 200 character maximum suggested."
+        },
+        {
+          "name": "api_text_three",
+          "displayName": "Text Three",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional - if left blank, it will take the message from your Thankster template. Otherwise, map this to an api text box in the Thankster template being in Thankster Template field, 200 character maximum suggested."
+        },
+        {
+          "name": "api_text_four",
+          "displayName": "Text Four",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional - if left blank, it will take the message from your Thankster template. Otherwise, map this to an api text box in the Thankster template being in Thankster Template field, 200 character maximum suggested."
+        },
+        {
+          "name": "api_image_one",
+          "displayName": "Image One (URL)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional image URL for image one. Be sure this image is at least 1500 x 1900 pixels and has that aspect ratio to avoid stretching or pixelated."
+        },
+        {
+          "name": "api_image_two",
+          "displayName": "Image Two (URL)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional image URL for image one. Be sure this image is at least 1500 x 1900 pixels and has that aspect ratio to avoid stretching or pixelated."
+        },
+        {
+          "name": "api_image_three",
+          "displayName": "Image Three (URL)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional image URL for image one. Be sure this image is at least 1500 x 1900 pixels and has that aspect ratio to avoid stretching or pixelated."
+        },
+        {
+          "name": "api_image_four",
+          "displayName": "Image Four (URL)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional image URL for image one. Be sure this image is at least 1500 x 1900 pixels and has that aspect ratio to avoid stretching or pixelated."
+        },
+        {
+          "name": "sender_image",
+          "displayName": "Sender Image",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional image URL for return address (on the envelope). The recommended image size is 300x120 pixels or that aspect ratio to avoid stretching or pixelation. The image will be on top of the text and it will be downsized preserving the aspect ratio to fit the boundaries if necessary."
+        },
+        {
+          "name": "recipient_image",
+          "displayName": "Recipient Image",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional image URL for return address (on the envelope). The recommended image size is 300x120 pixels or that aspect ratio to avoid stretching or pixelation. The image will be on top of the text and it will be downsized preserving the aspect ratio to fit the boundaries if necessary."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

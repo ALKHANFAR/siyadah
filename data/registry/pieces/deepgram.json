@@ -1,0 +1,40 @@
+{
+  "id": "deepgram",
+  "package": "@activepieces/piece-deepgram",
+  "display_name": "Deepgram",
+  "display_name_ar": "Deepgram",
+  "description": "Deepgram is an AI-powered speech recognition platform that provides real-time transcription, text-to-speech, and audio analysis capabilities.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "list_projects",
+      "display_name": "List Projects",
+      "description": "Retrieves a list of all projects associated with the account."
+    },
+    {
+      "name": "text_to_speech",
+      "display_name": "Text to Speech",
+      "description": "Converts text to audio file."
+    },
+    {
+      "name": "create_transcription_callback",
+      "display_name": "Create Transcription (Callback)",
+      "description": "Creates a transcription using a callback URL."
+    },
+    {
+      "name": "create_summary",
+      "display_name": "Create Summary",
+      "description": "Produces a summary of the content from an audio file."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/deepgram"
+}

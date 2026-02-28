@@ -1,0 +1,35 @@
+{
+  "id": "gitlab",
+  "displayName": "GitLab",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_issue": {
+      "displayName": "Create Issue",
+      "description": "Create a project issue",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Issue Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Issue Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,20 @@
+{
+  "id": "denser-ai",
+  "package": "@activepieces/piece-denser-ai",
+  "display_name": "Denser.ai",
+  "display_name_ar": "Denser.ai",
+  "description": "Denser.ai integration",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "processInputText",
+      "display_name": "Process input text",
+      "description": "Input text processed by the chatbot"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/denser-ai"
+}

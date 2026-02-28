@@ -1,0 +1,20 @@
+{
+  "id": "scenario",
+  "package": "@activepieces/piece-scenario",
+  "display_name": "API access key",
+  "display_name_ar": "",
+  "description": "Follow [these instructions](https://docs.scenario.com/docs/get-api-key) to get your API key",
+  "category": "G_productivity",
+  "auth_type": "basic_auth",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

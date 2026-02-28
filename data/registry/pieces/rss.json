@@ -1,0 +1,27 @@
+{
+  "id": "rss",
+  "package": "@activepieces/piece-rss",
+  "display_name": "RSS Feed",
+  "display_name_ar": "خلاصة RSS",
+  "description": "Stay updated with RSS feeds",
+  "category": "I_content",
+  "auth_type": "none",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "new-item-list",
+      "display_name": "New Items in Multiple Feeds",
+      "description": "Runs when a new item is added in one of the RSS feed",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-item",
+      "display_name": "New Item In Feed",
+      "description": "Runs when a new item is added in the RSS feed",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/rss"
+}

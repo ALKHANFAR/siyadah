@@ -1,0 +1,50 @@
+{
+  "id": "free-agent",
+  "package": "@activepieces/piece-free-agent",
+  "display_name": "FreeAgent",
+  "display_name_ar": "FreeAgent",
+  "description": "Accounting and invoicing software for small businesses",
+  "category": "M_finance",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact in FreeAgent"
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a task inside a project"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Triggers when a new contact is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_invoice",
+      "display_name": "New Invoice",
+      "description": "Triggers when a new invoice is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Triggers when a new task is added",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_user",
+      "display_name": "New User",
+      "description": "Triggers when a new user is added",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/free-agent"
+}

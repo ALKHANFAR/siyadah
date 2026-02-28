@@ -1,0 +1,25 @@
+{
+  "id": "neverbounce",
+  "package": "@activepieces/piece-neverbounce",
+  "display_name": "NeverBounce",
+  "display_name_ar": "NeverBounce",
+  "description": "NeverBounce is an email verification service that improves deliverability and helps businesses adhere to strict deliverability guidelines.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "verifyEmailAddress",
+      "display_name": "Verify Email Address",
+      "description": "Verify a single email address using NeverBounce API"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/neverbounce"
+}

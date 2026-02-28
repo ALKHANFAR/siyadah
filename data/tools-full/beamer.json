@@ -1,0 +1,207 @@
+{
+  "id": "beamer",
+  "displayName": "Beamer",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_new_comment": {
+      "displayName": "Create a new comment",
+      "description": "Create a new comment for a Feature request",
+      "props": [
+        {
+          "name": "featureRequestId",
+          "displayName": "ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "ID of the feature request"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "id of the user making the comment"
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Content of your comment"
+        },
+        {
+          "name": "userEmail",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Feature requested by.."
+        }
+      ]
+    },
+    "create_new_feature_request": {
+      "displayName": "Create New Feature Request ",
+      "description": "Create New Feature Request",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the Title of the post"
+        },
+        {
+          "name": "content",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the description of the post"
+        },
+        {
+          "name": "visible",
+          "displayName": "Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Set visiblisty"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Set Category"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Set status"
+        },
+        {
+          "name": "requestedby",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Feature requested by.."
+        }
+      ]
+    },
+    "create_beamer_post": {
+      "displayName": "Create Beamer Post ",
+      "description": "Create a new post in Beamer",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the Title of the post"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the description of the post"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Set Category"
+        },
+        {
+          "name": "showInWidget",
+          "displayName": "Show In Widget ",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Check to enable widget"
+        },
+        {
+          "name": "showInStandalone",
+          "displayName": "Show In Standalone  ",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Check to enable Standalone"
+        },
+        {
+          "name": "enableFeedback",
+          "displayName": "Enable Feedback",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check to enable feedback"
+        },
+        {
+          "name": "enableReactions",
+          "displayName": "Enable Reactions",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check to enable feedback"
+        },
+        {
+          "name": "enableSocialShare",
+          "displayName": "Enable Social share",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check to enable social share"
+        },
+        {
+          "name": "autoOpen",
+          "displayName": "Enable Auto open",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check to enable auto open"
+        },
+        {
+          "name": "sendPushNotification",
+          "displayName": "Enable Push Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check to enable Push Notifications"
+        },
+        {
+          "name": "userEmail",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter user email"
+        }
+      ]
+    },
+    "create_vote": {
+      "displayName": "Create a new vote ",
+      "description": "Create a new vote on a feature request",
+      "props": [
+        {
+          "name": "featureRequestId",
+          "displayName": "Feature ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "ID of the feature request to create a comment for"
+        },
+        {
+          "name": "userFirstname",
+          "displayName": "User Firstname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Feature requested by.."
+        },
+        {
+          "name": "userEmail",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Feature requested by.."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

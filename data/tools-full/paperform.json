@@ -1,0 +1,384 @@
+{
+  "id": "paperform",
+  "displayName": "Paperform",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createFormCoupon": {
+      "displayName": "Create Form Coupon",
+      "description": "Creates a new discount coupon to a specified form.",
+      "props": [
+        {
+          "name": "code",
+          "displayName": "Coupon Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "enabled",
+          "displayName": "Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the coupon is enabled or not."
+        },
+        {
+          "name": "target",
+          "displayName": "Target",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The target of the coupon."
+        },
+        {
+          "name": "discountType",
+          "displayName": "Discount Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose between amount or percentage discount."
+        },
+        {
+          "name": "discountAmount",
+          "displayName": "Discount Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "discountPercentage",
+          "displayName": "Discount Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expires At",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the coupon expires."
+        }
+      ]
+    },
+    "createFormProduct": {
+      "displayName": "Create Form Product",
+      "description": "Creates a form product.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "sku",
+          "displayName": "Product SKU",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "price",
+          "displayName": "Product Price",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product quantity"
+        },
+        {
+          "name": "minimum",
+          "displayName": "Minimum Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "maximum",
+          "displayName": "Maximum Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "discountable",
+          "displayName": "Discountable ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the product image"
+        },
+        {
+          "name": "imageWidth",
+          "displayName": "Image Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width of the product image in pixels"
+        },
+        {
+          "name": "imageHeight",
+          "displayName": "Image Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Height of the product image in pixels (optional)"
+        }
+      ]
+    },
+    "createSpace": {
+      "displayName": "Create Space",
+      "description": "Creates a new space.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Space Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "deleteFormCoupon": {
+      "displayName": "Delete Form Coupon",
+      "description": "Deletes a coupon from a form.",
+      "props": []
+    },
+    "deleteFormProduct": {
+      "displayName": "Delete Form Product",
+      "description": "Deletes an existing form product.",
+      "props": []
+    },
+    "deleteFormSubmission": {
+      "displayName": "Delete Form Submission",
+      "description": "Deletes a completed submission by its ID.",
+      "props": [
+        {
+          "name": "submissionId",
+          "displayName": "Form Submission ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "deletePartialFormSubmission": {
+      "displayName": "Delete Partial Form Submission",
+      "description": "Deletes a partial/in-progress submission by its ID.",
+      "props": [
+        {
+          "name": "partialSubmissionId",
+          "displayName": "Partial Submission ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "findFormProduct": {
+      "displayName": "Find Form Product",
+      "description": "Finds a form product by name.",
+      "props": [
+        {
+          "name": "formId",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the form to search products in"
+        },
+        {
+          "name": "search",
+          "displayName": "Form Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "findForm": {
+      "displayName": "Find Form",
+      "description": "Finds a form by title.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Form Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "findSpace": {
+      "displayName": "Find Space",
+      "description": "Finds a space by name.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Space Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "updateFormCoupon": {
+      "displayName": "Update Form Coupon",
+      "description": "Updates an existing form coupon.",
+      "props": [
+        {
+          "name": "enabled",
+          "displayName": "Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the coupon is enabled or not"
+        },
+        {
+          "name": "target",
+          "displayName": "Target",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The target of the coupon."
+        },
+        {
+          "name": "discountType",
+          "displayName": "Discount Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose between amount or percentage discount."
+        },
+        {
+          "name": "discountAmount",
+          "displayName": "Discount Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "discountPercentage",
+          "displayName": "Discount Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expires At",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the coupon expires."
+        }
+      ]
+    },
+    "updateFormProduct": {
+      "displayName": "Update Form Product",
+      "description": "Updates an existing form product.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "price",
+          "displayName": "Product Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product quantity"
+        },
+        {
+          "name": "minimum",
+          "displayName": "Minimum Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "maximum",
+          "displayName": "Maximum Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "discountable",
+          "displayName": "Discountable ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the product image"
+        },
+        {
+          "name": "imageWidth",
+          "displayName": "Image Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width of the product image in pixels."
+        },
+        {
+          "name": "imageHeight",
+          "displayName": "Image Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Height of the product image in pixels (optional)."
+        }
+      ]
+    },
+    "updateSpace": {
+      "displayName": "Update Space",
+      "description": "Updates an existing space.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Space Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_form_submission": {
+      "displayName": "New Form Submission",
+      "description": "Triggers when a completed form submission is received.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_partial_form_submission": {
+      "displayName": "New Partial Form Submission",
+      "description": "Triggers when a partial/in-progress submission is received.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

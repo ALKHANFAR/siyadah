@@ -1,0 +1,27 @@
+{
+  "id": "frame",
+  "package": "@activepieces/piece-frame",
+  "display_name": "Token",
+  "display_name_ar": "Token",
+  "description": "Collaborative workspace platform",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "frame_trigger_${name}",
+      "display_name": "Account",
+      "description": "Accounts accessible via a given User",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/frame"
+}

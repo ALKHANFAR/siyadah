@@ -1,0 +1,25 @@
+{
+  "id": "opportify",
+  "package": "@activepieces/piece-opportify",
+  "display_name": "Opportify",
+  "display_name_ar": "Opportify",
+  "description": "Opportify integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "analyze-email",
+      "display_name": "Analyze Email",
+      "description": "Validates an email address and returns its deliverability status."
+    },
+    {
+      "name": "analyze-ip-address",
+      "display_name": "Analyze IP Address",
+      "description": "Provides comprehensive insights into a specified IP address."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/opportify"
+}

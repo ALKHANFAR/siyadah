@@ -1,0 +1,74 @@
+{
+  "id": "omnihr",
+  "displayName": "Omni HR",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "get_direct_reports": {
+      "displayName": "Get Employee Direct Reports",
+      "description": "Retrieves a list of employees who directly report to the specified employee",
+      "props": [
+        {
+          "name": "system_id",
+          "displayName": "User ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The user ID of the employee"
+        }
+      ]
+    },
+    "get_employee_info": {
+      "displayName": "Get Employee Details by System ID",
+      "description": "Retrieves detailed employee information using their system ID",
+      "props": [
+        {
+          "name": "system_id",
+          "displayName": "System ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The system ID of the employee"
+        }
+      ]
+    },
+    "get_employee_organizational_chart": {
+      "displayName": "Get Employee Organizational Chart",
+      "description": "Retrieves employee organizational relationships including the complete management chain, direct reports, and peers",
+      "props": [
+        {
+          "name": "system_id",
+          "displayName": "System ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The system ID of the employee"
+        }
+      ]
+    },
+    "get_employee_system_id": {
+      "displayName": "Get Employee System ID by Email",
+      "description": "Searches for an employee by email and returns their system ID and user ID",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Employee Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the employee to look up"
+        },
+        {
+          "name": "employmentStatuses",
+          "displayName": "Employment Statuses",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select one or more status"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

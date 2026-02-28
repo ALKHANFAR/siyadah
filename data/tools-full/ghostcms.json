@@ -1,0 +1,187 @@
+{
+  "id": "ghostcms",
+  "displayName": "API URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_member": {
+      "displayName": "Create Member",
+      "description": "Create a new member",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_post": {
+      "displayName": "Create Post",
+      "description": "Create a new post",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "publishedAt",
+          "displayName": "Published At",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "html",
+          "displayName": "Content (HTML)",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "customExcerpt",
+          "displayName": "Custom Excerpt",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "featured",
+          "displayName": "Featured",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_member": {
+      "displayName": "Find Member",
+      "description": "Find a member by email",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find_user": {
+      "displayName": "Find User",
+      "description": "Find a staff user by email",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "update_member": {
+      "displayName": "Update Member",
+      "description": "Update a member",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "member_added": {
+      "displayName": "Member Added",
+      "description": "Triggers when a new member is added",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "member_deleted": {
+      "displayName": "Member Deleted",
+      "description": "Triggers when a member is deleted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "member_edited": {
+      "displayName": "Member Edited",
+      "description": "Triggers when a member is edited",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "page_published": {
+      "displayName": "Page Published",
+      "description": "Triggers when a page is published",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "post_published": {
+      "displayName": "Post Published",
+      "description": "Triggers when a post is published",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "post_scheduled": {
+      "displayName": "Post Scheduled",
+      "description": "Triggers when a post is scheduled",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

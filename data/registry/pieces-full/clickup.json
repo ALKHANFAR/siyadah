@@ -1,0 +1,33 @@
+{
+  "id": "clickup",
+  "package": "@activepieces/piece-clickup",
+  "display_name": "ClickUp",
+  "display_name_ar": "",
+  "description": "All-in-one productivity platform",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "clickup_trigger_${name}",
+      "display_name": "clickup_trigger_${name}",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "task_tag_updated",
+      "display_name": "Task Tag Updated",
+      "description": "Triggered when a tag is added or removed or renamed on a task.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

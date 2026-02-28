@@ -1,0 +1,111 @@
+{
+  "id": "softr",
+  "displayName": "Softr",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAppUser": {
+      "displayName": "Create App User",
+      "description": "Creates a new user inside a Softr app.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the new user."
+        },
+        {
+          "name": "full_name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The full name of the new user."
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The password for the new user."
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain or subdomain of the Softr app where the user will be created."
+        },
+        {
+          "name": "generate_magic_link",
+          "displayName": "Generate Magic Link",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If checked, a magic link will be generated for the user."
+        }
+      ]
+    },
+    "createDatabaseRecord": {
+      "displayName": "Create Database Record",
+      "description": "Creates a new record.",
+      "props": []
+    },
+    "deleteAppUser": {
+      "displayName": "Delete App User",
+      "description": "Deletes a user from a Softr app.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the user to delete."
+        },
+        {
+          "name": "domain",
+          "displayName": "Softr Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain or subdomain of the Softr app (e.g., yourdomain.com or subdomain.softr.app)."
+        }
+      ]
+    },
+    "deleteDatabaseRecord": {
+      "displayName": "Delete Database Record",
+      "description": "Deletes a existing database record.",
+      "props": []
+    },
+    "findDatabaseRecord": {
+      "displayName": "Find Database Record",
+      "description": "Finds a record in table.",
+      "props": [
+        {
+          "name": "fieldValue",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "updateDatabaseRecord": {
+      "displayName": "Update Database Record",
+      "description": "Updates an existing database record.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newDatabaseRecord": {
+      "displayName": "New Database Record",
+      "description": "Triggers when a new record is added.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "pushover",
+  "displayName": "Api Token",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "send_notification": {
+      "displayName": "Send Notification",
+      "description": "Send a notification to Pushover",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title of the notification"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send"
+        },
+        {
+          "name": "html",
+          "displayName": "Enable HTML",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "To enable HTML parsing"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The priority of the notification (-2 to 2). -2 is lowest priority. If set to 2, you should also specify Retry and Expire."
+        },
+        {
+          "name": "retry",
+          "displayName": "Retry",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Works only if priority is set to 2. Specifies how often (in seconds) the Pushover servers will send the same notification to the user."
+        },
+        {
+          "name": "expire",
+          "displayName": "Expire",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Works only if priority is set to 2. Specifies how many seconds your notification will continue to be retried for (every retry seconds)."
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A supplementary URL to show with your message."
+        },
+        {
+          "name": "url_title",
+          "displayName": "URL Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A title for the URL specified as the url input parameter, otherwise just the URL is shown."
+        },
+        {
+          "name": "timestamp",
+          "displayName": "Timestamp",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "a Unix timestamp of a time to display instead of when our API received it."
+        },
+        {
+          "name": "device",
+          "displayName": "Device",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of one of your devices to send just to that device instead of all devices."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

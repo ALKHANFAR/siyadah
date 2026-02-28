@@ -1,0 +1,30 @@
+{
+  "id": "zoom",
+  "package": "@activepieces/piece-zoom",
+  "display_name": "Zoom",
+  "display_name_ar": "",
+  "description": "Video conferencing, web conferencing, webinars, screen sharing",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "zoom_create_meeting_registrant",
+      "display_name": "Create Zoom Meeting Registrant",
+      "description": "Create and submit a user's registration to a meeting."
+    },
+    {
+      "name": "zoom_create_meeting",
+      "display_name": "Create Zoom Meeting",
+      "description": "Create a new Zoom Meeting"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "gotify",
+  "displayName": "Gotify",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "send_notification": {
+      "displayName": "Send Notification",
+      "description": "Send a notification to gotify",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the notification"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The priority of the notification (0-10). 0 is lowest priority."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

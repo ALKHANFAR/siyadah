@@ -1,0 +1,74 @@
+{
+  "id": "pandadoc",
+  "package": "@activepieces/piece-pandadoc",
+  "display_name": "PandaDoc",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createAttachment",
+      "display_name": "Create Attachment",
+      "description": "Adds an attachment to a document."
+    },
+    {
+      "name": "createDocumentFromTemplate",
+      "display_name": "Create Document from Template",
+      "description": "Creates a document from a PandaDoc Template."
+    },
+    {
+      "name": "createOrUpdateContact",
+      "display_name": "Create or Update Contact",
+      "description": "Creates a new or update an existing contact."
+    },
+    {
+      "name": "downloadDocument",
+      "display_name": "Download Document",
+      "description": "Downloads a document as PDF."
+    },
+    {
+      "name": "findDocument",
+      "display_name": "Find Document(s)",
+      "description": "Finds documents based various filter."
+    },
+    {
+      "name": "getDocumentAttachments",
+      "display_name": "Get Document Attachment",
+      "description": "Retrieves details of a specific attachment from a document."
+    },
+    {
+      "name": "getDocumentDetails",
+      "display_name": "Get Document",
+      "description": "Retrieves comprehensive document data."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "documentCompleted",
+      "display_name": "Document Completed",
+      "description": "Triggers when a document is completed.",
+      "type": "instant"
+    },
+    {
+      "name": "documentStateChanged",
+      "display_name": "Document State Changed",
+      "description": "Triggers when a document status changes.",
+      "type": "instant"
+    },
+    {
+      "name": "documentUpdated",
+      "display_name": "Document Updated",
+      "description": "Triggers when a document is updated.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

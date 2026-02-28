@@ -1,0 +1,179 @@
+{
+  "id": "videoask",
+  "displayName": "VideoAsk",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "addTagToContact": {
+      "displayName": "Add tag to contact",
+      "description": "Add a tag to a contact (respondent) in VideoAsk",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact (respondent) id to add the tag to"
+        }
+      ]
+    },
+    "createContact": {
+      "displayName": "create contact",
+      "description": "Create a new respondent (contact)",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the contact"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the contact"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the contact"
+        }
+      ]
+    },
+    "removeTagFromContact": {
+      "displayName": "Remove tag from contact",
+      "description": "Remove a tag from a contact (respondent) in VideoAsk",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact (respondent) id to remove the tag from"
+        }
+      ]
+    },
+    "searchForm": {
+      "displayName": "Search form by keyword(s)",
+      "description": "Search forms by keyword(s) within the organization",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return"
+        },
+        {
+          "name": "search",
+          "displayName": "Search term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Keyword(s) to search for in form titles"
+        }
+      ]
+    },
+    "updateContact": {
+      "displayName": "Update contact",
+      "description": "Update an existing respondent (contact) in VideoAsk",
+      "props": [
+        {
+          "name": "respondentId",
+          "displayName": "Respondent ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the respondent to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the contact"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the contact"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the contact"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "formContactMessage": {
+      "displayName": "Form contact message",
+      "description": "Triggers when a contact sends a message via a form",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A short, unique identifier for this webhook. Tags help you easily distinguish webhooks when you need to retrieve, update, or delete them."
+        }
+      ]
+    },
+    "formTranscribed": {
+      "displayName": "Form transcribed",
+      "description": "Triggered when a form is transcribed",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A short, unique identifier for this webhook. Tags help you easily distinguish webhooks when you need to retrieve, update, or delete them."
+        }
+      ]
+    },
+    "newFormAuthorResponse": {
+      "displayName": "New form author response",
+      "description": "Trigger when a form author responds to a contact message",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A short, unique identifier for this webhook. Tags help you easily distinguish webhooks when you need to retrieve, update, or delete them."
+        }
+      ]
+    },
+    "newFormResponse": {
+      "displayName": "new form response",
+      "description": "Trigger when a new form response is submitted",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A short, unique identifier for this webhook. Tags help you easily distinguish webhooks when you need to retrieve, update, or delete them."
+        }
+      ]
+    }
+  }
+}

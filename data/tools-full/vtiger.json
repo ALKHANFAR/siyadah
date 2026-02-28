@@ -1,0 +1,146 @@
+{
+  "id": "vtiger",
+  "displayName": "VTiger Instance URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_record": {
+      "displayName": "Create Record",
+      "description": "Create a Record",
+      "props": []
+    },
+    "delete_record": {
+      "displayName": "Delete Record",
+      "description": "Delete a Record",
+      "props": []
+    },
+    "get_record": {
+      "displayName": "Get Record",
+      "description": "Get a Record by value",
+      "props": []
+    },
+    "make_api_call": {
+      "displayName": "Custom API Call (Deprecated)",
+      "description": "Performs an arbitrary authorized API call. (Deprecated)",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Absolute URL or path. If a relative path is provided (e.g., /me, /listtypes, /describe), it will be called against the REST base."
+        },
+        {
+          "name": "urlPath",
+          "displayName": "URL Path (deprecated)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Deprecated. Use 'URL' instead. API endpoint's URL path (example: /me, /listtypes, /describe)"
+        },
+        {
+          "name": "headers",
+          "displayName": "Headers",
+          "type": "JSON",
+          "required": false,
+          "description": "Enter the desired request headers. Skip the authorization headers"
+        },
+        {
+          "name": "data",
+          "displayName": "Data",
+          "type": "JSON",
+          "required": false,
+          "description": "Enter the data to pass. if its POST, it will be sent as body data, and if GET, as query string"
+        }
+      ]
+    },
+    "query_records": {
+      "displayName": "Query Records",
+      "description": "Query records by SQL statement.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the query statement, e.g. SELECT count(*) FROM Contacts;"
+        }
+      ]
+    },
+    "search_records": {
+      "displayName": "Search Records",
+      "description": "Search for a record.",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Search Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Enter your filter criteria"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the maximum number of records to return."
+        }
+      ]
+    },
+    "update_record": {
+      "displayName": "Update Record",
+      "description": "Update a Record",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Id",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The record's id"
+        },
+        {
+          "name": "record",
+          "displayName": "Record Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Add new fields to be created in the new record"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_or_updated_record": {
+      "displayName": "New or Updated Record",
+      "description": "Triggers when a new record is introduced or a record is updated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "watchBy",
+          "displayName": "Watch By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Column to watch for trigger"
+        },
+        {
+          "name": "syncType",
+          "displayName": "Sync Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Records visibility scope for sync"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the maximum number of records to return."
+        }
+      ]
+    }
+  }
+}

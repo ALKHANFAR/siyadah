@@ -1,0 +1,35 @@
+{
+  "id": "sendfox",
+  "package": "@activepieces/piece-sendfox",
+  "display_name": "SendFox",
+  "display_name_ar": "SendFox",
+  "description": "Email marketing made simple",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create-contact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact"
+    },
+    {
+      "name": "create-list",
+      "display_name": "Create List",
+      "description": "Create a new list"
+    },
+    {
+      "name": "unsubscribe",
+      "display_name": "Unsubscribe Contact",
+      "description": "Unsubscribe a contact"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/sendfox"
+}

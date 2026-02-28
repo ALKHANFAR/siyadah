@@ -1,0 +1,65 @@
+{
+  "id": "azure-communication-services",
+  "displayName": "Connection string",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "send_email": {
+      "displayName": "Send Email",
+      "description": "Send a text or HTML email",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "Sender Email (From)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sender email"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Emails of the recipients"
+        },
+        {
+          "name": "cc",
+          "displayName": "Cc",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of emails in cc"
+        },
+        {
+          "name": "bcc",
+          "displayName": "Bcc",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of emails in bcc"
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email to receive replies on (defaults to sender)"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "HTML is only allowed if you selected HTML as type"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

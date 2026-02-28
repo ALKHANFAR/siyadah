@@ -1,0 +1,170 @@
+{
+  "id": "microsoft-excel",
+  "package": "@activepieces/piece-microsoft-excel-365",
+  "display_name": "Microsoft Excel 365",
+  "display_name_ar": "إكسل",
+  "description": "Spreadsheet software by Microsoft",
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_worksheet",
+      "display_name": "Add a Worksheet to a Workbook",
+      "description": "Add a worksheet to a workbook"
+    },
+    {
+      "name": "append_multiple_rows",
+      "display_name": "Append Multiple Rows",
+      "description": "Appends multiple row of values to a worksheet."
+    },
+    {
+      "name": "append_row",
+      "display_name": "Append Row to Worksheet",
+      "description": "Append row of values to a worksheet"
+    },
+    {
+      "name": "append_table_rows",
+      "display_name": "Append Rows to a Table",
+      "description": "Append rows to a table"
+    },
+    {
+      "name": "clear_range",
+      "display_name": "Clear Cells by Range",
+      "description": "Clear a block of cells (range) content or formatting."
+    },
+    {
+      "name": "clear_column",
+      "display_name": "Clear Column by Index",
+      "description": "Clear contents/formatting of a column by its index."
+    },
+    {
+      "name": "clear_row",
+      "display_name": "Clear Row by ID",
+      "description": "Clear contents/formatting of an entire row by its ID."
+    },
+    {
+      "name": "clear_worksheet",
+      "display_name": "Clear Worksheet",
+      "description": "Clear a worksheet"
+    },
+    {
+      "name": "convert_to_range",
+      "display_name": "Convert to Range",
+      "description": "Converts a table to a range"
+    },
+    {
+      "name": "create_table",
+      "display_name": "Create Table",
+      "description": "Create a table in a worksheet"
+    },
+    {
+      "name": "createWorkbook",
+      "display_name": "Create Workbook",
+      "description": "Create a new workbook at the specified location"
+    },
+    {
+      "name": "create_worksheet",
+      "display_name": "Create Worksheet",
+      "description": "Add a new worksheet (tab) to an existing workbook with optional default headers."
+    },
+    {
+      "name": "delete_table",
+      "display_name": "Delete Table",
+      "description": "Delete a table from a worksheet"
+    },
+    {
+      "name": "delete_workbook",
+      "display_name": "Delete Workbook",
+      "description": "Delete a workbook"
+    },
+    {
+      "name": "delete_worksheet",
+      "display_name": "Delete Worksheet",
+      "description": "Delete a worksheet in a workbook"
+    },
+    {
+      "name": "find_row",
+      "display_name": "Find Row",
+      "description": "Locate a row by specifying a lookup column and value (e.g. find a row where “ID” = 123)."
+    },
+    {
+      "name": "find-workbook",
+      "display_name": "Find Workbook",
+      "description": "Finds an existing workbook by name."
+    },
+    {
+      "name": "find-worksheet",
+      "display_name": "Find Worksheet",
+      "description": "Finds an existing worksheet by name."
+    },
+    {
+      "name": "get_range",
+      "display_name": "Get Cells in Range",
+      "description": "Retrieve the values in a given cell range (e.g., “A1:C10”)."
+    },
+    {
+      "name": "getRowById",
+      "display_name": "Get Row by ID",
+      "description": "  Retrieve the entire content of a row by its row ID."
+    },
+    {
+      "name": "get_table_columns",
+      "display_name": "Get Table Columns",
+      "description": "List columns of a table in a worksheet"
+    },
+    {
+      "name": "get_table_rows",
+      "display_name": "Get Table Rows",
+      "description": "List rows of a table in a worksheet"
+    },
+    {
+      "name": "get_workbooks",
+      "display_name": "Get Workbooks",
+      "description": "Retrieve a list of workbooks"
+    },
+    {
+      "name": "get_worksheet",
+      "display_name": "Get Worksheet by ID",
+      "description": "Retrieve metadata of a worksheet by its ID."
+    },
+    {
+      "name": "get_worksheet_rows",
+      "display_name": "Get Worksheet Rows",
+      "description": "Retrieve rows from a worksheet"
+    },
+    {
+      "name": "get_worksheets",
+      "display_name": "Get Worksheets",
+      "description": "Retrieve worksheets from a workbook"
+    },
+    {
+      "name": "get-worksheet-columns",
+      "display_name": "Get Worksheet Columns",
+      "description": "List columns of a worksheet."
+    },
+    {
+      "name": "lookup_table_column",
+      "display_name": "Lookup Table Column",
+      "description": "Lookup a value in a table column in a worksheet"
+    },
+    {
+      "name": "rename_worksheet",
+      "display_name": "Rename Worksheet",
+      "description": "Change the name of an existing worksheet."
+    },
+    {
+      "name": "update_row",
+      "display_name": "Update Worksheet Rows",
+      "description": "Update a row in a worksheet"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/microsoft-excel-365"
+}

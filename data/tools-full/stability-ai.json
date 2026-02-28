@@ -1,0 +1,91 @@
+{
+  "id": "stability-ai",
+  "displayName": "API Key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "text-to-image": {
+      "displayName": "Text to Image",
+      "description": "Generate an image using a text prompt",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The text to transform in image."
+        },
+        {
+          "name": "cfg_scale",
+          "displayName": "cfg_scale",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How strictly the diffusion process adheres to the prompt text (higher values keep your image closer to your prompt) (MIN:0; MAX:35)"
+        },
+        {
+          "name": "height",
+          "displayName": "height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Height of the image in pixels. Must be in increments of 64 and >= 128"
+        },
+        {
+          "name": "width",
+          "displayName": "width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width of the image in pixels. Must be in increments of 64 and >= 128"
+        },
+        {
+          "name": "samples",
+          "displayName": "samples",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Number of images to generate (MAX:10)"
+        },
+        {
+          "name": "steps",
+          "displayName": "steps",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of diffusion steps to run (MIN:10; MAX:150)"
+        },
+        {
+          "name": "weight",
+          "displayName": "weight",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "clip_guidance_preset",
+          "displayName": "clip_guidance_preset",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style_preset",
+          "displayName": "style_preset",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Pass in a style preset to guide the image model towards a particular style."
+        },
+        {
+          "name": "engine_id",
+          "displayName": "Engine ID",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

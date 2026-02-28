@@ -1,0 +1,86 @@
+{
+  "id": "emailoctopus",
+  "package": "@activepieces/piece-emailoctopus",
+  "display_name": "EmailOctopus",
+  "display_name_ar": "EmailOctopus",
+  "description": "Email marketing platform for list management, campaign sending, tagging & unsubscribes. Automate contact management and campaign engagement tracking.",
+  "category": "H_marketing",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "add_or_update_contact",
+      "display_name": "Add / Update Contact",
+      "description": "Adds a new contact to a list or updates an existing contact if one exists."
+    },
+    {
+      "name": "add_tag_to_contact",
+      "display_name": "Add Tag to Contact",
+      "description": "Add one or more tags to a contact in a specified list."
+    },
+    {
+      "name": "create_list",
+      "display_name": "Create List",
+      "description": "Creates a new mailing list."
+    },
+    {
+      "name": "find_contact",
+      "display_name": "Find Contact",
+      "description": "Finds a contact by email address within a given list."
+    },
+    {
+      "name": "remove_tag_from_contact",
+      "display_name": "Remove Tag from Contact",
+      "description": "Remove one or more tags from a contact in a specified list."
+    },
+    {
+      "name": "unsubscribe_contact",
+      "display_name": "Unsubscribe Contact",
+      "description": "Sets a contact\\"
+    },
+    {
+      "name": "update_contact_email",
+      "display_name": "Current Email Address",
+      "description": "Change the email address of a contact in a list."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "contactUnsubscribes",
+      "display_name": "Contact Unsubscribes",
+      "description": "Triggers when a contact unsubscribes from a list.",
+      "type": "instant"
+    },
+    {
+      "name": "emailClicked",
+      "display_name": "Email Clicked",
+      "description": "Triggers when a link inside a specific campaign email is clicked.",
+      "type": "instant"
+    },
+    {
+      "name": "email_bounced",
+      "display_name": "Email Bounced",
+      "description": "Triggers when an email to a recipient bounces from a specific campaign.",
+      "type": "instant"
+    },
+    {
+      "name": "email_opened",
+      "display_name": "Email Opened",
+      "description": "Triggers when a recipient opens an email from a specified campaign.",
+      "type": "instant"
+    },
+    {
+      "name": "newContact",
+      "display_name": "New Contact",
+      "description": "Triggers when a new contact is added to a particular list.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/emailoctopus"
+}

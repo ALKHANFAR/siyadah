@@ -1,0 +1,27 @@
+{
+  "id": "twitch",
+  "package": "@activepieces/piece-twitch",
+  "display_name": "Twitch",
+  "display_name_ar": "",
+  "description": "Twitch is the world's leading live streaming platform for gamers and the things we love!",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "stream_started",
+      "display_name": "Streamer Name(s)/URL(s)",
+      "description": "Add the usernames or URLs of the streamers you want to monitor (e.g., loltyler1 or https://twitch.tv/faker).",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

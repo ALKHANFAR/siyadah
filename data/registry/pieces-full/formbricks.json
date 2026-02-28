@@ -1,0 +1,27 @@
+{
+  "id": "formbricks",
+  "package": "@activepieces/piece-formbricks",
+  "display_name": "APP URL",
+  "display_name_ar": "",
+  "description": "Open source Survey Platform",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "formbricks_trigger_${name}",
+      "display_name": "Survey",
+      "description": "A selection of surveys that will trigger. Else, all surveys will trigger.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

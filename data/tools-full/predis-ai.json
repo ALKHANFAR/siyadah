@@ -1,0 +1,114 @@
+{
+  "id": "predis-ai",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_content": {
+      "displayName": "Create Content",
+      "description": "Generate posts including videos, carousels, images, quotes, and memes.",
+      "props": [
+        {
+          "name": "brand_id",
+          "displayName": "Brand ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of your brand. Find it in Predis.ai under your brand settings."
+        },
+        {
+          "name": "text",
+          "displayName": "Topic",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The topic for your post. Must be at least 20 characters and 3 words."
+        },
+        {
+          "name": "model_version",
+          "displayName": "Model Version",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Version 4 offers higher quality but only supports single_image and carousel."
+        },
+        {
+          "name": "media_type",
+          "displayName": "Media Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of media to generate. Video is only supported by model version 2."
+        },
+        {
+          "name": "post_type",
+          "displayName": "Post Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of post to generate. Only supported by model version 2."
+        },
+        {
+          "name": "n_posts",
+          "displayName": "Number of Posts",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of posts to generate (1-10)."
+        },
+        {
+          "name": "input_language",
+          "displayName": "Input Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language of your input text."
+        },
+        {
+          "name": "output_language",
+          "displayName": "Output Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language for the generated post."
+        },
+        {
+          "name": "video_duration",
+          "displayName": "Video Duration",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Required when media type is video."
+        },
+        {
+          "name": "color_palette_type",
+          "displayName": "Color Palette",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Color palette for generated content."
+        },
+        {
+          "name": "author",
+          "displayName": "Author",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Author name. Required when post type is quotes."
+        },
+        {
+          "name": "template_ids",
+          "displayName": "Template IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of template IDs to use. Only supported by model version 2."
+        },
+        {
+          "name": "media_urls",
+          "displayName": "Media URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of image/video URLs to use in your post. Only supported by model version 2."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "post_created": {
+      "displayName": "Post Created",
+      "description": "Triggers when a post generation completes or fails.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

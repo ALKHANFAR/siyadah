@@ -1,0 +1,28 @@
+{
+  "id": "doctly",
+  "displayName": "Doctly AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "convert-pdf-to-text": {
+      "displayName": "Convert PDF to Text",
+      "description": "Converts PDF document to text file with markdown formatting.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Document File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

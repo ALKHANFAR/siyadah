@@ -1,0 +1,180 @@
+{
+  "id": "promptmate",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_app_details": {
+      "displayName": "Get App Details",
+      "description": "Retrieve detailed information about a specific PromptMate app",
+      "props": [
+        {
+          "name": "appId",
+          "displayName": "App",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the app to get details for"
+        }
+      ]
+    },
+    "get_job_status": {
+      "displayName": "Get Job Status and Result",
+      "description": "Retrieve the status and results of a PromptMate app job",
+      "props": [
+        {
+          "name": "appId",
+          "displayName": "App",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the app for which to get job status"
+        },
+        {
+          "name": "jobId",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to check"
+        },
+        {
+          "name": "onlyDefaultResultFields",
+          "displayName": "Only Default Result Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only the default result fields"
+        }
+      ]
+    },
+    "get_last_results": {
+      "displayName": "Get Last Result Rows",
+      "description": "Retrieve the last result rows of a PromptMate app for examples or testing",
+      "props": [
+        {
+          "name": "appId",
+          "displayName": "App",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the app to get last results for"
+        },
+        {
+          "name": "onlyDefaultResultFields",
+          "displayName": "Only Default Result Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only the default result fields"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of result rows to return"
+        }
+      ]
+    },
+    "get_user_info": {
+      "displayName": "Get User Information",
+      "description": "Retrieve user information associated with the API key",
+      "props": []
+    },
+    "list_apps": {
+      "displayName": "List Apps",
+      "description": "Retrieve a list of available apps",
+      "props": []
+    },
+    "list_projects": {
+      "displayName": "List Projects",
+      "description": "Retrieve a list of available PromptMate projects",
+      "props": []
+    },
+    "run_app": {
+      "displayName": "Run PromptMate App",
+      "description": "Runs a PromptMate app with the specified data",
+      "props": [
+        {
+          "name": "appId",
+          "displayName": "App",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the PromptMate app to run"
+        },
+        {
+          "name": "data",
+          "displayName": "Data",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of data objects to process. Each object must contain the required data fields for the selected app."
+        },
+        {
+          "name": "callBackUrl",
+          "displayName": "Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to which the result of the job will be sent (optional)"
+        },
+        {
+          "name": "noMailOnFinish",
+          "displayName": "Disable Email Notification",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send an email to the user when the job has finished"
+        },
+        {
+          "name": "config",
+          "displayName": "Configuration",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Configuration settings for the job (language, country, etc.)"
+        }
+      ]
+    },
+    "use_template": {
+      "displayName": "Use Template",
+      "description": "Create an app from a specific PromptMate template",
+      "props": [
+        {
+          "name": "templateId",
+          "displayName": "Template ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the template to use"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_app_result": {
+      "displayName": "New App Result",
+      "description": "Triggers when there is a new app result from PromptMate",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "restrictedAppIds",
+          "displayName": "Restrict to Apps",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for results from these specific apps. Leave empty to trigger for all apps."
+        },
+        {
+          "name": "webhookType",
+          "displayName": "Trigger Level",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose when to trigger the webhook"
+        },
+        {
+          "name": "webhookReference",
+          "displayName": "Webhook Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional reference for this webhook (used for identification)"
+        }
+      ]
+    }
+  }
+}

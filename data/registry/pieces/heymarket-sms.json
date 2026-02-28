@@ -1,0 +1,53 @@
+{
+  "id": "heymarket-sms",
+  "package": "@activepieces/piece-heymarket-sms",
+  "display_name": "Heymarket SMS",
+  "display_name_ar": "Heymarket SMS",
+  "description": "Heymarket is a business texting platform that gives you the power to engage with people using shared inboxes. ",
+  "category": "F_ecommerce",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createOrUpdateContact",
+      "display_name": "Create or Update Contact",
+      "description": "Create a new contact or update an existing contact by phone number"
+    },
+    {
+      "name": "sendCustomMessage",
+      "display_name": "Send Custom Message",
+      "description": "Send a custom text message to an individual contact or a list"
+    },
+    {
+      "name": "sendTemplateMessage",
+      "display_name": "Send Template Message",
+      "description": "Send a message using a template to an individual contact or a list"
+    },
+    {
+      "name": "updateList",
+      "display_name": "Update List",
+      "description": "Update an existing list in your team by adding or removing members, or updating list properties"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "chatStarted",
+      "display_name": "Conversation Started",
+      "description": "Trigger when a new conversation is started or an existing conversation is updated",
+      "type": "scheduled"
+    },
+    {
+      "name": "newOrUpdatedContact",
+      "display_name": "New or Updated Contact",
+      "description": "Trigger when a new contact is created or an existing contact is updated",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/heymarket-sms"
+}

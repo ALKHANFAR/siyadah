@@ -1,0 +1,42 @@
+{
+  "id": "apitable",
+  "package": "@activepieces/piece-apitable",
+  "display_name": "AITable",
+  "display_name_ar": "",
+  "description": "Interactive spreadsheets with collaboration",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "apitable_create_record",
+      "display_name": "Create Record",
+      "description": "Creates a new record in datasheet."
+    },
+    {
+      "name": "apitable_find_record",
+      "display_name": "Find Records",
+      "description": "Finds records in datasheet."
+    },
+    {
+      "name": "apitable_update_record",
+      "display_name": "Update Record",
+      "description": "Updates an existing record in datasheet."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_record",
+      "display_name": "New Record",
+      "description": "Triggers when a new record is added to a datasheet.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

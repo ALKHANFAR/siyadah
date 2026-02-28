@@ -1,0 +1,68 @@
+{
+  "id": "jogg-ai",
+  "package": "@activepieces/piece-jogg-ai",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Your Jogg AI API Key",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createAiAvatarPhoto",
+      "display_name": "Create AI Avatar Photo",
+      "description": "Creates an AI avatar photo using JoggAI API"
+    },
+    {
+      "name": "createAvatarVideo",
+      "display_name": "Create Avatar Video",
+      "description": "Creates an avatar video using JoggAI API"
+    },
+    {
+      "name": "createProductFromProductInfo",
+      "display_name": "Create Product from Product Info",
+      "description": "Creates a product from product information"
+    },
+    {
+      "name": "createProductFromUrl",
+      "display_name": "Create Product from URL",
+      "description": "Creates a product by crawling product information from a URL"
+    },
+    {
+      "name": "createVideoFromTemplate",
+      "display_name": "Create Video from Template",
+      "description": "Creates a new video from templates"
+    },
+    {
+      "name": "getGeneratedVideo",
+      "display_name": "Get Generated Video",
+      "description": "Get information about a specific generated video project using its ID"
+    },
+    {
+      "name": "updateProductInfo",
+      "display_name": "Update Product Info",
+      "description": "Updates existing product information using product ID"
+    },
+    {
+      "name": "uploadMedia",
+      "display_name": "Upload Media",
+      "description": "Generate a signed URL for file upload. Use the returned sign_url to upload your file with a PUT request."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "videoGeneratedSuccessfully",
+      "display_name": "Video Generated Successfully",
+      "description": "Fires when a video is generated successfully",
+      "type": "instant"
+    },
+    {
+      "name": "videoGenerationFailed",
+      "display_name": "Video Generation Failed",
+      "description": "Fires when video generation fails",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

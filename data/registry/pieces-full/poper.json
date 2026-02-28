@@ -1,0 +1,21 @@
+{
+  "id": "poper",
+  "package": "@activepieces/piece-poper",
+  "display_name": "Poper",
+  "display_name_ar": "",
+  "description": "AI Driven Pop-up Builder that can convert visitors into customers,increase subscriber count, and skyrocket sales.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "newLead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead is obtained from popup.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

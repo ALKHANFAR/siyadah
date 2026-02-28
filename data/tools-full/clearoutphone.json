@@ -1,0 +1,49 @@
+{
+  "id": "clearoutphone",
+  "displayName": "ClearoutPhone",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "findPhoneNumberCarrier": {
+      "displayName": "Find Phone Number Carrier",
+      "description": "Find the carrier of a phone number using ClearoutPhone API",
+      "props": [
+        {
+          "name": "phoneNumber",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to validate (e.g., +447766733573 )"
+        }
+      ]
+    },
+    "findPhoneNumberIsMobile": {
+      "displayName": "Find Phone Number Is Mobile",
+      "description": "Determine if a phone number is a mobile number using ClearoutPhone API",
+      "props": [
+        {
+          "name": "phoneNumber",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to validate (e.g., +447766733573 )"
+        }
+      ]
+    },
+    "validatePhoneNumber": {
+      "displayName": "Validate Phone Number",
+      "description": "Validate a phone number and retrieve comprehensive information using ClearoutPhone API",
+      "props": [
+        {
+          "name": "phoneNumber",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to validate (e.g., +447766733573 )"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

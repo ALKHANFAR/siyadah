@@ -1,0 +1,56 @@
+{
+  "id": "reoon-verifier",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "bulkVerificationResult": {
+      "displayName": "Get Bulk Verification Result",
+      "description": "Retrieves result of bulk verification email by task ID.",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide the task ID for the bulk verification task. You can fetch this from the `Create Bulk Email Verification` action."
+        }
+      ]
+    },
+    "bulkEmailVerificationTask": {
+      "displayName": "Create Bulk Email Verification",
+      "description": "Creates bulk email verification task.",
+      "props": [
+        {
+          "name": "taskName",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the verification task"
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Emails to verify (You can also provide multiple emails separated by comma)"
+        }
+      ]
+    },
+    "verifyEmail": {
+      "displayName": "Verify Email",
+      "description": "Verify a single email",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email to verify"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

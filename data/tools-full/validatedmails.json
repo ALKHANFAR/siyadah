@@ -1,0 +1,42 @@
+{
+  "id": "validatedmails",
+  "displayName": "ValidatedMails",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "validateEmail": {
+      "displayName": "Validate Email",
+      "description": "Validate a single email address using the ValidatedMails API.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address to validate."
+        },
+        {
+          "name": "dnsTimeoutMs",
+          "displayName": "DNS Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "DNS timeout in milliseconds. Value is clamped between 200 and 5000."
+        },
+        {
+          "name": "mode",
+          "displayName": "Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "HTTP method used for validation request."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

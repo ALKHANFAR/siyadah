@@ -1,0 +1,40 @@
+{
+  "id": "exa",
+  "package": "@activepieces/piece-exa",
+  "display_name": "Exa",
+  "display_name_ar": "Exa",
+  "description": "AI-powered search and content extraction from the web.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "find_similar_links",
+      "display_name": "Find Similar Links",
+      "description": "Find pages similar to a given URL."
+    },
+    {
+      "name": "generate_answer",
+      "display_name": "Ask AI",
+      "description": "Provides direct answers to queries by summarizing results."
+    },
+    {
+      "name": "get_contents",
+      "display_name": "Get Contents",
+      "description": "Retrieve clean HTML content from specified URLs."
+    },
+    {
+      "name": "perform_search",
+      "display_name": "Perform Search",
+      "description": "Search query to find related articles and data."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/exa"
+}

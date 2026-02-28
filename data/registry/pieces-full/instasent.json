@@ -1,0 +1,30 @@
+{
+  "id": "instasent",
+  "package": "@activepieces/piece-instasent",
+  "display_name": "Instasent",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "add_or_update_contact",
+      "display_name": "Add/Update contact",
+      "description": "Add or update a single contact"
+    },
+    {
+      "name": "add_event",
+      "display_name": "Add Event",
+      "description": "Add a contact event"
+    },
+    {
+      "name": "delete_contact",
+      "display_name": "Delete Contact",
+      "description": "Delete a single contact by User ID"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

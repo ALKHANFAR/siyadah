@@ -1,0 +1,85 @@
+{
+  "id": "airtable",
+  "package": "@activepieces/piece-airtable",
+  "display_name": "Airtable",
+  "display_name_ar": "إير تيبل",
+  "description": "Low‒code platform to build apps.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "airtable_add_comment_to_record",
+      "display_name": "Add Comment to Record",
+      "description": "Adds a comment to an existing record."
+    },
+    {
+      "name": "airtable_create_base",
+      "display_name": "Create Base",
+      "description": "Create a new base with a specified table structure."
+    },
+    {
+      "name": "airtable_create_record",
+      "display_name": "Create Airtable Record",
+      "description": "Adds a record into an airtable"
+    },
+    {
+      "name": "airtable_create_table",
+      "display_name": "Create Table",
+      "description": "Create a new table in an existing base."
+    },
+    {
+      "name": "airtable_delete_record",
+      "display_name": "Delete Airtable Record",
+      "description": "Deletes a record in airtable"
+    },
+    {
+      "name": "airtable_find_base",
+      "display_name": "Find Base",
+      "description": "Find a base by its name or a keyword."
+    },
+    {
+      "name": "airtable_get_record_by_id",
+      "display_name": "Get Record by ID",
+      "description": "Retrieve a single record from a table by its unique ID."
+    },
+    {
+      "name": "airtable_find_record",
+      "display_name": "Find Airtable Record",
+      "description": "Find a record in airtable"
+    },
+    {
+      "name": "airtable_find_table_by_id",
+      "display_name": "Find Table by ID",
+      "description": "Get a table's details and schema using its ID."
+    },
+    {
+      "name": "airtable_find_table",
+      "display_name": "Find Table",
+      "description": "Find a table in a given base by its name."
+    },
+    {
+      "name": "airtable_get_base_schema",
+      "display_name": "Get Base Schema",
+      "description": "Retrieve the schema for a specific base, including all its tables and fields."
+    },
+    {
+      "name": "airtable_update_record",
+      "display_name": "Update Airtable Record",
+      "description": "Update a record in airtable"
+    },
+    {
+      "name": "airtable_upload_file_to_column",
+      "display_name": "Upload File to Column",
+      "description": "Uploads a file to attachment type column."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/airtable"
+}

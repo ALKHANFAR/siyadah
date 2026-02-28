@@ -1,0 +1,168 @@
+{
+  "id": "azure-blob-storage",
+  "displayName": "Azure Blob Storage",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addTagsToBlob": {
+      "displayName": "Add Tags to Blob",
+      "description": "Adds Tags to the Blob at the specified location",
+      "props": [
+        {
+          "name": "blobName",
+          "displayName": "Blob Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the blob to add tags to"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The tags to add to the blob"
+        },
+        {
+          "name": "keepExistingTags",
+          "displayName": "Keep Existing Tags",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to keep existing tags on the blob"
+        }
+      ]
+    },
+    "createBlob": {
+      "displayName": "Create Blob",
+      "description": "Creates a new Blob in the specified location",
+      "props": [
+        {
+          "name": "blobName",
+          "displayName": "Blob Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the blob to create"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload as a blob"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional tags to associate with the blob"
+        }
+      ]
+    },
+    "createContainer": {
+      "displayName": "Create Container",
+      "description": "Creates a new container",
+      "props": [
+        {
+          "name": "containerName",
+          "displayName": "Container Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for the newly created container"
+        }
+      ]
+    },
+    "deleteBlob": {
+      "displayName": "Delete Blob",
+      "description": "Deletes the Blob at the specified location",
+      "props": [
+        {
+          "name": "blobName",
+          "displayName": "Blob Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the blob to create"
+        }
+      ]
+    },
+    "deleteContainer": {
+      "displayName": "Delete Container",
+      "description": "Deletes an existing container",
+      "props": []
+    },
+    "findBlobs": {
+      "displayName": "Find Blobs",
+      "description": "Finds Blobs based on their tags",
+      "props": [
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "OBJECT",
+          "required": true,
+          "description": "The tags to filter blobs by"
+        }
+      ]
+    },
+    "listBlobs": {
+      "displayName": "List Blobs",
+      "description": "List Blobs in the specified Azure Blob Storage container",
+      "props": [
+        {
+          "name": "includeSnapshots",
+          "displayName": "Include Snapshots",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include snapshots in the list"
+        },
+        {
+          "name": "prefix",
+          "displayName": "Prefix Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter blobs by prefix"
+        }
+      ]
+    },
+    "listContainers": {
+      "displayName": "List Containers",
+      "description": "List Containers in the Azure Blob Storage account",
+      "props": [
+        {
+          "name": "includeDeleted",
+          "displayName": "Include Deleted Containers",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include deleted containers in the list"
+        },
+        {
+          "name": "includeSystem",
+          "displayName": "Include System Containers",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include system containers in the list"
+        },
+        {
+          "name": "prefix",
+          "displayName": "Prefix Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter containers by prefix"
+        }
+      ]
+    },
+    "readBlob": {
+      "displayName": "Read Blob",
+      "description": "Read the Blob at the specified lcoation",
+      "props": [
+        {
+          "name": "blobName",
+          "displayName": "Blob Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the blob to read"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

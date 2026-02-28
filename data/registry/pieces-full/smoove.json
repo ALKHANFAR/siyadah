@@ -1,0 +1,60 @@
+{
+  "id": "smoove",
+  "package": "@activepieces/piece-smoove",
+  "display_name": "Smoove",
+  "display_name_ar": "",
+  "description": "Smoove is a platform for creating and managing your email list and sending emails to your subscribers.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addOrUpdateSubscriber",
+      "display_name": "Add or Update Subscriber",
+      "description": "Create or update subscriber data, and subscribe/unsubscribe from lists"
+    },
+    {
+      "name": "createAList",
+      "display_name": "Create a List",
+      "description": "Create a new mailing list with custom settings and descriptions"
+    },
+    {
+      "name": "findSubscriber",
+      "display_name": "Find Subscriber",
+      "description": "Search for subscribers by unique identifiers (ID, email, phone, external ID) or name"
+    },
+    {
+      "name": "unsubscribe",
+      "display_name": "Unsubscribe Subscriber",
+      "description": "Unsubscribe a contact from all lists and move them to the \"Unsubscribed\" list"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newFormCreated",
+      "display_name": "New Form Created",
+      "description": "Fires when a new form/landing page is created in your Smoove account",
+      "type": "scheduled"
+    },
+    {
+      "name": "newLeadSubmitted",
+      "display_name": "New Lead Submitted",
+      "description": "Fires when a lead submits via form, popup, or mobile campaign",
+      "type": "scheduled"
+    },
+    {
+      "name": "newListCreated",
+      "display_name": "New List Created",
+      "description": "Fires when a new mailing list is created in your Smoove account",
+      "type": "scheduled"
+    },
+    {
+      "name": "newSubscriber",
+      "display_name": "New Subscriber",
+      "description": "Fires when a new subscriber is added to your Smoove account",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

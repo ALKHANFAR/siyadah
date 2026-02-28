@@ -1,0 +1,42 @@
+{
+  "id": "matomo",
+  "displayName": "Matomo",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_annotation": {
+      "displayName": "Add Annotation",
+      "description": "Add an annotation to a Matomo site",
+      "props": [
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The note to add"
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The date to add the note to. Format: YYYY-MM-DD"
+        },
+        {
+          "name": "starred",
+          "displayName": "Starred",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Whether or not the note should be starred"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

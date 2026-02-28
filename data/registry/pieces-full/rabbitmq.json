@@ -1,0 +1,32 @@
+{
+  "id": "rabbitmq",
+  "package": "@activepieces/piece-rabbitmq",
+  "display_name": "RabbitMQ",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "sendMessageToExchange",
+      "display_name": "sendMessageToExchange",
+      "description": "Send a message on a RabbitMQ exchange"
+    },
+    {
+      "name": "sendMessageToQueue",
+      "display_name": "sendMessageToQueue",
+      "description": "Send a message on a RabbitMQ queue"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "messageReceived",
+      "display_name": "Message Received",
+      "description": "Triggers when a message is received on a RabbitMQ queue",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

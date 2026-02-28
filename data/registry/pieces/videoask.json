@@ -1,0 +1,70 @@
+{
+  "id": "videoask",
+  "package": "@activepieces/piece-videoask",
+  "display_name": "VideoAsk",
+  "display_name_ar": "VideoAsk",
+  "description": "VideoAsk integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "addTagToContact",
+      "display_name": "Add tag to contact",
+      "description": "Add a tag to a contact (respondent) in VideoAsk"
+    },
+    {
+      "name": "createContact",
+      "display_name": "create contact",
+      "description": "Create a new respondent (contact)"
+    },
+    {
+      "name": "removeTagFromContact",
+      "display_name": "Remove tag from contact",
+      "description": "Remove a tag from a contact (respondent) in VideoAsk"
+    },
+    {
+      "name": "searchForm",
+      "display_name": "Search form by keyword(s)",
+      "description": "Search forms by keyword(s) within the organization"
+    },
+    {
+      "name": "updateContact",
+      "display_name": "Update contact",
+      "description": "Update an existing respondent (contact) in VideoAsk"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "formContactMessage",
+      "display_name": "Form contact message",
+      "description": "Triggers when a contact sends a message via a form",
+      "type": "instant"
+    },
+    {
+      "name": "formTranscribed",
+      "display_name": "Form transcribed",
+      "description": "Triggered when a form is transcribed",
+      "type": "instant"
+    },
+    {
+      "name": "newFormAuthorResponse",
+      "display_name": "New form author response",
+      "description": "Trigger when a form author responds to a contact message",
+      "type": "instant"
+    },
+    {
+      "name": "newFormResponse",
+      "display_name": "new form response",
+      "description": "Trigger when a new form response is submitted",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/videoask"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "apitemplate-io",
+  "package": "@activepieces/piece-apitemplate-io",
+  "display_name": "APITemplate.io",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "createImage",
+      "display_name": "Create Image",
+      "description": "Creates an image from a template with provided data."
+    },
+    {
+      "name": "createPdfFromHtml",
+      "display_name": "Create PDF From HTML",
+      "description": "Creates a PDF from HTML."
+    },
+    {
+      "name": "createPdfFromUrl",
+      "display_name": "Create PDF From URL",
+      "description": "Creates a PDF from a webpage URL."
+    },
+    {
+      "name": "createPdf",
+      "display_name": "Create PDF",
+      "description": "Creates a PDF from a template with provided data."
+    },
+    {
+      "name": "deleteObject",
+      "display_name": "Delete Object",
+      "description": "Deletes a generated PDF or image by its transaction reference or object ID."
+    },
+    {
+      "name": "getAccountInformation",
+      "display_name": "Get Account Information",
+      "description": "Retrieves account information including usage statistics and account details."
+    },
+    {
+      "name": "listObjects",
+      "display_name": "List Objects",
+      "description": "Retrieves a list of generated PDFs and images with optional filtering"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

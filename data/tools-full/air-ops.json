@@ -1,0 +1,103 @@
+{
+  "id": "air-ops",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_execution": {
+      "displayName": "Get Execution",
+      "description": "Get an execution by UUID.",
+      "props": [
+        {
+          "name": "app",
+          "displayName": "Workflow",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the workflow."
+        },
+        {
+          "name": "execution_uuid",
+          "displayName": "Execution UUID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The UUID of the execution to retrieve."
+        }
+      ]
+    },
+    "run_workflow_async": {
+      "displayName": "Run Workflow (Async)",
+      "description": "Queue an AirOps workflow for asynchronous execution.",
+      "props": [
+        {
+          "name": "app",
+          "displayName": "Workflow",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the workflow to execute."
+        },
+        {
+          "name": "inputs",
+          "displayName": "Inputs",
+          "type": "JSON",
+          "required": false,
+          "description": "Input values for the workflow."
+        },
+        {
+          "name": "inputs_schema",
+          "displayName": "Inputs Schema",
+          "type": "JSON",
+          "required": false,
+          "description": "Schema defining the workflow inputs (advanced)."
+        },
+        {
+          "name": "definition",
+          "displayName": "Definition",
+          "type": "JSON",
+          "required": false,
+          "description": "Custom workflow definition steps (advanced)."
+        }
+      ]
+    },
+    "run_workflow": {
+      "displayName": "Run Workflow",
+      "description": "Execute an AirOps workflow synchronously.",
+      "props": [
+        {
+          "name": "app",
+          "displayName": "Workflow",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the workflow to execute."
+        },
+        {
+          "name": "inputs",
+          "displayName": "Inputs",
+          "type": "JSON",
+          "required": false,
+          "description": "Input values for the workflow."
+        },
+        {
+          "name": "inputs_schema",
+          "displayName": "Inputs Schema",
+          "type": "JSON",
+          "required": false,
+          "description": "Schema defining the workflow inputs (advanced)."
+        },
+        {
+          "name": "definition",
+          "displayName": "Definition",
+          "type": "JSON",
+          "required": false,
+          "description": "Custom workflow definition steps (advanced)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

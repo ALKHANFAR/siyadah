@@ -1,0 +1,57 @@
+{
+  "id": "parser-expert",
+  "displayName": "Parser Expert",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_extracted_data": {
+      "displayName": "Get Extracted Data",
+      "description": "Retrieve the extracted data using the parser ID and bucket ID. The parser ID is returned when you upload a document.",
+      "props": [
+        {
+          "name": "parser_id",
+          "displayName": "Parser ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the parser. This is returned when content is uploaded."
+        },
+        {
+          "name": "bucket_id",
+          "displayName": "Bucket ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the bucket where the data is stored."
+        }
+      ]
+    },
+    "upload_document": {
+      "displayName": "Upload Document",
+      "description": "Upload a document or provide a webpage URL to parse. Supported formats: PDF, DOCX, Image, Txt File (maximum 10 pages per document).",
+      "props": [
+        {
+          "name": "bucket_id",
+          "displayName": "Bucket ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the bucket where the data will be stored. You can find this in your dashboard under Manage Bucket."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "The file to upload. Supported formats: PDF, DOCX, Image, Txt File (maximum 10 pages per document). This will be ignored if webpage URL is provided."
+        },
+        {
+          "name": "webpage_url",
+          "displayName": "Webpage URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL of the webpage to extract content from. This will be ignored if file is provided."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

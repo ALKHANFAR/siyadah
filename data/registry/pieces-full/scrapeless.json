@@ -1,0 +1,45 @@
+{
+  "id": "scrapeless",
+  "package": "@activepieces/piece-scrapeless",
+  "display_name": "Scrapeless",
+  "display_name_ar": "",
+  "description": "Scrapeless is an all-in-one and highly scalable web scraping toolkit for enterprises and developers.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "crawl_crawl",
+      "display_name": "Crawl Data from All Pages",
+      "description": "Crawls a website and its linked pages to extract comprehensive data."
+    },
+    {
+      "name": "crawl_scrape",
+      "display_name": "Scrape Webpage Data",
+      "description": "Extracts data from a single webpage."
+    },
+    {
+      "name": "google_search_api",
+      "display_name": "Google Search",
+      "description": "Retrieves search result data for any query."
+    },
+    {
+      "name": "google_trends_api",
+      "display_name": "Google Trends",
+      "description": "Access popular keyword and interest data from Google Trends."
+    },
+    {
+      "name": "universal_scraping_api",
+      "display_name": "Universal Scraping",
+      "description": "Seamlessly accesses protected or dynamic pages by handling anti-scraping systems automatically."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

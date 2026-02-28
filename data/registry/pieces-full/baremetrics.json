@@ -1,0 +1,35 @@
+{
+  "id": "baremetrics",
+  "package": "@activepieces/piece-baremetrics",
+  "display_name": "Baremetrics",
+  "display_name_ar": "",
+  "description": "Analytics and metrics platform for subscription businesses. Create customers, plans, and subscriptions to track your revenue and customer data.",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Creates a new customer record"
+    },
+    {
+      "name": "create_plan",
+      "display_name": "Create Plan",
+      "description": "Creates a new plan for use when creating or updating subscriptions"
+    },
+    {
+      "name": "create_subscription",
+      "display_name": "Create Subscription",
+      "description": "Creates a new subscription for a customer on a plan"
+    },
+    {
+      "name": "update_customer",
+      "display_name": "Update Customer",
+      "description": "Updates the basic information stored on a customer"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

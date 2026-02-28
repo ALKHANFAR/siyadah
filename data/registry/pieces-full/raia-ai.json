@@ -1,0 +1,30 @@
+{
+  "id": "raia-ai",
+  "package": "@activepieces/piece-raia-ai",
+  "display_name": "raia",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "prompt-agent",
+      "display_name": "Prompt Agent",
+      "description": "Sends a prompt to a Raia Agent."
+    },
+    {
+      "name": "upload-agent-file",
+      "display_name": "Upload Agent File",
+      "description": "Upload file to a Raia Agent."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

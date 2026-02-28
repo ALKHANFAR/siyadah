@@ -1,0 +1,67 @@
+{
+  "id": "pastefy",
+  "package": "@activepieces/piece-pastefy",
+  "display_name": "Pastefy Instance URL",
+  "display_name_ar": "",
+  "description": "Sharing code snippets platform",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_folder",
+      "display_name": "Create Folder",
+      "description": "Creates a new folder"
+    },
+    {
+      "name": "create_paste",
+      "display_name": "Create Paste",
+      "description": "Creates a new paste"
+    },
+    {
+      "name": "delete_folder",
+      "display_name": "Delete Folder",
+      "description": "Deletes a folder"
+    },
+    {
+      "name": "delete_paste",
+      "display_name": "Delete Paste",
+      "description": "Deletes a paste"
+    },
+    {
+      "name": "edit_paste",
+      "display_name": "Edit Paste",
+      "description": "Edits an existing private paste"
+    },
+    {
+      "name": "get_folder_hierarchy",
+      "display_name": "Get Folder Hierarchy",
+      "description": "Retrieves a hierarchy of all folders"
+    },
+    {
+      "name": "get_folder",
+      "display_name": "Get Folder",
+      "description": "Retrieves information about a folder"
+    },
+    {
+      "name": "get_paste",
+      "display_name": "Get Paste",
+      "description": "Retrieves a paste"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "paste_changed",
+      "display_name": "Paste Changed",
+      "description": "Triggers when the content (or title) of the paste changes",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

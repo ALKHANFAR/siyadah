@@ -1,0 +1,47 @@
+{
+  "id": "fireflies-ai",
+  "package": "@activepieces/piece-fireflies-ai",
+  "display_name": "Fireflies.ai",
+  "display_name_ar": "",
+  "description": "Meeting assistant that automatically records, transcribes, and analyzes conversations",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "find-meeting-by-id",
+      "display_name": "Find Meeting by ID",
+      "description": "Finds a specific meeting by ID."
+    },
+    {
+      "name": "find_meeting_by_query",
+      "display_name": "Find Meeting by Call Deatils",
+      "description": "Searches meetings based on provided parameters."
+    },
+    {
+      "name": "find_recent_meeting",
+      "display_name": "Find Recent Meeting",
+      "description": "Retrieves the latest meeting for a user."
+    },
+    {
+      "name": "get-user-details",
+      "display_name": "Get User Details",
+      "description": "Retrieves profile information by ID."
+    },
+    {
+      "name": "upload_audio",
+      "display_name": "Upload Audio",
+      "description": "Creates a new meeeting in Fireflies for transcription (requires a publicly accessible URL)."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_transcription_completed",
+      "display_name": "New Transcription Completed",
+      "description": "Triggered when a new meeting is transcribed.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

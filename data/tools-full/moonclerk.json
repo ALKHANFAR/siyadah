@@ -1,0 +1,59 @@
+{
+  "id": "moonclerk",
+  "displayName": "Moonclerk",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "retrivePlan": {
+      "displayName": "Retrieve Plan",
+      "description": "Retrieve a customer plan from MoonClerk using the customer ID",
+      "props": [
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer to retrieve the plan for"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newPayment": {
+      "displayName": "New Payment",
+      "description": "Triggers when a payment is created in any state (failed, succeeded, etc).",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newPlan": {
+      "displayName": "New Plan",
+      "description": "Triggers when a new plan is created in MoonClerk",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "paymentSucceeds": {
+      "displayName": "Payment Succeeds",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "planEnded": {
+      "displayName": "Plan Ended",
+      "description": "Triggers when a plan is canceled or when the set number periods have been exhausted.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "planPaymentFailed": {
+      "displayName": "Plan Payment Failed",
+      "description": "Triggers when a payment related to a plan has failed.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

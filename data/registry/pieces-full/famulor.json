@@ -1,0 +1,59 @@
+{
+  "id": "famulor",
+  "package": "@activepieces/piece-famulor",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Create an API key in your Famulor account and paste the value here. Get API key here -> https://app.famulor.de.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addLead",
+      "display_name": "Add Lead to Campaign",
+      "description": "Add a lead to an outbound campaign to be called by an AI assistant."
+    },
+    {
+      "name": "campaignControl",
+      "display_name": "Start/Stop Campaign",
+      "description": "Start or stop an outbound calling campaign. Starting requires sufficient leads; stopping cancels ongoing calls."
+    },
+    {
+      "name": "deleteLead",
+      "display_name": "Delete Lead",
+      "description": "⚠️ Permanently delete a lead from the system. This action cannot be undone and will abort any ongoing calls."
+    },
+    {
+      "name": "makePhoneCall",
+      "display_name": "Make Phone Call",
+      "description": "Initiate an AI-powered phone call to a customer using a selected assistant."
+    },
+    {
+      "name": "sendSms",
+      "display_name": "Send SMS",
+      "description": "Send an SMS message using your purchased phone numbers. Costs are automatically deducted from your account."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "getAssistants",
+      "display_name": "New or Updated Assistant",
+      "description": "Triggers when AI assistants are created or updated in your Famulor account.",
+      "type": "scheduled"
+    },
+    {
+      "name": "inboundCall",
+      "display_name": "Inbound Assistant",
+      "description": "Select an inbound assistant to receive webhook notifications for",
+      "type": "instant"
+    },
+    {
+      "name": "phoneCallEnded",
+      "display_name": "Assistant",
+      "description": "Select an assistant to receive post-call webhook notifications for",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

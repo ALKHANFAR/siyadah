@@ -1,0 +1,40 @@
+{
+  "id": "hashi-corp-vault",
+  "package": "@activepieces/piece-hashi-corp-vault",
+  "display_name": "HashiCorp Vault",
+  "display_name_ar": "HashiCorp Vault",
+  "description": "Securely manage secrets and sensitive data with HashiCorp Vault",
+  "category": "K_dev",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "delete_secret",
+      "display_name": "Delete Secret",
+      "description": "Delete a secret from HashiCorp Vault"
+    },
+    {
+      "name": "list_secrets",
+      "display_name": "List Secrets",
+      "description": "List secrets at a path in HashiCorp Vault"
+    },
+    {
+      "name": "read_secret",
+      "display_name": "Read Secret",
+      "description": "Read a secret from HashiCorp Vault"
+    },
+    {
+      "name": "write_secret",
+      "display_name": "Write Secret",
+      "description": "Write a secret to HashiCorp Vault"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/hashi-corp-vault"
+}

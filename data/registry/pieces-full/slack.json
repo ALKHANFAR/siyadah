@@ -1,0 +1,218 @@
+{
+  "id": "slack",
+  "package": "@activepieces/piece-slack",
+  "display_name": "Slack",
+  "display_name_ar": "",
+  "description": "Channel-based messaging platform",
+  "category": "C_communication",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "slack-add-reaction-to-message",
+      "display_name": "Add Reaction to Message",
+      "description": "Add an emoji reaction to a message."
+    },
+    {
+      "name": "slack-create-channel",
+      "display_name": "Create Channel",
+      "description": "Creates a new channel."
+    },
+    {
+      "name": "delete-message",
+      "display_name": "Delete Message",
+      "description": "Please provide the timestamp of the message you wish to retrieve, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option."
+    },
+    {
+      "name": "slack-find-user-by-email",
+      "display_name": "Find User by Email",
+      "description": "Finds a user by matching against their email address."
+    },
+    {
+      "name": "slack-find-user-by-handle",
+      "display_name": "Find User by Handle",
+      "description": "Finds a user by matching against their Slack handle."
+    },
+    {
+      "name": "find-user-by-id",
+      "display_name": "Find User by ID",
+      "description": "Finds a user by their ID."
+    },
+    {
+      "name": "getChannelHistory",
+      "display_name": "Get channel history",
+      "description": "Retrieve all messages from a specific channel (\"conversation\") between specified timestamps"
+    },
+    {
+      "name": "get-file",
+      "display_name": "Get File",
+      "description": "Return information about a given file ID."
+    },
+    {
+      "name": "get-message",
+      "display_name": "Get Message by Timestamp",
+      "description": "Please provide the timestamp of the message you wish to retrieve, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option."
+    },
+    {
+      "name": "invite-user-to-channel",
+      "display_name": "Invite User to Channel",
+      "description": "Invites an existing User to an existing channel."
+    },
+    {
+      "name": "listUsers",
+      "display_name": "List users",
+      "description": "List all users of the workspace"
+    },
+    {
+      "name": "markdownToSlackFormat",
+      "display_name": "Markdown to Slack format",
+      "description": "Convert Markdown-formatted text to Slack's pseudo - markdown syntax"
+    },
+    {
+      "name": "request_action_direct_message",
+      "display_name": "Request Action from A User",
+      "description": "Send a message to a user and wait until the user selects an action"
+    },
+    {
+      "name": "request_action_message",
+      "display_name": "Request Action in A Channel",
+      "description": "Send a message in a channel and wait until an action is selected"
+    },
+    {
+      "name": "request_approval_direct_message",
+      "display_name": "Request Approval from A User",
+      "description": "Send approval message to a user and then wait until the message is approved or disapproved"
+    },
+    {
+      "name": "request_approval_message",
+      "display_name": "Request Approval in a Channel",
+      "description": "Send approval message to a channel and then wait until the message is approved or disapproved"
+    },
+    {
+      "name": "retrieveThreadMessages",
+      "display_name": "Retrieve Thread Messages",
+      "description": "Retrieves thread messages by channel and thread timestamp."
+    },
+    {
+      "name": "searchMessages",
+      "display_name": "Search messages",
+      "description": "Searches for messages matching a query"
+    },
+    {
+      "name": "send_direct_message",
+      "display_name": "Send Message To A User",
+      "description": "Send message to a user"
+    },
+    {
+      "name": "send_channel_message",
+      "display_name": "Send Message To A Channel",
+      "description": "Send message to a channel"
+    },
+    {
+      "name": "set-channel-topic",
+      "display_name": "Set Channel Topic",
+      "description": "Sets the topic on a selected channel."
+    },
+    {
+      "name": "slack-set-user-status",
+      "display_name": "Set User Status",
+      "description": "Emoji shortname (standard or custom), e.g. :tada: or :train:"
+    },
+    {
+      "name": "updateMessage",
+      "display_name": "Update message",
+      "description": "Update an existing message"
+    },
+    {
+      "name": "slack-update-profile",
+      "display_name": "Update Profile",
+      "description": "Update basic profile field such as name or title."
+    },
+    {
+      "name": "uploadFile",
+      "display_name": "Upload file",
+      "description": "Upload file without sharing it to a channel or user"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "fun",
+      "display_name": "Channel created",
+      "description": "Triggers when a channel is created",
+      "type": "instant"
+    },
+    {
+      "name": "new-command-in-direct-message",
+      "display_name": "New Command in Direct Message",
+      "description": "Triggers when a specific command is sent to the bot (e.g., @bot command arg1 arg2) via Direct Message.",
+      "type": "instant"
+    },
+    {
+      "name": "new_command",
+      "display_name": "New Command in Channel",
+      "description": "Triggers when a specific command is sent to the bot (e.g., @bot command arg1 arg2)",
+      "type": "instant"
+    },
+    {
+      "name": "new-direct-message",
+      "display_name": "New Direct Message",
+      "description": "Triggers when a message was posted in a direct message channel.",
+      "type": "instant"
+    },
+    {
+      "name": "new-mention-in-direct-message",
+      "display_name": "New Mention in Direct Message",
+      "description": "Triggers when a username is mentioned in a direct message channel.",
+      "type": "instant"
+    },
+    {
+      "name": "new_mention",
+      "display_name": "New Mention in Channel",
+      "description": "Triggers when a username is mentioned.",
+      "type": "instant"
+    },
+    {
+      "name": "new-message-in-channel",
+      "display_name": "New Message Posted to Channel",
+      "description": "Triggers when a new message is posted to a specific #channel you choose.",
+      "type": "instant"
+    },
+    {
+      "name": "new-message",
+      "display_name": "New Public Message Posted Anywhere",
+      "description": "Triggers when a new message is posted to any channel.",
+      "type": "instant"
+    },
+    {
+      "name": "new_reaction_added",
+      "display_name": "New Reaction",
+      "description": "Triggers when a new reaction is added to a message",
+      "type": "instant"
+    },
+    {
+      "name": "new-saved-message",
+      "display_name": "New Saved Message",
+      "description": "Triggers when you save a message.",
+      "type": "instant"
+    },
+    {
+      "name": "new-team-custom-emoji",
+      "display_name": "New Team Custom Emoji",
+      "description": "Triggers when a custom emoji has been added to a team.",
+      "type": "instant"
+    },
+    {
+      "name": "slackbot",
+      "display_name": "New User",
+      "description": "Triggers when a new user is created / first joins your org.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

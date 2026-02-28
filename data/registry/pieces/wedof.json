@@ -1,0 +1,409 @@
+{
+  "id": "wedof",
+  "package": "@activepieces/piece-wedof",
+  "display_name": "Wedof",
+  "display_name_ar": "Wedof",
+  "description": "Automatisez la gestion de vos dossiers de formations (CPF, EDOF, Kairos, AIF, OPCO et autres)",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addExecutionTag",
+      "display_name": "Associer le run à wedof",
+      "description": "Entrez un ou plusieurs numéros de dossier à associer à cette exécution."
+    },
+    {
+      "name": "createActivitie",
+      "display_name": "Créer une activité",
+      "description": "Permet de créer une activité d'un dossier (Dossier de formation / Dossier de certification)"
+    },
+    {
+      "name": "createTask",
+      "display_name": "Créer une tâche",
+      "description": "Permet de créer une tâche d'un dossier (Dossier de formation / Dossier de certification)"
+    },
+    {
+      "name": "listActivitiesAndTasks",
+      "display_name": "Liste de toutes les activités et tâches d'un dossier",
+      "description": "Liste de toutes les activités et tâches d'un dossier (Dossier de formation / Dossier de certification)"
+    },
+    {
+      "name": "me",
+      "display_name": "Récupérer mes informations",
+      "description": "Récupérer mes informations et mes détails"
+    },
+    {
+      "name": "myOrganism",
+      "display_name": "Récupérer mon organisme",
+      "description": "Récupérer mon organisme et afficher ses détails"
+    },
+    {
+      "name": "sendFile",
+      "display_name": "Envoyer un fichier",
+      "description": "Permet d'envoyer un fichier pour un dossier (Dossier de formation / Dossier de certification)"
+    },
+    {
+      "name": "declareCertificationFolderToRetake",
+      "display_name": "Passer un dossier de certification à l’état : à repasser",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "declareCertificationFolderFailed",
+      "display_name": "Passer un dossier de certification à l’état : Échoué",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "searchCertificationFolder",
+      "display_name": "Rechercher un ou plusieurs dossiers de certifications",
+      "description": "Liste les dossiers de certifications en fonction des critères sélectionnés"
+    },
+    {
+      "name": "declareCertificationFolderToControl",
+      "display_name": "N° du dossier de certification",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "declareCertificationFolderToTake",
+      "display_name": "N° du dossier de certification",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "getCertificationFolder",
+      "display_name": "Récupérer un dossier de certification",
+      "description": "Récupérer un dossier de certification à partir de son n° de dossier"
+    },
+    {
+      "name": "updateCertificationFolder",
+      "display_name": "Mettre à jour un dossier de certification",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "refuseCertificationFolder",
+      "display_name": "Passer un dossier de certification à l’état : Refuser",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "declareCertificationFolderSuccess",
+      "display_name": "N° du dossier de certification",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "abortCertificationFolder",
+      "display_name": "Passer un dossier de certification à l’état : Abandonné",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "getCertificationFolderDocuments",
+      "display_name": "N° du dossier de certification",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "declareCertificationFolderRegistred",
+      "display_name": "N° du dossier de certification",
+      "description": "Sélectionner la propriété {externalId} du dossier de certification"
+    },
+    {
+      "name": "createCertificationFolder",
+      "display_name": "N° du certification",
+      "description": "Le certifInfo de la certification sélectionnée"
+    },
+    {
+      "name": "createRegistrationFolder",
+      "display_name": "ID de session",
+      "description": "Permet de créer un nouveau dossier de formation"
+    },
+    {
+      "name": "listRegistrationFolders",
+      "display_name": "Rechercher un ou plusieurs dossiers de formation",
+      "description": "Liste les dossiers de formation en fonction des critères sélectionnés"
+    },
+    {
+      "name": "getMinimalSessionsDates",
+      "display_name": "Date minimale de début de session de formation",
+      "description": "Récupération des dates minimales de début de session de formation"
+    },
+    {
+      "name": "declareRegistrationFolderServicedone",
+      "display_name": "N° du dossier de formation",
+      "description": "Sélectionner la propriété {externalId} du dossier de formation"
+    },
+    {
+      "name": "declareRegistrationFolderTerminated",
+      "display_name": "N° du dossier de formation",
+      "description": "Sélectionner la propriété {externalId} du dossier de formation"
+    },
+    {
+      "name": "updateRegistrationFolder",
+      "display_name": "Mettre à jour un dossier de formation",
+      "description": "Sélectionner la propriété {externalId} du dossier de formation"
+    },
+    {
+      "name": "refuseRegistrationFolder",
+      "display_name": "Refuser le dossier de formation",
+      "description": "Refuser le dossier de formation"
+    },
+    {
+      "name": "declareRegistrationFolderIntraining",
+      "display_name": "N° du dossier de formation",
+      "description": "Sélectionner la propriété {externalId} du dossier de formation"
+    },
+    {
+      "name": "getRegistrationFolder",
+      "display_name": "Récupérer un dossier de formation",
+      "description": "Récupérer un dossier de formation à partir de son n° de dossier"
+    },
+    {
+      "name": "validateRegistrationFolder",
+      "display_name": "Valider le dossier de formation",
+      "description": "Sélectionner la propriété {externalId} du dossier de formation"
+    },
+    {
+      "name": "getRegistrationFolderDocuments",
+      "display_name": "N° du dossier de formation",
+      "description": "Sélectionner la propriété {Id} du dossier de formation"
+    },
+    {
+      "name": "billRegistrationFolder",
+      "display_name": "Facturer le dossier de formation",
+      "description": "Associe le dossier de formation à un n° de facture et transmets les informations de facturation au financeur (EDOF par exemple)"
+    },
+    {
+      "name": "cancelRegistrationFolder",
+      "display_name": "Annuler le dossier de formation",
+      "description": "Annuler le dossier de formation"
+    },
+    {
+      "name": "updateCompletionRate",
+      "display_name": "N° du dossier de formation",
+      "description": "Sélectionner la propriété {externalId} du dossier de formation"
+    },
+    {
+      "name": "listPartnerStats",
+      "display_name": "Lister les statistiques des partenaires",
+      "description": "Récupère les statistiques des partenaires de certification"
+    },
+    {
+      "name": "getPartnership",
+      "display_name": "N° certifInfo",
+      "description": "Sélectionner le {certifInfo} de la certification considérée"
+    },
+    {
+      "name": "createPartnership",
+      "display_name": "N° certifInfo",
+      "description": "Sélectionner le {certifInfo} de la certification considérée"
+    },
+    {
+      "name": "updatePartnership",
+      "display_name": "Mettre à jour le partenariat",
+      "description": "Permet de mettre à jour le partenariat"
+    },
+    {
+      "name": "deletePartnership",
+      "display_name": "N° certifInfo",
+      "description": "Sélectionner le {certifInfo} de la certification considérée"
+    },
+    {
+      "name": "resetPartnership",
+      "display_name": "N° certifInfo",
+      "description": "Identifiant de la certification"
+    },
+    {
+      "name": "listPartnerships",
+      "display_name": "N° certifInfo",
+      "description": "Identifiant de la certification"
+    },
+    {
+      "name": "listCertificationFolderSurveys",
+      "display_name": "Liste les enquêtes selon des critères",
+      "description": "Récupérer l'ensemble des enquêtes de l'organisme de l'utilisateur connecté"
+    },
+    {
+      "name": "getCertificationFolderSurvey",
+      "display_name": "N° de dossier de certification",
+      "description": "Permet de récupérer une enquête associée à un dossier de certification"
+    },
+    {
+      "name": "createGeneralAudit",
+      "display_name": "N° certifInfo",
+      "description": "Permet de générer et clôturer un audit pour chacun des partenariats (actifs) de certification"
+    },
+    {
+      "name": "createCertificationPartnerAudit",
+      "display_name": "N° certifInfo",
+      "description": "Sélectionner le SIRET du partenaire"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "certificationfolderSuccess",
+      "display_name": "Dossier de certification réussi",
+      "description": "Se déclenche lorsqu'un dossier de formation passe à l'état réussi",
+      "type": "instant"
+    },
+    {
+      "name": "newCertificationFolderCreated",
+      "display_name": "Nouveau dossier de certification",
+      "description": "Se déclenche lorsqu'un nouveau dossier de certification est créé",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderTotake",
+      "display_name": "Dossier de certification prêt à passer",
+      "description": "Se déclenche lorsqu'un dossier de certification est prét à passer",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderSelected",
+      "display_name": "Événement sur le dossier de certification",
+      "description": "Se déclenche lorsque l'événement choisi se produit sur un dossier de certification",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderToretake",
+      "display_name": "Dossier de certification à repasser",
+      "description": "Se déclanche lorsqu'un dossier de certification est prét à repasser",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderToControl",
+      "display_name": "Dossier de certification à contrôler",
+      "description": "Se déclenche lorsqu'un dossier de certification passe à controler",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderRegistred",
+      "display_name": "Dossier de certification enregistré",
+      "description": "Se déclenche lorsqu'un dossier de certification est enregistré",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderUpdated",
+      "display_name": "Dossier de certification mis à jour",
+      "description": "Se déclenche lorsqu'un dossier de certification est mis à jour",
+      "type": "instant"
+    },
+    {
+      "name": "registrationFolderPaid",
+      "display_name": "Dossier de formation payé (acompte ou payé totalement)",
+      "description": "Se déclenche lorsqu'un dossier de formation est payé",
+      "type": "instant"
+    },
+    {
+      "name": "newRegistrationFolderNotProcessed",
+      "display_name": "Nouveau dossier de formation",
+      "description": "Se déclenche lorsqu'un nouveau dossier de formation est créé (non traité)",
+      "type": "instant"
+    },
+    {
+      "name": "registrationFolderTobill",
+      "display_name": "Dossier de formation à facturer",
+      "description": "Se déclenche lorsqu'un dossier de formation est prêt à être facturé (service fait validé)",
+      "type": "instant"
+    },
+    {
+      "name": "registrationFolderAccepted",
+      "display_name": "Dossier de formation accepté",
+      "description": "Se déclenche lorsqu'un dossier de formation passe à l'état accepté",
+      "type": "instant"
+    },
+    {
+      "name": "registrationFolderTerminated",
+      "display_name": "Dossier de formation sort de formation",
+      "description": "Se déclenche lorsqu'un dossier de formation passe à l'état sorti de formation",
+      "type": "instant"
+    },
+    {
+      "name": "registrationFolderUpdated",
+      "display_name": "Dossier de formation mis à jour",
+      "description": "Se déclenche lorsqu'un dossier de formation est mis à jour",
+      "type": "instant"
+    },
+    {
+      "name": "registrationFolderInTraining",
+      "display_name": "Dossier de formation entre en formation",
+      "description": "Se déclenche lorsqu'un dossier de formation passe à l'état en formation",
+      "type": "instant"
+    },
+    {
+      "name": "registrationFolderSelected",
+      "display_name": "Événement sur le dossier de formation",
+      "description": "Se déclenche lorsque l'événement choisi se produit sur un dossier de formation",
+      "type": "instant"
+    },
+    {
+      "name": "certificationPartnerRevoked",
+      "display_name": "Partenariat révoqué",
+      "description": "Se déclenche Lorsqu'un partenariat est révoqué",
+      "type": "instant"
+    },
+    {
+      "name": "certificationPartnerSuspended",
+      "display_name": "Partenariat suspendu",
+      "description": "Se déclenche Lorsqu'un partenariat est suspendu",
+      "type": "instant"
+    },
+    {
+      "name": "certificationPartnerRefused",
+      "display_name": "Demande de partenariat refusée",
+      "description": "Se déclenche Lorsqu'une demande de partenariat est refusée",
+      "type": "instant"
+    },
+    {
+      "name": "certificationPartnerProcessing",
+      "display_name": "Demande de partenariat en traitement",
+      "description": "Se déclenche Lorsqu'une demande de partenariat est en traitement",
+      "type": "instant"
+    },
+    {
+      "name": "certificationPartnerActive",
+      "display_name": "Partenariat actif",
+      "description": "Se déclenche Lorsqu'une demande de partenariat est actif",
+      "type": "instant"
+    },
+    {
+      "name": "certificationPartnerAborted",
+      "display_name": "Demande de partenariat abandonnée",
+      "description": "Se déclenche Lorsqu'une demande de partenariat estabandonnée",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderSurveySixMonthExperienceAvailable",
+      "display_name": "Enquête \"Situation professionnelle de 6 mois\" disponible",
+      "description": "Se déclenche lorsqu'un une enquête de 6 mois de cursus est disponible",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderSurveyInitialExperienceAvailable",
+      "display_name": "Enquête \"Situation professionnelle en début de cursus\" disponible",
+      "description": "Se déclenche lorsqu'un une enquête de début de cursus est disponible",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderSurveyLongTermExperienceAnswered",
+      "display_name": "Enquête \"Situation professionnelle au moins un an\" répondue",
+      "description": "Se déclenche lorsqu'un une enquête de au moins un an de cursus est répondue",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderSurveyInitialExperienceAnswered",
+      "display_name": "Enquête \"Situation professionnelle en début de cursus\" répondue",
+      "description": "Se déclenche lorsqu'un une enquête de début de cursus est répondue",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderSurveySixMonthExperienceAnswered",
+      "display_name": "Enquête \"Situation professionnelle de 6 mois\" répondue",
+      "description": "Se déclenche lorsqu'un une enquête de 6 mois de cursus est répondue",
+      "type": "instant"
+    },
+    {
+      "name": "certificationFolderSurveyLongTermExperienceAvailable",
+      "display_name": "Enquête \"Situation professionnelle au moins un an\" disponible",
+      "description": "Se déclenche lorsqu'un une enquête de au moins un an de cursus est disponible",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/wedof"
+}

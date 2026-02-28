@@ -1,0 +1,213 @@
+{
+  "id": "alai",
+  "displayName": "Alai",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addSlide": {
+      "displayName": "Add Slide",
+      "description": "Add a new slide to an existing presentation.",
+      "props": [
+        {
+          "name": "slide_context",
+          "displayName": "Slide Context",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content or topic for the slide to be generated."
+        },
+        {
+          "name": "additionalInstructions",
+          "displayName": "Additional Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Extra instructions for how the slide should be generated."
+        },
+        {
+          "name": "slide_order",
+          "displayName": "Slide Order",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The position to insert the new slide (e.g., \"0\" for the first slide, \"end\" to add at the end)."
+        },
+        {
+          "name": "includeAiImages",
+          "displayName": "Include AI Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include AI-generated images in the slide."
+        },
+        {
+          "name": "imageStyle",
+          "displayName": "Image Style",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The style for AI-generated images."
+        }
+      ]
+    },
+    "deletePresentation": {
+      "displayName": "Delete Presentation",
+      "description": "Delete a presentation by its ID.",
+      "props": [
+        {
+          "name": "presentationId",
+          "displayName": "Presentation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the presentation to delete."
+        }
+      ]
+    },
+    "exportPresentation": {
+      "displayName": "Export Presentation",
+      "description": "Export a presentation in the specified formats.",
+      "props": [
+        {
+          "name": "presentationId",
+          "displayName": "Presentation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the presentation to export."
+        },
+        {
+          "name": "exportFormats",
+          "displayName": "Export Formats",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Formats to export the presentation in."
+        },
+        {
+          "name": "waitForCompletion",
+          "displayName": "Wait for Completion",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for the presentation generation to complete before returning."
+        },
+        {
+          "name": "maxWaitTime",
+          "displayName": "Max Wait Time (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum time to wait for completion (default 300 seconds / 5 minutes)."
+        }
+      ]
+    },
+    "generatePresentation": {
+      "displayName": "Generate Presentation",
+      "description": "Create a new AI-generated presentation from text.",
+      "props": [
+        {
+          "name": "inputText",
+          "displayName": "Input Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content to generate a presentation from."
+        },
+        {
+          "name": "additionalInstructions",
+          "displayName": "Additional Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Extra instructions for how the presentation should be generated."
+        },
+        {
+          "name": "exportFormats",
+          "displayName": "Export Formats",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Formats to export the presentation in after generation."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A title for the presentation. If not provided, one will be generated."
+        },
+        {
+          "name": "themeId",
+          "displayName": "Theme ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the presentation theme to use. If not provided, a default theme will be applied."
+        },
+        {
+          "name": "slideRange",
+          "displayName": "Slide Range",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Target slide count: auto, 1, 2-5, 6-10, 11-15, 16-20, 21-25, 26-50."
+        },
+        {
+          "name": "tone",
+          "displayName": "Tone",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The tone of voice for the presentation content."
+        },
+        {
+          "name": "contentMode",
+          "displayName": "Content Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How the input text should be handled."
+        },
+        {
+          "name": "amountMode",
+          "displayName": "Text Density",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The amount of text to include per slide."
+        },
+        {
+          "name": "includeAiImages",
+          "displayName": "Include AI Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include AI-generated images in the presentation."
+        },
+        {
+          "name": "imageStyle",
+          "displayName": "Image Style",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The style for AI-generated images."
+        },
+        {
+          "name": "waitForCompletion",
+          "displayName": "Wait for Completion",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for the presentation generation to complete before returning."
+        },
+        {
+          "name": "maxWaitTime",
+          "displayName": "Max Wait Time (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum time to wait for completion (default 300 seconds / 5 minutes)."
+        }
+      ]
+    },
+    "getGeneration": {
+      "displayName": "Get Generation",
+      "description": "Fetch the status and result of a generation job.",
+      "props": [
+        {
+          "name": "generationId",
+          "displayName": "Generation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the generation job (from the \"Generate Presentation\" action)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,247 @@
+{
+  "id": "apollo",
+  "displayName": "Apollo",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "enrichCompany": {
+      "displayName": "Enrich Company",
+      "description": "Store the response in the project store for future use.",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "cacheResponse",
+          "displayName": "Cache Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Store the response in the project store for future use."
+        }
+      ]
+    },
+    "matchPerson": {
+      "displayName": "Match Person",
+      "description": "Enrich a persons details using their email address",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": " The email address of the person to be matched"
+        },
+        {
+          "name": "cacheResponse",
+          "displayName": "Cache Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Store the response in the project store for future use."
+        }
+      ]
+    },
+    "newsArticlesSearch": {
+      "displayName": "News Articles Search",
+      "description": "Search for news articles related to companies in the Apollo database",
+      "props": [
+        {
+          "name": "organization_ids",
+          "displayName": "Organization IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The Apollo IDs for the companies you want to include in your search results. To find IDs, call the Organization Search endpoint."
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter your search to include only certain categories or sub-categories of news (e.g., hires, investment, contract)"
+        },
+        {
+          "name": "published_at_min",
+          "displayName": "Published Date Min",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Lower bound of the date range (YYYY-MM-DD format)"
+        },
+        {
+          "name": "published_at_max",
+          "displayName": "Published Date Max",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Upper bound of the date range (YYYY-MM-DD format)"
+        },
+        {
+          "name": "cacheResponse",
+          "displayName": "Cache Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Store the response in the project store for future use."
+        }
+      ]
+    },
+    "organizationJobPostings": {
+      "displayName": "Organization Job Postings",
+      "description": "Retrieve current job postings for a company to identify growing headcount areas",
+      "props": [
+        {
+          "name": "organization_id",
+          "displayName": "Organization ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Apollo ID of the organization to get job postings for"
+        },
+        {
+          "name": "cacheResponse",
+          "displayName": "Cache Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Store the response in the project store for future use."
+        }
+      ]
+    },
+    "organizationSearch": {
+      "displayName": "Organization Search",
+      "description": "Search for companies in the Apollo database with various filters",
+      "props": [
+        {
+          "name": "q_organization_name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by organization name"
+        },
+        {
+          "name": "organization_locations",
+          "displayName": "Organization Locations",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by locations (e.g., texas, tokyo)"
+        },
+        {
+          "name": "organization_not_locations",
+          "displayName": "Exclude Locations",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Exclude specific locations (e.g., minnesota)"
+        },
+        {
+          "name": "organization_num_employees_ranges",
+          "displayName": "Employee Count Ranges",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by employee count ranges (e.g., \"1,10\", \"250,500\")"
+        },
+        {
+          "name": "organization_ids",
+          "displayName": "Organization IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by specific organization IDs"
+        },
+        {
+          "name": "q_organization_domains",
+          "displayName": "Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by organization domains"
+        },
+        {
+          "name": "organization_industry_tag_ids",
+          "displayName": "Industry Tag IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by industry tag IDs"
+        },
+        {
+          "name": "cacheResponse",
+          "displayName": "Cache Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Store the response in the project store for future use."
+        }
+      ]
+    },
+    "peopleSearch": {
+      "displayName": "People Search",
+      "description": "Search for people in the Apollo database (does not return email/phone, use enrichment for that)",
+      "props": [
+        {
+          "name": "q_keywords",
+          "displayName": "Keywords",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search keywords for people"
+        },
+        {
+          "name": "person_titles",
+          "displayName": "Person Titles",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by job titles (e.g., \"CEO\", \"Sales Manager\")"
+        },
+        {
+          "name": "person_locations",
+          "displayName": "Person Locations",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by person locations"
+        },
+        {
+          "name": "person_seniorities",
+          "displayName": "Person Seniorities",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by seniority levels (e.g., \"senior\", \"manager\", \"director\")"
+        },
+        {
+          "name": "organization_ids",
+          "displayName": "Organization IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by specific organization IDs"
+        },
+        {
+          "name": "organization_num_employees_ranges",
+          "displayName": "Organization Employee Ranges",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by organization employee count ranges (e.g., \"1,10\", \"250,500\")"
+        },
+        {
+          "name": "q_organization_domains",
+          "displayName": "Organization Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by organization domains"
+        },
+        {
+          "name": "organization_locations",
+          "displayName": "Organization Locations",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by organization locations"
+        },
+        {
+          "name": "cacheResponse",
+          "displayName": "Cache Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Store the response in the project store for future use."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

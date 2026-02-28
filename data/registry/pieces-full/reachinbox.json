@@ -1,0 +1,123 @@
+{
+  "id": "reachinbox",
+  "package": "@activepieces/piece-reachinbox",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Enter your ReachInbox API key",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addBlocklist",
+      "display_name": "Add Blocklist",
+      "description": "Add email addresses, domains, and keywords to the blocklist."
+    },
+    {
+      "name": "addEmail",
+      "display_name": "Add Email",
+      "description": "Add an email to a specific account."
+    },
+    {
+      "name": "addLeads",
+      "display_name": "Add Leads",
+      "description": "Add leads to campaigns dynamically by selecting a campaign, entering lead details, and including custom variables."
+    },
+    {
+      "name": "enableWarmup",
+      "display_name": "Enable Warmup",
+      "description": "Enable warmup for specific email accounts where it is currently disabled."
+    },
+    {
+      "name": "getCampaignAnalytics",
+      "display_name": "Get Campaign Analytics",
+      "description": "Fetch analytics data for a selected campaign based on a date range."
+    },
+    {
+      "name": "getSummary",
+      "display_name": "Get Summary",
+      "description": "Get a summary of campaign analytics within a date range."
+    },
+    {
+      "name": "pauseCampaign",
+      "display_name": "Pause Campaign",
+      "description": "Pause a selected campaign."
+    },
+    {
+      "name": "pauseWarmup",
+      "display_name": "Pause Warmup",
+      "description": "Pause warmup for selected email accounts."
+    },
+    {
+      "name": "removeEmail",
+      "display_name": "Remove Email",
+      "description": "Remove an email account from the system."
+    },
+    {
+      "name": "setSchedule",
+      "display_name": "Set Schedule",
+      "description": "Update the schedule for a specific Campaign"
+    },
+    {
+      "name": "startCampaign",
+      "display_name": "Start Campaign",
+      "description": "Starts a Campaign"
+    },
+    {
+      "name": "updateLead",
+      "display_name": "Update Lead",
+      "description": "Updates a Lead."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "campaignCompleted",
+      "display_name": "Campaign Completed",
+      "description": "Triggers when a campaign is completed.",
+      "type": "instant"
+    },
+    {
+      "name": "emailBounced",
+      "display_name": "Email Bounced",
+      "description": "Triggers when an email is bounced.",
+      "type": "instant"
+    },
+    {
+      "name": "emailOpened",
+      "display_name": "Email Opened",
+      "description": "Triggers when an email is opened.",
+      "type": "instant"
+    },
+    {
+      "name": "emailSent",
+      "display_name": "Email Sent",
+      "description": "Triggers when an email is successfully sent.",
+      "type": "instant"
+    },
+    {
+      "name": "leadInterested",
+      "display_name": "Lead Interested",
+      "description": "Triggers when a lead is set to interested.",
+      "type": "instant"
+    },
+    {
+      "name": "leadNotInterested",
+      "display_name": "Lead Not Interested",
+      "description": "Triggers when a lead is set to not interested.",
+      "type": "instant"
+    },
+    {
+      "name": "replyReceived",
+      "display_name": "Reply Received",
+      "description": "Triggers when a reply to an email is received.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

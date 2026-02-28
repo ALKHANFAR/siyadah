@@ -1,0 +1,126 @@
+{
+  "id": "sendgrid",
+  "package": "@activepieces/piece-sendgrid",
+  "version": "0.3.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "api_key"
+    ]
+  },
+  "actions": {
+    "send_dynamic_template": {
+      "displayName": "Send Dynamic Template",
+      "description": "Send an email using a dynamic template",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "ARRAY",
+          "required": true
+        },
+        {
+          "name": "from_name",
+          "displayName": "From (Name)",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "from",
+          "displayName": "From (Email)",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "template_id",
+          "displayName": "Template Id",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "template_data",
+          "displayName": "Template Data",
+          "type": "JSON",
+          "required": true
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "send_email": {
+      "displayName": "Send Email",
+      "description": "Send a text or HTML email",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "ARRAY",
+          "required": true
+        },
+        {
+          "name": "from",
+          "displayName": "From (Email)",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "from_name",
+          "displayName": "From (Name)",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "RATE_LIMIT",
+      "cause": "Sending too fast",
+      "auto_fix": "Queue with delay",
+      "severity": "medium"
+    },
+    {
+      "code": "BOUNCED",
+      "cause": "Recipient email invalid",
+      "auto_fix": "Mark email as invalid in sheet",
+      "severity": "low"
+    }
+  ],
+  "limits": {
+    "free_daily": 100,
+    "paid_daily": 50000
+  },
+  "notes": "Gmail fallback for bulk email. Better deliverability for high volume.",
+  "displayName": "API Key",
+  "description": "Email delivery service for sending transactional and marketing emails"
+}

@@ -1,0 +1,308 @@
+{
+  "id": "smartsheet",
+  "displayName": "Smartsheet",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_row_to_sheet": {
+      "displayName": "Add Row to Sheet",
+      "description": "Adds new row to a sheet.",
+      "props": [
+        {
+          "name": "location_type",
+          "displayName": "Add Row to Top or Bottom",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "attach_file_to_row": {
+      "displayName": "Attach File to Row",
+      "description": "Adds a file attachment to a row.",
+      "props": [
+        {
+          "name": "attachment_type",
+          "displayName": "Attachment Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of attachment to add"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "The file to attach (required for FILE type)"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL to attach (required for URL-based attachment types)"
+        },
+        {
+          "name": "attachment_name",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name for the attachment (optional, will use file name or URL if not provided)"
+        },
+        {
+          "name": "attachment_sub_type",
+          "displayName": "Attachment Sub Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sub type for Google Drive and Egnyte attachments"
+        },
+        {
+          "name": "mime_type",
+          "displayName": "MIME Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "MIME type of the attachment (optional, auto-detected for files)"
+        }
+      ]
+    },
+    "find_attachment_by_row_id": {
+      "displayName": "List Row Attachments",
+      "description": "Get all attachments for a specific row in a Smartsheet, including row and discussion-level attachments with comprehensive pagination and filtering options",
+      "props": [
+        {
+          "name": "include_all",
+          "displayName": "Include All Results",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, include all results without pagination (overrides page and page size)"
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Which page to return (defaults to 1, ignored if \"Include All Results\" is true)"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of items to return per page (defaults to 100, max 10000, ignored if \"Include All Results\" is true)"
+        },
+        {
+          "name": "attachment_type_filter",
+          "displayName": "Filter by Attachment Type",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only return attachments of specific types (leave empty for all types)"
+        },
+        {
+          "name": "parent_type_filter",
+          "displayName": "Filter by Parent Type",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only return attachments from specific parent types (leave empty for all)"
+        },
+        {
+          "name": "min_file_size_kb",
+          "displayName": "Minimum File Size (KB)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only return files with size greater than or equal to this value (applies to FILE type only)"
+        },
+        {
+          "name": "max_file_size_kb",
+          "displayName": "Maximum File Size (KB)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only return files with size less than or equal to this value (applies to FILE type only)"
+        }
+      ]
+    },
+    "find_rows_by_query": {
+      "displayName": "Find Row",
+      "description": "Finds rows in a specific sheet or across all accessible sheets using text queries with advanced filtering options.",
+      "props": [
+        {
+          "name": "search_scope",
+          "displayName": "Search Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose whether to search within a specific sheet or across all accessible sheets."
+        },
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Text to search for. Use double quotes for exact phrase matching (e.g., \"project status\")"
+        },
+        {
+          "name": "search_scopes",
+          "displayName": "Search Scopes",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Specify what types of content to search in (leave empty to search all)"
+        },
+        {
+          "name": "include_favorites",
+          "displayName": "Include Favorite Flags",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include information about which items are marked as favorites"
+        },
+        {
+          "name": "modified_since",
+          "displayName": "Modified Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return results modified on or after this date/time"
+        },
+        {
+          "name": "max_results",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (default: 50, max: 100)"
+        },
+        {
+          "name": "object_types_filter",
+          "displayName": "Filter by Object Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only return results of specific object types (leave empty for all types)"
+        }
+      ]
+    },
+    "find_sheet_by_name": {
+      "displayName": "Find Sheet(s)",
+      "description": "Fetches existings sheets matching provided filter criteria.",
+      "props": [
+        {
+          "name": "sheet_name",
+          "displayName": "Sheet Name Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter sheets by name (partial or exact match). Leave empty to list all sheets."
+        },
+        {
+          "name": "exact_match",
+          "displayName": "Exact Name Match",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "When filtering by name, require exact match instead of partial match"
+        },
+        {
+          "name": "include_all",
+          "displayName": "Include All Results",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, include all results without pagination (overrides page and page size)"
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Which page to return (defaults to 1, ignored if \"Include All Results\" is true)"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of items to return per page (defaults to 100, max 10000, ignored if \"Include All Results\" is true)"
+        },
+        {
+          "name": "access_api_level",
+          "displayName": "Access API Level",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "API access level for viewing and filtering permissions"
+        },
+        {
+          "name": "access_level_filter",
+          "displayName": "Filter by Access Level",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only return sheets where you have specific access levels (leave empty for all)"
+        },
+        {
+          "name": "modified_since",
+          "displayName": "Modified Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return sheets modified on or after this date/time"
+        },
+        {
+          "name": "include_sheet_version",
+          "displayName": "Include Sheet Version",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include current version number of each sheet"
+        },
+        {
+          "name": "include_source_info",
+          "displayName": "Include Source Information",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include information about the source (template/sheet) each sheet was created from"
+        },
+        {
+          "name": "numeric_dates",
+          "displayName": "Numeric Dates",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return dates as milliseconds since UNIX epoch instead of ISO strings"
+        },
+        {
+          "name": "created_date_range",
+          "displayName": "Created Date Range",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter sheets by creation date range"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort Results By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort the returned sheets"
+        }
+      ]
+    },
+    "update_row": {
+      "displayName": "Update Row",
+      "description": "Updates an existing row.",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_attachment_": {
+      "displayName": "New Attachment Added",
+      "description": "Triggers when a new attachment is added to a row or sheet.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_comment_webhook": {
+      "displayName": "New Comment Added",
+      "description": "Triggers when a new comment is added to a discussion on a sheet.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_row_added": {
+      "displayName": "New Row Added",
+      "description": "Triggers when a new row is added.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updated_row": {
+      "displayName": "Row Updated",
+      "description": "Triggers when an existing row is updated.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

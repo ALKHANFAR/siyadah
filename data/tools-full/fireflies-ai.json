@@ -1,0 +1,110 @@
+{
+  "id": "fireflies-ai",
+  "displayName": "Fireflies.ai",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "find-meeting-by-id": {
+      "displayName": "Find Meeting by ID",
+      "description": "Finds a specific meeting by ID.",
+      "props": [
+        {
+          "name": "meetingId",
+          "displayName": "Meeting ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the meeting to retrieve."
+        }
+      ]
+    },
+    "find_meeting_by_query": {
+      "displayName": "Find Meeting by Call Deatils",
+      "description": "Searches meetings based on provided parameters.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Meeting Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "hostEmail",
+          "displayName": "Host Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter meetings by host email."
+        },
+        {
+          "name": "participantEmail",
+          "displayName": "Participant Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter meetings by participant email"
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter meetings on this date (YYYY-MM-DD)."
+        }
+      ]
+    },
+    "find_recent_meeting": {
+      "displayName": "Find Recent Meeting",
+      "description": "Retrieves the latest meeting for a user.",
+      "props": []
+    },
+    "get-user-details": {
+      "displayName": "Get User Details",
+      "description": "Retrieves profile information by ID.",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "upload_audio": {
+      "displayName": "Upload Audio",
+      "description": "Creates a new meeeting in Fireflies for transcription (requires a publicly accessible URL).",
+      "props": [
+        {
+          "name": "audioUrl",
+          "displayName": "Audio URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The publicly accessible URL to your audio file (mp3, mp4, wav, m4a, ogg). Fireflies API only accepts URLs, not direct file uploads. For private files, consider using signed URLs with short expiry times."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_transcription_completed": {
+      "displayName": "New Transcription Completed",
+      "description": "Triggered when a new meeting is transcribed.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

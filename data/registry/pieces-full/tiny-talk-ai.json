@@ -1,0 +1,20 @@
+{
+  "id": "tiny-talk-ai",
+  "package": "@activepieces/piece-tiny-talk-ai",
+  "display_name": "Tiny Talk AI",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask-bot",
+      "display_name": "Ask Bot",
+      "description": "Sends message to selected bot."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

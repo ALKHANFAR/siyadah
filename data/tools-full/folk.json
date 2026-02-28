@@ -1,0 +1,525 @@
+{
+  "id": "folk",
+  "displayName": "Folk",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createCompany": {
+      "displayName": "Create Company",
+      "description": "Create a new company in your Folk workspace. You can add emails, links, phone numbers, and assign it to a group.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the company"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A short description of the company"
+        },
+        {
+          "name": "industry",
+          "displayName": "Industry",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The industry the company operates in"
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Physical addresses for the company. The first address is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses for the company. The first email is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers for the company. The first phone is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "urls",
+          "displayName": "URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Website URLs for the company. The first URL is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "createPerson": {
+      "displayName": "Create Person",
+      "description": "Create a new person in your Folk workspace. You can link them to a company, add contact details, and assign to a group.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the person"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the person"
+        },
+        {
+          "name": "fullName",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The full name of the person (alternative to first/last)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A short description of the person"
+        },
+        {
+          "name": "birthday",
+          "displayName": "Birthday",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The birthday in YYYY-MM-DD format"
+        },
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The job title of the person"
+        },
+        {
+          "name": "companyNames",
+          "displayName": "Company Names",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The names of companies to associate with the person. The first company will be primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Physical addresses for the person. The first address is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses for the person. The first email is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers for the person. The first phone is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "urls",
+          "displayName": "URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Website URLs for the person. The first URL is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "findCompany": {
+      "displayName": "Find Company",
+      "description": "Search for companies in your Folk workspace by name or email address.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter company name or email to search for"
+        }
+      ]
+    },
+    "findPerson": {
+      "displayName": "List People",
+      "description": "Retrieve a paginated list of people in your Folk workspace with optional filtering.",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of items to return (1-100)"
+        },
+        {
+          "name": "cursor",
+          "displayName": "Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A cursor for pagination. Use the nextLink value from a previous response."
+        },
+        {
+          "name": "combinator",
+          "displayName": "Filter Combinator",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The logical operator to combine multiple filters"
+        },
+        {
+          "name": "nameFilter",
+          "displayName": "Name Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by person name (contains)"
+        },
+        {
+          "name": "emailFilter",
+          "displayName": "Email Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by email address (contains)"
+        }
+      ]
+    },
+    "getCompany": {
+      "displayName": "Get Company",
+      "description": "Retrieve detailed information about a company from your Folk workspace.",
+      "props": []
+    },
+    "getPerson": {
+      "displayName": "Get Person",
+      "description": "Retrieve detailed information about a person from your Folk workspace.",
+      "props": []
+    },
+    "updateCompany": {
+      "displayName": "Update Company",
+      "description": "Update an existing company in your Folk workspace. Select the company from the dropdown to update its details.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the company"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A short description of the company"
+        },
+        {
+          "name": "industry",
+          "displayName": "Industry",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The industry the company operates in"
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Physical addresses for the company. The first address is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses for the company. The first email is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers for the company. The first phone is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "urls",
+          "displayName": "URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Website URLs for the company. The first URL is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "updatePerson": {
+      "displayName": "Update Person",
+      "description": "Update an existing person in your Folk workspace with new information.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the person"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the person"
+        },
+        {
+          "name": "fullName",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The full name of the person (alternative to first/last)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A short description of the person"
+        },
+        {
+          "name": "birthday",
+          "displayName": "Birthday",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The birthday in YYYY-MM-DD format"
+        },
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The job title of the person"
+        },
+        {
+          "name": "companyNames",
+          "displayName": "Company Names",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Company names to create or associate with. Companies will be created if they don't exist."
+        },
+        {
+          "name": "value",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Physical addresses for the person. The first address is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses for the person. The first email is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers for the person. The first phone is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "urls",
+          "displayName": "URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Website URLs for the person. The first URL is primary."
+        },
+        {
+          "name": "value",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "company_added": {
+      "displayName": "Company Added",
+      "description": "Fires when a new company is added to your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "company_custom_field_updated": {
+      "displayName": "Company Groups Updated",
+      "description": "Fires when a company's group assignments are updated in your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "company_removed": {
+      "displayName": "Company Removed",
+      "description": "Fires when a company is removed from your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "company_updated": {
+      "displayName": "Company Updated",
+      "description": "Fires when a company is updated in your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "person_added": {
+      "displayName": "Person Added",
+      "description": "Fires when a new person is added to your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "person_custom_field_updated": {
+      "displayName": "Person Groups Updated",
+      "description": "Fires when a person's group assignments are updated in your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "person_removed": {
+      "displayName": "Person Removed",
+      "description": "Fires when a person is removed from your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "person_updated": {
+      "displayName": "Person Updated",
+      "description": "Fires when a person is updated in your Folk workspace.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

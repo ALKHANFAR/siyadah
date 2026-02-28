@@ -1,0 +1,16 @@
+{
+  "id": "cal-com",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {
+    "Mohammad Abu Aboud": {
+      "displayName": "Booking Cancelled",
+      "description": "Discuss pricing",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

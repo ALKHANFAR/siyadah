@@ -1,0 +1,53 @@
+{
+  "id": "tl-dv",
+  "package": "@activepieces/piece-tl-dv",
+  "display_name": "tl;dv",
+  "display_name_ar": "tl;dv",
+  "description": "Record meetings, get transcripts, and access meeting notes automatically.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "get_highlights",
+      "display_name": "Get Highlights",
+      "description": "Get meeting highlights (notes) by meeting ID"
+    },
+    {
+      "name": "get_meeting",
+      "display_name": "Get Meeting",
+      "description": "Get meeting details by ID"
+    },
+    {
+      "name": "get_transcript",
+      "display_name": "Get Transcript",
+      "description": "Get meeting transcript by meeting ID"
+    },
+    {
+      "name": "list_meetings",
+      "display_name": "List Meetings",
+      "description": "Search and list meetings"
+    },
+    {
+      "name": "upload_recording",
+      "display_name": "Upload Recording",
+      "description": "Import a meeting or recording from a URL"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "meeting_ready",
+      "display_name": "Meeting Ready",
+      "description": "Triggers when a meeting has finished processing and is ready",
+      "type": "instant"
+    },
+    {
+      "name": "transcript_ready",
+      "display_name": "Transcript Ready",
+      "description": "Triggers when a meeting transcript has been generated",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/tl-dv"
+}

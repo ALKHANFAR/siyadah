@@ -1,0 +1,40 @@
+{
+  "id": "murf-api",
+  "package": "@activepieces/piece-murf-api",
+  "display_name": "Murf AI",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "list-voices",
+      "display_name": "List Voices",
+      "description": "Get the list of available voices for text-to-speech"
+    },
+    {
+      "name": "text_to_speech",
+      "display_name": "Text to Speech",
+      "description": "Converts input text into speech using Murf AI."
+    },
+    {
+      "name": "translateText",
+      "display_name": "Translate Text",
+      "description": "Translate one or more texts to the target language."
+    },
+    {
+      "name": "voice-changer-convert",
+      "display_name": "Voice Changer",
+      "description": "Convert an input audio file to a different voice using Murf Voice Changer."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

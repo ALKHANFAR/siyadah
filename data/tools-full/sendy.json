@@ -1,0 +1,370 @@
+{
+  "id": "sendy",
+  "displayName": "Sendy",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "count_subscribers": {
+      "displayName": "Count Active Subscribers",
+      "description": "Get the active subscriber count for a list",
+      "props": [
+        {
+          "name": "list",
+          "displayName": "List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the list to get the status from"
+        }
+      ]
+    },
+    "create_campaign": {
+      "displayName": "Create Campaign",
+      "description": "Create a new campaign",
+      "props": [
+        {
+          "name": "fromEmail",
+          "displayName": "From Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address the campaign will be sent from"
+        },
+        {
+          "name": "fromName",
+          "displayName": "From Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name the campaign will be sent from"
+        },
+        {
+          "name": "replyTo",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address that will be used for replies"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the campaign"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The subject of the campaign email"
+        },
+        {
+          "name": "plainText",
+          "displayName": "Plain Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The plain text version of the campaign email"
+        },
+        {
+          "name": "html",
+          "displayName": "HTML",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The HTML version of the campaign email"
+        },
+        {
+          "name": "lists",
+          "displayName": "Lists",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select lists to send the campaign to"
+        },
+        {
+          "name": "excludeLists",
+          "displayName": "Exclude Lists",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select lists to exclude from the campaign send"
+        },
+        {
+          "name": "segments",
+          "displayName": "Segment IDs",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma separated list of segment IDs to send the campaign to"
+        },
+        {
+          "name": "excludeSegments",
+          "displayName": "Exclude Segment IDs",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma separated list of segment IDs to exclude from the campaign send"
+        },
+        {
+          "name": "queryString",
+          "displayName": "Query String",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The query string to append to the campaign URL"
+        },
+        {
+          "name": "trackOpens",
+          "displayName": "Track Opens",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Enable open tracking"
+        },
+        {
+          "name": "trackClicks",
+          "displayName": "Track Clicks",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Enable click tracking"
+        },
+        {
+          "name": "autoSend",
+          "displayName": "Automatically Send",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically send the campaign after creation"
+        },
+        {
+          "name": "schedule",
+          "displayName": "Schedule the Campaign",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Schedule the campaign to be sent at a specific date and time. Date/time format: 2023-06-09T12:00:00Z"
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The timezone to use for the schedule"
+        }
+      ]
+    },
+    "delete_subscriber": {
+      "displayName": "Delete Subscriber",
+      "description": "Delete a subscriber from a list",
+      "props": [
+        {
+          "name": "list",
+          "displayName": "List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the list to delete from"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's email"
+        }
+      ]
+    },
+    "get_brand_lists": {
+      "displayName": "Get Lists for a Brand",
+      "description": "Get the Lists for a Brand",
+      "props": [
+        {
+          "name": "includeHidden",
+          "displayName": "Include Hidden Lists",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include hidden lists in the results"
+        }
+      ]
+    },
+    "get_brands": {
+      "displayName": "Get Brands",
+      "description": "Get a list of brands from Sendy",
+      "props": []
+    },
+    "get_subscription_status": {
+      "displayName": "Get Subscription Status",
+      "description": "Get the subscription status of a user",
+      "props": [
+        {
+          "name": "list",
+          "displayName": "List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the list to get the status from"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's email"
+        }
+      ]
+    },
+    "subscribe_multiple_lists": {
+      "displayName": "Subscribe Multiple Lists",
+      "description": "Add a new subscriber to a multiple lists",
+      "props": [
+        {
+          "name": "lists",
+          "displayName": "Lists",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select the lists to subscribe to"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's email"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's name"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's 2 letter country code"
+        },
+        {
+          "name": "ipaddress",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's IP address"
+        },
+        {
+          "name": "referrer",
+          "displayName": "Referrer",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL where the user signed up from"
+        },
+        {
+          "name": "gdpr",
+          "displayName": "GDPR compliant",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If you're signing up EU users in a GDPR compliant manner, set to true"
+        },
+        {
+          "name": "silent",
+          "displayName": "Silent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "set to true if your list is 'Double opt-in' but you want to bypass that and signup the user to the list as 'Single Opt-in instead' "
+        }
+      ]
+    },
+    "subscribe": {
+      "displayName": "Subscribe Updated",
+      "description": "Add a new subscriber to a list",
+      "props": [
+        {
+          "name": "list",
+          "displayName": "List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the list to subscribe to"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's email"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's name"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's 2 letter country code"
+        },
+        {
+          "name": "ipaddress",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's IP address"
+        },
+        {
+          "name": "referrer",
+          "displayName": "Referrer",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL where the user signed up from"
+        },
+        {
+          "name": "gdpr",
+          "displayName": "GDPR compliant",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If you're signing up EU users in a GDPR compliant manner, set to true"
+        },
+        {
+          "name": "silent",
+          "displayName": "Silent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "set to true if your list is 'Double opt-in' but you want to bypass that and signup the user to the list as 'Single Opt-in instead' "
+        }
+      ]
+    },
+    "unsubscribe_multiple": {
+      "displayName": "Unsubscribe Multiple Lists",
+      "description": "Unsubscribe a subscriber from multiple lists",
+      "props": [
+        {
+          "name": "lists",
+          "displayName": "Lists",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select the lists to subscribe to"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's email"
+        }
+      ]
+    },
+    "unsubscribe": {
+      "displayName": "Unsubscribe",
+      "description": "Unsubscribe a subscriber from a list",
+      "props": [
+        {
+          "name": "list",
+          "displayName": "List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the list to unsubscribe from"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's email"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

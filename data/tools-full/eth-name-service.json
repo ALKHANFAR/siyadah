@@ -1,0 +1,23 @@
+{
+  "id": "eth-name-service",
+  "displayName": "Ethereum Name Service (ENS)",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "listEnsDomains": {
+      "displayName": "List ENS Domains",
+      "description": "List the ENS domains for a given address.",
+      "props": [
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Address to list ENS domains for"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

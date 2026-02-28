@@ -1,0 +1,20 @@
+{
+  "id": "branch",
+  "package": "@activepieces/piece-branch",
+  "display_name": "Branch",
+  "display_name_ar": "تفريع",
+  "description": "Route flows based on conditions",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "branch",
+      "display_name": "Branch",
+      "description": "Route based on conditions"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-builtin"
+}

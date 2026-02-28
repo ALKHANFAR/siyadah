@@ -1,0 +1,51 @@
+{
+  "id": "browse-ai",
+  "displayName": "Browse AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get-task-details": {
+      "displayName": "Get Task Details",
+      "description": "Retrieves the details of a specific task executed by a Browse AI robot.",
+      "props": []
+    },
+    "list-robots": {
+      "displayName": "List Robots",
+      "description": "Retrieves all robots available in your account.",
+      "props": []
+    },
+    "run-robot": {
+      "displayName": "Run a Robot",
+      "description": "Runs a robot on-demand with custom input parameters.",
+      "props": [
+        {
+          "name": "recordVideo",
+          "displayName": "Record Video",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Try to record a video while running the task."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "task_finished_successfully": {
+      "displayName": "Task Finished Successfully",
+      "description": "Triggers when a robot finishes a task successfully.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_finished_with_error": {
+      "displayName": "Task Finished with Error",
+      "description": "Triggers when a robot task run fails with an error.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

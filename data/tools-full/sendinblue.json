@@ -1,0 +1,70 @@
+{
+  "id": "sendinblue",
+  "displayName": "Project API key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_or_update_contact": {
+      "displayName": "Create or Update Contact",
+      "description": "Create or update an existing contact",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the user. Mandatory if \"SMS\" field is not passed in \"attributes\" parameter. Mobile Number in SMS field should be passed with proper country code. For example: {\"SMS\":\"+91xxxxxxxxxx\"} or {\"SMS\":\"0091xxxxxxxxxx\"}"
+        },
+        {
+          "name": "ext_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass your own Id to create a contact."
+        },
+        {
+          "name": "attributes",
+          "displayName": "Attributes",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Pass the set of attributes and their values. The attribute's parameter should be passed in capital letter while creating a contact. These attributes must be present in your SendinBlue account. For eg:\n        {\"FNAME\":\"Elly\", \"LNAME\":\"Roger\"}"
+        },
+        {
+          "name": "email_blacklisted",
+          "displayName": "Email Blacklisted?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set this field to blacklist the contact for emails (emailBlacklisted = true)"
+        },
+        {
+          "name": "sms_blacklisted",
+          "displayName": "SMS Blacklisted?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set this field to blacklist the contact for SMS (smsBlacklisted = true)"
+        },
+        {
+          "name": "list_ids",
+          "displayName": "List IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Ids of the lists to add the contact to."
+        },
+        {
+          "name": "smtp_blacklist_sender",
+          "displayName": "SMTP Blacklist Sender",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "transactional email forbidden sender for contact. Use only for email Contact ( only available if updateEnabled = true )"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

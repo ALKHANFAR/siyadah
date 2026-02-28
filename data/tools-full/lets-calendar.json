@@ -1,0 +1,77 @@
+{
+  "id": "lets-calendar",
+  "displayName": "Let's Calendar",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addContactToCampaign": {
+      "displayName": "Add Contact to Campaign",
+      "description": "Add a single contact to a campaign",
+      "props": [
+        {
+          "name": "campaign_id",
+          "displayName": "Campaign ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the campaign"
+        },
+        {
+          "name": "firstname",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The first name of the contact (max 150 characters)"
+        },
+        {
+          "name": "lastname",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the contact (max 150 characters)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A valid email address (max 150 characters)"
+        },
+        {
+          "name": "loginurl",
+          "displayName": "Login URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The login URL for the contact"
+        },
+        {
+          "name": "username",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The username for the contact"
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The password for the contact"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newCampaign": {
+      "displayName": "New Campaign",
+      "description": "Trigger when a new campaign is created",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

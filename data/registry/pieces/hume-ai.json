@@ -1,0 +1,52 @@
+{
+  "id": "hume-ai",
+  "package": "@activepieces/piece-hume-ai",
+  "display_name": "Hume AI",
+  "display_name_ar": "Hume AI",
+  "description": "Hume AI integration",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "analyze_emotions_from_url",
+      "display_name": "Analyze Emotions from URL",
+      "description": "Start a batch emotion analysis job for media files hosted at URLs"
+    },
+    {
+      "name": "create_voice",
+      "display_name": "Create Voice",
+      "description": "Save a custom voice to your account using a TTS generation ID"
+    },
+    {
+      "name": "delete_voice",
+      "display_name": "Delete Voice",
+      "description": "Delete a custom voice from your account"
+    },
+    {
+      "name": "generate_speech_from_file",
+      "display_name": "Generate Speech from File",
+      "description": "Convert audio file to speech using Hume AI\\"
+    },
+    {
+      "name": "generate_text_to_speech",
+      "display_name": "Generate Text to Speech",
+      "description": "The text to convert to speech"
+    },
+    {
+      "name": "get_emotion_results",
+      "display_name": "Get Emotion Results",
+      "description": "Retrieve emotion analysis predictions from a completed batch job"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_voice",
+      "display_name": "New Voice",
+      "description": "Triggers when a new voice is created in Hume AI",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/hume-ai"
+}

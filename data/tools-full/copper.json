@@ -1,0 +1,1623 @@
+{
+  "id": "copper",
+  "displayName": "Copper",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "convertLead": {
+      "displayName": "Convert Lead",
+      "description": "Converts a lead into a person (optionally with company/opportunity).",
+      "props": []
+    },
+    "createActivity": {
+      "displayName": "Create Activity",
+      "description": "Logs an activity related to CRM entities.",
+      "props": [
+        {
+          "name": "entity",
+          "displayName": "Parent Entity",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select parent entity"
+        },
+        {
+          "name": "entityItemId",
+          "displayName": "Parent Entity Resource",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select Resource"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The details of the project"
+        }
+      ]
+    },
+    "createCompany": {
+      "displayName": "Create Company",
+      "description": "Adds a new company.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email_domain",
+          "displayName": "Email Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "E.g. democompany.com"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone_numbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., mobile, work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address_street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_state",
+          "displayName": "State/Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "createLead": {
+      "displayName": "Create Lead",
+      "description": "Adds a new lead.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category of the email address (e.g., work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phone_numbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., mobile, work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address_street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_state",
+          "displayName": "State/Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "createOpportunity": {
+      "displayName": "Create Opportunity",
+      "description": "Adds a new opportunity.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the opportunity"
+        },
+        {
+          "name": "pipelineStageId",
+          "displayName": "Pipeline Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select a stage"
+        }
+      ]
+    },
+    "createPerson": {
+      "displayName": "Create Person",
+      "description": "Adds a new person/contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phone_numbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., mobile, work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address_street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_state",
+          "displayName": "State/Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "createProject": {
+      "displayName": "Create Project",
+      "description": "Adds a new project.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the project"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The details of the project"
+        }
+      ]
+    },
+    "createTask": {
+      "displayName": "Create Task",
+      "description": "Adds a new task under a person, lead, or opportunity.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Details fo this task"
+        },
+        {
+          "name": "entity",
+          "displayName": "Related Record Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose the type of Copper record this task should be linked to (e.g. Person, Company, Lead, Opportunity, or Project)."
+        },
+        {
+          "name": "entityItemId",
+          "displayName": "Related Record",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the specific record (from the chosen type above) that this task should be attached to. For example, pick the Person or Opportunity the task relates to."
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date/Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Enter date and time in 24-hour format, e.g. `2025-09-09 11:40` (11:40 AM) or `2025-09-09 13:00` (1:00 PM)."
+        },
+        {
+          "name": "reminder_date",
+          "displayName": "Reminder Date/Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Enter date and time in 24-hour format, e.g. `2025-09-09 11:40` (11:40 AM) or `2025-09-09 13:00` (1:00 PM)"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "searchForACompany": {
+      "displayName": "Search for a Company",
+      "description": "Lookup a company.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name of the Company to search for."
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone Number of the Company to search for."
+        },
+        {
+          "name": "email_domains",
+          "displayName": "Email Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email Domain of the Company to search for."
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The city in which Company must be located."
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The state or province in which Company must be located."
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The postal code in which Company must be located."
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The two character country code where Company must be located."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter Company to those that match at least one of the tags specified."
+        },
+        {
+          "name": "socials",
+          "displayName": "Socials",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter Company to those that match at least one of the social accounts specified."
+        },
+        {
+          "name": "followed",
+          "displayName": "Followed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by followed state"
+        },
+        {
+          "name": "age",
+          "displayName": "Age",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum age in seconds that Company must be."
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default 50. Max 200."
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The field on which to sort the results"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The direction in which to sort the result"
+        },
+        {
+          "name": "minimum_interaction_count",
+          "displayName": "Minimum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The minimum number of interactions Company must have had."
+        },
+        {
+          "name": "maximum_interaction_count",
+          "displayName": "Maximum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of interactions Company must have had."
+        },
+        {
+          "name": "minimum_interaction_date",
+          "displayName": "Minimum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date of the last interaction."
+        },
+        {
+          "name": "maximum_interaction_date",
+          "displayName": "Maximum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date of the last interaction."
+        },
+        {
+          "name": "minimum_created_date",
+          "displayName": "Minimum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date Company are created."
+        },
+        {
+          "name": "maximum_created_date",
+          "displayName": "Maximum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date Company are Created."
+        }
+      ]
+    },
+    "searchForALead": {
+      "displayName": "Search for a Lead",
+      "description": "Lookup a lead using match criteria.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name of the Lead to search for."
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone Number of the Lead to search for."
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Emails of the Lead to search for.\t"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The city in which Lead must be located."
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The state or province in which Lead must be located."
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The postal code in which Lead must be located."
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The two character country code where Lead must be located."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter Lead to those that match at least one of the tags specified."
+        },
+        {
+          "name": "socials",
+          "displayName": "Socials",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter Lead to those that match at least one of the social accounts specified."
+        },
+        {
+          "name": "followed",
+          "displayName": "Followed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by followed state"
+        },
+        {
+          "name": "age",
+          "displayName": "Age",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum age in seconds that Lead must be."
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default 50. Max 200."
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The field on which to sort the results"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The direction in which to sort the result"
+        },
+        {
+          "name": "include_converted_leads",
+          "displayName": "Include Converted Leads",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Specify if response should contain converted leads."
+        },
+        {
+          "name": "minimum_monetary_value",
+          "displayName": "Minimum Monetary Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The minimum monetary value Leads must have."
+        },
+        {
+          "name": "maximum_monetary_value",
+          "displayName": "Maximum Monetary Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum monetary value Leads must have."
+        },
+        {
+          "name": "minimum_interaction_count",
+          "displayName": "Minimum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The minimum number of interactions Lead must have had."
+        },
+        {
+          "name": "maximum_interaction_count",
+          "displayName": "Maximum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of interactions Lead must have had."
+        },
+        {
+          "name": "minimum_interaction_date",
+          "displayName": "Minimum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date of the last interaction."
+        },
+        {
+          "name": "maximum_interaction_date",
+          "displayName": "Maximum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date of the last interaction."
+        },
+        {
+          "name": "minimum_created_date",
+          "displayName": "Minimum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date Lead are created."
+        },
+        {
+          "name": "maximum_created_date",
+          "displayName": "Maximum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date Lead are Created."
+        },
+        {
+          "name": "minimum_modified_date",
+          "displayName": "Minimum Modified Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date Lead are Modified."
+        },
+        {
+          "name": "maximum_modified_date",
+          "displayName": "Maximum Modified Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date Lead are Modified."
+        }
+      ]
+    },
+    "searchForAPerson": {
+      "displayName": "Search for a Person",
+      "description": "Lookup a person using match criteria.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name of the People to search for."
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone Number of the People to search for."
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Emails of the People to search for."
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The city in which People must be located."
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The state or province in which People must be located."
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The postal code in which People must be located."
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The two character country code where People must be located."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter People to those that match at least one of the tags specified."
+        },
+        {
+          "name": "socials",
+          "displayName": "Socials",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter People to those that match at least one of the social accounts specified."
+        },
+        {
+          "name": "followed",
+          "displayName": "Followed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by followed state"
+        },
+        {
+          "name": "age",
+          "displayName": "Age",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum age in seconds that People must be."
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default 50. Max 200."
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The field on which to sort the results"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The direction in which to sort the result"
+        },
+        {
+          "name": "minimum_interaction_count",
+          "displayName": "Minimum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The minimum number of interactions People must have had."
+        },
+        {
+          "name": "maximum_interaction_count",
+          "displayName": "Maximum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of interactions People must have had."
+        },
+        {
+          "name": "minimum_interaction_date",
+          "displayName": "Minimum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date of the last interaction."
+        },
+        {
+          "name": "maximum_interaction_date",
+          "displayName": "Maximum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date of the last interaction."
+        },
+        {
+          "name": "minimum_created_date",
+          "displayName": "Minimum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date People are created."
+        },
+        {
+          "name": "maximum_created_date",
+          "displayName": "Maximum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date People are Created."
+        }
+      ]
+    },
+    "searchForAProject": {
+      "displayName": "Search for a Project",
+      "description": "Lookup a project.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name of the Opportunity to search for."
+        },
+        {
+          "name": "statuses",
+          "displayName": "Status",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter by Opportunity status"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter People to those that match at least one of the tags specified."
+        },
+        {
+          "name": "followed",
+          "displayName": "Followed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by followed state"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default 50. Max 200."
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The field on which to sort the results"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The direction in which to sort the result"
+        },
+        {
+          "name": "minimum_created_date",
+          "displayName": "Minimum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date Opportunity are created."
+        },
+        {
+          "name": "maximum_created_date",
+          "displayName": "Maximum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date Opportunity are Created."
+        },
+        {
+          "name": "minimum_modified_date",
+          "displayName": "Minimum Modified Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date Opportunity are Modified."
+        },
+        {
+          "name": "maximum_modified_date",
+          "displayName": "Maximum Modified Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date Opportunity are Modified."
+        }
+      ]
+    },
+    "searchForAnActivity": {
+      "displayName": "Search for an Activity",
+      "description": "Find an existing activity by type/criteria.",
+      "props": [
+        {
+          "name": "entity",
+          "displayName": "Parent Entity",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select parent entity"
+        },
+        {
+          "name": "entityItemId",
+          "displayName": "Parent Entity Resource",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select Resource"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default 50. Max 200."
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "minimum_activity_date",
+          "displayName": "Minimum Activity Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 11:40. The timestamp of the earliest activity date."
+        },
+        {
+          "name": "maximum_activity_date",
+          "displayName": "Maximum Activity Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest activity date."
+        },
+        {
+          "name": "full_result",
+          "displayName": "Full Result",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "(Optional) If set, search performance improves but duplicate activity logs may be returned"
+        }
+      ]
+    },
+    "searchForAnOpportunity": {
+      "displayName": "Search for an Opportunity",
+      "description": "Lookup an opportunity.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name of the Opportunity to search for."
+        },
+        {
+          "name": "status_ids",
+          "displayName": "Status",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter by Opportunity status"
+        },
+        {
+          "name": "priorities",
+          "displayName": "Priority",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "pipeline_stage_ids",
+          "displayName": "Pipeline Stage",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select a stage"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter People to those that match at least one of the tags specified."
+        },
+        {
+          "name": "followed",
+          "displayName": "Followed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by followed state"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default 50. Max 200."
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The field on which to sort the results"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The direction in which to sort the result"
+        },
+        {
+          "name": "minimum_monetary_value",
+          "displayName": "Minimum Monetary Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The minimum monetary value Opportunities must have."
+        },
+        {
+          "name": "maximum_monetary_value",
+          "displayName": "Maximum Monetary Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum monetary value Opportunities must have."
+        },
+        {
+          "name": "minimum_interaction_count",
+          "displayName": "Minimum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The minimum number of interactions Opportunity must have had."
+        },
+        {
+          "name": "maximum_interaction_count",
+          "displayName": "Maximum Interaction Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of interactions Opportunity must have had."
+        },
+        {
+          "name": "minimum_close_date",
+          "displayName": "Minimum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date close date."
+        },
+        {
+          "name": "maximum_close_date",
+          "displayName": "Maximum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date close date."
+        },
+        {
+          "name": "minimum_interaction_date",
+          "displayName": "Minimum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date of the last interaction."
+        },
+        {
+          "name": "maximum_interaction_date",
+          "displayName": "Maximum Interaction Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date of the last interaction."
+        },
+        {
+          "name": "minimum_stage_change_date",
+          "displayName": "Minimum Stage Change Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date of a stage change."
+        },
+        {
+          "name": "maximum_stage_change_date",
+          "displayName": "Maximum Stage Change Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date of a stage change."
+        },
+        {
+          "name": "minimum_created_date",
+          "displayName": "Minimum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date Opportunity are created."
+        },
+        {
+          "name": "maximum_created_date",
+          "displayName": "Maximum Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date Opportunity are Created."
+        },
+        {
+          "name": "minimum_modified_date",
+          "displayName": "Minimum Modified Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the earliest date Opportunity are Modified."
+        },
+        {
+          "name": "maximum_modified_date",
+          "displayName": "Maximum Modified Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "24-hour format, e.g. 2025-09-10 13:00. The timestamp of the latest date Opportunity are Modified."
+        }
+      ]
+    },
+    "updateCompany": {
+      "displayName": "Update Company",
+      "description": "Updates a company record.",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Full Name",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "E.g. democompany.com"
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email_domain",
+          "displayName": "Email Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "E.g. democompany.com"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone_numbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., mobile, work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address_street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_state",
+          "displayName": "State/Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "updateLead": {
+      "displayName": "Update Lead",
+      "description": "Updates an existing lead.",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Full Name",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category of the email address (e.g., work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phone_numbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., mobile, work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address_street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_state",
+          "displayName": "State/Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "updateOpportunity": {
+      "displayName": "Update Opportunity",
+      "description": "Updates an opportunity using match criteria.",
+      "props": [
+        {
+          "name": "updateFields",
+          "displayName": "Name",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "The name of the opportunity"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the opportunity"
+        },
+        {
+          "name": "pipelineStageId",
+          "displayName": "Pipeline Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select a stage"
+        }
+      ]
+    },
+    "updatePerson": {
+      "displayName": "Update Person",
+      "description": "Updates a person based on matching criteria.",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Full Name",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phone_numbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category (e.g., mobile, work, personal)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address_street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_state",
+          "displayName": "State/Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "updateProject": {
+      "displayName": "Update Project",
+      "description": "Updates a project record.",
+      "props": [
+        {
+          "name": "updateFields",
+          "displayName": "Name",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "The name of the project"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the project"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The details of the project"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newActivity": {
+      "displayName": "New Activity",
+      "description": "Triggers when a new activity is logged",
+      "type": "POLLING",
+      "props": []
+    },
+    "newLead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newPerson": {
+      "displayName": "New Person",
+      "description": "Triggers when a new person/contact is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newTask": {
+      "displayName": "New Task",
+      "description": "Triggers when a new task is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updatedLeadStatus": {
+      "displayName": "Updated Lead Status",
+      "description": "Triggers when the status of a lead changes.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updatedLead": {
+      "displayName": "Updated Lead",
+      "description": "Triggers when a lead is modified.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updatedOpportunityStage": {
+      "displayName": "Updated Opportunity Stage",
+      "description": "Triggers when an opportunity stage changes",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updatedOpportunityStatus": {
+      "displayName": "Updated Opportunity Status",
+      "description": "Triggers when an opportunity's status changes.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updatedOpportunity": {
+      "displayName": "Updated Opportunity",
+      "description": "Triggers when an opportunity changes.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updatedProject": {
+      "displayName": "Updated Project",
+      "description": "Triggers when a project is updated.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updatedTask": {
+      "displayName": "Updated Task",
+      "description": "Triggers when a task is updated.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

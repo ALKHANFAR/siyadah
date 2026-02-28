@@ -1,0 +1,56 @@
+{
+  "id": "cometapi",
+  "displayName": "CometAPI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask-cometapi": {
+      "displayName": "Ask CometAPI",
+      "description": "Sends a prompt to any AI model supported by CometAPI.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The prompt to send to the AI model."
+        },
+        {
+          "name": "systemMessage",
+          "displayName": "System Message",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional system message to set the behavior of the AI."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness (0-2). Lower values make output more focused."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of tokens to generate."
+        },
+        {
+          "name": "topP",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls diversity via nucleus sampling (0-1)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

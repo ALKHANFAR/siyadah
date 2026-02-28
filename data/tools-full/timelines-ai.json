@@ -1,0 +1,319 @@
+{
+  "id": "timelines-ai",
+  "displayName": "TimelinesAI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "closeChat": {
+      "displayName": "Close Chat",
+      "description": "Programmatically mark a chat as closed by its chat_id.",
+      "props": []
+    },
+    "findChat": {
+      "displayName": "Find Chat",
+      "description": "Look up a chat by parameters such as chat_id, phone, name, etc.",
+      "props": [
+        {
+          "name": "label",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by labels assigned to the chat"
+        },
+        {
+          "name": "group",
+          "displayName": "Is Group",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter by whether the chat is a group chat"
+        },
+        {
+          "name": "responsible",
+          "displayName": "Responsible",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by the user responsible for the chat (email)"
+        },
+        {
+          "name": "name",
+          "displayName": "Chat Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by the name of the chat"
+        },
+        {
+          "name": "read",
+          "displayName": "Is Read",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter by whether the chat is marked as read"
+        },
+        {
+          "name": "closed",
+          "displayName": "Is Closed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter by whether the chat is closed"
+        },
+        {
+          "name": "chatgpt_autoresponse_enabled",
+          "displayName": "ChatGPT Autoresponse Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter by whether ChatGPT autoresponse is enabled for the chat"
+        },
+        {
+          "name": "created_after",
+          "displayName": "Created After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter chats created after this date"
+        },
+        {
+          "name": "created_before",
+          "displayName": "Created Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter chats created before this date"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for paginated results"
+        }
+      ]
+    },
+    "findMessageStatus": {
+      "displayName": "Find Message Status",
+      "description": "Lookup a message’s delivery status by message ID.",
+      "props": [
+        {
+          "name": "message_uid",
+          "displayName": "Message UID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the message to look up."
+        }
+      ]
+    },
+    "findMessage": {
+      "displayName": "Find Message",
+      "description": "Lookup a message by its WhatsApp message ID.",
+      "props": [
+        {
+          "name": "message_uid",
+          "displayName": "Message UID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the message to find."
+        }
+      ]
+    },
+    "findUploadedFile": {
+      "displayName": "Find Uploaded File",
+      "description": "Locate an uploaded file by filename or identifier.",
+      "props": [
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the uploaded file to search for."
+        }
+      ]
+    },
+    "findWhatsappAccount": {
+      "displayName": "Find WhatsApp Account",
+      "description": "Search for a WhatsApp account (by phone or ID).",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "WhatsApp Account ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique identifier of the WhatsApp account to search for."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number associated with the WhatsApp account to search for."
+        }
+      ]
+    },
+    "sendFileToExistingChat": {
+      "displayName": "Send File to Existing Chat",
+      "description": "Similar to above: send a file attachment to a chat using URL or file input and name.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to be sent in the chat."
+        }
+      ]
+    },
+    "sendMessageToExistingChat": {
+      "displayName": "Send Message to Existing Chat",
+      "description": "Sends a text message in a chat identified by chat_id",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Message Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content of the message to be sent."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "Optional file to send with the message."
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional label to categorize or tag the message."
+        },
+        {
+          "name": "attachment_template_id",
+          "displayName": "Attachment Template ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Optional ID of the attachment template to use for the message."
+        }
+      ]
+    },
+    "sendMessageToNewChat": {
+      "displayName": "Send Message to New Chat",
+      "description": "Create a new chat (new conversation) by specifying the WhatsApp account, phone number, and message.",
+      "props": [
+        {
+          "name": "contactType",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the type of contact identifier"
+        },
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Select the contact identifier based on the chosen contact type"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A phone number formatted to the international standard: [+][country code][area code][local phone number]."
+        },
+        {
+          "name": "jid",
+          "displayName": "JID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "WhatsApp ID (JID) of a contact or group, e.g. '123456789@s.whatsapp.net'."
+        },
+        {
+          "name": "text",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The text message to be sent in the chat."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "The file to be sent in the chat."
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An optional label to categorize the chat."
+        },
+        {
+          "name": "chat_name",
+          "displayName": "Chat Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An optional name for the chat (useful for group chats)."
+        },
+        {
+          "name": "attachment_template_id",
+          "displayName": "Attachment Template ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Optional ID of a predefined attachment template to use when sending files."
+        }
+      ]
+    },
+    "sendUploadedFileToExistingChat": {
+      "displayName": "Send Uploaded File to Existing Chat",
+      "description": "Send a file (media/attachment) to a chat, with metadata like file name, via existing chat.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "chatClosed": {
+      "displayName": "Chat Closed",
+      "description": "Fires when a chat is closed.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newIncomingChat": {
+      "displayName": "New Incoming Chat",
+      "description": "Fires when a new incoming chat (i.e. from a user) is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newOutgoingChat": {
+      "displayName": "New Outgoing Chat",
+      "description": "Fires when a new outgoing chat is initiated.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newReceivedMessage": {
+      "displayName": "New Received Message",
+      "description": "Fires when a message is received (incoming).",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newSentMessage": {
+      "displayName": "New Sent Message",
+      "description": "Fires when a message is sent (outgoing).",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newUploadedFile": {
+      "displayName": "New Uploaded File",
+      "description": "Fires when a new file is uploaded in a chat.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newWhatsappAccount": {
+      "displayName": "New WhatsApp Account",
+      "description": "Fires when a new WhatsApp account is added/registered.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "id": "google-cloud-storage",
+  "displayName": "Google Cloud Storage",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "clone_object": {
+      "displayName": "Clone Object",
+      "description": "Copy / clone an object (file) to a new location (same or different bucket), optionally overriding metadata. Perfect for duplicating files as backup or version.",
+      "props": [
+        {
+          "name": "destObject",
+          "displayName": "Destination Object Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name for the copied object (must be valid object name)"
+        },
+        {
+          "name": "metadataOverrides",
+          "displayName": "Metadata Overrides",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional metadata and properties to override in the copied object (contentType, cacheControl, contentDisposition, etc.)"
+        }
+      ]
+    },
+    "create_bucket_acl": {
+      "displayName": "Create Bucket ACL",
+      "description": "Add an ACL entry at bucket level. Perfect for granting permission to manage the bucket.",
+      "props": []
+    },
+    "create_bucket_default_object_acl": {
+      "displayName": "Create Bucket Default Object ACL",
+      "description": "Set default ACLs for new objects added to a bucket. Perfect for automatically assigning permissions to new uploads.",
+      "props": []
+    },
+    "create_bucket": {
+      "displayName": "Create Bucket",
+      "description": "Create a new bucket in a specified location/configuration. Perfect for automating storage provisioning for new projects.",
+      "props": [
+        {
+          "name": "versioning",
+          "displayName": "Enable Versioning",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "uniformBucketLevelAccess",
+          "displayName": "Uniform Bucket Level Access",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Key-value pairs for bucket labels"
+        }
+      ]
+    },
+    "create_object_acl": {
+      "displayName": "Create Object ACL",
+      "description": "Add an ACL entry to an object (grant a permission). Perfect for granting read/write access to a user or group.",
+      "props": [
+        {
+          "name": "generation",
+          "displayName": "Generation",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Optional generation number for versioned objects"
+        }
+      ]
+    },
+    "delete_bucket_acl": {
+      "displayName": "Delete Bucket ACL",
+      "description": "Remove an ACL entry from a bucket. Perfect for revoking access for a user or group.",
+      "props": []
+    },
+    "delete_bucket_default_object_acl": {
+      "displayName": "Delete Bucket Default Object ACL",
+      "description": "Remove default ACL settings from a bucket. Perfect for reverting to default behavior.",
+      "props": []
+    },
+    "delete_empty_bucket": {
+      "displayName": "Delete Empty Bucket",
+      "description": "Clean up unused buckets by deleting them if they contain no live objects.",
+      "props": []
+    },
+    "delete_object_acl": {
+      "displayName": "Delete Object ACL",
+      "description": "Remove an ACL entry from an object. Perfect for revoking access for a user.",
+      "props": [
+        {
+          "name": "generation",
+          "displayName": "Generation",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Optional generation number for versioned objects"
+        }
+      ]
+    },
+    "delete_object": {
+      "displayName": "Delete Object",
+      "description": "Permanently delete a specific object. Perfect for removing obsolete files.",
+      "props": [
+        {
+          "name": "generation",
+          "displayName": "Generation",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Optional generation number for versioned objects (permanently deletes a specific revision)"
+        }
+      ]
+    },
+    "search_buckets": {
+      "displayName": "Search Buckets",
+      "description": "Search buckets by name. Perfect for finding buckets in your project.",
+      "props": [
+        {
+          "name": "prefix",
+          "displayName": "Name Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter buckets whose names begin with this prefix"
+        },
+        {
+          "name": "includeSoftDeleted",
+          "displayName": "Include Soft-Deleted",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include soft-deleted bucket versions in results"
+        },
+        {
+          "name": "projection",
+          "displayName": "Projection",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set of properties to return"
+        },
+        {
+          "name": "pageToken",
+          "displayName": "Page Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Token for pagination (from previous response)"
+        },
+        {
+          "name": "maxResults",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of buckets to return"
+        }
+      ]
+    },
+    "search_objects": {
+      "displayName": "Search Objects",
+      "description": "Search objects by criteria. Perfect for finding files in your bucket.",
+      "props": [
+        {
+          "name": "prefix",
+          "displayName": "Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter objects whose names begin with this prefix"
+        },
+        {
+          "name": "matchGlob",
+          "displayName": "Glob Pattern",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Glob pattern to filter results (e.g., \"folder/*\", \"backup-*.txt\")"
+        },
+        {
+          "name": "delimiter",
+          "displayName": "Delimiter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Delimiter for hierarchical listing (commonly \"/\")"
+        },
+        {
+          "name": "includeFoldersAsPrefixes",
+          "displayName": "Include Folders",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include empty folders and managed folders in results"
+        },
+        {
+          "name": "versions",
+          "displayName": "Include Versions",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "List all versions of objects as distinct results"
+        },
+        {
+          "name": "pageToken",
+          "displayName": "Page Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Token for pagination (from previous response)"
+        },
+        {
+          "name": "maxResults",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of objects to return (recommended: ≤1000)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_object_created": {
+      "displayName": "New Object Created",
+      "description": "Triggers when a new object is created in a bucket",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "prefix",
+          "displayName": "Prefix Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only trigger for objects with this prefix"
+        }
+      ]
+    },
+    "object_updated": {
+      "displayName": "Object Updated",
+      "description": "Triggers when an existing object is updated in a bucket",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "prefix",
+          "displayName": "Prefix Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only trigger for objects with this prefix"
+        }
+      ]
+    }
+  }
+}

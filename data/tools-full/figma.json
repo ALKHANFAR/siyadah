@@ -1,0 +1,61 @@
+{
+  "id": "figma",
+  "displayName": "Figma",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "get_comments": {
+      "displayName": "Get File Comments",
+      "description": "Get file comments",
+      "props": [
+        {
+          "name": "file_key",
+          "displayName": "File Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Figma file key (copy from Figma file URL)"
+        }
+      ]
+    },
+    "get_file": {
+      "displayName": "Get File",
+      "description": "Get file",
+      "props": [
+        {
+          "name": "file_key",
+          "displayName": "File Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Figma file key (copy from Figma file URL)"
+        }
+      ]
+    },
+    "post_comment": {
+      "displayName": "Post File Comment",
+      "description": "Post file comment",
+      "props": [
+        {
+          "name": "file_key",
+          "displayName": "File Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Figma file key (copy from Figma file URL)"
+        },
+        {
+          "name": "message",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Your comment"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

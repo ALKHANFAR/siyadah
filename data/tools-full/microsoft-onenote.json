@@ -1,0 +1,236 @@
+{
+  "id": "microsoft-onenote",
+  "displayName": "Microsoft OneNote",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "append_note": {
+      "displayName": "Append Note",
+      "description": "Append content to the end of an existing note.",
+      "props": [
+        {
+          "name": "notebook_id",
+          "displayName": "Notebook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The notebook containing the page to append to."
+        },
+        {
+          "name": "section_id",
+          "displayName": "Section",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The section containing the page to append to."
+        },
+        {
+          "name": "page_id",
+          "displayName": "Page",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The page to append content to."
+        },
+        {
+          "name": "content_type",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of content to append."
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content to append to the page."
+        },
+        {
+          "name": "heading_level",
+          "displayName": "Heading Level",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The heading level (only for heading content type)."
+        }
+      ]
+    },
+    "create_image_note": {
+      "displayName": "Create Image Note",
+      "description": "Create a note containing an embedded image via a public image URL.",
+      "props": [
+        {
+          "name": "notebook_id",
+          "displayName": "Notebook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The notebook to create the image note in."
+        },
+        {
+          "name": "section_id",
+          "displayName": "Section",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The section to create the image note in."
+        },
+        {
+          "name": "title",
+          "displayName": "Page Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the image note page."
+        },
+        {
+          "name": "image_url",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The public URL of the image to embed (must be publicly accessible)."
+        },
+        {
+          "name": "image_width",
+          "displayName": "Image Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The width of the image in pixels (optional)."
+        },
+        {
+          "name": "image_alt_text",
+          "displayName": "Image Alt Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Alternative text for the image (for accessibility)."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional description text to include with the image."
+        }
+      ]
+    },
+    "create_note_in_section": {
+      "displayName": "Create Note in Section",
+      "description": "Create a new note in a specific section with title and content.",
+      "props": [
+        {
+          "name": "notebook_id",
+          "displayName": "Notebook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The notebook to create the note in."
+        },
+        {
+          "name": "section_id",
+          "displayName": "Section",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The section to create the note in."
+        },
+        {
+          "name": "title",
+          "displayName": "Note Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the note."
+        },
+        {
+          "name": "content",
+          "displayName": "Note Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The content of the note. Use basic HTML tags like <p>, <h1>, <h2>, <ul>, <li>, etc."
+        }
+      ]
+    },
+    "create_notebook": {
+      "displayName": "Create Notebook",
+      "description": "Creates a notebook.",
+      "props": [
+        {
+          "name": "displayName",
+          "displayName": "Notebook Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the notebook. Must be unique and cannot contain more than 128 characters or the following characters: ?*/:<>|\\"
+        }
+      ]
+    },
+    "create_page": {
+      "displayName": "Create Page",
+      "description": "Creates a page in section.",
+      "props": [
+        {
+          "name": "notebook_id",
+          "displayName": "Notebook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The notebook to create the page in."
+        },
+        {
+          "name": "section_id",
+          "displayName": "Section",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The section to create the page in."
+        },
+        {
+          "name": "title",
+          "displayName": "Page Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the page."
+        },
+        {
+          "name": "content",
+          "displayName": "Page Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The HTML content of the page. Use basic HTML tags like <p>, <h1>, <h2>, <ul>, <li>, etc."
+        }
+      ]
+    },
+    "create_section": {
+      "displayName": "Create Section",
+      "description": "Creates a new section in notebook.",
+      "props": [
+        {
+          "name": "notebook_id",
+          "displayName": "Notebook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The notebook to create the section in."
+        },
+        {
+          "name": "displayName",
+          "displayName": "Section Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the section. Must be unique within the notebook and cannot contain more than 50 characters or the following characters: ?*/:<>|&#\\"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_note_in_section": {
+      "displayName": "New Note in Section",
+      "description": "Fires when a new note is created in a specified section.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "notebook_id",
+          "displayName": "Notebook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The notebook to monitor for new notes."
+        },
+        {
+          "name": "section_id",
+          "displayName": "Section",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The section to monitor for new notes."
+        }
+      ]
+    }
+  }
+}

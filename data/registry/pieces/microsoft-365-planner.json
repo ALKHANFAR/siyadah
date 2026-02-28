@@ -1,0 +1,94 @@
+{
+  "id": "microsoft-365-planner",
+  "package": "@activepieces/piece-microsoft-365-planner",
+  "display_name": "Microsoft 365 Planner",
+  "display_name_ar": "Microsoft 365 Planner",
+  "description": "Microsoft 365 Planner is part of the Microsoft 365 suite, offering lightweight task and bucket-based planning for teams. This integration supports creating plans, buckets, tasks, fetching them, deleting them, and custom API calls.",
+  "category": "L_microsoft",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createBucket",
+      "display_name": "Create Bucket",
+      "description": "Create a bucket (category) under a plan."
+    },
+    {
+      "name": "createPlan",
+      "display_name": "Create Plan",
+      "description": "Create a new planner plan"
+    },
+    {
+      "name": "createTask",
+      "display_name": "Create Task",
+      "description": "Create a new planner task with title, assignments, due date, etc."
+    },
+    {
+      "name": "deleteBucket",
+      "display_name": "Delete Bucket",
+      "description": "Delete an existing bucket."
+    },
+    {
+      "name": "deleteTask",
+      "display_name": "Delete Task",
+      "description": "Remove a specific task by ID."
+    },
+    {
+      "name": "findAPlan",
+      "display_name": "Find a Plan",
+      "description": "Finds a plan by field."
+    },
+    {
+      "name": "findTask",
+      "display_name": "Find Task",
+      "description": "Find task by fields."
+    },
+    {
+      "name": "getABucket",
+      "display_name": "Get a Bucket",
+      "description": "Retrieve details about a specific bucket."
+    },
+    {
+      "name": "updateBucket",
+      "display_name": "Update Bucket",
+      "description": "Modify bucket’s name or properties."
+    },
+    {
+      "name": "updatePlan",
+      "display_name": "Update Plan",
+      "description": "modify metadata of a plan (e.g. title changes)."
+    },
+    {
+      "name": "updateTask",
+      "display_name": "Update Task",
+      "description": "Modify existing task fields: title, due date, assignments, descriptions."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newPlanCreated",
+      "display_name": "New Plan Created",
+      "description": "Triggers when a new Plan is created in Microsoft 365 Planner.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newTaskAssignedToUser",
+      "display_name": "New Task Assigned to User",
+      "description": "Triggers when a Task is assigned to the authenticated user in Microsoft 365 Planner.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newTaskCreated",
+      "display_name": "New Task Created",
+      "description": "Triggers when a new Task is created in Microsoft 365 Planner.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/microsoft-365-planner"
+}

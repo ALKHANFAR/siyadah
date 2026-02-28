@@ -1,0 +1,20 @@
+{
+  "id": "http-oauth2",
+  "package": "@activepieces/piece-http-oauth2",
+  "display_name": "Authorize URL",
+  "display_name_ar": "Authorize URL",
+  "description": "OAuth2",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "send-oauth2-request",
+      "display_name": "Send an OAuth2 Request",
+      "description": "Sends HTTP request to a specified URL that requires OAuth 2.0 authorization and returns the response."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/http-oauth2"
+}

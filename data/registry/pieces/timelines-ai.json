@@ -1,0 +1,113 @@
+{
+  "id": "timelines-ai",
+  "package": "@activepieces/piece-timelines-ai",
+  "display_name": "TimelinesAI",
+  "display_name_ar": "TimelinesAI",
+  "description": "TimelinesAI integration",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "closeChat",
+      "display_name": "Close Chat",
+      "description": "Programmatically mark a chat as closed by its chat_id."
+    },
+    {
+      "name": "findChat",
+      "display_name": "Find Chat",
+      "description": "Look up a chat by parameters such as chat_id, phone, name, etc."
+    },
+    {
+      "name": "findMessageStatus",
+      "display_name": "Find Message Status",
+      "description": "Lookup a message’s delivery status by message ID."
+    },
+    {
+      "name": "findMessage",
+      "display_name": "Find Message",
+      "description": "Lookup a message by its WhatsApp message ID."
+    },
+    {
+      "name": "findUploadedFile",
+      "display_name": "Find Uploaded File",
+      "description": "Locate an uploaded file by filename or identifier."
+    },
+    {
+      "name": "findWhatsappAccount",
+      "display_name": "Find WhatsApp Account",
+      "description": "Search for a WhatsApp account (by phone or ID)."
+    },
+    {
+      "name": "sendFileToExistingChat",
+      "display_name": "Send File to Existing Chat",
+      "description": "Similar to above: send a file attachment to a chat using URL or file input and name."
+    },
+    {
+      "name": "sendMessageToExistingChat",
+      "display_name": "Send Message to Existing Chat",
+      "description": "Sends a text message in a chat identified by chat_id"
+    },
+    {
+      "name": "sendMessageToNewChat",
+      "display_name": "Send Message to New Chat",
+      "description": "Create a new chat (new conversation) by specifying the WhatsApp account, phone number, and message."
+    },
+    {
+      "name": "sendUploadedFileToExistingChat",
+      "display_name": "Send Uploaded File to Existing Chat",
+      "description": "Send a file (media/attachment) to a chat, with metadata like file name, via existing chat."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "chatClosed",
+      "display_name": "Chat Closed",
+      "description": "Fires when a chat is closed.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newIncomingChat",
+      "display_name": "New Incoming Chat",
+      "description": "Fires when a new incoming chat (i.e. from a user) is created.",
+      "type": "instant"
+    },
+    {
+      "name": "newOutgoingChat",
+      "display_name": "New Outgoing Chat",
+      "description": "Fires when a new outgoing chat is initiated.",
+      "type": "instant"
+    },
+    {
+      "name": "newReceivedMessage",
+      "display_name": "New Received Message",
+      "description": "Fires when a message is received (incoming).",
+      "type": "instant"
+    },
+    {
+      "name": "newSentMessage",
+      "display_name": "New Sent Message",
+      "description": "Fires when a message is sent (outgoing).",
+      "type": "instant"
+    },
+    {
+      "name": "newUploadedFile",
+      "display_name": "New Uploaded File",
+      "description": "Fires when a new file is uploaded in a chat.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newWhatsappAccount",
+      "display_name": "New WhatsApp Account",
+      "description": "Fires when a new WhatsApp account is added/registered.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/timelines-ai"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "maileroo",
+  "displayName": "Maileroo",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "sendEmail": {
+      "displayName": "Send Email",
+      "description": "Sends an email.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "HTML is only allowed if you selected HTML as type"
+        }
+      ]
+    },
+    "sendFromTemplate": {
+      "displayName": "Send Email using Template",
+      "description": "Sends an email from an existing template.",
+      "props": [
+        {
+          "name": "template_id",
+          "displayName": "Template ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The ID of the template to use"
+        },
+        {
+          "name": "template_data",
+          "displayName": "Template Data",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Data to fill in the template. The string `{{name}}` in the template body will be replaced with the value of `name`"
+        }
+      ]
+    },
+    "verifyEmail": {
+      "displayName": "Verify Email",
+      "description": "Verifies an email address.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email to verify"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

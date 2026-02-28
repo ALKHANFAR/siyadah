@@ -1,0 +1,43 @@
+{
+  "id": "chatling",
+  "package": "@activepieces/piece-chatling",
+  "display_name": "Chatling",
+  "display_name_ar": "Chatling",
+  "description": "Build AI chatbots trained on your data.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_chatbot",
+      "display_name": "Create Chatbot",
+      "description": "Create a new chatbot using a template or from scratch."
+    },
+    {
+      "name": "send_message",
+      "display_name": "Send Message",
+      "description": "Send a message to the chatbot and receive an AI response."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_contact",
+      "display_name": "New Contact/Lead",
+      "description": "Triggers when a new contact or lead is collected by the chatbot.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_conversation",
+      "display_name": "New Conversation",
+      "description": "Triggers when a new conversation is started by a customer.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/chatling"
+}

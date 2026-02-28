@@ -1,0 +1,148 @@
+{
+  "id": "webflow",
+  "displayName": "Webflow",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_collection_item": {
+      "displayName": "Create Collection Item",
+      "description": "Creates new collection item.",
+      "props": [
+        {
+          "name": "is_archived",
+          "displayName": "Is Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the item is archived or not"
+        },
+        {
+          "name": "is_draft",
+          "displayName": "Is Draft",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the item is a draft or not"
+        }
+      ]
+    },
+    "delete_collection_item": {
+      "displayName": "Delete an item in a collection",
+      "description": "Delete collection item",
+      "props": []
+    },
+    "find_collection_item": {
+      "displayName": "Find a Collection Item by Field",
+      "description": "Find collection item in a collection by field",
+      "props": [
+        {
+          "name": "field_name",
+          "displayName": "Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the field to search by"
+        },
+        {
+          "name": "field_value",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value of the field to search for"
+        },
+        {
+          "name": "max_results",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of results to return"
+        }
+      ]
+    },
+    "find_order": {
+      "displayName": "Find an order",
+      "description": "Find order",
+      "props": []
+    },
+    "fulfill_order": {
+      "displayName": "Fulfill an order",
+      "description": "Fulfill order",
+      "props": [
+        {
+          "name": "send_order_fulfilled_email",
+          "displayName": "Send Order Fulfilled Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send an email to the customer that their order has been fulfilled"
+        }
+      ]
+    },
+    "get_collection_item": {
+      "displayName": "Get a Collection Item by ID",
+      "description": "Get collection item in a collection by ID",
+      "props": []
+    },
+    "publish_collection_item": {
+      "displayName": "Publish a Collection Item",
+      "description": "Publish collection item",
+      "props": []
+    },
+    "refund_order": {
+      "displayName": "Refund an order",
+      "description": "Refund order",
+      "props": [
+        {
+          "name": "reason",
+          "displayName": "Reason",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The reason for the refund"
+        }
+      ]
+    },
+    "unfulfill_order": {
+      "displayName": "Unfulfill an order",
+      "description": "Unfulfill order",
+      "props": []
+    },
+    "update_collection_item": {
+      "displayName": "Update an item in a collection",
+      "description": "Update collection item",
+      "props": [
+        {
+          "name": "is_archived",
+          "displayName": "Is Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the item is archived or not"
+        },
+        {
+          "name": "is_draft",
+          "displayName": "Is Draft",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the item is a draft or not"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_submission": {
+      "displayName": "New Submission",
+      "description": "Triggers when Webflow Site receives a new submission",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "formName",
+          "displayName": "Form Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Copy from the form settings, or from one of the responses"
+        }
+      ]
+    }
+  }
+}

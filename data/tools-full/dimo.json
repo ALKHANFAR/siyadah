@@ -1,0 +1,368 @@
+{
+  "id": "dimo",
+  "displayName": "DIMO",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "attestation-create-vin-vc": {
+      "displayName": "Attestation : Create VIN VC",
+      "description": "Generates the VIN VC for a given vehicle.",
+      "props": [
+        {
+          "name": "vehicleTokenId",
+          "displayName": "Vehicle Token ID",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "device-definitions-decode-vin": {
+      "displayName": "Device Definitions : Decode VIN",
+      "description": "Submits a decoding request for vehicle identification number, returns the device definition ID corresponding to the VIN.",
+      "props": [
+        {
+          "name": "countryCode",
+          "displayName": "Country Code",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "vin",
+          "displayName": "VIN",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "identity-custom-query": {
+      "displayName": "Identity : Custom Query",
+      "description": "Custom Identity Query.",
+      "props": [
+        {
+          "name": "customQuery",
+          "displayName": "Custom GraphQL Query",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "Json",
+          "required": true
+        }
+      ]
+    },
+    "telemetry-custom-query": {
+      "displayName": "Start Date",
+      "description": "Start date for the query in UTC, formatted as 2025-07-07T12:00:00Z",
+      "props": [
+        {
+          "name": "customQuery",
+          "displayName": "Custom GraphQL Query.",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "Json",
+          "required": true
+        },
+        {
+          "name": "vehicleTokenId",
+          "displayName": "Vehicle Token ID.",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "token-exchange-get-vehicle-jwt": {
+      "displayName": "Token Exchange : Get Vehicle JWT",
+      "description": "Creates a token exchange to obtain a Vehicle JWT.",
+      "props": [
+        {
+          "name": "vehicleTokenId",
+          "displayName": "Vehicle Token ID",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "vehicle-events-list-webhooks-action": {
+      "displayName": "Vehicle Events: List Webhooks",
+      "description": "List all webhooks.",
+      "props": [
+        {
+          "name": "webhookId",
+          "displayName": "Webhook ID (Optional)",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "data",
+          "displayName": "Signal/Data",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "triggerNumber",
+          "displayName": "Trigger Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "targetURL",
+          "displayName": "Target URL",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "battery-is-charging-trigger": {
+      "displayName": "Battery is Charging Trigger",
+      "description": "Triggers when vehicle battery charging status changes (True/False).",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "chargingState",
+          "displayName": "Charging State",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "battery-power-trigger": {
+      "displayName": "Battery Current Power Trigger",
+      "description": "Triggers when vehicle battery current power meets the specified condition.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "powerWatts",
+          "displayName": "Battery Power (Watts)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "charge-level-trigger": {
+      "displayName": "Charge Level Trigger",
+      "description": "Triggers when vehicle battery charge level meets the specified condition.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "chargePercentage",
+          "displayName": "Charge Level (%)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "fuel-absolute-level-trigger": {
+      "displayName": "Fuel System Absolute Level Trigger",
+      "description": "Triggers when vehicle fuel system absolute level meets the specified condition.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "fuelLiters",
+          "displayName": "Fuel Level (Liters)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "fuel-relative-level-trigger": {
+      "displayName": "Fuel System Relative Level Trigger",
+      "description": "Triggers when vehicle fuel system relative level meets the specified condition.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "fuelPercentage",
+          "displayName": "Fuel Level (%)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "ignition-trigger": {
+      "displayName": "Ignition Status Trigger",
+      "description": "Triggers when vehicle ignition status changes (ON/OFF).",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "ignitionState",
+          "displayName": "Ignition State",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "odometer-trigger": {
+      "displayName": "Odometer Trigger",
+      "description": "Triggers when vehicle odometer meets the specified condition.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "odometerValue",
+          "displayName": "Odometer Value (km)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "speed-trigger": {
+      "displayName": "Speed Trigger",
+      "description": "Triggers when vehicle speed meets specified conditions.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "speedValue",
+          "displayName": "Speed Value (km/h)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "tire-pressure-trigger": {
+      "displayName": "Tire Pressure Trigger",
+      "description": "Triggers when vehicle tire pressure meets the specified condition.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "vehicleTokenIds",
+          "displayName": "Vehicle Token IDs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "tirePosition",
+          "displayName": "Tire Position",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "pressureKpa",
+          "displayName": "Tire Pressure (kPa)",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "coolDownPeriod",
+          "displayName": "Cool Down Period (seconds)",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    }
+  }
+}

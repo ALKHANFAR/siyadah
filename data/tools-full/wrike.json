@@ -1,0 +1,624 @@
+{
+  "id": "wrike",
+  "displayName": "Wrike",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_comment": {
+      "displayName": "Add Comment",
+      "description": "Add a comment or internal note to a task or folder",
+      "props": [
+        {
+          "name": "entityType",
+          "displayName": "Entity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether you want to add the comment to a task or folder"
+        },
+        {
+          "name": "entityId",
+          "displayName": "Entity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the task or folder to add the comment to"
+        },
+        {
+          "name": "text",
+          "displayName": "Comment Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content of the comment"
+        },
+        {
+          "name": "plainText",
+          "displayName": "Plain Text",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the comment should be treated as plain text (no HTML formatting). Default is HTML formatting."
+        }
+      ]
+    },
+    "create_folder": {
+      "displayName": "Create Folder",
+      "description": "Create a new folder in Wrike",
+      "props": [
+        {
+          "name": "parentFolderId",
+          "displayName": "Parent Folder ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the parent folder where the new folder will be created. Leave empty to create at root level."
+        },
+        {
+          "name": "title",
+          "displayName": "Folder Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the folder"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of the folder"
+        },
+        {
+          "name": "shareds",
+          "displayName": "Shared Users",
+          "type": "ARRAY",
+          "required": false,
+          "description": "User IDs to share the folder with"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "project",
+          "displayName": "Create as Project",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this folder should be created as a project with additional project settings"
+        },
+        {
+          "name": "projectOwnerId",
+          "displayName": "Project Owner ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the user who will own the project (required when creating as project)"
+        },
+        {
+          "name": "projectStartDate",
+          "displayName": "Project Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The start date of the project (format: YYYY-MM-DD)"
+        },
+        {
+          "name": "projectEndDate",
+          "displayName": "Project End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The end date of the project (format: YYYY-MM-DD)"
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Create a new project in Wrike",
+      "props": [
+        {
+          "name": "parentFolderId",
+          "displayName": "Parent Folder ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the parent folder where the project will be created. Leave empty to create at root level."
+        },
+        {
+          "name": "title",
+          "displayName": "Project Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the project"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of the project"
+        },
+        {
+          "name": "ownerIds",
+          "displayName": "Owner IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "User IDs who will own the project"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "shareds",
+          "displayName": "Shared Users",
+          "type": "ARRAY",
+          "required": false,
+          "description": "User IDs to share the project with"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Project start date (format: YYYY-MM-DD)"
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Project end date (format: YYYY-MM-DD)"
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a new task in Wrike",
+      "props": [
+        {
+          "name": "folderId",
+          "displayName": "Folder ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the folder where the task will be created"
+        },
+        {
+          "name": "title",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the task"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of the task"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the task"
+        },
+        {
+          "name": "importance",
+          "displayName": "Importance",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The importance/priority of the task"
+        },
+        {
+          "name": "assignees",
+          "displayName": "Assignees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "User IDs to assign to the task"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Task start date (format: YYYY-MM-DD)"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Task due date (format: YYYY-MM-DD)"
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Task duration in minutes"
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values for the task"
+        },
+        {
+          "name": "fieldId",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field value"
+        }
+      ]
+    },
+    "find_folder": {
+      "displayName": "Find Folder / Project",
+      "description": "Retrieve folder / project metadata by ID or name",
+      "props": [
+        {
+          "name": "folderId",
+          "displayName": "Folder ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the folder/project to retrieve. If provided, other search criteria will be ignored."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search for folders/projects by title (partial match)"
+        },
+        {
+          "name": "parentIds",
+          "displayName": "Parent IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Search for folders/projects within specific parent folders"
+        },
+        {
+          "name": "folderId",
+          "displayName": "Folder ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "project",
+          "displayName": "Is Project",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter to only return projects (folders marked as projects)"
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of folders/projects to return (max 1000)"
+        },
+        {
+          "name": "authors",
+          "displayName": "Author IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by authors (users who created the folders)"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "owners",
+          "displayName": "Owner IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter by owners (users who own the projects)"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Retrieve a task by its ID or lookup fields",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the task to retrieve. If provided, other search criteria will be ignored."
+        },
+        {
+          "name": "title",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search for tasks by title (partial match)"
+        },
+        {
+          "name": "folderId",
+          "displayName": "Folder ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search for tasks within a specific folder"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter tasks by status"
+        },
+        {
+          "name": "importance",
+          "displayName": "Importance",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter tasks by importance/priority"
+        },
+        {
+          "name": "assignees",
+          "displayName": "Assignee IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter tasks by assignee user IDs"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "authors",
+          "displayName": "Author IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter tasks by author user IDs"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of tasks to return (max 1000)"
+        },
+        {
+          "name": "sortField",
+          "displayName": "Sort Field",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to sort tasks by"
+        },
+        {
+          "name": "sortOrder",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort order for results"
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Update fields of an existing task in Wrike",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the task to update"
+        },
+        {
+          "name": "title",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new title of the task"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The new description of the task"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The new status of the task"
+        },
+        {
+          "name": "importance",
+          "displayName": "Importance",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The new importance/priority of the task"
+        },
+        {
+          "name": "assignees",
+          "displayName": "Assignees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "User IDs to assign to the task (replaces existing assignees)"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Task start date (format: YYYY-MM-DD)"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Task due date (format: YYYY-MM-DD)"
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Task duration in minutes"
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values to update for the task"
+        },
+        {
+          "name": "fieldId",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "New field value"
+        }
+      ]
+    },
+    "upload_attachment": {
+      "displayName": "Upload Attachment",
+      "description": "Upload a file and attach it to a task or folder",
+      "props": [
+        {
+          "name": "entityType",
+          "displayName": "Entity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether to attach the file to a task or folder"
+        },
+        {
+          "name": "entityId",
+          "displayName": "Entity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the task or folder to attach the file to"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload and attach"
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional custom name for the uploaded file"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_folder": {
+      "displayName": "New Folder",
+      "description": "Fires when a new folder (or project) is created in Wrike.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "parentFolderId",
+          "displayName": "Parent Folder ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: Only trigger for folders created in this specific parent folder"
+        }
+      ]
+    },
+    "new_subtask_created": {
+      "displayName": "New Subtask Created",
+      "description": "Triggers when a subtask is created.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "parentTaskId",
+          "displayName": "Parent Task ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: Only trigger for subtasks created under this specific parent task"
+        }
+      ]
+    },
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Fires when a new task is created in Wrike (optionally within a folder).",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "folderId",
+          "displayName": "Folder ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: Only trigger for tasks created in this specific folder"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "kizeo-forms",
+  "package": "@activepieces/piece-kizeo-forms",
+  "display_name": "Kizeo Forms API Key",
+  "display_name_ar": "Kizeo Forms API Key",
+  "description": "Create custom mobile forms",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_list_item",
+      "display_name": "Create List Item",
+      "description": "Create a new list item in Kizeo Forms"
+    },
+    {
+      "name": "delete_list_item",
+      "display_name": "Delete List Item",
+      "description": "Delete a specific item from a list"
+    },
+    {
+      "name": "download_custom_export_in_its_original_format",
+      "display_name": "Download custom export in its original format",
+      "description": "Download a custom export in its original format"
+    },
+    {
+      "name": "download_standard_pdf",
+      "display_name": "Download Standard PDF",
+      "description": "Get PDF data of a form"
+    },
+    {
+      "name": "edit_list_item",
+      "display_name": "Edit List Item",
+      "description": "Edit a specific item in a list"
+    },
+    {
+      "name": "get_all_list_items",
+      "display_name": "Get All List Items",
+      "description": "Get all items from a specific list"
+    },
+    {
+      "name": "get_data_definition",
+      "display_name": "Get Data Definition",
+      "description": "Get the definition of a data"
+    },
+    {
+      "name": "get_list_definition",
+      "display_name": "Get List Definition",
+      "description": "Get the definition of a list"
+    },
+    {
+      "name": "get_list_item",
+      "display_name": "Get List Item",
+      "description": "Get a specific item from a list"
+    },
+    {
+      "name": "push_data",
+      "display_name": "Push Data",
+      "description": "Push a data to a form"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/kizeo-forms"
+}

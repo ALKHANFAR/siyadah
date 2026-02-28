@@ -1,0 +1,388 @@
+{
+  "id": "voipstudio",
+  "displayName": "VoIPstudio",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createContact": {
+      "displayName": "Create Contact",
+      "description": "Creates a new Contact resource",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact type"
+        },
+        {
+          "name": "dialler_source_id",
+          "displayName": "Dialler Source ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Dialler source ID"
+        },
+        {
+          "name": "outcome_id",
+          "displayName": "Outcome ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Outcome ID"
+        },
+        {
+          "name": "group_name",
+          "displayName": "Group Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Group name"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact first name"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact last name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact email address"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company name"
+        },
+        {
+          "name": "tel",
+          "displayName": "Telephone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary telephone number"
+        },
+        {
+          "name": "tel_1",
+          "displayName": "Telephone 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary telephone number"
+        },
+        {
+          "name": "tel_2",
+          "displayName": "Telephone 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tertiary telephone number"
+        },
+        {
+          "name": "speed_dial_phone",
+          "displayName": "Speed Dial Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary speed dial phone number"
+        },
+        {
+          "name": "speed_dial_phone_1",
+          "displayName": "Speed Dial Phone 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary speed dial phone number"
+        },
+        {
+          "name": "speed_dial_phone_2",
+          "displayName": "Speed Dial Phone 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tertiary speed dial phone number"
+        },
+        {
+          "name": "mobile",
+          "displayName": "Mobile",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary mobile number"
+        },
+        {
+          "name": "mobile_1",
+          "displayName": "Mobile 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary mobile number"
+        },
+        {
+          "name": "mobile_2",
+          "displayName": "Mobile 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tertiary mobile number"
+        },
+        {
+          "name": "speed_dial_mobile",
+          "displayName": "Speed Dial Mobile",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary speed dial mobile number"
+        },
+        {
+          "name": "speed_dial_mobile_1",
+          "displayName": "Speed Dial Mobile 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary speed dial mobile number"
+        },
+        {
+          "name": "speed_dial_mobile_2",
+          "displayName": "Speed Dial Mobile 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tertiary speed dial mobile number"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Contact notes"
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Contact labels"
+        },
+        {
+          "name": "groups",
+          "displayName": "Groups",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Contact groups"
+        },
+        {
+          "name": "transfer_list",
+          "displayName": "Transfer List",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to add to transfer list"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "User ID"
+        }
+      ]
+    },
+    "makeACallToLead": {
+      "displayName": "Make a Call to Lead",
+      "description": "Make a leadcall from user to e164 number",
+      "props": [
+        {
+          "name": "caller_id",
+          "displayName": "Caller ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Caller ID"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Destination number in e164 format or extension"
+        },
+        {
+          "name": "tts",
+          "displayName": "Text to Speech",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Text to speech content"
+        }
+      ]
+    },
+    "makeACall": {
+      "displayName": "Make a Call",
+      "description": "Make a call to a number in e164 format",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Destination number in e164 format"
+        },
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "User ID from which call should originate"
+        },
+        {
+          "name": "caller_id",
+          "displayName": "Caller ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Caller ID to use for the call. E164 number or 'anonymous'"
+        }
+      ]
+    },
+    "makeAWebcall": {
+      "displayName": "Make a Webcall",
+      "description": "Make a webcall from e164 number to other e164 number or extension",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Source number in e164 format"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Destination number in e164 format or extension"
+        }
+      ]
+    },
+    "sendSms": {
+      "displayName": "Send SMS",
+      "description": "Send new SMS resource",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "From number in e164 format"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Destination number in e164 format"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Message to send"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "callConnected": {
+      "displayName": "Call Connected",
+      "description": "Triggered when a call is connected",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "callEnded": {
+      "displayName": "Call Ended",
+      "description": "Triggered when a call ends or is terminated",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "callTracking": {
+      "displayName": "Call Tracking",
+      "description": "Triggers when call associated with Call Tracking campaign visits is finished.",
+      "type": "POLLING",
+      "props": []
+    },
+    "dtmfReceived": {
+      "displayName": "DTMF Received",
+      "description": "Triggered when a DTMF (Dual-Tone Multi-Frequency) tone is received during a call",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "missedCall": {
+      "displayName": "Missed Call",
+      "description": "Triggered when an incoming call is not answered (missed call)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "newCallRecording": {
+      "displayName": "New Call Recording",
+      "description": "Triggers when a new call recording is ready for a completed call.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "smsReceived": {
+      "displayName": "SMS Received",
+      "description": "Triggers when an SMS message is received in VoipStudio.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

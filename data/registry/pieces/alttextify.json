@@ -1,0 +1,25 @@
+{
+  "id": "alttextify",
+  "package": "@activepieces/piece-alttextify",
+  "display_name": "AltTextify",
+  "display_name_ar": "AltTextify",
+  "description": "AltTextify integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "generate-alt-text",
+      "display_name": "Generate Image Alt Text",
+      "description": "Generates alt text for specified image."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/alttextify"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "gender-api",
+  "package": "@activepieces/piece-gender-api",
+  "display_name": "Gender API",
+  "display_name_ar": "",
+  "description": "Predict the gender of a person based on their name using Gender-api service.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "getGenderByFirstName",
+      "display_name": "Get Gender by First Name",
+      "description": "Predict the gender of a person based on their first name"
+    },
+    {
+      "name": "getGenderByFullName",
+      "display_name": "Get Gender by Full Name",
+      "description": "Predict the gender of a person based on their full name"
+    },
+    {
+      "name": "getStatistics",
+      "display_name": "Get Statistics",
+      "description": "Get account statistics including remaining credits and usage information"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

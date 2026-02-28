@@ -1,0 +1,289 @@
+{
+  "id": "onfleet",
+  "package": "@activepieces/piece-onfleet",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Last mile delivery software",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "clone_task",
+      "display_name": "Clone Task",
+      "description": "Clones a task"
+    },
+    {
+      "name": "complete_task",
+      "display_name": "Force Complete Task",
+      "description": "Force completes a task"
+    },
+    {
+      "name": "create_admin",
+      "display_name": "Create Administrator",
+      "description": "Create a new administrator"
+    },
+    {
+      "name": "create_destination",
+      "display_name": "Create Destination",
+      "description": "Create a new destination"
+    },
+    {
+      "name": "create_hub",
+      "display_name": "Create Hub",
+      "description": "Create a new hub"
+    },
+    {
+      "name": "create_recipient",
+      "display_name": "Create Recipient",
+      "description": "Creates a recipient"
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Creates a task"
+    },
+    {
+      "name": "create_team",
+      "display_name": "Create Team",
+      "description": "Create a new team"
+    },
+    {
+      "name": "create_worker",
+      "display_name": "Create Worker",
+      "description": "Create a new worker"
+    },
+    {
+      "name": "delete_admin",
+      "display_name": "Delete Administrator",
+      "description": "Delete an existing administrator"
+    },
+    {
+      "name": "delete_task",
+      "display_name": "Delete Task",
+      "description": "Deletes a task"
+    },
+    {
+      "name": "delete_team",
+      "display_name": "Delete Team",
+      "description": "Delete an existing team"
+    },
+    {
+      "name": "delete_worker",
+      "display_name": "Delete Worker",
+      "description": "Delete an existing worker"
+    },
+    {
+      "name": "get_admins",
+      "display_name": "Get Administrators",
+      "description": "Get many administrators"
+    },
+    {
+      "name": "get_container",
+      "display_name": "Get Container",
+      "description": "Get a specific container"
+    },
+    {
+      "name": "get_delegatee_details",
+      "display_name": "Get Delegatee Details",
+      "description": "Get details of a connected organization"
+    },
+    {
+      "name": "get_destination",
+      "display_name": "Get Destination",
+      "description": "Get a specific destination"
+    },
+    {
+      "name": "get_hubs",
+      "display_name": "Get Hubs",
+      "description": "Get many hubs"
+    },
+    {
+      "name": "get_organization",
+      "display_name": "Get Organization",
+      "description": "Get your organization details"
+    },
+    {
+      "name": "get_recipient",
+      "display_name": "Get Recipient",
+      "description": "Gets a single recipient"
+    },
+    {
+      "name": "get_task",
+      "display_name": "Get Task",
+      "description": "Get a specific task"
+    },
+    {
+      "name": "get_tasks",
+      "display_name": "Get Tasks",
+      "description": "Get many task"
+    },
+    {
+      "name": "get_team",
+      "display_name": "Get Team",
+      "description": "Gets an existing team"
+    },
+    {
+      "name": "get_teams",
+      "display_name": "Get Teams",
+      "description": "Gets many existing team"
+    },
+    {
+      "name": "get_worker_schedule",
+      "display_name": "Get Worker Schedule",
+      "description": "Get an existing worker's schedule"
+    },
+    {
+      "name": "get_worker",
+      "display_name": "Get Worker",
+      "description": "Get an existing worker's details"
+    },
+    {
+      "name": "update_admin",
+      "display_name": "Update Administrator",
+      "description": "Update an existing administrator"
+    },
+    {
+      "name": "update_hub",
+      "display_name": "Update Hub",
+      "description": "Update an existing hub"
+    },
+    {
+      "name": "update_recipient",
+      "display_name": "Update Recipient",
+      "description": "Updates a recipient"
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Updates a task"
+    },
+    {
+      "name": "update_team",
+      "display_name": "Update Team",
+      "description": "Update an existing team"
+    },
+    {
+      "name": "update_worker",
+      "display_name": "Update Worker",
+      "description": "Update an existing worker"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "auto_dispatch_completed",
+      "display_name": "Auto Dispatch Completed",
+      "description": "Triggers when team auto-dispatch calculation is completed",
+      "type": "instant"
+    },
+    {
+      "name": "sms_recipient_opt_out",
+      "display_name": "SMS Recipient Opt Out",
+      "description": "Triggers when a recipient opts out of SMS notifications",
+      "type": "instant"
+    },
+    {
+      "name": "sms_recipient_response_missed",
+      "display_name": "SMS Recipient Response Missed",
+      "description": "Triggers when a recipient responds to a notification via SMS, but the organization is unable to handle it at that time",
+      "type": "instant"
+    },
+    {
+      "name": "task_arrival",
+      "display_name": "Task Arrival",
+      "description": "Triggers when a task worker arriving at or closer than threshold value provided, in meters",
+      "type": "instant"
+    },
+    {
+      "name": "task_assigned",
+      "display_name": "Task Assigned",
+      "description": "Triggers when a task is assigned",
+      "type": "instant"
+    },
+    {
+      "name": "task_cloned",
+      "display_name": "Task Cloned",
+      "description": "Triggers when a task is cloned",
+      "type": "instant"
+    },
+    {
+      "name": "task_completed",
+      "display_name": "Task Completed",
+      "description": "Triggers when a task is completed",
+      "type": "instant"
+    },
+    {
+      "name": "task_created",
+      "display_name": "Task Created",
+      "description": "Triggers when a task is created",
+      "type": "instant"
+    },
+    {
+      "name": "task_delayed",
+      "display_name": "Task Delayed",
+      "description": "Triggers when a task is delayed",
+      "type": "instant"
+    },
+    {
+      "name": "task_deleted",
+      "display_name": "Task Deleted",
+      "description": "Triggers when a task is deleted",
+      "type": "instant"
+    },
+    {
+      "name": "task_eta",
+      "display_name": "Task ETA",
+      "description": "Triggers when a task worker ETA less than or equal to threshold value provided, in seconds",
+      "type": "instant"
+    },
+    {
+      "name": "task_failed",
+      "display_name": "Task Failed",
+      "description": "Triggers when a task has failed",
+      "type": "instant"
+    },
+    {
+      "name": "task_started",
+      "display_name": "Task Started",
+      "description": "Triggers when a task is started",
+      "type": "instant"
+    },
+    {
+      "name": "task_unassigned",
+      "display_name": "Task Unassigned",
+      "description": "Triggers when a task is unassigned",
+      "type": "instant"
+    },
+    {
+      "name": "task_updated",
+      "display_name": "Task Updated",
+      "description": "Triggers when a task is updated",
+      "type": "instant"
+    },
+    {
+      "name": "worker_created",
+      "display_name": "Worker Created",
+      "description": "Triggers when a worker is created",
+      "type": "instant"
+    },
+    {
+      "name": "worker_deleted",
+      "display_name": "Worker Deleted",
+      "description": "Triggers when a worker is deleted",
+      "type": "instant"
+    },
+    {
+      "name": "worker_duty_change",
+      "display_name": "Worker Duty Change",
+      "description": "Triggers when a worker status changes",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/onfleet"
+}

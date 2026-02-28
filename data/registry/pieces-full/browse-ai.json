@@ -1,0 +1,48 @@
+{
+  "id": "browse-ai",
+  "package": "@activepieces/piece-browse-ai",
+  "display_name": "Browse AI",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get-task-details",
+      "display_name": "Get Task Details",
+      "description": "Retrieves the details of a specific task executed by a Browse AI robot."
+    },
+    {
+      "name": "list-robots",
+      "display_name": "List Robots",
+      "description": "Retrieves all robots available in your account."
+    },
+    {
+      "name": "run-robot",
+      "display_name": "Run a Robot",
+      "description": "Runs a robot on-demand with custom input parameters."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "task_finished_successfully",
+      "display_name": "Task Finished Successfully",
+      "description": "Triggers when a robot finishes a task successfully.",
+      "type": "instant"
+    },
+    {
+      "name": "task_finished_with_error",
+      "display_name": "Task Finished with Error",
+      "description": "Triggers when a robot task run fails with an error.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

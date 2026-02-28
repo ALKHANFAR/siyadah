@@ -1,0 +1,86 @@
+{
+  "id": "grist",
+  "displayName": "API Key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "grist-create-record": {
+      "displayName": "Create Record",
+      "description": "Creates a new record in specific table.",
+      "props": []
+    },
+    "grist-search-record": {
+      "displayName": "Search Record",
+      "description": "Search record by matching criteria.",
+      "props": [
+        {
+          "name": "column",
+          "displayName": "Column",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the search text. The search operation is case sensitive, exact text match, and supports column-type Text only."
+        }
+      ]
+    },
+    "grist-update-record": {
+      "displayName": "Update Record",
+      "description": "Updates an existing record in specific table.",
+      "props": [
+        {
+          "name": "record_id",
+          "displayName": "Record ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "grist-upload-attachments-to-document": {
+      "displayName": "Upload Attachment to Document",
+      "description": "Uploads attachments to specific document.",
+      "props": [
+        {
+          "name": "attachment",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "attachment_name",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "In case you want to change the name of the attachment."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "grist-new-record": {
+      "displayName": "New Record",
+      "description": "Triggers when a new record is added to the table.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "grist-updated-record": {
+      "displayName": "Updated Record",
+      "description": "Triggers when a record is updated in the table.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

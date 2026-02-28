@@ -1,0 +1,90 @@
+{
+  "id": "fountain",
+  "package": "@activepieces/piece-fountain",
+  "display_name": "Fountain",
+  "display_name_ar": "",
+  "description": "Automate your complete HR hiring and onboarding workflow. Manage applicants, job openings, interview scheduling, and track progress through hiring stages with real-time webhooks.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_applicant",
+      "display_name": "Create Applicant",
+      "description": "Add a new applicant to your hiring pipeline"
+    },
+    {
+      "name": "delete_applicant",
+      "display_name": "Delete Applicant",
+      "description": "Delete an applicant by their ID"
+    },
+    {
+      "name": "get_applicant_details",
+      "display_name": "Get Applicant Details",
+      "description": "Get complete applicant information"
+    },
+    {
+      "name": "get_interview_sessions",
+      "display_name": "Get Interview Sessions",
+      "description": "Returns the applicant\\"
+    },
+    {
+      "name": "get_opening",
+      "display_name": "Get Opening",
+      "description": "Get details for a specific job opening"
+    },
+    {
+      "name": "get_stage",
+      "display_name": "Get Stage",
+      "description": "Retrieves a specific Stage"
+    },
+    {
+      "name": "list_applicants",
+      "display_name": "List All Applicant Details",
+      "description": "List applicants with optional filters"
+    },
+    {
+      "name": "list_openings",
+      "display_name": "List All Opening Details",
+      "description": "List job openings with optional filters"
+    },
+    {
+      "name": "list_stages",
+      "display_name": "List All Stages",
+      "description": "Retrieves an Opening\\"
+    },
+    {
+      "name": "update_applicant",
+      "display_name": "Update Applicant Info",
+      "description": "Update an applicant\\"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "applicant_webhook",
+      "display_name": "Applicant Webhook",
+      "description": "Triggers when Fountain sends applicant webhook events",
+      "type": "instant"
+    },
+    {
+      "name": "custom_attribute_webhook",
+      "display_name": "Custom Attribute Webhook",
+      "description": "Triggers when Fountain worker custom attribute values change",
+      "type": "instant"
+    },
+    {
+      "name": "universal_tasks_webhook",
+      "display_name": "Universal Tasks Webhook",
+      "description": "Triggers when workers complete tasks or reach flow endpoints in Fountain Onboard",
+      "type": "instant"
+    },
+    {
+      "name": "worker_webhook",
+      "display_name": "Worker Webhook",
+      "description": "Triggers when Fountain sends worker webhook events",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

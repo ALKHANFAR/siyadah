@@ -1,0 +1,188 @@
+{
+  "id": "trello",
+  "displayName": "API Key",
+  "auth": {
+    "type": "basic_auth"
+  },
+  "actions": {
+    "create_card": {
+      "displayName": "Create Card",
+      "description": "Create a new card in Trello",
+      "props": [
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "delete_card": {
+      "displayName": "Delete Card",
+      "description": "Deletes an existing card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_card": {
+      "displayName": "Get Card",
+      "description": "Gets a card by ID.",
+      "props": [
+        {
+          "name": "cardId",
+          "displayName": "Card ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "update_card": {
+      "displayName": "Update Card",
+      "description": "Updates an existing card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "closed",
+          "displayName": "Archived",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "due",
+          "displayName": "Due Date",
+          "type": "DateTime",
+          "required": true
+        }
+      ]
+    },
+    "add_card_attachment": {
+      "displayName": "Add Card Attachment",
+      "description": "Adds an attachment to a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "attachment",
+          "displayName": "Attachment File",
+          "type": "File",
+          "required": true
+        },
+        {
+          "name": "mime_type",
+          "displayName": "MIME Type",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "set_cover",
+          "displayName": "Set as Cover",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "delete_card_attachment": {
+      "displayName": "Delete Card Attachment",
+      "description": "Deletes an attachment from a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "attachment_id",
+          "displayName": "Attachment ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_card_attachment": {
+      "displayName": "Get Card Attachment",
+      "description": "Gets a specific attachment on a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "attachment_id",
+          "displayName": "Attachment ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_card_attachments": {
+      "displayName": "Get All Card Attachments",
+      "description": "Gets all attachments on a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "card_moved_to_list": {
+      "displayName": "Card Moved to list",
+      "description": "Trigger when a card is moved to the list specified",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "deadline": {
+      "displayName": "Card Deadline",
+      "description": "Triggers at a specified time before a card deadline.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "time_unit",
+          "displayName": "Time unit",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select unit for time before due"
+        },
+        {
+          "name": "time_before_due",
+          "displayName": "Time before due",
+          "type": "NUMBER",
+          "required": true,
+          "description": "How long before the due date the trigger should run (use with time unit)"
+        }
+      ]
+    },
+    "new_card": {
+      "displayName": "New Card",
+      "description": "Trigger when a new card is created",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

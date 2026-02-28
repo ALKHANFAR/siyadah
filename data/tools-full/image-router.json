@@ -1,0 +1,106 @@
+{
+  "id": "image-router",
+  "displayName": "ImageRouter",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createImage": {
+      "displayName": "Create Image",
+      "description": "Generate an image from a text prompt using any available model",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Text prompt describing the image you want to generate"
+        },
+        {
+          "name": "quality",
+          "displayName": "Quality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Image quality (not all models support this)"
+        },
+        {
+          "name": "size",
+          "displayName": "Size",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Image size (e.g., 1024x1024). Use \"auto\" for default size."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to receive the generated image"
+        }
+      ]
+    },
+    "imageToImage": {
+      "displayName": "Image to Image",
+      "description": "Generate or edit images using input image(s) with optional mask",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Text prompt describing the image transformation"
+        },
+        {
+          "name": "images",
+          "displayName": "Input Images",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Input image(s) for editing (up to 16 images)"
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "Input image file"
+        },
+        {
+          "name": "masks",
+          "displayName": "Masks",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Mask file(s) to specify areas to edit (some models require this)"
+        },
+        {
+          "name": "mask",
+          "displayName": "Mask",
+          "type": "FILE",
+          "required": true,
+          "description": "Mask image file"
+        },
+        {
+          "name": "quality",
+          "displayName": "Quality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Image quality (not all models support this)"
+        },
+        {
+          "name": "size",
+          "displayName": "Size",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Image size (e.g., 1024x1024). Use \"auto\" for default size."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to receive the generated image"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

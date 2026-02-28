@@ -1,0 +1,56 @@
+{
+  "id": "motiontools",
+  "package": "@activepieces/piece-motiontools",
+  "display_name": "MotionTools",
+  "display_name_ar": "MotionTools",
+  "description": "Digitize processes, boost efficiency and excite users with MotionTools, the operating system for fleet-based service providers.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create1stopBooking",
+      "display_name": "Create 1-stop Booking",
+      "description": "Create a hailing booking (1-stop)."
+    },
+    {
+      "name": "create2stopBooking",
+      "display_name": "Create 2-stop Booking",
+      "description": "Create a hailing booking with two stops (pickup + dropoff)."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "bookingCreated",
+      "display_name": "Booking Created",
+      "description": "Triggers when a new booking is created.  Only available if you have a MotionToolsadmin account",
+      "type": "instant"
+    },
+    {
+      "name": "bookingStatusUpdate",
+      "display_name": "Booking Status Update",
+      "description": "Triggers when a booking status is updated.  Only available if you have a MotionToolsadmin account",
+      "type": "instant"
+    },
+    {
+      "name": "bookingStopStatusUpdate",
+      "display_name": "Booking Stop Status Update",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "packageCreated",
+      "display_name": "Package Created",
+      "description": "Triggers when a package is created",
+      "type": "instant"
+    },
+    {
+      "name": "packageStatusUpdate",
+      "display_name": "Package Status Update",
+      "description": "",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/motiontools"
+}

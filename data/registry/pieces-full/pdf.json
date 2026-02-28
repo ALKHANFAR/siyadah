@@ -1,0 +1,50 @@
+{
+  "id": "pdf",
+  "package": "@activepieces/piece-pdf",
+  "display_name": "PDF",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "convertToImage",
+      "display_name": "Convert to Image",
+      "description": "Convert a PDF file or URL to an image"
+    },
+    {
+      "name": "extractPdfPages",
+      "display_name": "Extract PDF Pages",
+      "description": "Extract or rearrange page(s)from PDF File."
+    },
+    {
+      "name": "extractText",
+      "display_name": "Extract Text",
+      "description": "Extract text from PDF file or url"
+    },
+    {
+      "name": "imageToPdf",
+      "display_name": "Image to PDF",
+      "description": "Convert image to PDF"
+    },
+    {
+      "name": "mergePdfs",
+      "display_name": "Merge PDFs",
+      "description": "Merges multiple PDF files into a single PDF document."
+    },
+    {
+      "name": "pdfPageCount",
+      "display_name": "PDF Page Count",
+      "description": "Get page count of PDF file."
+    },
+    {
+      "name": "textToPdf",
+      "display_name": "Text to PDF",
+      "description": "Convert text to PDF"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

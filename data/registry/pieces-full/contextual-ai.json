@@ -1,0 +1,57 @@
+{
+  "id": "contextual-ai",
+  "package": "@activepieces/piece-contextual-ai",
+  "display_name": "Contextual AI",
+  "display_name_ar": "",
+  "description": "Integrate with Contextual AI to automate document processing and AI workflows",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_agent",
+      "display_name": "Create Agent",
+      "description": "Create a new Contextual AI agent with specified configuration"
+    },
+    {
+      "name": "create_datastore",
+      "display_name": "Create Datastore",
+      "description": "Create a new datastore for organizing documents"
+    },
+    {
+      "name": "generate",
+      "display_name": "Generate Text",
+      "description": "Generate text using Contextual AI\\"
+    },
+    {
+      "name": "ingest_document",
+      "display_name": "Ingest Document",
+      "description": "Upload and ingest a document into a Contextual AI datastore"
+    },
+    {
+      "name": "invite_users",
+      "display_name": "Invite Users",
+      "description": "Invite new users to the Contextual AI workspace"
+    },
+    {
+      "name": "parse_file",
+      "display_name": "Parse File",
+      "description": "Parse a document file into structured Markdown and/or JSON format"
+    },
+    {
+      "name": "query_agent",
+      "display_name": "Query Agent",
+      "description": "Send a message to a Contextual AI agent and get a response"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_agent",
+      "display_name": "New Agent",
+      "description": "Triggers when a new Contextual AI agent is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

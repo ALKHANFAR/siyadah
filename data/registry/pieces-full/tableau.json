@@ -1,0 +1,95 @@
+{
+  "id": "tableau",
+  "package": "@activepieces/piece-tableau",
+  "display_name": "Tableau",
+  "display_name_ar": "",
+  "description": "Business intelligence and analytics platform for data visualization",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "download_view",
+      "display_name": "Download View",
+      "description": "Download a view from a workbook in the specified format"
+    },
+    {
+      "name": "find_view",
+      "display_name": "Find View",
+      "description": "Finds a view based on name (URL name)"
+    },
+    {
+      "name": "find_workbook",
+      "display_name": "Find Workbook",
+      "description": "Finds a workbook based on ID or content URL"
+    },
+    {
+      "name": "refresh_workbook",
+      "display_name": "Refresh Workbook",
+      "description": "Refreshes the specified workbook immediately"
+    },
+    {
+      "name": "run_extract_refresh_task",
+      "display_name": "Run Extract Refresh Task",
+      "description": "Runs the specified extract refresh task and returns job information"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "datasource_event",
+      "display_name": "Datasource Event",
+      "description": "Triggers when a datasource event occurs (created, updated, or deleted)",
+      "type": "instant"
+    },
+    {
+      "name": "datasource_refresh_event",
+      "display_name": "Datasource Refresh Event",
+      "description": "Triggers when a datasource refresh event occurs (started, succeeded, or failed)",
+      "type": "instant"
+    },
+    {
+      "name": "label_event",
+      "display_name": "Label Event",
+      "description": "Triggers when a label event occurs (created, updated, or deleted)",
+      "type": "instant"
+    },
+    {
+      "name": "list_extract_refresh_tasks",
+      "display_name": "List Extract Refresh Tasks",
+      "description": "Lists extract refresh tasks for the site",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_job",
+      "display_name": "New Job",
+      "description": "Triggers when a job matches the specified criteria",
+      "type": "scheduled"
+    },
+    {
+      "name": "user_deleted",
+      "display_name": "User Deleted",
+      "description": "Triggers when a user is deleted",
+      "type": "instant"
+    },
+    {
+      "name": "view_deleted",
+      "display_name": "View Deleted",
+      "description": "Triggers when a workbook view is deleted",
+      "type": "instant"
+    },
+    {
+      "name": "workbook_event",
+      "display_name": "Workbook Event",
+      "description": "Triggers when a workbook event occurs (created, updated, or deleted)",
+      "type": "instant"
+    },
+    {
+      "name": "workbook_refresh_event",
+      "display_name": "Workbook Refresh Event",
+      "description": "Triggers when a workbook refresh event occurs (started, succeeded, or failed)",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

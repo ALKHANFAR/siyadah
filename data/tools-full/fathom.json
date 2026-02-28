@@ -1,0 +1,216 @@
+{
+  "id": "fathom",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "findTeamMember": {
+      "displayName": "Find Team Member",
+      "description": "Find team member based on email",
+      "props": [
+        {
+          "name": "team",
+          "displayName": "Team",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Team name to filter by"
+        },
+        {
+          "name": "cursor",
+          "displayName": "Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination (from previous response)"
+        }
+      ]
+    },
+    "findTeam": {
+      "displayName": "Find Team",
+      "description": "Find team based on name",
+      "props": [
+        {
+          "name": "cursor",
+          "displayName": "Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination (from previous response)"
+        }
+      ]
+    },
+    "getRecordingSummary": {
+      "displayName": "Get Recording Summary",
+      "description": "Get the AI-generated summary of a meeting recording",
+      "props": [
+        {
+          "name": "recording_id",
+          "displayName": "Meeting Recording",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the meeting recording to get the summary for"
+        },
+        {
+          "name": "destination_url",
+          "displayName": "Destination URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: URL where Fathom will POST the summary. Leave empty to get data directly in response."
+        }
+      ]
+    },
+    "getRecordingTranscript": {
+      "displayName": "Get Recording Transcript",
+      "description": "Get the AI-generated transcript of a meeting recording",
+      "props": [
+        {
+          "name": "recording_id",
+          "displayName": "Meeting Recording",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the meeting recording to get the transcript for"
+        },
+        {
+          "name": "destination_url",
+          "displayName": "Destination URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: URL where Fathom will POST the transcript. Leave empty to get data directly in response."
+        }
+      ]
+    },
+    "listMeetings": {
+      "displayName": "List Meetings",
+      "description": "List meetings with optional filtering and pagination",
+      "props": [
+        {
+          "name": "calendar_invitees",
+          "displayName": "Calendar Invitees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses of calendar invitees to filter by"
+        },
+        {
+          "name": "calendar_invitees_domains",
+          "displayName": "Calendar Invitees Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Domains of the companies to filter by (e.g., acme.com)"
+        },
+        {
+          "name": "calendar_invitees_domains_type",
+          "displayName": "Calendar Invitees Domains Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by whether calendar invitee list includes external email domains"
+        },
+        {
+          "name": "recorded_by",
+          "displayName": "Recorded By",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses of users who recorded meetings"
+        },
+        {
+          "name": "teams",
+          "displayName": "Teams",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Team names to filter by (e.g., Sales, Engineering)"
+        },
+        {
+          "name": "created_after",
+          "displayName": "Created After",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter to meetings created after this timestamp (e.g., 2025-01-01T00:00:00Z)"
+        },
+        {
+          "name": "created_before",
+          "displayName": "Created Before",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter to meetings created before this timestamp (e.g., 2025-01-01T00:00:00Z)"
+        },
+        {
+          "name": "include_transcript",
+          "displayName": "Include Transcript",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the transcript for each meeting"
+        },
+        {
+          "name": "include_summary",
+          "displayName": "Include Summary",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the summary for each meeting"
+        },
+        {
+          "name": "include_action_items",
+          "displayName": "Include Action Items",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the action items for each meeting"
+        },
+        {
+          "name": "include_crm_matches",
+          "displayName": "Include CRM Matches",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include CRM matches for each meeting"
+        },
+        {
+          "name": "cursor",
+          "displayName": "Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination (from previous response)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newRecording": {
+      "displayName": "New Recording",
+      "description": "Fires when a meeting is recorded (i.e. a new meeting recording is produced)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "triggered_for",
+          "displayName": "Trigger For",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select which types of recordings should trigger this webhook"
+        },
+        {
+          "name": "include_transcript",
+          "displayName": "Include Transcript",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the transcript in the webhook payload"
+        },
+        {
+          "name": "include_summary",
+          "displayName": "Include Summary",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the summary in the webhook payload"
+        },
+        {
+          "name": "include_action_items",
+          "displayName": "Include Action Items",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the action items in the webhook payload"
+        },
+        {
+          "name": "include_crm_matches",
+          "displayName": "Include CRM Matches",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include CRM matches in the webhook payload"
+        }
+      ]
+    }
+  }
+}

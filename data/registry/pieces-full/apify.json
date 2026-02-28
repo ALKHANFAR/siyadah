@@ -1,0 +1,35 @@
+{
+  "id": "apify",
+  "package": "@activepieces/piece-apify",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Enter API key authentication details",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "getActors",
+      "display_name": "Get user's Actors",
+      "description": "Gets the list of Actors available to the user."
+    },
+    {
+      "name": "getDatasetItems",
+      "display_name": "Get Dataset Items",
+      "description": "Gets the data from an Actors run."
+    },
+    {
+      "name": "getLastRun",
+      "display_name": "Get last run details",
+      "description": "Gets last run details for a given Actor."
+    },
+    {
+      "name": "startActor",
+      "display_name": "Start an Apify Actor",
+      "description": "Starts an Apify Actor web scraper"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

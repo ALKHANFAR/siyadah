@@ -1,0 +1,129 @@
+{
+  "id": "discourse",
+  "displayName": "Discourse",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_users_to_group": {
+      "displayName": "Add Users to Group",
+      "description": "Add users to a group",
+      "props": [
+        {
+          "name": "group_id",
+          "displayName": "Group Id",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Id of the group"
+        },
+        {
+          "name": "users",
+          "displayName": "Users",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of users to add to the group"
+        }
+      ]
+    },
+    "change_user_trust_level": {
+      "displayName": "Change User Trust Level",
+      "description": "Change the trust level of a user",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the user"
+        },
+        {
+          "name": "new_trust_level",
+          "displayName": "New Trust Level",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "New trust level of the user"
+        }
+      ]
+    },
+    "create_post": {
+      "displayName": "Create Post",
+      "description": "Create a new post in discourse",
+      "props": [
+        {
+          "name": "raw",
+          "displayName": "Post Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Content of the post"
+        },
+        {
+          "name": "topic_id",
+          "displayName": "Topic ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "ID of the topic to post in"
+        }
+      ]
+    },
+    "create_topic": {
+      "displayName": "Create Topic",
+      "description": "Create a new topic in Discourse",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Post Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the Topic"
+        },
+        {
+          "name": "raw",
+          "displayName": "Topic Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Content of the topic"
+        },
+        {
+          "name": "category",
+          "displayName": "Category ID",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "ID of the category to post in"
+        }
+      ]
+    },
+    "send_private_message": {
+      "displayName": "Send Private Message",
+      "description": "Send a private message in Discourse",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Post Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title for the PM"
+        },
+        {
+          "name": "raw",
+          "displayName": "Post Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Content of the post"
+        },
+        {
+          "name": "target_recipients",
+          "displayName": "Users",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of users to send the PM to (can be one or more)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

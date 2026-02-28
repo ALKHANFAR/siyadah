@@ -1,0 +1,32 @@
+{
+  "id": "presenton",
+  "package": "@activepieces/piece-presenton",
+  "display_name": "Presenton",
+  "display_name_ar": "Presenton",
+  "description": "Generate AI-powered presentations using Presenton (https://presenton.ai). Supports templates, themes, images, synchronous and asynchronous generation, status polling, and export to PPTX/PDF.",
+  "category": "I_content",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "generate_presentations",
+      "display_name": "Generate Presentations (async)",
+      "description": "Create an asynchronous presentation generation task at Presenton and return the created task."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newPresentation",
+      "display_name": "New Presentation",
+      "description": "Triggers when a new presentation is created in Presenton.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/presenton"
+}

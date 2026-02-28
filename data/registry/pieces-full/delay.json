@@ -1,0 +1,20 @@
+{
+  "id": "delay",
+  "package": "@activepieces/piece-delay",
+  "display_name": "Delay",
+  "display_name_ar": "تأخير",
+  "description": "Add delays between steps",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "delay",
+      "display_name": "Delay",
+      "description": "Wait for specified duration"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-core"
+}

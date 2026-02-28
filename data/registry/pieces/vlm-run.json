@@ -1,0 +1,45 @@
+{
+  "id": "vlm-run",
+  "package": "@activepieces/piece-vlm-run",
+  "display_name": "VLM Run",
+  "display_name_ar": "VLM Run",
+  "description": "VLM Run is a visual AI platform that extracts data from images, videos, audio, and documents. It helps automate analysis workflows, such as object detection, transcription, image/audio analysis, and document parsing.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "analyzeAudio",
+      "display_name": "Analyze Audio",
+      "description": "Process an audio file, extracting features or transcription"
+    },
+    {
+      "name": "analyzeDocument",
+      "display_name": "Analyze Document",
+      "description": "Process a document (PDF, DOCX, etc.), extracting structured data or text."
+    },
+    {
+      "name": "analyzeImage",
+      "display_name": "Analyze Image",
+      "description": "Process an image (file or URL), extracting descriptions, detecting objects, etc."
+    },
+    {
+      "name": "analyzeVideo",
+      "display_name": "Analyze Video",
+      "description": "Analyze a video file or URL, e.g. extract frames, detect content, etc."
+    },
+    {
+      "name": "getFile",
+      "display_name": "Get File",
+      "description": "Gets file's metadata by ID."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/vlm-run"
+}

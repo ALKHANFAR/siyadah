@@ -1,0 +1,200 @@
+{
+  "id": "just-invoice",
+  "displayName": "JustInvoice",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_invoice": {
+      "displayName": "Create Invoice",
+      "description": "Creates a new invoice in JustInvoice",
+      "props": [
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the customer"
+        },
+        {
+          "name": "customerFirstName",
+          "displayName": "Customer First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the customer"
+        },
+        {
+          "name": "customerLastName",
+          "displayName": "Customer Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the customer"
+        },
+        {
+          "name": "customerCompanyName",
+          "displayName": "Customer Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company name of the customer"
+        },
+        {
+          "name": "customerAddress",
+          "displayName": "Customer Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Street address of the customer"
+        },
+        {
+          "name": "customerCity",
+          "displayName": "Customer City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City of the customer"
+        },
+        {
+          "name": "customerProvinceState",
+          "displayName": "Customer Province/State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Province or state of the customer"
+        },
+        {
+          "name": "customerPostalCode",
+          "displayName": "Customer Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code of the customer"
+        },
+        {
+          "name": "customerCountry",
+          "displayName": "Customer Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country code of the customer (e.g., US, CA)"
+        },
+        {
+          "name": "invoiceDate",
+          "displayName": "Invoice Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date of the invoice"
+        },
+        {
+          "name": "invoiceStatus",
+          "displayName": "Invoice Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Initial status of the invoice"
+        },
+        {
+          "name": "currencyCode",
+          "displayName": "Currency Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code (e.g., USD, EUR)"
+        },
+        {
+          "name": "noteToCustomer",
+          "displayName": "Note to Customer",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes for the customer"
+        },
+        {
+          "name": "lineItems",
+          "displayName": "Line Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Products or services being billed"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Description of the item"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of items"
+        },
+        {
+          "name": "unitPrice",
+          "displayName": "Unit Price",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Price per item"
+        }
+      ]
+    },
+    "delete_invoice": {
+      "displayName": "Delete Invoice",
+      "description": "Permanently deletes an invoice",
+      "props": [
+        {
+          "name": "invoiceId",
+          "displayName": "Invoice ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID or invoice number of the invoice to delete"
+        }
+      ]
+    },
+    "get_invoice": {
+      "displayName": "Get Invoice",
+      "description": "Gets detailed information about a specific invoice",
+      "props": [
+        {
+          "name": "invoiceId",
+          "displayName": "Invoice ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID or invoice number of the invoice to retrieve"
+        }
+      ]
+    },
+    "mark_invoice_cancelled": {
+      "displayName": "Mark Invoice Cancelled",
+      "description": "Marks an invoice currently in final as cancelled",
+      "props": [
+        {
+          "name": "invoiceId",
+          "displayName": "Invoice ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID or invoice number of the invoice to mark as cancelled"
+        }
+      ]
+    },
+    "mark_invoice_final": {
+      "displayName": "Mark Invoice Final",
+      "description": "Marks an invoice currently in draft as final and ready to accept payment",
+      "props": [
+        {
+          "name": "invoiceId",
+          "displayName": "Invoice ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID or invoice number of the invoice to mark as final"
+        }
+      ]
+    },
+    "mark_invoice_paid": {
+      "displayName": "Mark Invoice Paid",
+      "description": "Marks an existing final invoice as paid",
+      "props": [
+        {
+          "name": "invoiceId",
+          "displayName": "Invoice ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID or invoice number of the invoice to mark as paid"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

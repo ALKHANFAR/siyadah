@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "industry": "construction",
+    "industry_ar": "مقاولات",
+    "version": "1.0.0",
+    "dialect": "saudi",
+    "total_templates": 8,
+    "variable_style": "{{category.variable}}"
+  },
+  "templates": {
+    "welcome": {
+      "id": "construction_welcome",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}} 👋\n\nشكراً لتواصلك مع {{company.company_name}}.\nوصلنا طلبك وفريقنا بيراجعه ويتواصل معك قريباً.\n\nللاستفسار: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "follow_up_day3": {
+      "id": "construction_followup_day3",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nنود الاطمئنان عن مشروعك مع {{company.company_name}}. لو عندك أي أسئلة أو تحتاج تحديث، تواصل معنا.\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "follow_up_day7": {
+      "id": "construction_followup_day7",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nنبيك تعرف إن فريق {{company.company_name}} متابع مشروعك. لو تبي تحديث أو عندك ملاحظات، نحن هنا.\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "reassuring"
+    },
+    "complaint_ack": {
+      "id": "construction_complaint_ack",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} وصلنا ملاحظتك ✅\n\nرقم الشكوى: {{complaint.number}}\nفريقنا الفني بيراجع الموضوع ويتواصل معك خلال 24 ساعة.\n\nنقدّر صبرك 🙏\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "complaint.number", "company.signature"],
+      "max_length": 500,
+      "tone": "empathetic"
+    },
+    "invoice_gentle": {
+      "id": "construction_invoice_gentle",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nتذكير بمستخلص/فاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال.\nتاريخ الاستحقاق: {{invoice.due_date}}\n\nللتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "invoice.number", "invoice.amount", "invoice.due_date", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "invoice_firm": {
+      "id": "construction_invoice_firm",
+      "channel": "whatsapp",
+      "text": "{{customer.name}}\n\nالفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال متأخرة {{invoice.days_overdue}} يوم.\n\nنرجو المراجعة والسداد. التأخير يؤثر على جدول المشروع.\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "invoice.number", "invoice.amount", "invoice.days_overdue", "company.signature"],
+      "max_length": 500,
+      "tone": "firm"
+    },
+    "review_request": {
+      "id": "construction_review",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} شكراً لثقتك في {{company.company_name}} 🏗️\n\nرأيك عن المشروع يهمنا. كلمتين عن تجربتك تساعدنا نتطور.\n\nشكراً! 🙏\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "project_update": {
+      "id": "construction_project_update",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} 🏗️\n\nتحديث عن مشروعك مع {{company.company_name}}:\n\nالمرحلة الحالية: {{project.current_phase}}\nنسبة الإنجاز: {{project.progress}}%\n\nللاستفسار: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "project.current_phase", "project.progress", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "informative"
+    }
+  }
+}

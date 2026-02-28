@@ -1,0 +1,30 @@
+{
+  "id": "runware",
+  "displayName": "Runware",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generateImagesFromExistingImage": {
+      "displayName": "Generate Images from Existing Image",
+      "description": "Generate new images based on a provided image (image-to-image).",
+      "props": []
+    },
+    "generateImagesFromText": {
+      "displayName": "Generate Images from Text",
+      "description": "Produce images from a text description.",
+      "props": []
+    },
+    "generateVideoFromText": {
+      "displayName": "Generate Video from Text",
+      "description": "Generate video from text prompt.",
+      "props": []
+    },
+    "imageBackgroundRemoval": {
+      "displayName": "Image Background Removal",
+      "description": "Request image background removal.",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

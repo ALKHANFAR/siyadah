@@ -1,0 +1,419 @@
+{
+  "id": "invoiceninja",
+  "displayName": "Base URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "action_recurring_invoice": {
+      "displayName": "Perform Action on Recurring Invoice",
+      "description": "Actions include: start, stop, send_now, restore, archive, delete.",
+      "props": [
+        {
+          "name": "recurring_id",
+          "displayName": "Recurring Invoice ID (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Recurring Invoice ID from Invoice Ninja"
+        },
+        {
+          "name": "actionRecurring",
+          "displayName": "Action to perform",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose one"
+        }
+      ]
+    },
+    "create_client": {
+      "displayName": "Create Client",
+      "description": "Creates a new client in InvoiceNinja.",
+      "props": [
+        {
+          "name": "client_first_name",
+          "displayName": "Client First Name (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact first name for this client (optional)"
+        },
+        {
+          "name": "client_last_name",
+          "displayName": "Client Last Name (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact last name for this client (optional)"
+        },
+        {
+          "name": "client_phone",
+          "displayName": "Client Contact No (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact number for this client (optional)"
+        },
+        {
+          "name": "client_email",
+          "displayName": "Client e-mail (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact email for this client (compulsory)"
+        },
+        {
+          "name": "client_send_email",
+          "displayName": "Send invoices to the client",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Should we send invoices to the client by e-mail?"
+        },
+        {
+          "name": "client_business_name",
+          "displayName": "Business Name (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of this business or natural person (compulsory)"
+        },
+        {
+          "name": "client_tax_no",
+          "displayName": "Client Tax Number (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Leave blank if not a business (optional)"
+        },
+        {
+          "name": "client_private_notes",
+          "displayName": "Private notes for client",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Text not visible for clients (optional)"
+        },
+        {
+          "name": "client_address1",
+          "displayName": "Client address 1 (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Usually street name and number (compulsory)"
+        },
+        {
+          "name": "client_address2",
+          "displayName": "Client address 2 (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional address details (optional)"
+        },
+        {
+          "name": "client_city",
+          "displayName": "Client City/Town (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "City or Town name (compulsory)"
+        },
+        {
+          "name": "client_state",
+          "displayName": "Client State (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or county or similar (optional)"
+        },
+        {
+          "name": "client_postcode",
+          "displayName": "Client Postcode (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code (optional)"
+        }
+      ]
+    },
+    "create_invoice": {
+      "displayName": "Create Invoice",
+      "description": "Creates an invoice in Invoice Ninja for billing purposes.",
+      "props": [
+        {
+          "name": "client_id",
+          "displayName": "Client ID (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Client ID from Invoice Ninja"
+        },
+        {
+          "name": "purchase_order_no",
+          "displayName": "Purchase Order Number (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Descriptive text or arbitrary number (optional)"
+        },
+        {
+          "name": "discount",
+          "displayName": "Apply discount",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter a number for the whole invoice discount"
+        },
+        {
+          "name": "discount_type",
+          "displayName": "Type of discount",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select either amount or percentage for invoice discount. Applies to line items and invoice."
+        },
+        {
+          "name": "public_notes",
+          "displayName": "Public notes for invoice",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Text that may be visible in the client portal (optional)"
+        },
+        {
+          "name": "private_notes",
+          "displayName": "Private notes for invoice",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Text not visible for clients (optional)"
+        },
+        {
+          "name": "order_items_json",
+          "displayName": "Order Items JSON string",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "e.g., [{ \"quantity\":1,\"product_key\":\"product key\", \"discount\": \"0\" }]"
+        },
+        {
+          "name": "send_email",
+          "displayName": "Send invoice to the client by InvoiceNinja e-mail?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Should we send the invoice to the client on creation?"
+        },
+        {
+          "name": "mark_sent",
+          "displayName": "Mark the invoice as sent?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Makes the invoice active otherwise remains pending."
+        },
+        {
+          "name": "due_date",
+          "displayName": "Invoice due date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "e.g., 2024-01-20"
+        }
+      ]
+    },
+    "create_recurring_invoice": {
+      "displayName": "Create Recurring Invoice",
+      "description": "Creates a recurring invoice in Invoice Ninja for billing purposes.",
+      "props": [
+        {
+          "name": "client_id",
+          "displayName": "Client ID (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Client ID from Invoice Ninja"
+        },
+        {
+          "name": "purchase_order_no",
+          "displayName": "Purchase Order Number (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Descriptive text or arbitrary number (optional)"
+        },
+        {
+          "name": "discount",
+          "displayName": "Apply discount",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter a number for the whole invoice discount"
+        },
+        {
+          "name": "discount_type",
+          "displayName": "Type of discount",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select either amount or percentage for invoice discount. Applies to line items and invoice."
+        },
+        {
+          "name": "public_notes",
+          "displayName": "Public notes for invoice",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Text that may be visible in the client portal (optional)"
+        },
+        {
+          "name": "private_notes",
+          "displayName": "Private notes for invoice",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Text not visible for clients (optional)"
+        },
+        {
+          "name": "order_items_json",
+          "displayName": "Order Items JSON string",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "e.g., [{ \"quantity\":1,\"product_key\":\"product key\", \"discount\": \"0\" }]"
+        },
+        {
+          "name": "frequency",
+          "displayName": "Frequency of billing",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose one"
+        },
+        {
+          "name": "nocycles",
+          "displayName": "No of billing cycles",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter a number. How many times should this bill be generated"
+        },
+        {
+          "name": "auto_frequency",
+          "displayName": "Override Frequency using Frequency ID (optional)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter a number. 1-12 - corresponds to dropdown above [Daily being 1, Weekly 2 etc..]!"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Invoice next send date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "e.g., 2024-01-20"
+        },
+        {
+          "name": "last_date",
+          "displayName": "Invoice last sent date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "e.g., 2024-01-20"
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Creates a task instance in Invoice Ninja for billing purposes.",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Task or Ticket Number (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A unique task or ticket number that has not been used before in Invoice Ninja"
+        },
+        {
+          "name": "client_id",
+          "displayName": "Client ID (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Client ID from Invoice Ninja (optional)"
+        },
+        {
+          "name": "project_id",
+          "displayName": "Project ID (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Project ID from Invoice Ninja (optional)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description of task",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Description of task to be billed"
+        },
+        {
+          "name": "rate",
+          "displayName": "Custom hourly rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Custom hourly rate (optional) otherwise default used"
+        }
+      ]
+    },
+    "getclient_task": {
+      "displayName": "Get Client Details from e-mail",
+      "description": "Gets the client details if they exist by e-mail.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Client e-mail address",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A valid e-mail address to get client details for"
+        }
+      ]
+    },
+    "getinvoices_task": {
+      "displayName": "Get Invoices",
+      "description": "Gets data for invoices.",
+      "props": [
+        {
+          "name": "invoiceStatus",
+          "displayName": "Invoice Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the invoice status for filtering."
+        },
+        {
+          "name": "clientID",
+          "displayName": "Client ID",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Filter by Client ID, default is all clients."
+        },
+        {
+          "name": "numberOfResults",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return. 9999 is default."
+        }
+      ]
+    },
+    "getreport_task": {
+      "displayName": "Get Report",
+      "description": "Gets report data from InvoiceNinja.",
+      "props": [
+        {
+          "name": "reportType",
+          "displayName": "Report Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the report type."
+        },
+        {
+          "name": "clientID",
+          "displayName": "Client ID",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Filter by Client ID, default is all clients."
+        },
+        {
+          "name": "numberOfResults",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return. 9999 is default."
+        }
+      ]
+    },
+    "exists_task": {
+      "displayName": "Check Task Existence",
+      "description": "Verify if a Task Already Exists",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Task or Ticket Number (alphanumeric)",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A task or ticket number to check"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

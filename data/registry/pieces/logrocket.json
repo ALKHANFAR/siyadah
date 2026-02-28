@@ -1,0 +1,32 @@
+{
+  "id": "logrocket",
+  "package": "@activepieces/piece-logrocket",
+  "display_name": "LogRocket",
+  "display_name_ar": "LogRocket",
+  "description": "Get AI-generated summaries of user sessions to understand customer behavior and troubleshoot issues faster.",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "identifyUser",
+      "display_name": "Identify User",
+      "description": "Create or update user information and traits in LogRocket to contextualize user behavior."
+    },
+    {
+      "name": "requestHighlights",
+      "display_name": "Request Highlights",
+      "description": "Request session highlights for a user. Results will be sent to the webhook URL when ready."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "highlightsReady",
+      "display_name": "Highlights Ready",
+      "description": "Trigger when session highlights are ready. Use this webhook URL when requesting highlights.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/logrocket"
+}

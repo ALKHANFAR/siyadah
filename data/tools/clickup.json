@@ -1,0 +1,648 @@
+{
+  "id": "clickup",
+  "package": "@activepieces/piece-clickup",
+  "version": "0.4.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "api_key"
+    ]
+  },
+  "actions": {
+    "get_accessible_custom_fields": {
+      "displayName": "Get Accessible Custom Fields",
+      "description": "View the Custom Fields available on tasks in a specific List.",
+      "props": []
+    },
+    "set_custom_fields_value": {
+      "displayName": "Set Custom Field Value",
+      "description": "Add data to a Custom field on a task.",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create_folderless_list": {
+      "displayName": "Create Folderless List",
+      "description": "Create a new folderless list in a ClickUp workspace and space",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_list": {
+      "displayName": "Get List",
+      "description": "Gets a list in a ClickUp",
+      "props": [
+        {
+          "name": "list_id",
+          "displayName": "List ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_space": {
+      "displayName": "Get Space",
+      "description": "Gets a space in a ClickUp",
+      "props": []
+    },
+    "get_spaces": {
+      "displayName": "Get Spaces",
+      "description": "Gets spaces in a ClickUp workspace",
+      "props": []
+    },
+    "list_workspace_tasks": {
+      "displayName": "List Team Tasks",
+      "description": "Retrieves the tasks that meet specific criteria from a Workspace.",
+      "props": [
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "reverse",
+          "displayName": "Reverse",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "include_closed",
+          "displayName": "Include Closed",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Update task in a ClickUp workspace and list",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "description",
+          "displayName": "Task Description",
+          "type": "LONG_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "get_list_task": {
+      "displayName": "Get Task",
+      "description": "Gets a task in a ClickUp list",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "include_subtasks",
+          "displayName": "Include Subtasks",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a new task in a ClickUp workspace and list",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "is_markdown",
+          "displayName": "Is Markdown",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "due_date_time",
+          "displayName": "Due Date Time",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "start_date_time",
+          "displayName": "Start Date Time",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "time_estimate",
+          "displayName": "Time Estimate",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "check_required_custom_fields",
+          "displayName": "Check Required Custom Fields",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "custom_fields_info",
+          "displayName": "Custom Fields",
+          "type": "MARKDOWN",
+          "required": true
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": true
+        }
+      ]
+    },
+    "create_task_from_template": {
+      "displayName": "Create Task From Template",
+      "description": "Create a new task from Template",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_task_by_name": {
+      "displayName": "Get Task by Name",
+      "description": "Fetches a task by name in a ClickUp list",
+      "props": [
+        {
+          "name": "task_name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "list_workspace_time_entries": {
+      "displayName": "List Time Entries",
+      "description": "Retrieves time entries filtered by start and end date.",
+      "props": [
+        {
+          "name": "start_date",
+          "displayName": "Start date",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "end_date",
+          "displayName": "End date",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "include_task_tags",
+          "displayName": "Include task tags",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "include_location_names",
+          "displayName": "Include location names",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "delete_task": {
+      "displayName": "Delete Task",
+      "description": "Delete a task in a workspace and list",
+      "props": []
+    },
+    "create_subtask": {
+      "displayName": "Create Subtask",
+      "description": "Creates a subtask in ClickUp",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Subtask Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Subtask Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "is_markdown",
+          "displayName": "Is Markdown",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "due_date_time",
+          "displayName": "Due Date Time",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "start_date_time",
+          "displayName": "Start Date Time",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "time_estimate",
+          "displayName": "Time Estimate",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "check_required_custom_fields",
+          "displayName": "Check Required Custom Fields",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "custom_fields_info",
+          "displayName": "Custom Fields",
+          "type": "MARKDOWN",
+          "required": true
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": true
+        }
+      ]
+    },
+    "create_task_comments": {
+      "displayName": "Create Task Comment",
+      "description": "Creates a comment on a task in ClickUp",
+      "props": [
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_task_comments": {
+      "displayName": "Get Task Comments",
+      "description": "Gets comments from a task in ClickUp",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "update_message": {
+      "displayName": "Update Message",
+      "description": "Updates a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "content",
+          "displayName": "Message Content",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "content_format",
+          "displayName": "Message Content Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "get_channel": {
+      "displayName": "Get Channel",
+      "description": "Gets a channel in a ClickUp workspace",
+      "props": []
+    },
+    "create_channel": {
+      "displayName": "Create Channel",
+      "description": "Creates a channel in a ClickUp workspace",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Channel Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Channel Description",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "topic",
+          "displayName": "Channel Topic",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "visibility",
+          "displayName": "Channel Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "get_message_replies": {
+      "displayName": "Get Message Replies",
+      "description": "Gets the replies of a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "delete_message_reaction": {
+      "displayName": "Delete Message Reaction",
+      "description": "Deletes a reaction from a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "reaction_id",
+          "displayName": "Reaction ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create_message": {
+      "displayName": "Create Message",
+      "description": "Creates a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Message Content",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "type",
+          "displayName": "Message Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "create_message_reply": {
+      "displayName": "Create Message Reply",
+      "description": "Creates a reply to a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "content",
+          "displayName": "Message Content",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "type",
+          "displayName": "Message Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "create_channel_in_space_folder_list": {
+      "displayName": "Create Channel in Space/Folder/List",
+      "description": "Creates a channel in a ClickUp workspace in a space, folder or list",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Channel Description",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "topic",
+          "displayName": "Channel Topic",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "locationType",
+          "displayName": "Location Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "locationId",
+          "displayName": "Location ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "visibility",
+          "displayName": "Channel Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "delete_message": {
+      "displayName": "Delete Message",
+      "description": "Deletes a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_channel_messages": {
+      "displayName": "Get Channel Messages",
+      "description": "Gets all messages in a ClickUp channel",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "content_format",
+          "displayName": "Format Content",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        }
+      ]
+    },
+    "create_message_reaction": {
+      "displayName": "Create Message Reaction",
+      "description": "Creates a reaction to a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "emoji",
+          "displayName": "Emoji",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_channels": {
+      "displayName": "Get Channels",
+      "description": "Gets all channels in a ClickUp workspace",
+      "props": [
+        {
+          "name": "include_hidden",
+          "displayName": "Include Hidden",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false
+        }
+      ]
+    },
+    "get_message_reactions": {
+      "displayName": "Get Message Reactions",
+      "description": "Gets the reactions of a message in a ClickUp channel",
+      "props": [
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "clickup_trigger_${name}": {
+      "displayName": "clickup_trigger_${name}",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_tag_updated": {
+      "displayName": "Task Tag Updated",
+      "description": "Triggered when a tag is added or removed or renamed on a task.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  },
+  "common_errors": [
+    {
+      "code": "LIST_NOT_FOUND",
+      "cause": "List deleted",
+      "auto_fix": "Alert user",
+      "severity": "high"
+    },
+    {
+      "code": "RATE_LIMITED",
+      "cause": "100/minute limit",
+      "auto_fix": "Queue with delay",
+      "severity": "low"
+    }
+  ],
+  "limits": {
+    "api_calls_per_minute": 100
+  },
+  "notes": "More powerful than Trello. Growing in MENA business.",
+  "displayName": "ClickUp"
+}

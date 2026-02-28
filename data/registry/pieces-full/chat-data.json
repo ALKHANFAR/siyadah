@@ -1,0 +1,45 @@
+{
+  "id": "chat-data",
+  "package": "@activepieces/piece-chat-data",
+  "display_name": "Chat Data",
+  "display_name_ar": "",
+  "description": "Build AI-chatbots with support for live chat escalation, knowledge bases, or custom backend endpoints.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_chatbot",
+      "display_name": "Create Chatbot",
+      "description": "Create and train a chatbot using custom data, medical models, or custom models. Training takes 1-2 minutes."
+    },
+    {
+      "name": "delete_chatbot",
+      "display_name": "Delete Chatbot",
+      "description": "Delete a chatbot and all its associated data (training data, conversations, leads, etc.). This action is irreversible."
+    },
+    {
+      "name": "retrain_chatbot",
+      "display_name": "Retrain Chatbot",
+      "description": "Retrain an existing chatbot with new data or remove existing data (custom-data-upload model only)"
+    },
+    {
+      "name": "send_message",
+      "display_name": "Send Message to Chatbot",
+      "description": "Send messages to a chatbot and receive a response with support for streaming and OpenAI-compatible formats"
+    },
+    {
+      "name": "update_chatbot_settings",
+      "display_name": "Update Chatbot Settings",
+      "description": "Update comprehensive settings for a chatbot including name, prompts, behavior, and appearance"
+    },
+    {
+      "name": "upload_file",
+      "display_name": "Upload File",
+      "description": "Upload a file to be used with a chatbot for training or knowledge base"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

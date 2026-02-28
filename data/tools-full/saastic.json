@@ -1,0 +1,90 @@
+{
+  "id": "saastic",
+  "displayName": "Api Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_charge": {
+      "displayName": "Create a Customer Charge",
+      "description": "Creates a customer charge.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The customer's email address."
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The amount charged in the smallest currency unit."
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ISO currency code."
+        },
+        {
+          "name": "charged_at",
+          "displayName": "Charge date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date the customer was charged."
+        }
+      ]
+    },
+    "create_customer": {
+      "displayName": "Create or Update a Customer",
+      "description": "Create or update a customer.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The customer's first name."
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The customer's last name."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The customer's email address."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The customer's phone number. Ex: +15555555555"
+        },
+        {
+          "name": "signed_up_at",
+          "displayName": "Signup Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date the customer signed up."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

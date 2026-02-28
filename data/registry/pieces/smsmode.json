@@ -1,0 +1,25 @@
+{
+  "id": "smsmode",
+  "package": "@activepieces/piece-smsmode",
+  "display_name": "smsmode",
+  "display_name_ar": "smsmode",
+  "description": "smsmode is an SMS messaging platform that allows you to send and receive SMS messages easily.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "sendMessage",
+      "display_name": "Send Message",
+      "description": "Send an SMS message to a recipient"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/smsmode"
+}

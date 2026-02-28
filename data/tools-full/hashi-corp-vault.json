@@ -1,0 +1,109 @@
+{
+  "id": "hashi-corp-vault",
+  "displayName": "HashiCorp Vault",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "delete_secret": {
+      "displayName": "Delete Secret",
+      "description": "Delete a secret from HashiCorp Vault",
+      "props": [
+        {
+          "name": "secretEngine",
+          "displayName": "Secret Engine",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the secrets engine (mount path)"
+        },
+        {
+          "name": "secretPath",
+          "displayName": "Secret Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path to the secret to delete (e.g., myapp/database)"
+        }
+      ]
+    },
+    "list_secrets": {
+      "displayName": "List Secrets",
+      "description": "List secrets at a path in HashiCorp Vault",
+      "props": [
+        {
+          "name": "secretEngine",
+          "displayName": "Secret Engine",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the secrets engine (mount path)"
+        },
+        {
+          "name": "listPath",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The path to list secrets from (e.g., myapp/)"
+        }
+      ]
+    },
+    "read_secret": {
+      "displayName": "Read Secret",
+      "description": "Read a secret from HashiCorp Vault",
+      "props": [
+        {
+          "name": "secretEngine",
+          "displayName": "Secret Engine",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the secrets engine (mount path)"
+        },
+        {
+          "name": "secretPath",
+          "displayName": "Secret Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path to the secret (e.g., myapp/database)"
+        },
+        {
+          "name": "version",
+          "displayName": "Version",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Version of the secret to read (0 for latest, KV v2 only)"
+        }
+      ]
+    },
+    "write_secret": {
+      "displayName": "Write Secret",
+      "description": "Write a secret to HashiCorp Vault",
+      "props": [
+        {
+          "name": "secretEngine",
+          "displayName": "Secret Engine",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the secrets engine (mount path)"
+        },
+        {
+          "name": "secretPath",
+          "displayName": "Secret Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path to store the secret (e.g., myapp/database)"
+        },
+        {
+          "name": "secretData",
+          "displayName": "Secret Data",
+          "type": "JSON",
+          "required": true,
+          "description": "The secret data to store as JSON"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

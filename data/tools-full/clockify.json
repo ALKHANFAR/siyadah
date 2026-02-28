@@ -1,0 +1,165 @@
+{
+  "id": "clockify",
+  "displayName": "Clockify",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create-task": {
+      "displayName": "Create Task",
+      "description": "Creates a new in a specific project.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-time-entry": {
+      "displayName": "Create Time Entry",
+      "description": "Creates a new time entry.",
+      "props": [
+        {
+          "name": "start",
+          "displayName": "Start Datetime",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "end",
+          "displayName": "End Datetime",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Entry Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find-running-timer": {
+      "displayName": "Find Running Timer",
+      "description": "Finds currently running timer on specified workspace.",
+      "props": []
+    },
+    "find-task": {
+      "displayName": "Find Task",
+      "description": "Finds an existing task in a specific project.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "exactMatch",
+          "displayName": "Exact Match ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find-time-entry": {
+      "displayName": "Find Time Entry",
+      "description": "Finds a time entry by description, start datetime or end datetime.",
+      "props": [
+        {
+          "name": "start",
+          "displayName": "Start Datetime",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "end",
+          "displayName": "End Datetime",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Entry Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "start-timer": {
+      "displayName": "Start Timer",
+      "description": "Starts a new time entry.",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Entry Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "stop-timer": {
+      "displayName": "Stop Timer",
+      "description": "Stops currently running timer on specified workspace.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-task": {
+      "displayName": "New Task",
+      "description": "Triggers when a new task is created in specified project.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-time-entry": {
+      "displayName": "New Time Entry",
+      "description": "Triggers when a new time entry is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-timer-started": {
+      "displayName": "New Timer Started",
+      "description": "Triggers when a new entry is started and running.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

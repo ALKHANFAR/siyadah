@@ -1,0 +1,35 @@
+{
+  "id": "line",
+  "displayName": "Bot Token",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "push_message": {
+      "displayName": "Push Message",
+      "description": "Push message to the line account",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user id can be obtained from the webhook payload"
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

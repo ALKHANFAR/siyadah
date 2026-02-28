@@ -1,0 +1,190 @@
+{
+  "id": "simpliroute",
+  "package": "@activepieces/piece-simpliroute",
+  "display_name": "SimpliRoute",
+  "display_name_ar": "SimpliRoute",
+  "description": "Connect with SimpliRoute, the last-mile delivery optimization platform. Manage clients, vehicles, visits, routes, and optimize your delivery operations.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_fleets",
+      "display_name": "Get Fleets",
+      "description": "Retrieve the list of fleets available in the account."
+    },
+    {
+      "name": "get_zones",
+      "display_name": "Get Zones",
+      "description": "Retrieve the list of zones available in the account."
+    },
+    {
+      "name": "get_observations",
+      "display_name": "Get Observations",
+      "description": "Retrieve the list of observations available in the account."
+    },
+    {
+      "name": "get_skills",
+      "display_name": "Get Skills",
+      "description": "Retrieve the list of skills available in the account."
+    },
+    {
+      "name": "get_sellers",
+      "display_name": "Get Sellers",
+      "description": "Retrieve the list of sellers available in the account."
+    },
+    {
+      "name": "get_tags",
+      "display_name": "Get Tags",
+      "description": "Retrieve the list of tags available in the account."
+    },
+    {
+      "name": "update_visit",
+      "display_name": "Update Visit (Complete)",
+      "description": "Completely update an existing visit with all fields."
+    },
+    {
+      "name": "delete_visit",
+      "display_name": "Delete Visit",
+      "description": "Delete a visit by its ID."
+    },
+    {
+      "name": "get_visit_detail",
+      "display_name": "Get Visit Detail",
+      "description": "Get detailed information about a specific visit."
+    },
+    {
+      "name": "create_visits",
+      "display_name": "Create Visits",
+      "description": "Create visits. Multiple visits can be created in a single request."
+    },
+    {
+      "name": "get_visits",
+      "display_name": "Get Visits",
+      "description": "Retrieve all registered visits. Can be filtered by planned visit date."
+    },
+    {
+      "name": "get_visit",
+      "display_name": "Get Visit",
+      "description": "Retrieve details of a specific visit by ID."
+    },
+    {
+      "name": "add_visit_items",
+      "display_name": "Add Visit Items",
+      "description": "Add items to an existing visit."
+    },
+    {
+      "name": "update_visit_partial",
+      "display_name": "Update Visit (Partial)",
+      "description": "Partially update fields of an existing visit."
+    },
+    {
+      "name": "get_plans",
+      "display_name": "Get Plans",
+      "description": "Retrieve the list of saved routing plans (executions)."
+    },
+    {
+      "name": "get_plan_vehicles",
+      "display_name": "Get vehicles with routes on date",
+      "description": "Returns the vehicles that have planned routes on the indicated date."
+    },
+    {
+      "name": "create_plan",
+      "display_name": "Create an empty plan",
+      "description": "Create an empty plan (execution) without routes (reserve a planning day)."
+    },
+    {
+      "name": "get_me",
+      "display_name": "Get Account Details",
+      "description": "Returns account information of the authenticated user via API token."
+    },
+    {
+      "name": "create_vehicle",
+      "display_name": "Create Vehicle",
+      "description": "Register a new vehicle in the account."
+    },
+    {
+      "name": "delete_vehicle",
+      "display_name": "Delete Vehicle",
+      "description": "Delete a vehicle by its ID."
+    },
+    {
+      "name": "get_vehicles",
+      "display_name": "Get Vehicles",
+      "description": "Retrieve the list of vehicles registered in the account."
+    },
+    {
+      "name": "get_vehicle",
+      "display_name": "Get Vehicle",
+      "description": "Retrieve information of a specific vehicle."
+    },
+    {
+      "name": "create_client_property",
+      "display_name": "Create Client Custom Property",
+      "description": "Create a new custom attribute for clients."
+    },
+    {
+      "name": "get_clients",
+      "display_name": "Get Clients",
+      "description": "Retrieves the list of clients associated with the account. Can filter by client key."
+    },
+    {
+      "name": "create_clients",
+      "display_name": "Create Clients",
+      "description": "Create one or multiple new clients in the account."
+    },
+    {
+      "name": "bulk_delete_clients",
+      "display_name": "Bulk Delete Clients",
+      "description": "Delete multiple clients in a single call."
+    },
+    {
+      "name": "delete_route",
+      "display_name": "Delete Route",
+      "description": "Delete a route by its ID."
+    },
+    {
+      "name": "create_route",
+      "display_name": "Create Route",
+      "description": "Create a new route manually by assigning vehicle, driver and date."
+    },
+    {
+      "name": "get_routes",
+      "display_name": "Get Routes",
+      "description": "Retrieve the list of existing routes."
+    },
+    {
+      "name": "get_route",
+      "display_name": "Get Route",
+      "description": "Retrieve details of a specific route."
+    },
+    {
+      "name": "create_users",
+      "display_name": "Create User",
+      "description": "Create new user/driver in the account."
+    },
+    {
+      "name": "update_user",
+      "display_name": "Update User",
+      "description": "Update information of an existing user."
+    },
+    {
+      "name": "get_user",
+      "display_name": "Get User",
+      "description": "Retrieve information of a specific user by ID."
+    },
+    {
+      "name": "get_drivers",
+      "display_name": "Get Drivers",
+      "description": "Retrieve the list of drivers registered in the account."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/simpliroute"
+}

@@ -1,0 +1,2102 @@
+{
+  "id": "linka",
+  "displayName": "Linka",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addOrUpdateContactExtended": {
+      "displayName": "Add or Update Contact (Extended)",
+      "description": "Adds or updates a contact (extended version)",
+      "props": [
+        {
+          "name": "matchExisting",
+          "displayName": "Match Existing Contact",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If \"Yes\", will try to find an existing record using Email and Full Name and update it."
+        },
+        {
+          "name": "overrideLists",
+          "displayName": "Override Lists",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If \"Yes\", will override lists of contact details in update mode instead of merging them - lists, tags, emails, phones, links, addresses, photos."
+        },
+        {
+          "name": "ignoreInvalidValues",
+          "displayName": "Ignore Invalid Values",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If \"Yes\", will save the record even if there are some validation errors."
+        },
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sperse Contact ID. Will be used for looking a client"
+        },
+        {
+          "name": "contactXref",
+          "displayName": "Contact XREF",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "This is string external reference that can be passed during creation and then if sent again it will update the record."
+        },
+        {
+          "name": "importType",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "createUser",
+          "displayName": "Create User",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If \"Yes\" then User will be created. Personal email will be used as User Name."
+        },
+        {
+          "name": "sendWelcomeEmail",
+          "displayName": "Send Welcome Email",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If \"Yes\" then Welcome Email will be sent to the newly created user."
+        },
+        {
+          "name": "userPassword",
+          "displayName": "User Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If password is not passed then it will be automatically generated."
+        },
+        {
+          "name": "namePrefix",
+          "displayName": "Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title used to address the contact."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Required if Last Name and Company Name fields are empty."
+        },
+        {
+          "name": "middleName",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's middle name."
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Required if First Name and Company Name fields are empty."
+        },
+        {
+          "name": "nickName",
+          "displayName": "Nick Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's nick name."
+        },
+        {
+          "name": "nameSuffix",
+          "displayName": "Suffix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional information about the contact e.g PhD."
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dob",
+          "displayName": "Date of Birth",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD or MM-DD-YYYY."
+        },
+        {
+          "name": "bankCode",
+          "displayName": "Bank Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's 4-letter personality code."
+        },
+        {
+          "name": "ssn",
+          "displayName": "SSN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's social security number."
+        },
+        {
+          "name": "drivingLicense",
+          "displayName": "Driving License",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "drivingLicenseState",
+          "displayName": "Driving License State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "isActiveMilitaryDuty",
+          "displayName": "Is Active Military Duty",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Possible values are: Yes, No. If nothing is chosen that means \"Unknown\"."
+        },
+        {
+          "name": "isUSCitizen",
+          "displayName": "Is US Citizen",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Possible values are: Yes, No. If nothing is chosen that means \"Unknown\"."
+        },
+        {
+          "name": "preferredToD",
+          "displayName": "Preferred Time of Day",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Preferred Time of Day to contact with Client"
+        },
+        {
+          "name": "personAffiliateCode",
+          "displayName": "Person Affiliate Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Affiliate Code is used for the current person detection as a source of new leads. Alphanumeric characters, underscore and hyphen are allowed."
+        },
+        {
+          "name": "email1",
+          "displayName": "Personal Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's personal email."
+        },
+        {
+          "name": "email2",
+          "displayName": "Alternative Personal email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's alternative personal email."
+        },
+        {
+          "name": "email3",
+          "displayName": "Other Personal email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's additional email."
+        },
+        {
+          "name": "workEmail1",
+          "displayName": "Work Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's work email."
+        },
+        {
+          "name": "workEmail2",
+          "displayName": "Alternative Work Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's alternative work email."
+        },
+        {
+          "name": "workEmail3",
+          "displayName": "Other Work Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's other work email."
+        },
+        {
+          "name": "mobilePhone",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's primary phone number."
+        },
+        {
+          "name": "mobilePhoneExt",
+          "displayName": "Mobile Phone Ext",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's primary phone number extension."
+        },
+        {
+          "name": "homePhone",
+          "displayName": "Home Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's home phone number."
+        },
+        {
+          "name": "homePhoneExt",
+          "displayName": "Home Phone Ext",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's home phone number extension."
+        },
+        {
+          "name": "workPhone1",
+          "displayName": "Work Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work phone number."
+        },
+        {
+          "name": "workPhone1Ext",
+          "displayName": "Work Phone Ext",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work phone number extension."
+        },
+        {
+          "name": "workPhone2",
+          "displayName": "Work Phone 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's alternative work phone number."
+        },
+        {
+          "name": "workPhone2Ext",
+          "displayName": "Work Phone 2 Ext",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's alternative work phone number extension."
+        },
+        {
+          "name": "home_street",
+          "displayName": "Home Street",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's full street address (can include apartment or unit number)."
+        },
+        {
+          "name": "home_addressLine2",
+          "displayName": "Address 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "home_city",
+          "displayName": "City",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's city of residence."
+        },
+        {
+          "name": "home_stateName",
+          "displayName": "State Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's state of residence."
+        },
+        {
+          "name": "home_stateId",
+          "displayName": "State Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's state code."
+        },
+        {
+          "name": "home_zip",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's zip/postal code."
+        },
+        {
+          "name": "home_countryName",
+          "displayName": "Country Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's country of residence."
+        },
+        {
+          "name": "home_countryId",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's country code."
+        },
+        {
+          "name": "work_street",
+          "displayName": "Work Street",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's work address."
+        },
+        {
+          "name": "work_addressLine2",
+          "displayName": "Address 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "work_city",
+          "displayName": "City",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's work city."
+        },
+        {
+          "name": "work_stateName",
+          "displayName": "State Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work state."
+        },
+        {
+          "name": "work_stateId",
+          "displayName": "State Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work state code."
+        },
+        {
+          "name": "work_zip",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work zip code."
+        },
+        {
+          "name": "work_countryName",
+          "displayName": "Country Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work country."
+        },
+        {
+          "name": "work_countryId",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work country code."
+        },
+        {
+          "name": "webSiteUrl",
+          "displayName": "Website",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's company website URL."
+        },
+        {
+          "name": "linkedInUrl",
+          "displayName": "LinkedIn",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's LinkedIn profile id."
+        },
+        {
+          "name": "photoUrl",
+          "displayName": "Photo URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's person photo URL."
+        },
+        {
+          "name": "facebookUrl",
+          "displayName": "Facebook",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's Facebook profile id."
+        },
+        {
+          "name": "instagramUrl",
+          "displayName": "Instagram",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's Instagram profile id."
+        },
+        {
+          "name": "twitterUrl",
+          "displayName": "Twitter",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's Twitter profile id."
+        },
+        {
+          "name": "googlePlusUrl",
+          "displayName": "Google Reviews",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's Google reviews."
+        },
+        {
+          "name": "angelListUrl",
+          "displayName": "AngelList",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's AngelList profile id."
+        },
+        {
+          "name": "zoomUrl",
+          "displayName": "Zoom",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's Zoom id."
+        },
+        {
+          "name": "experience",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's professional experience."
+        },
+        {
+          "name": "profileSummary",
+          "displayName": "Profile Summary",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's profile summary."
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the contact"
+        },
+        {
+          "name": "followUpDate",
+          "displayName": "Follow Up Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS. If date is defined then new Follow Up Task will be created for this contact"
+        },
+        {
+          "name": "assignedUser",
+          "displayName": "Assigned User",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Preferably, Sperse User Email should be passed as it is unique within Sperse account but User Name can be also passed"
+        },
+        {
+          "name": "leadDealAmount",
+          "displayName": "Deal Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Estimated deal/opportunity amount."
+        },
+        {
+          "name": "customField1",
+          "displayName": "Custom Field 1",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional custom data for the contact record."
+        },
+        {
+          "name": "customField2",
+          "displayName": "Custom Field 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customField3",
+          "displayName": "Custom Field 3",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customField4",
+          "displayName": "Custom Field 4",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customField5",
+          "displayName": "Custom Field 5",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyName",
+          "displayName": "Company Name",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Name of the contact's company (This field is mandatory if the First Name and Last Name fields are empty)."
+        },
+        {
+          "name": "organizationType",
+          "displayName": "Organization Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "isEmployed",
+          "displayName": "Is Employed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Pass yes if the client is employed in this Organization."
+        },
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's job title."
+        },
+        {
+          "name": "employmentStartDate",
+          "displayName": "Employment Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD or MM-DD-YYYY"
+        },
+        {
+          "name": "employeeCount",
+          "displayName": "Employee Count",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dateFounded",
+          "displayName": "Date Founded",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD or MM-DD-YYYY"
+        },
+        {
+          "name": "ein",
+          "displayName": "EIN",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "annualRevenue",
+          "displayName": "Annual Revenue",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "industry",
+          "displayName": "Industry",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The company's industry."
+        },
+        {
+          "name": "companyPhone",
+          "displayName": "Company Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyPhoneExt",
+          "displayName": "Company Phone Extension",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyFaxNumber",
+          "displayName": "Company Fax Number",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyEmail",
+          "displayName": "Company Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyWebSiteUrl",
+          "displayName": "Company Website",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyFacebookUrl",
+          "displayName": "Company Facebook",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyLinkedInUrl",
+          "displayName": "Company LinkedIn",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyInstagramUrl",
+          "displayName": "Company Instagram",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyTwitterUrl",
+          "displayName": "Company Twitter",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyGooglePlusUrl",
+          "displayName": "Company Google Reviews",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyCrunchbaseUrl",
+          "displayName": "Company Crunchbase",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyBBBUrl",
+          "displayName": "Company BBB URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyZoomUrl",
+          "displayName": "Company Zoom",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyCalendlyUrl",
+          "displayName": "Company Calendly",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyLogoUrl",
+          "displayName": "Company Logo URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyAffiliateCode",
+          "displayName": "Company Affiliate Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_street",
+          "displayName": "Company Street",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_addressLine2",
+          "displayName": "Address 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_stateName",
+          "displayName": "State Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_stateId",
+          "displayName": "State Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_zip",
+          "displayName": "Company Zip Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_countryName",
+          "displayName": "Company Country Name",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_countryId",
+          "displayName": "Company Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "leadSource",
+          "displayName": "Source Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first known source the contact used to find your website. You can set this automatically and update manually later."
+        },
+        {
+          "name": "channelId",
+          "displayName": "Channel Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The channel/medium the contact used to find your website."
+        },
+        {
+          "name": "affiliateCode",
+          "displayName": "Affiliate Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The affiliate/referer partner through which the contact signed up."
+        },
+        {
+          "name": "campaignId",
+          "displayName": "Campaign ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "gclId",
+          "displayName": "Google Click ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "refererURL",
+          "displayName": "Referer URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The webpage where the contact clicked a link that sent them to your website."
+        },
+        {
+          "name": "applicantId",
+          "displayName": "Applicant ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "applicationId",
+          "displayName": "Application ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ipAddress",
+          "displayName": "IP Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "userAgent",
+          "displayName": "User Agent",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "siteId",
+          "displayName": "Site ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "siteUrl",
+          "displayName": "Site URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dateCreated",
+          "displayName": "Date Created",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS"
+        },
+        {
+          "name": "entryUrl",
+          "displayName": "Entry URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The first page of visit through which the contact visited your website."
+        },
+        {
+          "name": "leadStageName",
+          "displayName": "Lead Stage Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first page of visit through which the contact visited your website."
+        },
+        {
+          "name": "star",
+          "displayName": "Star",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "String Value. Supports the following items: Yellow, Blue, Green, Purple, Red. Other values will be skipped."
+        },
+        {
+          "name": "rating",
+          "displayName": "Rating",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "This is the static array from 1 to 10"
+        },
+        {
+          "name": "utmSource",
+          "displayName": "UTM Source",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmMedium",
+          "displayName": "UTM Medium",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmCampaign",
+          "displayName": "UTM Campaign",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmTerm",
+          "displayName": "UTM Term",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmContent",
+          "displayName": "UTM Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmKeyword",
+          "displayName": "UTM Keyword",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmAdGroup",
+          "displayName": "UTM AdGroup",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmName",
+          "displayName": "UTM Name",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "requestCustomField1",
+          "displayName": "Request Custom Field 1",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "requestCustomField2",
+          "displayName": "Request Custom Field 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "requestCustomField3",
+          "displayName": "Request Custom Field 3",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "requestCustomField4",
+          "displayName": "Request Custom Field 4",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "requestCustomField5",
+          "displayName": "Request Custom Field 5",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sub1_productCode",
+          "displayName": "Product Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product Code from the Sperse CRM. Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 1."
+        },
+        {
+          "name": "sub1_paymentPeriodType",
+          "displayName": "Product Payment Period Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The chosen Period Type has to be set for the Product on Sperse side"
+        },
+        {
+          "name": "sub1_systemType",
+          "displayName": "System Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 1."
+        },
+        {
+          "name": "sub1_code",
+          "displayName": "Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Code of subscription service from the Sperse CRM. Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 1."
+        },
+        {
+          "name": "sub1_name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sub1_level",
+          "displayName": "Level",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Code of subscription service level from the Sperse CRM."
+        },
+        {
+          "name": "sub1_startDate",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS."
+        },
+        {
+          "name": "sub1_endDate",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS."
+        },
+        {
+          "name": "sub1_amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sub2_productCode",
+          "displayName": "Product Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product Code from the Sperse CRM. Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 2."
+        },
+        {
+          "name": "sub2_paymentPeriodType",
+          "displayName": "Product Payment Period Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The chosen Period Type has to be set for the Product on Sperse side"
+        },
+        {
+          "name": "sub2_systemType",
+          "displayName": "System Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 2."
+        },
+        {
+          "name": "sub2_code",
+          "displayName": "Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Code of subscription service from the Sperse CRM. Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 2."
+        },
+        {
+          "name": "sub2_name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sub2_level",
+          "displayName": "Level",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Code of subscription service level from the Sperse CRM."
+        },
+        {
+          "name": "sub2_startDate",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS."
+        },
+        {
+          "name": "sub2_endDate",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS."
+        },
+        {
+          "name": "sub2_amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sub3_productCode",
+          "displayName": "Product Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product Code from the Sperse CRM. Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 3."
+        },
+        {
+          "name": "sub3_paymentPeriodType",
+          "displayName": "Product Payment Period Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The chosen Period Type has to be set for the Product on Sperse side"
+        },
+        {
+          "name": "sub3_systemType",
+          "displayName": "System Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 3."
+        },
+        {
+          "name": "sub3_code",
+          "displayName": "Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Code of subscription service from the Sperse CRM. Either Product Code and Payment Period Type or System Type and Code are required fields within Subscription 3."
+        },
+        {
+          "name": "sub3_name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sub3_level",
+          "displayName": "Level",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Code of subscription service level from the Sperse CRM."
+        },
+        {
+          "name": "sub3_startDate",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS."
+        },
+        {
+          "name": "sub3_endDate",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS."
+        },
+        {
+          "name": "sub3_amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "addOrUpdateContact": {
+      "displayName": "Add or Update Contact",
+      "description": "Creates a new contact.",
+      "props": [
+        {
+          "name": "importType",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "matchExisting",
+          "displayName": "Match Existing Contact",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If \"Yes\", will try to find an existing record using Email and Full Name and update it."
+        },
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sperse Contact ID. Will be used for looking a client"
+        },
+        {
+          "name": "fullName",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's full name."
+        },
+        {
+          "name": "namePrefix",
+          "displayName": "Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title used to address the contact."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Required if Last Name and Company Name fields are empty."
+        },
+        {
+          "name": "middleName",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's middle name."
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Required if First Name and Company Name fields are empty."
+        },
+        {
+          "name": "nickName",
+          "displayName": "Nick Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's nick name."
+        },
+        {
+          "name": "nameSuffix",
+          "displayName": "Suffix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional information about the contact e.g PhD."
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dob",
+          "displayName": "Date of Birth",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD or MM-DD-YYYY."
+        },
+        {
+          "name": "bankCode",
+          "displayName": "Bank Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's 4-letter personality code."
+        },
+        {
+          "name": "ssn",
+          "displayName": "SSN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's social security number."
+        },
+        {
+          "name": "companyName",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the contact's company (This field is mandatory if the First Name and Last Name fields are empty)."
+        },
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's job title."
+        },
+        {
+          "name": "industry",
+          "displayName": "Industry",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The company's industry."
+        },
+        {
+          "name": "workEmail1",
+          "displayName": "Work Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's work email."
+        },
+        {
+          "name": "email1",
+          "displayName": "Personal Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's personal email."
+        },
+        {
+          "name": "email2",
+          "displayName": "Other email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's additional email."
+        },
+        {
+          "name": "workPhone1",
+          "displayName": "Work Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's work/primary phone number."
+        },
+        {
+          "name": "homePhone",
+          "displayName": "Home Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's home phone number."
+        },
+        {
+          "name": "mobilePhone",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's mobile phone number."
+        },
+        {
+          "name": "webSiteUrl",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's company website URL."
+        },
+        {
+          "name": "linkedInUrl",
+          "displayName": "LinkedIn",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's LinkedIn profile id."
+        },
+        {
+          "name": "photoUrl",
+          "displayName": "Photo URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's person photo URL."
+        },
+        {
+          "name": "street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's full street address (can include apartment or unit number)."
+        },
+        {
+          "name": "addressLine2",
+          "displayName": "Address 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's city of residence."
+        },
+        {
+          "name": "stateName",
+          "displayName": "State Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's state of residence."
+        },
+        {
+          "name": "stateId",
+          "displayName": "State Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's state code."
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's zip/postal code."
+        },
+        {
+          "name": "countryName",
+          "displayName": "Country Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's country of residence."
+        },
+        {
+          "name": "countryId",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's country code."
+        },
+        {
+          "name": "experience",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's professional experience."
+        },
+        {
+          "name": "profileSummary",
+          "displayName": "Profile Summary",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The contact's profile summary."
+        },
+        {
+          "name": "notes",
+          "displayName": "notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the contact"
+        },
+        {
+          "name": "followUpDate",
+          "displayName": "Follow Up Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid date format YYYY-MM-DD HH:MM:SS. If date is defined then new Follow Up Task will be created for this contact"
+        },
+        {
+          "name": "assignedUser",
+          "displayName": "Assigned User",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Preferably, Sperse User Email should be passed as it is unique within Sperse account but User Name can be also passed"
+        },
+        {
+          "name": "leadDealAmount",
+          "displayName": "Deal Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Estimated deal/opportunity amount."
+        },
+        {
+          "name": "leadSource",
+          "displayName": "Source Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first known source the contact used to find your website. You can set this automatically and update manually later."
+        },
+        {
+          "name": "channelId",
+          "displayName": "Channel Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The channel/medium the contact used to find your website."
+        },
+        {
+          "name": "affiliateCode",
+          "displayName": "Affiliate Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The affiliate/referer partner through which the contact signed up."
+        },
+        {
+          "name": "refererURL",
+          "displayName": "Referer URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The webpage where the contact clicked a link that sent them to your website."
+        },
+        {
+          "name": "entryUrl",
+          "displayName": "Entry URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first page of visit through which the contact visited your website."
+        }
+      ]
+    },
+    "addOrUpdateSubscription": {
+      "displayName": "Add or Update Subscription",
+      "description": "Creates a new subscription.",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "productId",
+          "displayName": "Product ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "contactXref",
+          "displayName": "External Contact ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ContactXref have to be specified and correct to look up the correct contact"
+        },
+        {
+          "name": "productCode",
+          "displayName": "Product Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Product Code (Unique product identifier). ProductCode have to be specified and correct to look up the correct product"
+        },
+        {
+          "name": "paymentPeriodType",
+          "displayName": "Payment Period Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The chosen Period Type has to be set for the Product on Sperse side"
+        },
+        {
+          "name": "hasRecurringBilling",
+          "displayName": "Is it Recurring Billing",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "createInvoice": {
+      "displayName": "Create Invoice",
+      "description": "Creates a new invoice in the CRM.",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sperse Contact ID. Will be used for looking a client"
+        },
+        {
+          "name": "contactXref",
+          "displayName": "External Contact ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External Contact Reference (ID) . Will be used for looking a client"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "invoiceNo",
+          "displayName": "Invoice No.",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "displayName": "Date of the Invoice",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "should be like this: 2024-06-11T11:11:41Z"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date of the Invoice",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "should be like this: 2024-06-11T11:11:41Z"
+        },
+        {
+          "name": "currencyId",
+          "displayName": "Currency Id",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "grandTotal",
+          "displayName": "Grand Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "discountTotal",
+          "displayName": "Discount Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "shippingTotal",
+          "displayName": "Shipping Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "taxTotal",
+          "displayName": "Tax Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bCompany",
+          "displayName": "Billing Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bFirstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bLastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bPhone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bEmail",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bCountryId",
+          "displayName": "Country Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bStateId",
+          "displayName": "State Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bStateName",
+          "displayName": "State Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bCity",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bZip",
+          "displayName": "Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bAddress1",
+          "displayName": "Billing Address 1",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bAddress2",
+          "displayName": "Billing Address 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sCompany",
+          "displayName": "Shipping Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sFirstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sLastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sPhone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sEmail",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sCountryId",
+          "displayName": "Country Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sStateId",
+          "displayName": "State Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sStateName",
+          "displayName": "State Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sCity",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sZip",
+          "displayName": "Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sAddress1",
+          "displayName": "Shipping Address 1",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sAddress2",
+          "displayName": "Shipping Address 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "note",
+          "displayName": "Invoice Note",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "invoiceDescription",
+          "displayName": "Invoice Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "rate",
+          "displayName": "Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "itemTotal",
+          "displayName": "Total Item Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "commissionableAmount",
+          "displayName": "Commissionable Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "unitId",
+          "displayName": "Unit Id",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "productCode",
+          "displayName": "Product Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product Code. We will look up the product"
+        },
+        {
+          "name": "itemDescription",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sortOrder",
+          "displayName": "Sort Order",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "transactionDate",
+          "displayName": "Transaction Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "should be like this: 2024-06-11T11:11:41Z"
+        },
+        {
+          "name": "transactionDescription",
+          "displayName": "Transaction Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "gatewayName",
+          "displayName": "Gateway Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "gatewayTransactionId",
+          "displayName": "Gateway Transaction Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "historicalData",
+          "displayName": "Historical Data",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Pass true if this is not actual transaction. Should be False by default"
+        }
+      ]
+    },
+    "createProduct": {
+      "displayName": "Create Product",
+      "description": "Creates a new product in the CRM",
+      "props": [
+        {
+          "name": "productType",
+          "displayName": "Product Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "code",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sku is the product code"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "descriptionHTML",
+          "displayName": "Description HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Javascript and media tags are not allowed"
+        },
+        {
+          "name": "logoURL",
+          "displayName": "Logo Url",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "groupName",
+          "displayName": "Group Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Required for General , Digital and Event Product Type"
+        },
+        {
+          "name": "currencyId",
+          "displayName": "Currency Id",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Required for General and Digital Product Type"
+        },
+        {
+          "name": "frequency",
+          "displayName": "Payment Cycle",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Required for General and Digital Product Type"
+        },
+        {
+          "name": "fee",
+          "displayName": "Subscription fee",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "cycles",
+          "displayName": "No of cycles",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Required for all except LifeTime or OneTime plan"
+        },
+        {
+          "name": "signupFee",
+          "displayName": "Signup fee",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Required for all except LifeTime or OneTime plan"
+        },
+        {
+          "name": "customPeriodType",
+          "displayName": "Custom Period Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Required for Custom or OneTime Plan"
+        },
+        {
+          "name": "customPeriodCount",
+          "displayName": "Custom No of Period",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Required for Custom or OneTime Plan"
+        },
+        {
+          "name": "trialDayCount",
+          "displayName": "Custom No of Period",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Required for OneTime plan"
+        },
+        {
+          "name": "gracePeriodDayCount",
+          "displayName": "Grace Period Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "getContactDetails": {
+      "displayName": "Get Contact Details",
+      "description": "Get Contact Details",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact Id",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "xref",
+          "displayName": "Contact Xref",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "affiliateCode",
+          "displayName": "Affiliate Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "userId",
+          "displayName": "User Id",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Id of the logged in user (not contact id)"
+        },
+        {
+          "name": "userEmail",
+          "displayName": "User Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Email of the logged in user"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newLead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newPayment": {
+      "displayName": "New Payment",
+      "description": "Triggers when a new payment is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newSubscription": {
+      "displayName": "New Subscription",
+      "description": "triggers when a new subscription is created",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

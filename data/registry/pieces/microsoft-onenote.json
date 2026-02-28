@@ -1,0 +1,52 @@
+{
+  "id": "microsoft-onenote",
+  "package": "@activepieces/piece-microsoft-onenote",
+  "display_name": "Microsoft OneNote",
+  "display_name_ar": "Microsoft OneNote",
+  "description": "Microsoft OneNote is a note-taking app that allows you to create, edit, and share notes with others.",
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "append_note",
+      "display_name": "Append Note",
+      "description": "Append content to the end of an existing note."
+    },
+    {
+      "name": "create_image_note",
+      "display_name": "Create Image Note",
+      "description": "Create a note containing an embedded image via a public image URL."
+    },
+    {
+      "name": "create_note_in_section",
+      "display_name": "Create Note in Section",
+      "description": "Create a new note in a specific section with title and content."
+    },
+    {
+      "name": "create_notebook",
+      "display_name": "Create Notebook",
+      "description": "Creates a notebook."
+    },
+    {
+      "name": "create_page",
+      "display_name": "Create Page",
+      "description": "Creates a page in section."
+    },
+    {
+      "name": "create_section",
+      "display_name": "Create Section",
+      "description": "Creates a new section in notebook."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_note_in_section",
+      "display_name": "New Note in Section",
+      "description": "Fires when a new note is created in a specified section.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/microsoft-onenote"
+}

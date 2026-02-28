@@ -1,0 +1,45 @@
+{
+  "id": "ai",
+  "package": "@activepieces/piece-ai",
+  "display_name": "AI",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "run_agent",
+      "display_name": "Tool Type",
+      "description": "Handles complex, multi-step tasks by reasoning through problems, using tools accurately, and iterating until the job is done."
+    },
+    {
+      "name": "generateImage",
+      "display_name": "Generate Image",
+      "description": "Create unique, high-quality images from simple text descriptions using AI."
+    },
+    {
+      "name": "askAi",
+      "display_name": "Ask AI",
+      "description": "A flexible AI step. ask it to analyze data, explain, draft, or decide based on your flow\\"
+    },
+    {
+      "name": "summarizeText",
+      "display_name": "Summarize Text",
+      "description": "Summarize long emails, articles, or documents into what matters."
+    },
+    {
+      "name": "classifyText",
+      "display_name": "Classify Text",
+      "description": "Categorize any text input using custom labels, so your flow knows what to do next."
+    },
+    {
+      "name": "extractStructuredData",
+      "display_name": "Extract Structured Data",
+      "description": "Accurately Pull names, amounts, and other structured data from emails, invoices, and scanned documents."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

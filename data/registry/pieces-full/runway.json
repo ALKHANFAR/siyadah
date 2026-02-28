@@ -1,0 +1,35 @@
+{
+  "id": "runway",
+  "package": "@activepieces/piece-runway",
+  "display_name": "Runway",
+  "display_name_ar": "",
+  "description": "AI-powered content generation platform for creating high-quality images and videos using text prompts",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "cancel_or_delete_task",
+      "display_name": "Cancel or Delete Task",
+      "description": "Cancel or delete a task. Running/pending tasks are cancelled, completed tasks are deleted."
+    },
+    {
+      "name": "generate_image_from_text",
+      "display_name": "Generate Image From Text",
+      "description": "Generates an image using a text prompt via Runway\\"
+    },
+    {
+      "name": "generate_video_from_image",
+      "display_name": "Generate Video From Image",
+      "description": "Generates a video based on image(s) and text prompt using Runway\\"
+    },
+    {
+      "name": "get_task_details",
+      "display_name": "Get Task Details",
+      "description": "Retrieve details of an existing Runway task by its ID"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

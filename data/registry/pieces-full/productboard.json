@@ -1,0 +1,54 @@
+{
+  "id": "productboard",
+  "package": "@activepieces/piece-productboard",
+  "display_name": "Productboard",
+  "display_name_ar": "",
+  "description": "Productboard is a product management tool that helps you manage your product roadmap and features.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_feature",
+      "display_name": "Create Feature",
+      "description": "Create a new feature in Productboard"
+    },
+    {
+      "name": "create_note",
+      "display_name": "Create Note",
+      "description": "Creates a new note in Productboard"
+    },
+    {
+      "name": "get_feature",
+      "display_name": "Get Feature",
+      "description": "Retrieves an existing feature."
+    },
+    {
+      "name": "update_feature",
+      "display_name": "Update Feature",
+      "description": "Updates an existing feature in Productboard."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_feature",
+      "display_name": "New Feature",
+      "description": "Triggers when a new feature is created in Productboard",
+      "type": "instant"
+    },
+    {
+      "name": "new_note",
+      "display_name": "New Note",
+      "description": "Triggers when a new note is created in Productboard",
+      "type": "instant"
+    },
+    {
+      "name": "updated_feature",
+      "display_name": "Updated Feature",
+      "description": "Triggers when an existing feature is updated in Productboard",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

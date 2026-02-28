@@ -1,0 +1,172 @@
+{
+  "id": "skyprep",
+  "displayName": "SkyPrep",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "enrollAUserIntoACource": {
+      "displayName": "Enroll a User Into a Course",
+      "description": "Enroll a user into a course by user email or user ID",
+      "props": []
+    },
+    "enrollAUserIntoAUserGroup": {
+      "displayName": "Enroll a User Into a User Group",
+      "description": "Enroll a user into a user group by user email or user ID",
+      "props": [
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose whether to identify the user by email or ID"
+        },
+        {
+          "name": "user_email",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email address of the user to enroll"
+        },
+        {
+          "name": "user_group_id",
+          "displayName": "User Group ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The ID of the user group to enroll the user into"
+        },
+        {
+          "name": "user_group_enrollment_expiration_date",
+          "displayName": "Enrollment Expiration Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: The date when the enrollment will expire (e.g., \"2024-12-31\")"
+        }
+      ]
+    },
+    "updateUser": {
+      "displayName": "Update User",
+      "description": "Update user information. Omitted parameters will not be updated.",
+      "props": [
+        {
+          "name": "user_email",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the user to update (required)"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the user"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the user"
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The role of the user"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title/position of the user"
+        },
+        {
+          "name": "cell",
+          "displayName": "Cell Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The cell phone number of the user"
+        },
+        {
+          "name": "work_phone",
+          "displayName": "Work Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The work phone number of the user"
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The address of the user"
+        },
+        {
+          "name": "card_no",
+          "displayName": "Card/ID Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique user identifier (e.g. student #, badge #)"
+        },
+        {
+          "name": "email_notifications",
+          "displayName": "Email Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user receives email notifications"
+        },
+        {
+          "name": "sms_notifications",
+          "displayName": "SMS Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user receives SMS notifications (requires Twilio integration)"
+        },
+        {
+          "name": "access_start_date",
+          "displayName": "Access Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The date when the user can start accessing content (e.g., \"July 31, 2015\")"
+        },
+        {
+          "name": "access_end_date",
+          "displayName": "Access End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The date when the user can no longer access content (e.g., \"July 30, 2017\")"
+        },
+        {
+          "name": "password_expiration_date",
+          "displayName": "Password Expiration Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The date when the user password expires (e.g., \"July 19, 2022\")"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "courceFailed": {
+      "displayName": "Course Failed",
+      "description": "Trigger when a user fails a course",
+      "type": "POLLING",
+      "props": []
+    },
+    "courcePassed": {
+      "displayName": "Course Passed",
+      "description": "Trigger when a user passes a course",
+      "type": "POLLING",
+      "props": []
+    },
+    "newUser": {
+      "displayName": "New User",
+      "description": "Trigger when a new user is created in SkyPrep",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

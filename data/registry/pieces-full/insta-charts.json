@@ -1,0 +1,20 @@
+{
+  "id": "insta-charts",
+  "package": "@activepieces/piece-insta-charts",
+  "display_name": "InstaCharts",
+  "display_name_ar": "",
+  "description": "Chart creation and visualization platform",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "generate_chart_image",
+      "display_name": "Generate Chart Image",
+      "description": "Generates a temporary chart image using customizable templates and data parameters"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

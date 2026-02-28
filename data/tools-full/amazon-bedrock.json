@@ -1,0 +1,271 @@
+{
+  "id": "amazon-bedrock",
+  "displayName": "AWS Bedrock",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call to any AWS Bedrock endpoint. Requests are automatically signed with AWS Signature V4.",
+      "props": [
+        {
+          "name": "service",
+          "displayName": "Service",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the AWS Bedrock service endpoint to call. Use \"Bedrock\" for control plane operations (e.g., ListFoundationModels) and \"Bedrock Runtime\" for inference operations (e.g., InvokeModel)."
+        },
+        {
+          "name": "method",
+          "displayName": "Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The API path (e.g., /foundation-models, /model/{modelId}/invoke). See the AWS Bedrock API Reference for available endpoints."
+        },
+        {
+          "name": "headers",
+          "displayName": "Headers",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional headers to include. Authorization headers are automatically added via AWS Signature V4."
+        },
+        {
+          "name": "queryParams",
+          "displayName": "Query Parameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Query parameters to include in the request URL."
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "JSON",
+          "required": false,
+          "description": "JSON body for POST/PUT requests."
+        },
+        {
+          "name": "failsafe",
+          "displayName": "No Error on Failure",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (in seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "generate_content_from_image": {
+      "displayName": "Generate Content from Image",
+      "description": "Ask a Bedrock model a question about an image.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The foundation model to use. Must support image input."
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "The image to analyze (PNG, JPEG, GIF, or WebP)."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "What do you want the model to tell you about the image?"
+        },
+        {
+          "name": "systemPrompt",
+          "displayName": "System Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Instructions that guide the model behavior."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness. Lower values produce more deterministic output."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of tokens to generate."
+        }
+      ]
+    },
+    "generate_embeddings": {
+      "displayName": "Generate Embeddings",
+      "description": "Generate vector embeddings from text using Amazon Titan Embed, Cohere Embed, or Amazon Nova Multimodal Embeddings models.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The embedding model to use."
+        },
+        {
+          "name": "inputText",
+          "displayName": "Input Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to generate embeddings for."
+        },
+        {
+          "name": "embeddingPurpose",
+          "displayName": "Embedding Purpose",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Optimize embeddings for your use case. Only used by Nova Multimodal Embeddings."
+        },
+        {
+          "name": "dimensions",
+          "displayName": "Dimensions",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of dimensions for the output embedding vector. Titan Embed v2: 256, 512, 1024. Nova Multimodal: 256, 384, 1024, 3072."
+        },
+        {
+          "name": "normalize",
+          "displayName": "Normalize",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to normalize the output embedding vector. Supported by Titan Embed v2."
+        }
+      ]
+    },
+    "generate_image": {
+      "displayName": "Generate Image",
+      "description": "Generate an image from a text prompt using Amazon Titan Image Generator or Stability AI models.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The image generation model to use."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A text description of the image you want to generate."
+        },
+        {
+          "name": "negativePrompt",
+          "displayName": "Negative Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Describe what you do NOT want in the image. Helps refine the output."
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Image width in pixels. Must be supported by the model."
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Image height in pixels. Must be supported by the model."
+        },
+        {
+          "name": "seed",
+          "displayName": "Seed",
+          "type": "NUMBER",
+          "required": false,
+          "description": "A seed for reproducible results. Use the same seed and prompt to get the same image."
+        }
+      ]
+    },
+    "send_prompt": {
+      "displayName": "Ask Bedrock",
+      "description": "Send a text prompt to an Amazon Bedrock model.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The foundation model to use for generation."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "systemPrompt",
+          "displayName": "System Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Instructions that guide the model behavior."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness. Lower values produce more deterministic output."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of tokens to generate."
+        },
+        {
+          "name": "topP",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Nucleus sampling: the model considers tokens with top_p probability mass."
+        },
+        {
+          "name": "stopSequences",
+          "displayName": "Stop Sequences",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Sequences that will cause the model to stop generating. Up to 4 sequences."
+        },
+        {
+          "name": "memoryKey",
+          "displayName": "Memory Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memory key that will keep the chat history shared across runs and flows. Keep it empty to leave the model without memory of previous messages."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

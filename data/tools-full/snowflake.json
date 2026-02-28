@@ -1,0 +1,90 @@
+{
+  "id": "snowflake",
+  "displayName": "Snowflake",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "insert-row": {
+      "displayName": "Insert Row",
+      "description": "Insert a row into a table.",
+      "props": []
+    },
+    "runMultipleQueries": {
+      "displayName": "Run Multiple Queries",
+      "description": "Run Multiple Queries",
+      "props": [
+        {
+          "name": "sqlTexts",
+          "displayName": "SQL queries",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of SQL queries to execute in order, in the same transaction. Use :1, :2… placeholders to use binding parameters. "
+        },
+        {
+          "name": "binds",
+          "displayName": "Parameters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Binding parameters shared across all queries to prevent SQL injection attacks. "
+        },
+        {
+          "name": "useTransaction",
+          "displayName": "Use Transaction",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "When enabled, all queries will be executed in a single transaction. If any query fails, all changes will be rolled back."
+        },
+        {
+          "name": "timeout",
+          "displayName": "Query timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An integer indicating the maximum number of milliseconds to wait for a query to complete before timing out."
+        },
+        {
+          "name": "application",
+          "displayName": "Application name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A string indicating the name of the client application connecting to the server."
+        }
+      ]
+    },
+    "runQuery": {
+      "displayName": "Run Query",
+      "description": "Run Query",
+      "props": [
+        {
+          "name": "sqlText",
+          "displayName": "SQL query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Use :1, :2… or ? placeholders to use binding parameters."
+        },
+        {
+          "name": "binds",
+          "displayName": "Parameters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Binding parameters for the SQL query (to prevent SQL injection attacks)"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Query timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An integer indicating the maximum number of milliseconds to wait for a query to complete before timing out."
+        },
+        {
+          "name": "application",
+          "displayName": "Application name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A string indicating the name of the client application connecting to the server."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

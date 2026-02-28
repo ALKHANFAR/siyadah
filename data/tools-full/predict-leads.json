@@ -1,0 +1,178 @@
+{
+  "id": "predict-leads",
+  "displayName": "PredictLeads",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "predict-leads_find_companies": {
+      "displayName": "List Companies",
+      "description": "Retrieves all companies.",
+      "props": [
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "minMaxSizes",
+          "displayName": "Min Max Size",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A min-max size range. Examples: \"11-50\"\". For now, only single range is supported."
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain of the company to find."
+        }
+      ]
+    },
+    "predict-leads_find_connections_by_domain": {
+      "displayName": "Get Company Connections",
+      "description": "Retrieves company connections by domain.",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain to find."
+        }
+      ]
+    },
+    "predict-leads_find_company_job_openings": {
+      "displayName": "Categories",
+      "description": "Retrieves job openings by company domain.",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Company's domain"
+        },
+        {
+          "name": "active_only",
+          "displayName": "Active Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true if you'd like to receive JobOpenings that are not closed, have last_seen_at more recent than 5 days and were found in the last year"
+        },
+        {
+          "name": "not_closed",
+          "displayName": "Not Closed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Similar to active_only, but without considering last_seen_at timestamp."
+        },
+        {
+          "name": "with_description_only",
+          "displayName": "With Description Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only return JobOpenings that have description"
+        },
+        {
+          "name": "with_location_only",
+          "displayName": "With Location Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only return JobOpenings that have location"
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select categories to filter job openings"
+        },
+        {
+          "name": "jobOpeningId",
+          "displayName": "Job Opening ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job opening to retrieve."
+        },
+        {
+          "name": "onet_codes",
+          "displayName": "onet_codes",
+          "type": "ARRAY",
+          "required": false,
+          "description": "O*NET codes to filter by, such as \"17-2071.00\" for \"Electrical Engineers\" or \"15-1254.00\" for \"Web Developers\". For full list of possible codes see: https://www.onetonline.org/find/all"
+        }
+      ]
+    },
+    "predict-leads_find_news_by_domain": {
+      "displayName": "List Company News Events",
+      "description": "Retrieves news events by company domain",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain of the company to find."
+        },
+        {
+          "name": "found_at_from",
+          "displayName": "Found At From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return data first seen after given date . Example 2024-09-25"
+        },
+        {
+          "name": "found_at_until",
+          "displayName": "Found At Until",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return data first seen before given date . Example 2024-09-25"
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "The categories of news to find."
+        },
+        {
+          "name": "id",
+          "displayName": "ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the news event to find."
+        }
+      ]
+    },
+    "predict-leads_find_technologies_by_domain": {
+      "displayName": "List Technologies by domain",
+      "description": "Retrieve technologies used by specific company",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain of the company to find."
+        },
+        {
+          "name": "id",
+          "displayName": "ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the technology to find."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,25 @@
+{
+  "id": "validatedmails",
+  "package": "@activepieces/piece-validatedmails",
+  "display_name": "ValidatedMails",
+  "display_name_ar": "ValidatedMails",
+  "description": "ValidatedMails validates email addresses in real time and returns status, score, and domain-level deliverability signals.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "validateEmail",
+      "display_name": "Validate Email",
+      "description": "Validate a single email address using the ValidatedMails API."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/validatedmails"
+}

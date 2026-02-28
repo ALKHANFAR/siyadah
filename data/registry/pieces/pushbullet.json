@@ -1,0 +1,30 @@
+{
+  "id": "pushbullet",
+  "package": "@activepieces/piece-pushbullet",
+  "display_name": "Pushbullet",
+  "display_name_ar": "Pushbullet",
+  "description": "Cross-device notification service",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "sendALink",
+      "display_name": "Send a Link",
+      "description": "Send a link notification"
+    },
+    {
+      "name": "sendANote",
+      "display_name": "Send a Note",
+      "description": "Send me a text notification"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pushbullet"
+}

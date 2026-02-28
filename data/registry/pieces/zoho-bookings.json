@@ -1,0 +1,40 @@
+{
+  "id": "zoho-bookings",
+  "package": "@activepieces/piece-zoho-bookings",
+  "display_name": "Zoho Bookings",
+  "display_name_ar": "Zoho Bookings",
+  "description": "Zoho Bookings is an appointment scheduling software for managing bookings, services, and customer appointments.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "bookAppointment",
+      "display_name": "Book Appointment",
+      "description": "Book an appointment for a customer for a desired service"
+    },
+    {
+      "name": "cancelAppointment",
+      "display_name": "Cancel Appointment",
+      "description": "Update the status of a booking (cancel, complete, or mark as no-show)"
+    },
+    {
+      "name": "fetchAvailability",
+      "display_name": "Fetch Availability",
+      "description": "Fetch availability of appointments across services"
+    },
+    {
+      "name": "getAppointmentDetails",
+      "display_name": "Get Appointment Details",
+      "description": "Get details of an appointment using its booking ID"
+    },
+    {
+      "name": "rescheduleAppointment",
+      "display_name": "Reschedule Appointment",
+      "description": "Reschedule an appointment to a different time or to a different staff"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/zoho-bookings"
+}

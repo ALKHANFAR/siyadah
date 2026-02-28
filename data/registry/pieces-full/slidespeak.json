@@ -1,0 +1,47 @@
+{
+  "id": "slidespeak",
+  "package": "@activepieces/piece-slidespeak",
+  "display_name": "SlideSpeak",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create-presentation",
+      "display_name": "Create Presentation",
+      "description": "Creates a new presentation."
+    },
+    {
+      "name": "edit-presentation",
+      "display_name": "Edit Presentation",
+      "description": "Edits an existing presentation."
+    },
+    {
+      "name": "get-task-status",
+      "display_name": "Get Task Status",
+      "description": "Gets status of task by id."
+    },
+    {
+      "name": "upload-docuemnt",
+      "display_name": "Upload Document",
+      "description": "Uploads a document file to SlideSpeak."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-presentation",
+      "display_name": "New Presentation",
+      "description": "Triggers when a new presentation is created.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

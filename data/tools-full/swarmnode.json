@@ -1,0 +1,41 @@
+{
+  "id": "swarmnode",
+  "displayName": "SwarmNode",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "execute-agent": {
+      "displayName": "Execute Agent",
+      "description": "Executes an existing AI agent.",
+      "props": [
+        {
+          "name": "payload",
+          "displayName": "Agent Input Payload",
+          "type": "JSON",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-execution": {
+      "displayName": "Get Execution",
+      "description": "Gets AI Agent's execution details.",
+      "props": [
+        {
+          "name": "jobId",
+          "displayName": "Agent Executor Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

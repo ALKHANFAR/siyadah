@@ -1,0 +1,80 @@
+{
+  "id": "surrealdb",
+  "displayName": "Connection URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "run-query": {
+      "displayName": "Run Query",
+      "description": "Run a query in SurrealDB.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide a SurrealDB query string to execute."
+        },
+        {
+          "name": "queryMarkdown",
+          "displayName": "queryMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "args",
+          "displayName": "Arguments",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Add all arguments as names here, don't add the $ sign."
+        },
+        {
+          "name": "query_timeout",
+          "displayName": "Query Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum time to wait for a query to complete before timing out."
+        },
+        {
+          "name": "application_name",
+          "displayName": "Application Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An identifier for the client application executing the query."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new-row": {
+      "displayName": "New Row",
+      "description": "Triggers when a new row is added to the defined table.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "description",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "table",
+          "displayName": "Table name",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "order_by",
+          "displayName": "Column to order by",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Use something like a created timestamp."
+        }
+      ]
+    }
+  }
+}

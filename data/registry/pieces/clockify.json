@@ -1,0 +1,74 @@
+{
+  "id": "clockify",
+  "package": "@activepieces/piece-clockify",
+  "display_name": "Clockify",
+  "display_name_ar": "Clockify",
+  "description": "Clockify integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create-task",
+      "display_name": "Create Task",
+      "description": "Creates a new in a specific project."
+    },
+    {
+      "name": "create-time-entry",
+      "display_name": "Create Time Entry",
+      "description": "Creates a new time entry."
+    },
+    {
+      "name": "find-running-timer",
+      "display_name": "Find Running Timer",
+      "description": "Finds currently running timer on specified workspace."
+    },
+    {
+      "name": "find-task",
+      "display_name": "Find Task",
+      "description": "Finds an existing task in a specific project."
+    },
+    {
+      "name": "find-time-entry",
+      "display_name": "Find Time Entry",
+      "description": "Finds a time entry by description, start datetime or end datetime."
+    },
+    {
+      "name": "start-timer",
+      "display_name": "Start Timer",
+      "description": "Starts a new time entry."
+    },
+    {
+      "name": "stop-timer",
+      "display_name": "Stop Timer",
+      "description": "Stops currently running timer on specified workspace."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-task",
+      "display_name": "New Task",
+      "description": "Triggers when a new task is created in specified project.",
+      "type": "instant"
+    },
+    {
+      "name": "new-time-entry",
+      "display_name": "New Time Entry",
+      "description": "Triggers when a new time entry is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new-timer-started",
+      "display_name": "New Timer Started",
+      "description": "Triggers when a new entry is started and running.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/clockify"
+}

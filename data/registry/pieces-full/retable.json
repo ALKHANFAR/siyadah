@@ -1,0 +1,50 @@
+{
+  "id": "retable",
+  "package": "@activepieces/piece-retable",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Turn your spreadsheets into smart database apps",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "retable_create_project",
+      "display_name": "Create a Project",
+      "description": "Creates a project in the given workspace"
+    },
+    {
+      "name": "retable_create_workspace",
+      "display_name": "Create a Workspace",
+      "description": "Creates a workspace"
+    },
+    {
+      "name": "retable_get_projects",
+      "display_name": "Get Projects",
+      "description": "Gets all projects in given workspace"
+    },
+    {
+      "name": "retable_get_retables",
+      "display_name": "Get Retables",
+      "description": "Gets all retables in given project"
+    },
+    {
+      "name": "retable_get_workspaces",
+      "display_name": "Get Workspaces",
+      "description": "Gets all workspaces"
+    },
+    {
+      "name": "retable_create_record",
+      "display_name": "Create Retable Record",
+      "description": "Adds a record into a retable"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

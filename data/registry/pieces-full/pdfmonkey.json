@@ -1,0 +1,42 @@
+{
+  "id": "pdfmonkey",
+  "package": "@activepieces/piece-pdfmonkey",
+  "display_name": "PDFMonkey",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "deleteDocument",
+      "display_name": "Delete Document",
+      "description": "Deletes a document."
+    },
+    {
+      "name": "findDocument",
+      "display_name": "Find Document",
+      "description": "Finds a document by ID."
+    },
+    {
+      "name": "generateDocument",
+      "display_name": "Generate Document",
+      "description": "Generates a new document using a specified template."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "documentGenerated",
+      "display_name": "Document Generated",
+      "description": "Triggers when a document generation completes successfully.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,173 @@
+{
+  "id": "ibm-cognose",
+  "displayName": "IBM Cognos Analytics",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "copy_content_object": {
+      "displayName": "Copy Content Object",
+      "description": "Copy an object optionally with all its descendants",
+      "props": [
+        {
+          "name": "recursive",
+          "displayName": "Recursive Copy",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Copy all descendants (child objects)"
+        }
+      ]
+    },
+    "create_data_source": {
+      "displayName": "Create Data Source",
+      "description": "Create a new data source",
+      "props": [
+        {
+          "name": "defaultName",
+          "displayName": "Data Source Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name for the new data source"
+        },
+        {
+          "name": "connectionString",
+          "displayName": "Connection String",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "JDBC URL or database connection string"
+        },
+        {
+          "name": "driverName",
+          "displayName": "Driver Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Database driver class name"
+        },
+        {
+          "name": "username",
+          "displayName": "Database Username",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Username for database connection"
+        },
+        {
+          "name": "password",
+          "displayName": "Database Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for database connection"
+        },
+        {
+          "name": "signonDefaultName",
+          "displayName": "Signon Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name for the database credentials"
+        }
+      ]
+    },
+    "delete_data_source": {
+      "displayName": "Delete Data Source",
+      "description": "Delete a data source",
+      "props": []
+    },
+    "get_content_object": {
+      "displayName": "Get Content Object",
+      "description": "Get content object details",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Extra Fields",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of extra fields (e.g., owner,permissions,children)"
+        }
+      ]
+    },
+    "get_data_source": {
+      "displayName": "Get Data Source",
+      "description": "Retrieve data source details",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Extra Fields",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of extra fields (e.g., connections,signons)"
+        }
+      ]
+    },
+    "move_content_object": {
+      "displayName": "Move Content Object",
+      "description": "Move an object with all its descendants",
+      "props": []
+    },
+    "update_content_object": {
+      "displayName": "Update Content Object",
+      "description": "Update an existing content object",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Object type (e.g., report, dashboard, folder)"
+        },
+        {
+          "name": "defaultName",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New name for the object"
+        },
+        {
+          "name": "defaultDescriptions",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New description for the object"
+        },
+        {
+          "name": "version",
+          "displayName": "Version",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Current version for optimistic concurrency"
+        }
+      ]
+    },
+    "update_data_source": {
+      "displayName": "Update Data Source",
+      "description": "Update an existing data source",
+      "props": [
+        {
+          "name": "defaultName",
+          "displayName": "Data Source Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New name for the data source"
+        },
+        {
+          "name": "disabled",
+          "displayName": "Disabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Disable the data source"
+        },
+        {
+          "name": "hidden",
+          "displayName": "Hidden",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Hide the data source"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

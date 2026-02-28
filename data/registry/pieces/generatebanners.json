@@ -1,0 +1,20 @@
+{
+  "id": "generatebanners",
+  "package": "@activepieces/piece-generatebanners",
+  "display_name": "GenerateBanners",
+  "display_name_ar": "GenerateBanners",
+  "description": "Image generation API for banners and social media posts",
+  "category": "I_content",
+  "auth_type": "basic_auth",
+  "actions": [
+    {
+      "name": "render_template",
+      "display_name": "Render Template",
+      "description": "Render a GenerateBanners template"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/generatebanners"
+}

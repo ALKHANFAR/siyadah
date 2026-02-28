@@ -1,0 +1,20 @@
+{
+  "id": "eth-name-service",
+  "package": "@activepieces/piece-eth-name-service",
+  "display_name": "Ethereum Name Service (ENS)",
+  "display_name_ar": "Ethereum Name Service (ENS)",
+  "description": "Ethereum Name Service (ENS) is a decentralized naming system on the Ethereum blockchain.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "listEnsDomains",
+      "display_name": "List ENS Domains",
+      "description": "List the ENS domains for a given address."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/eth-name-service"
+}

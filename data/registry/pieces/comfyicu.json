@@ -1,0 +1,54 @@
+{
+  "id": "comfyicu",
+  "package": "@activepieces/piece-comfyicu",
+  "display_name": "Comfy.ICU",
+  "display_name_ar": "Comfy.ICU",
+  "description": "Comfy.ICU integration",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get-run-output",
+      "display_name": "Get Run Output",
+      "description": "Retrieves generated images or videos from a completed run."
+    },
+    {
+      "name": "get-run-status",
+      "display_name": "Get Run Status",
+      "description": "Retrieves the status of workflow run."
+    },
+    {
+      "name": "list-workflows",
+      "display_name": "List Workflows",
+      "description": "Retrieves available workflows for execution."
+    },
+    {
+      "name": "submit-workflow-run",
+      "display_name": "Submit Workflow Run",
+      "description": "Execute a workflow with specified prompt."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-workflow-created",
+      "display_name": "New Workflow Created",
+      "description": "Triggers when a new workflow is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "run-completed",
+      "display_name": "Run Completed",
+      "description": "Triggers when a workflow run is successfully completed.",
+      "type": "scheduled"
+    },
+    {
+      "name": "run-failed",
+      "display_name": "Run Failed",
+      "description": "Triggers when a workflow run is failed.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/comfyicu"
+}

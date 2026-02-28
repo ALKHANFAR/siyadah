@@ -1,0 +1,213 @@
+{
+  "id": "openmic-ai",
+  "displayName": "OpenMic AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createPhoneCall": {
+      "displayName": "Create Phone Call",
+      "description": "Create a new outbound phone call using OpenMic AI",
+      "props": [
+        {
+          "name": "fromNumber",
+          "displayName": "From Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The number you own in E.164 format (e.g., +1234567890)"
+        },
+        {
+          "name": "toNumber",
+          "displayName": "To Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The number you want to call in E.164 format (e.g., +0987654321)"
+        },
+        {
+          "name": "overrideAgentId",
+          "displayName": "Agent ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The bot UID to override the default agent "
+        },
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer identifier for tracking "
+        },
+        {
+          "name": "dynamicVariables",
+          "displayName": "Dynamic Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Key-value pairs to replace in the prompt"
+        },
+        {
+          "name": "callbackUrl",
+          "displayName": "Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Callback URL to receive call events "
+        }
+      ]
+    },
+    "findBot": {
+      "displayName": "Find Bot",
+      "description": "Retrieve details of a specific bot by its UID",
+      "props": [
+        {
+          "name": "uid",
+          "displayName": "Bot UID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the bot"
+        }
+      ]
+    },
+    "findCall": {
+      "displayName": "Find Call",
+      "description": "Retrieve details of a specific call by its ID",
+      "props": [
+        {
+          "name": "callId",
+          "displayName": "Call ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the call"
+        }
+      ]
+    },
+    "getBots": {
+      "displayName": "Get Bots",
+      "description": "Retrieve all bots with optional filtering and pagination",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Bot Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by bot name (partial match)"
+        },
+        {
+          "name": "createdAfter",
+          "displayName": "Created After",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter bots created after this date (ISO 8601 format)"
+        },
+        {
+          "name": "createdBefore",
+          "displayName": "Created Before",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter bots created before this date (ISO 8601 format)"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of bots to return (1-100)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of bots to skip for pagination"
+        }
+      ]
+    },
+    "getCalls": {
+      "displayName": "Get Calls",
+      "description": "Retrieve all calls with optional filtering and pagination",
+      "props": [
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by customer ID"
+        },
+        {
+          "name": "fromNumber",
+          "displayName": "From Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by originating phone number"
+        },
+        {
+          "name": "toNumber",
+          "displayName": "To Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by destination phone number"
+        },
+        {
+          "name": "botId",
+          "displayName": "Bot ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by bot ID"
+        },
+        {
+          "name": "fromDate",
+          "displayName": "From Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter calls from this date (ISO 8601 format)"
+        },
+        {
+          "name": "toDate",
+          "displayName": "To Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter calls to this date (ISO 8601 format)"
+        },
+        {
+          "name": "callStatus",
+          "displayName": "Call Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by call status"
+        },
+        {
+          "name": "callType",
+          "displayName": "Call Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by call type"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of calls to return (1-100)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of calls to skip for pagination"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newPostCallSummary": {
+      "displayName": "New Post-call Summary",
+      "description": "Trigger when a new call completes with comprehensive call data and analysis",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

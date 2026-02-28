@@ -1,0 +1,25 @@
+{
+  "id": "twitter",
+  "package": "@activepieces/piece-twitter",
+  "display_name": "Api Key",
+  "display_name_ar": "تويتر",
+  "description": "The api key",
+  "category": "H_marketing",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create-reply",
+      "display_name": "Create Reply",
+      "description": "Reply to a tweet."
+    },
+    {
+      "name": "create-tweet",
+      "display_name": "Create Tweet",
+      "description": "Create a tweet"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/twitter"
+}

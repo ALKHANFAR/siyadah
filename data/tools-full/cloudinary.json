@@ -1,0 +1,286 @@
+{
+  "id": "cloudinary",
+  "displayName": "Cloudinary",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createUsageReport": {
+      "displayName": "Create Usage Report",
+      "description": "Generate a comprehensive report of account usage and quotas including storage, bandwidth, transformations, requests, and add-on usage.",
+      "props": [
+        {
+          "name": "date",
+          "displayName": "Report Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date for the usage report. Must be within the last 3 months. Leave empty for current date."
+        },
+        {
+          "name": "include_breakdown",
+          "displayName": "Include Detailed Breakdown",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include detailed breakdown of transformation types and add-on usage in the response."
+        }
+      ]
+    },
+    "deleteResource": {
+      "displayName": "Delete Resource",
+      "description": "Permanently delete images, videos, or files from Cloudinary.",
+      "props": [
+        {
+          "name": "deletion_mode",
+          "displayName": "Deletion Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to specify assets for deletion"
+        },
+        {
+          "name": "public_ids_manual",
+          "displayName": "Manual Public IDs",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Or type comma-separated public IDs manually (up to 100). Example: image1,image2,folder/image3"
+        },
+        {
+          "name": "tag_manual",
+          "displayName": "Manual Tag",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Or type tag name manually to delete all assets with this tag (up to 1000 assets)"
+        },
+        {
+          "name": "prefix",
+          "displayName": "Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Delete all assets whose public ID starts with this prefix (up to 1000 assets)"
+        },
+        {
+          "name": "type",
+          "displayName": "Delivery Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The delivery type of assets to delete"
+        },
+        {
+          "name": "keep_original",
+          "displayName": "Keep Original",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Delete only derived assets, keep the original"
+        },
+        {
+          "name": "invalidate",
+          "displayName": "Invalidate CDN Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to invalidate CDN cached copies. Takes a few minutes to propagate."
+        }
+      ]
+    },
+    "findResourceByPublicId": {
+      "displayName": "Find Resource by Public ID",
+      "description": "Retrieve details of an asset using its unique public ID.",
+      "props": [
+        {
+          "name": "public_id_manual",
+          "displayName": "Manual Public ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Or enter the public ID manually if not found in dropdown (e.g., \"sample\", \"folder/image-name\")"
+        },
+        {
+          "name": "delivery_type",
+          "displayName": "Delivery Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The delivery type of the asset"
+        }
+      ]
+    },
+    "transformResource": {
+      "displayName": "Transform Resource",
+      "description": "Apply transformations (resize, crop, watermark, etc.) to an asset and generate a new URL.",
+      "props": [
+        {
+          "name": "public_id_manual",
+          "displayName": "Manual Public ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Or enter public ID manually if not in dropdown"
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Target width in pixels"
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Target height in pixels"
+        },
+        {
+          "name": "crop_mode",
+          "displayName": "Crop Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle resizing when aspect ratios differ"
+        },
+        {
+          "name": "gravity",
+          "displayName": "Gravity",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Which part to focus on when cropping"
+        },
+        {
+          "name": "format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Convert to this format"
+        },
+        {
+          "name": "quality",
+          "displayName": "Quality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Image quality/compression level"
+        },
+        {
+          "name": "border",
+          "displayName": "Border",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Add border (e.g., \"5px_solid_blue\", \"10px_solid_#ff0000\")"
+        },
+        {
+          "name": "radius",
+          "displayName": "Border Radius",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Round corners or make circular"
+        },
+        {
+          "name": "opacity",
+          "displayName": "Opacity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Transparency level (0-100, where 100 is opaque)"
+        },
+        {
+          "name": "rotation",
+          "displayName": "Rotation",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Rotate image by degrees (0-360)"
+        },
+        {
+          "name": "raw_transformation",
+          "displayName": "Raw Transformation",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Advanced: Raw transformation string (e.g., \"c_fill,w_300,h_200/e_sepia/r_20\"). This will be applied after the above basic transformations."
+        },
+        {
+          "name": "generate_url_only",
+          "displayName": "Generate URL Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, only return the transformation URL. If false, also make a request to generate the transformed asset."
+        }
+      ]
+    },
+    "uploadResource": {
+      "displayName": "Upload Resource",
+      "description": "Upload a new image, video, or file to Cloudinary.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload to Cloudinary."
+        },
+        {
+          "name": "public_id",
+          "displayName": "Public ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The public ID for the uploaded resource. If not specified, a random ID will be generated."
+        },
+        {
+          "name": "folder",
+          "displayName": "Folder",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select an existing folder or type a new folder path (e.g., \"samples/animals\")"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select existing tags or type new ones"
+        },
+        {
+          "name": "overwrite",
+          "displayName": "Overwrite",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to overwrite existing assets with the same public ID."
+        },
+        {
+          "name": "use_filename",
+          "displayName": "Use Original Filename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to use the original file name as the public ID."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_resource": {
+      "displayName": "Asset Folder",
+      "description": "The Cloudinary folder to watch for new resources. Leave empty to watch the entire account.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "asset_folder",
+          "displayName": "Asset Folder",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The Cloudinary folder to watch for new resources. Leave empty to watch the entire account."
+        }
+      ]
+    },
+    "new_tag_added_to_asset": {
+      "displayName": "Resource Type",
+      "description": "The type of resources to monitor for tag changes",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "resource_type",
+          "displayName": "Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of resources to monitor for tag changes"
+        },
+        {
+          "name": "asset_folder",
+          "displayName": "Asset Folder",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: Watch only assets in this specific folder. Leave empty to watch all assets."
+        }
+      ]
+    }
+  }
+}

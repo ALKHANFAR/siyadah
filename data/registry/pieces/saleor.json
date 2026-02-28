@@ -1,0 +1,30 @@
+{
+  "id": "saleor",
+  "package": "@activepieces/piece-saleor",
+  "display_name": "Saleor API URL",
+  "display_name_ar": "Saleor API URL",
+  "description": "Saleor",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addOrderNote",
+      "display_name": "Add Order Note",
+      "description": "Add a note to a Saleor order"
+    },
+    {
+      "name": "getOrder",
+      "display_name": "Get an order",
+      "description": "Get an order according to the ID"
+    },
+    {
+      "name": "rawGraphqlQuery",
+      "display_name": "Raw GraphQL query",
+      "description": "Perform a raw GraphQL query"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/saleor"
+}

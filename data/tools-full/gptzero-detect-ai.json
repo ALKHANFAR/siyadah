@@ -1,0 +1,36 @@
+{
+  "id": "gptzero-detect-ai",
+  "displayName": "GPTZero",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "scanFile": {
+      "displayName": "Scan File",
+      "description": "Scan a file for AI-generated content detection",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to scan for AI-generated content"
+        }
+      ]
+    },
+    "scanText": {
+      "displayName": "Scan Text",
+      "description": "Scan text content for AI-generated content detection",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content to scan for AI-generated content"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

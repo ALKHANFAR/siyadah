@@ -1,0 +1,107 @@
+{
+  "id": "cody",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_conversation": {
+      "displayName": "Create Conversation",
+      "description": "Creates a new conversation with a bot.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Conversation Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for the new conversation."
+        },
+        {
+          "name": "document_ids",
+          "displayName": "Document IDs (Focus Mode)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "A list of document IDs to limit the bot's knowledge base for this conversation."
+        }
+      ]
+    },
+    "create_document_from_text": {
+      "displayName": "Create Document From Text",
+      "description": "Upload text content to create a new document within the Cody knowledge base.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Document Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name or title of the new document."
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text or HTML content to be added to the document. Max 768 KB."
+        }
+      ]
+    },
+    "find_bot": {
+      "displayName": "Find Bot",
+      "description": "Finds a bot based on its name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Bot Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the bot to search for. The search is case-insensitive and partial."
+        }
+      ]
+    },
+    "find_conversation": {
+      "displayName": "Find Conversation",
+      "description": "Finds a conversation based on its name and/or the bot it belongs to.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Conversation Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the conversation to search for (partial match)."
+        }
+      ]
+    },
+    "send_message": {
+      "displayName": "Send Message",
+      "description": "Send your message and receive the AI-generated response.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send to the conversation. (Max 2000 characters)"
+        }
+      ]
+    },
+    "upload_file": {
+      "displayName": "Upload File to Knowledge Base",
+      "description": "Add a file directly into a specific folder in the knowledge base.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload (e.g., txt, md, rtf, pdf, ppt, docx)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

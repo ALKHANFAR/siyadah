@@ -1,0 +1,219 @@
+{
+  "id": "aircall",
+  "displayName": "Aircall",
+  "auth": {
+    "type": "basic_auth"
+  },
+  "actions": {
+    "commentACall": {
+      "displayName": "Comment a Call",
+      "description": "Adds a comment (note) to a specific call.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Comment Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "createAContact": {
+      "displayName": "Create a Contact",
+      "description": "Creates a new contact.",
+      "props": [
+        {
+          "name": "phone_numbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Label for the phone number (e.g., Work, Mobile, Home)."
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Label for the phone number (e.g., Work, Mobile, Home)."
+        },
+        {
+          "name": "value",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number with country code (e.g., +19001112222)."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "information",
+          "displayName": "Information",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information about the contact."
+        },
+        {
+          "name": "emails",
+          "displayName": "Email Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of email addresses (optional, max 20)"
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Label for the email (e.g., Office, Personal)"
+        },
+        {
+          "name": "value",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address"
+        }
+      ]
+    },
+    "findCalls": {
+      "displayName": "Find Call",
+      "description": "Finds specific call based on provided filter.",
+      "props": [
+        {
+          "name": "direction",
+          "displayName": "Call Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by call direction"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The calling or receiving phone number of calls."
+        }
+      ]
+    },
+    "findContact": {
+      "displayName": "Find Contact",
+      "description": "Finds contact based on phone or email.",
+      "props": [
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by phone number (with country code, e.g., +1234567890)."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by email address."
+        }
+      ]
+    },
+    "getCall": {
+      "displayName": "Get Call",
+      "description": "Retrieves details about a specific call.",
+      "props": []
+    },
+    "tagACall": {
+      "displayName": "Tag a Call",
+      "description": "Add tags to a specific call.",
+      "props": []
+    },
+    "updateContact": {
+      "displayName": "Update Contact",
+      "description": "Update an existing contact.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "company_name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "information",
+          "displayName": "Information",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information about the contact"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "callEnded": {
+      "displayName": "Call Ended",
+      "description": "Triggers when a call ends.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newContact": {
+      "displayName": "New Contact",
+      "description": "Triggers when a new contact is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newNote": {
+      "displayName": "New Note",
+      "description": "Triggers when a new note is added to a call.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newNumberCreated": {
+      "displayName": "New Number Created",
+      "description": "Triggers when a new number is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newSms": {
+      "displayName": "New SMS",
+      "description": "Triggers when a new SMS message is received.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

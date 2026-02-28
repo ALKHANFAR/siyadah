@@ -1,0 +1,55 @@
+{
+  "id": "pdf-co",
+  "package": "@activepieces/piece-pdf-co",
+  "display_name": "PDF.co",
+  "display_name_ar": "PDF.co",
+  "description": "Automate PDF conversion, editing, extraction",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_barcode_to_pdf",
+      "display_name": "Add Barcode to PDF",
+      "description": "Generate a barcode image and add it to a specific location on a PDF."
+    },
+    {
+      "name": "add_image_to_pdf",
+      "display_name": "Add Image to PDF",
+      "description": "Add image to a PDF document."
+    },
+    {
+      "name": "add_text_to_pdf",
+      "display_name": "Add Text to PDF",
+      "description": "Adds text to PDF."
+    },
+    {
+      "name": "convert_html_to_pdf",
+      "display_name": "Convert HTML to PDF",
+      "description": "Convert HTML code into a downloadable PDF document."
+    },
+    {
+      "name": "convert_pdf_to_structured_format",
+      "display_name": "Convert PDF to JSON/CSV/XML",
+      "description": "Convert PDF content into structured formats (JSON, CSV, or XML)."
+    },
+    {
+      "name": "extract_tables_from_pdf",
+      "display_name": "Extract Tables from PDF (using Template)",
+      "description": "Extracts table data from a PDF using a predefined PDF.co Document Parser template."
+    },
+    {
+      "name": "extract_text_from_pdf",
+      "display_name": "Extract Plain Text from PDF",
+      "description": "Extracts plain text content from a PDF document."
+    },
+    {
+      "name": "search_and_replace_text",
+      "display_name": "Search and Replace Text in PDF",
+      "description": "Search for specific text or patterns in a PDF and replace it with new text."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pdf-co"
+}

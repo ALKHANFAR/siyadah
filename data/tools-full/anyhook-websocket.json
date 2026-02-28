@@ -1,0 +1,38 @@
+{
+  "id": "anyhook-websocket",
+  "displayName": "AnyHook Websocket",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {},
+  "triggers": {
+    "websocket_subscription_trigger": {
+      "displayName": "New Websocket Subscription Event",
+      "description": "Triggers on a new Websocket subscription event",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "websocketUrl",
+          "displayName": "Endpoint URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Websocket endpoint URL to connect to."
+        },
+        {
+          "name": "headers",
+          "displayName": "Headers",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Custom headers for the Websocket connection, such as authentication tokens."
+        },
+        {
+          "name": "message",
+          "displayName": "Subscription Message",
+          "type": "JSON",
+          "required": true,
+          "description": "The message to send to the Websocket server to subscribe to events."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "feathery",
+  "package": "@activepieces/piece-feathery",
+  "display_name": "Feathery",
+  "display_name_ar": "Feathery",
+  "description": "Build powerful forms, workflows, and document automation.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_form",
+      "display_name": "Create Form",
+      "description": "Create a form based on an existing template form."
+    },
+    {
+      "name": "delete_form",
+      "display_name": "Delete Form",
+      "description": "Delete a specific form."
+    },
+    {
+      "name": "export_submission_pdf",
+      "display_name": "Export Form Submission PDF",
+      "description": "Create a PDF export for a specific form submission."
+    },
+    {
+      "name": "list_form_submissions",
+      "display_name": "List Form Submissions",
+      "description": "List submission data for a particular form."
+    },
+    {
+      "name": "update_form",
+      "display_name": "Update Form",
+      "description": "Update a form\\"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "file_submitted",
+      "display_name": "File Submitted",
+      "description": "Triggers when a file is submitted in your form, or when a document is signed/generated.",
+      "type": "scheduled"
+    },
+    {
+      "name": "form_completed",
+      "display_name": "Form Completed",
+      "description": "Triggers when a form is completed by an end user.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_submission",
+      "display_name": "New Form Submission",
+      "description": "Triggers when a user submits data through your form.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/feathery"
+}

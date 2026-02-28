@@ -1,0 +1,79 @@
+{
+  "id": "vidlab7",
+  "displayName": "VidLab7",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createVideo": {
+      "displayName": "Create Video",
+      "description": "Generate a video using a studio avatar",
+      "props": [
+        {
+          "name": "avatarId",
+          "displayName": "Avatar ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the avatar to be used for the video generation"
+        },
+        {
+          "name": "script",
+          "displayName": "Script",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The script to be used for the video generation"
+        },
+        {
+          "name": "voiceId",
+          "displayName": "Voice ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the voice to be used for the video generation"
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL to which the webhook will be sent when video generation is complete"
+        },
+        {
+          "name": "similarity_boost",
+          "displayName": "Similarity Boost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Voice similarity boost setting (0-100)"
+        },
+        {
+          "name": "use_speaker_boost",
+          "displayName": "Use Speaker Boost",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable speaker boost for better voice quality"
+        },
+        {
+          "name": "style",
+          "displayName": "Style",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Voice style setting"
+        },
+        {
+          "name": "stability",
+          "displayName": "Stability",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Voice stability setting (0-100)"
+        },
+        {
+          "name": "waitForCompletion",
+          "displayName": "Wait for Completion",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for the video generation to complete and return the video URL. If disabled, only returns the video ID."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

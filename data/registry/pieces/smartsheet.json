@@ -1,0 +1,70 @@
+{
+  "id": "smartsheet",
+  "package": "@activepieces/piece-smartsheet",
+  "display_name": "Smartsheet",
+  "display_name_ar": "Smartsheet",
+  "description": "Dynamic work execution platform for teams to plan, capture, manage, automate, and report on work at scale.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_row_to_sheet",
+      "display_name": "Add Row to Sheet",
+      "description": "Adds new row to a sheet."
+    },
+    {
+      "name": "attach_file_to_row",
+      "display_name": "Attach File to Row",
+      "description": "Adds a file attachment to a row."
+    },
+    {
+      "name": "find_attachment_by_row_id",
+      "display_name": "List Row Attachments",
+      "description": "Get all attachments for a specific row in a Smartsheet, including row and discussion-level attachments with comprehensive pagination and filtering options"
+    },
+    {
+      "name": "find_rows_by_query",
+      "display_name": "Find Row",
+      "description": "Finds rows in a specific sheet or across all accessible sheets using text queries with advanced filtering options."
+    },
+    {
+      "name": "find_sheet_by_name",
+      "display_name": "Find Sheet(s)",
+      "description": "Fetches existings sheets matching provided filter criteria."
+    },
+    {
+      "name": "update_row",
+      "display_name": "Update Row",
+      "description": "Updates an existing row."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_attachment_",
+      "display_name": "New Attachment Added",
+      "description": "Triggers when a new attachment is added to a row or sheet.",
+      "type": "instant"
+    },
+    {
+      "name": "new_comment_webhook",
+      "display_name": "New Comment Added",
+      "description": "Triggers when a new comment is added to a discussion on a sheet.",
+      "type": "instant"
+    },
+    {
+      "name": "new_row_added",
+      "display_name": "New Row Added",
+      "description": "Triggers when a new row is added.",
+      "type": "instant"
+    },
+    {
+      "name": "updated_row",
+      "display_name": "Row Updated",
+      "description": "Triggers when an existing row is updated.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/smartsheet"
+}

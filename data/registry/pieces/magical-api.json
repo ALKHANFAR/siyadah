@@ -1,0 +1,45 @@
+{
+  "id": "magical-api",
+  "package": "@activepieces/piece-magical-api",
+  "display_name": "Magical API",
+  "display_name_ar": "Magical API",
+  "description": "Automate resume parsing, review, scoring, and LinkedIn profile/company data retrieval with Magical API.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "get_company_data",
+      "display_name": "Get Company Data",
+      "description": "Given a company name, LinkedIn username, or website, fetch comprehensive company info."
+    },
+    {
+      "name": "get_profile_data",
+      "display_name": "Get Profile Data",
+      "description": "Given a LinkedIn profile username, retrieve comprehensive profile data."
+    },
+    {
+      "name": "parse_resume",
+      "display_name": "Parse Resume",
+      "description": "Extract structured data (name, email, experience, skills, etc.) from a resume file."
+    },
+    {
+      "name": "review_resume",
+      "display_name": "Review Resume",
+      "description": "Analyze parsed resume using predefined criteria."
+    },
+    {
+      "name": "score_resume",
+      "display_name": "Score Resume",
+      "description": "Scores a resume against a job description and provides a reason."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/magical-api"
+}

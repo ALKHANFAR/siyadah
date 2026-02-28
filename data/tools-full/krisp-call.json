@@ -1,0 +1,132 @@
+{
+  "id": "krisp-call",
+  "displayName": "KrispCall",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addContact": {
+      "displayName": "Add Contact",
+      "description": "Add contact in Krispcall",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter your name"
+        },
+        {
+          "name": "number",
+          "displayName": "Contact number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter contact number"
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter your address"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter your company"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter your email"
+        }
+      ]
+    },
+    "deleteContacts": {
+      "displayName": "Delete Contacts",
+      "description": "Delete contacts from krispcall.",
+      "props": [
+        {
+          "name": "contacts",
+          "displayName": "Contacts",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Enter contact which you want to delete."
+        }
+      ]
+    },
+    "sendMms": {
+      "displayName": "Send MMS",
+      "description": "Send mms in krispcall.",
+      "props": [
+        {
+          "name": "from_number",
+          "displayName": "from number",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select an number"
+        },
+        {
+          "name": "to_number",
+          "displayName": "To Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the number to which you want to send sms."
+        },
+        {
+          "name": "content",
+          "displayName": "content",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter your message here."
+        },
+        {
+          "name": "medias",
+          "displayName": "Medias url",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Enter medias urls"
+        }
+      ]
+    },
+    "sendSms": {
+      "displayName": "Send SMS",
+      "description": "Send sms in Krispcall.",
+      "props": [
+        {
+          "name": "from_number",
+          "displayName": "From Number",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select an Number"
+        },
+        {
+          "name": "to_number",
+          "displayName": "To Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the number to which you want to send sms."
+        },
+        {
+          "name": "content",
+          "displayName": "content",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter your message here."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newVoicemail": {
+      "displayName": "New Voicemail",
+      "description": "Trigger when a new voicemail is received.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

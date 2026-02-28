@@ -1,0 +1,200 @@
+{
+  "id": "murf-api",
+  "displayName": "Murf AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "list-voices": {
+      "displayName": "List Voices",
+      "description": "Get the list of available voices for text-to-speech",
+      "props": [
+        {
+          "name": "style",
+          "displayName": "Style",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by style (optional)"
+        }
+      ]
+    },
+    "text_to_speech": {
+      "displayName": "Text to Speech",
+      "description": "Converts input text into speech using Murf AI.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to be synthesized."
+        },
+        {
+          "name": "audioDuration",
+          "displayName": "Audio Duration (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Specify audio length. If 0, Murf ignores this. Only for Gen2 model."
+        },
+        {
+          "name": "channelType",
+          "displayName": "Channel Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Mono or Stereo output."
+        },
+        {
+          "name": "encodeAsBase64",
+          "displayName": "Encode as Base64",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return Base64 encoded audio instead of URL (zero retention)."
+        },
+        {
+          "name": "format",
+          "displayName": "Audio Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select audio format."
+        },
+        {
+          "name": "modelVersion",
+          "displayName": "Model Version",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose Gen1 or Gen2."
+        },
+        {
+          "name": "multiNativeLocale",
+          "displayName": "Multi Native Locale",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Set multi-language voice (e.g., en-US, es-ES). Only for Gen2."
+        },
+        {
+          "name": "pitch",
+          "displayName": "Pitch",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Pitch adjustment (-50 to 50)."
+        },
+        {
+          "name": "rate",
+          "displayName": "Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Speed adjustment (-50 to 50)."
+        },
+        {
+          "name": "style",
+          "displayName": "Style",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Voice style (e.g., 'default', 'calm', 'energetic'). Check voice details."
+        },
+        {
+          "name": "sampleRate",
+          "displayName": "Sample Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Defaults to 44100. Allowed: 8000, 24000, 44100, 48000."
+        },
+        {
+          "name": "variation",
+          "displayName": "Variation",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Variation level (0–5). Defaults to 1. Higher = more natural pauses/pitch/speed."
+        },
+        {
+          "name": "wordDurationsAsOriginalText",
+          "displayName": "Word Durations as Original Text",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, response word timings map to original text. (English only)."
+        },
+        {
+          "name": "pronunciationDictionary",
+          "displayName": "Pronunciation Dictionary",
+          "type": "JSON",
+          "required": false,
+          "description": "Custom word pronunciations."
+        }
+      ]
+    },
+    "translateText": {
+      "displayName": "Translate Text",
+      "description": "Translate one or more texts to the target language.",
+      "props": [
+        {
+          "name": "texts",
+          "displayName": "Texts",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of texts to translate"
+        }
+      ]
+    },
+    "voice-changer-convert": {
+      "displayName": "Voice Changer",
+      "description": "Convert an input audio file to a different voice using Murf Voice Changer.",
+      "props": [
+        {
+          "name": "fileUrl",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Publicly accessible URL of the input audio file. Either provide this or upload a file."
+        },
+        {
+          "name": "file",
+          "displayName": "Upload File",
+          "type": "FILE",
+          "required": false,
+          "description": "Upload an audio file for voice conversion"
+        },
+        {
+          "name": "format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the generated audio file"
+        },
+        {
+          "name": "channelType",
+          "displayName": "Channel Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose MONO or STEREO output"
+        },
+        {
+          "name": "pitch",
+          "displayName": "Pitch",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Pitch adjustment (-50 to 50)"
+        },
+        {
+          "name": "rate",
+          "displayName": "Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Speed adjustment (-50 to 50)"
+        },
+        {
+          "name": "encodeOutputAsBase64",
+          "displayName": "Encode Output as Base64",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Receive audio directly as Base64 instead of a file URL"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

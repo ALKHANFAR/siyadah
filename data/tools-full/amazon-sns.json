@@ -1,0 +1,30 @@
+{
+  "id": "amazon-sns",
+  "displayName": "Access Key ID",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "send-message": {
+      "displayName": "Send Message",
+      "description": "Sends a message to an Amazon SNS topic.",
+      "props": [
+        {
+          "name": "topic",
+          "displayName": "Topic",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a topic"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

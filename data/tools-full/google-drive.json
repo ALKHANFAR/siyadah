@@ -1,0 +1,36 @@
+{
+  "id": "google-drive",
+  "displayName": "Google Drive",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_file": {
+      "displayName": "New File",
+      "description": "Trigger when a new file is uploaded.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "include_file_content",
+          "displayName": "Include File Content",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the file content in the output. This will increase the time taken to fetch the files and might cause issues with large files."
+        }
+      ]
+    },
+    "new_folder": {
+      "displayName": "New Folder",
+      "description": "Trigger when a new folder is created or uploaded.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

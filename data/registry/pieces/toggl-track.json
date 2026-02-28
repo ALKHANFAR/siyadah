@@ -1,0 +1,123 @@
+{
+  "id": "toggl-track",
+  "package": "@activepieces/piece-toggl-track",
+  "display_name": "API Token",
+  "display_name_ar": "API Token",
+  "description": "Toggl Track is a time tracking application that allows users to track their daily activities across different platforms.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_client",
+      "display_name": "Create Client",
+      "description": "Create a new client in a workspace."
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Create a new project in a workspace."
+    },
+    {
+      "name": "create_tag",
+      "display_name": "Create Tag",
+      "description": "Create a new tag in the workspace."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a new task under a project."
+    },
+    {
+      "name": "create_time_entry",
+      "display_name": "Create Time Entry",
+      "description": "Create a new time entry in a workspace."
+    },
+    {
+      "name": "find_client",
+      "display_name": "Find Client",
+      "description": "Find a client by name or status in a workspace."
+    },
+    {
+      "name": "find_project",
+      "display_name": "Find Project",
+      "description": "Find a project in a workspace by its name."
+    },
+    {
+      "name": "find_tag",
+      "display_name": "Find Tag",
+      "description": "Find a tag by name in a workspace."
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Find a task by name and status."
+    },
+    {
+      "name": "find_time_entry",
+      "display_name": "Find Time Entry",
+      "description": "Find time entries by description."
+    },
+    {
+      "name": "find_user",
+      "display_name": "Find User",
+      "description": "Find a user in a workspace by their name or email."
+    },
+    {
+      "name": "start_time_entry",
+      "display_name": "Start Time Entry",
+      "description": "Start a new time entry (live timer)."
+    },
+    {
+      "name": "stop_time_entry",
+      "display_name": "Stop Time Entry",
+      "description": "Stops the currently running time entry."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_client",
+      "display_name": "New Client",
+      "description": "Fires when a new client is created in a workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "new_project",
+      "display_name": "New Project",
+      "description": "Fires when a new project is added.",
+      "type": "instant"
+    },
+    {
+      "name": "new_tag",
+      "display_name": "New Tag",
+      "description": "Triggers when a new tag is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Fires when a new task is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new_time_entry_started",
+      "display_name": "New Time Entry Started",
+      "description": "Fires when a new time entry is started and is currently running.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_time_entry",
+      "display_name": "New Time Entry",
+      "description": "Fires when a new time entry is added (with optional project/task filter).",
+      "type": "instant"
+    },
+    {
+      "name": "new_workspace",
+      "display_name": "New or Updated Workspace",
+      "description": "Fires when a workspace is created or updated (Toggl only supports workspace updated events).",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/toggl-track"
+}

@@ -1,0 +1,72 @@
+{
+  "id": "perplexity-ai",
+  "displayName": "Perplexity AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask-ai": {
+      "displayName": "Ask AI",
+      "description": "Enables users to generate prompt completion based on a specified model.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The amount of randomness in the response.Higher values are more random, and lower values are more deterministic."
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Please refer [guide](https://docs.perplexity.ai/guides/model-cards) for each model token limit."
+        },
+        {
+          "name": "top_p",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The nucleus sampling threshold, valued between 0 and 1 inclusive. For each subsequent token, the model considers the results of the tokens with top_p probability mass."
+        },
+        {
+          "name": "presence_penalty",
+          "displayName": "Presence penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the mode's likelihood to talk about new topics."
+        },
+        {
+          "name": "frequency_penalty",
+          "displayName": "Frequency penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "A multiplicative penalty greater than 0. Values greater than 1.0 penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+        },
+        {
+          "name": "roles",
+          "displayName": "Roles",
+          "type": "JSON",
+          "required": false,
+          "description": "Array of roles to specify more accurate response.After the (optional) system message, user and assistant roles should alternate with user then assistant, ending in user."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

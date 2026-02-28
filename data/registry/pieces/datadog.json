@@ -1,0 +1,30 @@
+{
+  "id": "datadog",
+  "package": "@activepieces/piece-datadog",
+  "display_name": "Datadog",
+  "display_name_ar": "Datadog",
+  "description": "Cloud monitoring and analytics platform",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "sendMultipleLogs",
+      "display_name": "Send Multiple logs",
+      "description": "Send your logs to your Datadog platform over HTTP."
+    },
+    {
+      "name": "sendOneLog",
+      "display_name": "Send One log",
+      "description": "Send one log to your Datadog platform over HTTP."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/datadog"
+}

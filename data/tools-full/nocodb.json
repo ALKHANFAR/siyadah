@@ -1,0 +1,81 @@
+{
+  "id": "nocodb",
+  "displayName": "NocoDB",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "nocodb-create-record": {
+      "displayName": "Create a Record",
+      "description": "Creates a new record in the given table.",
+      "props": []
+    },
+    "nocodb-delete-record": {
+      "displayName": "Delete a Record",
+      "description": "Deletes a record with the given Record ID.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "nocodb-get-record": {
+      "displayName": "Get a Record",
+      "description": "Gets a record by the Record ID.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "nocodb-search-records": {
+      "displayName": "Search Records",
+      "description": "Returns a list of records matching the where condition.",
+      "props": [
+        {
+          "name": "whereCondition",
+          "displayName": "Where",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Enables you to define specific conditions for filtering records.See docs [here](https://docs.nocodb.com/0.109.7/developer-resources/rest-apis/#comparison-operators)."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enables you to set a limit on the number of records you want to retrieve."
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma separated field names without space.Example: **field1,-field2** will sort the records first by 'field1' in ascending order and then by 'field2' in descending order."
+        }
+      ]
+    },
+    "nocodb-update-record": {
+      "displayName": "Update a Record",
+      "description": "Updates an existing record with the given Record ID.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

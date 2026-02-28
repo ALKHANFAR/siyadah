@@ -1,0 +1,25 @@
+{
+  "id": "mailercheck",
+  "package": "@activepieces/piece-mailercheck",
+  "display_name": "Mailercheck",
+  "display_name_ar": "",
+  "description": "MailerCheck is an easy-to-use email and campaign analysis tool. Anyone using an email service provider can keep their email lists clean and their campaigns deliverable.",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "verifyAnEmailAddress",
+      "display_name": "Verify an Email Address",
+      "description": "Verify a single email address in real-time"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

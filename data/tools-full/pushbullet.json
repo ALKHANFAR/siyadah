@@ -1,0 +1,62 @@
+{
+  "id": "pushbullet",
+  "displayName": "Pushbullet",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "sendALink": {
+      "displayName": "Send a Link",
+      "description": "Send a link notification",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL to send",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "sendANote": {
+      "displayName": "Send a Note",
+      "description": "Send me a text notification",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Note Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Note Body",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

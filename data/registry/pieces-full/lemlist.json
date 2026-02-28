@@ -1,0 +1,88 @@
+{
+  "id": "lemlist",
+  "package": "@activepieces/piece-lemlist",
+  "display_name": "Lemlist",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addLeadToACampaign",
+      "display_name": "Add Lead To A Campaign",
+      "description": "Adds a lead to a specific campaign with optional enrichment and lead details."
+    },
+    {
+      "name": "markLeadFromAllCampaignAsInterested",
+      "display_name": "Mark Lead From All Campaign as Interested",
+      "description": "Mark a lead as “interested” across all campaigns."
+    },
+    {
+      "name": "markLeadFromAllCampaignsAsNotInterested",
+      "display_name": "Mark Lead From All Campaigns as Not Interested",
+      "description": "Mark a lead as “not interested” across all campaigns."
+    },
+    {
+      "name": "markLeadFromOneCampaignAsInterested",
+      "display_name": "Mark Lead From One Campaign as Interested",
+      "description": "Mark a lead in a campaign as interested."
+    },
+    {
+      "name": "markLeadFromOneCampaignAsNotInterested",
+      "display_name": "Mark Lead From One Campaign as Not Interested",
+      "description": "Mark a lead in a campaign as not interested."
+    },
+    {
+      "name": "pauseLeadFromAllOrSpecificCampaigns",
+      "display_name": "Pause Lead From All or Specific Campaigns",
+      "description": "Pause a lead’s outreach across all or specific campaigns."
+    },
+    {
+      "name": "removeLeadFromACampaign",
+      "display_name": "Remove Lead from A Campaign",
+      "description": "removes a lead from a specific campaign."
+    },
+    {
+      "name": "removeLeadFromUnsubscribeList",
+      "display_name": "Remove Lead From Unsubscribe List",
+      "description": "Remove a lead from “unsubscribe” list."
+    },
+    {
+      "name": "resumeLeadFromAllOrSpecificCampaigns",
+      "display_name": "Resume Lead From All or Specific Campaigns",
+      "description": "Resume a lead’s outreach across all or specific campaigns."
+    },
+    {
+      "name": "searchLead",
+      "display_name": "Search Lead",
+      "description": "Look up a lead by email and campaign."
+    },
+    {
+      "name": "unsubscribeALead",
+      "display_name": "Unsubscribe a Lead",
+      "description": "Unsubscribe a lead from a campaign."
+    },
+    {
+      "name": "updateLeadFromCampaign",
+      "display_name": "Update Lead From Campaign",
+      "description": "Updates a lead in a specific campaign."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newActivity",
+      "display_name": "New Activity",
+      "description": "Triggers for each new activity.",
+      "type": "instant"
+    },
+    {
+      "name": "unsubscribedRecipient",
+      "display_name": "Unsubscribed Recipient",
+      "description": "Triggers when a recipient unsubscribes.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

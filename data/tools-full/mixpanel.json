@@ -1,0 +1,42 @@
+{
+  "id": "mixpanel",
+  "displayName": "Mixpanel",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "track_event": {
+      "displayName": "Track Event",
+      "description": "Send an Event to Mixpanel.",
+      "props": [
+        {
+          "name": "event",
+          "displayName": "Event",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A name for this Event. For example, 'Brand Mentioned in Tweet' or 'Payment Made'."
+        },
+        {
+          "name": "distinct_id",
+          "displayName": "Distinct ID (Profile ID)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A way to uniquely identify your users (or more generally, profiles). If you are sending Profiles to Mixpanel in addition to events, this property value should be identical to the Distinct ID property attached to the Profile so that you can connect events to people records."
+        },
+        {
+          "name": "event_properties",
+          "displayName": "Event Properties",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Event Properties are bits of extra information that you send along with your Events describing the details of that action. They are usually specific to the Event they’re describing and don’t apply universally to other Events. Leveraging Event Properties allows you to conduct deeper analysis to better understand user behavior for a specific action. For example, a 'Song Added to Playlist' event could have 'Artist' and 'Playlist' as the properties. Properties are sent as key-value pairs where the key is the property name and the value is the property value."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

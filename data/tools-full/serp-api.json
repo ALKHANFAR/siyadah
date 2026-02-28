@@ -1,0 +1,279 @@
+{
+  "id": "serp-api",
+  "displayName": "SerpApi",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "google_news_search": {
+      "displayName": "Google News Search",
+      "description": "Track recent news articles for keywords or brands to monitor media mentions and trending topics.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "News search query"
+        },
+        {
+          "name": "hl",
+          "displayName": "Host Language (hl)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language for search results"
+        },
+        {
+          "name": "gl",
+          "displayName": "Country (gl)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Country for search results"
+        },
+        {
+          "name": "no_cache",
+          "displayName": "No Cache",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Force fresh results"
+        },
+        {
+          "name": "async",
+          "displayName": "Async",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Submit search asynchronously"
+        },
+        {
+          "name": "output",
+          "displayName": "Output",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Output format for results"
+        }
+      ]
+    },
+    "google_search": {
+      "displayName": "Google Search",
+      "description": "Retrieves organic search results for specific keywords with advanced filtering options for SEO monitoring and competitor analysis.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search query to execute"
+        },
+        {
+          "name": "location_search",
+          "displayName": "Location Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Type location name to search"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Geographic location for results"
+        },
+        {
+          "name": "hl",
+          "displayName": "Host Language (hl)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language for search results"
+        },
+        {
+          "name": "google_domain",
+          "displayName": "Google Domain",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Google domain to use"
+        },
+        {
+          "name": "gl",
+          "displayName": "Country (gl)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Country for search results"
+        },
+        {
+          "name": "no_cache",
+          "displayName": "No Cache",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Force fresh results"
+        },
+        {
+          "name": "async",
+          "displayName": "Async",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Submit search asynchronously"
+        },
+        {
+          "name": "num_results",
+          "displayName": "Number of Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to return (1-100)"
+        },
+        {
+          "name": "start",
+          "displayName": "Start Position",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Starting position for pagination (0-990)"
+        },
+        {
+          "name": "safe",
+          "displayName": "Safe Search",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Safe search filtering level"
+        },
+        {
+          "name": "device",
+          "displayName": "Device Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Device type for search simulation"
+        },
+        {
+          "name": "filter",
+          "displayName": "Result Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter duplicate results"
+        }
+      ]
+    },
+    "google_trends_search": {
+      "displayName": "Google Trends Search",
+      "description": "Discover trending keywords over time to inform content strategy and market research with geographic insights.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The keyword or topic to analyze trends for (e.g., \"artificial intelligence\", \"cryptocurrency\", \"climate change\")"
+        },
+        {
+          "name": "hl",
+          "displayName": "Host Language (hl)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language for search results"
+        },
+        {
+          "name": "geo",
+          "displayName": "Geographic Location",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Location from where you want the search to originate."
+        },
+        {
+          "name": "data_type",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of trends data to retrieve"
+        },
+        {
+          "name": "time_period",
+          "displayName": "Time Period",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Time range for the trends data"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Google Trends category ID (0 for all categories)"
+        },
+        {
+          "name": "property_filter",
+          "displayName": "Property Filter (grop)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by Google property"
+        },
+        {
+          "name": "no_cache",
+          "displayName": "No Cache",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Force SerpApi to fetch the Google results even if a cached version is already present."
+        },
+        {
+          "name": "async",
+          "displayName": "Async",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Defines the way you want to submit your search to SerpApi. It can be set to false (default) to open an HTTP connection and keep it open until you got your search results, or true to just submit your search to SerpApi and retrieve them later."
+        },
+        {
+          "name": "output",
+          "displayName": "Output",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Defines the final output format you want."
+        }
+      ]
+    },
+    "youtube_search": {
+      "displayName": "YouTube Search",
+      "description": "Retrieve top video content results from YouTube for specific keywords or topics with advanced filtering.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "YouTube search query"
+        },
+        {
+          "name": "hl",
+          "displayName": "Host Language (hl)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language for search results"
+        },
+        {
+          "name": "gl",
+          "displayName": "Country (gl)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Country for search results"
+        },
+        {
+          "name": "no_cache",
+          "displayName": "No Cache",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Force fresh results"
+        },
+        {
+          "name": "async",
+          "displayName": "Async",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Submit search asynchronously"
+        },
+        {
+          "name": "output",
+          "displayName": "Output",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Output format for results"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

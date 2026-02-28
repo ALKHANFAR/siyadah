@@ -1,0 +1,20 @@
+{
+  "id": "zoho-books",
+  "package": "@activepieces/piece-zoho-books",
+  "display_name": "Location",
+  "display_name_ar": "Location",
+  "description": "The location of your Zoho Books account",
+  "category": "M_finance",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/zoho-books"
+}

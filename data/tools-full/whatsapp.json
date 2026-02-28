@@ -1,0 +1,84 @@
+{
+  "id": "whatsapp",
+  "displayName": "WhatsApp Business",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "send-template-message": {
+      "displayName": "Send Template Message",
+      "description": "Sends a template message.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Recipient phone number."
+        }
+      ]
+    },
+    "sendMedia": {
+      "displayName": "Send Media",
+      "description": "Send a media message through WhatsApp",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient of the message"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The type of media to send"
+        },
+        {
+          "name": "media",
+          "displayName": "Media URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the media to send"
+        },
+        {
+          "name": "caption",
+          "displayName": "Caption",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A caption for the media"
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Filename of the document to send"
+        }
+      ]
+    },
+    "sendMessage": {
+      "displayName": "Send Message",
+      "description": "Send a text message through WhatsApp",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient of the message"
+        },
+        {
+          "name": "text",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

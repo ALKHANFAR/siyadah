@@ -1,0 +1,39 @@
+{
+  "id": "schedule",
+  "package": "@activepieces/piece-schedule",
+  "display_name": "Schedule",
+  "display_name_ar": "جدولة",
+  "description": "Schedule recurring executions",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "every_hour",
+      "display_name": "Every Hour",
+      "description": "Run every hour",
+      "type": "scheduled"
+    },
+    {
+      "name": "every_day",
+      "display_name": "Every Day",
+      "description": "Run every day",
+      "type": "scheduled"
+    },
+    {
+      "name": "every_week",
+      "display_name": "Every Week",
+      "description": "Run every week",
+      "type": "scheduled"
+    },
+    {
+      "name": "cron_expression",
+      "display_name": "Cron Expression",
+      "description": "Run on a cron schedule",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-builtin"
+}

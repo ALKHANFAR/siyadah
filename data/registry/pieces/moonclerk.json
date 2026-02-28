@@ -1,0 +1,56 @@
+{
+  "id": "moonclerk",
+  "package": "@activepieces/piece-moonclerk",
+  "display_name": "Moonclerk",
+  "display_name_ar": "Moonclerk",
+  "description": "MoonClerk is an easy-to-use payment form builder for Stripe.",
+  "category": "F_ecommerce",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "retrivePlan",
+      "display_name": "Retrieve Plan",
+      "description": "Retrieve a customer plan from MoonClerk using the customer ID"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newPayment",
+      "display_name": "New Payment",
+      "description": "Triggers when a payment is created in any state (failed, succeeded, etc).",
+      "type": "instant"
+    },
+    {
+      "name": "newPlan",
+      "display_name": "New Plan",
+      "description": "Triggers when a new plan is created in MoonClerk",
+      "type": "instant"
+    },
+    {
+      "name": "paymentSucceeds",
+      "display_name": "Payment Succeeds",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "planEnded",
+      "display_name": "Plan Ended",
+      "description": "Triggers when a plan is canceled or when the set number periods have been exhausted.",
+      "type": "instant"
+    },
+    {
+      "name": "planPaymentFailed",
+      "display_name": "Plan Payment Failed",
+      "description": "Triggers when a payment related to a plan has failed.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/moonclerk"
+}

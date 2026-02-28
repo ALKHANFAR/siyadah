@@ -1,0 +1,200 @@
+{
+  "id": "okta",
+  "displayName": "Okta",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "activate_user": {
+      "displayName": "Activate User",
+      "description": "Activate a previously deactivated or pending user",
+      "props": [
+        {
+          "name": "sendEmail",
+          "displayName": "Send Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send activation email to user"
+        }
+      ]
+    },
+    "add_user_to_group": {
+      "displayName": "Add User to Group",
+      "description": "Add a user to a specific Okta group",
+      "props": []
+    },
+    "create_user": {
+      "displayName": "Create User",
+      "description": "Creates a user without credentials and sends account creation prompt via email",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User first name"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User last name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User email address"
+        },
+        {
+          "name": "login",
+          "displayName": "Login",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "User login (typically same as email)"
+        },
+        {
+          "name": "mobilePhone",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "User mobile phone number"
+        },
+        {
+          "name": "sendEmail",
+          "displayName": "Send Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send account creation email to user"
+        }
+      ]
+    },
+    "deactivate_user": {
+      "displayName": "Deactivate User",
+      "description": "Deactivate (disable) a user in Okta",
+      "props": [
+        {
+          "name": "sendEmail",
+          "displayName": "Send Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send deactivation email to user"
+        }
+      ]
+    },
+    "find_group_by_name": {
+      "displayName": "Find Group by Name",
+      "description": "Search for an Okta group by name",
+      "props": [
+        {
+          "name": "groupName",
+          "displayName": "Group Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The group name to search for"
+        }
+      ]
+    },
+    "find_user_by_email": {
+      "displayName": "Find User by Email",
+      "description": "Look up an Okta user by their email address",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Okta Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your Okta organization domain"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user email address"
+        }
+      ]
+    },
+    "remove_user_from_group": {
+      "displayName": "Remove User from Group",
+      "description": "Remove a user from an Okta group",
+      "props": []
+    },
+    "suspend_user": {
+      "displayName": "Suspend User",
+      "description": "Temporarily suspend a user in Okta",
+      "props": []
+    },
+    "update_user": {
+      "displayName": "Update User",
+      "description": "Update user profile information",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Updated first name"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Updated last name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Updated email address"
+        },
+        {
+          "name": "mobilePhone",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Updated mobile phone number"
+        },
+        {
+          "name": "customAttributes",
+          "displayName": "Custom Attributes",
+          "type": "JSON",
+          "required": false,
+          "description": "JSON object with custom profile attributes"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_event": {
+      "displayName": "New Event",
+      "description": "Fires when a new Okta event is generated",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventTypes",
+          "displayName": "Event Types to Monitor",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select which event types to trigger on"
+        },
+        {
+          "name": "hookName",
+          "displayName": "Hook Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name for the Okta Event Hook (optional)"
+        }
+      ]
+    }
+  }
+}

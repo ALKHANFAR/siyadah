@@ -1,0 +1,85 @@
+{
+  "id": "sap-ariba",
+  "package": "@activepieces/piece-sap-ariba",
+  "display_name": "SAP Ariba",
+  "display_name_ar": "SAP Ariba",
+  "description": "Automate procurement, contracts, and invoices with SAP Ariba.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_contract_workspace",
+      "display_name": "Create Contract Workspace",
+      "description": "Create a new contract workspace in SAP Ariba Contracts."
+    },
+    {
+      "name": "delete_contract_workspace",
+      "display_name": "Delete Contract Workspace",
+      "description": "Delete a contract workspace in SAP Ariba Contracts."
+    },
+    {
+      "name": "get_active_catalogs",
+      "display_name": "Get Active Catalogs",
+      "description": "Get list of active catalog data & supplier values from the specified date."
+    },
+    {
+      "name": "get_catalog_items",
+      "display_name": "Get Catalog Items",
+      "description": "Get list of filtered catalog items for a specific supplier."
+    },
+    {
+      "name": "get_contract_workspace",
+      "display_name": "Get Contract Workspace",
+      "description": "Search for a contract workspace using a unique identifier."
+    },
+    {
+      "name": "get_document_changes",
+      "display_name": "Get Document Changes",
+      "description": "Returns the list of changes to approvable documents."
+    },
+    {
+      "name": "get_facet_data",
+      "display_name": "Get Facet Data",
+      "description": "Get list of Facet data against realm."
+    },
+    {
+      "name": "get_pending_approvables",
+      "display_name": "Get Pending Approvables",
+      "description": "List all documents/tasks that are pending approval."
+    },
+    {
+      "name": "list_invoices",
+      "display_name": "List Invoices",
+      "description": "Retrieves header information of one or more invoices in Ariba Network."
+    },
+    {
+      "name": "list_purchase_order_items",
+      "display_name": "List Purchase Order Line Items",
+      "description": "Retrieves line item information from purchase orders for a specified buyer."
+    },
+    {
+      "name": "list_purchase_orders",
+      "display_name": "List Purchase Orders",
+      "description": "Retrieves purchase order header information for a specified buyer."
+    },
+    {
+      "name": "search_contract_workspaces",
+      "display_name": "Search Contract Workspaces",
+      "description": "Search contract workspaces based on attributes such as title, contract ID, region, etc."
+    },
+    {
+      "name": "update_contract_status",
+      "display_name": "Update Contract Status",
+      "description": "Change the status of a contract workspace (e.g., amend, putOnHold, resume, close)."
+    },
+    {
+      "name": "update_contract_workspace",
+      "display_name": "Update Contract Workspace",
+      "description": "Update an existing contract workspace in SAP Ariba Contracts."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/sap-ariba"
+}

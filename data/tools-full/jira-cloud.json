@@ -1,0 +1,312 @@
+{
+  "id": "jira-cloud",
+  "displayName": "Jira Cloud",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_issue_attachment": {
+      "displayName": "Add Attachment to Issue",
+      "description": "Adds an attachment to an issue.",
+      "props": [
+        {
+          "name": "attachment",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "add_issue_comment": {
+      "displayName": "Add Issue Comment",
+      "description": "Adds a comment to an issue.",
+      "props": [
+        {
+          "name": "comment",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "isADF",
+          "displayName": "Comment is in JSON Atlassian Document Format",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "https://developer.atlassian.com/cloud/jira/platform/apis/document/structure"
+        }
+      ]
+    },
+    "add-watcher-to-issue": {
+      "displayName": "Add Watcher to Issue",
+      "description": "Adds a new watcher to an issue.",
+      "props": []
+    },
+    "assign_issue": {
+      "displayName": "Assign Issue",
+      "description": "Assigns an issue to a user.",
+      "props": []
+    },
+    "create_issue": {
+      "displayName": "Create Issue",
+      "description": "Creates a new issue in a project.",
+      "props": [
+        {
+          "name": "issueFields",
+          "displayName": "Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "adfFields",
+          "displayName": "Fields in JSON Atlassian Document Format",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "https://developer.atlassian.com/cloud/jira/platform/apis/document/structure"
+        }
+      ]
+    },
+    "delete_issue_comment": {
+      "displayName": "Delete Issue Comment",
+      "description": "Deletes a comment on a specific issue.",
+      "props": []
+    },
+    "find-user": {
+      "displayName": "Find User",
+      "description": "Finds an existing user.",
+      "props": [
+        {
+          "name": "keyword",
+          "displayName": "Keyword",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-issue-attachment": {
+      "displayName": "Get Issue Attachment",
+      "description": "Retrieves an attachment from an issue.",
+      "props": [
+        {
+          "name": "attachmentId",
+          "displayName": "Attachment ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get_issue": {
+      "displayName": "Get Issue",
+      "description": "Get issue data.",
+      "props": [
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Include additional information about the issue in the response"
+        },
+        {
+          "name": "mapNames",
+          "displayName": "Map Field Names",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "\nMap human readable names to Fields, Rendered Fields, Schema and Edit Meta.\nNotes:\n- This would implicitly add \"names\" to the expand field\n- If there are fields with the same name, they may be overridden\n\t\t\t\t"
+        },
+        {
+          "name": "mapTransitions",
+          "displayName": "Map Transition Names",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "\nMap human readable names to Transitions.\nNotes:\n- If there are transitions with the same name, they may be overridden\n- This changes the original data structure from list to map\n\t\t\t\t"
+        }
+      ]
+    },
+    "link-issues": {
+      "displayName": "Link Issues",
+      "description": "Creates a link between two issues.",
+      "props": []
+    },
+    "list_issue_comments": {
+      "displayName": "List Issue Comments",
+      "description": "Returns all comments for an issue.",
+      "props": [
+        {
+          "name": "orderBy",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Maximum number of results"
+        }
+      ]
+    },
+    "markdownToJiraFormat": {
+      "displayName": "Markdown to Jira format",
+      "description": "Convert Markdown-formatted text to Jira's ADF syntax for use in comments and descriptions etc",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "Markdown text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "search_issues": {
+      "displayName": "Search Issues",
+      "description": "Search for issues with JQL",
+      "props": [
+        {
+          "name": "jql",
+          "displayName": "JQL",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The JQL query to use in the search"
+        },
+        {
+          "name": "maxResults",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "sanitizeJql",
+          "displayName": "Sanitize JQL",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "update_issue_comment": {
+      "displayName": "Update Issue Comment",
+      "description": "Updates a comment to a specific issue.",
+      "props": [
+        {
+          "name": "commentId",
+          "displayName": "Comment ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "comment",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "isADF",
+          "displayName": "Comment is in JSON Atlassian Document Format",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "https://developer.atlassian.com/cloud/jira/platform/apis/document/structure"
+        }
+      ]
+    },
+    "update_issue": {
+      "displayName": "Update Issue",
+      "description": "Updates an existing issue.",
+      "props": [
+        {
+          "name": "issueFields",
+          "displayName": "Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "adfFields",
+          "displayName": "Fields in JSON Atlassian Document Format",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "https://developer.atlassian.com/cloud/jira/platform/apis/document/structure"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_issue": {
+      "displayName": "New Issue",
+      "description": "Triggers when a new issue is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "jql",
+          "displayName": "JQL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Use to filter issues watched"
+        },
+        {
+          "name": "sanitizeJql",
+          "displayName": "Sanitize JQL",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "updated_issue_status": {
+      "displayName": "Updated Issue Status",
+      "description": "Triggers when an issue status is updated",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "jql",
+          "displayName": "JQL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Use to filter issues watched"
+        },
+        {
+          "name": "sanitizeJql",
+          "displayName": "Sanitize JQL",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "updated_issue": {
+      "displayName": "Updated Issue",
+      "description": "Triggers when an issue is updated",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "jql",
+          "displayName": "JQL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Use to filter issues watched"
+        },
+        {
+          "name": "sanitizeJql",
+          "displayName": "Sanitize JQL",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

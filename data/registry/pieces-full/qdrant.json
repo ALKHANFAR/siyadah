@@ -1,0 +1,50 @@
+{
+  "id": "qdrant",
+  "package": "@activepieces/piece-qdrant",
+  "display_name": "Server Address",
+  "display_name_ar": "",
+  "description": "The url of the Qdrant instance.",
+  "category": "J_database",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "add_points_to_collection",
+      "display_name": "Add points to collection",
+      "description": "Insert a point (= embedding or vector + other infos) to a specific collection, if the collection does not exist it will be created"
+    },
+    {
+      "name": "delete_collection",
+      "display_name": "Delete Collection",
+      "description": "Delete a collection of your database"
+    },
+    {
+      "name": "delete_points",
+      "display_name": "Delete Points",
+      "description": "Delete points of a specific collection"
+    },
+    {
+      "name": "collection_infos",
+      "display_name": "Get Collection Infos",
+      "description": "Get the all the infos of a specific collection"
+    },
+    {
+      "name": "collection_list",
+      "display_name": "Get Collection List",
+      "description": "Get the list of all the collections of your database"
+    },
+    {
+      "name": "get_points",
+      "display_name": "Get Points",
+      "description": "Get the points of a specific collection"
+    },
+    {
+      "name": "search_points",
+      "display_name": "Search Points",
+      "description": "Search for points closest to your given vector (= embedding)"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

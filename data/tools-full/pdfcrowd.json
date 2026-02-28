@@ -1,0 +1,335 @@
+{
+  "id": "pdfcrowd",
+  "displayName": "Pdfcrowd",
+  "auth": {
+    "type": "basic_auth"
+  },
+  "actions": {
+    "html_to_pdf": {
+      "displayName": "Convert HTML to PDF",
+      "description": "Convert HTML content (string) to PDF document",
+      "props": [
+        {
+          "name": "htmlContent",
+          "displayName": "HTML Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The HTML content to convert to PDF"
+        },
+        {
+          "name": "outputFilename",
+          "displayName": "Output Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The filename for the generated PDF"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set the output page size using standard formats (A4, Letter, A3, etc.)."
+        },
+        {
+          "name": "page_width",
+          "displayName": "Page Width",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Set custom page width (e.g., \"8.27in\", \"210mm\"). The safe maximum is 200in."
+        },
+        {
+          "name": "page_height",
+          "displayName": "Page Height",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Set custom page height. Set to \"-1\" for a single-page PDF that expands to fit all content."
+        },
+        {
+          "name": "orientation",
+          "displayName": "Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set the output page orientation."
+        },
+        {
+          "name": "margin_top",
+          "displayName": "Margin Top",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space at the top of the page (e.g., \"0.4in\", \"10mm\")."
+        },
+        {
+          "name": "margin_right",
+          "displayName": "Margin Right",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space on the right edge of the page."
+        },
+        {
+          "name": "margin_bottom",
+          "displayName": "Margin Bottom",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space at the bottom of the page."
+        },
+        {
+          "name": "margin_left",
+          "displayName": "Margin Left",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space on the left edge of the page."
+        },
+        {
+          "name": "content_viewport_width",
+          "displayName": "Content Viewport Width",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set the viewport width for formatting the HTML content."
+        },
+        {
+          "name": "custom_css",
+          "displayName": "Custom CSS",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Apply custom CSS to modify the visual appearance and layout of your content."
+        },
+        {
+          "name": "custom_javascript",
+          "displayName": "Custom JavaScript",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Run custom JavaScript after the document is loaded and ready to print."
+        },
+        {
+          "name": "element_to_convert",
+          "displayName": "Element To Convert",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Convert only the specified element using CSS selector (e.g., \"#content\", \".article\")."
+        },
+        {
+          "name": "header_html",
+          "displayName": "Header HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML content for the page header."
+        },
+        {
+          "name": "header_url",
+          "displayName": "Header URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL of the page header HTML."
+        },
+        {
+          "name": "footer_html",
+          "displayName": "Footer HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML content for the page footer."
+        },
+        {
+          "name": "footer_url",
+          "displayName": "Footer URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL of the page footer HTML."
+        },
+        {
+          "name": "page_watermark",
+          "displayName": "Page Watermark",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply a watermark PDF overlay to every page of the output."
+        },
+        {
+          "name": "multipage_watermark",
+          "displayName": "Multipage Watermark",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply each page of a watermark PDF to corresponding output pages."
+        },
+        {
+          "name": "page_background",
+          "displayName": "Page Background",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply a background PDF to every page of the output."
+        },
+        {
+          "name": "multipage_background",
+          "displayName": "Multipage Background",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply each page of a background PDF to corresponding output pages."
+        }
+      ]
+    },
+    "url_to_pdf": {
+      "displayName": "Convert URL to PDF",
+      "description": "Convert a web page URL to PDF document",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the web page to convert. Must be publicly accessible."
+        },
+        {
+          "name": "outputFilename",
+          "displayName": "Output Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The filename for the generated PDF"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set the output page size using standard formats (A4, Letter, A3, etc.)."
+        },
+        {
+          "name": "page_width",
+          "displayName": "Page Width",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Set custom page width (e.g., \"8.27in\", \"210mm\"). The safe maximum is 200in."
+        },
+        {
+          "name": "page_height",
+          "displayName": "Page Height",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Set custom page height. Set to \"-1\" for a single-page PDF that expands to fit all content."
+        },
+        {
+          "name": "orientation",
+          "displayName": "Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set the output page orientation."
+        },
+        {
+          "name": "margin_top",
+          "displayName": "Margin Top",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space at the top of the page (e.g., \"0.4in\", \"10mm\")."
+        },
+        {
+          "name": "margin_right",
+          "displayName": "Margin Right",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space on the right edge of the page."
+        },
+        {
+          "name": "margin_bottom",
+          "displayName": "Margin Bottom",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space at the bottom of the page."
+        },
+        {
+          "name": "margin_left",
+          "displayName": "Margin Left",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Control white space on the left edge of the page."
+        },
+        {
+          "name": "content_viewport_width",
+          "displayName": "Content Viewport Width",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set the viewport width for formatting the HTML content."
+        },
+        {
+          "name": "custom_css",
+          "displayName": "Custom CSS",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Apply custom CSS to modify the visual appearance and layout of your content."
+        },
+        {
+          "name": "custom_javascript",
+          "displayName": "Custom JavaScript",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Run custom JavaScript after the document is loaded and ready to print."
+        },
+        {
+          "name": "element_to_convert",
+          "displayName": "Element To Convert",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Convert only the specified element using CSS selector (e.g., \"#content\", \".article\")."
+        },
+        {
+          "name": "header_html",
+          "displayName": "Header HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML content for the page header."
+        },
+        {
+          "name": "header_url",
+          "displayName": "Header URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL of the page header HTML."
+        },
+        {
+          "name": "footer_html",
+          "displayName": "Footer HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML content for the page footer."
+        },
+        {
+          "name": "footer_url",
+          "displayName": "Footer URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL of the page footer HTML."
+        },
+        {
+          "name": "page_watermark",
+          "displayName": "Page Watermark",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply a watermark PDF overlay to every page of the output."
+        },
+        {
+          "name": "multipage_watermark",
+          "displayName": "Multipage Watermark",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply each page of a watermark PDF to corresponding output pages."
+        },
+        {
+          "name": "page_background",
+          "displayName": "Page Background",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply a background PDF to every page of the output."
+        },
+        {
+          "name": "multipage_background",
+          "displayName": "Multipage Background",
+          "type": "FILE",
+          "required": false,
+          "description": "Apply each page of a background PDF to corresponding output pages."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

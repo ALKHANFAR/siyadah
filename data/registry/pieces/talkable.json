@@ -1,0 +1,85 @@
+{
+  "id": "talkable",
+  "package": "@activepieces/piece-talkable",
+  "display_name": "Talkable site ID",
+  "display_name_ar": "Talkable site ID",
+  "description": "Referral marketing programs that drive revenue",
+  "category": "H_marketing",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "claim-offer",
+      "display_name": "Share and claim offer",
+      "description": "Using this action, you can share and get a friend's reward"
+    },
+    {
+      "name": "update-referral-status",
+      "display_name": "Update referral status",
+      "description": "You can void or approve referral"
+    },
+    {
+      "name": "find_coupon",
+      "display_name": "Find coupon",
+      "description": "Find coupon code"
+    },
+    {
+      "name": "get_loyalty_redeem_actions",
+      "display_name": "Get loyalty actions",
+      "description": "Get array of loyalty actions"
+    },
+    {
+      "name": "update_person",
+      "display_name": "Update person",
+      "description": "Update person by email"
+    },
+    {
+      "name": "find_person",
+      "display_name": "Find person",
+      "description": "Find person by email"
+    },
+    {
+      "name": "unsubscribe_person",
+      "display_name": "Unsubscribe person",
+      "description": "Unsubscribe person by email"
+    },
+    {
+      "name": "anonymize_person",
+      "display_name": "Anonymize person",
+      "description": "Anonymize person by email"
+    },
+    {
+      "name": "create_purchase",
+      "display_name": "Create purchase",
+      "description": "Create purchase in Talkable"
+    },
+    {
+      "name": "create_purchases_batch",
+      "display_name": "Create batch of purchases",
+      "description": "Create batch of purchases in Talkable"
+    },
+    {
+      "name": "create_event",
+      "display_name": "Create event",
+      "description": "Create event in Talkable"
+    },
+    {
+      "name": "refund",
+      "display_name": "Refund purchase/event",
+      "description": "Mark origin as refund"
+    },
+    {
+      "name": "create_events_batch",
+      "display_name": "Create batch of events",
+      "description": "Create batch of events in Talkable"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/talkable"
+}

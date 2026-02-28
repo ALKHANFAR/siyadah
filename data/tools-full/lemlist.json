@@ -1,0 +1,340 @@
+{
+  "id": "lemlist",
+  "displayName": "Lemlist",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addLeadToACampaign": {
+      "displayName": "Add Lead To A Campaign",
+      "description": "Adds a lead to a specific campaign with optional enrichment and lead details.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to add"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "picture",
+          "displayName": "Picture URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "linkedinUrl",
+          "displayName": "LinkedIn URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyName",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyDomain",
+          "displayName": "Company Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "icebreaker",
+          "displayName": "Icebreaker",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "deduplicate",
+          "displayName": "Deduplicate",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Avoid adding the lead if it already exists in any campaign"
+        },
+        {
+          "name": "linkedinEnrichment",
+          "displayName": "LinkedIn Enrichment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Run LinkedIn enrichment for this lead"
+        },
+        {
+          "name": "findEmail",
+          "displayName": "Find Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Try to find a verified email for this lead"
+        },
+        {
+          "name": "verifyEmail",
+          "displayName": "Verify Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Verify the lead’s email using debounce"
+        },
+        {
+          "name": "findPhone",
+          "displayName": "Find Phone",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Try to find a phone number for this lead"
+        }
+      ]
+    },
+    "markLeadFromAllCampaignAsInterested": {
+      "displayName": "Mark Lead From All Campaign as Interested",
+      "description": "Mark a lead as “interested” across all campaigns.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to mark as interested."
+        }
+      ]
+    },
+    "markLeadFromAllCampaignsAsNotInterested": {
+      "displayName": "Mark Lead From All Campaigns as Not Interested",
+      "description": "Mark a lead as “not interested” across all campaigns.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to mark as not interested."
+        }
+      ]
+    },
+    "markLeadFromOneCampaignAsInterested": {
+      "displayName": "Mark Lead From One Campaign as Interested",
+      "description": "Mark a lead in a campaign as interested.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to mark as interested."
+        }
+      ]
+    },
+    "markLeadFromOneCampaignAsNotInterested": {
+      "displayName": "Mark Lead From One Campaign as Not Interested",
+      "description": "Mark a lead in a campaign as not interested.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to mark as not interested."
+        }
+      ]
+    },
+    "pauseLeadFromAllOrSpecificCampaigns": {
+      "displayName": "Pause Lead From All or Specific Campaigns",
+      "description": "Pause a lead’s outreach across all or specific campaigns.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to pause."
+        }
+      ]
+    },
+    "removeLeadFromACampaign": {
+      "displayName": "Remove Lead from A Campaign",
+      "description": "removes a lead from a specific campaign.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to remove."
+        }
+      ]
+    },
+    "removeLeadFromUnsubscribeList": {
+      "displayName": "Remove Lead From Unsubscribe List",
+      "description": "Remove a lead from “unsubscribe” list.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to remove from the unsubscribe list."
+        }
+      ]
+    },
+    "resumeLeadFromAllOrSpecificCampaigns": {
+      "displayName": "Resume Lead From All or Specific Campaigns",
+      "description": "Resume a lead’s outreach across all or specific campaigns.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to resume."
+        }
+      ]
+    },
+    "searchLead": {
+      "displayName": "Search Lead",
+      "description": "Look up a lead by email and campaign.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to look up"
+        }
+      ]
+    },
+    "unsubscribeALead": {
+      "displayName": "Unsubscribe a Lead",
+      "description": "Unsubscribe a lead from a campaign.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to unsubscribe."
+        }
+      ]
+    },
+    "updateLeadFromCampaign": {
+      "displayName": "Update Lead From Campaign",
+      "description": "Updates a lead in a specific campaign.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lead Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the lead to update."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "picture",
+          "displayName": "Picture URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "linkedinUrl",
+          "displayName": "LinkedIn URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyName",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyDomain",
+          "displayName": "Company Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "icebreaker",
+          "displayName": "Icebreaker",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newActivity": {
+      "displayName": "New Activity",
+      "description": "Triggers for each new activity.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "unsubscribedRecipient": {
+      "displayName": "Unsubscribed Recipient",
+      "description": "Triggers when a recipient unsubscribes.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

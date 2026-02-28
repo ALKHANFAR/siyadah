@@ -1,0 +1,327 @@
+{
+  "id": "service-now",
+  "displayName": "ServiceNow",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "attach_file_to_record": {
+      "displayName": "Attach File to Record",
+      "description": "Upload and attach a file to a record",
+      "props": [
+        {
+          "name": "manual_sys_id",
+          "displayName": "Or Enter Sys ID Manually",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the sys_id directly if not found in dropdown"
+        },
+        {
+          "name": "file_name",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name for the attachment"
+        },
+        {
+          "name": "content_type",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "File content type"
+        },
+        {
+          "name": "fileBase64",
+          "displayName": "File Base64",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Base64 encoded file content (use this OR file path)"
+        },
+        {
+          "name": "filePath",
+          "displayName": "File Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Path to file on local system (use this OR base64)"
+        },
+        {
+          "name": "encryption_context",
+          "displayName": "Encryption Context",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Encryption context sys_id to restrict file access"
+        }
+      ]
+    },
+    "create_record": {
+      "displayName": "Create Record",
+      "description": "Create a new record in a specified table",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Record Fields",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Field names and values for the new record"
+        },
+        {
+          "name": "sysparm_display_value",
+          "displayName": "Return Display Values",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to format the response data"
+        },
+        {
+          "name": "sysparm_fields",
+          "displayName": "Fields to Return",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Specific fields to include in response (optional)"
+        },
+        {
+          "name": "sysparm_input_display_value",
+          "displayName": "Use Display Values for Input",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Treat input values as display names instead of IDs"
+        },
+        {
+          "name": "sysparm_view",
+          "displayName": "UI View",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "View context for returned fields"
+        }
+      ]
+    },
+    "find_file": {
+      "displayName": "Find File",
+      "description": "List or download file attachments from a record",
+      "props": [
+        {
+          "name": "action_type",
+          "displayName": "Action Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "List attachments or download a file"
+        },
+        {
+          "name": "manual_sys_id",
+          "displayName": "Or Enter Record Sys ID Manually",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Record sys_id (for listing attachments)"
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter attachments by filename (optional)"
+        },
+        {
+          "name": "attachment_sys_id",
+          "displayName": "Attachment Sys ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Attachment sys_id to download"
+        },
+        {
+          "name": "accept_type",
+          "displayName": "Accept Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "File type to accept when downloading"
+        },
+        {
+          "name": "return_format",
+          "displayName": "Return Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format for returned file data"
+        }
+      ]
+    },
+    "find_record": {
+      "displayName": "Find Records",
+      "description": "Search for records in a table using a query",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Encoded query string (e.g., state=1^priority=1)"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum records to return"
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields to Return",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Specific fields to include in response (optional)"
+        },
+        {
+          "name": "sysparm_display_value",
+          "displayName": "Return Display Values",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to format the response data"
+        },
+        {
+          "name": "sysparm_exclude_reference_link",
+          "displayName": "Exclude Reference Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Exclude API links for reference fields"
+        },
+        {
+          "name": "sysparm_query_no_domain",
+          "displayName": "Query No Domain",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include records from all domains"
+        },
+        {
+          "name": "sysparm_view",
+          "displayName": "UI View",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "View context for returned fields"
+        }
+      ]
+    },
+    "get_record": {
+      "displayName": "Get Record",
+      "description": "Retrieve a specific record by its ID",
+      "props": [
+        {
+          "name": "manual_sys_id",
+          "displayName": "Or Enter Sys ID Manually",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the sys_id directly if not found in dropdown"
+        },
+        {
+          "name": "sysparm_display_value",
+          "displayName": "Return Display Values",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to format the response data"
+        },
+        {
+          "name": "sysparm_exclude_reference_link",
+          "displayName": "Exclude Reference Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Exclude API links for reference fields"
+        },
+        {
+          "name": "sysparm_fields",
+          "displayName": "Fields to Return",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Specific fields to include in response (optional)"
+        },
+        {
+          "name": "sysparm_query_no_domain",
+          "displayName": "Query No Domain",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include records from all domains"
+        },
+        {
+          "name": "sysparm_view",
+          "displayName": "UI View",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "View context for returned fields"
+        }
+      ]
+    },
+    "update_record": {
+      "displayName": "Update Record",
+      "description": "Update an existing record in a specified table",
+      "props": [
+        {
+          "name": "manual_sys_id",
+          "displayName": "Or Enter Sys ID Manually",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the sys_id directly if not found in dropdown"
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields to Update",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Field names and new values to update"
+        },
+        {
+          "name": "sysparm_display_value",
+          "displayName": "Return Display Values",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to format the response data"
+        },
+        {
+          "name": "sysparm_fields",
+          "displayName": "Fields to Return",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Specific fields to include in response (optional)"
+        },
+        {
+          "name": "sysparm_input_display_value",
+          "displayName": "Use Display Values for Input",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Treat input values as display names instead of IDs"
+        },
+        {
+          "name": "sysparm_view",
+          "displayName": "UI View",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "View context for returned fields"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_record": {
+      "displayName": "New Record",
+      "description": "Triggers when a new record is created in a table",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter Query",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Encoded query to filter records (e.g., priority=1^state=1)"
+        }
+      ]
+    },
+    "updated_record": {
+      "displayName": "Updated Record",
+      "description": "Triggers when a record is updated in a table",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter Query",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Encoded query to filter records (e.g., priority=1^state=1)"
+        }
+      ]
+    }
+  }
+}

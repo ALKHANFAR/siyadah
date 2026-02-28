@@ -1,0 +1,139 @@
+{
+  "id": "octopush-sms",
+  "displayName": "Octopush SMS",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addContact": {
+      "displayName": "Add Contact",
+      "description": "Add one or more contacts to a contact list",
+      "props": [
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number in international format (e.g., +33612345678)"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the contact"
+        },
+        {
+          "name": "list_name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the contact list to add the contact to (optional, max 30 chars)"
+        },
+        {
+          "name": "tag_name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tag to attach to the contact (optional, max 20 chars)"
+        },
+        {
+          "name": "do_not_overwrite",
+          "displayName": "Do Not Overwrite",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, will skip the contact if it already exists instead of updating it"
+        },
+        {
+          "name": "auto_remove_blacklisted",
+          "displayName": "Auto Remove Blacklisted",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, blacklisted numbers will be automatically removed from the list"
+        }
+      ]
+    },
+    "sendANewSms": {
+      "displayName": "Send a New SMS",
+      "description": "Send an SMS message to one or more recipients",
+      "props": [
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Recipient phone number in international format (e.g., +33612345678)"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Recipient first name (optional)"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Recipient last name (optional)"
+        },
+        {
+          "name": "message",
+          "displayName": "Message Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The SMS message content (1-1224 characters)"
+        },
+        {
+          "name": "sender",
+          "displayName": "Sender ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sender name/ID (3-11 alphanumeric characters)"
+        },
+        {
+          "name": "purpose",
+          "displayName": "Purpose",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of SMS campaign"
+        },
+        {
+          "name": "send_at",
+          "displayName": "Send At",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Schedule sending time in ISO8601 format (e.g., 2024-12-25T10:30:00+01:00) - optional"
+        },
+        {
+          "name": "with_replies",
+          "displayName": "Enable Replies",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable to receive recipient replies"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

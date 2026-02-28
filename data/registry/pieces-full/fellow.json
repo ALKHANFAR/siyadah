@@ -1,0 +1,32 @@
+{
+  "id": "fellow",
+  "package": "@activepieces/piece-fellow",
+  "display_name": "Fellow.ai",
+  "display_name_ar": "",
+  "description": "AI Meeting Assistant and Notetaker",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "get-note",
+      "display_name": "Get AI Note",
+      "description": "Retrieves a note by its ID."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-recording",
+      "display_name": "New Recording",
+      "description": "Triggers when a new recording is created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

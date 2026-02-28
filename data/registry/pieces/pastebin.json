@@ -1,0 +1,25 @@
+{
+  "id": "pastebin",
+  "package": "@activepieces/piece-pastebin",
+  "display_name": "Developer Key",
+  "display_name_ar": "Developer Key",
+  "description": "Simple and secure text sharing",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_paste",
+      "display_name": "Create Paste",
+      "description": "Creates a new paste"
+    },
+    {
+      "name": "get_paste_content",
+      "display_name": "Get Paste Content",
+      "description": "Retrieves the content of a paste"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pastebin"
+}

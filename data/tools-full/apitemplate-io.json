@@ -1,0 +1,419 @@
+{
+  "id": "apitemplate-io",
+  "displayName": "APITemplate.io",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createImage": {
+      "displayName": "Create Image",
+      "description": "Creates an image from a template with provided data.",
+      "props": [
+        {
+          "name": "data",
+          "displayName": "Template Data",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON data with overrides array to populate the template. Format: {\"overrides\": [{\"name\": \"object_name\", \"property\": \"value\"}]}."
+        },
+        {
+          "name": "generationDelay",
+          "displayName": "Generation Delay (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delay in milliseconds before PDF generation"
+        },
+        {
+          "name": "meta",
+          "displayName": "External Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specify an external reference ID for your own reference"
+        }
+      ]
+    },
+    "createPdfFromHtml": {
+      "displayName": "Create PDF From HTML",
+      "description": "Creates a PDF from HTML.",
+      "props": [
+        {
+          "name": "html",
+          "displayName": "HTML Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The HTML content to convert to PDF. Can include CSS styles and external resources."
+        },
+        {
+          "name": "css",
+          "displayName": "CSS Styles",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional CSS styles to apply to the HTML content. Can include inline styles or external stylesheets."
+        },
+        {
+          "name": "data",
+          "displayName": "Data for Templating",
+          "type": "JSON",
+          "required": false,
+          "description": "Optional JSON data to use for templating the HTML content. Can include variables and dynamic content."
+        },
+        {
+          "name": "expiration",
+          "displayName": "Expiration (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Expiration of the generated PDF in minutes. Use 0 to store permanently, or 1-10080 minutes (7 days) to specify expiration."
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "PDF page size format"
+        },
+        {
+          "name": "orientation",
+          "displayName": "Page Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "PDF page orientation"
+        },
+        {
+          "name": "marginTop",
+          "displayName": "Margin Top (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Top margin in millimeters"
+        },
+        {
+          "name": "marginBottom",
+          "displayName": "Margin Bottom (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Bottom margin in millimeters"
+        },
+        {
+          "name": "marginLeft",
+          "displayName": "Margin Left (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Left margin in millimeters"
+        },
+        {
+          "name": "marginRight",
+          "displayName": "Margin Right (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Right margin in millimeters"
+        },
+        {
+          "name": "printBackground",
+          "displayName": "Print Background",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to print background graphics and colors"
+        },
+        {
+          "name": "headerFontSize",
+          "displayName": "Header Font Size",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Font size for header (e.g., \"9px\")"
+        },
+        {
+          "name": "displayHeaderFooter",
+          "displayName": "Display Header/Footer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to display header and footer"
+        },
+        {
+          "name": "customHeader",
+          "displayName": "Custom Header HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom HTML content for header"
+        },
+        {
+          "name": "customFooter",
+          "displayName": "Custom Footer HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom HTML content for footer"
+        },
+        {
+          "name": "scale",
+          "displayName": "Scale",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Scale factor for the PDF (0.1 to 2.0)"
+        },
+        {
+          "name": "waitForTimeout",
+          "displayName": "Wait Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Time to wait before generating PDF (in milliseconds)"
+        },
+        {
+          "name": "meta",
+          "displayName": "External Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specify an external reference ID for your own reference"
+        }
+      ]
+    },
+    "createPdfFromUrl": {
+      "displayName": "Create PDF From URL",
+      "description": "Creates a PDF from a webpage URL.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the webpage to convert to PDF"
+        },
+        {
+          "name": "expiration",
+          "displayName": "Expiration (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Expiration of the generated PDF in minutes. Use 0 to store permanently, or 1-10080 minutes (7 days) to specify expiration."
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "PDF page size format"
+        },
+        {
+          "name": "orientation",
+          "displayName": "Page Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "PDF page orientation"
+        },
+        {
+          "name": "marginTop",
+          "displayName": "Margin Top (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Top margin in millimeters"
+        },
+        {
+          "name": "marginBottom",
+          "displayName": "Margin Bottom (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Bottom margin in millimeters"
+        },
+        {
+          "name": "marginLeft",
+          "displayName": "Margin Left (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Left margin in millimeters"
+        },
+        {
+          "name": "marginRight",
+          "displayName": "Margin Right (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Right margin in millimeters"
+        },
+        {
+          "name": "printBackground",
+          "displayName": "Print Background",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to print background graphics and colors"
+        },
+        {
+          "name": "headerFontSize",
+          "displayName": "Header Font Size",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Font size for header (e.g., \"9px\")"
+        },
+        {
+          "name": "displayHeaderFooter",
+          "displayName": "Display Header/Footer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to display header and footer"
+        },
+        {
+          "name": "customHeader",
+          "displayName": "Custom Header HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom HTML content for header"
+        },
+        {
+          "name": "customFooter",
+          "displayName": "Custom Footer HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom HTML content for footer"
+        },
+        {
+          "name": "scale",
+          "displayName": "Scale",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Scale factor for the PDF (0.1 to 2.0)"
+        },
+        {
+          "name": "waitForTimeout",
+          "displayName": "Wait Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Time to wait for page to load before generating PDF (in milliseconds)"
+        },
+        {
+          "name": "waitForSelector",
+          "displayName": "Wait for Selector",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selector to wait for before generating PDF (e.g., \".content-loaded\")"
+        },
+        {
+          "name": "viewportWidth",
+          "displayName": "Viewport Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Browser viewport width in pixels (default: 1920)"
+        },
+        {
+          "name": "viewportHeight",
+          "displayName": "Viewport Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Browser viewport height in pixels (default: 1080)"
+        },
+        {
+          "name": "fullPage",
+          "displayName": "Full Page",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Capture the full scrollable page"
+        },
+        {
+          "name": "meta",
+          "displayName": "External Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specify an external reference ID for your own reference"
+        }
+      ]
+    },
+    "createPdf": {
+      "displayName": "Create PDF",
+      "description": "Creates a PDF from a template with provided data.",
+      "props": [
+        {
+          "name": "data",
+          "displayName": "Template Data",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON data with overrides array to populate the template. Format: {\"overrides\": [{\"name\": \"object_name\", \"property\": \"value\"}]}."
+        },
+        {
+          "name": "expiration",
+          "displayName": "Expiration (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Expiration of the generated PDF in minutes. Use 0 to store permanently, or 1-10080 minutes (7 days) to specify expiration."
+        },
+        {
+          "name": "generationDelay",
+          "displayName": "Generation Delay (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delay in milliseconds before PDF generation"
+        },
+        {
+          "name": "meta",
+          "displayName": "External Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specify an external reference ID for your own reference"
+        }
+      ]
+    },
+    "deleteObject": {
+      "displayName": "Delete Object",
+      "description": "Deletes a generated PDF or image by its transaction reference or object ID.",
+      "props": []
+    },
+    "getAccountInformation": {
+      "displayName": "Get Account Information",
+      "description": "Retrieves account information including usage statistics and account details.",
+      "props": []
+    },
+    "listObjects": {
+      "displayName": "List Objects",
+      "description": "Retrieves a list of generated PDFs and images with optional filtering",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of objects to return (default: 300, max: 300)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of objects to skip for pagination (default: 0)"
+        },
+        {
+          "name": "templateId",
+          "displayName": "Template ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter objects by template ID (optional)"
+        },
+        {
+          "name": "transactionRef",
+          "displayName": "Transaction Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by specific transaction reference (optional)"
+        },
+        {
+          "name": "dateFrom",
+          "displayName": "Date From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Start date for filtering (YYYY-MM-DD format, optional)"
+        },
+        {
+          "name": "dateTo",
+          "displayName": "Date To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "End date for filtering (YYYY-MM-DD format, optional)"
+        },
+        {
+          "name": "meta",
+          "displayName": "Meta Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by external reference ID (meta field)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

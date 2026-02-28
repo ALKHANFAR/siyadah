@@ -1,0 +1,363 @@
+{
+  "id": "lightfunnels",
+  "displayName": "Lightfunnels",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "cancel_order": {
+      "displayName": "Cancel Order",
+      "description": "Cancel an order",
+      "props": [
+        {
+          "name": "orderId",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the order to cancel"
+        },
+        {
+          "name": "reason",
+          "displayName": "Reason",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Reason for cancellation"
+        },
+        {
+          "name": "notifyCustomer",
+          "displayName": "Notify Customer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to notify the customer"
+        },
+        {
+          "name": "refund",
+          "displayName": "Refund",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to refund the order"
+        }
+      ]
+    },
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Create a new customer",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "First name of the customer"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Last name of the customer"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email of the customer"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number of the customer eg: +1234567890"
+        },
+        {
+          "name": "acceptsMarketing",
+          "displayName": "Accepts Marketing",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Whether the customer accepts marketing communications"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Tags to associate with the customer"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_product": {
+      "displayName": "Create Product",
+      "description": "Create a new product",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the product"
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The price of the product"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of the product"
+        },
+        {
+          "name": "compare_at_price",
+          "displayName": "Compare at Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The original price before discount"
+        },
+        {
+          "name": "sku",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The SKU of the product"
+        },
+        {
+          "name": "options",
+          "displayName": "Options",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Product options like size, color, etc."
+        },
+        {
+          "name": "id",
+          "displayName": "Option ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier for the option"
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The option label (e.g., \"Color\", \"Size\")"
+        },
+        {
+          "name": "options",
+          "displayName": "Option Values",
+          "type": "JSON",
+          "required": true,
+          "description": "Available values for this option (e.g., [{\"value\": \"Red\"}, {\"value\": \"Blue\"}])"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of option"
+        },
+        {
+          "name": "variants",
+          "displayName": "Variants",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Product variants with their details"
+        },
+        {
+          "name": "id",
+          "displayName": "Variant ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier for the variant"
+        },
+        {
+          "name": "sku",
+          "displayName": "Variant SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "SKU for this specific variant"
+        },
+        {
+          "name": "price",
+          "displayName": "Variant Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Price for this variant"
+        },
+        {
+          "name": "compare_at_price",
+          "displayName": "Variant Compare at Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Original price for this variant"
+        },
+        {
+          "name": "options",
+          "displayName": "Variant Options",
+          "type": "JSON",
+          "required": true,
+          "description": "Option values for this variant (array of objects with id and value pairs)"
+        }
+      ]
+    },
+    "get_customer": {
+      "displayName": "Get Customer",
+      "description": "Retrieve a specific customer by ID",
+      "props": [
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer to retrieve"
+        }
+      ]
+    },
+    "get_funnel": {
+      "displayName": "Get Funnel",
+      "description": "Retrieve a specific funnel by ID",
+      "props": [
+        {
+          "name": "funnelId",
+          "displayName": "Funnel ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the funnel to retrieve"
+        }
+      ]
+    },
+    "get_order": {
+      "displayName": "Get Order",
+      "description": "Retrieve a specific order by ID",
+      "props": [
+        {
+          "name": "orderId",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the order to retrieve"
+        }
+      ]
+    },
+    "get_product": {
+      "displayName": "Get Product",
+      "description": "Retrieve a specific product by ID",
+      "props": [
+        {
+          "name": "productId",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the product to retrieve"
+        }
+      ]
+    },
+    "list_customers": {
+      "displayName": "List Customers",
+      "description": "Retrieve a list of customers",
+      "props": [
+        {
+          "name": "first",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of customers to retrieve (default: 10)"
+        },
+        {
+          "name": "after",
+          "displayName": "After Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination (optional)"
+        },
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter query (e.g., \"order_by:created_at order_dir:desc\")"
+        }
+      ]
+    },
+    "list_orders": {
+      "displayName": "List Orders",
+      "description": "Retrieve a list of orders",
+      "props": [
+        {
+          "name": "first",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of orders to retrieve (default: 10)"
+        },
+        {
+          "name": "after",
+          "displayName": "After Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination (optional)"
+        },
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter query (e.g., \"order_by:created_at order_dir:desc\")"
+        }
+      ]
+    },
+    "list_products": {
+      "displayName": "List Products",
+      "description": "Retrieve a list of all products",
+      "props": [
+        {
+          "name": "first",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of products to retrieve (default: 10)"
+        },
+        {
+          "name": "after",
+          "displayName": "After Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination (optional)"
+        },
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter query (e.g., \"order_by:id order_dir:desc last_month\")"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_lead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead subscribes",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_order": {
+      "displayName": "New Order",
+      "description": "Triggers when a new order is created",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

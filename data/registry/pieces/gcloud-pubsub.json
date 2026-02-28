@@ -1,0 +1,14 @@
+{
+  "id": "gcloud-pubsub",
+  "package": "@activepieces/piece-gcloud-pubsub",
+  "display_name": "Service Key (JSON)",
+  "display_name_ar": "Service Key (JSON)",
+  "description": "Google Cloud's event streaming service",
+  "category": "K_dev",
+  "auth_type": "custom",
+  "actions": [],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/gcloud-pubsub"
+}

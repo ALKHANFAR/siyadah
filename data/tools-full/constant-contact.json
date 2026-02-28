@@ -1,0 +1,70 @@
+{
+  "id": "constant-contact",
+  "displayName": "Constant Contact",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_or_update_contact": {
+      "displayName": "Create or Update Contact",
+      "description": "Create or Update a contact in Constant Contact",
+      "props": [
+        {
+          "name": "list",
+          "displayName": "List",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "The list of the contact"
+        },
+        {
+          "name": "email_address",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the contact"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the contact"
+        },
+        {
+          "name": "job_title",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The job title of the contact"
+        },
+        {
+          "name": "company_name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The company name of the contact"
+        },
+        {
+          "name": "phoner_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the contact"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

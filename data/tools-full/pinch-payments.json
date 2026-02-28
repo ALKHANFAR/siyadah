@@ -1,0 +1,549 @@
+{
+  "id": "pinch-payments",
+  "displayName": "Pinch Payments",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_source_to_payer": {
+      "displayName": "Add Source to Payer",
+      "description": "Add a payment source (bank account or credit card) to an existing payer",
+      "props": [
+        {
+          "name": "payerId",
+          "displayName": "Payer",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the payer to add a payment source to"
+        },
+        {
+          "name": "sourceType",
+          "displayName": "Source Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of payment source to add"
+        },
+        {
+          "name": "useToken",
+          "displayName": "Use Token",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use a token from the capture script instead of manual bank account details"
+        },
+        {
+          "name": "token",
+          "displayName": "Payment Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The token created by the Pinch capture script (for both bank accounts and credit cards)"
+        },
+        {
+          "name": "ipAddress",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "IP address of the payer (required for token-based sources)"
+        },
+        {
+          "name": "bankAccountNumber",
+          "displayName": "Bank Account Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The bank account number (only for manual bank account entry)"
+        },
+        {
+          "name": "bankAccountBsb",
+          "displayName": "BSB",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The BSB (Bank-State-Branch) number (only for manual bank account entry)"
+        },
+        {
+          "name": "bankAccountName",
+          "displayName": "Account Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name on the bank account (only for manual bank account entry)"
+        }
+      ]
+    },
+    "add_subscription": {
+      "displayName": "Add Subscription",
+      "description": "Create a subscription between a payer and a plan",
+      "props": [
+        {
+          "name": "planId",
+          "displayName": "Plan",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the plan for this subscription"
+        },
+        {
+          "name": "payerId",
+          "displayName": "Payer",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the payer for this subscription"
+        },
+        {
+          "name": "totalAmount",
+          "displayName": "Total Amount (cents)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Required for percentage-based plans: total amount in cents (e.g., $100.00 = 10000)"
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "When the subscription should start. Leave blank for immediate start"
+        },
+        {
+          "name": "sourceId",
+          "displayName": "Source ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: Specific payment source ID to use. If omitted, a source will be automatically selected"
+        },
+        {
+          "name": "surcharge",
+          "displayName": "Surcharge Source Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select source types to surcharge (pass fees to customer)"
+        }
+      ]
+    },
+    "create_or_update_payer": {
+      "displayName": "Create or Update Payer",
+      "description": "Create a new payer or update an existing one",
+      "props": [
+        {
+          "name": "payerId",
+          "displayName": "Payer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select an existing payer to update, or leave empty to create a new one"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "First name of the payer"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the payer"
+        },
+        {
+          "name": "emailAddress",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the payer"
+        },
+        {
+          "name": "mobileNumber",
+          "displayName": "Mobile Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile phone number"
+        },
+        {
+          "name": "companyName",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company name"
+        },
+        {
+          "name": "companyRegistrationNumber",
+          "displayName": "Company Registration Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company registration number (ABN, etc.)"
+        },
+        {
+          "name": "streetAddress",
+          "displayName": "Street Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address"
+        },
+        {
+          "name": "suburb",
+          "displayName": "Suburb",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Suburb or city"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or territory"
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom metadata for the payer"
+        },
+        {
+          "name": "addPaymentSource",
+          "displayName": "Add Payment Source",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Add a payment source (bank account or credit card) to this payer"
+        },
+        {
+          "name": "sourceType",
+          "displayName": "Source Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of payment source"
+        },
+        {
+          "name": "sourceToken",
+          "displayName": "Source Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The token created by the Pinch capture script"
+        },
+        {
+          "name": "ipAddress",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "IP address of the payer (for payment source)"
+        }
+      ]
+    },
+    "create_or_update_scheduled_payment": {
+      "displayName": "Create or Update Scheduled Payment",
+      "description": "Create a new scheduled payment or update an existing one",
+      "props": [
+        {
+          "name": "paymentId",
+          "displayName": "Payment ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter an existing payment ID to update, or leave empty to create a new payment"
+        },
+        {
+          "name": "payerId",
+          "displayName": "Payer",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the payer for this scheduled payment"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount (cents)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Payment amount in cents (e.g., $10.50 = 1050)"
+        },
+        {
+          "name": "transactionDate",
+          "displayName": "Transaction Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The date to attempt the transaction"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional description for the payment (visible to payer, max 1000 characters)"
+        },
+        {
+          "name": "sourceId",
+          "displayName": "Source ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: ID of the payment source to use. If omitted, the first valid source will be used"
+        },
+        {
+          "name": "surcharge",
+          "displayName": "Surcharge Source Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select source types to surcharge (pass fees to customer)"
+        },
+        {
+          "name": "applicationFee",
+          "displayName": "Application Fee (cents)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Optional additional fee in cents (Managed Merchants Only)"
+        },
+        {
+          "name": "nonce",
+          "displayName": "Nonce",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional one-time-use reference to prevent double submissions"
+        }
+      ]
+    },
+    "create_realtime_payment": {
+      "displayName": "Create Realtime Payment",
+      "description": "Create a real-time payment against a credit card or bank account",
+      "props": [
+        {
+          "name": "payerId",
+          "displayName": "Payer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select an existing payer for this payment"
+        },
+        {
+          "name": "useExistingPayer",
+          "displayName": "Use Existing Payer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check if you want to use an existing payer instead of creating a new one"
+        },
+        {
+          "name": "fullName",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name of the payer (use this OR First Name + Last Name)"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the payer (use this OR Full Name)"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the payer (use this OR Full Name)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the payer"
+        },
+        {
+          "name": "mobileNumber",
+          "displayName": "Mobile Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Australian 10-digit mobile number (non-international)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount (cents)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Payment amount in cents (e.g., $10.50 = 1050)"
+        },
+        {
+          "name": "applicationFee",
+          "displayName": "Application Fee (cents)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Optional additional fee in cents (Managed Merchants Only)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional description for the payment (visible to payer, max 1000 characters)"
+        },
+        {
+          "name": "sourceId",
+          "displayName": "Source ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Existing payment source ID to use (leave empty to use default or create new source)"
+        },
+        {
+          "name": "token",
+          "displayName": "Payment Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Credit card or bank account token from capture script (for new payment source)"
+        },
+        {
+          "name": "surcharge",
+          "displayName": "Surcharge Source Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select source types to surcharge (pass fees to customer)"
+        },
+        {
+          "name": "nonce",
+          "displayName": "Nonce",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional one-time-use reference to prevent double submissions"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Free text field for storing state or accounting integration data"
+        }
+      ]
+    },
+    "find_event": {
+      "displayName": "Find Event",
+      "description": "Find an event using the Event ID",
+      "props": [
+        {
+          "name": "eventId",
+          "displayName": "Event ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Event ID in evt_XXXXXXXXXXXXXX format"
+        }
+      ]
+    },
+    "find_payer": {
+      "displayName": "Find Payer",
+      "description": "Find a payer by their Payer ID",
+      "props": [
+        {
+          "name": "payerId",
+          "displayName": "Payer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Payer ID in pyr_XXXXXXXXXXXXX format"
+        }
+      ]
+    },
+    "find_subscription": {
+      "displayName": "Find Subscription",
+      "description": "Find a subscription using the Subscription ID",
+      "props": [
+        {
+          "name": "subscriptionId",
+          "displayName": "Subscription ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Subscription ID in sub_XXXXXXXXXXXXXX format"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "bank_results": {
+      "displayName": "Bank Results Event",
+      "description": "Triggers when a bank account transaction returns (may result in dishonour status)",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "dispute_created": {
+      "displayName": "Dispute Created",
+      "description": "Triggers when a dispute is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "dispute_updated": {
+      "displayName": "Dispute Updated",
+      "description": "Triggers when a dispute is updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "payer_created": {
+      "displayName": "Payer Created",
+      "description": "Triggers when a new payer record is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "payer_updated": {
+      "displayName": "Payer Updated",
+      "description": "Triggers when a payer record is updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "payment_created": {
+      "displayName": "Payment Created",
+      "description": "Triggers when a payment is created (via Save Payment endpoint or Subscription)",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "realtime_payment": {
+      "displayName": "Realtime Payment",
+      "description": "Triggers when a realtime payment is executed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "refund_created": {
+      "displayName": "Refund Created",
+      "description": "Triggers when a refund is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "refund_updated": {
+      "displayName": "Refund Updated",
+      "description": "Triggers when a refund is updated (e.g., status change)",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "scheduled_process": {
+      "displayName": "Scheduled Process",
+      "description": "Triggers when scheduled payments are processed (daily on business days)",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_cancelled": {
+      "displayName": "Subscription Cancelled",
+      "description": "Triggers when a subscription is cancelled",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_complete": {
+      "displayName": "Subscription Complete",
+      "description": "Triggers when a subscription is run to completion",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_created": {
+      "displayName": "Subscription Created",
+      "description": "Triggers when a subscription is created for a payer",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "transfer": {
+      "displayName": "Transfer Created",
+      "description": "Triggers when a transfer is created to settle funds to a merchant",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

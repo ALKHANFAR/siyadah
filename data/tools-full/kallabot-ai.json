@@ -1,0 +1,283 @@
+{
+  "id": "kallabot-ai",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add-contact-to-list": {
+      "displayName": "Add Contacts to List",
+      "description": "Add a contact or multiple contacts to an existing contact list.",
+      "props": [
+        {
+          "name": "list_id",
+          "displayName": "Contact List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact list to add contacts to."
+        },
+        {
+          "name": "contacts",
+          "displayName": "Contacts JSON",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON array of contacts to add to the list. Each contact must have phone_number and can include name and template_variables."
+        }
+      ]
+    },
+    "create-campaign": {
+      "displayName": "Create Campaign",
+      "description": "Create a new outbound calling campaign.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Campaign Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the campaign."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description of the campaign (optional)."
+        },
+        {
+          "name": "agent_id",
+          "displayName": "Agent",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the AI agent to use for the campaign."
+        },
+        {
+          "name": "list_id",
+          "displayName": "Contact List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact list for the campaign."
+        },
+        {
+          "name": "sender_phone_numbers",
+          "displayName": "Sender Phone Numbers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select phone numbers to use for making calls."
+        },
+        {
+          "name": "delay_between_calls",
+          "displayName": "Delay Between Calls (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Time to wait between calls in seconds."
+        },
+        {
+          "name": "scheduled_time",
+          "displayName": "Scheduled Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When to start the campaign (format: YYYY-MM-DDTHH:MM:SS) ISO 8601."
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Timezone for the scheduled time (e.g., America/New_York)."
+        },
+        {
+          "name": "rotate_numbers_after",
+          "displayName": "Rotate Numbers After",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of contacts to call before rotating to the next phone number."
+        }
+      ]
+    },
+    "create-contact-list": {
+      "displayName": "Create Contact List",
+      "description": "Create a new contact list.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the contact list."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description of the contact list (optional)."
+        },
+        {
+          "name": "contacts",
+          "displayName": "Contacts JSON",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON array of contacts. Each contact must have phone_number and can include name, template_variables."
+        }
+      ]
+    },
+    "delete-campaign": {
+      "displayName": "Delete Campaign",
+      "description": "Delete a campaign with optional contact list deletion.",
+      "props": [
+        {
+          "name": "campaign_id",
+          "displayName": "Campaign ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the campaign to delete."
+        },
+        {
+          "name": "delete_contact_list",
+          "displayName": "Delete Contact List",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Also delete the associated contact list (optional)."
+        }
+      ]
+    },
+    "edit-contact-list": {
+      "displayName": "Edit Contact List",
+      "description": "Update/replace all contacts in an existing contact list.",
+      "props": [
+        {
+          "name": "list_id",
+          "displayName": "Contact List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact list to edit."
+        },
+        {
+          "name": "contacts",
+          "displayName": "Contacts",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "JSON array of contacts to replace the entire list"
+        },
+        {
+          "name": "contacts",
+          "displayName": "Contacts JSON",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON array of contacts to replace the entire list. Each contact must have phone_number and can include name and template_variables."
+        },
+        {
+          "name": "contacts",
+          "displayName": "Contacts JSON",
+          "type": "JSON",
+          "required": true,
+          "description": "Current contacts from list. Edit this JSON to update the entire list."
+        },
+        {
+          "name": "contacts",
+          "displayName": "Contacts JSON",
+          "type": "JSON",
+          "required": true,
+          "description": "Could not load contacts. Please enter manually."
+        }
+      ]
+    },
+    "get-call-details": {
+      "displayName": "Get Call Details",
+      "description": "Retrieve details of a specific call by call SID.",
+      "props": [
+        {
+          "name": "call_sid",
+          "displayName": "Call SID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the call."
+        }
+      ]
+    },
+    "get-contacts-from-list": {
+      "displayName": "Get Contacts from List",
+      "description": "Retrieve all contacts from a specific contact list.",
+      "props": [
+        {
+          "name": "list_id",
+          "displayName": "Contact List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact list to retrieve contacts from."
+        }
+      ]
+    },
+    "make-call": {
+      "displayName": "Make Call",
+      "description": "Initiate an outbound call using Kallabot AI agent.",
+      "props": [
+        {
+          "name": "agent_id",
+          "displayName": "Agent",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the AI agent to use for the call."
+        },
+        {
+          "name": "recipient_phone_number",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to call in E.164 format (e.g., +1234567890)."
+        },
+        {
+          "name": "sender_phone_number",
+          "displayName": "Sender Phone Number",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The phone number to make the call from."
+        },
+        {
+          "name": "template_variables",
+          "displayName": "Template Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Variables to be used in the agent template (optional)."
+        },
+        {
+          "name": "webhook_url",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to receive call status updates (optional)."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "catch_webhook": {
+      "displayName": "Call Events Webhook",
+      "description": "Receives webhook data when call events occur from Kallabot AI agents.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookUrl",
+          "displayName": "webhookUrl",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "instructions",
+          "displayName": "instructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "testInstructions",
+          "displayName": "testInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

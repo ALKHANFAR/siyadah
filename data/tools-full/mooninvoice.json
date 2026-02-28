@@ -1,0 +1,1158 @@
+{
+  "id": "mooninvoice",
+  "displayName": "Moon Invoice",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addNewContact": {
+      "displayName": "Add New Contact",
+      "description": "Add a new contact to a company in MoonInvoice",
+      "props": [
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of Organization/Company"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First Name of Contact"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last Name of Contact"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email of Contact person"
+        },
+        {
+          "name": "mobileNo",
+          "displayName": "Mobile Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile No. of Contact person"
+        },
+        {
+          "name": "businessNo",
+          "displayName": "Business Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business Ph No. of Contact person"
+        },
+        {
+          "name": "homeNo",
+          "displayName": "Home Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home Ph No. of Contact person"
+        },
+        {
+          "name": "vatNo",
+          "displayName": "VAT Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "VAT No. of Contact"
+        },
+        {
+          "name": "regNo",
+          "displayName": "Registration Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Registration No."
+        },
+        {
+          "name": "faxNo",
+          "displayName": "Fax Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax No."
+        },
+        {
+          "name": "internalNotes",
+          "displayName": "Internal Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal Notes of Contact"
+        },
+        {
+          "name": "hourlyRate",
+          "displayName": "Hourly Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Hourly Rate of Contact person"
+        },
+        {
+          "name": "currencyCode",
+          "displayName": "Currency Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code like INR, USD, CAD etc."
+        },
+        {
+          "name": "statusCustomer",
+          "displayName": "Is Customer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If Contact is customer"
+        },
+        {
+          "name": "statusVendor",
+          "displayName": "Is Vendor",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If Contact is vendor"
+        },
+        {
+          "name": "paymentReminder",
+          "displayName": "Payment Reminder",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable payment reminder"
+        },
+        {
+          "name": "billingAddressStreet1",
+          "displayName": "Billing Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street1 of Contact person"
+        },
+        {
+          "name": "billingAddressStreet2",
+          "displayName": "Billing Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street2 of Contact person"
+        },
+        {
+          "name": "billingAddressCity",
+          "displayName": "Billing Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address City of Contact person"
+        },
+        {
+          "name": "billingAddressState",
+          "displayName": "Billing Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address State of Contact person"
+        },
+        {
+          "name": "billingAddressCountry",
+          "displayName": "Billing Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Country of Contact person"
+        },
+        {
+          "name": "billingAddressZip",
+          "displayName": "Billing Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Zip of Contact person"
+        },
+        {
+          "name": "shippingAddressStreet1",
+          "displayName": "Shipping Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street1 of Contact person"
+        },
+        {
+          "name": "shippingAddressStreet2",
+          "displayName": "Shipping Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street2 of Contact person"
+        },
+        {
+          "name": "shippingAddressCity",
+          "displayName": "Shipping Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address City of Contact person"
+        },
+        {
+          "name": "shippingAddressState",
+          "displayName": "Shipping Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address State of Contact person"
+        },
+        {
+          "name": "shippingAddressCountry",
+          "displayName": "Shipping Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Country of Contact person"
+        },
+        {
+          "name": "shippingAddressZip",
+          "displayName": "Shipping Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Zip of Contact person"
+        },
+        {
+          "name": "paymentTerms",
+          "displayName": "Payment Terms (Days)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Payment terms must be 7, 10, 15, 30, 60, 90, or 180 days only"
+        },
+        {
+          "name": "openingBalance",
+          "displayName": "Opening Balance",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Opening Balance of Contact"
+        },
+        {
+          "name": "openingBalanceDate",
+          "displayName": "Opening Balance Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Opening Balance Date in format: \"2025-1-8 15:9:40\""
+        },
+        {
+          "name": "bankDetails",
+          "displayName": "Bank Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Bank details in format: \"Account No: 78452356\\\\nAccount Holder Name: Abby Hamill\\\\nBranch Name: ABC\""
+        }
+      ]
+    },
+    "createCreditNote": {
+      "displayName": "Create Credit Note",
+      "description": "Create a new credit note in MoonInvoice",
+      "props": [
+        {
+          "name": "creditNotesNumber",
+          "displayName": "Credit Note Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Credit Note Number"
+        },
+        {
+          "name": "entryDate",
+          "displayName": "Entry Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Entry Date of Credit Note (e.g., \"2025-02-20\")"
+        },
+        {
+          "name": "creditNotesHeader",
+          "displayName": "Credit Note Header",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title or Header of Credit Note"
+        },
+        {
+          "name": "creditNotesTerms",
+          "displayName": "Credit Note Terms",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Terms of Credit Note"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes/Description of Credit Note"
+        },
+        {
+          "name": "selectedCurrency",
+          "displayName": "Selected Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code like en_IN, en_US etc."
+        },
+        {
+          "name": "discountBeforeTax",
+          "displayName": "Discount Before Tax",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Discount applied before tax"
+        },
+        {
+          "name": "isRoundOff",
+          "displayName": "Round Off",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Round off the final amount"
+        },
+        {
+          "name": "roundedAmount",
+          "displayName": "Rounded Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Rounded amount value"
+        },
+        {
+          "name": "percentage",
+          "displayName": "Discount Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Discount percentage from total amount"
+        },
+        {
+          "name": "billingStreet1",
+          "displayName": "Billing Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street1"
+        },
+        {
+          "name": "billingStreet2",
+          "displayName": "Billing Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street2"
+        },
+        {
+          "name": "billingCity",
+          "displayName": "Billing Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address City"
+        },
+        {
+          "name": "billingState",
+          "displayName": "Billing Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address State"
+        },
+        {
+          "name": "billingCountry",
+          "displayName": "Billing Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Country"
+        },
+        {
+          "name": "billingZip",
+          "displayName": "Billing Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Zip"
+        },
+        {
+          "name": "shippingStreet1",
+          "displayName": "Shipping Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street1"
+        },
+        {
+          "name": "shippingStreet2",
+          "displayName": "Shipping Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street2"
+        },
+        {
+          "name": "shippingCity",
+          "displayName": "Shipping Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address City"
+        },
+        {
+          "name": "shippingState",
+          "displayName": "Shipping Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address State"
+        },
+        {
+          "name": "shippingCountry",
+          "displayName": "Shipping Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Country"
+        },
+        {
+          "name": "shippingZip",
+          "displayName": "Shipping Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Zip"
+        },
+        {
+          "name": "productDataJson",
+          "displayName": "Product Data (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Product Data as JSON array. Each item should contain: ProductName, HSNCode, Quantity, UnitCost, ProductNotes, ProductID, Total, SubAmount, DiscountIsPercentage, ProductType, DiscountValue, TaxID (array), TaxType"
+        },
+        {
+          "name": "taskDataJson",
+          "displayName": "Task Data (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Task Data as JSON array. Each item should contain: TaskName, Hours, TaskRate, TimeNotes, TaskID, Total, DiscountIsPercentage, TaskType, DiscountValue, TaxID (array), TaxType"
+        }
+      ]
+    },
+    "createEstimate": {
+      "displayName": "Create Estimate",
+      "description": "Create a new estimate in MoonInvoice",
+      "props": [
+        {
+          "name": "estimateNumber",
+          "displayName": "Estimate Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Estimate Number"
+        },
+        {
+          "name": "entryDate",
+          "displayName": "Entry Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Entry Date of Estimate (e.g., \"2025-02-20\")"
+        },
+        {
+          "name": "estimateHeader",
+          "displayName": "Estimate Header",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title or Header of Estimate"
+        },
+        {
+          "name": "estimateTerms",
+          "displayName": "Estimate Terms",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Terms of Estimate"
+        },
+        {
+          "name": "estimateNotes",
+          "displayName": "Estimate Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes/Description of Estimate"
+        },
+        {
+          "name": "selectedCurrency",
+          "displayName": "Selected Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code like en_IN, en_US etc."
+        },
+        {
+          "name": "shippingCost",
+          "displayName": "Shipping Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Shipping Cost of Estimate"
+        },
+        {
+          "name": "shippingMethod",
+          "displayName": "Shipping Method",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Method of Estimate"
+        },
+        {
+          "name": "discountAmount",
+          "displayName": "Discount Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Discount Amount on Estimate total"
+        },
+        {
+          "name": "discountBeforeTax",
+          "displayName": "Discount Before Tax",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Discount applied before tax"
+        },
+        {
+          "name": "isRoundOff",
+          "displayName": "Round Off",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Round off the final amount"
+        },
+        {
+          "name": "roundedAmount",
+          "displayName": "Rounded Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Rounded amount value"
+        },
+        {
+          "name": "percentage",
+          "displayName": "Discount Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Discount percentage from total amount"
+        },
+        {
+          "name": "billingStreet1",
+          "displayName": "Billing Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street1"
+        },
+        {
+          "name": "billingStreet2",
+          "displayName": "Billing Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street2"
+        },
+        {
+          "name": "billingCity",
+          "displayName": "Billing Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address City"
+        },
+        {
+          "name": "billingState",
+          "displayName": "Billing Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address State"
+        },
+        {
+          "name": "billingCountry",
+          "displayName": "Billing Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Country"
+        },
+        {
+          "name": "billingZip",
+          "displayName": "Billing Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Zip"
+        },
+        {
+          "name": "shippingStreet1",
+          "displayName": "Shipping Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street1"
+        },
+        {
+          "name": "shippingStreet2",
+          "displayName": "Shipping Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street2"
+        },
+        {
+          "name": "shippingCity",
+          "displayName": "Shipping Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address City"
+        },
+        {
+          "name": "shippingState",
+          "displayName": "Shipping Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address State"
+        },
+        {
+          "name": "shippingCountry",
+          "displayName": "Shipping Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Country"
+        },
+        {
+          "name": "shippingZip",
+          "displayName": "Shipping Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Zip"
+        },
+        {
+          "name": "productDataJson",
+          "displayName": "Product Data (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Product Data as JSON array. Each item: ProductName, Quantity, UnitCost, ProductNotes, ProductID, Total, SubAmount, DiscountIsPercentage, ProductType, DiscountValue, TaxID (array), TaxType"
+        },
+        {
+          "name": "taskDataJson",
+          "displayName": "Task Data (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Task Data as JSON array. Each item: TaskName, Hours, TaskRate, TimeNotes, TaskID, Total, DiscountIsPercentage, TaskType, DiscountValue, TaxID (array), TaxType"
+        }
+      ]
+    },
+    "createExpense": {
+      "displayName": "Create Expense",
+      "description": "Create a new expense in MoonInvoice",
+      "props": [
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Date of Expense (e.g., \"2025-02-20\")"
+        },
+        {
+          "name": "expenseNumber",
+          "displayName": "Expense Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Expense Number"
+        },
+        {
+          "name": "expenseCost",
+          "displayName": "Expense Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Cost of Expense"
+        },
+        {
+          "name": "expenseNotes",
+          "displayName": "Expense Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Expense Notes"
+        },
+        {
+          "name": "totalAmount",
+          "displayName": "Total Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total Amount of Expense"
+        },
+        {
+          "name": "categoryName",
+          "displayName": "Category Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Category Name of Expense (e.g., Wages, Supplies, etc.)"
+        },
+        {
+          "name": "paymentType",
+          "displayName": "Payment Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Type of Payment (e.g., Visa, Cash, UPI, etc.)"
+        },
+        {
+          "name": "selectedCurrency",
+          "displayName": "Selected Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code like en_IN, en_US etc."
+        },
+        {
+          "name": "isRecurring",
+          "displayName": "Is Recurring",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If Expense is recurring"
+        },
+        {
+          "name": "recurringEndDate",
+          "displayName": "Recurring End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "End Date of Expense recurring (e.g., \"2025-12-31\")"
+        },
+        {
+          "name": "recurringIntervalInDay",
+          "displayName": "Recurring Interval (Days)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "No of Days for Expense recurring"
+        },
+        {
+          "name": "recurringIntervalInString",
+          "displayName": "Recurring Period",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Expense recurring period"
+        },
+        {
+          "name": "isRoundOff",
+          "displayName": "Round Off",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Total Amount Round off or not"
+        },
+        {
+          "name": "roundedAmount",
+          "displayName": "Rounded Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total Amount Rounded"
+        },
+        {
+          "name": "taxIdJson",
+          "displayName": "Tax IDs (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "TaxID is an array of Tax IDs. Example: [\"1C34BE89-2FC6-48A4-9808-99490F40D3E1\", \"95A1956E-E60A-4FAC-8EC4-C88EE7431280\"]"
+        },
+        {
+          "name": "taxType",
+          "displayName": "Tax is Inclusive",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If Tax is Inclusive then true otherwise false"
+        }
+      ]
+    },
+    "createInvoice": {
+      "displayName": "Create Invoice",
+      "description": "Create a new invoice in MoonInvoice",
+      "props": [
+        {
+          "name": "invoiceNumber",
+          "displayName": "Invoice Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Invoice Number"
+        },
+        {
+          "name": "entryDate",
+          "displayName": "Entry Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Entry Date of Invoice (e.g., \"2025-02-20\")"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Payment Due Date of Invoice (e.g., \"2025-03-20\")"
+        },
+        {
+          "name": "invoiceHeader",
+          "displayName": "Invoice Header",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title or Header of Invoice"
+        },
+        {
+          "name": "terms",
+          "displayName": "Terms",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Terms of Invoice"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes/Description of Invoice"
+        },
+        {
+          "name": "selectedCurrency",
+          "displayName": "Selected Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code like en_IN, en_US etc."
+        },
+        {
+          "name": "shippingCost",
+          "displayName": "Shipping Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Shipping Cost of Invoice"
+        },
+        {
+          "name": "shippingMethod",
+          "displayName": "Shipping Method",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Method of Invoice"
+        },
+        {
+          "name": "poNo",
+          "displayName": "PO Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "PO No of Invoice"
+        },
+        {
+          "name": "discountAmount",
+          "displayName": "Discount Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Discount Amount on invoice total"
+        },
+        {
+          "name": "discountBeforeTax",
+          "displayName": "Discount Before Tax",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Discount applied before tax"
+        },
+        {
+          "name": "depositeAmount",
+          "displayName": "Deposite Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Deposite Amount of Invoice"
+        },
+        {
+          "name": "amountDue",
+          "displayName": "Amount Due",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Remaining Payment Amount of Invoice"
+        },
+        {
+          "name": "amountPaid",
+          "displayName": "Amount Paid",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total Paid Amount of Invoice"
+        },
+        {
+          "name": "totalAmount",
+          "displayName": "Total Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total Amount of Invoice"
+        },
+        {
+          "name": "subTotal",
+          "displayName": "Sub Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sub Total Amount of Invoice"
+        },
+        {
+          "name": "isRecurring",
+          "displayName": "Is Recurring",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If Invoice is recurring"
+        },
+        {
+          "name": "recurringEndDate",
+          "displayName": "Recurring End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "End Date of Invoice recurring (e.g., \"2025-12-31\")"
+        },
+        {
+          "name": "recurringIntervalInString",
+          "displayName": "Recurring Period",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Invoice recurring period"
+        },
+        {
+          "name": "billingStreet1",
+          "displayName": "Billing Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street1"
+        },
+        {
+          "name": "billingStreet2",
+          "displayName": "Billing Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Street2"
+        },
+        {
+          "name": "billingCity",
+          "displayName": "Billing Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address City"
+        },
+        {
+          "name": "billingState",
+          "displayName": "Billing Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address State"
+        },
+        {
+          "name": "billingCountry",
+          "displayName": "Billing Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Country"
+        },
+        {
+          "name": "billingZip",
+          "displayName": "Billing Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing Address Zip"
+        },
+        {
+          "name": "shippingStreet1",
+          "displayName": "Shipping Address Street 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street1"
+        },
+        {
+          "name": "shippingStreet2",
+          "displayName": "Shipping Address Street 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Street2"
+        },
+        {
+          "name": "shippingCity",
+          "displayName": "Shipping Address City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address City"
+        },
+        {
+          "name": "shippingState",
+          "displayName": "Shipping Address State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address State"
+        },
+        {
+          "name": "shippingCountry",
+          "displayName": "Shipping Address Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Country"
+        },
+        {
+          "name": "shippingZip",
+          "displayName": "Shipping Address Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping Address Zip"
+        },
+        {
+          "name": "paymentMethodsJson",
+          "displayName": "Payment Methods (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "PaymentMethods is array and contains Payment Method IDs. Example: [\"3A72C3BF-1B42-4A62-9E8E-5C4178E07D2F\", \"D89F53D9-7E01-4438-88BD-74D9C4101D7C\"]"
+        },
+        {
+          "name": "productDataJson",
+          "displayName": "Product Data (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Product Data as JSON array. Each item: ProductName, Quantity, UnitCost, ProductNotes, ProductID, Total, SubAmount, DiscountIsPercentage, ProductType, DiscountValue, TaxID (array), TaxType"
+        },
+        {
+          "name": "taskDataJson",
+          "displayName": "Task Data (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Task Data as JSON array. Each item: TaskName, Hours, TaskRate, TimeNotes, TaskID, Total, DiscountIsPercentage, TaskType, DiscountValue, TaxID (array), TaxType"
+        }
+      ]
+    },
+    "createProduct": {
+      "displayName": "Create Product",
+      "description": "Create a new product in MoonInvoice",
+      "props": [
+        {
+          "name": "productName",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of product"
+        },
+        {
+          "name": "productCode",
+          "displayName": "Product Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "SKU code of product"
+        },
+        {
+          "name": "productBuyCost",
+          "displayName": "Product Buy Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Buy cost of product"
+        },
+        {
+          "name": "productUnitCost",
+          "displayName": "Product Unit Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sell or Unit cost of product"
+        },
+        {
+          "name": "productType",
+          "displayName": "Product Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Type of product like kg, piece, liter etc."
+        },
+        {
+          "name": "productQuantity",
+          "displayName": "Product Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Quantity of product"
+        },
+        {
+          "name": "productNotes",
+          "displayName": "Product Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Note or Description about product"
+        },
+        {
+          "name": "productCategory",
+          "displayName": "Product Category",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Category of product"
+        },
+        {
+          "name": "productSelectedCurrency",
+          "displayName": "Product Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code like INR, USD, CAD etc."
+        },
+        {
+          "name": "hsnCode",
+          "displayName": "HSN Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "HSNCode of product"
+        },
+        {
+          "name": "productStockManage",
+          "displayName": "Stock Manage",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable stock management for this product"
+        },
+        {
+          "name": "showInMenu",
+          "displayName": "Show In Menu",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show product in POS menu"
+        },
+        {
+          "name": "productSerialized",
+          "displayName": "Product Serialized",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable serial number tracking for each unit"
+        },
+        {
+          "name": "productBatched",
+          "displayName": "Product Batched",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable batch management for this product"
+        },
+        {
+          "name": "productDietType",
+          "displayName": "Product Diet Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Dietary classification of the product"
+        },
+        {
+          "name": "productBuyTaxJson",
+          "displayName": "Product Buy Tax (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Array of tax IDs applied on product buy. Example: [\"95A1956E-E60A-4FAC-8EC4-C88EE7431280\"]"
+        },
+        {
+          "name": "productSalesTaxJson",
+          "displayName": "Product Sales Tax (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Array of tax IDs applied on product sales. Example: [\"95A1956E-E60A-4FAC-8EC4-C88EE7431280\"]"
+        }
+      ]
+    },
+    "createTask": {
+      "displayName": "Create Task",
+      "description": "Create a new task in MoonInvoice",
+      "props": [
+        {
+          "name": "taskName",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of Task"
+        },
+        {
+          "name": "hours",
+          "displayName": "Hours",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Task hours"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Task notes"
+        },
+        {
+          "name": "rate",
+          "displayName": "Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Rate of task"
+        },
+        {
+          "name": "taskType",
+          "displayName": "Task Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Type of task like Hours, Minutes etc."
+        },
+        {
+          "name": "sacCode",
+          "displayName": "SAC Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "SACCode of task"
+        },
+        {
+          "name": "taskTaxJson",
+          "displayName": "Task Tax (JSON)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Array of TaxID for task. Example: [\"95A1956E-E60A-4FAC-8EC4-C88EE7431280\", \"CBC0A8DD-EDF5-47B2-B8DB-E7BA953E2C86\"]"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

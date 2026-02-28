@@ -1,0 +1,20 @@
+{
+  "id": "phone-validator",
+  "package": "@activepieces/piece-phone-validator",
+  "display_name": "Phone Validator",
+  "display_name_ar": "Phone Validator",
+  "description": "Validate phone numbers and retrieve line type, carrier, and location information",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "validatePhone",
+      "display_name": "Validate Phone Number",
+      "description": "Validate a phone number and retrieve line type, carrier, and location information"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/phone-validator"
+}

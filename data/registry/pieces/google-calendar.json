@@ -1,0 +1,108 @@
+{
+  "id": "google-calendar",
+  "package": "@activepieces/piece-google-calendar",
+  "display_name": "Google Calendar",
+  "display_name_ar": "تقويم جوجل",
+  "description": "Get organized and stay on schedule",
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "google-calendar-add-attendees",
+      "display_name": "Add Attendees to Event",
+      "description": "Add one or more person to existing event."
+    },
+    {
+      "name": "addCalendarToCalendarlist",
+      "display_name": "Add Calendar to calendarList",
+      "description": "Adds other people's calendars to your calendarList"
+    },
+    {
+      "name": "create_google_calendar_event",
+      "display_name": "Create Event",
+      "description": "Add Event"
+    },
+    {
+      "name": "create_quick_event",
+      "display_name": "Create Quick Event",
+      "description": "Add Quick Calendar Event"
+    },
+    {
+      "name": "delete_event",
+      "display_name": "Delete Event",
+      "description": "Deletes an event from Google Calendar."
+    },
+    {
+      "name": "google_calendar_find_busy_free_periods",
+      "display_name": "Find Busy/Free Periods in Calendar",
+      "description": "Finds free/busy calendar details from Google Calendar."
+    },
+    {
+      "name": "google_calendar_get_event_by_id",
+      "display_name": "Get Event by ID",
+      "description": "Fetch event details by its unique ID from Google Calendar."
+    },
+    {
+      "name": "google_calendar_get_events",
+      "display_name": "Get all Events",
+      "description": "Get Events"
+    },
+    {
+      "name": "update_event",
+      "display_name": "Update Event",
+      "description": "Updates an event in Google Calendar."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_or_updated_event",
+      "display_name": "New or Updated Event",
+      "description": "Triggers when an event is added or updated",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_cancelled",
+      "display_name": "Event Cancelled",
+      "description": "Fires when an event is canceled or deleted.",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_ends",
+      "display_name": "Event Ends",
+      "description": "Fires when an event ends.",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_starts_in",
+      "display_name": "Event Start (Time Before)",
+      "description": "Fires at a specified amount of time before an event starts (e.g., a reminder).",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_calendar",
+      "display_name": "New Calendar",
+      "description": "Fires when a new calendar is created or becomes accessible.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_event_matching_search",
+      "display_name": "New Event Matching Search",
+      "description": "Fires when a new event is created that matches a specified search term.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_event",
+      "display_name": "New Event",
+      "description": "Fires when a new event is created in a calendar.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-calendar"
+}

@@ -1,0 +1,427 @@
+{
+  "id": "pandadoc",
+  "displayName": "PandaDoc",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAttachment": {
+      "displayName": "Create Attachment",
+      "description": "Adds an attachment to a document.",
+      "props": [
+        {
+          "name": "source",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL link to the file to be attached to the document"
+        },
+        {
+          "name": "name",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional name to set for the uploaded file."
+        }
+      ]
+    },
+    "createDocumentFromTemplate": {
+      "displayName": "Create Document from Template",
+      "description": "Creates a document from a PandaDoc Template.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Document Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name the document you are creating"
+        },
+        {
+          "name": "recipients",
+          "displayName": "Recipients",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of recipients to whom the document will be sent"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Recipient email address"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Recipient phone number"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "signing_order",
+          "displayName": "Signing Order",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Set a signing order for recipient"
+        },
+        {
+          "name": "tokens",
+          "displayName": "Variables/Tokens",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Pass values for the variables in the template"
+        },
+        {
+          "name": "name",
+          "displayName": "Variable Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Variable Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tag the document for filtering and organization"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional data in key-value format to associate with document"
+        }
+      ]
+    },
+    "createOrUpdateContact": {
+      "displayName": "Create or Update Contact",
+      "description": "Creates a new or update an existing contact.",
+      "props": [
+        {
+          "name": "contact_id",
+          "displayName": "Contact ID (for Update)",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select a contact to update. Leave empty to create a new contact."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An email address of the contact"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact\\"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact\\"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact\\"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A phone number"
+        },
+        {
+          "name": "street_address",
+          "displayName": "Street Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A street address"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A city name"
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A postal code"
+        }
+      ]
+    },
+    "downloadDocument": {
+      "displayName": "Download Document",
+      "description": "Downloads a document as PDF.",
+      "props": [
+        {
+          "name": "separate_files",
+          "displayName": "Download as Separate Files",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Download document bundle as a zip archive of separate PDFs (1 file per section)"
+        },
+        {
+          "name": "watermark_color",
+          "displayName": "Watermark Color",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select a watermark color or use custom HEX code"
+        },
+        {
+          "name": "custom_watermark_color",
+          "displayName": "Custom Watermark Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter a custom HEX color code (e.g., #FF5733). Only used if \"Custom HEX Code\" is selected above."
+        },
+        {
+          "name": "watermark_font_size",
+          "displayName": "Watermark Font Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Font size of the watermark text"
+        },
+        {
+          "name": "watermark_opacity",
+          "displayName": "Watermark Opacity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Opacity of the watermark (0.0 to 1.0)"
+        }
+      ]
+    },
+    "findDocument": {
+      "displayName": "Find Document(s)",
+      "description": "Finds documents based various filter.",
+      "props": [
+        {
+          "name": "q",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search documents by name or reference number"
+        },
+        {
+          "name": "id",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search for document by its specific ID"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter documents by status"
+        },
+        {
+          "name": "status__ne",
+          "displayName": "Exclude Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Exclude documents with this status"
+        },
+        {
+          "name": "template_id",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by parent template (cannot be used with Form)"
+        },
+        {
+          "name": "created_from",
+          "displayName": "Created From",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include only documents created on or after this date"
+        },
+        {
+          "name": "created_to",
+          "displayName": "Created To",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include only documents created before this date"
+        },
+        {
+          "name": "completed_from",
+          "displayName": "Completed From",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include only documents completed on or after this date"
+        },
+        {
+          "name": "completed_to",
+          "displayName": "Completed To",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include only documents completed before this date"
+        },
+        {
+          "name": "modified_from",
+          "displayName": "Modified From",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include only documents modified on or after this date"
+        },
+        {
+          "name": "modified_to",
+          "displayName": "Modified To",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Include only documents modified before this date"
+        },
+        {
+          "name": "deleted",
+          "displayName": "Show Deleted Documents",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only deleted documents"
+        },
+        {
+          "name": "count",
+          "displayName": "Results Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of documents to return (default: 50, max: 100)"
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination (starts with 1)"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort results by field"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata Filters",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Filter by metadata key-value pairs. Use format: {\"key\": \"value\"}"
+        }
+      ]
+    },
+    "getDocumentAttachments": {
+      "displayName": "Get Document Attachment",
+      "description": "Retrieves details of a specific attachment from a document.",
+      "props": []
+    },
+    "getDocumentDetails": {
+      "displayName": "Get Document",
+      "description": "Retrieves comprehensive document data.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "documentCompleted": {
+      "displayName": "Document Completed",
+      "description": "Triggers when a document is completed.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "template_filter",
+          "displayName": "Filter by Templates",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for documents created from specific templates (leave empty for all)"
+        },
+        {
+          "name": "folder_filter",
+          "displayName": "Filter by Folders",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for documents in specific folders (leave empty for all)"
+        }
+      ]
+    },
+    "documentStateChanged": {
+      "displayName": "Document State Changed",
+      "description": "Triggers when a document status changes.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "filter_status",
+          "displayName": "Filter by Status",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for specific status changes (leave empty for all)"
+        }
+      ]
+    },
+    "documentUpdated": {
+      "displayName": "Document Updated",
+      "description": "Triggers when a document is updated.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "template_filter",
+          "displayName": "Filter by Templates",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for documents created from specific templates (leave empty for all)"
+        },
+        {
+          "name": "folder_filter",
+          "displayName": "Filter by Folders",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for documents in specific folders (leave empty for all)"
+        },
+        {
+          "name": "update_type_filter",
+          "displayName": "Filter by Update Type",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for specific types of updates (leave empty for all)"
+        }
+      ]
+    }
+  }
+}

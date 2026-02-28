@@ -1,0 +1,65 @@
+{
+  "id": "capsule-crm",
+  "package": "@activepieces/piece-capsule-crm",
+  "display_name": "Capsule CRM",
+  "display_name_ar": "Capsule CRM",
+  "description": "Capsule CRM integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "add_note_to_entity",
+      "display_name": "Add Note to Entity",
+      "description": "Add a comment/note to an entity (e.g., contact, opportunity, project)."
+    },
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Create a new Person or Organisation in Capsule CRM."
+    },
+    {
+      "name": "create_opportunity",
+      "display_name": "Create Opportunity",
+      "description": "Create a new Opportunity in Capsule CRM."
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Create a new Project in Capsule CRM."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a new Task in Capsule CRM."
+    },
+    {
+      "name": "find_contact",
+      "display_name": "Find Contact",
+      "description": "Find a Person by search criteria."
+    },
+    {
+      "name": "find_opportunity",
+      "display_name": "Find Opportunity",
+      "description": "Find an Opportunity by search criteria."
+    },
+    {
+      "name": "find_project",
+      "display_name": "Find Project",
+      "description": "Find a Project by search criteria."
+    },
+    {
+      "name": "update_contact",
+      "display_name": "Update Contact",
+      "description": "Update fields on an existing Person or Organisation."
+    },
+    {
+      "name": "update_opportunity",
+      "display_name": "Update Opportunity",
+      "description": "Update an existing Opportunity in Capsule CRM."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/capsule-crm"
+}

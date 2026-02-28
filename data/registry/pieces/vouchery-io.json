@@ -1,0 +1,35 @@
+{
+  "id": "vouchery-io",
+  "package": "@activepieces/piece-vouchery-io",
+  "display_name": "Vouchery",
+  "display_name_ar": "Vouchery",
+  "description": "Vouchery is a  voucher and gift card management platform.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createAVoucher",
+      "display_name": "Create a voucher",
+      "description": "Create a new voucher in a campaign"
+    },
+    {
+      "name": "createCustomer",
+      "display_name": "Create Customer",
+      "description": "Create a new customer"
+    },
+    {
+      "name": "findVoucher",
+      "display_name": "Find Voucher",
+      "description": "Find a voucher by campaign metadata. At least one metadata must be provided"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/vouchery-io"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "heygen",
+  "package": "@activepieces/piece-heygen",
+  "display_name": "HeyGen",
+  "display_name_ar": "HeyGen",
+  "description": "Generate and manage AI avatar videos using HeyGen.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create-video-from-template",
+      "display_name": "Create Video from Template",
+      "description": "Create a video using a selected template."
+    },
+    {
+      "name": "retrieve-translated-video-status",
+      "display_name": "Retrieve Translated Video Status",
+      "description": "Retrieves the status of a translated video."
+    },
+    {
+      "name": "retrieve_video_status",
+      "display_name": "Retrieve Video Status",
+      "description": "Retrieve the status and details of a video using its ID."
+    },
+    {
+      "name": "retrieve_sharable_video_url",
+      "display_name": "Retrieve Sharable Video URL",
+      "description": "Generates a public URL for a video, allowing it to be shared and accessed publicly."
+    },
+    {
+      "name": "translate_video",
+      "display_name": "Translate Video",
+      "description": "Translate a video into 175+ languages with natural voice and lip-sync."
+    },
+    {
+      "name": "upload_asset",
+      "display_name": "Upload an Asset",
+      "description": "Upload media files (images, videos, or audio) to HeyGen. Supports JPEG, PNG, MP4, WEBM, and MPEG files."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "video_generation_completed",
+      "display_name": "New Avatar Video Event (Success)",
+      "description": "Triggers when a video is generated successfully.",
+      "type": "instant"
+    },
+    {
+      "name": "video_generation_failed",
+      "display_name": "New Avatar Video Event (Fail)",
+      "description": "Triggers when a video generation process fails.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/heygen"
+}

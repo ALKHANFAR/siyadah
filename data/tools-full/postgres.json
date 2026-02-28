@@ -1,0 +1,80 @@
+{
+  "id": "postgres",
+  "displayName": "Host",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "run-query": {
+      "displayName": "Run Query",
+      "description": "Run Query",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Please use $1, $2, etc. for parameterized queries to avoid SQL injection."
+        },
+        {
+          "name": "args",
+          "displayName": "Arguments",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Arguments to be used in the query"
+        },
+        {
+          "name": "query_timeout",
+          "displayName": "Query Timeout",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An integer indicating the maximum number of milliseconds to wait for a query to complete before timing out."
+        },
+        {
+          "name": "connection_timeout_ms",
+          "displayName": "Connection Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An integer indicating the maximum number of milliseconds to wait for a connection to be established before timing out."
+        },
+        {
+          "name": "application_name",
+          "displayName": "Application Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A string indicating the name of the client application connecting to the server."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new-row": {
+      "displayName": "New Row",
+      "description": "triggered when a new row is added",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "description",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "table",
+          "displayName": "Table name",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "order_by",
+          "displayName": "Column to order by",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Use something like a created timestamp or an auto-incrementing ID."
+        }
+      ]
+    }
+  }
+}

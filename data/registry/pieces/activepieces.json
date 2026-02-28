@@ -1,0 +1,35 @@
+{
+  "id": "activepieces",
+  "package": "@activepieces/piece-activepieces",
+  "display_name": "Activepieces Platform",
+  "display_name_ar": "Activepieces Platform",
+  "description": "Open source no-code business automation",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Create a new project"
+    },
+    {
+      "name": "list_project",
+      "display_name": "List Projects",
+      "description": "List all projects"
+    },
+    {
+      "name": "update_project",
+      "display_name": "Update Project",
+      "description": "Update a project"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/activepieces"
+}

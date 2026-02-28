@@ -1,0 +1,52 @@
+{
+  "id": "openmic-ai",
+  "package": "@activepieces/piece-openmic-ai",
+  "display_name": "OpenMic AI",
+  "display_name_ar": "OpenMic AI",
+  "description": "An AI-powered platform that automates phone calls using advanced language models.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createPhoneCall",
+      "display_name": "Create Phone Call",
+      "description": "Create a new outbound phone call using OpenMic AI"
+    },
+    {
+      "name": "findBot",
+      "display_name": "Find Bot",
+      "description": "Retrieve details of a specific bot by its UID"
+    },
+    {
+      "name": "findCall",
+      "display_name": "Find Call",
+      "description": "Retrieve details of a specific call by its ID"
+    },
+    {
+      "name": "getBots",
+      "display_name": "Get Bots",
+      "description": "Retrieve all bots with optional filtering and pagination"
+    },
+    {
+      "name": "getCalls",
+      "display_name": "Get Calls",
+      "description": "Retrieve all calls with optional filtering and pagination"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newPostCallSummary",
+      "display_name": "New Post-call Summary",
+      "description": "Trigger when a new call completes with comprehensive call data and analysis",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/openmic-ai"
+}

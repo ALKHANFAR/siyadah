@@ -1,0 +1,70 @@
+{
+  "id": "flowlu",
+  "package": "@activepieces/piece-flowlu",
+  "display_name": "Flowlu",
+  "display_name_ar": "",
+  "description": "Business management software",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "flowlu_create_contact",
+      "display_name": "Create CRM Account(Contact)",
+      "description": "Creates a new contact in CRM."
+    },
+    {
+      "name": "flowlu_create_organization",
+      "display_name": "Create CRM Account(Organization)",
+      "description": "Creates a new organization in CRM."
+    },
+    {
+      "name": "flowlu_delete_contact",
+      "display_name": "Delete CRM Account(Contact)",
+      "description": "Deletes an existing contact in CRM."
+    },
+    {
+      "name": "flowlu_update_contact",
+      "display_name": "Update CRM Account(Contact)",
+      "description": "Updates an existing contact in CRM."
+    },
+    {
+      "name": "flowlu_create_opportunity",
+      "display_name": "Create Opportunity",
+      "description": "Creates a new opportunity."
+    },
+    {
+      "name": "flowlu_delete_opportunity",
+      "display_name": "Delete Opportunity",
+      "description": "Deletes an existing opportunity."
+    },
+    {
+      "name": "flowlu_update_opportunity",
+      "display_name": "Update Opportunity",
+      "description": "Updates an existing opportunity."
+    },
+    {
+      "name": "flowlu_create_task",
+      "display_name": "Create Task",
+      "description": "Creates a new task."
+    },
+    {
+      "name": "flowlu_delete_task",
+      "display_name": "Delete Task",
+      "description": "Deletes an existing task."
+    },
+    {
+      "name": "flowlu_get_task",
+      "display_name": "Get Task",
+      "description": "Retrieves an existing task."
+    },
+    {
+      "name": "flowlu_update_task",
+      "display_name": "Update Task",
+      "description": "Updates an existing task."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

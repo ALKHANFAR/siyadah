@@ -1,0 +1,60 @@
+{
+  "id": "omni-co",
+  "package": "@activepieces/piece-omni-co",
+  "display_name": "Omni",
+  "display_name_ar": "Omni",
+  "description": "Omni integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createADocument",
+      "display_name": "Create a document",
+      "description": "Creates a new document"
+    },
+    {
+      "name": "createASchedule",
+      "display_name": "Create a schedule",
+      "description": "Creates a scheduled task for a dashboard with support for email, SFTP, and webhook destinations"
+    },
+    {
+      "name": "deleteADocument",
+      "display_name": "Delete a document",
+      "description": "Deletes the specified document and places it in the Trash"
+    },
+    {
+      "name": "deleteASchedule",
+      "display_name": "Delete a schedule",
+      "description": "Deletes a schedule using its UUID"
+    },
+    {
+      "name": "editSchedule",
+      "display_name": "Edit schedule",
+      "description": "Updates a scheduled task. Only properties included will be updated"
+    },
+    {
+      "name": "generateQuery",
+      "display_name": "Generate query",
+      "description": "Transforms a natural language description into a structured Omni query"
+    },
+    {
+      "name": "moveDocument",
+      "display_name": "Move document",
+      "description": "Moves a document to a new folder or to the root level"
+    },
+    {
+      "name": "runQuery",
+      "display_name": "Run query",
+      "description": "Runs a query and returns the results as base64 encoded Apache Arrow table or in specified format"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/omni-co"
+}

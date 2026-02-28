@@ -1,0 +1,427 @@
+{
+  "id": "lokalise",
+  "displayName": "Lokalise",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createComment": {
+      "displayName": "Create Comment",
+      "description": "Add comments to a key in your Lokalise project",
+      "props": [
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The comment text to add to the key"
+        }
+      ]
+    },
+    "createKey": {
+      "displayName": "Create Key",
+      "description": "Create one or more keys in your Lokalise project",
+      "props": [
+        {
+          "name": "keyName",
+          "displayName": "Key Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name/identifier for the key (e.g., \"index.welcome\")"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional description for the key"
+        },
+        {
+          "name": "platforms",
+          "displayName": "Platforms",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select the platforms this key applies to"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Comma-separated tags for the key (e.g., \"urgent,ui\")"
+        },
+        {
+          "name": "useAutomations",
+          "displayName": "Use Automations",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to run automations on the new key translations"
+        }
+      ]
+    },
+    "createProject": {
+      "displayName": "Create Project",
+      "description": "Create a new project in your Lokalise team",
+      "props": [
+        {
+          "name": "projectName",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the project"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the project"
+        },
+        {
+          "name": "projectType",
+          "displayName": "Project Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of the project"
+        },
+        {
+          "name": "baseLangIso",
+          "displayName": "Base Language ISO",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language/locale code of the project base language (e.g., \"en\", \"en-us\")"
+        },
+        {
+          "name": "teamId",
+          "displayName": "Team ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the team to create a project in (numerical ID or UUID). If omitted, the project will be created in your current team"
+        },
+        {
+          "name": "isSegmentationEnabled",
+          "displayName": "Enable Segmentation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable Segmentation feature for project"
+        }
+      ]
+    },
+    "createTask": {
+      "displayName": "Create Task",
+      "description": "Create a new task in your Lokalise project",
+      "props": [
+        {
+          "name": "taskTitle",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the task"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Brief task description. Used as instructions for AI in automatic_translation and lqa_by_ai task types"
+        },
+        {
+          "name": "taskType",
+          "displayName": "Task Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of the task"
+        },
+        {
+          "name": "keys",
+          "displayName": "Key",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Comma-separated list of key IDs to include in the task (required unless parent_task_id is specified)"
+        },
+        {
+          "name": "languages",
+          "displayName": "Languages",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Comma-separated language ISO codes for the task (e.g., \"fr,de,es\")"
+        },
+        {
+          "name": "languageIso",
+          "displayName": "Language ISO",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Language ISO code (e.g., \"fr\", \"de\")"
+        },
+        {
+          "name": "sourceLanguageIso",
+          "displayName": "Source Language ISO",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Source language code for the task"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Due date in format: Y-m-d H:i:s (e.g., \"2024-12-31 23:59:59\")"
+        },
+        {
+          "name": "autoCloseLanguages",
+          "displayName": "Auto Close Languages",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether languages should be closed automatically upon completion. Default is true"
+        },
+        {
+          "name": "autoCloseTask",
+          "displayName": "Auto Close Task",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the task should be automatically closed upon all language completion. Default is true"
+        },
+        {
+          "name": "closingTags",
+          "displayName": "Closing Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Comma-separated tags to be added to keys when task is closed"
+        },
+        {
+          "name": "doLockTranslations",
+          "displayName": "Lock Translations",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If set to true, will lock translations for non-assigned project members"
+        },
+        {
+          "name": "markVerified",
+          "displayName": "Mark Verified",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark translations as verified. Only for automatic_translation tasks. Default is true"
+        },
+        {
+          "name": "saveAiTranslationToTm",
+          "displayName": "Save AI Translation to TM",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Save AI translations to Translation Memory. Only for automatic_translation tasks"
+        },
+        {
+          "name": "applyAiTm100Matches",
+          "displayName": "Apply AI TM 100% Matches",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Apply 100% translation memory matches. Only for automatic_translation tasks"
+        }
+      ]
+    },
+    "deleteKey": {
+      "displayName": "Delete Key",
+      "description": "Delete a key from your Lokalise project (software and marketing projects only)",
+      "props": []
+    },
+    "retrieveAComment": {
+      "displayName": "Retrieve a comment",
+      "description": "Retrieve a specific comment on a key in your Lokalise project",
+      "props": [
+        {
+          "name": "commentId",
+          "displayName": "Comment ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the comment"
+        }
+      ]
+    },
+    "retrieveAKey": {
+      "displayName": "Retrieve a key",
+      "description": "Retrieve detailed information about a specific key in your Lokalise project",
+      "props": [
+        {
+          "name": "disableReferences",
+          "displayName": "Disable References",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Disable key references in the response"
+        }
+      ]
+    },
+    "retrieveAProject": {
+      "displayName": "Retrieve a project",
+      "description": "Retrieve detailed information about a Lokalise project",
+      "props": []
+    },
+    "retrieveTranslation": {
+      "displayName": "Retrieve Translation",
+      "description": "Retrieve a specific translation from your Lokalise project",
+      "props": [
+        {
+          "name": "translationId",
+          "displayName": "Translation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique translation identifier"
+        },
+        {
+          "name": "disableReferences",
+          "displayName": "Disable References",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Disable key references in the translation"
+        }
+      ]
+    },
+    "updateKey": {
+      "displayName": "Update Key",
+      "description": "Update properties of a key in your Lokalise project",
+      "props": [
+        {
+          "name": "keyName",
+          "displayName": "Key Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Key identifier (or JSON with ios, android, web, other for per-platform names)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the key"
+        },
+        {
+          "name": "platforms",
+          "displayName": "Platforms",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "List of platforms enabled for this key"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Comma-separated tags for the key"
+        },
+        {
+          "name": "mergeTags",
+          "displayName": "Merge Tags",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable to merge specified tags with current tags"
+        },
+        {
+          "name": "isPlural",
+          "displayName": "Is Plural",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this key is plural"
+        },
+        {
+          "name": "pluralName",
+          "displayName": "Plural Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional custom plural name"
+        },
+        {
+          "name": "isHidden",
+          "displayName": "Is Hidden",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this key is hidden from non-admins"
+        },
+        {
+          "name": "isArchived",
+          "displayName": "Is Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this key is archived"
+        },
+        {
+          "name": "context",
+          "displayName": "Context",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional context of the key (used with some file formats)"
+        },
+        {
+          "name": "charLimit",
+          "displayName": "Character Limit",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Maximum allowed number of characters in translations"
+        }
+      ]
+    },
+    "updateTranslation": {
+      "displayName": "Update Translation",
+      "description": "Update a translation in your Lokalise project",
+      "props": [
+        {
+          "name": "translationId",
+          "displayName": "Translation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique translation identifier"
+        },
+        {
+          "name": "translation",
+          "displayName": "Translation",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The actual translation content. Use JSON object format for plural keys"
+        },
+        {
+          "name": "isUnverified",
+          "displayName": "Mark as Unverified",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the Unverified flag is enabled"
+        },
+        {
+          "name": "isReviewed",
+          "displayName": "Mark as Reviewed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the Reviewed flag is enabled"
+        },
+        {
+          "name": "custom_translation_status_ids",
+          "displayName": "Custom Translation Status IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Comma-separated custom translation status IDs to assign (existing statuses will be replaced)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "keyAdded": {
+      "displayName": "Key Added",
+      "description": "Trigger when a new key is added to your Lokalise project",
+      "type": "POLLING",
+      "props": []
+    },
+    "keyUpdated": {
+      "displayName": "Key Updated",
+      "description": "Trigger when a key is updated in your Lokalise project",
+      "type": "POLLING",
+      "props": []
+    },
+    "translationUpdated": {
+      "displayName": "Translation Updated",
+      "description": "Trigger when a translation is updated in your Lokalise project",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

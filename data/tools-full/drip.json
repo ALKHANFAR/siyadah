@@ -1,0 +1,103 @@
+{
+  "id": "drip",
+  "displayName": "Drip",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_subscriber_to_campaign": {
+      "displayName": "Add a subscriber to a campaign",
+      "description": "Add a subscriber to a campaign (Email series)",
+      "props": [
+        {
+          "name": "campaign_id",
+          "displayName": "Email Series Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "apply_tag_to_subscriber": {
+      "displayName": "Apply a tag to subscriber",
+      "description": "Apply a tag to a subscriber",
+      "props": [
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Tag to apply"
+        }
+      ]
+    },
+    "upsert_subscriber": {
+      "displayName": "Create or Update Subscriber",
+      "description": "Create or Update Subscriber",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code in which the subscriber resides"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The country in which the subscriber resides"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The region in which the subscriber resides"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The city in which the subscriber resides"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The subscriber's primary phone number"
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The subscriber's mailing address"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

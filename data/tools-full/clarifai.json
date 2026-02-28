@@ -1,0 +1,148 @@
+{
+  "id": "clarifai",
+  "displayName": "Clarifai",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask-llm": {
+      "displayName": "Ask LLM",
+      "description": "Send a prompt to any large language models (LLM) supported by clarifai.",
+      "props": [
+        {
+          "name": "models",
+          "displayName": "Model Id",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the response. If the model is not listed, get the model id from the clarifai website. Example : 'GPT-4' you can get the model id from here [https://clarifai.com/openai/chat-completion/models/GPT-4](https://clarifai.com/openai/chat-completion/models/GPT-4)"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The prompt to send to the model."
+        }
+      ]
+    },
+    "audio_text_model": {
+      "displayName": "Audio to Text",
+      "description": "Call a audio to text AI model",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Input URL or bytes",
+          "type": "FILE",
+          "required": true,
+          "description": "URL or base64 bytes of the audio to classify"
+        }
+      ]
+    },
+    "visual_classifier_model": {
+      "displayName": "Classify Images or Videos",
+      "description": "Call an visual classifier AI model to recognize concepts",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Input URL or bytes",
+          "type": "FILE",
+          "required": true,
+          "description": "URL or base64 bytes of the image or video to classify"
+        },
+        {
+          "name": "file",
+          "displayName": "Input URL or bytes",
+          "type": "FILE",
+          "required": true,
+          "description": "URL or base64 bytes of the image to classify"
+        }
+      ]
+    },
+    "post_inputs": {
+      "displayName": "Add Inputs",
+      "description": "Add inputs to your clarifai app",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User ID to associate with the input"
+        },
+        {
+          "name": "appId",
+          "displayName": "App ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "App ID (project) to associate with the input"
+        },
+        {
+          "name": "file",
+          "displayName": "Input URL or bytes",
+          "type": "FILE",
+          "required": true,
+          "description": "URL or base64 bytes of the audio to classify"
+        }
+      ]
+    },
+    "text_classifier_model": {
+      "displayName": "Classify Text",
+      "description": "Call a text classifier AI model to recognize concepts",
+      "props": [
+        {
+          "name": "txt",
+          "displayName": "Input Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text to classify"
+        },
+        {
+          "name": "txt",
+          "displayName": "Input Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text to classify"
+        }
+      ]
+    },
+    "workflow_predict": {
+      "displayName": "Run Workflow",
+      "description": "Call a Clarifai workflow",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Input URL or bytes",
+          "type": "FILE",
+          "required": true,
+          "description": "URL or base64 bytes of the incoming image/video/text/audio to run through the workflow. Note: must be appropriate first step of the workflow to handle that data type."
+        }
+      ]
+    },
+    "generate-igm": {
+      "displayName": "Ask IGM",
+      "description": "Generate an image using the Image generating models supported by clarifai.",
+      "props": [
+        {
+          "name": "models",
+          "displayName": "Model Id",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the response. If the model is not listed, get the model id from the clarifai website. Example : 'GPT-4' you can get the model id from here [https://clarifai.com/openai/chat-completion/models/GPT-4](https://clarifai.com/openai/chat-completion/models/GPT-4)"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The prompt to send to the model."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

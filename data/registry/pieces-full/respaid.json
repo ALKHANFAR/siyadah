@@ -1,0 +1,96 @@
+{
+  "id": "respaid",
+  "package": "@activepieces/piece-respaid",
+  "display_name": "Respaid",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_new_campaign",
+      "display_name": "Create New Campaign",
+      "description": "Action for creating a new campaign."
+    },
+    {
+      "name": "stop_collection_client_paid_directly",
+      "display_name": "Stop Collection for Direct Full Payment",
+      "description": "Stops the collection process for a case and mark it as paid directly to the creditor."
+    },
+    {
+      "name": "stop_collection_for_direct_instalment_payment",
+      "display_name": "Stop Collection for Direct Instalment Payment",
+      "description": "Stops the collection process for a case when an instalment plan is set up with the creditor."
+    },
+    {
+      "name": "stop_collection_for_direct_partial_payment",
+      "display_name": "Stop Collection for Direct Partial Payment",
+      "description": "Stops the collection process for a case and mark it as partially paid directly to the creditor."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_campaign_creation",
+      "display_name": "New Campaign Creation Result",
+      "description": "Triggers when the campaign is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new_cancelled_case",
+      "display_name": "New Cancelled Case",
+      "description": "Triggers when a collection process for a given sequence (case) was cancelled.",
+      "type": "instant"
+    },
+    {
+      "name": "new_disputed_case",
+      "display_name": "New Disputed Case",
+      "description": "Triggers when a collection process was disputed by the debtor.",
+      "type": "instant"
+    },
+    {
+      "name": "new_payout",
+      "display_name": "New Payout",
+      "description": "Triggers when a payout is successfully sent to your bank account.",
+      "type": "instant"
+    },
+    {
+      "name": "new_successful_collection_paid_to_creditor",
+      "display_name": "New Successful Collection Paid to Creditor",
+      "description": "Triggers when a debt is paid directly to the creditor.",
+      "type": "instant"
+    },
+    {
+      "name": "new_successful_collection_via_legal_officer",
+      "display_name": "New Successful Collection via Legal Officer",
+      "description": "Triggers when a debt is paid to the Legal Officer responsible for the collection campaign.",
+      "type": "instant"
+    },
+    {
+      "name": "new_successful_collection_via_respaid",
+      "display_name": "New Successful Collection via Respaid",
+      "description": "Triggers when a debt is paid online via Respaid's payment link.",
+      "type": "instant"
+    },
+    {
+      "name": "new_successful_installment_payment_via_respaid",
+      "display_name": "New Successful Installment Payment via Respaid",
+      "description": "Triggers when one of the installment payments is made for a given case within a collection's payment plan.",
+      "type": "instant"
+    },
+    {
+      "name": "new_successful_partial_payment_to_creditor",
+      "display_name": "New Successful Partial Payment to Creditor",
+      "description": "Triggers when the debt is partially paid directly to the creditor.",
+      "type": "instant"
+    },
+    {
+      "name": "new_successful_partial_payment_via_respaid",
+      "display_name": "New Successful Partial Payment via Respaid",
+      "description": "Triggers when the debt is partially paid via Respaid's payment link.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

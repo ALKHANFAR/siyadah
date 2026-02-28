@@ -1,0 +1,33 @@
+{
+  "id": "flow-helper",
+  "displayName": "Flow Helper",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "failFlow": {
+      "displayName": "Fail Flow",
+      "description": "Fails the flow execution with a custom message.",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Error Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The error message to show when the flow fails."
+        }
+      ]
+    },
+    "getRunId": {
+      "displayName": "Get Run Info",
+      "description": "",
+      "props": []
+    },
+    "stopFlow": {
+      "displayName": "Stop Flow",
+      "description": "Stops the flow immediately this step is reached.",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

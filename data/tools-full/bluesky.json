@@ -1,0 +1,169 @@
+{
+  "id": "bluesky",
+  "displayName": "Bluesky",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createPost": {
+      "displayName": "Video URL",
+      "description": "Link to video file (MP4, max 100MB)",
+      "props": []
+    },
+    "findPost": {
+      "displayName": "Find Post",
+      "description": "Get detailed information about a specific post",
+      "props": []
+    },
+    "findThread": {
+      "displayName": "Find Thread",
+      "description": "Get a full conversation thread with replies",
+      "props": []
+    },
+    "likePost": {
+      "displayName": "Like Post",
+      "description": "Like a post on Bluesky",
+      "props": [
+        {
+          "name": "selectionMethod",
+          "displayName": "Select Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to choose the post"
+        },
+        {
+          "name": "postSelection",
+          "displayName": "Select Post",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Choose from your recent timeline posts (only when \"From my timeline\" is selected above)"
+        },
+        {
+          "name": "postUrl",
+          "displayName": "Post URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Paste the Bluesky post URL"
+        }
+      ]
+    },
+    "repostPost": {
+      "displayName": "Repost Post",
+      "description": "Share someone else\\",
+      "props": [
+        {
+          "name": "selectionMethod",
+          "displayName": "Select Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to choose the post"
+        },
+        {
+          "name": "postSelection",
+          "displayName": "Select Post",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Choose from your recent timeline posts (only when \"From my timeline\" is selected above)"
+        },
+        {
+          "name": "postUrl",
+          "displayName": "Post URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Paste the Bluesky post URL"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newFollowerOnAccount": {
+      "displayName": "New Follower on Account",
+      "description": "Triggers when someone new follows your Bluesky account",
+      "type": "POLLING",
+      "props": []
+    },
+    "newPost": {
+      "displayName": "New Post (with Search Options)",
+      "description": "Triggers when posts match your search criteria",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "searchQuery",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Keywords, hashtags (#example), or mentions (@handle) to find"
+        },
+        {
+          "name": "includeImages",
+          "displayName": "Filter by Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only posts with/without images"
+        },
+        {
+          "name": "includeVideos",
+          "displayName": "Filter by Videos",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only posts with/without videos"
+        },
+        {
+          "name": "sortBy",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort results"
+        }
+      ]
+    },
+    "newPostsByAuthor": {
+      "displayName": "New Posts by Author",
+      "description": "Triggers when a selected author creates a new post",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "authorSelection",
+          "displayName": "How to select author?",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to select the author"
+        },
+        {
+          "name": "authorFromFollowing",
+          "displayName": "Select Author",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Choose from accounts you follow"
+        },
+        {
+          "name": "authorHandle",
+          "displayName": "Author Handle",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the Bluesky username (e.g., username.bsky.social)"
+        },
+        {
+          "name": "includeReplies",
+          "displayName": "Include Replies",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include reply posts by this author"
+        },
+        {
+          "name": "includeReposts",
+          "displayName": "Include Reposts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include posts that this author reposted"
+        }
+      ]
+    },
+    "newTimelinePosts": {
+      "displayName": "New Timeline Posts",
+      "description": "Triggers when new posts appear in your timeline",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

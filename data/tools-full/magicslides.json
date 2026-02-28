@@ -1,0 +1,273 @@
+{
+  "id": "magicslides",
+  "displayName": "MagicSlides",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createPptFromText": {
+      "displayName": "Create PPT from Text/Summary",
+      "description": "Generates a PPT presentation from provided text or summary.",
+      "props": [
+        {
+          "name": "msSummaryText",
+          "displayName": "Summary Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "slideCount",
+          "displayName": "Number of Slides",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "template",
+          "displayName": "Template",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "model",
+          "displayName": "AI Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "aiImages",
+          "displayName": "Use AI Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "imageForEachSlide",
+          "displayName": "Image for Each Slide",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "googleImage",
+          "displayName": "Use Google Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "googleText",
+          "displayName": "Use Google Text",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "presentationFor",
+          "displayName": "Presentation For (Audience)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "watermark",
+          "displayName": "Watermark",
+          "type": "JSON",
+          "required": false,
+          "description": "Optional watermark e.g., {\"width\":\"48\",\"height\":\"48\",\"brandURL\":\"https://...png\",\"position\":\"BottomRight\"}"
+        }
+      ]
+    },
+    "createPptFromTopic": {
+      "displayName": "Create PPT from Topic",
+      "description": "Generates a PPT presentation from a given topic.",
+      "props": [
+        {
+          "name": "topic",
+          "displayName": "Topic",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "slideCount",
+          "displayName": "Number of slides",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "template",
+          "displayName": "Template",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "model",
+          "displayName": "AI Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "extraInfoSource",
+          "displayName": "Extra Information Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide a URL or text to give additional context for the presentation."
+        },
+        {
+          "name": "aiImages",
+          "displayName": "Use AI Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "imageForEachSlide",
+          "displayName": "Image for Each Slide",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "googleImage",
+          "displayName": "Use Google Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "googleText",
+          "displayName": "Use Google Text",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "include_images",
+          "displayName": "Include images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "presentationFor",
+          "displayName": "Presentation For (Audience)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "watermark",
+          "displayName": "Watermark",
+          "type": "JSON",
+          "required": false,
+          "description": "Add a watermark to the presentation. e.g., {\"width\": \"48\", \"height\": \"48\", \"brandURL\": \"https://...png\", \"position\": \"BottomRight\"}"
+        }
+      ]
+    },
+    "createPptFromYoutube": {
+      "displayName": "Create PPT from YouTube Video",
+      "description": "Generates a PPT presentation from a YouTube video link.",
+      "props": [
+        {
+          "name": "youtubeURL",
+          "displayName": "YouTube Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "template",
+          "displayName": "Template",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "slideCount",
+          "displayName": "Number of slides",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "aiImages",
+          "displayName": "Enable AI Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "imageForEachSlide",
+          "displayName": "Include Image on Every Slide",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "googleImage",
+          "displayName": "Use Google Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "googleText",
+          "displayName": "Enhance Content with Google Search",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "model",
+          "displayName": "AI Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "presentationFor",
+          "displayName": "Presentation For (Audience)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "watermark",
+          "displayName": "Watermark",
+          "type": "JSON",
+          "required": false,
+          "description": "Optional watermark e.g., {\"width\":\"48\",\"height\":\"48\",\"brandURL\":\"https://...png\",\"position\":\"BottomRight\"}"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "delay",
+  "displayName": "Delay",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "delay": {
+      "displayName": "Delay",
+      "description": "Wait for specified duration",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

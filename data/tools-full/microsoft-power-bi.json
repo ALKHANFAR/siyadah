@@ -1,0 +1,76 @@
+{
+  "id": "microsoft-power-bi",
+  "displayName": "Microsoft Power BI",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_dataset": {
+      "displayName": "Create Dataset",
+      "description": "Create a new dataset in Power BI with custom schema (Push, Streaming, or PushStreaming mode).",
+      "props": [
+        {
+          "name": "dataset_name",
+          "displayName": "Dataset Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the dataset to create"
+        },
+        {
+          "name": "mode",
+          "displayName": "Dataset Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The mode of the dataset"
+        },
+        {
+          "name": "tables",
+          "displayName": "Tables",
+          "type": "JSON",
+          "required": true,
+          "description": "Define the tables and their columns for the dataset (JSON format)"
+        }
+      ]
+    },
+    "push_rows_to_dataset_table": {
+      "displayName": "Push Rows to Dataset Table",
+      "description": "Add rows to a table in a Power BI dataset (supports Push, Streaming, and PushStreaming modes)",
+      "props": [
+        {
+          "name": "dataset_id",
+          "displayName": "Dataset",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a dataset."
+        },
+        {
+          "name": "table_name",
+          "displayName": "Table",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a table"
+        },
+        {
+          "name": "rows",
+          "displayName": "Rows",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON object containing the rows to add to the table. Each row must match your table schema."
+        },
+        {
+          "name": "skip_refresh",
+          "displayName": "Skip Dataset Refresh",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Skip refreshing the dataset after pushing data (only applies to Push and PushStreaming modes)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

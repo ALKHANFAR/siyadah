@@ -1,0 +1,20 @@
+{
+  "id": "deepseek",
+  "package": "@activepieces/piece-deepseek",
+  "display_name": "DeepSeek",
+  "display_name_ar": "",
+  "description": null,
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask_deepseek",
+      "display_name": "Ask Deepseek",
+      "description": "Ask Deepseek anything you want!"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "open-router",
+  "displayName": "OpenRouter",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask-lmm": {
+      "displayName": "Ask LLM",
+      "description": "Ask any model supported by Open Router.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The prompt to send to the model."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of tokens to generate. Requests can use up to 2,048 or 4,096 tokens shared between prompt and completion, don't set the value to maximum and leave some tokens for the input. The exact limit varies by model. (One token is roughly 4 characters for normal English text)"
+        },
+        {
+          "name": "topP",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

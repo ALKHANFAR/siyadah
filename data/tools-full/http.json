@@ -1,0 +1,15 @@
+{
+  "id": "http",
+  "displayName": "HTTP",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "send_request": {
+      "displayName": "Send HTTP Request",
+      "description": "Send an HTTP request",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

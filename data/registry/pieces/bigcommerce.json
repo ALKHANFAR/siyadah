@@ -1,0 +1,137 @@
+{
+  "id": "bigcommerce",
+  "package": "@activepieces/piece-bigcommerce",
+  "display_name": "Bigcommerce",
+  "display_name_ar": "Bigcommerce",
+  "description": "BigCommerce is a leading e-commerce platform that enables businesses to create and manage online stores.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createAProduct",
+      "display_name": "Create a Product",
+      "description": "Creates a Product"
+    },
+    {
+      "name": "createBlogPost",
+      "display_name": "Create Blog Post",
+      "description": "Creates a blog post"
+    },
+    {
+      "name": "createCustomerAddress",
+      "display_name": "Create Customer Address",
+      "description": "Creates a customer's address"
+    },
+    {
+      "name": "createCustomer",
+      "display_name": "Create Customer",
+      "description": "Creates a customer"
+    },
+    {
+      "name": "findOrCreateCustomer",
+      "display_name": "Find or Create Customer",
+      "description": "Finds or creates a customer"
+    },
+    {
+      "name": "findOrCreateCustomersAddress",
+      "display_name": "Find or Create Customer’s Address",
+      "description": "Finds or creates a customer’s address"
+    },
+    {
+      "name": "findOrCreateProduct",
+      "display_name": "Find or Create Product",
+      "description": "Finds or creates a product"
+    },
+    {
+      "name": "searchCustomerAddress",
+      "display_name": "Search Customer Address",
+      "description": "Searches for a customer’s address"
+    },
+    {
+      "name": "searchCustomer",
+      "display_name": "Search Customer",
+      "description": "Searches for a registered customer"
+    },
+    {
+      "name": "searchProduct",
+      "display_name": "Search Product",
+      "description": "Searches for a product in the catalog"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "abandonedCart",
+      "display_name": "Abandoned Cart",
+      "description": "Triggers when a cart is abandoned",
+      "type": "instant"
+    },
+    {
+      "name": "cartCreated",
+      "display_name": "Cart Created",
+      "description": "Triggers when a new cart is created",
+      "type": "instant"
+    },
+    {
+      "name": "customerAddressCreated",
+      "display_name": "Customer Address Created",
+      "description": "Triggers when a new customer address is created",
+      "type": "instant"
+    },
+    {
+      "name": "customerAddressUpdated",
+      "display_name": "Customer Address Updated",
+      "description": "Triggers when a new customer address is updated",
+      "type": "instant"
+    },
+    {
+      "name": "customerCreated",
+      "display_name": "Customer Created",
+      "description": "Triggers when a new customer is created",
+      "type": "instant"
+    },
+    {
+      "name": "customerUpdated",
+      "display_name": "Customer Updated",
+      "description": "Triggers when a customer is updated",
+      "type": "instant"
+    },
+    {
+      "name": "orderCreated",
+      "display_name": "Order Created",
+      "description": "Triggers when a new order is created",
+      "type": "instant"
+    },
+    {
+      "name": "orderStatusUpdated",
+      "display_name": "Order Status Updated",
+      "description": "Triggers when an order status has changed",
+      "type": "instant"
+    },
+    {
+      "name": "orderUpdated",
+      "display_name": "Order Updated",
+      "description": "Triggers when an order is updated",
+      "type": "instant"
+    },
+    {
+      "name": "productCreated",
+      "display_name": "Product Created",
+      "description": "Triggers when a new product is created",
+      "type": "instant"
+    },
+    {
+      "name": "shipmentCreated",
+      "display_name": "Shipment Created",
+      "description": "Triggers when a new shipment is created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bigcommerce"
+}

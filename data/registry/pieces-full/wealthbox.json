@@ -1,0 +1,95 @@
+{
+  "id": "wealthbox",
+  "package": "@activepieces/piece-wealthbox",
+  "display_name": "API Access Token",
+  "display_name_ar": "",
+  "description": "Enter your Wealthbox API access token. Get it from Settings → API Access Tokens in your Wealthbox account.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_household_member",
+      "display_name": "Add Member to Household",
+      "description": "Adds a member to an existing household. Link multiple contacts under one family unit."
+    },
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Adds a new contact with rich details (name, address, email, tags, etc.)"
+    },
+    {
+      "name": "create_event",
+      "display_name": "Create Event",
+      "description": "Creates a calendar event linked to contact. Schedule advisory meetings on behalf of clients."
+    },
+    {
+      "name": "create_household",
+      "display_name": "Create Household",
+      "description": "Creates a household record with emails, tags. Group family member contacts into one household."
+    },
+    {
+      "name": "create_note",
+      "display_name": "Create Note",
+      "description": "Adds a note linked to a contact. Log call summaries against client records."
+    },
+    {
+      "name": "create_opportunity",
+      "display_name": "Create Opportunity",
+      "description": "Logs an opportunity including stage, close date, amount. Automate opportunity tracking after meetings."
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Starts a new project with description and organizer. Launch project-based onboarding when new clients sign up."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Creates tasks tied to contacts with due dates and assignment types. Assign follow-up actions when opportunities are created."
+    },
+    {
+      "name": "find_contact",
+      "display_name": "Find Contact",
+      "description": "Locate a contact by name, email, phone, or advanced filters. Comprehensive contact search with dynamic filtering options."
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Finds existing tasks using comprehensive search filters. Search by assignment, resource, completion status, and date ranges."
+    },
+    {
+      "name": "start_workflow",
+      "display_name": "Start Workflow",
+      "description": "Triggers a workflow template on a contact/project/opportunity. Automate multi-step sequences based on CRM events."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Fires when a new contact is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_event",
+      "display_name": "New Event",
+      "description": "Fires when a new event is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_opportunity",
+      "display_name": "New Opportunity",
+      "description": "Fires when a new opportunity is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Fires when a new task is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

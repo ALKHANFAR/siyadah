@@ -1,0 +1,69 @@
+{
+  "id": "cloudconvert",
+  "package": "@activepieces/piece-cloudconvert",
+  "display_name": "CloudConvert",
+  "display_name_ar": "CloudConvert",
+  "description": "File conversion and processing platform supporting 200+ formats",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "archive_file",
+      "display_name": "Archive File",
+      "description": "Creates a ZIP, RAR, 7Z, TAR, TAR.GZ or TAR.BZ2 archive"
+    },
+    {
+      "name": "capture_website",
+      "display_name": "Capture Website",
+      "description": "Capture webpage as PDF, screenshot PNG, or JPG from a URL"
+    },
+    {
+      "name": "convert_file",
+      "display_name": "Convert File",
+      "description": "Create a basic file conversion task for a single file with desired output format"
+    },
+    {
+      "name": "download_file",
+      "display_name": "Download a File",
+      "description": "Downloads output from a completed task"
+    },
+    {
+      "name": "merge_pdf",
+      "display_name": "Merge Files to PDF",
+      "description": "Combine multiple documents/images into a single PDF"
+    },
+    {
+      "name": "optimize_file",
+      "display_name": "Optimize File",
+      "description": "Creates a task to optimize and compress a file"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "job_failed",
+      "display_name": "Job Failed",
+      "description": "Triggers when a CloudConvert job has failed",
+      "type": "instant"
+    },
+    {
+      "name": "job_finished",
+      "display_name": "Job Finished",
+      "description": "Triggers when a CloudConvert job has been completed",
+      "type": "instant"
+    },
+    {
+      "name": "new_job",
+      "display_name": "New Job Event",
+      "description": "Triggers when a new job has been created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/cloudconvert"
+}

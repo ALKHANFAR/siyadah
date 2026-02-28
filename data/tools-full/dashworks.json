@@ -1,0 +1,42 @@
+{
+  "id": "dashworks",
+  "displayName": "Dashworks",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate-answer": {
+      "displayName": "Generate Answer",
+      "description": "Generates an answer from a Dashworks bot.",
+      "props": [
+        {
+          "name": "botId",
+          "displayName": "Bot ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "You can find this by going to Dashworks > Bots, clicking on an existing Bot, and using the 'Copy Bot ID' button on the top right."
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message (e.g., a question or prompt) that you want a response to."
+        },
+        {
+          "name": "inlineSources",
+          "displayName": "Inline Sources",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "When true (default), sources will be cited inline in markdown formatting within the answer text.When false, the answer will not contain inline citations."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

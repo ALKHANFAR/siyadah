@@ -1,0 +1,65 @@
+{
+  "id": "vimeo",
+  "package": "@activepieces/piece-vimeo",
+  "display_name": "Vimeo",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_video_to_folder",
+      "display_name": "Add Video to Folder",
+      "description": "Adds an existing video to a user\\"
+    },
+    {
+      "name": "add_video_to_showcase",
+      "display_name": "Add Video to Showcase",
+      "description": "Adds an existing video to a user\\"
+    },
+    {
+      "name": "delete_video",
+      "display_name": "Delete Video",
+      "description": "Delete a video from Vimeo"
+    },
+    {
+      "name": "upload_video",
+      "display_name": "Upload Video",
+      "description": "Upload a video to your Vimeo account"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_video_by_search",
+      "display_name": "New Video by Search",
+      "description": "Triggers when a new video is added that matches a search query",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_video_by_user",
+      "display_name": "New Video by User",
+      "description": "Triggers when another specified user adds a video",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_video_liked",
+      "display_name": "New Video I\\",
+      "description": "Triggers when you like a new video on Vimeo",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_video_of_mine",
+      "display_name": "New Video of Mine",
+      "description": "Triggers when you add/upload a new video",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

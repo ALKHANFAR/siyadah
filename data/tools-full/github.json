@@ -1,0 +1,312 @@
+{
+  "id": "github",
+  "displayName": "GitHub",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_labels_to_issue": {
+      "displayName": "Add Labels to Issue",
+      "description": "Adds labels to an existing issue.",
+      "props": []
+    },
+    "create_branch": {
+      "displayName": "Create Branch",
+      "description": "Creates a new branch on a repository.",
+      "props": [
+        {
+          "name": "new_branch_name",
+          "displayName": "New Branch Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for the new branch (e.g., 'feature/new-design')."
+        }
+      ]
+    },
+    "createCommentOnAIssue": {
+      "displayName": "Create comment on a issue",
+      "description": "Adds a comment to the specified issue (also works with pull requests)",
+      "props": [
+        {
+          "name": "issue_number",
+          "displayName": "Issue number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the issue to comment on"
+        },
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The comment to add to the issue"
+        }
+      ]
+    },
+    "github_create_commit_comment": {
+      "displayName": "Create Commit Comment",
+      "description": "Creates a comment on a commit in a GitHub repository",
+      "props": [
+        {
+          "name": "sha",
+          "displayName": "Commit SHA",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The SHA of the commit to comment on"
+        },
+        {
+          "name": "body",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the comment"
+        },
+        {
+          "name": "path",
+          "displayName": "File Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The relative path to the file to comment on (optional)"
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The line index in the diff to comment on (optional)"
+        }
+      ]
+    },
+    "github_create_discussion_comment": {
+      "displayName": "Create Discussion Comment",
+      "description": "Creates a comment on a discussion in a GitHub repository",
+      "props": [
+        {
+          "name": "discussion_number",
+          "displayName": "Discussion Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the discussion to comment on"
+        },
+        {
+          "name": "body",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the comment (supports markdown)"
+        }
+      ]
+    },
+    "github_create_issue": {
+      "displayName": "Create Issue",
+      "description": "Create Issue in GitHub Repository",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the issue"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of the issue"
+        }
+      ]
+    },
+    "github_create_pull_request_review_comment": {
+      "displayName": "Create Pull Request Review Comment",
+      "description": "Creates a review comment on a pull request in a GitHub repository",
+      "props": [
+        {
+          "name": "pull_number",
+          "displayName": "Pull Request Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the pull request"
+        },
+        {
+          "name": "commit_id",
+          "displayName": "Commit SHA",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The SHA of the commit to comment on"
+        },
+        {
+          "name": "path",
+          "displayName": "File Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The relative path to the file to comment on"
+        },
+        {
+          "name": "body",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the review comment"
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The position in the diff where the comment should be placed"
+        }
+      ]
+    },
+    "delete_branch": {
+      "displayName": "Delete Branch",
+      "description": "Deletes a branch from a repository.",
+      "props": []
+    },
+    "find_branch": {
+      "displayName": "Find Branch",
+      "description": "Finds a branch by name and returns its details.",
+      "props": [
+        {
+          "name": "branch",
+          "displayName": "Branch Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find_issue": {
+      "displayName": "Find Issue",
+      "description": "Finds an issue based title.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Filter issues by their state."
+        }
+      ]
+    },
+    "find_user": {
+      "displayName": "Find User",
+      "description": "Finds a user by their login name.",
+      "props": [
+        {
+          "name": "username",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The GitHub username (login) to look up."
+        }
+      ]
+    },
+    "getIssueInformation": {
+      "displayName": "Get issue information",
+      "description": "Grabs information from a specific issue",
+      "props": [
+        {
+          "name": "issue_number",
+          "displayName": "Issue Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the issue you want to get information from"
+        }
+      ]
+    },
+    "lockIssue": {
+      "displayName": "Lock issue",
+      "description": "Locks the specified issue",
+      "props": [
+        {
+          "name": "issue_number",
+          "displayName": "Issue Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the issue to be locked"
+        }
+      ]
+    },
+    "rawGraphqlQuery": {
+      "displayName": "Raw GraphQL query",
+      "description": "Perform a raw GraphQL query",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "variables",
+          "displayName": "Parameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "unlockIssue": {
+      "displayName": "Unlock issue",
+      "description": "Unlocks the specified issue",
+      "props": [
+        {
+          "name": "issue_number",
+          "displayName": "Issue Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the issue to be unlocked"
+        }
+      ]
+    },
+    "update_issue": {
+      "displayName": "Update Issue",
+      "description": "Updates an existing issue.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The new state of the issue."
+        },
+        {
+          "name": "state_reason",
+          "displayName": "State Reason",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The reason for the state change. (Only used if State is changed)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

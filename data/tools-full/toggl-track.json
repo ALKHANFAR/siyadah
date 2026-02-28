@@ -1,0 +1,604 @@
+{
+  "id": "toggl-track",
+  "displayName": "API Token",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_client": {
+      "displayName": "Create Client",
+      "description": "Create a new client in a workspace.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Client Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the new client."
+        },
+        {
+          "name": "external_reference",
+          "displayName": "External Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External reference to link this client with external systems."
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes for the client."
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Create a new project in a workspace.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the new project."
+        },
+        {
+          "name": "is_private",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the project is private or not."
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the project is billable. (Premium feature)"
+        },
+        {
+          "name": "template",
+          "displayName": "Is Template",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the project is a template. (Premium feature)"
+        },
+        {
+          "name": "external_reference",
+          "displayName": "External Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External reference to link this project with external systems."
+        },
+        {
+          "name": "color",
+          "displayName": "Project Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Project color in hex format (e.g. #ff0000)."
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the project is active."
+        },
+        {
+          "name": "auto_estimates",
+          "displayName": "Auto Estimates",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether estimates are based on task hours. (Premium feature)"
+        },
+        {
+          "name": "estimated_hours",
+          "displayName": "Estimated Hours",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Estimated hours for the project. (Premium feature)"
+        },
+        {
+          "name": "rate",
+          "displayName": "Hourly Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Hourly rate for the project. (Premium feature)"
+        },
+        {
+          "name": "fixed_fee",
+          "displayName": "Fixed Fee",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Project fixed fee. (Premium feature)"
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Start date of project timeframe (YYYY-MM-DD)."
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "End date of project timeframe (YYYY-MM-DD)."
+        }
+      ]
+    },
+    "create_tag": {
+      "displayName": "Create Tag",
+      "description": "Create a new tag in the workspace.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the new tag."
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a new task under a project.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the new task."
+        },
+        {
+          "name": "estimated_seconds",
+          "displayName": "Estimated Seconds",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The estimated time for the task in seconds."
+        },
+        {
+          "name": "external_reference",
+          "displayName": "External Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External reference to link this task with external systems."
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the task is active. Use false to mark as done."
+        },
+        {
+          "name": "user_id",
+          "displayName": "Creator User ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Creator ID, if omitted, will use requester user ID."
+        }
+      ]
+    },
+    "create_time_entry": {
+      "displayName": "Create Time Entry",
+      "description": "Create a new time entry in a workspace.",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "start",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The start time of the entry in UTC."
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration (in seconds)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Duration of the time entry. Use a negative number (e.g., -1) to start a running timer."
+        },
+        {
+          "name": "stop",
+          "displayName": "Stop Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The stop time of the entry in UTC. Can be omitted if still running."
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the time entry is marked as billable."
+        },
+        {
+          "name": "user_id",
+          "displayName": "Creator User ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Time entry creator ID. If omitted, will use requester user ID."
+        }
+      ]
+    },
+    "find_client": {
+      "displayName": "Find Client",
+      "description": "Find a client by name or status in a workspace.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Client Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the client to find (case-insensitive)."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter clients by their status."
+        }
+      ]
+    },
+    "find_project": {
+      "displayName": "Find Project",
+      "description": "Find a project in a workspace by its name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the project to find."
+        },
+        {
+          "name": "active",
+          "displayName": "Project Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Return active, inactive, or both types of projects."
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only billable projects."
+        },
+        {
+          "name": "only_me",
+          "displayName": "My Projects Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Get only projects assigned to the current user."
+        },
+        {
+          "name": "only_templates",
+          "displayName": "Templates Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only template projects."
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Items Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items per page (max 200)."
+        }
+      ]
+    },
+    "find_tag": {
+      "displayName": "Find Tag",
+      "description": "Find a tag by name in a workspace.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by tag name."
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Items Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items per page."
+        }
+      ]
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Find a task by name and status.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by task name."
+        },
+        {
+          "name": "project_id",
+          "displayName": "Project ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Filter by project ID."
+        },
+        {
+          "name": "active",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by active state."
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Items Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items per page (default 50)."
+        },
+        {
+          "name": "sort_field",
+          "displayName": "Sort Field",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field used for sorting."
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort order."
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Smallest boundary date (YYYY-MM-DD)."
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Biggest boundary date (YYYY-MM-DD)."
+        }
+      ]
+    },
+    "find_time_entry": {
+      "displayName": "Find Time Entry",
+      "description": "Find time entries by description.",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Description Contains",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search for time entries containing this text in description."
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Get entries from start_date (YYYY-MM-DD or RFC3339 format)."
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Get entries until end_date (YYYY-MM-DD or RFC3339 format)."
+        },
+        {
+          "name": "before",
+          "displayName": "Before Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Get entries before given date (YYYY-MM-DD or RFC3339 format)."
+        },
+        {
+          "name": "since",
+          "displayName": "Since Timestamp",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Get entries modified since this UNIX timestamp."
+        },
+        {
+          "name": "meta",
+          "displayName": "Include Meta Data",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Should the response contain data for meta entities."
+        },
+        {
+          "name": "include_sharing",
+          "displayName": "Include Sharing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include sharing details in the response."
+        }
+      ]
+    },
+    "find_user": {
+      "displayName": "Find User",
+      "description": "Find a user in a workspace by their name or email.",
+      "props": [
+        {
+          "name": "search_term",
+          "displayName": "Name or Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name or email of the user to find."
+        },
+        {
+          "name": "active",
+          "displayName": "Active Users Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only active users."
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Items Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items per page."
+        }
+      ]
+    },
+    "start_time_entry": {
+      "displayName": "Start Time Entry",
+      "description": "Start a new time entry (live timer).",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the time entry is marked as billable."
+        }
+      ]
+    },
+    "stop_time_entry": {
+      "displayName": "Stop Time Entry",
+      "description": "Stops the currently running time entry.",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_client": {
+      "displayName": "New Client",
+      "description": "Fires when a new client is created in a workspace.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_project": {
+      "displayName": "New Project",
+      "description": "Fires when a new project is added.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_tag": {
+      "displayName": "New Tag",
+      "description": "Triggers when a new tag is created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Fires when a new task is created.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_time_entry_started": {
+      "displayName": "New Time Entry Started",
+      "description": "Fires when a new time entry is started and is currently running.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_time_entry": {
+      "displayName": "New Time Entry",
+      "description": "Fires when a new time entry is added (with optional project/task filter).",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_workspace": {
+      "displayName": "New or Updated Workspace",
+      "description": "Fires when a workspace is created or updated (Toggl only supports workspace updated events).",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

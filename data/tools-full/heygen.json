@@ -1,0 +1,183 @@
+{
+  "id": "heygen",
+  "displayName": "HeyGen",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create-video-from-template": {
+      "displayName": "Create Video from Template",
+      "description": "Create a video using a selected template.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Video Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the generated video."
+        },
+        {
+          "name": "caption",
+          "displayName": "Enable Captions",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "includeGif",
+          "displayName": "Include GIF Preview",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "enableSharing",
+          "displayName": "Enable Public Sharing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "callbackUrl",
+          "displayName": "Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Webhook URL to notify when video rendering is complete."
+        },
+        {
+          "name": "dimensionWidth",
+          "displayName": "Video Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dimensionHeight",
+          "displayName": "Video Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "retrieve-translated-video-status": {
+      "displayName": "Retrieve Translated Video Status",
+      "description": "Retrieves the status of a translated video.",
+      "props": [
+        {
+          "name": "videoId",
+          "displayName": "Video ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the translated video to check the status for."
+        }
+      ]
+    },
+    "retrieve_video_status": {
+      "displayName": "Retrieve Video Status",
+      "description": "Retrieve the status and details of a video using its ID.",
+      "props": [
+        {
+          "name": "videoId",
+          "displayName": "Video ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the video to retrieve the status for."
+        }
+      ]
+    },
+    "retrieve_sharable_video_url": {
+      "displayName": "Retrieve Sharable Video URL",
+      "description": "Generates a public URL for a video, allowing it to be shared and accessed publicly.",
+      "props": [
+        {
+          "name": "videoId",
+          "displayName": "Video ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the video to generate a shareable URL for."
+        }
+      ]
+    },
+    "translate_video": {
+      "displayName": "Translate Video",
+      "description": "Translate a video into 175+ languages with natural voice and lip-sync.",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL of the video file to be translated. Supports direct URLs, Google Drive, and YouTube."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional title of the translated video."
+        },
+        {
+          "name": "translateAudioOnly",
+          "displayName": "Translate Audio Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only translate the audio without modifying faces."
+        },
+        {
+          "name": "speakerNum",
+          "displayName": "Number of Speakers",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of speakers in the video (if applicable)."
+        },
+        {
+          "name": "callbackId",
+          "displayName": "Callback ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom ID returned in webhook callback."
+        },
+        {
+          "name": "callbackUrl",
+          "displayName": "Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to notify when translation is complete."
+        }
+      ]
+    },
+    "upload_asset": {
+      "displayName": "Upload an Asset",
+      "description": "Upload media files (images, videos, or audio) to HeyGen. Supports JPEG, PNG, MP4, WEBM, and MPEG files.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload (JPEG, PNG, MP4, WEBM, or MPEG)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "video_generation_completed": {
+      "displayName": "New Avatar Video Event (Success)",
+      "description": "Triggers when a video is generated successfully.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "video_generation_failed": {
+      "displayName": "New Avatar Video Event (Fail)",
+      "description": "Triggers when a video generation process fails.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

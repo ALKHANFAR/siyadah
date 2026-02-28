@@ -1,0 +1,20 @@
+{
+  "id": "mind-studio",
+  "package": "@activepieces/piece-mind-studio",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Your MindStudio API key (Bearer token).",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "run_workflow",
+      "display_name": "Run Workflow",
+      "description": "Run a workflow from your MindStudio app and start a thread."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mind-studio"
+}

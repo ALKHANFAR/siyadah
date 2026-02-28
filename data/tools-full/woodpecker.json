@@ -1,0 +1,467 @@
+{
+  "id": "woodpecker",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_prospect_to_campaign": {
+      "displayName": "Create/Update Prospect in Campaign",
+      "description": "Adds a new prospect or updates existing prospect data in a campaign",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Prospect email address"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "linkedin_url",
+          "displayName": "LinkedIn URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tags starting with # separated by spaces (e.g. #VC #Startup)"
+        },
+        {
+          "name": "title",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "industry",
+          "displayName": "Industry",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Prospect status in the campaign"
+        },
+        {
+          "name": "snippets",
+          "displayName": "Snippets",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom snippets for personalization (supports HTML). Max 15 snippets."
+        },
+        {
+          "name": "send_after",
+          "displayName": "Send After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Earliest date and time the prospect can be contacted"
+        },
+        {
+          "name": "force",
+          "displayName": "Force Add",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Add prospect even if their global status is not ACTIVE (use with caution)"
+        },
+        {
+          "name": "file_name",
+          "displayName": "Import Batch Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the import batch (visible in the imported column)"
+        }
+      ]
+    },
+    "add_prospect_to_list": {
+      "displayName": "Create/Update Prospect",
+      "description": "Adds a new prospect or updates existing prospect in the global prospect list",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Prospect email address"
+        },
+        {
+          "name": "update",
+          "displayName": "Update Existing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, updates existing prospect data. If disabled, existing prospects remain unchanged."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "linkedin_url",
+          "displayName": "LinkedIn URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tags starting with # separated by spaces (e.g. #VC #Startup). Appends to existing tags when updating."
+        },
+        {
+          "name": "set_tags",
+          "displayName": "Replace Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Replaces all existing tags with these (only when updating). Use empty string to clear all tags."
+        },
+        {
+          "name": "title",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "industry",
+          "displayName": "Industry",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Prospect status"
+        },
+        {
+          "name": "snippets",
+          "displayName": "Snippets",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom snippets for personalization (supports HTML). Max 15 snippets."
+        },
+        {
+          "name": "file_name",
+          "displayName": "Import Batch Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the import batch (visible in the imported column)"
+        }
+      ]
+    },
+    "blacklist_domain": {
+      "displayName": "Blacklist Domain",
+      "description": "Add a domain to the blacklist to block sending to all prospects within that domain",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Domain to blacklist (e.g. example.com)"
+        }
+      ]
+    },
+    "find_prospect_by_email": {
+      "displayName": "Find Prospect by Email",
+      "description": "Search for a prospect by their email address",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address to search for (exact match or partial)"
+        },
+        {
+          "name": "include_campaign_details",
+          "displayName": "Include Campaign Details",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include information about campaigns the prospect is enrolled in"
+        }
+      ]
+    },
+    "get_prospect_responses": {
+      "displayName": "Get Prospect Responses",
+      "description": "Fetch all responses from a specified prospect",
+      "props": [
+        {
+          "name": "prospect_id",
+          "displayName": "Prospect ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The unique ID of the prospect"
+        },
+        {
+          "name": "campaign_id",
+          "displayName": "Campaign",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter responses by campaign (optional)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "campaign_completed": {
+      "displayName": "Campaign Completed",
+      "description": "Triggers when a campaign is completed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "email_opened": {
+      "displayName": "Prospect Opened an Email",
+      "description": "Triggers when a prospect opens an email",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "email_sent": {
+      "displayName": "Campaign Email Sent",
+      "description": "Triggers when a campaign email is sent to a prospect",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "followup_after_autoreply": {
+      "displayName": "Follow-up After Autoreply",
+      "description": "Triggers when a follow-up is scheduled after an autoreply",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "link_clicked": {
+      "displayName": "Prospect Clicked a Link",
+      "description": "Triggers when a prospect clicks a link in an email",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_autoreplied": {
+      "displayName": "Prospect Autoreplied",
+      "description": "Triggers when an autoreply is detected from a prospect",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_blacklisted": {
+      "displayName": "Prospect Blacklisted",
+      "description": "Triggers when a prospect is added to the blacklist",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_bounced": {
+      "displayName": "Prospect Bounced",
+      "description": "Triggers when an email to a prospect bounces",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_interested": {
+      "displayName": "Prospect Interested",
+      "description": "Triggers when a prospect is marked as interested",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_invalid": {
+      "displayName": "Prospect Invalid",
+      "description": "Triggers when a prospect email is marked as invalid",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_maybe_later": {
+      "displayName": "Prospect Maybe Later",
+      "description": "Triggers when a prospect is marked as maybe later",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_nonresponsive": {
+      "displayName": "Prospect Nonresponsive",
+      "description": "Triggers when a prospect is marked as nonresponsive",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_not_interested": {
+      "displayName": "Prospect Not Interested",
+      "description": "Triggers when a prospect is marked as not interested",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_optout": {
+      "displayName": "Prospect Opt-out",
+      "description": "Triggers when a prospect opts out from receiving emails",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_replied": {
+      "displayName": "Prospect Replied",
+      "description": "Triggers when a prospect replies to an email or their status is manually set to RESPONDED",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "prospect_saved": {
+      "displayName": "Prospect Saved",
+      "description": "Triggers when a prospect is saved",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "secondary_replied": {
+      "displayName": "Secondary Replied",
+      "description": "Triggers when a secondary email address replies",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_created": {
+      "displayName": "Task Created",
+      "description": "Triggers when a task is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_done": {
+      "displayName": "Task Done",
+      "description": "Triggers when a task is marked as done",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_ignored": {
+      "displayName": "Task Ignored",
+      "description": "Triggers when a task is ignored",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

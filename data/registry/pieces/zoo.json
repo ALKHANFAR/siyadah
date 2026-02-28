@@ -1,0 +1,420 @@
+{
+  "id": "zoo",
+  "package": "@activepieces/piece-zoo",
+  "display_name": "Zoo",
+  "display_name_ar": "Zoo",
+  "description": "Generate and iterate on 3D models from text descriptions using ML endpoints.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "list_org_api_calls",
+      "display_name": "List Organization API Calls",
+      "description": "List API calls made by your organization"
+    },
+    {
+      "name": "get_async_operation",
+      "display_name": "Get Async Operation",
+      "description": "Retrieve details of an asynchronous operation"
+    },
+    {
+      "name": "list_user_api_calls",
+      "display_name": "List User API Calls",
+      "description": "List API calls made by your user account"
+    },
+    {
+      "name": "get_org_api_call",
+      "display_name": "Get Organization API Call",
+      "description": "Retrieve details of a specific API call made by your organization"
+    },
+    {
+      "name": "get_user_api_call",
+      "display_name": "Get User API Call",
+      "description": "Retrieve details of a specific API call made by your user account"
+    },
+    {
+      "name": "send_modeling_command",
+      "display_name": "Send Modeling Command",
+      "description": "Send a command to the modeling WebSocket endpoint"
+    },
+    {
+      "name": "get_volume",
+      "display_name": "Get Volume",
+      "description": "Calculate the volume of a CAD file"
+    },
+    {
+      "name": "convert_cad_file",
+      "display_name": "Convert CAD File",
+      "description": "Convert a CAD file from one format to another"
+    },
+    {
+      "name": "get_surface_area",
+      "display_name": "Get Surface Area",
+      "description": "Calculate the surface area of a CAD file"
+    },
+    {
+      "name": "get_mass",
+      "display_name": "Get Mass",
+      "description": "Calculate the mass of a CAD file"
+    },
+    {
+      "name": "get_density",
+      "display_name": "Get Density",
+      "description": "Calculate the density of a CAD file"
+    },
+    {
+      "name": "get_center_of_mass",
+      "display_name": "Get Center of Mass",
+      "description": "Calculate the center of mass of a CAD file"
+    },
+    {
+      "name": "give_model_feedback",
+      "display_name": "Give Model Feedback",
+      "description": "Provide feedback on a generated 3D model"
+    },
+    {
+      "name": "text_to_cad_iteration",
+      "display_name": "Iterate CAD Model",
+      "description": "Create a new iteration of an existing 3D model"
+    },
+    {
+      "name": "generate_cad_model",
+      "display_name": "Generate CAD Model",
+      "description": "Generate a 3D model from text prompt"
+    },
+    {
+      "name": "kcl_completions",
+      "display_name": "KCL Code Completions",
+      "description": "Get code completions for KCL (Kernel Configuration Language)"
+    },
+    {
+      "name": "get_cad_model",
+      "display_name": "Get CAD Model",
+      "description": "Retrieve details of a specific 3D model"
+    },
+    {
+      "name": "list_cad_models",
+      "display_name": "List CAD Models",
+      "description": "Retrieve a list of your generated 3D models"
+    },
+    {
+      "name": "create_service_account",
+      "display_name": "Create Service Account",
+      "description": "Create a new service account for your organization"
+    },
+    {
+      "name": "list_service_accounts",
+      "display_name": "List Service Accounts",
+      "description": "List all service accounts for your organization"
+    },
+    {
+      "name": "delete_service_account",
+      "display_name": "Delete Service Account",
+      "description": "Delete a service account from your organization"
+    },
+    {
+      "name": "get_service_account",
+      "display_name": "Get Service Account",
+      "description": "Retrieve details of a specific service account"
+    },
+    {
+      "name": "delete_shortlink",
+      "display_name": "Delete Shortlink",
+      "description": "Delete an existing shortlink"
+    },
+    {
+      "name": "list_user_shortlinks",
+      "display_name": "List User Shortlinks",
+      "description": "List all shortlinks for your user account"
+    },
+    {
+      "name": "update_shortlink",
+      "display_name": "Update Shortlink",
+      "description": "Update an existing shortlink"
+    },
+    {
+      "name": "create_shortlink",
+      "display_name": "Create Shortlink",
+      "description": "Create a new shortlink for your user account"
+    },
+    {
+      "name": "list_org_shortlinks",
+      "display_name": "List Organization Shortlinks",
+      "description": "List all shortlinks for your organization"
+    },
+    {
+      "name": "list_user_payment_methods",
+      "display_name": "List User Payment Methods",
+      "description": "List all payment methods for your user account"
+    },
+    {
+      "name": "update_user_subscription",
+      "display_name": "Update User Subscription",
+      "description": "Update the subscription for your user account"
+    },
+    {
+      "name": "create_user_subscription",
+      "display_name": "Create User Subscription",
+      "description": "Create a new subscription for your user account"
+    },
+    {
+      "name": "get_org_payment",
+      "display_name": "Get Organization Payment Info",
+      "description": "Retrieve payment information for your organization"
+    },
+    {
+      "name": "update_user_payment",
+      "display_name": "Update User Payment Info",
+      "description": "Update payment information for your user account"
+    },
+    {
+      "name": "update_org_subscription",
+      "display_name": "Update Organization Subscription",
+      "description": "Update the subscription for your organization"
+    },
+    {
+      "name": "get_user_subscription",
+      "display_name": "Get User Subscription",
+      "description": "Retrieve the current subscription for your user account"
+    },
+    {
+      "name": "create_org_payment",
+      "display_name": "Create Organization Payment Info",
+      "description": "Create payment information for your organization"
+    },
+    {
+      "name": "list_org_payment_methods",
+      "display_name": "List Organization Payment Methods",
+      "description": "List all payment methods for your organization"
+    },
+    {
+      "name": "get_org_balance",
+      "display_name": "Get Organization Balance",
+      "description": "Retrieve the current balance for your organization"
+    },
+    {
+      "name": "update_org_payment",
+      "display_name": "Update Organization Payment Info",
+      "description": "Update payment information for your organization"
+    },
+    {
+      "name": "create_org_subscription",
+      "display_name": "Create Organization Subscription",
+      "description": "Create a new subscription for your organization"
+    },
+    {
+      "name": "create_user_payment",
+      "display_name": "Create User Payment Info",
+      "description": "Create payment information for your user account"
+    },
+    {
+      "name": "list_user_invoices",
+      "display_name": "List User Invoices",
+      "description": "List all invoices for your user account"
+    },
+    {
+      "name": "list_org_invoices",
+      "display_name": "List Organization Invoices",
+      "description": "List all invoices for your organization"
+    },
+    {
+      "name": "get_user_payment",
+      "display_name": "Get User Payment Info",
+      "description": "Retrieve payment information for your user account"
+    },
+    {
+      "name": "delete_user_payment",
+      "display_name": "Delete User Payment Info",
+      "description": "Delete payment information for your user account"
+    },
+    {
+      "name": "get_user_balance",
+      "display_name": "Get User Balance",
+      "description": "Retrieve the current balance for your user account"
+    },
+    {
+      "name": "delete_org_payment",
+      "display_name": "Delete Organization Payment Info",
+      "description": "Delete payment information for your organization"
+    },
+    {
+      "name": "get_org_subscription",
+      "display_name": "Get Organization Subscription",
+      "description": "Retrieve the current subscription for your organization"
+    },
+    {
+      "name": "add_org_member",
+      "display_name": "Add Organization Member",
+      "description": "Add a new member to your organization"
+    },
+    {
+      "name": "get_org",
+      "display_name": "Get Organization",
+      "description": "Retrieve details of your organization"
+    },
+    {
+      "name": "get_org_member",
+      "display_name": "Get Organization Member",
+      "description": "Get details of a specific organization member"
+    },
+    {
+      "name": "update_org",
+      "display_name": "Update Organization",
+      "description": "Update your organization details"
+    },
+    {
+      "name": "list_org_members",
+      "display_name": "List Organization Members",
+      "description": "List all members of your organization"
+    },
+    {
+      "name": "create_org",
+      "display_name": "Create Organization",
+      "description": "Create a new organization"
+    },
+    {
+      "name": "list_api_tokens",
+      "display_name": "List API Tokens",
+      "description": "List all API tokens for your user account"
+    },
+    {
+      "name": "create_api_token",
+      "display_name": "Create API Token",
+      "description": "Create a new API token for your user account"
+    },
+    {
+      "name": "delete_api_token",
+      "display_name": "Delete API Token",
+      "description": "Delete an API token from your user account"
+    },
+    {
+      "name": "get_api_token",
+      "display_name": "Get API Token",
+      "description": "Retrieve details of a specific API token"
+    },
+    {
+      "name": "convert_force",
+      "display_name": "Convert Force",
+      "description": "Convert force measurements between different units"
+    },
+    {
+      "name": "convert_angle",
+      "display_name": "Convert Angle",
+      "description": "Convert angle measurements between different units"
+    },
+    {
+      "name": "convert_length",
+      "display_name": "Convert Length",
+      "description": "Convert length measurements between different units"
+    },
+    {
+      "name": "convert_volume",
+      "display_name": "Convert Volume",
+      "description": "Convert volume measurements between different units"
+    },
+    {
+      "name": "convert_temperature",
+      "display_name": "Convert Temperature",
+      "description": "Convert temperature measurements between different units"
+    },
+    {
+      "name": "convert_torque",
+      "display_name": "Convert Torque",
+      "description": "Convert torque measurements between different units"
+    },
+    {
+      "name": "convert_area",
+      "display_name": "Convert Area",
+      "description": "Convert area measurements between different units"
+    },
+    {
+      "name": "convert_frequency",
+      "display_name": "Convert Frequency",
+      "description": "Convert frequency measurements between different units"
+    },
+    {
+      "name": "convert_energy",
+      "display_name": "Convert Energy",
+      "description": "Convert energy measurements between different units"
+    },
+    {
+      "name": "convert_mass",
+      "display_name": "Convert Mass",
+      "description": "Convert mass measurements between different units"
+    },
+    {
+      "name": "convert_pressure",
+      "display_name": "Convert Pressure",
+      "description": "Convert pressure measurements between different units"
+    },
+    {
+      "name": "convert_current",
+      "display_name": "Convert Current",
+      "description": "Convert electrical current measurements between different units"
+    },
+    {
+      "name": "convert_power",
+      "display_name": "Convert Power",
+      "description": "Convert power measurements between different units"
+    },
+    {
+      "name": "get_oauth2_providers",
+      "display_name": "Get OAuth2 Providers",
+      "description": "Get the OAuth2 providers available for your user account"
+    },
+    {
+      "name": "get_privacy_settings",
+      "display_name": "Get Privacy Settings",
+      "description": "Get your user privacy settings"
+    },
+    {
+      "name": "get_extended_user",
+      "display_name": "Get Extended User Info",
+      "description": "Retrieve extended information about your user account"
+    },
+    {
+      "name": "get_user_session",
+      "display_name": "Get User Session",
+      "description": "Get details about a specific user session"
+    },
+    {
+      "name": "get_user_org",
+      "display_name": "Get User Organization",
+      "description": "Get the organization associated with your user account"
+    },
+    {
+      "name": "update_user",
+      "display_name": "Update User",
+      "description": "Update your user information"
+    },
+    {
+      "name": "delete_user",
+      "display_name": "Delete User",
+      "description": "Delete your user account"
+    },
+    {
+      "name": "update_privacy_settings",
+      "display_name": "Update Privacy Settings",
+      "description": "Update your user privacy settings"
+    },
+    {
+      "name": "get_user",
+      "display_name": "Get User",
+      "description": "Retrieve your user information"
+    },
+    {
+      "name": "get_openapi_schema",
+      "display_name": "Get OpenAPI Schema",
+      "description": "Retrieve the OpenAPI schema for the Zoo API"
+    },
+    {
+      "name": "return_pong",
+      "display_name": "Return Pong",
+      "description": "Health check endpoint that returns \"pong\""
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/zoo"
+}

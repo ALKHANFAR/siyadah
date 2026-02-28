@@ -1,0 +1,93 @@
+{
+  "id": "sender",
+  "package": "@activepieces/piece-sender",
+  "display_name": "Sender",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_subscriber_to_group",
+      "display_name": "Add Subscriber to Group",
+      "description": "Add an existing or new subscriber into one or more groups"
+    },
+    {
+      "name": "add_update_subscriber",
+      "display_name": "Add / Update Subscriber",
+      "description": "Add a new subscriber or update existing subscriber\\"
+    },
+    {
+      "name": "create_campaign",
+      "display_name": "Create Campaign",
+      "description": "Creates a draft campaign in Sender"
+    },
+    {
+      "name": "remove_subscriber_from_group",
+      "display_name": "Remove Subscriber from Group",
+      "description": "Remove a subscriber from a specific group"
+    },
+    {
+      "name": "send_campaign",
+      "display_name": "Send Campaign",
+      "description": "Trigger sending of a drafted campaign to its recipient list"
+    },
+    {
+      "name": "unsubscribe_subscriber",
+      "display_name": "Unsubscribe Subscriber",
+      "description": "Mark an email address as unsubscribed globally or from a group"
+    },
+    {
+      "name": "update_subscriber",
+      "display_name": "Update Subscriber",
+      "description": "Update an existing subscriber\\"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_campaign",
+      "display_name": "New Campaign",
+      "description": "Fires when a new campaign is created in Sender",
+      "type": "instant"
+    },
+    {
+      "name": "new_group",
+      "display_name": "New Group",
+      "description": "Fires when a new group/list is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_subscriber_in_group",
+      "display_name": "New Subscriber in Group",
+      "description": "Fires when a subscriber is added to a specific group/list",
+      "type": "instant"
+    },
+    {
+      "name": "new_subscriber",
+      "display_name": "New Subscriber",
+      "description": "Fires when a subscriber is added to any group or to account",
+      "type": "instant"
+    },
+    {
+      "name": "new_unsubscriber_from_group",
+      "display_name": "New Unsubscriber From Group",
+      "description": "Fires when a subscriber is removed/unsubscribed from a specific group",
+      "type": "instant"
+    },
+    {
+      "name": "new_unsubscriber",
+      "display_name": "New Unsubscriber",
+      "description": "Fires when someone unsubscribes globally",
+      "type": "instant"
+    },
+    {
+      "name": "updated_subscriber",
+      "display_name": "Updated Subscriber",
+      "description": "Fires when a subscriber's data (fields) is updated",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

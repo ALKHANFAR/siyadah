@@ -1,0 +1,75 @@
+{
+  "id": "zendesk",
+  "package": "@activepieces/piece-zendesk",
+  "display_name": "Agent Email",
+  "display_name_ar": "",
+  "description": "The email address you use to login to Zendesk",
+  "category": "C_communication",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "add-comment-to-ticket",
+      "display_name": "Add Comment to Ticket",
+      "description": "Append a public/private comment to a ticket."
+    },
+    {
+      "name": "add-tag-to-ticket",
+      "display_name": "Add Tag to Ticket",
+      "description": "Apply one or more tags to a ticket."
+    },
+    {
+      "name": "create-organization",
+      "display_name": "Create Organization",
+      "description": "Create a new organization record."
+    },
+    {
+      "name": "create-ticket",
+      "display_name": "Create Ticket",
+      "description": "Create a new ticket in Zendesk."
+    },
+    {
+      "name": "create-user",
+      "display_name": "Create User",
+      "description": "Add a new user to the Zendesk instance."
+    },
+    {
+      "name": "delete-user",
+      "display_name": "Delete User",
+      "description": "Remove a user and associated records from the account."
+    },
+    {
+      "name": "find-organization",
+      "display_name": "Find Organization(s)",
+      "description": "Search organizations by name, domain, external ID, or other criteria."
+    },
+    {
+      "name": "find-tickets",
+      "display_name": "Find Ticket(s)",
+      "description": "Search tickets by ID, field, or content."
+    },
+    {
+      "name": "find-user",
+      "display_name": "Find User(s)",
+      "description": "Search users by email, name, role, or other criteria."
+    },
+    {
+      "name": "update-organization",
+      "display_name": "Update Organization",
+      "description": "Update existing organization fields."
+    },
+    {
+      "name": "update-ticket",
+      "display_name": "Update Ticket",
+      "description": "Modify ticket fields or status via API call."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

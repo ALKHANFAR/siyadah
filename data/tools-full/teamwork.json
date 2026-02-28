@@ -1,0 +1,872 @@
+{
+  "id": "teamwork",
+  "displayName": "Teamwork",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_people_to_project": {
+      "displayName": "Add People to Project",
+      "description": "Add existing users to a project.",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The project to add people to."
+        },
+        {
+          "name": "userIdList",
+          "displayName": "Users",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "The users to add to the project."
+        }
+      ]
+    },
+    "create_company": {
+      "displayName": "Create Company",
+      "description": "Create a new company in Teamwork.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the company."
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company's website address."
+        },
+        {
+          "name": "addressOne",
+          "displayName": "Address 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary address line."
+        },
+        {
+          "name": "addressTwo",
+          "displayName": "Address 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary address line."
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City name."
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or province."
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal or zip code."
+        },
+        {
+          "name": "countrycode",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "2-letter ISO country code (e.g., US, GB)."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary phone number."
+        },
+        {
+          "name": "fax",
+          "displayName": "Fax",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax number."
+        },
+        {
+          "name": "emailOne",
+          "displayName": "Email 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary email address."
+        },
+        {
+          "name": "emailTwo",
+          "displayName": "Email 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary email address."
+        },
+        {
+          "name": "emailThree",
+          "displayName": "Email 3",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tertiary email address."
+        },
+        {
+          "name": "profile",
+          "displayName": "Profile",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Public company profile or 'About Us' text."
+        },
+        {
+          "name": "privateNotes",
+          "displayName": "Private Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes visible only to internal users."
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Custom fields for this company."
+        }
+      ]
+    },
+    "create_expense": {
+      "displayName": "Create Expense",
+      "description": "Log new expense in a project with cost, description, date.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the expense."
+        },
+        {
+          "name": "cost",
+          "displayName": "Cost",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The cost of the expense."
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The date of the expense."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the expense."
+        }
+      ]
+    },
+    "create_message_reply": {
+      "displayName": "Create Message Reply",
+      "description": "Post a reply in a message thread.",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Message",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The message to reply to."
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the reply."
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify All",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notify all project users of this reply."
+        }
+      ]
+    },
+    "create_milestone": {
+      "displayName": "Create Milestone",
+      "description": "Add a milestone with due date, description, responsible user, etc.",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The project to create the milestone in."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the milestone."
+        },
+        {
+          "name": "deadline",
+          "displayName": "Deadline",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The due date of the milestone."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the milestone."
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notify responsible parties about the milestone."
+        },
+        {
+          "name": "private",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to make the milestone private."
+        }
+      ]
+    },
+    "create_notebook_comment": {
+      "displayName": "Create Notebook Comment",
+      "description": "Add a comment on a notebook (collaborative document) with optional attachments.",
+      "props": [
+        {
+          "name": "notebookId",
+          "displayName": "Notebook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The notebook to add a comment to."
+        },
+        {
+          "name": "body",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the comment."
+        },
+        {
+          "name": "attachment",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": false,
+          "description": "A file to attach to the comment."
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Who to notify about this comment."
+        },
+        {
+          "name": "isprivate",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to make the comment private."
+        }
+      ]
+    },
+    "create_person": {
+      "displayName": "Create Person",
+      "description": "Create a new user/contact (name, email, invite options).",
+      "props": [
+        {
+          "name": "sendInvite",
+          "displayName": "Send Invite",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send an invitation email to the new user."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's job title."
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Create a new project (name, description, belongs to company, dates, etc.).",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the project."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the project."
+        },
+        {
+          "name": "companyId",
+          "displayName": "Company",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The company to associate the project with."
+        },
+        {
+          "name": "tagIds",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Tags to associate with the project."
+        },
+        {
+          "name": "projectOwnerId",
+          "displayName": "Project Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The user to assign as the project owner."
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Custom fields for this project."
+        }
+      ]
+    },
+    "create_stage": {
+      "displayName": "Create Stage",
+      "description": "Add a new stage in a workflow or board.",
+      "props": [
+        {
+          "name": "workflowId",
+          "displayName": "Workflow",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The workflow to add the stage to."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the stage."
+        },
+        {
+          "name": "color",
+          "displayName": "Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Hex color code (e.g., #FF0000)"
+        }
+      ]
+    },
+    "create_task_comment": {
+      "displayName": "Create Task Comment",
+      "description": "Leave a comment in a task.",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task to add a comment to."
+        },
+        {
+          "name": "body",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the comment."
+        },
+        {
+          "name": "attachment",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": false,
+          "description": "A file to attach to the comment."
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Who to notify about this comment."
+        },
+        {
+          "name": "isprivate",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to make the comment private."
+        }
+      ]
+    },
+    "create_task_list": {
+      "displayName": "Create Task List",
+      "description": "Add a new task list under a project.",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The project to create the task list in."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the task list."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the task list."
+        },
+        {
+          "name": "private",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to make the task list private."
+        },
+        {
+          "name": "priority",
+          "displayName": "Default Task Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The default priority for new tasks in this list."
+        },
+        {
+          "name": "tags",
+          "displayName": "Default Task Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Default tags for new tasks in this list."
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Add a new task under a project with description, due date, assignee, tags, etc.",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The project to create the task in."
+        },
+        {
+          "name": "tasklistId",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task list to add the task to."
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The content of the task."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the task."
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The priority of the task."
+        },
+        {
+          "name": "tagIds",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Tags to associate with the task."
+        },
+        {
+          "name": "attachment",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": false,
+          "description": "A file to attach to the task."
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Custom fields for this task."
+        }
+      ]
+    },
+    "create_time_entry_on_task": {
+      "displayName": "Create Time Entry on Task",
+      "description": "Log time spent on a task with duration, description.",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Date of the time entry (yyyy-mm-dd)"
+        },
+        {
+          "name": "time",
+          "displayName": "Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Time of the entry (hh:mm:ss)"
+        },
+        {
+          "name": "hours",
+          "displayName": "Hours",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "minutes",
+          "displayName": "Minutes",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Duration in minutes"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "isBillable",
+          "displayName": "Is Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_company": {
+      "displayName": "Find Company",
+      "description": "Search for a company by name or domain.",
+      "props": [
+        {
+          "name": "searchTerm",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name or domain to search for."
+        },
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Limit the search to a specific project."
+        }
+      ]
+    },
+    "find_milestone": {
+      "displayName": "Find Milestone",
+      "description": "Find a milestone by name or due date in a project.",
+      "props": [
+        {
+          "name": "searchTerm",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name or due date to search for."
+        },
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Limit the search to a specific project."
+        }
+      ]
+    },
+    "find_notebook_or_comment": {
+      "displayName": "Find Notebook / Notebook Comment",
+      "description": "Locate notebooks or note comments by search parameters.",
+      "props": [
+        {
+          "name": "searchFor",
+          "displayName": "Search For",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of item to search for."
+        },
+        {
+          "name": "searchTerm",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The keyword to search for."
+        },
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Limit the search to a specific project."
+        }
+      ]
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Search for tasks.",
+      "props": [
+        {
+          "name": "searchTerm",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The keyword to search for."
+        },
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Limit the search to a specific project."
+        }
+      ]
+    },
+    "mark_task_complete": {
+      "displayName": "Mark Task Complete",
+      "description": "Set a task’s status to complete.",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task to mark as complete."
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Modify a task’s fields (due date, assignee, content, priority, etc.).",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task to update."
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new content of the task."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The new description for the task."
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The new priority of the task."
+        },
+        {
+          "name": "tagIds",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "New tags to associate with the task."
+        }
+      ]
+    },
+    "upload_file_to_project": {
+      "displayName": "Upload File to Project",
+      "description": "Upload a file to a Teamwork project.",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The project to upload the file to."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the file."
+        },
+        {
+          "name": "categoryId",
+          "displayName": "Category",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The category to assign the file to."
+        },
+        {
+          "name": "private",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to make the file private."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_comment": {
+      "displayName": "New Comment",
+      "description": "Fires when a new comment is posted.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The project to watch for new comments. If not specified, all projects will be watched."
+        }
+      ]
+    },
+    "new_expense": {
+      "displayName": "New Expense",
+      "description": "Fires when a new expense entry is added.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The project to watch for new expenses. If not specified, all projects will be watched."
+        }
+      ]
+    },
+    "new_file": {
+      "displayName": "New File",
+      "description": "Fires when a new file is added.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The project to watch for new files. If not specified, all projects will be watched."
+        }
+      ]
+    },
+    "new_invoice": {
+      "displayName": "New Invoice",
+      "description": "Fires when a new invoice is created.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The project to watch for new invoices. If not specified, all projects will be watched."
+        }
+      ]
+    },
+    "new_message": {
+      "displayName": "New Message",
+      "description": "Fires when a new message is posted (in project messages or discussions).",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The project to watch for new messages. If not specified, all projects will be watched."
+        }
+      ]
+    },
+    "new_person": {
+      "displayName": "New Person",
+      "description": "Fires when a new person (user/contact) is added.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Fires when a task is created.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The project to watch for new tasks. If not specified, all projects will be watched."
+        }
+      ]
+    }
+  }
+}

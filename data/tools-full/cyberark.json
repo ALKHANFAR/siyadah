@@ -1,0 +1,913 @@
+{
+  "id": "cyberark",
+  "displayName": "CyberArk",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "activate_user": {
+      "displayName": "Activate User",
+      "description": "Activates an existing user who was suspended after entering incorrect credentials multiple times",
+      "props": []
+    },
+    "add_member_to_group": {
+      "displayName": "Add Member to Group",
+      "description": "Adds a user as a member to an existing Vault group (requires Add/Update users permissions)",
+      "props": [
+        {
+          "name": "memberType",
+          "displayName": "Member Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of user being added to the Vault group"
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The DNS address of the domain (required if memberType is domain)"
+        }
+      ]
+    },
+    "change_credentials_bulk": {
+      "displayName": "Change Credentials Immediately in Bulk",
+      "description": "Marks multiple accounts for an immediate credentials change by the CPM to a new random value",
+      "props": [
+        {
+          "name": "accountIds",
+          "displayName": "Account IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of unique account IDs to change credentials for"
+        },
+        {
+          "name": "changeEntireGroup",
+          "displayName": "Change Entire Group",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the CPM changes the credentials for all accounts in the same account group. Only applies to accounts that belong to an account group."
+        }
+      ]
+    },
+    "change_credentials_in_vault_bulk": {
+      "displayName": "Change Credentials in the Vault in Bulk",
+      "description": "Sets credentials for multiple accounts and changes them in the Vault. This does not affect credentials on the target device.",
+      "props": [
+        {
+          "name": "bulkItems",
+          "displayName": "Bulk Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of account items. Each item should be a JSON object with accountId (required) and newCredentials (optional)."
+        }
+      ]
+    },
+    "change_credentials_in_vault": {
+      "displayName": "Change Credentials in the Vault",
+      "description": "Sets account credentials and changes them in the Vault. This will not affect credentials on the target device.",
+      "props": [
+        {
+          "name": "newCredentials",
+          "displayName": "New Credentials",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new account credentials that will be allocated to the account in the Vault. Leading and trailing white spaces will be automatically removed."
+        }
+      ]
+    },
+    "create_user": {
+      "displayName": "Create User",
+      "description": "Creates a new user in the CyberArk Vault",
+      "props": [
+        {
+          "name": "username",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the user (max 128 characters)"
+        },
+        {
+          "name": "userType",
+          "displayName": "User Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user type according to license"
+        },
+        {
+          "name": "initialPassword",
+          "displayName": "Initial Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for first-time login (max 39 characters)"
+        },
+        {
+          "name": "authenticationMethod",
+          "displayName": "Authentication Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The authentication method for login"
+        },
+        {
+          "name": "allowedAuthenticationMethods",
+          "displayName": "Allowed Authentication Methods",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Non-Vault authentication methods the user can use"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Vault location for user creation (must start with \\\\\\\\)"
+        },
+        {
+          "name": "enableUser",
+          "displayName": "Enable User",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user will be enabled upon creation"
+        },
+        {
+          "name": "changePassOnNextLogon",
+          "displayName": "Change Password on Next Logon",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "User must change password on next login"
+        },
+        {
+          "name": "passwordNeverExpires",
+          "displayName": "Password Never Expires",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Password will not expire unless user changes it"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes and comments (max 99 characters)"
+        },
+        {
+          "name": "vaultAuthorization",
+          "displayName": "Vault Authorization",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "User permissions"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name (max 29 characters)"
+        },
+        {
+          "name": "middleName",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Middle name (max 29 characters)"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name (max 29 characters)"
+        },
+        {
+          "name": "homeEmail",
+          "displayName": "Home Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home email address (max 319 characters)"
+        },
+        {
+          "name": "businessEmail",
+          "displayName": "Business Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business email address (max 319 characters)"
+        },
+        {
+          "name": "homeNumber",
+          "displayName": "Home Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home phone number (max 24 characters)"
+        },
+        {
+          "name": "businessNumber",
+          "displayName": "Business Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business phone number (max 24 characters)"
+        },
+        {
+          "name": "cellularNumber",
+          "displayName": "Cellular Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cellular phone number (max 24 characters)"
+        },
+        {
+          "name": "faxNumber",
+          "displayName": "Fax Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax number (max 24 characters)"
+        },
+        {
+          "name": "pagerNumber",
+          "displayName": "Pager Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pager number (max 24 characters)"
+        },
+        {
+          "name": "expiryDate",
+          "displayName": "Expiry Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date when the user expires"
+        },
+        {
+          "name": "unAuthorizedInterfaces",
+          "displayName": "Unauthorized Interfaces",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Interfaces the user cannot access"
+        },
+        {
+          "name": "workStreet",
+          "displayName": "Work Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business street address (max 29 characters)"
+        },
+        {
+          "name": "workCity",
+          "displayName": "Work City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business city (max 19 characters)"
+        },
+        {
+          "name": "workState",
+          "displayName": "Work State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business state (max 19 characters)"
+        },
+        {
+          "name": "workZip",
+          "displayName": "Work ZIP",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business ZIP code (max 19 characters)"
+        },
+        {
+          "name": "workCountry",
+          "displayName": "Work Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business country (max 19 characters)"
+        },
+        {
+          "name": "street",
+          "displayName": "Home Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home street address (max 29 characters)"
+        },
+        {
+          "name": "city",
+          "displayName": "Home City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home city (max 19 characters)"
+        },
+        {
+          "name": "state",
+          "displayName": "Home State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home state (max 19 characters)"
+        },
+        {
+          "name": "zip",
+          "displayName": "Home ZIP",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home ZIP code (max 19 characters)"
+        },
+        {
+          "name": "country",
+          "displayName": "Home Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home country (max 19 characters)"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Professional title (max 49 characters)"
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization name (max 49 characters)"
+        },
+        {
+          "name": "department",
+          "displayName": "Department",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Department (max 49 characters)"
+        },
+        {
+          "name": "profession",
+          "displayName": "Profession",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Profession (max 49 characters)"
+        },
+        {
+          "name": "homePage",
+          "displayName": "Home Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Personal website (max 319 characters)"
+        },
+        {
+          "name": "otherEmail",
+          "displayName": "Other Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional email address (max 319 characters)"
+        }
+      ]
+    },
+    "delete_user": {
+      "displayName": "Delete User",
+      "description": "Deletes a specific user in the Vault (requires Add/Update Users authorization)",
+      "props": [
+        {
+          "name": "confirmDeletion",
+          "displayName": "Confirm Deletion",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Check this box to confirm you want to delete the selected user. This action cannot be undone."
+        }
+      ]
+    },
+    "disable_user": {
+      "displayName": "Disable User",
+      "description": "Disables a specific user in the Vault",
+      "props": []
+    },
+    "enable_user": {
+      "displayName": "Enable User",
+      "description": "Enables a specific user in the Vault",
+      "props": []
+    },
+    "find_user": {
+      "displayName": "Find User",
+      "description": "Returns a list of existing users in the Vault based on filter criteria (requires Audit users permissions)",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter users by userType, componentUser, or userName"
+        },
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by username, firstname, or lastname"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sort by property (username, source, userType, location, lastname, firstname, middlename) followed by asc/desc"
+        },
+        {
+          "name": "extendedDetails",
+          "displayName": "Extended Details",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Returns additional user details including groups and userDN for LDAP users"
+        },
+        {
+          "name": "pageOffset",
+          "displayName": "Page Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Offset the first user returned in results"
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of users to return (used with offset)"
+        },
+        {
+          "name": "componentUser",
+          "displayName": "Component User Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter to show only component users"
+        },
+        {
+          "name": "userType",
+          "displayName": "User Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by specific user type"
+        }
+      ]
+    },
+    "get_password_value": {
+      "displayName": "Get Password Value",
+      "description": "Retrieves the password or SSH key of an existing account identified by its Account ID",
+      "props": [
+        {
+          "name": "reason",
+          "displayName": "Reason",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The reason for retrieving the password/SSH key"
+        },
+        {
+          "name": "ticketingSystemName",
+          "displayName": "Ticketing System Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the Ticketing System"
+        },
+        {
+          "name": "ticketId",
+          "displayName": "Ticket ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ticket ID of the ticketing system"
+        },
+        {
+          "name": "version",
+          "displayName": "Version",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The version number of the required password. If there are no previous versions, the current password/key version is returned."
+        },
+        {
+          "name": "actionType",
+          "displayName": "Action Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The action this password will be used for"
+        },
+        {
+          "name": "isUse",
+          "displayName": "Is Use",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Internal parameter (for PSM for SSH only)"
+        },
+        {
+          "name": "machine",
+          "displayName": "Machine",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The address of the remote machine to connect to"
+        }
+      ]
+    },
+    "reconcile_credentials_bulk": {
+      "displayName": "Reconcile Credentials in Bulk",
+      "description": "Marks multiple accounts for automatic reconciliation by the CPM",
+      "props": [
+        {
+          "name": "accountIds",
+          "displayName": "Account IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of unique account IDs to reconcile"
+        }
+      ]
+    },
+    "remove_member_from_group": {
+      "displayName": "Remove Member from Group",
+      "description": "Removes a specific user from a user group in the Vault",
+      "props": []
+    },
+    "retrieve_private_ssh_key": {
+      "displayName": "Retrieve Private SSH Key",
+      "description": "Retrieves a private SSH key file from an existing account identified by its Account ID",
+      "props": [
+        {
+          "name": "reason",
+          "displayName": "Reason",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The reason for retrieving the private SSH key"
+        },
+        {
+          "name": "ticketingSystemName",
+          "displayName": "Ticketing System Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the ticketing system"
+        },
+        {
+          "name": "ticketId",
+          "displayName": "Ticket ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ticket ID defined in the ticketing system"
+        },
+        {
+          "name": "version",
+          "displayName": "Version",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The version number of the required SSH key. Must be a positive number. If left empty or the value does not exist, the current SSH key version is returned."
+        },
+        {
+          "name": "actionType",
+          "displayName": "Action Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The action this SSH key is used for"
+        },
+        {
+          "name": "isUse",
+          "displayName": "Is Use",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Internal parameter (for use of PSMP only)"
+        },
+        {
+          "name": "machine",
+          "displayName": "Machine",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The address of the remote machine to connect to using the SSH key"
+        }
+      ]
+    },
+    "set_next_password_bulk": {
+      "displayName": "Set Next Password in Bulk",
+      "description": "Sets multiple accounts\\",
+      "props": [
+        {
+          "name": "bulkItems",
+          "displayName": "Bulk Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of account items. Each item should be a JSON object with accountId (required), changeImmediately (optional), and newCredentials (optional)."
+        }
+      ]
+    },
+    "update_user": {
+      "displayName": "Update User",
+      "description": "Updates an existing Vault user (except Master and Batch built-in users)",
+      "props": [
+        {
+          "name": "username",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the user (max 128 characters)"
+        },
+        {
+          "name": "userType",
+          "displayName": "User Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user type according to license"
+        },
+        {
+          "name": "enableUser",
+          "displayName": "Enable User",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user is enabled"
+        },
+        {
+          "name": "changePassOnNextLogon",
+          "displayName": "Change Password on Next Logon",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "User must change password on next login"
+        },
+        {
+          "name": "passwordNeverExpires",
+          "displayName": "Password Never Expires",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Password will not expire unless user changes it"
+        },
+        {
+          "name": "suspended",
+          "displayName": "Suspended",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user is suspended"
+        },
+        {
+          "name": "expiryDate",
+          "displayName": "Expiry Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date when the user expires"
+        },
+        {
+          "name": "userActivityLogRetentionDays",
+          "displayName": "Activity Log Retention Days",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Days to retain user activity records (default: 90)"
+        },
+        {
+          "name": "authenticationMethod",
+          "displayName": "Authentication Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The authentication method for login"
+        },
+        {
+          "name": "allowedAuthenticationMethods",
+          "displayName": "Allowed Authentication Methods",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Non-Vault authentication methods the user can use"
+        },
+        {
+          "name": "unAuthorizedInterfaces",
+          "displayName": "Unauthorized Interfaces",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "CyberArk interfaces this user cannot access"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Vault location (must start with \\\\\\\\)"
+        },
+        {
+          "name": "distinguishedName",
+          "displayName": "Distinguished Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Distinguished name for PKI authentication"
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New password for the user (max 39 characters)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes and comments (max 99 characters)"
+        },
+        {
+          "name": "vaultAuthorization",
+          "displayName": "Vault Authorization",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "User permissions"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name (max 29 characters)"
+        },
+        {
+          "name": "middleName",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Middle name (max 29 characters)"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name (max 29 characters)"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title (max 49 characters)"
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization (max 49 characters)"
+        },
+        {
+          "name": "department",
+          "displayName": "Department",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Department (max 49 characters)"
+        },
+        {
+          "name": "profession",
+          "displayName": "Profession",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Profession (max 49 characters)"
+        },
+        {
+          "name": "street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address (max 29 characters)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City (max 19 characters)"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State (max 19 characters)"
+        },
+        {
+          "name": "zip",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP code (max 19 characters)"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country (max 19 characters)"
+        },
+        {
+          "name": "workStreet",
+          "displayName": "Work Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work street address (max 29 characters)"
+        },
+        {
+          "name": "workCity",
+          "displayName": "Work City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work city (max 19 characters)"
+        },
+        {
+          "name": "workState",
+          "displayName": "Work State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work state (max 19 characters)"
+        },
+        {
+          "name": "workZip",
+          "displayName": "Work ZIP",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work ZIP code (max 19 characters)"
+        },
+        {
+          "name": "workCountry",
+          "displayName": "Work Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work country (max 19 characters)"
+        },
+        {
+          "name": "homePage",
+          "displayName": "Home Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home page URL (max 319 characters)"
+        },
+        {
+          "name": "homeEmail",
+          "displayName": "Home Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home email address (max 319 characters)"
+        },
+        {
+          "name": "businessEmail",
+          "displayName": "Business Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business email address (max 319 characters)"
+        },
+        {
+          "name": "otherEmail",
+          "displayName": "Other Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Other email address (max 319 characters)"
+        },
+        {
+          "name": "homeNumber",
+          "displayName": "Home Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home phone number (max 24 characters)"
+        },
+        {
+          "name": "businessNumber",
+          "displayName": "Business Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Business phone number (max 24 characters)"
+        },
+        {
+          "name": "cellularNumber",
+          "displayName": "Cellular Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cellular phone number (max 24 characters)"
+        },
+        {
+          "name": "faxNumber",
+          "displayName": "Fax Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax number (max 24 characters)"
+        },
+        {
+          "name": "pagerNumber",
+          "displayName": "Pager Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pager number (max 24 characters)"
+        },
+        {
+          "name": "loginFromHour",
+          "displayName": "Login From Hour",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Starting time when user can log in"
+        },
+        {
+          "name": "loginToHour",
+          "displayName": "Login To Hour",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Ending time when user can log in"
+        }
+      ]
+    },
+    "verify_credentials_bulk": {
+      "displayName": "Verify Credentials in Bulk",
+      "description": "Marks multiple accounts for verification by the CPM",
+      "props": [
+        {
+          "name": "accountIds",
+          "displayName": "Account IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of unique account IDs to verify"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

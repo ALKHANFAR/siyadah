@@ -1,0 +1,25 @@
+{
+  "id": "deepl",
+  "package": "@activepieces/piece-deepl",
+  "display_name": "Api key",
+  "display_name_ar": "Api key",
+  "description": "Enter the api key",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "translate_text",
+      "display_name": "Translate text",
+      "description": "Translate a text to the target language"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/deepl"
+}

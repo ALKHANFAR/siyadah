@@ -1,0 +1,138 @@
+{
+  "id": "influencers-club",
+  "displayName": "Influencers.club",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "enrichCreatorByEmail": {
+      "displayName": "Enrich Creator by Email",
+      "description": "Enrich creator data by email address with advanced mode including all social medias and full profile stats",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the creator to enrich"
+        },
+        {
+          "name": "exclude_platforms",
+          "displayName": "Exclude Platforms",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Platforms to exclude from enrichment (optional)"
+        },
+        {
+          "name": "min_followers",
+          "displayName": "Minimum Followers",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum follower count filter (default: 1000)"
+        }
+      ]
+    },
+    "enrichCreatorByHandle": {
+      "displayName": "Enrich Creator Social Profile by Handle",
+      "description": "Enrich creator data by social media handle with full mode including all connected platforms and detailed stats",
+      "props": [
+        {
+          "name": "handle",
+          "displayName": "Handle",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The social media handle of the creator"
+        },
+        {
+          "name": "platform",
+          "displayName": "Platform",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The social media platform for the handle"
+        },
+        {
+          "name": "include_lookalikes",
+          "displayName": "Include Lookalikes",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include similar creators for faster discovery (30-40% quicker). Default: true"
+        },
+        {
+          "name": "email_required",
+          "displayName": "Email Requirement",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Controls how to handle email availability"
+        }
+      ]
+    },
+    "findSimilarCreator": {
+      "displayName": "Find Similar Creator",
+      "description": "Find creators similar to a given creator handle or profile URL with optional filters",
+      "props": [
+        {
+          "name": "platform",
+          "displayName": "Platform",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The social media platform"
+        },
+        {
+          "name": "filter_key",
+          "displayName": "Filter Key",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of identifier for the creator"
+        },
+        {
+          "name": "filter_value",
+          "displayName": "Filter Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Platform URL, profile handle, or user ID"
+        },
+        {
+          "name": "limit",
+          "displayName": "Results Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of similar creators to return (min: 1, max: 50)"
+        },
+        {
+          "name": "number_of_followers",
+          "displayName": "Follower Count Range",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Filter by follower count (min and max)"
+        },
+        {
+          "name": "engagement_percent",
+          "displayName": "Engagement Percentage Range",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Filter by engagement rate (min and max)"
+        },
+        {
+          "name": "is_verified",
+          "displayName": "Verified Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only return verified creators"
+        },
+        {
+          "name": "exclude_private_profile",
+          "displayName": "Exclude Private Profiles",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Exclude creators with private profiles"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

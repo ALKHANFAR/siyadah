@@ -1,0 +1,88 @@
+{
+  "id": "voipstudio",
+  "package": "@activepieces/piece-voipstudio",
+  "display_name": "VoIPstudio",
+  "display_name_ar": "VoIPstudio",
+  "description": "VoIPstudio is a complete business phone system and scalable call center",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createContact",
+      "display_name": "Create Contact",
+      "description": "Creates a new Contact resource"
+    },
+    {
+      "name": "makeACallToLead",
+      "display_name": "Make a Call to Lead",
+      "description": "Make a leadcall from user to e164 number"
+    },
+    {
+      "name": "makeACall",
+      "display_name": "Make a Call",
+      "description": "Make a call to a number in e164 format"
+    },
+    {
+      "name": "makeAWebcall",
+      "display_name": "Make a Webcall",
+      "description": "Make a webcall from e164 number to other e164 number or extension"
+    },
+    {
+      "name": "sendSms",
+      "display_name": "Send SMS",
+      "description": "Send new SMS resource"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "callConnected",
+      "display_name": "Call Connected",
+      "description": "Triggered when a call is connected",
+      "type": "instant"
+    },
+    {
+      "name": "callEnded",
+      "display_name": "Call Ended",
+      "description": "Triggered when a call ends or is terminated",
+      "type": "instant"
+    },
+    {
+      "name": "callTracking",
+      "display_name": "Call Tracking",
+      "description": "Triggers when call associated with Call Tracking campaign visits is finished.",
+      "type": "scheduled"
+    },
+    {
+      "name": "dtmfReceived",
+      "display_name": "DTMF Received",
+      "description": "Triggered when a DTMF (Dual-Tone Multi-Frequency) tone is received during a call",
+      "type": "instant"
+    },
+    {
+      "name": "missedCall",
+      "display_name": "Missed Call",
+      "description": "Triggered when an incoming call is not answered (missed call)",
+      "type": "instant"
+    },
+    {
+      "name": "newCallRecording",
+      "display_name": "New Call Recording",
+      "description": "Triggers when a new call recording is ready for a completed call.",
+      "type": "instant"
+    },
+    {
+      "name": "smsReceived",
+      "display_name": "SMS Received",
+      "description": "Triggers when an SMS message is received in VoipStudio.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/voipstudio"
+}

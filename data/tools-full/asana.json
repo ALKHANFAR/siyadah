@@ -1,0 +1,42 @@
+{
+  "id": "asana",
+  "displayName": "Asana",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a new task",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the task to create"
+        },
+        {
+          "name": "notes",
+          "displayName": "Task Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Free-form textual information associated with the task (i.e. its description)."
+        },
+        {
+          "name": "due_on",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The date on which this task is due in any format."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

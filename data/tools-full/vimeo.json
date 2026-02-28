@@ -1,0 +1,162 @@
+{
+  "id": "vimeo",
+  "displayName": "Vimeo",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_video_to_folder": {
+      "displayName": "Add Video to Folder",
+      "description": "Adds an existing video to a user\\",
+      "props": []
+    },
+    "add_video_to_showcase": {
+      "displayName": "Add Video to Showcase",
+      "description": "Adds an existing video to a user\\",
+      "props": [
+        {
+          "name": "showcaseId",
+          "displayName": "Showcase ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "ID of the showcase to add the video to"
+        }
+      ]
+    },
+    "delete_video": {
+      "displayName": "Delete Video",
+      "description": "Delete a video from Vimeo",
+      "props": []
+    },
+    "upload_video": {
+      "displayName": "Upload Video",
+      "description": "Upload a video to your Vimeo account",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL of the video file to upload"
+        },
+        {
+          "name": "name",
+          "displayName": "Video Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name for the video"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description for the video"
+        },
+        {
+          "name": "privacy",
+          "displayName": "Privacy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Privacy setting for the video"
+        },
+        {
+          "name": "password",
+          "displayName": "Privacy",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Password required to view the video (only if privacy is \"password\")"
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password required to view the video (only if privacy is \"password\")"
+        },
+        {
+          "name": "allowEmbed",
+          "displayName": "Allow Embedding",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow others to embed this video"
+        },
+        {
+          "name": "allowDownload",
+          "displayName": "Allow Download",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow others to download this video (not available for free Vimeo users)"
+        },
+        {
+          "name": "contentRating",
+          "displayName": "Content Rating",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Content rating for the video"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Language code for the video"
+        },
+        {
+          "name": "license",
+          "displayName": "License",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "License for the video"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_video_by_search": {
+      "displayName": "New Video by Search",
+      "description": "Triggers when a new video is added that matches a search query",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search term to monitor for new videos"
+        }
+      ]
+    },
+    "new_video_by_user": {
+      "displayName": "New Video by User",
+      "description": "Triggers when another specified user adds a video",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the user to monitor for new videos"
+        }
+      ]
+    },
+    "new_video_liked": {
+      "displayName": "New Video I\\",
+      "description": "Triggers when you like a new video on Vimeo",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_video_of_mine": {
+      "displayName": "New Video of Mine",
+      "description": "Triggers when you add/upload a new video",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

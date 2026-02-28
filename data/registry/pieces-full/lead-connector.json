@@ -1,0 +1,95 @@
+{
+  "id": "lead-connector",
+  "package": "@activepieces/piece-lead-connector",
+  "display_name": "LeadConnector",
+  "display_name_ar": "",
+  "description": "Lead Connector - Go High Level",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_contact_to_campaign",
+      "display_name": "Add Contact to Campaign",
+      "description": "Add an existing contact to a campaign."
+    },
+    {
+      "name": "add_contact_to_workflow",
+      "display_name": "Add Contact to Workflow",
+      "description": "Add an existing contact to a workflow."
+    },
+    {
+      "name": "add_note_to_contact",
+      "display_name": "Add Note to Contact",
+      "description": "Add a new note to a contact."
+    },
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact."
+    },
+    {
+      "name": "create_opportunity",
+      "display_name": "Create Opportunity",
+      "description": "Create a new opportunity."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a new task."
+    },
+    {
+      "name": "search_contacts",
+      "display_name": "Search Contacts",
+      "description": "Search for contacts with a search query."
+    },
+    {
+      "name": "update_contact",
+      "display_name": "Update Contact",
+      "description": "Update an existing contact."
+    },
+    {
+      "name": "update_opportunity",
+      "display_name": "Update Opportunity",
+      "description": "Updates an existing opportunity."
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Update a task."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "contact_updated",
+      "display_name": "Contact Created or Updated",
+      "description": "Trigger when a contact is created or updated.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Trigger when a new contact is added.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_form_submission",
+      "display_name": "New Form Submission",
+      "description": "Trigger when a form is submitted.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_opportunity",
+      "display_name": "New Opportunity",
+      "description": "Trigger when a new opportunity is added.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

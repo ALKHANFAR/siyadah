@@ -1,0 +1,134 @@
+{
+  "id": "billplz",
+  "displayName": "Billplz",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_bill": {
+      "displayName": "Create Bill",
+      "description": "Create a new bill within a collection",
+      "props": [
+        {
+          "name": "collection_id",
+          "displayName": "Collection",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the collection to create the bill in"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Recipient email address (required if mobile not provided)"
+        },
+        {
+          "name": "mobile",
+          "displayName": "Mobile Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Recipient mobile number with country code (required if email not provided)"
+        },
+        {
+          "name": "name",
+          "displayName": "Recipient Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the bill recipient"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount (RM)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Amount in Malaysian Ringgit (e.g., 2.00 for RM 2.00)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Bill description that will be displayed on the bill"
+        },
+        {
+          "name": "callback_url",
+          "displayName": "Callback URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Webhook URL to receive payment completion notifications"
+        },
+        {
+          "name": "due_at",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Due date in YYYY-MM-DD format (optional, defaults to today)"
+        },
+        {
+          "name": "redirect_url",
+          "displayName": "Redirect URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to redirect customer after payment completion"
+        },
+        {
+          "name": "deliver",
+          "displayName": "Send Email/SMS",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically send email and SMS notification to recipient"
+        },
+        {
+          "name": "reference_1_label",
+          "displayName": "Reference 1 Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Label for first reference field"
+        },
+        {
+          "name": "reference_1",
+          "displayName": "Reference 1 Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Value for first reference field"
+        },
+        {
+          "name": "reference_2_label",
+          "displayName": "Reference 2 Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Label for second reference field"
+        },
+        {
+          "name": "reference_2",
+          "displayName": "Reference 2 Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Value for second reference field"
+        }
+      ]
+    },
+    "get_bill": {
+      "displayName": "Get Bill",
+      "description": "Retrieve information about a specific bill",
+      "props": [
+        {
+          "name": "bill_id",
+          "displayName": "Bill ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the bill to retrieve"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "get_collections": {
+      "displayName": "Get Collections",
+      "description": "Triggers when there are new collections",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

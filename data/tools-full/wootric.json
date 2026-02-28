@@ -1,0 +1,30 @@
+{
+  "id": "wootric",
+  "displayName": "Wootric",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "trigger_wootric_survey": {
+      "displayName": "Trigger Wootric Survey",
+      "description": "Trigger a survey from Wootric",
+      "props": [
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": true,
+          "description": "End user emails, where you want the survey to be received"
+        },
+        {
+          "name": "surveyImmediately",
+          "displayName": "Survey Immediately",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Enter \"true\" to survey immediately to bypass checks, otherwise \"false\""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,53 @@
+{
+  "id": "cognito-forms",
+  "package": "@activepieces/piece-cognito-forms",
+  "display_name": "Cognito Forms",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_entry",
+      "display_name": "Create Entry",
+      "description": "Creates a new entry."
+    },
+    {
+      "name": "delete_entry",
+      "display_name": "Delete Entry",
+      "description": "Deletes a specified entry."
+    },
+    {
+      "name": "get_entry",
+      "display_name": "Get Entry",
+      "description": "Gets a specified entry."
+    },
+    {
+      "name": "update_entry",
+      "display_name": "Update Entry",
+      "description": "Update an existing entry."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "entry_updated",
+      "display_name": "Entry Updated",
+      "description": "Triggers when an existing form entry is updated.",
+      "type": "instant"
+    },
+    {
+      "name": "new_entry",
+      "display_name": "New Entry",
+      "description": "Triggers when a new form entry is submitted.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

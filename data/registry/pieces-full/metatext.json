@@ -1,0 +1,30 @@
+{
+  "id": "metatext",
+  "package": "@activepieces/piece-metatext",
+  "display_name": "Metatext",
+  "display_name_ar": "",
+  "description": "AI content moderation and safety guard API",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "classify_text",
+      "display_name": "Classify Text",
+      "description": "Classify text into categories (sentiment, intent, topic, custom models)"
+    },
+    {
+      "name": "extract_text",
+      "display_name": "Extract Text",
+      "description": "Extract information from text (entities, keywords, custom models)"
+    },
+    {
+      "name": "finetune_model",
+      "display_name": "Fine-tune Model",
+      "description": "Initiate a fine-tuning job for your model"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

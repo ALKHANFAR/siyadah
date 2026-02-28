@@ -1,0 +1,124 @@
+{
+  "id": "zendesk-sell",
+  "package": "@activepieces/piece-zendesk-sell",
+  "display_name": "Zendesk-sell",
+  "display_name_ar": "Zendesk-sell",
+  "description": "Sales CRM for pipeline management, lead tracking, and contact organization.",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact."
+    },
+    {
+      "name": "create_deal",
+      "display_name": "Create Deal",
+      "description": "Create a new deal under an existing contact."
+    },
+    {
+      "name": "create_lead",
+      "display_name": "Create Lead",
+      "description": "Create a new lead record."
+    },
+    {
+      "name": "create_note",
+      "display_name": "Create Note",
+      "description": "Add a note to a deal, lead, or contact."
+    },
+    {
+      "name": "find_company",
+      "display_name": "Find Company",
+      "description": "Finds a company (organization contact) by name, email, or phone."
+    },
+    {
+      "name": "find_contact",
+      "display_name": "Find Contact",
+      "description": "Find a contact by email, name, or other identifier."
+    },
+    {
+      "name": "find_deal",
+      "display_name": "Find Deal",
+      "description": "Look up a deal by ID or name."
+    },
+    {
+      "name": "find_lead",
+      "display_name": "Find Lead",
+      "description": "Find a lead by one or more fields."
+    },
+    {
+      "name": "find_user",
+      "display_name": "Find User",
+      "description": "Finds a user by ID, email, name, or status."
+    },
+    {
+      "name": "update_contact",
+      "display_name": "Update Contact",
+      "description": "Update fields of an existing contact."
+    },
+    {
+      "name": "update_deal",
+      "display_name": "Update Deal",
+      "description": "Update fields of an existing deal."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "deal_enters_stage",
+      "display_name": "Deal Enters New Stage",
+      "description": "Fires when a deal transitions into a specified pipeline stage by polling for updates.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Fires when a new contact is created in Zendesk Sell (polls for new records).",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_deal",
+      "display_name": "New Deal",
+      "description": "Fires when a new deal is created (polls for new records).",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_lead",
+      "display_name": "New Lead",
+      "description": "Fires when a new lead is created (polls for new records).",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_note",
+      "display_name": "New Note",
+      "description": "Fires when a new note is added to a record (lead, contact, deal) (polls for new records).",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_contact",
+      "display_name": "Updated Contact",
+      "description": "Fires when an existing contact is updated (polls for updates).",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_deal",
+      "display_name": "Updated Deal",
+      "description": "Fires when an existing deal is modified (polls for updates).",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_lead",
+      "display_name": "Updated Lead",
+      "description": "Fires when an existing lead record is updated (polls for updates).",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/zendesk-sell"
+}

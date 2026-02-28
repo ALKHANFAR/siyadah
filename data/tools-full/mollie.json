@@ -1,0 +1,1566 @@
+{
+  "id": "mollie",
+  "displayName": "Mollie",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Creates a new customer in Mollie",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The full name of the customer"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email address of the customer"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language to be used in the hosted payment pages"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional data to save alongside the customer (JSON string)"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to create the customer in test mode"
+        }
+      ]
+    },
+    "create_order": {
+      "displayName": "Create Order",
+      "description": "⚠️ We no longer recommend using the Orders API. Please refer to the Payments API instead.\\n\\nCreate a new order in Mollie",
+      "props": [
+        {
+          "name": "orderNumber",
+          "displayName": "Order Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The order number for this order. We recommend each order number to be unique."
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A three-character ISO 4217 currency code (e.g. EUR, USD)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Total Amount",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The total amount to charge (e.g. \"10.00\")"
+        },
+        {
+          "name": "lines",
+          "displayName": "Order Lines",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The order lines for the order"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of product purchased"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A description of the line item"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of items"
+        },
+        {
+          "name": "unitPriceCurrency",
+          "displayName": "Unit Price Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency for unit price (should match order currency)"
+        },
+        {
+          "name": "unitPriceValue",
+          "displayName": "Unit Price Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The price of a single item including VAT (e.g. \"10.00\")"
+        },
+        {
+          "name": "totalAmountCurrency",
+          "displayName": "Total Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency for total amount (should match order currency)"
+        },
+        {
+          "name": "totalAmountValue",
+          "displayName": "Total Amount Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The total amount of the line including VAT and discounts"
+        },
+        {
+          "name": "vatRate",
+          "displayName": "VAT Rate",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The VAT rate applied to the line (e.g. \"21.00\" for 21%)"
+        },
+        {
+          "name": "vatAmountCurrency",
+          "displayName": "VAT Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for VAT amount"
+        },
+        {
+          "name": "vatAmountValue",
+          "displayName": "VAT Amount Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The amount of value-added tax on the line"
+        },
+        {
+          "name": "sku",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The SKU, EAN, ISBN or UPC of the product sold"
+        },
+        {
+          "name": "discountAmountCurrency",
+          "displayName": "Discount Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for discount amount"
+        },
+        {
+          "name": "discountAmountValue",
+          "displayName": "Discount Amount Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Any line-specific discounts, as a positive amount"
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A link pointing to an image of the product sold"
+        },
+        {
+          "name": "productUrl",
+          "displayName": "Product URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A link pointing to the product page in your web shop"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The voucher category (for voucher-eligible items)"
+        },
+        {
+          "name": "billingTitle",
+          "displayName": "Billing Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title of the person (e.g. Mr., Mrs.)"
+        },
+        {
+          "name": "billingGivenName",
+          "displayName": "Billing Given Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The given name (first name) of the person"
+        },
+        {
+          "name": "billingFamilyName",
+          "displayName": "Billing Family Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The family name (surname) of the person"
+        },
+        {
+          "name": "billingOrganizationName",
+          "displayName": "Billing Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the organization"
+        },
+        {
+          "name": "billingStreetAndNumber",
+          "displayName": "Billing Street and Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A street and street number"
+        },
+        {
+          "name": "billingStreetAdditional",
+          "displayName": "Billing Street Additional",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Any additional addressing details"
+        },
+        {
+          "name": "billingPostalCode",
+          "displayName": "Billing Postal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A postal code"
+        },
+        {
+          "name": "billingEmail",
+          "displayName": "Billing Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address"
+        },
+        {
+          "name": "billingPhone",
+          "displayName": "Billing Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number in E.164 format"
+        },
+        {
+          "name": "billingCity",
+          "displayName": "Billing City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "City name"
+        },
+        {
+          "name": "billingRegion",
+          "displayName": "Billing Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Region or state"
+        },
+        {
+          "name": "billingCountry",
+          "displayName": "Billing Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A country code in ISO 3166-1 alpha-2 format"
+        },
+        {
+          "name": "includeShippingAddress",
+          "displayName": "Include Shipping Address",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include a separate shipping address"
+        },
+        {
+          "name": "shippingTitle",
+          "displayName": "Shipping Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title of the person (e.g. Mr., Mrs.)"
+        },
+        {
+          "name": "shippingGivenName",
+          "displayName": "Shipping Given Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The given name (first name) of the person"
+        },
+        {
+          "name": "shippingFamilyName",
+          "displayName": "Shipping Family Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The family name (surname) of the person"
+        },
+        {
+          "name": "shippingOrganizationName",
+          "displayName": "Shipping Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the organization"
+        },
+        {
+          "name": "shippingStreetAndNumber",
+          "displayName": "Shipping Street and Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A street and street number"
+        },
+        {
+          "name": "shippingStreetAdditional",
+          "displayName": "Shipping Street Additional",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Any additional addressing details"
+        },
+        {
+          "name": "shippingPostalCode",
+          "displayName": "Shipping Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A postal code"
+        },
+        {
+          "name": "shippingEmail",
+          "displayName": "Shipping Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address"
+        },
+        {
+          "name": "shippingPhone",
+          "displayName": "Shipping Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number in E.164 format"
+        },
+        {
+          "name": "shippingCity",
+          "displayName": "Shipping City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City name"
+        },
+        {
+          "name": "shippingRegion",
+          "displayName": "Shipping Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Region or state"
+        },
+        {
+          "name": "shippingCountry",
+          "displayName": "Shipping Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A country code in ISO 3166-1 alpha-2 format"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The language to be used in the hosted payment pages"
+        },
+        {
+          "name": "redirectUrl",
+          "displayName": "Redirect URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The URL your customer will be redirected to after the payment process"
+        },
+        {
+          "name": "cancelUrl",
+          "displayName": "Cancel URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The URL your customer will be redirected to when they cancel the payment"
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The webhook URL where order status updates will be sent"
+        },
+        {
+          "name": "method",
+          "displayName": "Payment Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Specific payment method to use (optional)"
+        },
+        {
+          "name": "shopperCountryMustMatchBillingCountry",
+          "displayName": "Shopper Country Must Match Billing Country",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Restrict payment methods to those from the billing country only"
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expires At",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The date the order should expire in YYYY-MM-DD format"
+        },
+        {
+          "name": "consumerDateOfBirth",
+          "displayName": "Consumer Date of Birth",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date of birth of the consumer in YYYY-MM-DD format"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to create the order in test mode"
+        }
+      ]
+    },
+    "create_payment_link": {
+      "displayName": "Create Payment Link",
+      "description": "Generate a new payment link targeting a customer, product, or specific amount",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A short description of the payment link (max 255 characters)"
+        },
+        {
+          "name": "includeAmount",
+          "displayName": "Include Fixed Amount",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include a fixed amount or let customer enter amount"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A three-character ISO 4217 currency code (e.g. EUR, USD)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The amount to charge (e.g. \"10.00\")"
+        },
+        {
+          "name": "includeMinimumAmount",
+          "displayName": "Include Minimum Amount",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to set a minimum amount (only when no fixed amount)"
+        },
+        {
+          "name": "minimumAmountCurrency",
+          "displayName": "Minimum Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for minimum amount"
+        },
+        {
+          "name": "minimumAmount",
+          "displayName": "Minimum Amount",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The minimum amount (e.g. \"5.00\")"
+        },
+        {
+          "name": "redirectUrl",
+          "displayName": "Redirect URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL to redirect customer after payment completion"
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL for payment status updates"
+        },
+        {
+          "name": "includeLines",
+          "displayName": "Include Order Lines",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include detailed order line items"
+        },
+        {
+          "name": "lines",
+          "displayName": "Order Lines",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Order line items (required for certain payment methods)"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of product purchased"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A description of the line item"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of items"
+        },
+        {
+          "name": "quantityUnit",
+          "displayName": "Quantity Unit",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unit for the quantity (e.g. pcs, kg, cm)"
+        },
+        {
+          "name": "unitPriceCurrency",
+          "displayName": "Unit Price Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency for unit price"
+        },
+        {
+          "name": "unitPriceValue",
+          "displayName": "Unit Price Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The price of a single item including VAT"
+        },
+        {
+          "name": "totalAmountCurrency",
+          "displayName": "Total Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency for total amount"
+        },
+        {
+          "name": "totalAmountValue",
+          "displayName": "Total Amount Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The total amount including VAT and discounts"
+        },
+        {
+          "name": "vatRate",
+          "displayName": "VAT Rate",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "VAT rate (e.g. \"21.00\" for 21%)"
+        },
+        {
+          "name": "vatAmountCurrency",
+          "displayName": "VAT Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for VAT amount"
+        },
+        {
+          "name": "vatAmountValue",
+          "displayName": "VAT Amount Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The amount of VAT on the line"
+        },
+        {
+          "name": "sku",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The SKU, EAN, ISBN or UPC of the product"
+        },
+        {
+          "name": "discountAmountCurrency",
+          "displayName": "Discount Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for discount amount"
+        },
+        {
+          "name": "discountAmountValue",
+          "displayName": "Discount Amount Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Line-specific discounts as positive amount"
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Link to product image"
+        },
+        {
+          "name": "productUrl",
+          "displayName": "Product URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Link to product page"
+        },
+        {
+          "name": "includeBillingAddress",
+          "displayName": "Include Billing Address",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include billing address details"
+        },
+        {
+          "name": "billingTitle",
+          "displayName": "Billing Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title (e.g. Mr., Mrs.)"
+        },
+        {
+          "name": "billingGivenName",
+          "displayName": "Billing Given Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name"
+        },
+        {
+          "name": "billingFamilyName",
+          "displayName": "Billing Family Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name"
+        },
+        {
+          "name": "billingOrganizationName",
+          "displayName": "Billing Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization name"
+        },
+        {
+          "name": "billingStreetAndNumber",
+          "displayName": "Billing Street and Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address with number"
+        },
+        {
+          "name": "billingStreetAdditional",
+          "displayName": "Billing Street Additional",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address details"
+        },
+        {
+          "name": "billingPostalCode",
+          "displayName": "Billing Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "billingEmail",
+          "displayName": "Billing Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address"
+        },
+        {
+          "name": "billingPhone",
+          "displayName": "Billing Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone in E.164 format"
+        },
+        {
+          "name": "billingCity",
+          "displayName": "Billing City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City name"
+        },
+        {
+          "name": "billingRegion",
+          "displayName": "Billing Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or region"
+        },
+        {
+          "name": "billingCountry",
+          "displayName": "Billing Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        {
+          "name": "includeShippingAddress",
+          "displayName": "Include Shipping Address",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include shipping address details"
+        },
+        {
+          "name": "shippingTitle",
+          "displayName": "Shipping Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title (e.g. Mr., Mrs.)"
+        },
+        {
+          "name": "shippingGivenName",
+          "displayName": "Shipping Given Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name"
+        },
+        {
+          "name": "shippingFamilyName",
+          "displayName": "Shipping Family Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name"
+        },
+        {
+          "name": "shippingOrganizationName",
+          "displayName": "Shipping Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization name"
+        },
+        {
+          "name": "shippingStreetAndNumber",
+          "displayName": "Shipping Street and Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address with number"
+        },
+        {
+          "name": "shippingStreetAdditional",
+          "displayName": "Shipping Street Additional",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address details"
+        },
+        {
+          "name": "shippingPostalCode",
+          "displayName": "Shipping Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "shippingEmail",
+          "displayName": "Shipping Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address"
+        },
+        {
+          "name": "shippingPhone",
+          "displayName": "Shipping Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone in E.164 format"
+        },
+        {
+          "name": "shippingCity",
+          "displayName": "Shipping City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City name"
+        },
+        {
+          "name": "shippingRegion",
+          "displayName": "Shipping Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or region"
+        },
+        {
+          "name": "shippingCountry",
+          "displayName": "Shipping Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        {
+          "name": "reusable",
+          "displayName": "Reusable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow multiple payments using the same link"
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expires At",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Expiry date in ISO 8601 format (e.g. 2024-12-31T23:59:59Z)"
+        },
+        {
+          "name": "allowedMethods",
+          "displayName": "Allowed Payment Methods",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Payment methods allowed for this link (empty = all enabled methods)"
+        },
+        {
+          "name": "sequenceType",
+          "displayName": "Sequence Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of payment sequence"
+        },
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer ID (only relevant for first sequence type)"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to create the payment link in test mode"
+        }
+      ]
+    },
+    "create_payment_refund": {
+      "displayName": "Create Payment Refund",
+      "description": "Creates refund for payment",
+      "props": [
+        {
+          "name": "paymentId",
+          "displayName": "Payment",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the payment to refund"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The description of the refund (max 255 characters)"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A three-character ISO 4217 currency code (e.g. EUR, USD)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Refund Amount",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The amount to refund (e.g. \"10.00\")"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional data to save alongside the refund (JSON string)"
+        },
+        {
+          "name": "includeExternalReference",
+          "displayName": "Include External Reference",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include external reference details"
+        },
+        {
+          "name": "externalReferenceType",
+          "displayName": "External Reference Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of external reference"
+        },
+        {
+          "name": "externalReferenceId",
+          "displayName": "External Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique reference from the payment provider"
+        },
+        {
+          "name": "reverseRouting",
+          "displayName": "Reverse Routing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Pull back funds routed to connected merchants (full refund only)"
+        },
+        {
+          "name": "includeRoutingReversals",
+          "displayName": "Include Routing Reversals",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Specify detailed routing reversals for partial refunds"
+        },
+        {
+          "name": "routingReversals",
+          "displayName": "Routing Reversals",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Detailed routing reversals for connected merchants"
+        },
+        {
+          "name": "amountCurrency",
+          "displayName": "Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency for the reversal amount"
+        },
+        {
+          "name": "amountValue",
+          "displayName": "Amount Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The amount to pull back"
+        },
+        {
+          "name": "sourceType",
+          "displayName": "Source Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of source to pull funds from"
+        },
+        {
+          "name": "organizationId",
+          "displayName": "Organization ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the connected organization to pull funds from"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to create the refund in test mode"
+        }
+      ]
+    },
+    "create_payment": {
+      "displayName": "Create Payment",
+      "description": "Creates a new payment in Mollie",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Description of the payment (max 255 characters)"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A three-character ISO 4217 currency code (e.g. EUR, USD)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The amount to charge (e.g. \"10.00\")"
+        },
+        {
+          "name": "redirectUrl",
+          "displayName": "Redirect URL",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "URL to redirect customer after payment completion"
+        },
+        {
+          "name": "cancelUrl",
+          "displayName": "Cancel URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL to redirect customer when they cancel payment"
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL for payment status updates"
+        },
+        {
+          "name": "includeLines",
+          "displayName": "Include Order Lines",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include detailed order line items"
+        },
+        {
+          "name": "lines",
+          "displayName": "Order Lines",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Order line items (required for certain payment methods)"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of product purchased"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A description of the line item"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of items"
+        },
+        {
+          "name": "quantityUnit",
+          "displayName": "Quantity Unit",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unit for the quantity (e.g. pcs, kg, cm)"
+        },
+        {
+          "name": "unitPriceCurrency",
+          "displayName": "Unit Price Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency for unit price"
+        },
+        {
+          "name": "unitPriceValue",
+          "displayName": "Unit Price Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The price of a single item including VAT"
+        },
+        {
+          "name": "totalAmountCurrency",
+          "displayName": "Total Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency for total amount"
+        },
+        {
+          "name": "totalAmountValue",
+          "displayName": "Total Amount Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The total amount including VAT and discounts"
+        },
+        {
+          "name": "vatRate",
+          "displayName": "VAT Rate",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "VAT rate (e.g. \"21.00\" for 21%)"
+        },
+        {
+          "name": "vatAmountCurrency",
+          "displayName": "VAT Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for VAT amount"
+        },
+        {
+          "name": "vatAmountValue",
+          "displayName": "VAT Amount Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The amount of VAT on the line"
+        },
+        {
+          "name": "sku",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The SKU, EAN, ISBN or UPC of the product"
+        },
+        {
+          "name": "discountAmountCurrency",
+          "displayName": "Discount Amount Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for discount amount"
+        },
+        {
+          "name": "discountAmountValue",
+          "displayName": "Discount Amount Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Line-specific discounts as positive amount"
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Link to product image"
+        },
+        {
+          "name": "productUrl",
+          "displayName": "Product URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Link to product page"
+        },
+        {
+          "name": "includeBillingAddress",
+          "displayName": "Include Billing Address",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include billing address details"
+        },
+        {
+          "name": "billingTitle",
+          "displayName": "Billing Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title (e.g. Mr., Mrs.)"
+        },
+        {
+          "name": "billingGivenName",
+          "displayName": "Billing Given Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name"
+        },
+        {
+          "name": "billingFamilyName",
+          "displayName": "Billing Family Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name"
+        },
+        {
+          "name": "billingOrganizationName",
+          "displayName": "Billing Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization name"
+        },
+        {
+          "name": "billingStreetAndNumber",
+          "displayName": "Billing Street and Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address with number"
+        },
+        {
+          "name": "billingStreetAdditional",
+          "displayName": "Billing Street Additional",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address details"
+        },
+        {
+          "name": "billingPostalCode",
+          "displayName": "Billing Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "billingEmail",
+          "displayName": "Billing Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address"
+        },
+        {
+          "name": "billingPhone",
+          "displayName": "Billing Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone in E.164 format"
+        },
+        {
+          "name": "billingCity",
+          "displayName": "Billing City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City name"
+        },
+        {
+          "name": "billingRegion",
+          "displayName": "Billing Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or region"
+        },
+        {
+          "name": "billingCountry",
+          "displayName": "Billing Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        {
+          "name": "includeShippingAddress",
+          "displayName": "Include Shipping Address",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include shipping address details"
+        },
+        {
+          "name": "shippingTitle",
+          "displayName": "Shipping Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title (e.g. Mr., Mrs.)"
+        },
+        {
+          "name": "shippingGivenName",
+          "displayName": "Shipping Given Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name"
+        },
+        {
+          "name": "shippingFamilyName",
+          "displayName": "Shipping Family Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name"
+        },
+        {
+          "name": "shippingOrganizationName",
+          "displayName": "Shipping Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization name"
+        },
+        {
+          "name": "shippingStreetAndNumber",
+          "displayName": "Shipping Street and Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address with number"
+        },
+        {
+          "name": "shippingStreetAdditional",
+          "displayName": "Shipping Street Additional",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address details"
+        },
+        {
+          "name": "shippingPostalCode",
+          "displayName": "Shipping Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "shippingEmail",
+          "displayName": "Shipping Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address"
+        },
+        {
+          "name": "shippingPhone",
+          "displayName": "Shipping Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone in E.164 format"
+        },
+        {
+          "name": "shippingCity",
+          "displayName": "Shipping City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City name"
+        },
+        {
+          "name": "shippingRegion",
+          "displayName": "Shipping Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or region"
+        },
+        {
+          "name": "shippingCountry",
+          "displayName": "Shipping Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language to be used in the hosted payment pages"
+        },
+        {
+          "name": "method",
+          "displayName": "Payment Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Specific payment method to use (optional)"
+        },
+        {
+          "name": "restrictPaymentMethodsToCountry",
+          "displayName": "Restrict Payment Methods to Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code to restrict payment methods"
+        },
+        {
+          "name": "sequenceType",
+          "displayName": "Sequence Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of payment sequence"
+        },
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer ID (required for recurring payments)"
+        },
+        {
+          "name": "mandateId",
+          "displayName": "Mandate ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mandate ID (for recurring payments)"
+        },
+        {
+          "name": "captureMode",
+          "displayName": "Capture Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "When to capture the payment"
+        },
+        {
+          "name": "captureDelay",
+          "displayName": "Capture Delay",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Delay before automatic capture (e.g. \"8 hours\", \"2 days\")"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to create the payment in test mode"
+        }
+      ]
+    },
+    "search_customer": {
+      "displayName": "Search Customer",
+      "description": "Retrieve a list of all customers",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Start the result set from this customer ID onwards"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of customers to return (1-250, default: 50)"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort customers by creation date"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to search in test mode"
+        }
+      ]
+    },
+    "search_order": {
+      "displayName": "Search Order",
+      "description": "⚠️ We no longer recommend using the Orders API. Please refer to the Payments API instead.\\n\\nSearches for orders in Mollie",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From Order ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Start the result set from this order ID onwards"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of orders to return (1-250, default: 50)"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort orders by creation date"
+        },
+        {
+          "name": "profileId",
+          "displayName": "Profile ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Profile ID to retrieve orders for (optional)"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to search in test mode"
+        }
+      ]
+    },
+    "search_payment": {
+      "displayName": "Search Payment",
+      "description": "Retrieve all payments created with the current website profile",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From Payment ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Start the result set from this payment ID onwards"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of payments to return (1-250, default: 50)"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort payments by creation date"
+        },
+        {
+          "name": "profileId",
+          "displayName": "Profile ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Profile ID to retrieve payments for (optional)"
+        },
+        {
+          "name": "testmode",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to search in test mode"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_chargeback": {
+      "displayName": "New Payment Chargeback",
+      "description": "Fires upon a payment chargeback event",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "paymentId",
+          "displayName": "Payment ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The payment to monitor for chargebacks"
+        }
+      ]
+    },
+    "new_customer": {
+      "displayName": "New Customer",
+      "description": "Fires when a new customer is created in Mollie",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_invoice": {
+      "displayName": "New Invoice",
+      "description": "Fires when a new invoice is generated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_order": {
+      "displayName": "New Order",
+      "description": "Fires when a new order is created in Mollie",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_payment": {
+      "displayName": "New Payment",
+      "description": "Fires when a new payment is created/received",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_refund": {
+      "displayName": "New Refund",
+      "description": "Fires when a payment refund is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "paymentId",
+          "displayName": "Payment ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The payment to monitor for refunds"
+        }
+      ]
+    },
+    "new_settlement": {
+      "displayName": "New Settlement",
+      "description": "Fires upon a new settlement event (e.g. payout)",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

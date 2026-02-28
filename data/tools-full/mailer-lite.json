@@ -1,0 +1,93 @@
+{
+  "id": "mailer-lite",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_subscriber_to_group": {
+      "displayName": "Add Subscriber to a Group",
+      "description": "Adds existing subscriber to a specific group.",
+      "props": []
+    },
+    "add_or_update_subscriber": {
+      "displayName": "Add or Update subscriber",
+      "description": "Create a new subscriber or updates an existing one if the email already exists.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email of the new contact"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If empty, status Active is used by default."
+        },
+        {
+          "name": "subscribed_at",
+          "displayName": "Subscribed On",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "opted_in_at",
+          "displayName": "Opt-in Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ip_address",
+          "displayName": "Signup IP address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "optin_ip",
+          "displayName": "Opt-in IP address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_subscriber": {
+      "displayName": "Find a Subscriber",
+      "description": "Search for subscriber by email or name.",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Subscriber ID or Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "remove_subscriber_from_group": {
+      "displayName": "Remove Subscriber from a Group",
+      "description": "Removes subscriber from a specific group.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "ad": {
+      "displayName": "Subscriber Created",
+      "description": "Triggers when a subscriber was created on your mailing list.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

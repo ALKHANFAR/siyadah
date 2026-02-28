@@ -1,0 +1,25 @@
+{
+  "id": "delay",
+  "package": "@activepieces/piece-delay",
+  "display_name": "Delay",
+  "display_name_ar": "تأخير",
+  "description": "Delay execution",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "delay_for",
+      "display_name": "Delay For",
+      "description": "Delay for duration"
+    },
+    {
+      "name": "delay_until",
+      "display_name": "Delay Until",
+      "description": "Delay until time"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-builtin"
+}

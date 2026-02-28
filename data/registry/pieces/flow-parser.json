@@ -1,0 +1,33 @@
+{
+  "id": "flow-parser",
+  "package": "@activepieces/piece-flow-parser",
+  "display_name": "FlowParser",
+  "display_name_ar": "FlowParser",
+  "description": "Upload, process, and manage documents programmatically with FlowParser\\",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "upload_document",
+      "display_name": "Upload Document",
+      "description": "Upload a new document to FlowParser for processing"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_parsed_document_by_template",
+      "display_name": "New Parsed Document by Template",
+      "description": "Triggers when a new document is parsed using a specific template",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_parsed_document_found",
+      "display_name": "New Parsed Document Found",
+      "description": "Triggers when a document has been successfully parsed",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/flow-parser"
+}

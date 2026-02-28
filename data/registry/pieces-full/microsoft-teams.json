@@ -1,0 +1,110 @@
+{
+  "id": "microsoft-teams",
+  "package": "@activepieces/piece-microsoft-teams",
+  "display_name": "Microsoft Teams",
+  "display_name_ar": "",
+  "description": null,
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "microsoft_teams_create_channel",
+      "display_name": "Create Channel",
+      "description": "Create a new channel in Microsoft Teams."
+    },
+    {
+      "name": "microsoft_teams_create_chat_and_send_message",
+      "display_name": "Create Chat & Send Message",
+      "description": "Start a new chat and send an initial message."
+    },
+    {
+      "name": "microsoft_teams_create_private_channel",
+      "display_name": "Create Private Channel",
+      "description": "Create a new private channel in a team."
+    },
+    {
+      "name": "microsoft_teams_delete_chat_message",
+      "display_name": "Delete Chat Message",
+      "description": "Soft-Deletes a message in chat.You can only delete messages you sent."
+    },
+    {
+      "name": "microsoft_teams_find_channel",
+      "display_name": "Find Channel",
+      "description": "Finds channels by name."
+    },
+    {
+      "name": "microsoft_teams_find_team_member",
+      "display_name": "Find Team Member",
+      "description": "Finds a team member by email or display name."
+    },
+    {
+      "name": "microsoft_teams_get_channel_message",
+      "display_name": "Get Channel Message",
+      "description": "Fetch a specific channel message by team, channel, and message ID (optionally a reply)."
+    },
+    {
+      "name": "microsoft_teams_get_chat_message",
+      "display_name": "Get Chat Message",
+      "description": "Fetch a specific chat message by chat and message ID."
+    },
+    {
+      "name": "microsoft_teams_reply_to_channel_message",
+      "display_name": "Reply to Channel Message",
+      "description": "Post a reply to an existing channel message."
+    },
+    {
+      "name": "request_approval_in_channel",
+      "display_name": "Request Approval in Channel",
+      "description": "Send approval message to a channel and then wait until the message is approved or disapproved"
+    },
+    {
+      "name": "request_approval_direct_message",
+      "display_name": "Request Approval from a User",
+      "description": "Send approval message to a user and then wait until the message is approved or disapproved"
+    },
+    {
+      "name": "microsoft_teams_send_channel_message",
+      "display_name": "Send Channel Message",
+      "description": "Sends a message to a teams's channel."
+    },
+    {
+      "name": "microsoft_teams_send_chat_message",
+      "display_name": "Send Chat Message",
+      "description": "Sends a message in an existing chat."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-channel-message",
+      "display_name": "New Channel Message",
+      "description": "Triggers when a new message is posted in a channel.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-channel",
+      "display_name": "New Channel",
+      "description": "Triggers when a new channel is created in a team.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-chat-message",
+      "display_name": "New Chat Message",
+      "description": "Triggers when a new message is received in a chat.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-chat",
+      "display_name": "New Chat",
+      "description": "Triggers when a new chat is created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

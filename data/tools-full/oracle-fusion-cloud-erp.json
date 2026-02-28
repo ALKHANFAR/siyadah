@@ -1,0 +1,15 @@
+{
+  "id": "oracle-fusion-cloud-erp",
+  "displayName": "Oracle Fusion Cloud ERP",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

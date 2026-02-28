@@ -1,0 +1,27 @@
+{
+  "id": "webhook",
+  "package": "@activepieces/piece-webhook",
+  "display_name": "Webhook",
+  "display_name_ar": "ويب هوك",
+  "description": "Receive HTTP requests",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "return_response",
+      "display_name": "Return Response",
+      "description": "Return a response to the webhook caller"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "catch_hook",
+      "display_name": "Catch Hook",
+      "description": "Triggers when a webhook is received",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-builtin"
+}

@@ -1,0 +1,68 @@
+{
+  "id": "chaindesk",
+  "displayName": "Chaindesk",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "query-agent": {
+      "displayName": "Query Agent",
+      "description": "Asks question to your Agent.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "conversationId",
+          "displayName": "Conversation ID",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "ID of the conversation (If not provided a new conversation is created)."
+        }
+      ]
+    },
+    "query-datastore": {
+      "displayName": "Query Datastore",
+      "description": "Asks question to your Datastore.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "upload-file": {
+      "displayName": "Upload File",
+      "description": "Uploads a new file to provided Datastore.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "filename",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,62 @@
+{
+  "id": "ninox",
+  "package": "@activepieces/piece-ninox",
+  "display_name": "Ninox",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createRecord",
+      "display_name": "Create Record",
+      "description": "Creates a new record into a specified table."
+    },
+    {
+      "name": "deleteRecord",
+      "display_name": "Delete Record",
+      "description": "Deletes a record from a table."
+    },
+    {
+      "name": "downloadFileFromRecord",
+      "display_name": "Download File from Record",
+      "description": "Downloads a file attached to a record."
+    },
+    {
+      "name": "findRecord",
+      "display_name": "Find Record",
+      "description": "Finds records by field values."
+    },
+    {
+      "name": "listFilesFromRecord",
+      "display_name": "List Files from Record",
+      "description": "List files attached to a specific record (without downloading) for management."
+    },
+    {
+      "name": "updateRecord",
+      "display_name": "Update Record",
+      "description": "Updates fields on an existing record."
+    },
+    {
+      "name": "uploadFile",
+      "display_name": "Upload File",
+      "description": "Attach a file to a record."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newRecord",
+      "display_name": "New Record",
+      "description": "Triggers when a new record is created in a table.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

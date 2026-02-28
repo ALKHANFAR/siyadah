@@ -1,0 +1,94 @@
+{
+  "id": "attio",
+  "displayName": "Attio",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_entry": {
+      "displayName": "Create List Entry",
+      "description": "Add a record to a specified list.",
+      "props": [
+        {
+          "name": "parentRecordId",
+          "displayName": "Parent Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_record": {
+      "displayName": "Create Record",
+      "description": "Creates a new record such as peron,company or deal.",
+      "props": []
+    },
+    "find_list_entry": {
+      "displayName": "Find List Entry",
+      "description": "Search for entries in a specific list in Attio using filters and return matching results.",
+      "props": []
+    },
+    "find_record": {
+      "displayName": "Find Record",
+      "description": "Search for records in Attio using filters and return matching results.",
+      "props": []
+    },
+    "update_entry": {
+      "displayName": "Update List Entry",
+      "description": "Update the attributes of an existing entry in a list.",
+      "props": [
+        {
+          "name": "entryId",
+          "displayName": "Entry ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the entry to update."
+        }
+      ]
+    },
+    "update_record": {
+      "displayName": "Update Record",
+      "description": "Update an existing record with new attribute values.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the record to update."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "list_entry_created": {
+      "displayName": "List Entry Created",
+      "description": "Triggers when a new entry is added.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "list_entry_updated": {
+      "displayName": "List Entry Updated",
+      "description": "Triggers when an existing entry is updated.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "record_created": {
+      "displayName": "Record Created",
+      "description": "Triggers when a new record such as person,company or deal is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "record_updated": {
+      "displayName": "Record Updated",
+      "description": "Triggers when an existing record is updated (people, companies, deals, etc.).",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

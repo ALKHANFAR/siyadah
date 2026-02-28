@@ -1,0 +1,108 @@
+{
+  "id": "discord",
+  "package": "@activepieces/piece-discord",
+  "display_name": "Discord",
+  "display_name_ar": "",
+  "description": "Instant messaging and VoIP social platform",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_role_to_member",
+      "display_name": "Add role to member",
+      "description": "Add Guild Member Role"
+    },
+    {
+      "name": "ban_guild_member",
+      "display_name": "Ban guild member",
+      "description": "Bans a guild member"
+    },
+    {
+      "name": "create_channel",
+      "display_name": "Create channel",
+      "description": "create a channel"
+    },
+    {
+      "name": "createGuildRole",
+      "display_name": "Create guild role",
+      "description": "Creates a new role on the specified guild"
+    },
+    {
+      "name": "delete_channel",
+      "display_name": "Delete channel",
+      "description": "delete a channel"
+    },
+    {
+      "name": "deleteGuildRole",
+      "display_name": "Delete guild role",
+      "description": "Deletes the specified role from the specified guild"
+    },
+    {
+      "name": "find_channel",
+      "display_name": "Find channel",
+      "description": "find a channel by name"
+    },
+    {
+      "name": "list_guild_members",
+      "display_name": "List guild members",
+      "description": "List Guild Members"
+    },
+    {
+      "name": "remove_ban_from_user",
+      "display_name": "Remove ban from user",
+      "description": "Removes the guild ban from a user"
+    },
+    {
+      "name": "remove_member_from_guild",
+      "display_name": "Remove member from guild",
+      "description": "Remove Guild Member"
+    },
+    {
+      "name": "remove_role_from_member",
+      "display_name": "Remove role from member",
+      "description": "Remove Guild Member Role"
+    },
+    {
+      "name": "rename_channel",
+      "display_name": "Rename channel",
+      "description": "rename a channel"
+    },
+    {
+      "name": "request_approval_message",
+      "display_name": "Request Approval in a Channel",
+      "description": "send a message to a channel asking for approval and wait for a response"
+    },
+    {
+      "name": "send_message_webhook",
+      "display_name": "Send Message Webhook",
+      "description": "Send a discord message via webhook"
+    },
+    {
+      "name": "sendMessageWithBot",
+      "display_name": "Send Message with Bot",
+      "description": "Send messages via bot to any channel or thread you want, with an optional file attachment."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_member",
+      "display_name": "New Member",
+      "description": "Triggers when a new member joins a guild",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_message",
+      "display_name": "New message",
+      "description": "Triggers when a message is sent in a channel",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,265 @@
+{
+  "id": "baremetrics",
+  "displayName": "Baremetrics",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Creates a new customer record",
+      "props": [
+        {
+          "name": "source_id",
+          "displayName": "Source",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the data source (Payment Provider or API)"
+        },
+        {
+          "name": "oid",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your unique ID for this customer"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address for profile information lookup"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Your own notes for this customer"
+        },
+        {
+          "name": "created",
+          "displayName": "Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "When this customer was created (defaults to now)"
+        }
+      ]
+    },
+    "create_plan": {
+      "displayName": "Create Plan",
+      "description": "Creates a new plan for use when creating or updating subscriptions",
+      "props": [
+        {
+          "name": "source_id",
+          "displayName": "Source",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the data source (Payment Provider or API)"
+        },
+        {
+          "name": "oid",
+          "displayName": "Plan ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your unique ID for this plan"
+        },
+        {
+          "name": "name",
+          "displayName": "Plan Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your internal name for this plan. This will be displayed in the Plan Breakout section"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ISO code of the currency of this plan (e.g., USD)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "How much is this plan? (In cents)"
+        },
+        {
+          "name": "interval",
+          "displayName": "Interval",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Billing interval"
+        },
+        {
+          "name": "interval_count",
+          "displayName": "Interval Count",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of intervals between billings (e.g., 1 for every month, 3 for every 3 months)"
+        },
+        {
+          "name": "trial_duration",
+          "displayName": "Trial Duration",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The duration of this trial"
+        },
+        {
+          "name": "trial_duration_unit",
+          "displayName": "Trial Duration Unit",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Unit for trial duration"
+        }
+      ]
+    },
+    "create_subscription": {
+      "displayName": "Create Subscription",
+      "description": "Creates a new subscription for a customer on a plan",
+      "props": [
+        {
+          "name": "source_id",
+          "displayName": "Source",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the data source (Payment Provider or API)"
+        },
+        {
+          "name": "oid",
+          "displayName": "Subscription ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your unique ID for this subscription"
+        },
+        {
+          "name": "started_at",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When this subscription started"
+        },
+        {
+          "name": "canceled_at",
+          "displayName": "Cancellation Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "When this subscription was or should be canceled (optional)"
+        },
+        {
+          "name": "customer_oid",
+          "displayName": "Customer",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the customer for this subscription"
+        },
+        {
+          "name": "plan_oid",
+          "displayName": "Plan",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the plan for this subscription"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of subscriptions"
+        },
+        {
+          "name": "discount",
+          "displayName": "Discount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Discount amount (in the same currency as the plan)"
+        },
+        {
+          "name": "addons",
+          "displayName": "Addons",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Additional charges to add to the base plan"
+        },
+        {
+          "name": "oid",
+          "displayName": "Addon ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your unique ID for this addon"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Addon amount (in cents)"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Addon quantity"
+        }
+      ]
+    },
+    "update_customer": {
+      "displayName": "Update Customer",
+      "description": "Updates the basic information stored on a customer",
+      "props": [
+        {
+          "name": "source_id",
+          "displayName": "Source",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the data source (Payment Provider or API)"
+        },
+        {
+          "name": "customer_oid",
+          "displayName": "Customer",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the customer to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address for this customer"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Your own notes for this customer"
+        },
+        {
+          "name": "created",
+          "displayName": "Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Unix timestamp of when this customer was created"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

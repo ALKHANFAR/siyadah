@@ -1,0 +1,108 @@
+{
+  "id": "mistral-ai",
+  "displayName": "Mistral AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_chat_completion": {
+      "displayName": "Ask Mistral",
+      "description": "Ask Mistral anything you want!",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive."
+        },
+        {
+          "name": "top_p",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered."
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "random_seed",
+          "displayName": "Random Seed",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_embeddings": {
+      "displayName": "Create Embeddings",
+      "description": "Creates new embedding in Mistral AI.",
+      "props": [
+        {
+          "name": "input",
+          "displayName": "Input",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The input text for which to create an embedding."
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "list_models": {
+      "displayName": "List Models",
+      "description": "Retrieves a list of available Mistral AI models.",
+      "props": []
+    },
+    "upload_file": {
+      "displayName": "Upload File",
+      "description": "Upload a file to Mistral AI (e.g., for fine-tuning or context storage).",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload (max 512MB).For fine tuning purspose provide .jsonl file."
+        },
+        {
+          "name": "purpose",
+          "displayName": "Purpose",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Purpose of the file."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

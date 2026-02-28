@@ -1,0 +1,214 @@
+{
+  "id": "wordpress",
+  "displayName": "Username",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_page": {
+      "displayName": "Create Page",
+      "description": "Create new page on WordPress",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the page about to be added"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Uses the WordPress Text Editor which supports HTML"
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Page publish date (ISO-8601)"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose status"
+        },
+        {
+          "name": "excerpt",
+          "displayName": "Excerpt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Uses the WordPress Text Editor which supports HTML"
+        },
+        {
+          "name": "comment_status",
+          "displayName": "Enable Comments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ping_status",
+          "displayName": "Open to Pinging",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_post": {
+      "displayName": "Create Post",
+      "description": "Create new post on WordPress",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the post about to be added"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Uses the WordPress Text Editor which supports HTML"
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Post publish date (ISO-8601)"
+        },
+        {
+          "name": "acfFields",
+          "displayName": "Custom ACF fields",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Provide field name with value.You can find out field name from ACF plugin menu."
+        },
+        {
+          "name": "excerpt",
+          "displayName": "Excerpt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Uses the WordPress Text Editor which supports HTML"
+        },
+        {
+          "name": "comment_status",
+          "displayName": "Enable Comments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ping_status",
+          "displayName": "Open to Pinging",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_post": {
+      "displayName": "Get Post Details",
+      "description": "Get a post from WordPress",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Post ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The ID of the post to get"
+        }
+      ]
+    },
+    "update_post": {
+      "displayName": "Update Post",
+      "description": "Update an existing post on WordPress.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title of the post about to be added"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Uses the WordPress Text Editor which supports HTML"
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Post publish date (ISO-8601)"
+        },
+        {
+          "name": "acfFields",
+          "displayName": "Custom ACF fields",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Provide field name with value.You can find out field name from ACF plugin menu."
+        },
+        {
+          "name": "excerpt",
+          "displayName": "Excerpt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Uses the WordPress Text Editor which supports HTML"
+        },
+        {
+          "name": "comment_status",
+          "displayName": "Enable Comments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ping_status",
+          "displayName": "Open to Pinging",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,50 @@
+{
+  "id": "amazon-ses",
+  "package": "@activepieces/piece-amazon-ses",
+  "display_name": "Amazon SES",
+  "display_name_ar": "Amazon SES",
+  "description": "Amazon SES integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_custom_verification_email_template",
+      "display_name": "Create Custom Verification Email Template",
+      "description": "Create custom email template for identity verification"
+    },
+    {
+      "name": "create_email_template",
+      "display_name": "Create Email Template",
+      "description": "Create a reusable HTML or text email template with variables"
+    },
+    {
+      "name": "send_custom_verification_email",
+      "display_name": "Send Custom Verification Email",
+      "description": "Send verification email to add an email address to SES identities"
+    },
+    {
+      "name": "send_email",
+      "display_name": "Send Email",
+      "description": "Send a customizable email via Amazon SES with verified sender addresses"
+    },
+    {
+      "name": "send_templated_email",
+      "display_name": "Send Templated Email",
+      "description": "Send personalized emails using pre-created templates"
+    },
+    {
+      "name": "update_custom_verification_email_template",
+      "display_name": "Update Custom Verification Email Template",
+      "description": "Modify an existing custom verification email template"
+    },
+    {
+      "name": "update_email_template",
+      "display_name": "Update Email Template",
+      "description": "Modify an existing email template with new content"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/amazon-ses"
+}

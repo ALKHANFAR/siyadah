@@ -1,0 +1,248 @@
+{
+  "id": "pinterest",
+  "displayName": "Pinterest",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "createBoard": {
+      "displayName": "Create Board",
+      "description": "Create a new Pinterest board for organizing Pins.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Board Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the board (max 180 characters)."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional description for your board."
+        },
+        {
+          "name": "privacy",
+          "displayName": "Privacy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Board privacy setting (auto-set to \"PROTECTED\" for ad-only boards)."
+        },
+        {
+          "name": "is_ads_only",
+          "displayName": "Ads Only Board",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Create an ad-only board that can only store promotional Pins. Note: Board name will become \"Ad-only Pins\" and privacy will be set to \"PROTECTED\"."
+        }
+      ]
+    },
+    "createPin": {
+      "displayName": "Create Pin",
+      "description": "Upload an image or video to create a new Pin on a board.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the Pin (max 100 characters)."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of the Pin (max 800 characters)."
+        },
+        {
+          "name": "media_source_type",
+          "displayName": "Media Source Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of media source for the Pin."
+        },
+        {
+          "name": "media_url",
+          "displayName": "Media URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the image or video to upload. Must be a valid URL."
+        },
+        {
+          "name": "link",
+          "displayName": "Destination Link",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The destination URL that the Pin will link to when clicked."
+        },
+        {
+          "name": "dominant_color",
+          "displayName": "Dominant Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The dominant color of the Pin as a hex color code (e.g., \"#6E7874\")."
+        },
+        {
+          "name": "alt_text",
+          "displayName": "Alt Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Alternative text for accessibility and screen readers (max 500 characters)."
+        },
+        {
+          "name": "parent_pin_id",
+          "displayName": "Parent Pin ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the original Pin if this is a saved/repinned Pin."
+        },
+        {
+          "name": "sponsor_id",
+          "displayName": "Sponsor ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The sponsor account ID for paid partnership content. Available only to select users in closed beta."
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A private note for this Pin that only you can see."
+        },
+        {
+          "name": "is_removable",
+          "displayName": "Is Removable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to create an ad-only Pin that can be easily removed."
+        }
+      ]
+    },
+    "deletePin": {
+      "displayName": "Delete Pin",
+      "description": "Permanently delete a specific Pin.",
+      "props": []
+    },
+    "findBoardByName": {
+      "displayName": "Find Board by Name",
+      "description": "The search term to find boards (required).",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The search term to find boards (required)."
+        },
+        {
+          "name": "bookmark",
+          "displayName": "Bookmark",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pagination bookmark from previous response."
+        }
+      ]
+    },
+    "findPin": {
+      "displayName": "Find Pin by Title/Keyword",
+      "description": "Search for Pins using title, description, or keywords.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search terms for pin titles, descriptions, or tags. You can also search using comma-separated pin IDs."
+        },
+        {
+          "name": "bookmark",
+          "displayName": "Pagination Bookmark",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Bookmark token from previous search results for pagination."
+        },
+        {
+          "name": "max_results",
+          "displayName": "Maximum Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of pins to return (useful for large result sets)."
+        }
+      ]
+    },
+    "updateBoard": {
+      "displayName": "Update Board",
+      "description": "The new name of the board (max 180 characters). Leave empty to keep current name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Board Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new name of the board (max 180 characters). Leave empty to keep current name."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The new description of the board (max 500 characters). Leave empty to keep current description."
+        },
+        {
+          "name": "privacy",
+          "displayName": "Privacy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Update board privacy setting. Leave empty to keep current setting."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newBoard": {
+      "displayName": "New Board",
+      "description": "Fires when a new board is created in the account.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "privacy_filter",
+          "displayName": "Board Privacy Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter boards by privacy setting (optional)."
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of boards to fetch per page (1-250, default: 25)."
+        }
+      ]
+    },
+    "newFollower": {
+      "displayName": "New Follower",
+      "description": "Triggers when a user gains a new follower.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newPinOnBoard": {
+      "displayName": "New Pin on Board",
+      "description": "Fires when a new Pin is added to a specific board.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "creative_types",
+          "displayName": "Pin Types to Watch",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter by specific pin types. Leave empty to watch all types."
+        }
+      ]
+    }
+  }
+}

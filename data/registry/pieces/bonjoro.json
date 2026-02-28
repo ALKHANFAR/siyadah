@@ -1,0 +1,25 @@
+{
+  "id": "bonjoro",
+  "package": "@activepieces/piece-bonjoro",
+  "display_name": "Bonjoro",
+  "display_name_ar": "Bonjoro",
+  "description": "Send personal video messages to delight customers",
+  "category": "E_crm",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_greet",
+      "display_name": "Create a Greet",
+      "description": "Create a new Greet in Bonjoro"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bonjoro"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "uscreen",
+  "package": "@activepieces/piece-uscreen",
+  "display_name": "Uscreen",
+  "display_name_ar": "",
+  "description": "All-in-one video monetization platform for creating, hosting, and selling online courses, memberships, and video content.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "assign_user_access",
+      "display_name": "Assign User Access",
+      "description": "Schedule a time for the action to be performed (ISO 8601 format, e.g., 2024-07-05T13:47:52Z). Leave blank to assign immediately."
+    },
+    {
+      "name": "create_user",
+      "display_name": "Create User",
+      "description": "If set to true, the new user will receive news and updates."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "John Doe",
+      "display_name": "Began to Play Video",
+      "description": "Triggers when a user plays a video for the first time.",
+      "type": "instant"
+    },
+    {
+      "name": "canceled_subscription",
+      "display_name": "Canceled Subscription",
+      "description": "Triggers when a subscription is canceled for a user.",
+      "type": "instant"
+    },
+    {
+      "name": "John",
+      "display_name": "New User",
+      "description": "Triggers when a new user is added to your storefront.",
+      "type": "instant"
+    },
+    {
+      "name": "Jane Smith",
+      "display_name": "Paid Order",
+      "description": "Triggers when a payment is processed for subscriptions, bundles, or content.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

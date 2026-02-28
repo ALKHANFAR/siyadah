@@ -1,0 +1,322 @@
+{
+  "id": "shippo",
+  "displayName": "Shippo",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_order": {
+      "displayName": "Create Order",
+      "description": "Create a new order in Shippo",
+      "props": [
+        {
+          "name": "order_number",
+          "displayName": "Order Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom reference number for the order"
+        },
+        {
+          "name": "order_status",
+          "displayName": "Order Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Current status of the order"
+        },
+        {
+          "name": "placed_at",
+          "displayName": "Order Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When the order was placed by the buyer (mandatory) - Format: 2025-10-31T11:56:29.244Z"
+        },
+        {
+          "name": "total_price",
+          "displayName": "Total Price",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Total price including shipping and tax"
+        },
+        {
+          "name": "subtotal_price",
+          "displayName": "Subtotal Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Price before shipping and tax (optional)"
+        },
+        {
+          "name": "total_tax",
+          "displayName": "Total Tax",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Total tax amount"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency code (e.g., USD, EUR)"
+        },
+        {
+          "name": "from_name",
+          "displayName": "Sender Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the sender"
+        },
+        {
+          "name": "from_company",
+          "displayName": "Sender Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company name of the sender"
+        },
+        {
+          "name": "from_street1",
+          "displayName": "Sender Street Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "from_city",
+          "displayName": "Sender City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "from_state",
+          "displayName": "Sender State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State/Province"
+        },
+        {
+          "name": "from_zip",
+          "displayName": "Sender ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "from_country",
+          "displayName": "Sender Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Two-letter country code (e.g., US)"
+        },
+        {
+          "name": "from_phone",
+          "displayName": "Sender Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "from_email",
+          "displayName": "Sender Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "to_name",
+          "displayName": "Recipient Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the recipient"
+        },
+        {
+          "name": "to_company",
+          "displayName": "Recipient Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company name of the recipient"
+        },
+        {
+          "name": "to_street1",
+          "displayName": "Recipient Street Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "to_city",
+          "displayName": "Recipient City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "City"
+        },
+        {
+          "name": "to_state",
+          "displayName": "Recipient State",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "State/Province"
+        },
+        {
+          "name": "to_zip",
+          "displayName": "Recipient ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "to_country",
+          "displayName": "Recipient Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Two-letter country code (e.g., US)"
+        },
+        {
+          "name": "to_phone",
+          "displayName": "Recipient Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "to_email",
+          "displayName": "Recipient Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_item_title",
+          "displayName": "Item Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name/description of the item (optional)"
+        },
+        {
+          "name": "line_item_quantity",
+          "displayName": "Item Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_item_total_price",
+          "displayName": "Item Total Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Total price for this line item (quantity × unit price)"
+        },
+        {
+          "name": "line_item_sku",
+          "displayName": "Item SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Stock keeping unit"
+        },
+        {
+          "name": "line_item_weight",
+          "displayName": "Item Weight",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Weight of a single item (e.g., \"0.5\")"
+        },
+        {
+          "name": "line_item_weight_unit",
+          "displayName": "Item Weight Unit",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "weight",
+          "displayName": "Total Package Weight",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Total weight of the package for shipping (e.g., \"2.5\")"
+        },
+        {
+          "name": "weight_unit",
+          "displayName": "Package Weight Unit",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Unit for total package weight"
+        },
+        {
+          "name": "shipping_cost",
+          "displayName": "Shipping Cost",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping cost amount (e.g., \"5.99\")"
+        },
+        {
+          "name": "shipping_cost_currency",
+          "displayName": "Shipping Cost Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency for shipping cost"
+        },
+        {
+          "name": "shipping_method",
+          "displayName": "Shipping Method",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping method name (e.g., \"USPS First Class Package\") - optional"
+        },
+        {
+          "name": "additional_line_items",
+          "displayName": "Additional Line Items",
+          "type": "JSON",
+          "required": false,
+          "description": "Additional line items in JSON format. Example: [{\"title\": \"Product 2\", \"quantity\": 2, \"total_price\": \"20.00\"}]"
+        }
+      ]
+    },
+    "find_order": {
+      "displayName": "Find Order",
+      "description": "Search for an order by its ID",
+      "props": [
+        {
+          "name": "order_id",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the order to find"
+        }
+      ]
+    },
+    "find_shipping_label": {
+      "displayName": "Find Shipping Label",
+      "description": "Search for a shipping label by its ID",
+      "props": [
+        {
+          "name": "label_id",
+          "displayName": "Label ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the shipping label to find"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_order": {
+      "displayName": "New Order",
+      "description": "Trigger when a new order is created",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_shipping_label": {
+      "displayName": "New Shipping Label",
+      "description": "Trigger when a new shipping label is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "test_mode",
+          "displayName": "Include Test Labels",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include test shipping labels in the trigger"
+        }
+      ]
+    }
+  }
+}

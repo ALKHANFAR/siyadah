@@ -1,0 +1,57 @@
+{
+  "id": "motion",
+  "package": "@activepieces/piece-motion",
+  "display_name": "Motion",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create-project",
+      "display_name": "Create Project",
+      "description": "Create a new project in Motion"
+    },
+    {
+      "name": "create-task",
+      "display_name": "Create Task",
+      "description": "Creates a new task."
+    },
+    {
+      "name": "find-task",
+      "display_name": "Find Task",
+      "description": "Finds an existing task."
+    },
+    {
+      "name": "get-task",
+      "display_name": "Get Task",
+      "description": "Get details of a specific task by ID."
+    },
+    {
+      "name": "moveTask",
+      "display_name": "Move Task",
+      "description": "Moves a task to a different workspace."
+    },
+    {
+      "name": "update-task",
+      "display_name": "Update Task",
+      "description": "Update an existing task in Motion"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "task-created",
+      "display_name": "Task Created",
+      "description": "Triggers when a new task is created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

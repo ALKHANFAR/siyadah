@@ -1,0 +1,40 @@
+{
+  "id": "camb-ai",
+  "package": "@activepieces/piece-camb-ai",
+  "display_name": "Camb.AI",
+  "display_name_ar": "Camb.AI",
+  "description": "Camb.AI integration",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_text_to_sound",
+      "display_name": "Create Text-to-Sound",
+      "description": "Convert input text into “sound effects” using an AI model."
+    },
+    {
+      "name": "create_text_to_speech",
+      "display_name": "Create Text-to-Speech",
+      "description": "Convert text into speech using a specified voice, language, gender, and age group."
+    },
+    {
+      "name": "create_transcription",
+      "display_name": "Create Transcription",
+      "description": "Creates a task to process speech into readable text."
+    },
+    {
+      "name": "create_translation",
+      "display_name": "Create Translation",
+      "description": "Translate text from a source language to a target language."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/camb-ai"
+}

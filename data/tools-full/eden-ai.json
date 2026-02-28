@@ -1,0 +1,746 @@
+{
+  "id": "eden-ai",
+  "displayName": "Eden AI API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "detect_language": {
+      "displayName": "Detect Language of Text",
+      "description": "Detect the language used in a text using Eden AI. Supports multiple providers and models.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for language detection."
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Analyze",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to detect language for."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4o, grok-2-latest). Leave empty for default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "extract_entities": {
+      "displayName": "Extract Named Entities in Text",
+      "description": "Identify entities (names, places) in text using Eden AI. Supports multiple providers, languages, and models.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for named entity recognition."
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Analyze",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to extract entities from."
+        },
+        {
+          "name": "language",
+          "displayName": "Text Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the input text. Choose \"Auto Detection\" if unsure."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4o, gemini-1.5-flash, grok-2-latest). Leave empty for default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "extract_keywords": {
+      "displayName": "Extract Keywords in Text",
+      "description": "Identify important terms in a text using Eden AI. Supports multiple providers, languages, and models.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for keyword extraction."
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Analyze",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to extract keywords from."
+        },
+        {
+          "name": "language",
+          "displayName": "Text Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the input text. Choose \"Auto Detection\" if unsure."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4o, gpt-4, grok-2-latest). Leave empty for default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "generate_text": {
+      "displayName": "Generate Text",
+      "description": "Generate text completions using various AI providers through Eden AI chat endpoint.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for text generation."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The main prompt or question you want the AI to respond to."
+        },
+        {
+          "name": "system_prompt",
+          "displayName": "System Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "System message to set the behavior and context for the AI assistant (e.g., \"You are a helpful coding assistant\")."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4o, claude-3-sonnet-latest, gemini-2.0-flash). Leave empty for provider-specific defaults."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness (0.0-2.0). Higher values make output more creative."
+        },
+        {
+          "name": "max_completion_tokens",
+          "displayName": "Max Completion Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of tokens to generate in the response."
+        },
+        {
+          "name": "reasoning_effort",
+          "displayName": "Reasoning Effort",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Level of reasoning depth for the response."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails."
+        },
+        {
+          "name": "include_image",
+          "displayName": "Include Image",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include an image in your prompt (for vision-capable models)."
+        },
+        {
+          "name": "image_url",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the image to include in the prompt (only used if \"Include Image\" is enabled)."
+        }
+      ]
+    },
+    "image_generation": {
+      "displayName": "Image Generation",
+      "description": "Create images from text prompts using Eden AI. Supports multiple providers, models, and resolutions.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for image generation."
+        },
+        {
+          "name": "text",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Description of the desired image(s). Be specific and descriptive for best results."
+        },
+        {
+          "name": "resolution",
+          "displayName": "Resolution",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The image resolution (e.g., 512x512, 1024x1024)."
+        },
+        {
+          "name": "num_images",
+          "displayName": "Number of Images",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of images to generate (1-10)."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Specific model to use for image generation. Leave empty for provider default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "invoice_parser": {
+      "displayName": "Invoice Parser",
+      "description": "Extract structured invoice data from files using Eden AI. Supports multiple providers, languages, and document types.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for financial document parsing."
+        },
+        {
+          "name": "file_url",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Public URL to the financial document file (PDF, image, etc)."
+        },
+        {
+          "name": "document_type",
+          "displayName": "Document Type",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The type of financial document to parse."
+        },
+        {
+          "name": "language",
+          "displayName": "Document Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the document. Choose \"Auto Detection\" if unsure."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4o, gpt-4o-mini, gpt-4-turbo). Leave empty for default."
+        },
+        {
+          "name": "file_password",
+          "displayName": "PDF Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for protected PDF files (if applicable)."
+        },
+        {
+          "name": "convert_to_pdf",
+          "displayName": "Convert to PDF",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Convert DOC/DOCX files to PDF format for better compatibility."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "moderate_text": {
+      "displayName": "Moderate Text",
+      "description": "Detect explicit or policy-violating text using Eden AI. Supports multiple providers, languages, and models.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for text moderation."
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Moderate",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to analyze for explicit or policy-violating content."
+        },
+        {
+          "name": "language",
+          "displayName": "Text Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the input text. Choose \"Auto Detection\" if unsure."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., text-moderation-latest, text-moderation-stable). Leave empty for default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "ocr_image": {
+      "displayName": "Extract Text in Image (OCR)",
+      "description": "Extract text from images (OCR) using Eden AI. Supports multiple providers, languages, and bounding box coordinates.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for text extraction."
+        },
+        {
+          "name": "file_url",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Public URL to the image or document file."
+        },
+        {
+          "name": "language",
+          "displayName": "Document Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the text in the image. Choose \"Auto Detection\" if unsure."
+        },
+        {
+          "name": "file_password",
+          "displayName": "PDF Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for protected PDF files (if applicable)."
+        },
+        {
+          "name": "attributes_as_list",
+          "displayName": "Attributes as List",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return extracted data with each attribute as a list instead of list of objects."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "receipt_parser": {
+      "displayName": "Receipt Parser",
+      "description": "Extract structured data from receipts and documents using Eden AI. Supports general data extraction with bounding boxes.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for data extraction."
+        },
+        {
+          "name": "file_url",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Public URL to the document file (PDF, image, etc)."
+        },
+        {
+          "name": "file_password",
+          "displayName": "PDF Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for protected PDF files (if applicable)."
+        },
+        {
+          "name": "convert_to_pdf",
+          "displayName": "Convert to PDF",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Convert DOC/DOCX files to PDF format for better compatibility."
+        },
+        {
+          "name": "attributes_as_list",
+          "displayName": "Attributes as List",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return extracted data with each attribute as a list instead of list of objects."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "spell_check": {
+      "displayName": "Spell Check",
+      "description": "Identify and correct spelling or grammar errors using Eden AI. Supports multiple providers, languages, and models.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for spell checking and grammar correction."
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Check",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to check for spelling or grammar errors."
+        },
+        {
+          "name": "language",
+          "displayName": "Text Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the input text. Choose \"Auto Detection\" if unsure."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4o, gpt-4, grok-2-latest, command). Leave empty for default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "summarize_text": {
+      "displayName": "Summarize Text",
+      "description": "Extract key sentences and create summaries from long text passages using various AI providers.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for text summarization."
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Summarize",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content you want to summarize. Can be articles, documents, or any long-form text."
+        },
+        {
+          "name": "output_sentences",
+          "displayName": "Number of Summary Sentences",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many sentences should the summary contain (1-20)."
+        },
+        {
+          "name": "language",
+          "displayName": "Text Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the input text. Choose \"Auto Detection\" if unsure."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4, gpt-4o, summarize-xlarge). Leave empty for default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "text_to_speech": {
+      "displayName": "Generate Audio From Text",
+      "description": "Convert text to spoken audio using Eden AI. Supports multiple providers, languages, and voice customization.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for text-to-speech synthesis."
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to convert to speech."
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language and locale for the speech synthesis (defaults to en-US if not specified)."
+        },
+        {
+          "name": "option",
+          "displayName": "Voice Gender",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Choose the voice gender for speech synthesis (defaults to Female if not specified)."
+        },
+        {
+          "name": "rate",
+          "displayName": "Speaking Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Adjust speaking rate (-100 to 100, where 0 is normal speed)."
+        },
+        {
+          "name": "pitch",
+          "displayName": "Voice Pitch",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Adjust voice pitch (-100 to 100, where 0 is normal pitch)."
+        },
+        {
+          "name": "volume",
+          "displayName": "Audio Volume",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Adjust audio volume (-100 to 100, where 0 is normal volume)."
+        },
+        {
+          "name": "audio_format",
+          "displayName": "Audio Format",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The audio format for the generated speech (default: MP3)."
+        },
+        {
+          "name": "sampling_rate",
+          "displayName": "Sampling Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Audio sampling rate in Hz (0-200000, 0 for provider default)."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    },
+    "translate_text": {
+      "displayName": "Translate Text",
+      "description": "Translate text into different languages using Eden AI. Supports multiple providers, languages, and models.",
+      "props": [
+        {
+          "name": "provider",
+          "displayName": "Provider",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The AI provider to use for text translation."
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Translate",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to translate."
+        },
+        {
+          "name": "source_language",
+          "displayName": "Source Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The language of the input text. Choose \"Auto Detection\" to automatically detect the language."
+        },
+        {
+          "name": "target_language",
+          "displayName": "Target Language",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The language to translate the text into."
+        },
+        {
+          "name": "model",
+          "displayName": "Specific Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific model to use (e.g., gpt-4o, grok-2-latest). Leave empty for default."
+        },
+        {
+          "name": "fallback_providers",
+          "displayName": "Fallback Providers",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Alternative providers to try if the main provider fails (up to 5)."
+        },
+        {
+          "name": "show_original_response",
+          "displayName": "Include Original Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw provider response in the output for debugging."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

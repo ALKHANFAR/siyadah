@@ -1,0 +1,23 @@
+{
+  "id": "chainalysis-api",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "checkAddressSanction": {
+      "displayName": "Check Address Sanctions",
+      "description": "Check if an address is sanctioned",
+      "props": [
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Address to check for sanctions"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

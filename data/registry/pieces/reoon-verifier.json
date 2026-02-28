@@ -1,0 +1,30 @@
+{
+  "id": "reoon-verifier",
+  "package": "@activepieces/piece-reoon-verifier",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Email validation service that cleans invalid, temporary & unsafe email addresses.",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "bulkVerificationResult",
+      "display_name": "Get Bulk Verification Result",
+      "description": "Retrieves result of bulk verification email by task ID."
+    },
+    {
+      "name": "bulkEmailVerificationTask",
+      "display_name": "Create Bulk Email Verification",
+      "description": "Creates bulk email verification task."
+    },
+    {
+      "name": "verifyEmail",
+      "display_name": "Verify Email",
+      "description": "Verify a single email"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/reoon-verifier"
+}

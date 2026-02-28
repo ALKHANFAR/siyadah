@@ -1,0 +1,385 @@
+{
+  "id": "hubspot",
+  "package": "@activepieces/piece-hubspot",
+  "display_name": "HubSpot",
+  "display_name_ar": "هب سبوت",
+  "description": "Powerful CRM that offers tools for sales, customer service, and marketing automation.",
+  "category": "E_crm",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_contact_to_list",
+      "display_name": "Add contact To List",
+      "description": "Add contact to list"
+    },
+    {
+      "name": "add-contact-to-workflow",
+      "display_name": "Add Contact to Workflow",
+      "description": "Adds a contact to a specified workflow in your HubSpot account."
+    },
+    {
+      "name": "create-associations",
+      "display_name": "Create Associations",
+      "description": "Creates associations between objects"
+    },
+    {
+      "name": "create-blog-post",
+      "display_name": "Create COS Blog Post",
+      "description": "Creates a blog post in you Hubspot COS blog."
+    },
+    {
+      "name": "create-company",
+      "display_name": "Create Company",
+      "description": "Creates a company in Hubspot."
+    },
+    {
+      "name": "create-contact",
+      "display_name": "Create Contact",
+      "description": "Creates a contact in Hubspot."
+    },
+    {
+      "name": "create-custome-object",
+      "display_name": "Create Custom Object",
+      "description": "Creates a custom object in Hubspot."
+    },
+    {
+      "name": "create-deal",
+      "display_name": "Create Deal",
+      "description": "Creates a new deal in Hubspot."
+    },
+    {
+      "name": "create-line-item",
+      "display_name": "Create Line Item",
+      "description": "Creates a line item in Hubspot."
+    },
+    {
+      "name": "create-or-update-contact",
+      "display_name": "Create or Update Contact",
+      "description": "Creates a new contact or updates an existing contact based on email address."
+    },
+    {
+      "name": "create-page",
+      "display_name": "Create Page",
+      "description": "Creates a new landing/site page."
+    },
+    {
+      "name": "create-product",
+      "display_name": "Create Product",
+      "description": "Creates a product in Hubspot."
+    },
+    {
+      "name": "create-ticket",
+      "display_name": "Create Ticket",
+      "description": "Creates a ticket in HubSpot."
+    },
+    {
+      "name": "delete-page",
+      "display_name": "Delete Page",
+      "description": "Deletes an existing landing/site page."
+    },
+    {
+      "name": "find-associations",
+      "display_name": "Find Associations",
+      "description": "Finds associations between objects"
+    },
+    {
+      "name": "find-company",
+      "display_name": "Find Company",
+      "description": "Finds a company by searching."
+    },
+    {
+      "name": "find-contact",
+      "display_name": "Find Contact",
+      "description": "Finds a contact by searching."
+    },
+    {
+      "name": "find-custom-object",
+      "display_name": "Find Custom Object",
+      "description": "Finds a custom object by searching."
+    },
+    {
+      "name": "find-deal",
+      "display_name": "Find Deal",
+      "description": "Finds a deal by searching."
+    },
+    {
+      "name": "find-line-item",
+      "display_name": "Find Line Item",
+      "description": "Finds a line item by searching."
+    },
+    {
+      "name": "find-product",
+      "display_name": "Find Product",
+      "description": "Finds a product by searching."
+    },
+    {
+      "name": "find-ticket",
+      "display_name": "Find Ticket",
+      "description": "Finds a ticket by searching."
+    },
+    {
+      "name": "get-company",
+      "display_name": "Get Company",
+      "description": "Gets a company."
+    },
+    {
+      "name": "get-contact",
+      "display_name": "Get Contact",
+      "description": "Gets a contact."
+    },
+    {
+      "name": "get-custom-object",
+      "display_name": "Get Custom Object",
+      "description": "Gets a custom object."
+    },
+    {
+      "name": "get-deal",
+      "display_name": "Get Deal",
+      "description": "Gets a deal."
+    },
+    {
+      "name": "get-line-item",
+      "display_name": "Get Line Item",
+      "description": "Gets a line item."
+    },
+    {
+      "name": "get-owner-by-email",
+      "display_name": "Get Owner by Email",
+      "description": "Gets an existing owner by email."
+    },
+    {
+      "name": "get-owner-by-id",
+      "display_name": "Get Owner by ID",
+      "description": "Gets an existing owner by ID."
+    },
+    {
+      "name": "get-page",
+      "display_name": "Get Page",
+      "description": "Gets landing/site page Details."
+    },
+    {
+      "name": "get-pipeline-stage-details",
+      "display_name": "Get Pipeline Stage Details",
+      "description": "Finds and retrieves CRM object pipeline stage details."
+    },
+    {
+      "name": "get-product",
+      "display_name": "Get Product",
+      "description": "Gets a product."
+    },
+    {
+      "name": "get-ticket",
+      "display_name": "Get Ticket",
+      "description": "Gets a ticket."
+    },
+    {
+      "name": "remove-associations",
+      "display_name": "Remove Associations",
+      "description": "Removes associations between objects"
+    },
+    {
+      "name": "remove-contact-from-list",
+      "display_name": "Remove Contact from List",
+      "description": "Remove a contact from a specific list."
+    },
+    {
+      "name": "remove-email-subscription",
+      "display_name": "Remove Email Subscription",
+      "description": "Removes email subscription."
+    },
+    {
+      "name": "update-company",
+      "display_name": "Update Company",
+      "description": "Updates a company in Hubspot."
+    },
+    {
+      "name": "update-contact",
+      "display_name": "Update Contact",
+      "description": "Updates a contact in Hubspot."
+    },
+    {
+      "name": "update-custome-object",
+      "display_name": "Update Custom Object",
+      "description": "Updates a custom object in Hubspot."
+    },
+    {
+      "name": "update-deal",
+      "display_name": "Update Deal",
+      "description": "Updates a deal in HubSpot."
+    },
+    {
+      "name": "update-line-item",
+      "display_name": "Update Line Item",
+      "description": "Updates a line item in Hubspot."
+    },
+    {
+      "name": "update-product",
+      "display_name": "Update Product",
+      "description": "Updates a product in Hubspot."
+    },
+    {
+      "name": "update-ticket",
+      "display_name": "Update Ticket",
+      "description": "Updates a ticket in HubSpot."
+    },
+    {
+      "name": "upload-file",
+      "display_name": "Upload File",
+      "description": "Uploads a file to HubSpot File Manager."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "deal-stage-updated",
+      "display_name": "Updated Deal Stage",
+      "description": "Triggers when a deal enters a specified stage.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-email-subscriptions-timeline",
+      "display_name": "New Email Subscriptions Timeline",
+      "description": "Triggers when a new email timeline subscription added for the portal.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-blog-article",
+      "display_name": "New COS Blog Article",
+      "description": "Triggers when a new article is added to your COS blog.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-company-property-change",
+      "display_name": "New Company Property Change",
+      "description": "Triggers when a specified property is updated on a company.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-company",
+      "display_name": "New Company",
+      "description": "Trigger when a new company is added.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-contact-in-list",
+      "display_name": "New Contact in List",
+      "description": "Triggers when a new contact is added to the specified list.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-contact-property-change",
+      "display_name": "New Contact Property Change",
+      "description": "Triggers when a specified property is updated on a contact.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-contact",
+      "display_name": "New Contact",
+      "description": "Trigger when new contact is available.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-custom-object-property-change",
+      "display_name": "New Custom Object Property Change",
+      "description": "Triggers when a specified property is updated on a custom object.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-custom-object",
+      "display_name": "New Custom Object",
+      "description": "Triggers when new custom object is available.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-deal-property-change",
+      "display_name": "New Deal Property Change",
+      "description": "Triggers when a specified property is updated on a deal.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-deal",
+      "display_name": "New Deal",
+      "description": "Trigger when a new deal is added.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-email-event",
+      "display_name": "New Email Event",
+      "description": "Triggers when all,or specific new email event is available.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-engagement",
+      "display_name": "New Engagement",
+      "description": "Triggers when a new engagement is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-form-submission",
+      "display_name": "New Form Submission",
+      "description": "Triggers when a form is submitted.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-line-item",
+      "display_name": "New Line Item",
+      "description": "Triggers when new line item is available.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-or-updated-company",
+      "display_name": "Company Recently Created or Updated",
+      "description": "Triggers when a company recently created or updated.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-or-updated-contact",
+      "display_name": "Contact Recently Created or Updated",
+      "description": "Triggers when a contact recently created or updated.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-or-updated-line-item",
+      "display_name": "Line Item Recently Created or Updated",
+      "description": "Triggers when a line item recently created or updated.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-or-updated-product",
+      "display_name": "Product Recently Created or Updated",
+      "description": "Triggers when a product recently created or updated.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-product",
+      "display_name": "New Product",
+      "description": "Triggers when new product is available.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-task",
+      "display_name": "New Task",
+      "description": "Trigger when a new task is added.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-ticket-property-change",
+      "display_name": "New Ticket Property Change",
+      "description": "Triggers when a specified property is updated on a ticket.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-ticket",
+      "display_name": "New Ticket",
+      "description": "Trigger when new ticket is available.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/hubspot"
+}

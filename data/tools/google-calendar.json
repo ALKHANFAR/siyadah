@@ -1,0 +1,456 @@
+{
+  "id": "google-calendar",
+  "package": "@activepieces/piece-google-calendar",
+  "version": "0.8.3",
+  "source": "https://www.activepieces.com/pieces/google-calendar",
+  "npm": "https://www.npmjs.com/package/@activepieces/piece-google-calendar",
+  "github": "packages/pieces/community/google-calendar/src/index.ts",
+  "displayName": "Google Calendar",
+  "description": "Time-management and scheduling calendar service by Google",
+  "logoUrl": "https://cdn.activepieces.com/pieces/google-calendar.png",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "oauth2",
+    "provider": "google",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar"
+    ]
+  },
+  "triggers": {
+    "new_or_updated_event": {
+      "displayName": "New or Updated Event",
+      "description": "Triggers when an event is added or updated",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "expandRecurringEvent",
+          "displayName": "Expand Recurring Event?",
+          "type": "CHECKBOX",
+          "required": true
+        }
+      ]
+    },
+    "event_cancelled": {
+      "displayName": "Event Cancelled",
+      "description": "Fires when an event is canceled or deleted.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "specific_event",
+          "displayName": "Target Specific Event",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "cancellation_reason",
+          "displayName": "Cancellation Reasons",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false
+        }
+      ]
+    },
+    "event_ends": {
+      "displayName": "Event Ends",
+      "description": "Fires when an event ends.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "specific_event",
+          "displayName": "Target Specific Event",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "event_starts_in": {
+      "displayName": "Event Start (Time Before)",
+      "description": "Fires at a specified amount of time before an event starts (e.g., a reminder).",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "specific_event",
+          "displayName": "Target Specific Event",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "time_value",
+          "displayName": "Time Before",
+          "type": "NUMBER",
+          "required": true
+        },
+        {
+          "name": "time_unit",
+          "displayName": "Time Unit",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "new_calendar": {
+      "displayName": "New Calendar",
+      "description": "Fires when a new calendar is created or becomes accessible.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "access_role_filter",
+          "displayName": "Access Role Filter",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "calendar_name_filter",
+          "displayName": "Calendar Name Filter",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "exclude_shared",
+          "displayName": "Exclude Shared Calendars",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "new_event_matching_search": {
+      "displayName": "New Event Matching Search",
+      "description": "Fires when a new event is created that matches a specified search term.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "search_term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "event_types",
+          "displayName": "Event Types",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "search_fields",
+          "displayName": "Search In Fields",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new_event": {
+      "displayName": "New Event",
+      "description": "Fires when a new event is created in a calendar.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "event_types",
+          "displayName": "Event Types to Monitor",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "search_filter",
+          "displayName": "Search Filter",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "exclude_all_day",
+          "displayName": "Exclude All-Day Events",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    }
+  },
+  "actions": {
+    "google-calendar-add-attendees": {
+      "displayName": "Add Attendees to Event",
+      "description": "Add one or more person to existing event.",
+      "props": [
+        {
+          "name": "eventId",
+          "displayName": "Event ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "attendees",
+          "displayName": "Attendees",
+          "type": "ARRAY",
+          "required": true
+        }
+      ]
+    },
+    "addCalendarToCalendarlist": {
+      "displayName": "Add Calendar to calendarList",
+      "description": "Adds other people's calendars to your calendarList",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Calendar Id",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create_google_calendar_event": {
+      "displayName": "Create Event",
+      "description": "Add Event",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title of the event",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "start_date_time",
+          "displayName": "Start date time of the event",
+          "type": "DATE_TIME",
+          "required": true
+        },
+        {
+          "name": "end_date_time",
+          "displayName": "End date time of the event",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "attachment",
+          "displayName": "Attachment",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "attendees",
+          "displayName": "Attendees",
+          "type": "ARRAY",
+          "required": false
+        },
+        {
+          "name": "guests_can_modify",
+          "displayName": "Guests can modify",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "guests_can_invite_others",
+          "displayName": "Guests can invite others",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "guests_can_see_other_guests",
+          "displayName": "Guests can see other guests",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "send_notifications",
+          "displayName": "Send Notifications",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "create_meet_link",
+          "displayName": "Create Google Meet Link",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "create_quick_event": {
+      "displayName": "Create Quick Event",
+      "description": "Add Quick Calendar Event",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Summary",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "delete_event": {
+      "displayName": "Delete Event",
+      "description": "Deletes an event from Google Calendar.",
+      "props": [
+        {
+          "name": "eventId",
+          "displayName": "Event ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "google_calendar_find_busy_free_periods": {
+      "displayName": "Find Busy/Free Periods in Calendar",
+      "description": "Finds free/busy calendar details from Google Calendar.",
+      "props": [
+        {
+          "name": "calendar_ids",
+          "displayName": "Calendars",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": true
+        }
+      ]
+    },
+    "google_calendar_get_event_by_id": {
+      "displayName": "Get Event by ID",
+      "description": "Fetch event details by its unique ID from Google Calendar.",
+      "props": [
+        {
+          "name": "event_id",
+          "displayName": "Event ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "max_attendees",
+          "displayName": "Max Attendees",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "time_zone",
+          "displayName": "Time Zone",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "google_calendar_get_events": {
+      "displayName": "Get all Events",
+      "description": "Get Events",
+      "props": [
+        {
+          "name": "event_types",
+          "displayName": "Event types",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "search",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "start_date",
+          "displayName": "Date from",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "end_date",
+          "displayName": "Date to",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "singleEvents",
+          "displayName": "Expand Recurring Event?",
+          "type": "CHECKBOX",
+          "required": true
+        }
+      ]
+    },
+    "update_event": {
+      "displayName": "Update Event",
+      "description": "Updates an event in Google Calendar.",
+      "props": [
+        {
+          "name": "eventId",
+          "displayName": "Event ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "title",
+          "displayName": "Title of the event",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "start_date_time",
+          "displayName": "Start date time of the event",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "end_date_time",
+          "displayName": "End date time of the event",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "attendees",
+          "displayName": "Attendees",
+          "type": "ARRAY",
+          "required": false
+        },
+        {
+          "name": "guests_can_modify",
+          "displayName": "Guests can modify",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "guests_can_invite_others",
+          "displayName": "Guests can invite others",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "guests_can_see_other_guests",
+          "displayName": "Guests can see other guests",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  }
+}

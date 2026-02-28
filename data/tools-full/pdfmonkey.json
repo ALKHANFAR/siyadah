@@ -1,0 +1,66 @@
+{
+  "id": "pdfmonkey",
+  "displayName": "PDFMonkey",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "deleteDocument": {
+      "displayName": "Delete Document",
+      "description": "Deletes a document.",
+      "props": []
+    },
+    "findDocument": {
+      "displayName": "Find Document",
+      "description": "Finds a document by ID.",
+      "props": []
+    },
+    "generateDocument": {
+      "displayName": "Generate Document",
+      "description": "Generates a new document using a specified template.",
+      "props": [
+        {
+          "name": "payload",
+          "displayName": "Payload",
+          "type": "JSON",
+          "required": true,
+          "description": "Data to use for the Document generation."
+        },
+        {
+          "name": "meta",
+          "displayName": "Meta",
+          "type": "JSON",
+          "required": false,
+          "description": "Meta-Data to attach to the Document."
+        },
+        {
+          "name": "fileName",
+          "displayName": "Custom File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Document Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "documentGenerated": {
+      "displayName": "Document Generated",
+      "description": "Triggers when a document generation completes successfully.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

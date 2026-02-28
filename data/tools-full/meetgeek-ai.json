@@ -1,0 +1,77 @@
+{
+  "id": "meetgeek-ai",
+  "displayName": "Meetgeek",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "getHighlights": {
+      "displayName": "Get Highlights",
+      "description": "Retrieves all highlights for a meeting by meeting ID",
+      "props": []
+    },
+    "getMeetingDetails": {
+      "displayName": "Get Meeting Details",
+      "description": "Retrieves meeting details including host, participants, timestamps, and source information",
+      "props": []
+    },
+    "getMeetingsSummaryInsights": {
+      "displayName": "Get Meeting Summary & AI Insights",
+      "description": "Retrieves the meeting summary and AI-generated insights",
+      "props": []
+    },
+    "getTeamMeetings": {
+      "displayName": "Get Team Meetings",
+      "description": "Retrieves paginated past meetings of a team",
+      "props": []
+    },
+    "getTranscript": {
+      "displayName": "Get Transcript",
+      "description": "Retrieves all transcript sentences for a meeting with pagination support",
+      "props": []
+    },
+    "uploadRecording": {
+      "displayName": "Upload Recording",
+      "description": "Upload a video or audio file for analysis and receive a notification upon completion via webhook",
+      "props": [
+        {
+          "name": "download_url",
+          "displayName": "Download URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A publicly accessible URL that initiates a direct download when accessed (e.g., S3 signed URL)"
+        },
+        {
+          "name": "language_code",
+          "displayName": "Language Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code for the recording (e.g., en-US, es-ES, fr-FR). See MeetGeek documentation for all available options."
+        },
+        {
+          "name": "template_name",
+          "displayName": "Template Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Meeting template to use for analysis (e.g., \"General meeting\", \"Sales call\", \"Interview\"). See MeetGeek documentation for all available templates."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newMeeting": {
+      "displayName": "New Meeting",
+      "description": "Triggers when a meeting analysis is completed and highlights are available.\n",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

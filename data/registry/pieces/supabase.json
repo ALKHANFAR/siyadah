@@ -1,0 +1,57 @@
+{
+  "id": "supabase",
+  "package": "@activepieces/piece-supabase",
+  "display_name": "Supabase",
+  "display_name_ar": "سوبابيس",
+  "description": "The open-source Firebase alternative",
+  "category": "J_database",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_row",
+      "display_name": "Create Row",
+      "description": "Create a new row in a table"
+    },
+    {
+      "name": "delete_rows",
+      "display_name": "Delete Rows",
+      "description": "Remove rows matching filter criteria from a table"
+    },
+    {
+      "name": "search_rows",
+      "display_name": "Search Rows",
+      "description": "Search for rows in a table with filters and pagination"
+    },
+    {
+      "name": "update_row",
+      "display_name": "Update Row",
+      "description": "Update rows in a table based on filter criteria"
+    },
+    {
+      "name": "upload-file",
+      "display_name": "Upload File",
+      "description": "Upload a file to Supabase Storage"
+    },
+    {
+      "name": "upsert_row",
+      "display_name": "Upsert Row",
+      "description": "Insert or update a row in a table"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_row",
+      "display_name": "New Row",
+      "description": "Fires when a new row is created in a table",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/supabase"
+}

@@ -1,0 +1,122 @@
+{
+  "id": "chain-aware",
+  "displayName": "ChainAware.AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "auditWalletAddress": {
+      "displayName": "Audit Wallet Address",
+      "description": "Audit a wallet address for fraud risk",
+      "props": [
+        {
+          "name": "network",
+          "displayName": "Network",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "walletAddress",
+          "displayName": "Wallet Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "creditScore": {
+      "displayName": "Credit Score",
+      "description": "Get a user's credit score",
+      "props": [
+        {
+          "name": "network",
+          "displayName": "Network",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "walletAddress",
+          "displayName": "Wallet Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "fraudCheck": {
+      "displayName": "Fraud Check",
+      "description": "Calculate fraud probability for a wallet address",
+      "props": [
+        {
+          "name": "network",
+          "displayName": "Network",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "walletAddress",
+          "displayName": "Wallet Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "onlyFraud",
+          "displayName": "Only Fraud",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "rugPullCheck": {
+      "displayName": "Rug Pull Check",
+      "description": "Calculate fraud probability for a contract address",
+      "props": [
+        {
+          "name": "network",
+          "displayName": "Network",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "contractAddress",
+          "displayName": "Contract Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "walletSegment": {
+      "displayName": "Wallet Segment",
+      "description": "Get wallet behaviour information",
+      "props": [
+        {
+          "name": "network",
+          "displayName": "Network",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "walletAddress",
+          "displayName": "Wallet Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

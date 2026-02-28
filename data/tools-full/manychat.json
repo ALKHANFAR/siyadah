@@ -1,0 +1,183 @@
+{
+  "id": "manychat",
+  "displayName": "Manychat",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addTagToUser": {
+      "displayName": "Add Tag to User",
+      "description": "Adds a tag to a user.",
+      "props": []
+    },
+    "createSubscriber": {
+      "displayName": "Create Subscriber",
+      "description": "Creates a Unified or a Whatsapp subscriber.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fill in at least one field: phone or email or whatsapp phone."
+        },
+        {
+          "name": "whatsapp_phone",
+          "displayName": "WhatsApp Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fill in at least one field: phone or email or whatsapp phone."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fill in at least one field: phone or email or whatsapp phone."
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "has_opt_in_sms",
+          "displayName": "SMS Opt-in",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "has_opt_in_email",
+          "displayName": "Email Opt-in",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "consent_phrase",
+          "displayName": "Consent Phrase",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The consent phrase provided by the subscriber."
+        }
+      ]
+    },
+    "findUserByCustomField": {
+      "displayName": "Find User by Custom Field",
+      "description": "Finds a user by custom field.",
+      "props": [
+        {
+          "name": "field",
+          "displayName": "Custom Field",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to search for."
+        }
+      ]
+    },
+    "findUserByName": {
+      "displayName": "Find User by Name",
+      "description": "Finds a user by name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide user's full name to search."
+        }
+      ]
+    },
+    "removeTagFromUser": {
+      "displayName": "Remove Tag from User",
+      "description": "Remove a tag from a user.",
+      "props": []
+    },
+    "sendContentToUser": {
+      "displayName": "Send Content to User",
+      "description": "Sends a content to a user.",
+      "props": [
+        {
+          "name": "platform",
+          "displayName": "Platform",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The platform to send the content to."
+        },
+        {
+          "name": "content_type",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of content to send."
+        },
+        {
+          "name": "text_content",
+          "displayName": "Text Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The text content to send. Required when content type is Text."
+        },
+        {
+          "name": "media_url",
+          "displayName": "Media URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the media to send (image, video, audio, or file). Required for media content types."
+        },
+        {
+          "name": "message_tag",
+          "displayName": "Message Tag",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The tag to use for the message."
+        }
+      ]
+    },
+    "setCustomField": {
+      "displayName": "Set Custom Field",
+      "description": "Ass or Updates a custom field value for a user.",
+      "props": [
+        {
+          "name": "field_id",
+          "displayName": "Custom Field",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "field_value",
+          "displayName": "Field Value",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

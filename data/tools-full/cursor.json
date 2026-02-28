@@ -1,0 +1,212 @@
+{
+  "id": "cursor",
+  "displayName": "Cursor",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_followup_instruction": {
+      "displayName": "Add Followup Instruction to Agent",
+      "description": "Adds follow-up instructions to a running cloud agent",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Instruction Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The follow-up instruction text for the agent"
+        },
+        {
+          "name": "images",
+          "displayName": "Images",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Optional images to include with the instruction (max 5)"
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "Image file"
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Image width in pixels"
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Image height in pixels"
+        }
+      ]
+    },
+    "delete_agent": {
+      "displayName": "Delete Agent",
+      "description": "Delete a cloud agent. This action is permanent and cannot be undone.",
+      "props": []
+    },
+    "find_agent_status": {
+      "displayName": "Find Agent Status",
+      "description": "Retrieve the current status and results of a cloud agent",
+      "props": []
+    },
+    "launch_agent": {
+      "displayName": "Launch Agent",
+      "description": "Start a new cloud agent to work on your repository",
+      "props": [
+        {
+          "name": "promptText",
+          "displayName": "Task Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The instruction text for the agent"
+        },
+        {
+          "name": "images",
+          "displayName": "Images",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Optional images to include with the prompt (max 5)"
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "Image file"
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Image width in pixels"
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Image height in pixels"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The LLM to use (e.g., claude-4-sonnet). Leave empty to use the default model."
+        },
+        {
+          "name": "repository",
+          "displayName": "Repository URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "GitHub repository URL (e.g., https://github.com/your-org/your-repo)"
+        },
+        {
+          "name": "ref",
+          "displayName": "Base Branch/Ref",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Git ref (branch name, tag, or commit hash) to use as the base branch"
+        },
+        {
+          "name": "autoCreatePr",
+          "displayName": "Auto Create Pull Request",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically create a pull request when the agent completes"
+        },
+        {
+          "name": "openAsCursorGithubApp",
+          "displayName": "Open as Cursor GitHub App",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Open the pull request as the Cursor GitHub App instead of as the user. Only applies if auto-create PR is enabled."
+        },
+        {
+          "name": "skipReviewerRequest",
+          "displayName": "Skip Reviewer Request",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Skip adding the user as a reviewer to the pull request. Only applies if auto-create PR is enabled and opened as Cursor GitHub App."
+        },
+        {
+          "name": "branchName",
+          "displayName": "Custom Branch Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom branch name for the agent to create"
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to receive webhook notifications about agent status changes"
+        },
+        {
+          "name": "webhookSecret",
+          "displayName": "Webhook Secret",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secret key for webhook payload verification (minimum 32 characters)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "agent_pull_request_created": {
+      "displayName": "Agent Pull Request Created",
+      "description": "Triggers when a background agent creates a pull request",
+      "type": "POLLING",
+      "props": []
+    },
+    "agent_status_changed_webhook": {
+      "displayName": "Agent Status Changed (Webhook)",
+      "description": "Triggers when an agent status changes (ERROR or FINISHED). Configure this webhook URL when launching an agent.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookSecret",
+          "displayName": "Webhook Secret",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional webhook secret for signature verification. Must match the secret used when launching the agent."
+        }
+      ]
+    },
+    "agent_status_equals": {
+      "displayName": "Agent Status Equals",
+      "description": "Triggers when a Cursor agent has the specified status (e.g., \"FINISHED\", \"FAILED\")",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The status to watch for"
+        }
+      ]
+    },
+    "new_agent_conversation_message": {
+      "displayName": "New Agent Conversation Message",
+      "description": "Triggers when a new message appears in a specific agent\\",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_agent": {
+      "displayName": "New Agent",
+      "description": "Triggers when a new Cursor agent is created or when agent status changes",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

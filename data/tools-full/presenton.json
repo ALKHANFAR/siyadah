@@ -1,0 +1,154 @@
+{
+  "id": "presenton",
+  "displayName": "Presenton",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate_presentations": {
+      "displayName": "Generate Presentations (async)",
+      "description": "Create an asynchronous presentation generation task at Presenton and return the created task.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The content for generating the presentation"
+        },
+        {
+          "name": "instructions",
+          "displayName": "Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Instruction for generating the presentation (optional)."
+        },
+        {
+          "name": "tone",
+          "displayName": "Tone",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Tone to use for the text"
+        },
+        {
+          "name": "verbosity",
+          "displayName": "Verbosity",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How verbose the text should be"
+        },
+        {
+          "name": "slides_markdown",
+          "displayName": "Slides markdown",
+          "type": "ARRAY",
+          "required": false,
+          "description": "An array of markdown strings for each slide (optional)."
+        },
+        {
+          "name": "markdown_emphasis",
+          "displayName": "Markdown emphasis",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to emphasize the markdown"
+        },
+        {
+          "name": "web_search",
+          "displayName": "Enable web search",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to enable web search"
+        },
+        {
+          "name": "image_type",
+          "displayName": "Image type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of image to generate"
+        },
+        {
+          "name": "theme",
+          "displayName": "Theme",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Theme to use for the presentation (e.g. edge-yellow, light-rose)"
+        },
+        {
+          "name": "n_slides",
+          "displayName": "Number of slides",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of slides to generate"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language for the presentation"
+        },
+        {
+          "name": "template",
+          "displayName": "Template",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Template to use for the presentation"
+        },
+        {
+          "name": "include_table_of_contents",
+          "displayName": "Include table of contents",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include a table of contents"
+        },
+        {
+          "name": "include_title_slide",
+          "displayName": "Include title slide",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include a title slide"
+        },
+        {
+          "name": "allow_access_to_user_info",
+          "displayName": "Allow access to user's info",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to allow access to user's info"
+        },
+        {
+          "name": "files",
+          "displayName": "Files",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of file identifiers uploaded via Presenton files API (optional)."
+        },
+        {
+          "name": "export_as",
+          "displayName": "Export as",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Export format"
+        },
+        {
+          "name": "trigger_webhook",
+          "displayName": "Trigger webhook",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to trigger subscribed webhooks"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newPresentation": {
+      "displayName": "New Presentation",
+      "description": "Triggers when a new presentation is created in Presenton.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

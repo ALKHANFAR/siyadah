@@ -1,0 +1,46 @@
+{
+  "id": "quickbooks",
+  "displayName": "Quickbooks Online",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_customer": {
+      "displayName": "New Customer",
+      "description": "Triggers when a new customer is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_deposit": {
+      "displayName": "New Deposit",
+      "description": "Triggers when a Deposit is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_expense": {
+      "displayName": "New Expense (Purchase)",
+      "description": "Triggers when an Expense (Purchase) is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_invoice": {
+      "displayName": "New Invoice",
+      "description": "Triggers when an invoice is created .",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_transfer": {
+      "displayName": "New Transfer",
+      "description": "Triggers when a Transfer is created.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "stripe",
+  "package": "@activepieces/piece-stripe",
+  "display_name": "Secret API Key",
+  "display_name_ar": "",
+  "description": "Secret key acquired from your Stripe dashboard",
+  "category": "F_ecommerce",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "cancel_subscription",
+      "display_name": "Cancel Subscription",
+      "description": "Cancel an existing subscription, either immediately or at the end of the current billing period."
+    },
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Create a customer in stripe"
+    },
+    {
+      "name": "create_invoice",
+      "display_name": "Create Invoice",
+      "description": "Create an Invoice in stripe"
+    },
+    {
+      "name": "create_payment_intent",
+      "display_name": "Create Payment (Payment Intent)",
+      "description": "Creates a new payment intent to start a payment flow."
+    },
+    {
+      "name": "create_payment_link",
+      "display_name": "Create Payment Link",
+      "description": "Creates a shareable, Stripe-hosted payment link for one-time purchases or subscriptions."
+    },
+    {
+      "name": "create_price",
+      "display_name": "Create Price",
+      "description": "Create a price (one-time or recurring), associated with a product."
+    },
+    {
+      "name": "create_product",
+      "display_name": "Create Product",
+      "description": "Create a new product object in Stripe."
+    },
+    {
+      "name": "create_refund",
+      "display_name": "Create a Refund",
+      "description": "Create a full or partial refund for a payment."
+    },
+    {
+      "name": "create_subscription",
+      "display_name": "Create Subscription",
+      "description": "Start a subscription for a customer with specified items/prices."
+    },
+    {
+      "name": "deactivate_payment_link",
+      "display_name": "Deactivate Payment Link",
+      "description": "Disable or deactivate a Payment Link so it can no longer be used."
+    },
+    {
+      "name": "find_invoice",
+      "display_name": "Find Invoice",
+      "description": "Finds an invoice by its unique ID."
+    },
+    {
+      "name": "retrieve_customer",
+      "display_name": "Retrieve Customer",
+      "description": "Retrieve a customer in stripe by id"
+    },
+    {
+      "name": "retrieve_invoice",
+      "display_name": "Retrieve an Invoice",
+      "description": "Retrieves the details of an existing invoice by its ID."
+    },
+    {
+      "name": "retrieve_payment_intent",
+      "display_name": "Find Payment (by Payment Intent ID)",
+      "description": "Retrieves the details of a payment by its unique Payment Intent ID."
+    },
+    {
+      "name": "retrieve_payout",
+      "display_name": "Retrieve a Payout",
+      "description": "Retrieves the details of an existing payout by its ID."
+    },
+    {
+      "name": "search_customer",
+      "display_name": "Search Customer",
+      "description": "Search for a customer in stripe by email"
+    },
+    {
+      "name": "search_subscriptions",
+      "display_name": "Search Subscriptions",
+      "description": "Search for subscriptions by price ID, status, customer ID and other filters, including customer details"
+    },
+    {
+      "name": "update_customer",
+      "display_name": "Update Customer",
+      "description": "Modify an existing customer’s details."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

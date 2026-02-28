@@ -1,0 +1,32 @@
+{
+  "id": "lets-calendar",
+  "package": "@activepieces/piece-lets-calendar",
+  "display_name": "Let's Calendar",
+  "display_name_ar": "",
+  "description": "Make custom API calls to Let's Calendar. Note: An access token must first be generated using your client key and secret key via the /access_token endpoint. This access token is then used to authenticate all subsequent API requests by adding it to the Authorization header as 'Bearer ${accessToken}'.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addContactToCampaign",
+      "display_name": "Add Contact to Campaign",
+      "description": "Add a single contact to a campaign"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newCampaign",
+      "display_name": "New Campaign",
+      "description": "Trigger when a new campaign is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

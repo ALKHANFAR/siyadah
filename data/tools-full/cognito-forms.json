@@ -1,0 +1,88 @@
+{
+  "id": "cognito-forms",
+  "displayName": "Cognito Forms",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_entry": {
+      "displayName": "Create Entry",
+      "description": "Creates a new entry.",
+      "props": []
+    },
+    "delete_entry": {
+      "displayName": "Delete Entry",
+      "description": "Deletes a specified entry.",
+      "props": [
+        {
+          "name": "entryId",
+          "displayName": "Entry ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the ID of the entry to delete."
+        }
+      ]
+    },
+    "get_entry": {
+      "displayName": "Get Entry",
+      "description": "Gets a specified entry.",
+      "props": [
+        {
+          "name": "entryId",
+          "displayName": "Entry ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the ID of the entry to retrieve."
+        }
+      ]
+    },
+    "update_entry": {
+      "displayName": "Update Entry",
+      "description": "Update an existing entry.",
+      "props": [
+        {
+          "name": "entryId",
+          "displayName": "Entry ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the ID of the entry you want to update."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "entry_updated": {
+      "displayName": "Entry Updated",
+      "description": "Triggers when an existing form entry is updated.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_entry": {
+      "displayName": "New Entry",
+      "description": "Triggers when a new form entry is submitted.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

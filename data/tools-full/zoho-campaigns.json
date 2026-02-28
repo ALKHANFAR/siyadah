@@ -1,0 +1,84 @@
+{
+  "id": "zoho-campaigns",
+  "displayName": "Zoho Campaigns",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "addContactToMailingList": {
+      "displayName": "Add Contact to Mailing List",
+      "description": "Add contacts to your mailing lists.",
+      "props": []
+    },
+    "addTagToContact": {
+      "displayName": "Add Tag to Contact",
+      "description": "Apply a tag to a contact by email. Creates the tag if it doesn't exist.",
+      "props": []
+    },
+    "addUpdateContact": {
+      "displayName": "Add/Update Contact",
+      "description": "Add a new contact or update an existing one. Confirmation email sent based on mailing list settings.",
+      "props": []
+    },
+    "cloneCampaign": {
+      "displayName": "Clone Campaign",
+      "description": "Clone an existing campaign, optionally renaming.",
+      "props": []
+    },
+    "createCampaign": {
+      "displayName": "Create Campaign",
+      "description": "Create a new campaign with campaign name, subject, topic, sender name/address, and mailing list.",
+      "props": []
+    },
+    "findCampaign": {
+      "displayName": "Find Campaign",
+      "description": "Locate an existing campaign by campaign name.",
+      "props": []
+    },
+    "findContact": {
+      "displayName": "Find Contact",
+      "description": "Look up an existing contact by email address.",
+      "props": []
+    },
+    "removeTag": {
+      "displayName": "Remove Tag",
+      "description": "Remove a tag from a contact.",
+      "props": []
+    },
+    "sendCampaign": {
+      "displayName": "Send Campaign",
+      "description": "Send a campaign that has been created or cloned.",
+      "props": []
+    },
+    "unsubscribeContact": {
+      "displayName": "Unsubscribe Contact",
+      "description": "Remove a contact from a mailing list.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newCampaign": {
+      "displayName": "New Campaign",
+      "description": "Fires when a new campaign is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newContact": {
+      "displayName": "New Contact",
+      "description": "Fires when a new contact is added to a selected mailing list.",
+      "type": "POLLING",
+      "props": []
+    },
+    "unsubscribe": {
+      "displayName": "Unsubscribe",
+      "description": "Fires when a contact is removed from a mailing list or unsubscribed.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

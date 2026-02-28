@@ -1,0 +1,107 @@
+{
+  "id": "spotify",
+  "package": "@activepieces/piece-spotify",
+  "display_name": "Spotify",
+  "display_name_ar": "",
+  "description": "Music for everyone",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_library_items",
+      "display_name": "Add items to library",
+      "description": "Add tracks, episodes, albums, shows, audiobooks, users or playlists to your library"
+    },
+    {
+      "name": "add_playlist_items",
+      "display_name": "Add items to playlist",
+      "description": "Adds tracks or episodes to the playlist"
+    },
+    {
+      "name": "create_playlist",
+      "display_name": "Create Playlist",
+      "description": "Creates a new playlist for the current user"
+    },
+    {
+      "name": "get_playback_state",
+      "display_name": "Get Playback State",
+      "description": "Retrieves the current playback state of the player"
+    },
+    {
+      "name": "get_playlist_info",
+      "display_name": "Get Playlist Info",
+      "description": "Retrieves details of a playlist"
+    },
+    {
+      "name": "get_playlist_items",
+      "display_name": "Get Playlist Items",
+      "description": "Retrieves the list of items in the playlist"
+    },
+    {
+      "name": "get_playlists",
+      "display_name": "Get Playlists",
+      "description": "Retrieves the list of playlists that you created or followed"
+    },
+    {
+      "name": "get_saved_tracks",
+      "display_name": "Get Saved Tracks",
+      "description": "Retrieves the list of saved tracks for the current user"
+    },
+    {
+      "name": "pause",
+      "display_name": "Pause",
+      "description": "Pauses the playback"
+    },
+    {
+      "name": "play",
+      "display_name": "Play / Resume",
+      "description": "Resumes or starts playback"
+    },
+    {
+      "name": "remove_library_items",
+      "display_name": "Remove items from your library",
+      "description": "Remove tracks, episodes, albums, shows, audiobooks, users or playlists from your library"
+    },
+    {
+      "name": "remove_playlist_items",
+      "display_name": "Remove items from playlist",
+      "description": "Removes tracks or episodes from the playlist"
+    },
+    {
+      "name": "reorder_playlist",
+      "display_name": "Reorder playlist",
+      "description": "Reorders items in the playlist"
+    },
+    {
+      "name": "search",
+      "display_name": "Search",
+      "description": "Searches for tracks, artists, albums, etc."
+    },
+    {
+      "name": "set_volume",
+      "display_name": "Set Volume",
+      "description": "Sets the volume of the player"
+    },
+    {
+      "name": "update_playlist",
+      "display_name": "Update Playlist",
+      "description": "Updates details of the playlist"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "playlist_items_changed",
+      "display_name": "Playlist Items Changed",
+      "description": "Triggers when the items of a playlist change",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

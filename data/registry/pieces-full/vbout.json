@@ -1,0 +1,65 @@
+{
+  "id": "vbout",
+  "package": "@activepieces/piece-vbout",
+  "display_name": "VBOUT",
+  "display_name_ar": "",
+  "description": "Marketing automation platform for agencies",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "vbout_add_contact",
+      "display_name": "Add Contact to List",
+      "description": "Adds a contact to a given email list."
+    },
+    {
+      "name": "vbout_add_tag",
+      "display_name": "Add Tag to Contact",
+      "description": "Adds the tag to the contact."
+    },
+    {
+      "name": "vbout_add_email_marketing_campaign",
+      "display_name": "Create Email Marketing Campaign",
+      "description": "Creates a new email campaign for specific list."
+    },
+    {
+      "name": "vbout_create_email_list",
+      "display_name": "Create Email List",
+      "description": "Creates a new email list."
+    },
+    {
+      "name": "vbout_create_social_media_message",
+      "display_name": "Create Social Media Message",
+      "description": "Post a message to one of your social media channel."
+    },
+    {
+      "name": "vbout_get_contact_by_email",
+      "display_name": "Get Contact by Email",
+      "description": "Retrieves the contact by email."
+    },
+    {
+      "name": "vbout_get_email_list",
+      "display_name": "Get List Details with Custom Fields",
+      "description": "Retrieves specific list details with custom fields."
+    },
+    {
+      "name": "vbout_remove_tag",
+      "display_name": "Remove Tags from Contact",
+      "description": "Removes tags from an existing contact."
+    },
+    {
+      "name": "vbout_unsubscribe_contact",
+      "display_name": "Unsubscribe Contact",
+      "description": "Unsubscribes an existing contact in a given email list."
+    },
+    {
+      "name": "vbout_update_contact",
+      "display_name": "Update Contact",
+      "description": "Updates a contact in a given email list."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

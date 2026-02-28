@@ -1,0 +1,831 @@
+{
+  "id": "browserless",
+  "displayName": "Browserless",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "capture_screenshot": {
+      "displayName": "Capture Screenshot",
+      "description": "Take a screenshot of a web page",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the page to capture"
+        },
+        {
+          "name": "imageType",
+          "displayName": "Image Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the screenshot image"
+        },
+        {
+          "name": "quality",
+          "displayName": "Quality",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Image quality (0-100, only for JPEG)"
+        },
+        {
+          "name": "fullPage",
+          "displayName": "Full Page",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Capture the full scrollable page"
+        },
+        {
+          "name": "width",
+          "displayName": "Viewport Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width of the browser viewport in pixels"
+        },
+        {
+          "name": "height",
+          "displayName": "Viewport Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Height of the browser viewport in pixels"
+        },
+        {
+          "name": "waitForSelector",
+          "displayName": "Wait for Selector",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selector to wait for before taking screenshot"
+        },
+        {
+          "name": "delay",
+          "displayName": "Delay (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delay in milliseconds before taking screenshot"
+        },
+        {
+          "name": "omitBackground",
+          "displayName": "Omit Background",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Hide default white background for transparent screenshots"
+        },
+        {
+          "name": "clipX",
+          "displayName": "Clip X Position",
+          "type": "NUMBER",
+          "required": false,
+          "description": "X coordinate of the top-left corner for clipping"
+        },
+        {
+          "name": "clipY",
+          "displayName": "Clip Y Position",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Y coordinate of the top-left corner for clipping"
+        },
+        {
+          "name": "clipWidth",
+          "displayName": "Clip Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width of the clipping area"
+        },
+        {
+          "name": "clipHeight",
+          "displayName": "Clip Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Height of the clipping area"
+        }
+      ]
+    },
+    "generate_pdf": {
+      "displayName": "Generate PDF",
+      "description": "Convert a web page to PDF",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL of the page to convert to PDF"
+        },
+        {
+          "name": "html",
+          "displayName": "HTML Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML content to render as PDF (alternative to URL)"
+        },
+        {
+          "name": "format",
+          "displayName": "Paper Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Paper format for the PDF"
+        },
+        {
+          "name": "landscape",
+          "displayName": "Landscape",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use landscape orientation"
+        },
+        {
+          "name": "printBackground",
+          "displayName": "Print Background",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include background graphics"
+        },
+        {
+          "name": "marginTop",
+          "displayName": "Top Margin",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Top margin (e.g., \"10mm\", \"0.4in\")"
+        },
+        {
+          "name": "marginRight",
+          "displayName": "Right Margin",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Right margin (e.g., \"10mm\", \"0.4in\")"
+        },
+        {
+          "name": "marginBottom",
+          "displayName": "Bottom Margin",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Bottom margin (e.g., \"10mm\", \"0.4in\")"
+        },
+        {
+          "name": "marginLeft",
+          "displayName": "Left Margin",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Left margin (e.g., \"10mm\", \"0.4in\")"
+        },
+        {
+          "name": "headerTemplate",
+          "displayName": "Header Template",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML template for the print header"
+        },
+        {
+          "name": "footerTemplate",
+          "displayName": "Footer Template",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML template for the print footer"
+        },
+        {
+          "name": "displayHeaderFooter",
+          "displayName": "Display Header/Footer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Display header and footer"
+        },
+        {
+          "name": "scale",
+          "displayName": "Scale",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Scale of the webpage rendering (0.1 - 2.0)"
+        },
+        {
+          "name": "waitForSelector",
+          "displayName": "Wait for Selector",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selector to wait for before generating PDF"
+        },
+        {
+          "name": "waitForSelectorTimeout",
+          "displayName": "Wait for Selector Timeout",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in milliseconds for waiting for selector"
+        },
+        {
+          "name": "waitForSelectorVisible",
+          "displayName": "Wait for Selector Visible",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for selector to be visible"
+        },
+        {
+          "name": "waitForSelectorHidden",
+          "displayName": "Wait for Selector Hidden",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for selector to be hidden"
+        },
+        {
+          "name": "preferCSSPageSize",
+          "displayName": "Prefer CSS Page Size",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Give any CSS @page size declared in the page priority over format"
+        },
+        {
+          "name": "pageRanges",
+          "displayName": "Page Ranges",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Paper ranges to print, e.g. \"1-5, 8, 11-13\""
+        },
+        {
+          "name": "width",
+          "displayName": "Custom Width",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom width of paper (e.g., \"8.5in\", \"210mm\")"
+        },
+        {
+          "name": "height",
+          "displayName": "Custom Height",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom height of paper (e.g., \"11in\", \"297mm\")"
+        },
+        {
+          "name": "omitBackground",
+          "displayName": "Omit Background",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Hide default white background and allow transparent PDFs"
+        },
+        {
+          "name": "tagged",
+          "displayName": "Tagged PDF",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Generate tagged (accessible) PDF"
+        },
+        {
+          "name": "outline",
+          "displayName": "Generate Outline",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Generate document outline"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum time to wait for the page to load"
+        },
+        {
+          "name": "waitForFunction",
+          "displayName": "Wait for Function",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JavaScript function to wait for before generating PDF"
+        },
+        {
+          "name": "waitForFunctionPolling",
+          "displayName": "Wait for Function Polling",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Polling interval for wait function (\"raf\", \"mutation\", or number in ms)"
+        },
+        {
+          "name": "waitForFunctionTimeout",
+          "displayName": "Wait for Function Timeout",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in milliseconds for wait function (0 to disable)"
+        },
+        {
+          "name": "userAgent",
+          "displayName": "User Agent",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom user agent string to use for the request"
+        },
+        {
+          "name": "waitForTimeout",
+          "displayName": "Wait Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in milliseconds to wait before generating PDF"
+        },
+        {
+          "name": "bestAttempt",
+          "displayName": "Best Attempt",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Attempt to proceed when awaited events fail or timeout"
+        }
+      ]
+    },
+    "get_website_performance": {
+      "displayName": "Get Website Performance",
+      "description": "Analyze website performance metrics using Lighthouse",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the website to analyze"
+        },
+        {
+          "name": "categories",
+          "displayName": "Performance Categories",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Select which performance categories to analyze (performance, accessibility, best-practices, seo, pwa)"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "device",
+          "displayName": "Device Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Device type for performance analysis"
+        },
+        {
+          "name": "throttling",
+          "displayName": "Network Throttling",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Network throttling simulation"
+        },
+        {
+          "name": "onlyCategories",
+          "displayName": "Only Category Scores",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only category scores without detailed audit results"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Locale for the analysis (e.g., en-US, de-DE)"
+        },
+        {
+          "name": "userAgent",
+          "displayName": "User Agent",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom user agent string"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum time to wait for the analysis to complete"
+        },
+        {
+          "name": "waitForSelector",
+          "displayName": "Wait for Selector",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selector to wait for before running performance analysis"
+        },
+        {
+          "name": "emulateMediaType",
+          "displayName": "Emulate Media Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Emulate CSS media type"
+        },
+        {
+          "name": "budgets",
+          "displayName": "Performance Budgets",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Lighthouse performance budgets for resource sizes"
+        },
+        {
+          "name": "resourceType",
+          "displayName": "Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of resource to budget"
+        },
+        {
+          "name": "budget",
+          "displayName": "Budget Size (KB)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Maximum allowed size in kilobytes"
+        },
+        {
+          "name": "stealth",
+          "displayName": "Stealth Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable stealth mode for bot detection bypass"
+        },
+        {
+          "name": "blockAds",
+          "displayName": "Block Ads",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable ad blocker during performance analysis"
+        }
+      ]
+    },
+    "run_bql_query": {
+      "displayName": "Run BQL Query",
+      "description": "Execute Browser Query Language (BQL) GraphQL-based queries for advanced browser automation",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "BQL Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "GraphQL-based BQL query for browser automation. Example: mutation { goto(url: \"https://example.com\") { status } }"
+        },
+        {
+          "name": "variables",
+          "displayName": "Query Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Variables to pass to the BQL query (JSON object)"
+        },
+        {
+          "name": "operationName",
+          "displayName": "Operation Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the GraphQL operation to execute"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum execution time in milliseconds"
+        },
+        {
+          "name": "stealth",
+          "displayName": "Stealth Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable stealth mode for bot detection bypass"
+        },
+        {
+          "name": "headless",
+          "displayName": "Headless Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Run browser in headless mode (set to false for GUI)"
+        },
+        {
+          "name": "humanlike",
+          "displayName": "Human-like Behavior",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable human-like mouse movement, typing, and delays"
+        },
+        {
+          "name": "proxy",
+          "displayName": "Proxy Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of proxy to use"
+        },
+        {
+          "name": "proxyCountry",
+          "displayName": "Proxy Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country code for residential proxy (e.g., us, gb, de)"
+        },
+        {
+          "name": "proxySticky",
+          "displayName": "Sticky Proxy",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Maintain same proxy IP across session"
+        },
+        {
+          "name": "blockAds",
+          "displayName": "Block Ads",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable ad blocker (uBlock Origin)"
+        },
+        {
+          "name": "blockConsentModals",
+          "displayName": "Block Consent Modals",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically block/dismiss cookie consent banners"
+        },
+        {
+          "name": "record",
+          "displayName": "Record Session",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable session recording for debugging"
+        },
+        {
+          "name": "slowMo",
+          "displayName": "Slow Motion (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Add delays between browser actions in milliseconds"
+        },
+        {
+          "name": "ignoreHTTPSErrors",
+          "displayName": "Ignore HTTPS Errors",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Ignore HTTPS certificate errors during navigation"
+        },
+        {
+          "name": "userAgent",
+          "displayName": "User Agent",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom user agent string"
+        },
+        {
+          "name": "viewportWidth",
+          "displayName": "Viewport Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Browser viewport width"
+        },
+        {
+          "name": "viewportHeight",
+          "displayName": "Viewport Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Browser viewport height"
+        },
+        {
+          "name": "cookies",
+          "displayName": "Cookies",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Cookies to set before executing BQL query"
+        },
+        {
+          "name": "name",
+          "displayName": "Cookie Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Cookie Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Request-URI to associate with the cookie"
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "secure",
+          "displayName": "Secure",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Indicates if the cookie is secure"
+        },
+        {
+          "name": "httpOnly",
+          "displayName": "HTTP Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Indicates if the cookie is HTTP-only"
+        },
+        {
+          "name": "sameSite",
+          "displayName": "SameSite",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "SameSite policy for the cookie"
+        },
+        {
+          "name": "expires",
+          "displayName": "Expires",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Expiration date as timestamp (session cookie if not set)"
+        }
+      ]
+    },
+    "scrape_url": {
+      "displayName": "Scrape URL",
+      "description": "Extract content from a web page",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the page to scrape"
+        },
+        {
+          "name": "elements",
+          "displayName": "Elements to Extract",
+          "type": "ARRAY",
+          "required": true,
+          "description": "CSS selectors for elements to extract"
+        },
+        {
+          "name": "selector",
+          "displayName": "CSS Selector",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "CSS selector for the element"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in milliseconds for this specific selector"
+        },
+        {
+          "name": "waitForSelector",
+          "displayName": "Wait for Selector",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selector to wait for before scraping"
+        },
+        {
+          "name": "waitForSelectorTimeout",
+          "displayName": "Wait for Selector Timeout",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in milliseconds for waiting for selector"
+        },
+        {
+          "name": "waitForSelectorVisible",
+          "displayName": "Wait for Selector Visible",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for selector to be visible"
+        },
+        {
+          "name": "waitForSelectorHidden",
+          "displayName": "Wait for Selector Hidden",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for selector to be hidden"
+        },
+        {
+          "name": "waitForTimeout",
+          "displayName": "Wait Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in milliseconds to wait before scraping"
+        },
+        {
+          "name": "waitForEvent",
+          "displayName": "Wait for Event",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Event name to wait for before scraping"
+        },
+        {
+          "name": "waitForEventTimeout",
+          "displayName": "Wait for Event Timeout",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in milliseconds for wait event"
+        },
+        {
+          "name": "debugConsole",
+          "displayName": "Debug Console",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include console logs in debug output"
+        },
+        {
+          "name": "debugCookies",
+          "displayName": "Debug Cookies",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include cookies in debug output"
+        },
+        {
+          "name": "debugNetwork",
+          "displayName": "Debug Network",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include network requests in debug output"
+        },
+        {
+          "name": "bestAttempt",
+          "displayName": "Best Attempt",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Attempt to proceed when awaited events fail or timeout"
+        },
+        {
+          "name": "userAgent",
+          "displayName": "User Agent",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom user agent string"
+        },
+        {
+          "name": "cookies",
+          "displayName": "Cookies",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Cookies to set before scraping"
+        },
+        {
+          "name": "name",
+          "displayName": "Cookie Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Cookie Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum time to wait for the page to load"
+        },
+        {
+          "name": "waitUntil",
+          "displayName": "Wait Until",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "When to consider navigation complete"
+        },
+        {
+          "name": "waitForFunction",
+          "displayName": "Wait for Function",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JavaScript function to wait for before scraping (should return true when ready)"
+        },
+        {
+          "name": "viewportWidth",
+          "displayName": "Viewport Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Browser viewport width in pixels"
+        },
+        {
+          "name": "viewportHeight",
+          "displayName": "Viewport Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Browser viewport height in pixels"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

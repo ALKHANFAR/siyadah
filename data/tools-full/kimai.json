@@ -1,0 +1,42 @@
+{
+  "id": "kimai",
+  "displayName": "Server URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_timesheet": {
+      "displayName": "Create Timesheet",
+      "description": "Create a new timesheet",
+      "props": [
+        {
+          "name": "begin",
+          "displayName": "Begin Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Begin Date of Timesheet"
+        },
+        {
+          "name": "end",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "End Date of Timesheet"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of Timesheet"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

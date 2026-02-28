@@ -1,0 +1,188 @@
+{
+  "id": "clockodo",
+  "package": "@activepieces/piece-clockodo",
+  "display_name": "Clockodo",
+  "display_name_ar": "Clockodo",
+  "description": "Time tracking made easy",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "list_absences",
+      "display_name": "Get Absences",
+      "description": "Fetches absences from clockodo"
+    },
+    {
+      "name": "update_absence",
+      "display_name": "Update Absence",
+      "description": "Updates an absence in clockodo"
+    },
+    {
+      "name": "create_absence",
+      "display_name": "Create Absence",
+      "description": "Creates a absence in clockodo"
+    },
+    {
+      "name": "get_absence",
+      "display_name": "Get Absence",
+      "description": "Retrieves a single absence from clockodo"
+    },
+    {
+      "name": "delete_absence",
+      "display_name": "Delete Absence",
+      "description": "Deletes an absence in clockodo"
+    },
+    {
+      "name": "create_entry",
+      "display_name": "Create Entry",
+      "description": "Creates an entry in clockodo"
+    },
+    {
+      "name": "delete_entry",
+      "display_name": "Delete Entry",
+      "description": "Deletes an entry in clockodo"
+    },
+    {
+      "name": "update_entry",
+      "display_name": "Update Entry",
+      "description": "Updates an entry in clockodo"
+    },
+    {
+      "name": "list_entries",
+      "display_name": "Get Entries",
+      "description": "Fetches entries from clockodo"
+    },
+    {
+      "name": "get_entry",
+      "display_name": "Get Entry",
+      "description": "Retrieves a single entry from clockodo"
+    },
+    {
+      "name": "delete_user",
+      "display_name": "Delete User",
+      "description": "Deletes a user in clockodo"
+    },
+    {
+      "name": "create_user",
+      "display_name": "Create User",
+      "description": "Creates a user in clockodo"
+    },
+    {
+      "name": "update_user",
+      "display_name": "Update User",
+      "description": "Updates a user in clockodo"
+    },
+    {
+      "name": "get_user",
+      "display_name": "Get User",
+      "description": "Retrieves a single user from clockodo"
+    },
+    {
+      "name": "list_users",
+      "display_name": "Get Users",
+      "description": "Fetches users from clockodo"
+    },
+    {
+      "name": "list_teams",
+      "display_name": "Get Teams",
+      "description": "Fetches teams from clockodo"
+    },
+    {
+      "name": "get_team",
+      "display_name": "Get Team",
+      "description": "Retrieves a single team from clockodo"
+    },
+    {
+      "name": "list_projects",
+      "display_name": "Get Projects",
+      "description": "Fetches projects from clockodo"
+    },
+    {
+      "name": "delete_project",
+      "display_name": "Delete Project",
+      "description": "Deletes a project in clockodo"
+    },
+    {
+      "name": "update_project",
+      "display_name": "Update Project",
+      "description": "Updates a project in clockodo"
+    },
+    {
+      "name": "get_project",
+      "display_name": "Get Project",
+      "description": "Retrieves a single project from clockodo"
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Creates a project in clockodo"
+    },
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Creates a customer in clockodo"
+    },
+    {
+      "name": "update_customer",
+      "display_name": "Update Customer",
+      "description": "Updates a customer in clockodo"
+    },
+    {
+      "name": "delete_customer",
+      "display_name": "Delete Customer",
+      "description": "Deletes a customer in clockodo"
+    },
+    {
+      "name": "list_customers",
+      "display_name": "Get Customers",
+      "description": "Fetches customers from clockodo"
+    },
+    {
+      "name": "get_customer",
+      "display_name": "Get Customer",
+      "description": "Retrieves a single customer from clockodo"
+    },
+    {
+      "name": "create_service",
+      "display_name": "Create Service",
+      "description": "Creates a service in clockodo"
+    },
+    {
+      "name": "get_service",
+      "display_name": "Get Service",
+      "description": "Retrieves a single service from clockodo"
+    },
+    {
+      "name": "update_service",
+      "display_name": "Update Service",
+      "description": "Updates a service in clockodo"
+    },
+    {
+      "name": "list_services",
+      "display_name": "Get Services",
+      "description": "Fetches services from clockodo"
+    },
+    {
+      "name": "delete_service",
+      "display_name": "Delete Service",
+      "description": "Deletes a service in clockodo"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_absence_enquiry",
+      "display_name": "New Absence Enquiry",
+      "description": "Triggers when a new absence enquiry is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_entry",
+      "display_name": "New Entry",
+      "description": "Triggers when a new time entry is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/clockodo"
+}

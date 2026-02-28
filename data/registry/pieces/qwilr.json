@@ -1,0 +1,68 @@
+{
+  "id": "qwilr",
+  "package": "@activepieces/piece-qwilr",
+  "display_name": "Qwilr",
+  "display_name_ar": "Qwilr",
+  "description": "Create beautiful, interactive sales documents and proposals with Qwilr. Automate page creation, track views, and handle acceptance events.",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_page",
+      "display_name": "Create Page",
+      "description": "Creates a new Qwilr page from saved blocks or template."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "page_accepted",
+      "display_name": "Page Accepted",
+      "description": "Triggers when a Qwilr page is accepted",
+      "type": "instant"
+    },
+    {
+      "name": "page_first_viewed",
+      "display_name": "Page First Viewed",
+      "description": "Triggers when a Qwilr page is viewed for the first time",
+      "type": "instant"
+    },
+    {
+      "name": "page_partially_accepted",
+      "display_name": "Page Partially Accepted",
+      "description": "Triggers when a Qwilr page is partially accepted",
+      "type": "instant"
+    },
+    {
+      "name": "page_preview_accepted",
+      "display_name": "Page Preview Accepted",
+      "description": "Triggers when a Qwilr page preview is accepted",
+      "type": "instant"
+    },
+    {
+      "name": "page_revived_live",
+      "display_name": "Page Revived Live",
+      "description": "Triggers when a Qwilr page is revived to live status",
+      "type": "instant"
+    },
+    {
+      "name": "page_set_live",
+      "display_name": "Page Set Live",
+      "description": "Triggers when a Qwilr page is set to live",
+      "type": "instant"
+    },
+    {
+      "name": "page_viewed",
+      "display_name": "Page Viewed",
+      "description": "Triggers when a Qwilr page is viewed",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/qwilr"
+}

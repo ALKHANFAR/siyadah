@@ -1,0 +1,25 @@
+{
+  "id": "chartly",
+  "package": "@activepieces/piece-chartly",
+  "display_name": "Chartly",
+  "display_name_ar": "Chartly",
+  "description": "Instant chart images. Zero servers. Transform any Chart.js configuration into cached PNG or SVG images via a simple REST API.",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_chart",
+      "display_name": "Create Chart",
+      "description": "Generates a chart image based on the provided data, configuration, and chart type"
+    },
+    {
+      "name": "get_chart",
+      "display_name": "Get Chart",
+      "description": "Retrieve a previously created chart by its ID. Returns cached image data optimized for sharing."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/chartly"
+}

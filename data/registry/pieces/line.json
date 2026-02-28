@@ -1,0 +1,25 @@
+{
+  "id": "line",
+  "package": "@activepieces/piece-line",
+  "display_name": "Bot Token",
+  "display_name_ar": "Bot Token",
+  "description": "Build chatbots for LINE",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "push_message",
+      "display_name": "Push Message",
+      "description": "Push message to the line account"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/line"
+}

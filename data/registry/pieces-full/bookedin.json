@@ -1,0 +1,55 @@
+{
+  "id": "bookedin",
+  "package": "@activepieces/piece-bookedin",
+  "display_name": "Bookedin",
+  "display_name_ar": "",
+  "description": "AI agents for lead conversion and appointment booking.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "bulkDeleteLeads",
+      "display_name": "Bulk Delete Leads",
+      "description": "Delete multiple leads (max 500 per request)"
+    },
+    {
+      "name": "createLead",
+      "display_name": "Create Lead",
+      "description": "Creates a new lead in Bookedin AI"
+    },
+    {
+      "name": "deleteLead",
+      "display_name": "Delete Lead",
+      "description": "Delete a lead."
+    },
+    {
+      "name": "getLeadStats",
+      "display_name": "Get Lead Stats",
+      "description": "Get lead statistics (Hot, Warm, Cold, Objectives Met, Total)."
+    },
+    {
+      "name": "getLead",
+      "display_name": "Get Lead",
+      "description": "Get a specific lead by ID."
+    },
+    {
+      "name": "getLeads",
+      "display_name": "Get Leads",
+      "description": "Get all leads for the current business with pagination metadata."
+    },
+    {
+      "name": "updateLead",
+      "display_name": "Update Lead",
+      "description": "Update a lead."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

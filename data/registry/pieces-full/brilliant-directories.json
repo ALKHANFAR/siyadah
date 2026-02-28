@@ -1,0 +1,25 @@
+{
+  "id": "brilliant-directories",
+  "package": "@activepieces/piece-brilliant-directories",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "The api key of the brilliant directories account account",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_new_user",
+      "display_name": "Create new User",
+      "description": "Creates a new user in your brilliant directories site"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,387 @@
+{
+  "id": "wedof",
+  "displayName": "Wedof",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addExecutionTag": {
+      "displayName": "Associer le run à wedof",
+      "description": "Entrez un ou plusieurs numéros de dossier à associer à cette exécution.",
+      "props": [
+        {
+          "name": "externalId",
+          "displayName": "Numéros de dossier",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Entrez un ou plusieurs numéros de dossier à associer à cette exécution."
+        }
+      ]
+    },
+    "createActivitie": {
+      "displayName": "N° du dossier",
+      "description": "Sélectionner la propriété {externalId} du dossier",
+      "props": [
+        {
+          "name": "entityClass",
+          "displayName": "Choisir le type de dossier",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Permet de n'obtenir que les dossiers dans le type considéré - par défaut tous les types sont retournés"
+        },
+        {
+          "name": "externalId",
+          "displayName": "N° du dossier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sélectionner la propriété {externalId} du dossier"
+        },
+        {
+          "name": "title",
+          "displayName": "Titre de l'activité",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "userEmail",
+          "displayName": "Responsable (email de l'utilisateur)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "eventTime",
+          "displayName": "Date de début",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Date au format YYYY-MM-DDTHH:mm:ssZ."
+        },
+        {
+          "name": "eventEndTime",
+          "displayName": "Date d'échéance",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date au format YYYY-MM-DDTHH:mm:ssZ."
+        },
+        {
+          "name": "link",
+          "displayName": "Lien (url) vers la tâche",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "createTask": {
+      "displayName": "N° du dossier",
+      "description": "Sélectionner la propriété {externalId} du dossier",
+      "props": [
+        {
+          "name": "entityClass",
+          "displayName": "Choisir le type de dossier",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Permet de n'obtenir que les dossiers dans le type considéré - par défaut tous les types sont retournés"
+        },
+        {
+          "name": "externalId",
+          "displayName": "N° du dossier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sélectionner la propriété {externalId} du dossier"
+        },
+        {
+          "name": "title",
+          "displayName": "Titre de la tâche",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Date d'échéance",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date au format YYYY-MM-DDTHH:mm:ssZ."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "userEmail",
+          "displayName": "Responsable (email de l'utilisateur)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "link",
+          "displayName": "Lien (url) vers la tâche",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "listActivitiesAndTasks": {
+      "displayName": "N° du dossier",
+      "description": "Sélectionner la propriété {externalId} du dossier",
+      "props": [
+        {
+          "name": "entityClass",
+          "displayName": "Choisir le type de dossier",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Permet de n'obtenir que les dossiers dans le type considéré - par défaut tous les types sont retournés"
+        },
+        {
+          "name": "externalId",
+          "displayName": "N° du dossier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sélectionner la propriété {externalId} du dossier"
+        }
+      ]
+    },
+    "me": {
+      "displayName": "Récupérer mes informations",
+      "description": "Récupérer mes informations et mes détails",
+      "props": []
+    },
+    "myOrganism": {
+      "displayName": "Récupérer mon organisme",
+      "description": "Récupérer mon organisme et afficher ses détails",
+      "props": []
+    },
+    "sendFile": {
+      "displayName": "N° du dossier",
+      "description": "Sélectionner la propriété {externalId} du dossier",
+      "props": [
+        {
+          "name": "entityClass",
+          "displayName": "Choisir le type de dossier",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Permet de n'obtenir que les dossiers dans le type considéré - par défaut tous les types sont retournés"
+        },
+        {
+          "name": "externalId",
+          "displayName": "N° du dossier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sélectionner la propriété {externalId} du dossier"
+        },
+        {
+          "name": "title",
+          "displayName": "Titre du fichier",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "typeId",
+          "displayName": "Type du fichier",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "typeFile",
+          "displayName": "Choisir le format d'envoi du fichier",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Permet de choisir la méthode d'envoi du fichier"
+        },
+        {
+          "name": "files",
+          "displayName": "ez",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "URL du fichier à télécharger"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "certificationFolderSurveyInitialExperienceAnswered": {
+      "displayName": "Enquête ",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderSurveyInitialExperienceAvailable": {
+      "displayName": "Enquête ",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderSurveyLongTermExperienceAnswered": {
+      "displayName": "Enquête ",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderSurveyLongTermExperienceAvailable": {
+      "displayName": "Enquête ",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderSurveySixMonthExperienceAnswered": {
+      "displayName": "Enquête ",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderSurveySixMonthExperienceAvailable": {
+      "displayName": "Enquête ",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderRegistred": {
+      "displayName": "Dossier de certification enregistré",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderSelected": {
+      "displayName": "Événement sur le dossier de certification",
+      "description": "Se déclenche lorsque l",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationfolderSuccess": {
+      "displayName": "Dossier de certification réussi",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderToControl": {
+      "displayName": "Dossier de certification à contrôler",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderToretake": {
+      "displayName": "Dossier de certification à repasser",
+      "description": "Se déclanche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderTotake": {
+      "displayName": "Dossier de certification prêt à passer",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationFolderUpdated": {
+      "displayName": "Dossier de certification mis à jour",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "newCertificationFolderCreated": {
+      "displayName": "Nouveau dossier de certification",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationPartnerAborted": {
+      "displayName": "Demande de partenariat abandonnée",
+      "description": "Se déclenche Lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationPartnerActive": {
+      "displayName": "Partenariat actif",
+      "description": "Se déclenche Lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationPartnerProcessing": {
+      "displayName": "Demande de partenariat en traitement",
+      "description": "Se déclenche Lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationPartnerRefused": {
+      "displayName": "Demande de partenariat refusée",
+      "description": "Se déclenche Lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationPartnerRevoked": {
+      "displayName": "Partenariat révoqué",
+      "description": "Se déclenche Lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "certificationPartnerSuspended": {
+      "displayName": "Partenariat suspendu",
+      "description": "Se déclenche Lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "newRegistrationFolderNotProcessed": {
+      "displayName": "Nouveau dossier de formation",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "registrationFolderAccepted": {
+      "displayName": "Dossier de formation accepté",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "registrationFolderInTraining": {
+      "displayName": "Dossier de formation entre en formation",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "registrationFolderPaid": {
+      "displayName": "Dossier de formation payé (acompte ou payé totalement)",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "registrationFolderSelected": {
+      "displayName": "Événement sur le dossier de formation",
+      "description": "Se déclenche lorsque l",
+      "type": "POLLING",
+      "props": []
+    },
+    "registrationFolderTerminated": {
+      "displayName": "Dossier de formation sort de formation",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "registrationFolderTobill": {
+      "displayName": "Dossier de formation à facturer",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    },
+    "registrationFolderUpdated": {
+      "displayName": "Dossier de formation mis à jour",
+      "description": "Se déclenche lorsqu",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

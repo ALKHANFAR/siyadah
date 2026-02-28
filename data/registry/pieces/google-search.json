@@ -1,0 +1,20 @@
+{
+  "id": "google-search",
+  "package": "@activepieces/piece-google-search",
+  "display_name": "Google Search",
+  "display_name_ar": "Google Search",
+  "description": "Search using Vertex AI Search (Discovery Engine)",
+  "category": "B_google",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "search",
+      "display_name": "Search",
+      "description": "Search for content using Vertex AI Search (searchLite)."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-search"
+}

@@ -1,0 +1,138 @@
+{
+  "id": "greenpt",
+  "displayName": "GreenPT",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "chatCompletion": {
+      "displayName": "Ask GreenPT",
+      "description": "The model to use ",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The model to use "
+        },
+        {
+          "name": "messages",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Message to send"
+        }
+      ]
+    },
+    "createEmbeddings": {
+      "displayName": "Create Embeddings",
+      "description": "Generate embeddings for text input using GreenPT models for semantic search and similarity matching",
+      "props": [
+        {
+          "name": "input",
+          "displayName": "Input Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Input text to embed. Can be a single string or multiple texts separated by newlines"
+        },
+        {
+          "name": "encoding_format",
+          "displayName": "Encoding Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The format to return the embeddings in"
+        }
+      ]
+    },
+    "transcribeAudio": {
+      "displayName": "Transcribe Audio",
+      "description": "Transcribe pre-recorded audio files with speaker diarization and advanced features",
+      "props": [
+        {
+          "name": "audioUrl",
+          "displayName": "Audio File",
+          "type": "FILE",
+          "required": true,
+          "description": "Audio file to transcribe (WAV, MP3, FLAC, etc.)"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Speech-to-text model to use"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code (e.g., en, fr, de). Auto-detected if not specified"
+        },
+        {
+          "name": "diarize",
+          "displayName": "Speaker Diarization",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable speaker diarization to identify different speakers"
+        },
+        {
+          "name": "punctuate",
+          "displayName": "Punctuate",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Add punctuation and capitalization to transcript"
+        },
+        {
+          "name": "smart_format",
+          "displayName": "Smart Format",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Apply formatting to transcript output for improved readability"
+        },
+        {
+          "name": "filler_words",
+          "displayName": "Include Filler Words",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include filler words like \"uh\" and \"um\" in transcript"
+        },
+        {
+          "name": "numerals",
+          "displayName": "Convert Numerals",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Convert numbers from written format to numerical format"
+        },
+        {
+          "name": "sentiment",
+          "displayName": "Analyze Sentiment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Analyze sentiment throughout the transcript"
+        },
+        {
+          "name": "topics",
+          "displayName": "Detect Topics",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Detect topics throughout the transcript"
+        },
+        {
+          "name": "intents",
+          "displayName": "Recognize Intents",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Recognize speaker intent throughout the transcript"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,55 @@
+{
+  "id": "avoma",
+  "package": "@activepieces/piece-avoma",
+  "display_name": "Avoma",
+  "display_name_ar": "",
+  "description": "Avoma is an AI Meeting Assistant that automatically records, transcribes, and summarizes your meetings.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_call",
+      "display_name": "Create Call",
+      "description": "Creates a new call in Avoma"
+    },
+    {
+      "name": "get_meeting_recording",
+      "display_name": "Get Meeting Recording",
+      "description": "Returns video and audio recording URLs for a given meeting"
+    },
+    {
+      "name": "get_meeting_transcription",
+      "display_name": "Get Meeting Transcription",
+      "description": "Returns transcription with speakers, timestamps, and VTT file URL"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "meeting_cancelled",
+      "display_name": "Meeting Cancelled",
+      "description": "Triggers when a meeting booked via the scheduling page is cancelled",
+      "type": "instant"
+    },
+    {
+      "name": "meeting_rescheduled",
+      "display_name": "Meeting Rescheduled",
+      "description": "Triggers when a scheduled meeting is rescheduled",
+      "type": "instant"
+    },
+    {
+      "name": "new_meeting_scheduled",
+      "display_name": "New Meeting Scheduled",
+      "description": "Triggers when a meeting is booked via one of your Avoma scheduling pages",
+      "type": "instant"
+    },
+    {
+      "name": "new_note",
+      "display_name": "New Note",
+      "description": "Triggers when notes are successfully generated for meetings or calls",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

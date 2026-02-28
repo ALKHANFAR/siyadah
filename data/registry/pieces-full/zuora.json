@@ -1,0 +1,35 @@
+{
+  "id": "zuora",
+  "package": "@activepieces/piece-zuora",
+  "display_name": "Zuora",
+  "display_name_ar": "",
+  "description": "Cloud-based subscription management platform that enables businesses to launch and monetize subscription services.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create-invoice",
+      "display_name": "Create Invoice",
+      "description": "Create a standalone invoice."
+    },
+    {
+      "name": "find-account",
+      "display_name": "Find Customer Account",
+      "description": "Retrieves account based on name."
+    },
+    {
+      "name": "find-product-rate-plan",
+      "display_name": "Find Product Rate Plan",
+      "description": "Retrieves product rate plan with charges."
+    },
+    {
+      "name": "find-product",
+      "display_name": "Find Product",
+      "description": "Retrieves product based on sku."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

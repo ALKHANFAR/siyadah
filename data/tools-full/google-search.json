@@ -1,0 +1,30 @@
+{
+  "id": "google-search",
+  "displayName": "Google Search",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "search": {
+      "displayName": "Search",
+      "description": "Search for content using Vertex AI Search (searchLite).",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The query text to search."
+        },
+        {
+          "name": "userPseudoId",
+          "displayName": "User Pseudo ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A pseudonymized identifier for the user (max 128 chars). Improves personalization."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

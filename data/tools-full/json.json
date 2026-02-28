@@ -1,0 +1,36 @@
+{
+  "id": "json",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "convert_json_to_text": {
+      "displayName": "Convert Json to Text",
+      "description": "Stringifies JSON.",
+      "props": [
+        {
+          "name": "json",
+          "displayName": "JSON",
+          "type": "JSON",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "convert_text_to_json": {
+      "displayName": "Convert Text to Json",
+      "description": "Parses text into JSON.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

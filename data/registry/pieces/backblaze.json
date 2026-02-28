@@ -1,0 +1,32 @@
+{
+  "id": "backblaze",
+  "package": "@activepieces/piece-backblaze",
+  "display_name": "Access Key ID",
+  "display_name_ar": "Access Key ID",
+  "description": "Scalable storage in the cloud",
+  "category": "K_dev",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "read-backblaze-file",
+      "display_name": "Read File",
+      "description": "Read a file from Backblaze bucket to use it in other steps."
+    },
+    {
+      "name": "upload-backblaze-file",
+      "display_name": "Upload File",
+      "description": "Upload an File to bucket."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_backblaze_file",
+      "display_name": "New File",
+      "description": "Trigger when a new file is uploaded.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/backblaze"
+}

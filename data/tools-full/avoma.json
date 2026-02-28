@@ -1,0 +1,223 @@
+{
+  "id": "avoma",
+  "displayName": "Avoma",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_call": {
+      "displayName": "Create Call",
+      "description": "Creates a new call in Avoma",
+      "props": [
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique id of the call from the dialer system like hubspot, twilio, zoom, etc."
+        },
+        {
+          "name": "user_email",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email of the user who made or received the call. This should be an Avoma user\\"
+        },
+        {
+          "name": "source",
+          "displayName": "Source",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Source of the call"
+        },
+        {
+          "name": "direction",
+          "displayName": "Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Direction of the call"
+        },
+        {
+          "name": "start_at",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Start time of the call"
+        },
+        {
+          "name": "frm",
+          "displayName": "From Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number from which call was made (e.g., +11234567890)"
+        },
+        {
+          "name": "to",
+          "displayName": "To Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number to which call was made (e.g., +12234567890)"
+        },
+        {
+          "name": "recording_url",
+          "displayName": "Recording URL",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "URL of the recording of the call. This should be a public URL that Avoma can access."
+        },
+        {
+          "name": "participants",
+          "displayName": "Participants",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of participants in the call. First entry should be the prospect/lead."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the participant"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email of the participant"
+        },
+        {
+          "name": "crm_id",
+          "displayName": "CRM Record ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CRM record ID for this participant (optional)"
+        },
+        {
+          "name": "crm_type",
+          "displayName": "CRM Record Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Type of CRM record (e.g., contact, lead, opportunity)"
+        },
+        {
+          "name": "crm_system",
+          "displayName": "CRM System",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CRM system name (e.g., hubspot, salesforce)"
+        },
+        {
+          "name": "end_at",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "End time of the call"
+        },
+        {
+          "name": "frm_name",
+          "displayName": "From Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the caller who made the call"
+        },
+        {
+          "name": "to_name",
+          "displayName": "To Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the person to whom call was made"
+        },
+        {
+          "name": "answered",
+          "displayName": "Answered",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the call was answered"
+        },
+        {
+          "name": "is_voicemail",
+          "displayName": "Is Voicemail",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Indicates if the call is a voicemail"
+        },
+        {
+          "name": "additional_details",
+          "displayName": "Additional Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional details of the call (JSON object as string)"
+        }
+      ]
+    },
+    "get_meeting_recording": {
+      "displayName": "Get Meeting Recording",
+      "description": "Returns video and audio recording URLs for a given meeting",
+      "props": []
+    },
+    "get_meeting_transcription": {
+      "displayName": "Get Meeting Transcription",
+      "description": "Returns transcription with speakers, timestamps, and VTT file URL",
+      "props": []
+    }
+  },
+  "triggers": {
+    "meeting_cancelled": {
+      "displayName": "Meeting Cancelled",
+      "description": "Triggers when a meeting booked via the scheduling page is cancelled",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "meeting_rescheduled": {
+      "displayName": "Meeting Rescheduled",
+      "description": "Triggers when a scheduled meeting is rescheduled",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_meeting_scheduled": {
+      "displayName": "New Meeting Scheduled",
+      "description": "Triggers when a meeting is booked via one of your Avoma scheduling pages",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_note": {
+      "displayName": "New Note",
+      "description": "Triggers when notes are successfully generated for meetings or calls",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

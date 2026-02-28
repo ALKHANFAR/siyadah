@@ -1,0 +1,27 @@
+{
+  "id": "predis-ai",
+  "package": "@activepieces/piece-predis-ai",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "In Predis.ai, go to Pricing & Account -> Rest API to generate an API key.",
+  "category": "J_database",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_content",
+      "display_name": "Create Content",
+      "description": "Generate posts including videos, carousels, images, quotes, and memes."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "post_created",
+      "display_name": "Post Created",
+      "description": "Triggers when a post generation completes or fails.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/predis-ai"
+}

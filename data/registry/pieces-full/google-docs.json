@@ -1,0 +1,52 @@
+{
+  "id": "google-docs",
+  "package": "@activepieces/piece-google-docs",
+  "display_name": "Google Docs",
+  "display_name_ar": "",
+  "description": "Create and edit documents online",
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "append_text",
+      "display_name": "Append text to google docs",
+      "description": "Appends text to google docs"
+    },
+    {
+      "name": "create_document_based_on_template",
+      "display_name": "Edit template file",
+      "description": "Edit a template file and replace the values with the ones provided"
+    },
+    {
+      "name": "create_document",
+      "display_name": "Create Document",
+      "description": "Create a document on Google Docs"
+    },
+    {
+      "name": "google-docs-find-document",
+      "display_name": "Find Document",
+      "description": "Search for document by name."
+    },
+    {
+      "name": "read_document",
+      "display_name": "Read Document",
+      "description": "Read a document from Google Docs"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-document",
+      "display_name": "New Document",
+      "description": "Triggers when a new document is added to a specific folder(optional).",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

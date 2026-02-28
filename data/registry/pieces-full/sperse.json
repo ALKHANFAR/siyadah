@@ -1,0 +1,64 @@
+{
+  "id": "sperse",
+  "package": "@activepieces/piece-sperse",
+  "display_name": "Base URL",
+  "display_name_ar": "",
+  "description": "Select the base environment URL",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addOrUpdateContactExtended",
+      "display_name": "Add or Update Contact (Extended)",
+      "description": "Adds or updates a contact (extended version)"
+    },
+    {
+      "name": "addOrUpdateContact",
+      "display_name": "Add or Update Contact",
+      "description": "Creates a new contact."
+    },
+    {
+      "name": "addOrUpdateSubscription",
+      "display_name": "Add or Update Subscription",
+      "description": "Creates a new subscription."
+    },
+    {
+      "name": "createInvoice",
+      "display_name": "Create Invoice",
+      "description": "Creates a new invoice in the CRM."
+    },
+    {
+      "name": "createProduct",
+      "display_name": "Create Product",
+      "description": "Creates a new product in the CRM"
+    },
+    {
+      "name": "getContactDetails",
+      "display_name": "Get Contact Details",
+      "description": "Get Contact Details"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_lead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_payment",
+      "display_name": "New Payment",
+      "description": "Triggers when a new payment is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_subscription",
+      "display_name": "New Subscription",
+      "description": "Triggers when a new subscription is created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

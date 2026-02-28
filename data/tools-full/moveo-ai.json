@@ -1,0 +1,44 @@
+{
+  "id": "moveo-ai",
+  "displayName": "Moveo",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "dialog_expired": {
+      "displayName": "Dialog Expired",
+      "description": "Triggers when the dialog expires.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "dialog_insights": {
+      "displayName": "Dialog Insights",
+      "description": "Triggers when the dialog insights are available.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

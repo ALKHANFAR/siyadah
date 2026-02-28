@@ -1,0 +1,43 @@
+{
+  "id": "shippo",
+  "package": "@activepieces/piece-shippo",
+  "display_name": "Shippo",
+  "display_name_ar": "",
+  "description": "Multi-carrier shipping platform for real-time rates, labels, and tracking",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_order",
+      "display_name": "Create Order",
+      "description": "Create a new order in Shippo"
+    },
+    {
+      "name": "find_order",
+      "display_name": "Find Order",
+      "description": "Search for an order by its ID"
+    },
+    {
+      "name": "find_shipping_label",
+      "display_name": "Find Shipping Label",
+      "description": "Search for a shipping label by its ID"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_order",
+      "display_name": "New Order",
+      "description": "Trigger when a new order is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_shipping_label",
+      "display_name": "New Shipping Label",
+      "description": "Trigger when a new shipping label is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

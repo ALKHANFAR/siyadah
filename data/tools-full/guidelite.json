@@ -1,0 +1,42 @@
+{
+  "id": "guidelite",
+  "displayName": "GuideLite",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "sendAPrompt": {
+      "displayName": "Send a Prompt",
+      "description": "Send a message to a Guidelite Assistant",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The input message to be processed by the assistant"
+        },
+        {
+          "name": "conversationId",
+          "displayName": "Conversation ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The Conversation ID of the previous conversation. If empty, a new conversation will be created"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newLeadSubmission": {
+      "displayName": "new lead submission",
+      "description": "Trigger when a new lead is captured through the assistant conversation",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "insightly",
+  "package": "@activepieces/piece-insightly",
+  "display_name": "Insightly",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_record",
+      "display_name": "Create Record",
+      "description": "Create a new record in a specified Insightly object (Contact, Lead, Opportunity, etc.)"
+    },
+    {
+      "name": "delete_record",
+      "display_name": "Delete Record",
+      "description": "Delete a record by ID from a specified Insightly object"
+    },
+    {
+      "name": "find_records",
+      "display_name": "Find Records",
+      "description": "Find records in a specified Insightly object"
+    },
+    {
+      "name": "get_record",
+      "display_name": "Get Record",
+      "description": "Get a record by ID from a specified Insightly object"
+    },
+    {
+      "name": "update_record",
+      "display_name": "Update Record",
+      "description": "Your Insightly pod (e.g., \"na1\", \"eu1\"). Find this in your API URL: https://api.{pod}.insightly.com"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "deleted_record",
+      "display_name": "Deleted Record",
+      "description": "Fires when a record is deleted from Insightly",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_record",
+      "display_name": "New Record",
+      "description": "Fires when a new record is created in Insightly (requires webhook setup)",
+      "type": "instant"
+    },
+    {
+      "name": "updated_record",
+      "display_name": "Updated Record",
+      "description": "Fires when an existing record is updated in Insightly (requires webhook setup)",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

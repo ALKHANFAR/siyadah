@@ -1,0 +1,21 @@
+{
+  "id": "luxury-presence",
+  "package": "@activepieces/piece-luxury-presence",
+  "display_name": "Luxury Presence",
+  "display_name_ar": "Luxury Presence",
+  "description": "Luxury Presence is a software company designed for real estate agents. Their all-in-one platform combines a CRM, website builder, marketing tools, and more to help agents grow their business and close more deals.",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "newLead",
+      "display_name": "New Lead",
+      "description": "",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/luxury-presence"
+}

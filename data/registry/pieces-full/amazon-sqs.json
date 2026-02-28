@@ -1,0 +1,20 @@
+{
+  "id": "amazon-sqs",
+  "package": "@activepieces/piece-amazon-sqs",
+  "display_name": "Access Key ID",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "sendMessage",
+      "display_name": "Send Message",
+      "description": "The URL of the SQS queue"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

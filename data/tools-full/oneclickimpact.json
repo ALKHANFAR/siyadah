@@ -1,0 +1,151 @@
+{
+  "id": "oneclickimpact",
+  "displayName": "1ClickImpact",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "captureCarbon": {
+      "displayName": "Capture carbon",
+      "description": "Capture carbon for yourself or on behalf of the customer",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The amount of carbon to capture in lbs (1 and 10,000,000)"
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the customer on whose behalf the carbon is being captured"
+        },
+        {
+          "name": "customerName",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the customer on whose behalf the carbon is being captured"
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notification preference"
+        }
+      ]
+    },
+    "cleanOcean": {
+      "displayName": "Clean ocean",
+      "description": "Clean  ocean waste yourself or on behalf of the customer",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The amount of ocean waste to clean in lbs (1 and 10,000,000)"
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the customer on whose behalf the ocean waste is being cleaned"
+        },
+        {
+          "name": "customerName",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the customer on whose behalf the ocean waste is being cleaned"
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notification preference"
+        }
+      ]
+    },
+    "donateMoney": {
+      "displayName": "Donate Money",
+      "description": " Donate money to support environmental causes",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount (USD)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The amount in USD you wish to donate. Minimum $1.00"
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the customer on whose behalf the donation is being made"
+        },
+        {
+          "name": "customerName",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the customer on whose behalf the donation is being made"
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notification preference"
+        }
+      ]
+    },
+    "plantTrees": {
+      "displayName": "Plant Trees",
+      "description": "Plant trees for yourself or on behalf of the customer",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of trees to plant (1 and 10,000,000)"
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the customer on whose behalf the trees are being planted"
+        },
+        {
+          "name": "customerName",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the customer on whose behalf the trees are being planted"
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notification preference"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

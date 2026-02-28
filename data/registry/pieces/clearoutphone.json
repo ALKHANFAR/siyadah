@@ -1,0 +1,30 @@
+{
+  "id": "clearoutphone",
+  "package": "@activepieces/piece-clearoutphone",
+  "display_name": "ClearoutPhone",
+  "display_name_ar": "ClearoutPhone",
+  "description": "ClearoutPhone is a phone number validation and verification service that helps businesses ensure the accuracy and validity of their phone number data.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "findPhoneNumberCarrier",
+      "display_name": "Find Phone Number Carrier",
+      "description": "Find the carrier of a phone number using ClearoutPhone API"
+    },
+    {
+      "name": "findPhoneNumberIsMobile",
+      "display_name": "Find Phone Number Is Mobile",
+      "description": "Determine if a phone number is a mobile number using ClearoutPhone API"
+    },
+    {
+      "name": "validatePhoneNumber",
+      "display_name": "Validate Phone Number",
+      "description": "Validate a phone number and retrieve comprehensive information using ClearoutPhone API"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/clearoutphone"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "ask-handle",
+  "package": "@activepieces/piece-ask-handle",
+  "display_name": "AskHandle",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_lead",
+      "display_name": "Create Lead",
+      "description": "Create a new lead"
+    },
+    {
+      "name": "create_message",
+      "display_name": "Create Message",
+      "description": "Send a message to a room"
+    },
+    {
+      "name": "list_leads",
+      "display_name": "List Leads",
+      "description": "Get a list of all leads"
+    },
+    {
+      "name": "list_rooms",
+      "display_name": "List Rooms",
+      "description": "Get a list of all rooms"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_lead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_message",
+      "display_name": "New Message",
+      "description": "Triggers when a new message is received",
+      "type": "instant"
+    },
+    {
+      "name": "new_room",
+      "display_name": "New Room",
+      "description": "Triggers when a new room is created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

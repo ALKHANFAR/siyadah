@@ -1,0 +1,43 @@
+{
+  "id": "hastewire",
+  "displayName": "Hastewire",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "detect-text": {
+      "displayName": "Detect Text",
+      "description": "Analyzes text and returns the likelihood of it being AI-generated or human-written.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Input Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "humanize-text": {
+      "displayName": "Humanize Text",
+      "description": "Rephrases a given AI-generated text to be more human like.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Input Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "displayName": "Text Style",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The desired writing style for the output."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

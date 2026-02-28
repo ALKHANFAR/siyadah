@@ -1,0 +1,30 @@
+{
+  "id": "phone-validator",
+  "displayName": "Phone Validator",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "validatePhone": {
+      "displayName": "Validate Phone Number",
+      "description": "Validate a phone number and retrieve line type, carrier, and location information",
+      "props": [
+        {
+          "name": "phoneNumber",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to validate (e.g., 7029270000, 1-702-927-0000)"
+        },
+        {
+          "name": "searchType",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of phone lookup to perform"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

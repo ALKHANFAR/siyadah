@@ -1,0 +1,20 @@
+{
+  "id": "wootric",
+  "package": "@activepieces/piece-wootric",
+  "display_name": "Wootric",
+  "display_name_ar": "",
+  "description": "Measure and boost customer happiness",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "trigger_wootric_survey",
+      "display_name": "Trigger Wootric Survey",
+      "description": "Trigger a survey from Wootric"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

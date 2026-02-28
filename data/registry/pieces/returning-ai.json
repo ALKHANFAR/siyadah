@@ -1,0 +1,30 @@
+{
+  "id": "returning-ai",
+  "package": "@activepieces/piece-returning-ai",
+  "display_name": "Returning AI",
+  "display_name_ar": "Returning AI",
+  "description": "Returning AI integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "reactMessage",
+      "display_name": "React to Message",
+      "description": "Add an emoji reaction to a specific message as a chosen user."
+    },
+    {
+      "name": "replyMessage",
+      "display_name": "Reply Message",
+      "description": "Reply to a specific message as a chosen user in a channel."
+    },
+    {
+      "name": "sendMessage",
+      "display_name": "Send Channel Message",
+      "description": "Posts a message to a specified channel as a chosen user"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/returning-ai"
+}

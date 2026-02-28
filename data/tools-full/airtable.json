@@ -1,0 +1,192 @@
+{
+  "id": "airtable",
+  "displayName": "Airtable",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "airtable_add_comment_to_record": {
+      "displayName": "Add Comment to Record",
+      "description": "Adds a comment to an existing record.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Comment Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the comment. To mention a user, use the format `@[userId]` or `@[userEmail]`."
+        },
+        {
+          "name": "parentCommentId",
+          "displayName": "Parent Comment ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional. The ID of a parent comment to create a threaded reply."
+        }
+      ]
+    },
+    "airtable_create_base": {
+      "displayName": "Create Base",
+      "description": "Create a new base with a specified table structure.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Base Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for the new base."
+        },
+        {
+          "name": "tables",
+          "displayName": "Tables",
+          "type": "JSON",
+          "required": true,
+          "description": "Define the tables for the new base. Use the default value as a template. The first field for each table will be its primary field."
+        }
+      ]
+    },
+    "airtable_create_record": {
+      "displayName": "Create Airtable Record",
+      "description": "Adds a record into an airtable",
+      "props": []
+    },
+    "airtable_create_table": {
+      "displayName": "Create Table",
+      "description": "Create a new table in an existing base.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Table Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for the new table."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "An optional description for the new table."
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields",
+          "type": "JSON",
+          "required": true,
+          "description": "A JSON array of fields for the new table. The first field in the array will become the primary field."
+        }
+      ]
+    },
+    "airtable_delete_record": {
+      "displayName": "Delete Airtable Record",
+      "description": "Deletes a record in airtable",
+      "props": []
+    },
+    "airtable_find_base": {
+      "displayName": "Find Base",
+      "description": "Find a base by its name or a keyword.",
+      "props": [
+        {
+          "name": "baseName",
+          "displayName": "Base Name or Keyword",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name or keyword to search for within your base names."
+        }
+      ]
+    },
+    "airtable_get_record_by_id": {
+      "displayName": "Get Record by ID",
+      "description": "Retrieve a single record from a table by its unique ID.",
+      "props": []
+    },
+    "airtable_find_record": {
+      "displayName": "Find Airtable Record",
+      "description": "Find a record in airtable",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "airtable_find_table_by_id": {
+      "displayName": "Find Table by ID",
+      "description": "Get a table's details and schema using its ID.",
+      "props": []
+    },
+    "airtable_find_table": {
+      "displayName": "Find Table",
+      "description": "Find a table in a given base by its name.",
+      "props": [
+        {
+          "name": "tableName",
+          "displayName": "Table Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The exact name of the table you want to find."
+        }
+      ]
+    },
+    "airtable_get_base_schema": {
+      "displayName": "Get Base Schema",
+      "description": "Retrieve the schema for a specific base, including all its tables and fields.",
+      "props": []
+    },
+    "airtable_update_record": {
+      "displayName": "Update Airtable Record",
+      "description": "Update a record in airtable",
+      "props": []
+    },
+    "airtable_upload_file_to_column": {
+      "displayName": "Upload File to Column",
+      "description": "Uploads a file to attachment type column.",
+      "props": [
+        {
+          "name": "attachment_column",
+          "displayName": "Attachment Column",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the record to which you want to upload the file."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to be uploaded, which can be provided either as a public file URL or in Base64 encoded format."
+        },
+        {
+          "name": "file_content_type",
+          "displayName": "File Content Type",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Specifies the MIME type of the file being uploaded (e.g., 'image/png', 'application/pdf')."
+        },
+        {
+          "name": "filename",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the file as it should appear after upload."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

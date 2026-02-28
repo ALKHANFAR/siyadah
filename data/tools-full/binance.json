@@ -1,0 +1,30 @@
+{
+  "id": "binance",
+  "displayName": "Binance",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "fetch_crypto_pair_price": {
+      "displayName": "Fetch Pair Price",
+      "description": "Fetch the current price of a pair (e.g. BTC/USDT)",
+      "props": [
+        {
+          "name": "first_coin",
+          "displayName": "First Coin Symbol",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The currency to fetch the price for (e.g. 'BTC' in 'BTC/USDT')"
+        },
+        {
+          "name": "second_coin",
+          "displayName": "Second Coin Symbol",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The currency to fetch the price in (e.g. 'USDT' in 'BTC/USDT')"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

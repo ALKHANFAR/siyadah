@@ -1,0 +1,64 @@
+{
+  "id": "sendpulse",
+  "package": "@activepieces/piece-sendpulse",
+  "display_name": "SendPulse",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "add-subscriber",
+      "display_name": "Add Subscriber",
+      "description": "Add subscriber to mailing list"
+    },
+    {
+      "name": "change-variable-for-subscriber",
+      "display_name": "Variable Name",
+      "description": "Select variable to update"
+    },
+    {
+      "name": "delete-contact",
+      "display_name": "Delete Contact",
+      "description": "Permanently delete contact from all mailing lists"
+    },
+    {
+      "name": "unsubscribe-user",
+      "display_name": "Unsubscribe User",
+      "description": "Remove subscribers from mailing list"
+    },
+    {
+      "name": "update-subscriber",
+      "display_name": "Update Subscriber",
+      "description": "Update subscriber details and variables"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_subscriber",
+      "display_name": "New Subscriber",
+      "description": "Fires when new subscriber is added",
+      "type": "instant"
+    },
+    {
+      "name": "new_unsubscriber",
+      "display_name": "New Unsubscriber",
+      "description": "Fires when subscriber unsubscribes",
+      "type": "instant"
+    },
+    {
+      "name": "updated_subscriber",
+      "display_name": "Updated Subscriber",
+      "description": "Fires when subscriber details change (polling)",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "mailercheck",
+  "displayName": "Mailercheck",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "verifyAnEmailAddress": {
+      "displayName": "Verify an Email Address",
+      "description": "Verify a single email address in real-time",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address to verify"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

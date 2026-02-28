@@ -1,0 +1,65 @@
+{
+  "id": "bluesky",
+  "package": "@activepieces/piece-bluesky",
+  "display_name": "Bluesky",
+  "display_name_ar": "Bluesky",
+  "description": "Bluesky integration",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createPost",
+      "display_name": "Create Post",
+      "description": "Create a new post on Bluesky"
+    },
+    {
+      "name": "findPost",
+      "display_name": "Find Post",
+      "description": "Get detailed information about a specific post"
+    },
+    {
+      "name": "findThread",
+      "display_name": "Find Thread",
+      "description": "Get a full conversation thread with replies"
+    },
+    {
+      "name": "likePost",
+      "display_name": "Like Post",
+      "description": "Like a post on Bluesky"
+    },
+    {
+      "name": "repostPost",
+      "display_name": "Repost Post",
+      "description": "Share someone else\\"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newFollowerOnAccount",
+      "display_name": "New Follower on Account",
+      "description": "Triggers when someone new follows your Bluesky account",
+      "type": "scheduled"
+    },
+    {
+      "name": "newPost",
+      "display_name": "New Post (with Search Options)",
+      "description": "Triggers when posts match your search criteria",
+      "type": "scheduled"
+    },
+    {
+      "name": "newPostsByAuthor",
+      "display_name": "New Posts by Author",
+      "description": "Triggers when a selected author creates a new post",
+      "type": "scheduled"
+    },
+    {
+      "name": "newTimelinePosts",
+      "display_name": "New Timeline Posts",
+      "description": "Triggers when new posts appear in your timeline",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bluesky"
+}

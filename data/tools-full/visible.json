@@ -1,0 +1,138 @@
+{
+  "id": "visible",
+  "displayName": "Access Token",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_metric": {
+      "displayName": "Create Metric",
+      "description": "Create a new metric for a company.",
+      "props": [
+        {
+          "name": "companyId",
+          "displayName": "Company ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "frequency",
+          "displayName": "Frequency",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_or_update_contact": {
+      "displayName": "Create or Update Contact",
+      "description": "Creates a contact (or updates contact based on email address).",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "companyId",
+          "displayName": "Company ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "contactListIds",
+          "displayName": "Contact List IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_portfolio_company": {
+      "displayName": "Create Portfolio Company",
+      "description": "Creates a new portfolio company.",
+      "props": [
+        {
+          "name": "companyId",
+          "displayName": "Company ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "websiteUrl",
+          "displayName": "Website URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "primaryContactId",
+          "displayName": "Primary Contact ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

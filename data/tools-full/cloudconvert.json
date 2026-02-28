@@ -1,0 +1,545 @@
+{
+  "id": "cloudconvert",
+  "displayName": "CloudConvert",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "archive_file": {
+      "displayName": "Import Method",
+      "description": "How to import the files for archiving",
+      "props": [
+        {
+          "name": "import_method",
+          "displayName": "Import Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to import the files for archiving"
+        },
+        {
+          "name": "files",
+          "displayName": "Files to Archive",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of files to include in the archive"
+        },
+        {
+          "name": "url",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the file to archive"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "File to upload and archive"
+        },
+        {
+          "name": "stored_file_id",
+          "displayName": "Stored File ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of a previously stored file in Activepieces to archive"
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename in Archive",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional filename for this file within the archive"
+        },
+        {
+          "name": "output_format",
+          "displayName": "Archive Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The archive format to create"
+        },
+        {
+          "name": "filename",
+          "displayName": "Archive Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Choose a filename (including extension) for the archive file"
+        },
+        {
+          "name": "engine",
+          "displayName": "Engine",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Use a specific engine for the archiving"
+        },
+        {
+          "name": "engine_version",
+          "displayName": "Engine Version",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Use a specific engine version for the archiving"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in seconds after which the task will be cancelled"
+        },
+        {
+          "name": "wait_for_completion",
+          "displayName": "Wait for Completion",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Wait for the archive creation to complete before returning"
+        },
+        {
+          "name": "store_file",
+          "displayName": "Store File",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Download and store the created archive in Activepieces"
+        }
+      ]
+    },
+    "capture_website": {
+      "displayName": "Website URL",
+      "description": "The URL of the website to capture",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Website URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the website to capture"
+        },
+        {
+          "name": "output_format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The target format to convert to"
+        },
+        {
+          "name": "pages",
+          "displayName": "Pages",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Page range (e.g. 1-3) or comma separated list (e.g. 1,2,3) of pages"
+        },
+        {
+          "name": "zoom",
+          "displayName": "Zoom Level",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Zoom level to display the website. Defaults to 1"
+        },
+        {
+          "name": "page_width",
+          "displayName": "Page Width (cm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page width in cm"
+        },
+        {
+          "name": "page_height",
+          "displayName": "Page Height (cm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page height in cm"
+        },
+        {
+          "name": "page_format",
+          "displayName": "Page Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Paper format type when printing a PDF. Overrides page_width and page_height"
+        },
+        {
+          "name": "page_orientation",
+          "displayName": "Page Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Page orientation for PDF output"
+        },
+        {
+          "name": "margin_top",
+          "displayName": "Top Margin (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page top margin in mm"
+        },
+        {
+          "name": "margin_bottom",
+          "displayName": "Bottom Margin (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page bottom margin in mm"
+        },
+        {
+          "name": "margin_left",
+          "displayName": "Left Margin (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page left margin in mm"
+        },
+        {
+          "name": "margin_right",
+          "displayName": "Right Margin (mm)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page right margin in mm"
+        },
+        {
+          "name": "print_background",
+          "displayName": "Print Background",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Render the background of websites"
+        },
+        {
+          "name": "display_header_footer",
+          "displayName": "Display Header/Footer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Create a header and a footer with the URL and page numbers"
+        },
+        {
+          "name": "header_template",
+          "displayName": "Header Template",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML template for the print header with classes: date, title, url, pageNumber, totalPages"
+        },
+        {
+          "name": "footer_template",
+          "displayName": "Footer Template",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML template for the print footer with classes: date, title, url, pageNumber, totalPages"
+        },
+        {
+          "name": "wait_until",
+          "displayName": "Wait Until",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "When to consider navigation finished"
+        },
+        {
+          "name": "wait_for_element",
+          "displayName": "Wait for Element",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selector for element to wait for (e.g. \"body\" or \"#element\")"
+        },
+        {
+          "name": "wait_time",
+          "displayName": "Wait Time (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Additional time in ms to wait after the page load"
+        },
+        {
+          "name": "css_media_type",
+          "displayName": "CSS Media Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Changes the CSS media type of the page"
+        },
+        {
+          "name": "filename",
+          "displayName": "Output Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Choose a filename (including extension) for the output file"
+        },
+        {
+          "name": "engine",
+          "displayName": "Engine",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Use a specific engine for the conversion"
+        },
+        {
+          "name": "engine_version",
+          "displayName": "Engine Version",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Use a specific engine version for the conversion"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in seconds after the task will be cancelled"
+        },
+        {
+          "name": "wait_for_completion",
+          "displayName": "Wait for Completion",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Wait for the capture to complete before returning"
+        },
+        {
+          "name": "store_file",
+          "displayName": "Store File",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Download and store the captured file in Activepieces"
+        }
+      ]
+    },
+    "convert_file": {
+      "displayName": "Convert File",
+      "description": "Create a basic file conversion task for a single file with desired output format",
+      "props": []
+    },
+    "download_file": {
+      "displayName": "Task ID",
+      "description": "ID of the CloudConvert task to retrieve",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the CloudConvert task to retrieve"
+        },
+        {
+          "name": "include",
+          "displayName": "Include Additional Data",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Additional data to include in the response"
+        },
+        {
+          "name": "store_file",
+          "displayName": "Store File",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Download and store the output files in Activepieces"
+        }
+      ]
+    },
+    "merge_pdf": {
+      "displayName": "Import Method",
+      "description": "How to import the files for merging",
+      "props": [
+        {
+          "name": "import_method",
+          "displayName": "Import Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to import the files for merging"
+        },
+        {
+          "name": "files",
+          "displayName": "Files to Merge",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of files to merge into a single PDF"
+        },
+        {
+          "name": "url",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the file to merge"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "File to upload and merge"
+        },
+        {
+          "name": "stored_file_id",
+          "displayName": "Stored File ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of a previously stored file in Activepieces to merge"
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename in PDF",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional filename for this file within the PDF"
+        },
+        {
+          "name": "filename",
+          "displayName": "Output Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Choose a filename (including extension) for the output file"
+        },
+        {
+          "name": "engine",
+          "displayName": "Engine",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Use a specific engine for the conversion"
+        },
+        {
+          "name": "engine_version",
+          "displayName": "Engine Version",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Use a specific engine version for the conversion"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in seconds after which the task will be cancelled"
+        },
+        {
+          "name": "wait_for_completion",
+          "displayName": "Wait for Completion",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Wait for the merge to complete before returning"
+        },
+        {
+          "name": "store_file",
+          "displayName": "Store File",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Download and store the merged PDF in Activepieces"
+        }
+      ]
+    },
+    "optimize_file": {
+      "displayName": "Import Method",
+      "description": "How to import the file for optimization",
+      "props": [
+        {
+          "name": "import_method",
+          "displayName": "Import Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to import the file for optimization"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "File to upload and optimize (PDF, PNG, JPG)"
+        },
+        {
+          "name": "url",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the file to optimize"
+        },
+        {
+          "name": "stored_file_id",
+          "displayName": "Stored File ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of a previously stored file in Activepieces to optimize"
+        },
+        {
+          "name": "input_format",
+          "displayName": "Input Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The current format of the file. If not set, the extension of the input file is used"
+        },
+        {
+          "name": "profile",
+          "displayName": "Optimization Profile",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Optimization profile for specific target needs"
+        },
+        {
+          "name": "flatten_signatures",
+          "displayName": "Flatten Signatures",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Flatten visible signatures and keep them as non-editable graphics"
+        },
+        {
+          "name": "colorspace",
+          "displayName": "Color Space",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Color space of raster images"
+        },
+        {
+          "name": "filename",
+          "displayName": "Output Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Choose a filename (including extension) for the output file"
+        },
+        {
+          "name": "engine",
+          "displayName": "Engine",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Use a specific engine for the optimization"
+        },
+        {
+          "name": "engine_version",
+          "displayName": "Engine Version",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Use a specific engine version for the optimization"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in seconds after which the task will be cancelled"
+        },
+        {
+          "name": "wait_for_completion",
+          "displayName": "Wait for Completion",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Wait for the optimization to complete before returning"
+        },
+        {
+          "name": "store_file",
+          "displayName": "Store File",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Download and store the optimized file in Activepieces"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "job_failed": {
+      "displayName": "Job Failed",
+      "description": "Triggers when a CloudConvert job has failed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "job_finished": {
+      "displayName": "Job Finished",
+      "description": "Triggers when a CloudConvert job has been completed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_job": {
+      "displayName": "New Job Event",
+      "description": "Triggers when a new job has been created",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

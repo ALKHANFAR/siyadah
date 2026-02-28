@@ -1,0 +1,349 @@
+{
+  "id": "moxie-crm",
+  "displayName": "Moxie",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "moxie_create_client": {
+      "displayName": "Create a Client",
+      "description": "Create a new client record in moxie CRM.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "clientType",
+          "displayName": "Client Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "initials",
+          "displayName": "Initials",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address1",
+          "displayName": "Address 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address2",
+          "displayName": "Address 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "locality",
+          "displayName": "Locality",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "postal",
+          "displayName": "Postal",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "color",
+          "displayName": "Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "taxId",
+          "displayName": "Tax ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "leadSource",
+          "displayName": "Lead Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "archive",
+          "displayName": "Archive ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "payInstructions",
+          "displayName": "Pay Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "hourlyAmount",
+          "displayName": "Hourly Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "roundingIncrement",
+          "displayName": "Rounding Increment",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Valid 3-Letter ISO 4217 currency code."
+        },
+        {
+          "name": "stripeClientId",
+          "displayName": "Stripe Client ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "moxie_create_project": {
+      "displayName": "Create a Project",
+      "description": "Creates a new project in moxie CRM.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "clientName",
+          "displayName": "Client",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Please enter date in YYYY-MM-DD format."
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Please enter date in YYYY-MM-DD format."
+        },
+        {
+          "name": "portalAccess",
+          "displayName": "Client Portal Access",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "One of: None, Overview, Full access, or Read only."
+        },
+        {
+          "name": "showTimeWorkedInPortal",
+          "displayName": "Show time worked in portal ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "feeType",
+          "displayName": "Fee Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "One of: Hourly, Fixed Price, Retainer, Per Item."
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "estimateMax",
+          "displayName": "Estimate maximum Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "estimateMin",
+          "displayName": "Estimate minimum Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "taxable",
+          "displayName": "Is amount taxable ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "moxie_create_task": {
+      "displayName": "Create a Task",
+      "description": "Create a task in project.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "clientName",
+          "displayName": "Client Name",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Exact match of a client name in your CRM"
+        },
+        {
+          "name": "projectName",
+          "displayName": "Project Name",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Exact match of a project that is owned by the client."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "ISO 8601 format date i.e. 2023-07-20"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "ISO 8601 format date i.e. 2023-07-20"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Numeric priority for sorting in kanban."
+        },
+        {
+          "name": "tasks",
+          "displayName": "Subtasks",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "assignedTo",
+          "displayName": "Assigned To",
+          "type": "ARRAY",
+          "required": false,
+          "description": "email addresses of users in the workspace."
+        },
+        {
+          "name": "customValues",
+          "displayName": "Custom Values",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "moxie_trigger_${name}": {
+      "displayName": "moxie_trigger_${name}",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "md",
+          "displayName": "md",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "id": "intercom",
+  "package": "@activepieces/piece-intercom",
+  "display_name": "Intercom",
+  "display_name_ar": "",
+  "description": "Customer messaging platform for sales, marketing, and support",
+  "category": "C_communication",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "addNoteToConversation",
+      "display_name": "Add note to conversation",
+      "description": "Add a note (for other admins) to an existing conversation"
+    },
+    {
+      "name": "add-note-to-user",
+      "display_name": "Add Note",
+      "description": "Add a note to a user"
+    },
+    {
+      "name": "add-or-remove-tag-on-company",
+      "display_name": "Add/Remove Tag on Company",
+      "description": "Attach or remove a tag from a specific company."
+    },
+    {
+      "name": "add-or-remove-tag-on-contact",
+      "display_name": "Add/Remove Tag on Contact",
+      "description": "Attach or remove a tag from a specific contact."
+    },
+    {
+      "name": "add-or-remove-tag-on-conversation",
+      "display_name": "Add/Remove Tag on Conversation",
+      "description": "Attach or remove a tag from a specific conversation."
+    },
+    {
+      "name": "create-article",
+      "display_name": "Create Article",
+      "description": "Creates a new article in your Help Center."
+    },
+    {
+      "name": "create-conversation",
+      "display_name": "Create Conversation",
+      "description": "Creates a new conversation from a contact."
+    },
+    {
+      "name": "create-ticket",
+      "display_name": "Create Ticket",
+      "description": "Creates a new ticket."
+    },
+    {
+      "name": "create-or-update-lead",
+      "display_name": "Create or Update Lead",
+      "description": "Create or update an Intercom lead.If an ID is provided, the lead will be updated."
+    },
+    {
+      "name": "create-or-update-user",
+      "display_name": "Create/Update User",
+      "description": "Update a user within intercom given an email address."
+    },
+    {
+      "name": "create-user",
+      "display_name": "Create User",
+      "description": "Creates a new user."
+    },
+    {
+      "name": "find-company",
+      "display_name": "Find Company",
+      "description": "Finds an existing company."
+    },
+    {
+      "name": "find-conversation",
+      "display_name": "Find Conversation",
+      "description": "Searches for conversations using various criteria"
+    },
+    {
+      "name": "find-lead",
+      "display_name": "Find Lead",
+      "description": "Finds an existing lead."
+    },
+    {
+      "name": "find-user",
+      "display_name": "Find User",
+      "description": "Finds an existing user."
+    },
+    {
+      "name": "get-conversation",
+      "display_name": "Retrieve a Conversation",
+      "description": "Retrieves a specific conversation by ID."
+    },
+    {
+      "name": "list-all-tags",
+      "display_name": "List Tags",
+      "description": "List all tags."
+    },
+    {
+      "name": "replyToConversation",
+      "display_name": "Reply to conversation",
+      "description": "Reply (as an admin) to a conversation with a contact"
+    },
+    {
+      "name": "send_message",
+      "display_name": "Send Message",
+      "description": "Send a message to a contact (only allowed by admins)"
+    },
+    {
+      "name": "update-ticket",
+      "display_name": "Update Ticket",
+      "description": "Updates an existing ticket."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "contactReplied",
+      "display_name": "Contact Replied",
+      "description": "Triggers when a contact replies to a Conversation in Intercom.",
+      "type": "instant"
+    },
+    {
+      "name": "contact-updated",
+      "display_name": "Updated Contact",
+      "description": "Triggers when a contact is updated.",
+      "type": "instant"
+    },
+    {
+      "name": "conversationAssigned",
+      "display_name": "Conversation assigned to any Intercom admin",
+      "description": "Triggers when a conversation is assigned to an admin",
+      "type": "instant"
+    },
+    {
+      "name": "conversationClosed",
+      "display_name": "Conversation Closed",
+      "description": "Triggers when a conversation is closed.",
+      "type": "instant"
+    },
+    {
+      "name": "conversationPartTagged",
+      "display_name": "Tag added to a conversation part",
+      "description": "Triggers when a conversation part is tagged.",
+      "type": "instant"
+    },
+    {
+      "name": "conversationRated",
+      "display_name": "Conversation was rated",
+      "description": "Triggers when a conversation is rated",
+      "type": "instant"
+    },
+    {
+      "name": "conversationSnoozed",
+      "display_name": "Conversation snoozed",
+      "description": "Triggers when a conversation is snoozed",
+      "type": "instant"
+    },
+    {
+      "name": "conversationUnsnoozed",
+      "display_name": "Conversation unsnoozed",
+      "description": "Triggers when a conversation is unsnoozed",
+      "type": "instant"
+    },
+    {
+      "name": "lead-added-email",
+      "display_name": "Lead Added Email",
+      "description": "Triggers when a lead enters an email address.",
+      "type": "instant"
+    },
+    {
+      "name": "lead-converted-to-user",
+      "display_name": "Lead Converted To User",
+      "description": "Triggers when a lead is converted to a user.",
+      "type": "instant"
+    },
+    {
+      "name": "new-company",
+      "display_name": "New Company",
+      "description": "Triggers when a new company is created.",
+      "type": "instant"
+    },
+    {
+      "name": "newConversationFromUser",
+      "display_name": "New Conversation",
+      "description": "Triggers when a conversation is created by a user or lead (not an admin).",
+      "type": "instant"
+    },
+    {
+      "name": "new-lead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new-ticket",
+      "display_name": "New Ticket",
+      "description": "Triggers when a new ticket is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new-user",
+      "display_name": "New User",
+      "description": "Triggers when a new user is created.",
+      "type": "instant"
+    },
+    {
+      "name": "noteAddedToConversation",
+      "display_name": "Note added to conversation",
+      "description": "Triggers when a note is added to a conversation",
+      "type": "instant"
+    },
+    {
+      "name": "replyFromAdmin",
+      "display_name": "Reply from an Intercom admin",
+      "description": "Triggers when a reply is received from an Intercom admin (not a user or lead)",
+      "type": "instant"
+    },
+    {
+      "name": "replyFromUser",
+      "display_name": "Reply from a user or lead",
+      "description": "Triggers when a reply is received from a user or lead (not an admin)",
+      "type": "instant"
+    },
+    {
+      "name": "tag-added-to-lead",
+      "display_name": "Tag Added to Lead",
+      "description": "Triggers when a tag is added to a lead.",
+      "type": "instant"
+    },
+    {
+      "name": "tag-added-to-user",
+      "display_name": "Tag Added to User",
+      "description": "Triggers when a tag is added to a user.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

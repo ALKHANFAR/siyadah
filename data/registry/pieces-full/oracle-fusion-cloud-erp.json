@@ -1,0 +1,20 @@
+{
+  "id": "oracle-fusion-cloud-erp",
+  "package": "@activepieces/piece-oracle-fusion-cloud-erp",
+  "display_name": "Oracle Fusion Cloud ERP",
+  "display_name_ar": "",
+  "description": "Enterprise resource planning suite covering financials, procurement, project accounting, supply chain, and more.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

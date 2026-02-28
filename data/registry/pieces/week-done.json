@@ -1,0 +1,85 @@
+{
+  "id": "week-done",
+  "package": "@activepieces/piece-week-done",
+  "display_name": "Weekdone",
+  "display_name_ar": "Weekdone",
+  "description": "Goal-setting and progress tracking software that helps teams align their objectives and key results (OKRs).",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_item",
+      "display_name": "Create Item",
+      "description": "Create a new item."
+    },
+    {
+      "name": "delete_item_comment",
+      "display_name": "Delete Item Comment",
+      "description": "Delete a comment from an item."
+    },
+    {
+      "name": "delete_item_like",
+      "display_name": "Delete Item Like",
+      "description": "Remove your like from an item."
+    },
+    {
+      "name": "search_items",
+      "display_name": "Search Items",
+      "description": "Search for items."
+    },
+    {
+      "name": "get_item_comments",
+      "display_name": "Get Item Comments",
+      "description": "Get comments for an item."
+    },
+    {
+      "name": "sort_items",
+      "display_name": "Sort Items",
+      "description": "Sort items within a type and period."
+    },
+    {
+      "name": "delete_item",
+      "display_name": "Delete Item",
+      "description": "Delete an item."
+    },
+    {
+      "name": "add_item_comment",
+      "display_name": "Add Item Comment",
+      "description": "Add a comment to an item."
+    },
+    {
+      "name": "update_item",
+      "display_name": "Update Item",
+      "description": "Update an existing item."
+    },
+    {
+      "name": "add_item_like",
+      "display_name": "Add Item Like",
+      "description": "Add a like to an item."
+    },
+    {
+      "name": "get_item_likes",
+      "display_name": "Get Item Likes",
+      "description": "Get likes for an item."
+    },
+    {
+      "name": "assign_item",
+      "display_name": "Assign Item",
+      "description": "Assign an item to another user."
+    },
+    {
+      "name": "get_company_info",
+      "display_name": "Get Company Info",
+      "description": "Get company configuration and settings."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/week-done"
+}

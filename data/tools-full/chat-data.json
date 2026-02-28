@@ -1,0 +1,550 @@
+{
+  "id": "chat-data",
+  "displayName": "Chat Data",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_chatbot": {
+      "displayName": "Create Chatbot",
+      "description": "Create and train a chatbot using custom data, medical models, or custom models. Training takes 1-2 minutes.",
+      "props": [
+        {
+          "name": "chatbotName",
+          "displayName": "Chatbot Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the chatbot to be created"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the chatbot model. Note: sourceText and urlsToScrape are ignored for medical and custom models."
+        },
+        {
+          "name": "sourceText",
+          "displayName": "Source Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Training text for the chatbot. Character limits apply based on your plan. Only used for custom-data-upload model."
+        },
+        {
+          "name": "urlsToScrape",
+          "displayName": "URLs to Scrape",
+          "type": "ARRAY",
+          "required": false,
+          "description": "URLs to extract content from. Must start with http:// or https:// (only for custom-data-upload model)"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Website URL starting with http:// or https://"
+        },
+        {
+          "name": "products",
+          "displayName": "Products",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of products for training the chatbot"
+        },
+        {
+          "name": "id",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique ID for tracking the product in the knowledge base"
+        },
+        {
+          "name": "information",
+          "displayName": "Product Information",
+          "type": "JSON",
+          "required": true,
+          "description": "Structured data of the product in key-value format (1-2 levels deep recommended)"
+        },
+        {
+          "name": "qAndAs",
+          "displayName": "Q&As",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of questions and answers for the chatbot to learn"
+        },
+        {
+          "name": "question",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question on a specific topic"
+        },
+        {
+          "name": "answer",
+          "displayName": "Answer",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The answer to the question"
+        },
+        {
+          "name": "customBackend",
+          "displayName": "Custom Backend URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of a custom backend for the chatbot"
+        },
+        {
+          "name": "bearer",
+          "displayName": "Bearer Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Authentication bearer token for custom backend"
+        }
+      ]
+    },
+    "delete_chatbot": {
+      "displayName": "Delete Chatbot",
+      "description": "Delete a chatbot and all its associated data (training data, conversations, leads, etc.). This action is irreversible.",
+      "props": [
+        {
+          "name": "chatbotId",
+          "displayName": "Chatbot",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the chatbot to delete"
+        }
+      ]
+    },
+    "retrain_chatbot": {
+      "displayName": "Retrain Chatbot",
+      "description": "Retrain an existing chatbot with new data or remove existing data (custom-data-upload model only)",
+      "props": [
+        {
+          "name": "chatbotId",
+          "displayName": "Chatbot",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the chatbot to retrain"
+        },
+        {
+          "name": "sourceText",
+          "displayName": "Source Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New text data for training the chatbot"
+        },
+        {
+          "name": "urlsToScrape",
+          "displayName": "URLs to Scrape",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of URLs to extract content from (existing URLs will be recrawled)"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Website URL starting with http:// or https://"
+        },
+        {
+          "name": "cookies",
+          "displayName": "Cookies",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Cookies for authorization (semicolon-separated: \"cookie1=value1; cookie2=value2\")"
+        },
+        {
+          "name": "extractMainContent",
+          "displayName": "Extract Main Content",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically remove headers, footers, nav, sidebar, and ads"
+        },
+        {
+          "name": "includeOnlyTags",
+          "displayName": "Include Only Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selectors to exclusively extract (comma-separated)"
+        },
+        {
+          "name": "excludeTags",
+          "displayName": "Exclude Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CSS selectors to exclude from scraping (comma-separated)"
+        },
+        {
+          "name": "products",
+          "displayName": "Products",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of products for training (existing products with same ID will be overwritten)"
+        },
+        {
+          "name": "id",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique ID for tracking the product"
+        },
+        {
+          "name": "information",
+          "displayName": "Product Information",
+          "type": "JSON",
+          "required": true,
+          "description": "Structured product data in key-value format"
+        },
+        {
+          "name": "qAndAs",
+          "displayName": "Q&As",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of questions and answers for the chatbot to learn"
+        },
+        {
+          "name": "question",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question on a specific topic"
+        },
+        {
+          "name": "answer",
+          "displayName": "Answer",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The answer to the question"
+        },
+        {
+          "name": "deletes",
+          "displayName": "Knowledge to Delete",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of knowledge sources to remove from the chatbot"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of knowledge chunk to delete"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL to delete (required if type is website)"
+        }
+      ]
+    },
+    "send_message": {
+      "displayName": "Send Message to Chatbot",
+      "description": "Send messages to a chatbot and receive a response with support for streaming and OpenAI-compatible formats",
+      "props": [
+        {
+          "name": "chatbotId",
+          "displayName": "Chatbot",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the chatbot to send message to"
+        },
+        {
+          "name": "messageContent",
+          "displayName": "Message Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content of the message to send"
+        },
+        {
+          "name": "messageRole",
+          "displayName": "Message Role",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The role of the message sender"
+        },
+        {
+          "name": "conversationId",
+          "displayName": "Conversation",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select an existing conversation or leave empty to start a new one"
+        },
+        {
+          "name": "includeReasoning",
+          "displayName": "Include Reasoning",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include reasoning in the response (overrides chatbot settings)"
+        },
+        {
+          "name": "baseModel",
+          "displayName": "Base Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Override the chatbot's base model for this request"
+        },
+        {
+          "name": "basePrompt",
+          "displayName": "Base Prompt Override",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Override the chatbot's base prompt for this request"
+        },
+        {
+          "name": "openAIFormat",
+          "displayName": "OpenAI Format",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return response in OpenAI-compatible format"
+        },
+        {
+          "name": "appendMessages",
+          "displayName": "Append to Conversation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Append this message to previous messages with the same conversationId"
+        },
+        {
+          "name": "attachedFiles",
+          "displayName": "Attached Files",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Files to attach to the message (max 3 files)"
+        },
+        {
+          "name": "name",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the attached file"
+        },
+        {
+          "name": "type",
+          "displayName": "File Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The MIME type of the file"
+        },
+        {
+          "name": "url",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Publicly accessible URL where the file is hosted"
+        },
+        {
+          "name": "content",
+          "displayName": "File Content (Optional)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Pre-parsed textual content. If provided, file won\\"
+        }
+      ]
+    },
+    "update_chatbot_settings": {
+      "displayName": "Update Chatbot Settings",
+      "description": "Update comprehensive settings for a chatbot including name, prompts, behavior, and appearance",
+      "props": [
+        {
+          "name": "chatbotId",
+          "displayName": "Chatbot",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the chatbot to update"
+        },
+        {
+          "name": "chatbotName",
+          "displayName": "Chatbot Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Update the name of the chatbot"
+        },
+        {
+          "name": "basePrompt",
+          "displayName": "Base Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Update the base prompt for the chatbot"
+        },
+        {
+          "name": "initialMessages",
+          "displayName": "Initial Messages",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of initial messages to be used by the chatbot"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Initial message text"
+        },
+        {
+          "name": "suggestedMessages",
+          "displayName": "Suggested Messages",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of suggested messages shown in the chatbot"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Suggested message text"
+        },
+        {
+          "name": "visibility",
+          "displayName": "Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Control whether your chatbot is accessible to others"
+        },
+        {
+          "name": "baseModel",
+          "displayName": "Base Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The AI model used in the RAG processing pipeline"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "AI model temperature (0-1, controls randomness)"
+        },
+        {
+          "name": "storeChat",
+          "displayName": "Store Chat History",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether chat history will be stored on the server"
+        },
+        {
+          "name": "trackIpAddress",
+          "displayName": "Track IP Address",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether IP addresses will be stored for conversations and leads"
+        },
+        {
+          "name": "rateLimitPoints",
+          "displayName": "Rate Limit Points",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of messages per timeframe from one device"
+        },
+        {
+          "name": "rateLimitTimeframe",
+          "displayName": "Rate Limit Timeframe",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeframe in seconds for rate limiting"
+        },
+        {
+          "name": "rateLimitMessage",
+          "displayName": "Rate Limit Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Error message shown when rate limited"
+        },
+        {
+          "name": "onlyAllowOnAddedDomains",
+          "displayName": "Restrict to Added Domains",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only allow the iframe and widget on specific domains"
+        },
+        {
+          "name": "domains",
+          "displayName": "Allowed Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of domains where the chatbot is allowed"
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Domain URL (e.g., example.com)"
+        },
+        {
+          "name": "showCalendar",
+          "displayName": "Show Calendar",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Display Calendly booking button in the chatbot"
+        },
+        {
+          "name": "calendarUrl",
+          "displayName": "Calendar URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Calendly URL for appointment scheduling"
+        },
+        {
+          "name": "calendarMessage",
+          "displayName": "Calendar Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Message to display for appointment scheduling"
+        },
+        {
+          "name": "enableBouncingAnimation",
+          "displayName": "Enable Bouncing Animation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the chatbot bubble should bounce to attract attention"
+        },
+        {
+          "name": "ignoreDataSource",
+          "displayName": "Ignore Data Source",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Ignore custom data and act like pure ChatGPT"
+        },
+        {
+          "name": "customBackend",
+          "displayName": "Custom Backend URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of a custom backend for the chatbot"
+        },
+        {
+          "name": "bearer",
+          "displayName": "Bearer Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Authentication token for custom backend"
+        }
+      ]
+    },
+    "upload_file": {
+      "displayName": "Upload File",
+      "description": "Upload a file to be used with a chatbot for training or knowledge base",
+      "props": [
+        {
+          "name": "chatbotId",
+          "displayName": "Chatbot",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the chatbot to upload file to"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload to the chatbot"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

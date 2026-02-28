@@ -1,0 +1,69 @@
+{
+  "id": "assembled",
+  "package": "@activepieces/piece-assembled",
+  "display_name": "Assembled",
+  "display_name_ar": "",
+  "description": "Workforce management platform for scheduling and forecasting",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_shift",
+      "display_name": "Add Shift on Assembled",
+      "description": "Add a new shift to a user\\"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    },
+    {
+      "name": "custom_graphql",
+      "display_name": "Custom GraphQL",
+      "description": "Perform a custom GraphQL query"
+    },
+    {
+      "name": "delete_OOO",
+      "display_name": "Delete OOO Request",
+      "description": "Cancel/delete a OOO request."
+    },
+    {
+      "name": "get_user_schedule",
+      "display_name": "Get User Schedule",
+      "description": "Retrieves user\\"
+    },
+    {
+      "name": "OOO",
+      "display_name": "Create OOO Request",
+      "description": "Create an Out of Office request in Assembled."
+    },
+    {
+      "name": "update_OOO",
+      "display_name": "Update OOO Request",
+      "description": "Updates an existing OOO request."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "OOO_status_changed",
+      "display_name": "OOO Status Changed",
+      "description": "Triggers on approval/rejection of OOO.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_OOO_request",
+      "display_name": "New OOO Request",
+      "description": "Triggers when a new OOO request is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "schedule_updated",
+      "display_name": "Schedule Updated",
+      "description": "Triggers when user schedule is modified.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

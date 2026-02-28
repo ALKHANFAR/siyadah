@@ -1,0 +1,67 @@
+{
+  "id": "promptmate",
+  "package": "@activepieces/piece-promptmate",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Your PromptMate API key",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_app_details",
+      "display_name": "Get App Details",
+      "description": "Retrieve detailed information about a specific PromptMate app"
+    },
+    {
+      "name": "get_job_status",
+      "display_name": "Get Job Status and Result",
+      "description": "Retrieve the status and results of a PromptMate app job"
+    },
+    {
+      "name": "get_last_results",
+      "display_name": "Get Last Result Rows",
+      "description": "Retrieve the last result rows of a PromptMate app for examples or testing"
+    },
+    {
+      "name": "get_user_info",
+      "display_name": "Get User Information",
+      "description": "Retrieve user information associated with the API key"
+    },
+    {
+      "name": "list_apps",
+      "display_name": "List Apps",
+      "description": "Retrieve a list of available apps"
+    },
+    {
+      "name": "list_projects",
+      "display_name": "List Projects",
+      "description": "Retrieve a list of available PromptMate projects"
+    },
+    {
+      "name": "run_app",
+      "display_name": "Run PromptMate App",
+      "description": "Runs a PromptMate app with the specified data"
+    },
+    {
+      "name": "use_template",
+      "display_name": "Use Template",
+      "description": "Create an app from a specific PromptMate template"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_app_result",
+      "display_name": "New App Result",
+      "description": "Triggers when there is a new app result from PromptMate",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

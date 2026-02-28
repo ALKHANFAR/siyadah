@@ -1,0 +1,157 @@
+{
+  "id": "shopify",
+  "package": "@activepieces/piece-shopify",
+  "display_name": "Shop Name",
+  "display_name_ar": "شوبيفاي",
+  "description": "Ecommerce platform for online stores",
+  "category": "F_ecommerce",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "adjust_inventory_level",
+      "display_name": "Adjust Inventory Level",
+      "description": "The ID of the inventory item."
+    },
+    {
+      "name": "cancel_order",
+      "display_name": "Cancel Order",
+      "description": "The ID of the order."
+    },
+    {
+      "name": "close_order",
+      "display_name": "Close Order",
+      "description": "The ID of the order."
+    },
+    {
+      "name": "create_collect",
+      "display_name": "Create Collect",
+      "description": "The ID of the product."
+    },
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Create a new customer."
+    },
+    {
+      "name": "create_draft_order",
+      "display_name": "Create Draft Order",
+      "description": "Create a new draft order."
+    },
+    {
+      "name": "create_fulfillment_event",
+      "display_name": "Create Fulfillment Event",
+      "description": "Create a new fulfillment event."
+    },
+    {
+      "name": "create_order",
+      "display_name": "Create Order",
+      "description": "Create a new order."
+    },
+    {
+      "name": "create_product",
+      "display_name": "Create Product",
+      "description": "Create a new product."
+    },
+    {
+      "name": "create_transaction",
+      "display_name": "Create Transaction",
+      "description": "Create a new transaction."
+    },
+    {
+      "name": "get_asset",
+      "display_name": "Get Asset",
+      "description": "The ID of the theme."
+    },
+    {
+      "name": "get_customer_orders",
+      "display_name": "Get Customer Orders",
+      "description": "Get an existing customer's orders."
+    },
+    {
+      "name": "get_customer",
+      "display_name": "Get Customer",
+      "description": "Get an existing customer's information."
+    },
+    {
+      "name": "get_customers",
+      "display_name": "Get Customers",
+      "description": "Get an existing customers."
+    },
+    {
+      "name": "get_fulfillment",
+      "display_name": "Get Fulfillment",
+      "description": "The ID of the order."
+    },
+    {
+      "name": "get_fulfillments",
+      "display_name": "Get Fulfillments",
+      "description": "The ID of the order."
+    },
+    {
+      "name": "get_locations",
+      "display_name": "Get Locations",
+      "description": "Get locations."
+    },
+    {
+      "name": "get_product_variant",
+      "display_name": "Get Product Variant",
+      "description": "The ID of the product variant."
+    },
+    {
+      "name": "get_product",
+      "display_name": "Get Product",
+      "description": "The ID of the product."
+    },
+    {
+      "name": "get_products",
+      "display_name": "Get Products",
+      "description": "Get existing products by title."
+    },
+    {
+      "name": "get_transaction",
+      "display_name": "Get Transaction",
+      "description": "The ID of the order."
+    },
+    {
+      "name": "get_transactions",
+      "display_name": "Get Order Transactions",
+      "description": "The ID of the order."
+    },
+    {
+      "name": "update_customer",
+      "display_name": "Update Customer",
+      "description": "Update an existing customer."
+    },
+    {
+      "name": "update_order",
+      "display_name": "Update Order",
+      "description": "Update an existing order."
+    },
+    {
+      "name": "update_product",
+      "display_name": "Update Product",
+      "description": "Update an existing product."
+    },
+    {
+      "name": "upload_product_image",
+      "display_name": "Upload Product Image",
+      "description": "Upload a new product image."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_abandoned_checkout",
+      "display_name": "New Abandoned Checkout",
+      "description": "Triggers when a checkout is abandoned.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/shopify"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "facebook-leads",
+  "displayName": "Facebook Leads",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {},
+  "triggers": {
+    "new_lead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead is created.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

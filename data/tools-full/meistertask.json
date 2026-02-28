@@ -1,0 +1,295 @@
+{
+  "id": "meistertask",
+  "displayName": "MeisterTask",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_attachment": {
+      "displayName": "Create Attachment",
+      "description": "Creates a new attachment",
+      "props": [
+        {
+          "name": "file_url",
+          "displayName": "File URL",
+          "type": "FILE",
+          "required": true,
+          "description": "URL of the file to attach"
+        },
+        {
+          "name": "name",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_label": {
+      "displayName": "Create Label",
+      "description": "Creates a new label",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Label Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "color",
+          "displayName": "Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Hex color code (e.g., #FF0000)"
+        }
+      ]
+    },
+    "create_task_label": {
+      "displayName": "Create Task Label",
+      "description": "Creates a new task label",
+      "props": []
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Creates a new task",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_attachment": {
+      "displayName": "Find Attachment",
+      "description": "Finds an attachment by searching",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_label": {
+      "displayName": "Find Label",
+      "description": "Finds a label by searching",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Label Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find_or_create_attachment": {
+      "displayName": "Find or Create Attachment",
+      "description": "Finds an attachment by searching, or creates one if it doesn\\",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "file_url",
+          "displayName": "File URL",
+          "type": "FILE",
+          "required": true,
+          "description": "URL of the file to attach (used if creating)"
+        }
+      ]
+    },
+    "find_or_create_label": {
+      "displayName": "Find or Create Label",
+      "description": "Finds a label by searching, or creates one if it doesn\\",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Label Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "color",
+          "displayName": "Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Hex color code (e.g., #FF0000) - used if creating"
+        }
+      ]
+    },
+    "find_or_create_task": {
+      "displayName": "Find or Create Task",
+      "description": "Finds a task by searching, or creates one if it doesn\\",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes for the task (used if creating)"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Due date for the task (used if creating)"
+        }
+      ]
+    },
+    "find_person": {
+      "displayName": "Find Person",
+      "description": "Finds a person based on person_id",
+      "props": [
+        {
+          "name": "person_id",
+          "displayName": "Person ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Finds a task by searching",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Updates an existing task",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_attachment": {
+      "displayName": "New Attachment",
+      "description": "Triggers when an attachment is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_checklist_item": {
+      "displayName": "New Checklist Item",
+      "description": "Triggers when a new checklist item is added to a task.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_comment": {
+      "displayName": "New Comment",
+      "description": "Triggers when a new comment is created on a task.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_label": {
+      "displayName": "New Label",
+      "description": "Triggers when a label is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_person": {
+      "displayName": "New Person",
+      "description": "Triggers when a new person is added to a project.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_project": {
+      "displayName": "New Project",
+      "description": "Triggers when a new project is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_section": {
+      "displayName": "New Section",
+      "description": "Triggers when a new section is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_task_label": {
+      "displayName": "New Task Label",
+      "description": "Triggers when a task label is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Triggers when a task is created or changed.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

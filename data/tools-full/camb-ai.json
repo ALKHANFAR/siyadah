@@ -1,0 +1,165 @@
+{
+  "id": "camb-ai",
+  "displayName": "Camb.AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_text_to_sound": {
+      "displayName": "Create Text-to-Sound",
+      "description": "Convert input text into “sound effects” using an AI model.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A clear, descriptive explanation of the desired audio effect. Concise prompts yield more accurate results."
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The desired length of the audio in seconds (max 10). Defaults to 8 if not set."
+        },
+        {
+          "name": "project_name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memorable name for your project to help organize tasks in your Camb.ai workspace."
+        },
+        {
+          "name": "project_description",
+          "displayName": "Project Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Provide details about your project\\"
+        }
+      ]
+    },
+    "create_text_to_speech": {
+      "displayName": "Create Text-to-Speech",
+      "description": "Convert text into speech using a specified voice, language, gender, and age group.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to be converted to speech."
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The gender of the speaker."
+        },
+        {
+          "name": "age",
+          "displayName": "Age",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The age of the speaker to be generated."
+        },
+        {
+          "name": "project_name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memorable name for your project to help organize tasks in your Camb.ai workspace."
+        },
+        {
+          "name": "project_description",
+          "displayName": "Project Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Provide details about your project\\"
+        }
+      ]
+    },
+    "create_transcription": {
+      "displayName": "Create Transcription",
+      "description": "Creates a task to process speech into readable text.",
+      "props": [
+        {
+          "name": "source_type",
+          "displayName": "Media Source",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose whether to upload a file or provide a URL."
+        },
+        {
+          "name": "media",
+          "displayName": "Media",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "The media file (e.g., MP3, WAV, MP4) to transcribe. Max size: 20MB."
+        },
+        {
+          "name": "project_name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memorable name for your project to help organize tasks in your Camb.ai workspace."
+        },
+        {
+          "name": "project_description",
+          "displayName": "Project Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Provide details about your project\\"
+        }
+      ]
+    },
+    "create_translation": {
+      "displayName": "Create Translation",
+      "description": "Translate text from a source language to a target language.",
+      "props": [
+        {
+          "name": "texts",
+          "displayName": "Text to Translate",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to be translated. You can enter multiple lines; each line will be treated as a separate text segment."
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Adjust the formality level to match your context."
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Specify grammatical gender preferences when relevant in the target language."
+        },
+        {
+          "name": "age",
+          "displayName": "Audience Age",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Helps adjust vocabulary and expressions to be age-appropriate."
+        },
+        {
+          "name": "project_name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memorable name for your project to help organize tasks in your Camb.ai workspace."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

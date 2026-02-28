@@ -1,0 +1,1907 @@
+{
+  "id": "ampeco",
+  "package": "@activepieces/piece-ampeco",
+  "display_name": "AMPECO",
+  "display_name_ar": "AMPECO",
+  "description": "AMPECO piece provides integrations of APIs and webhook notifications of the AMPECO platform for managing EV charging infrastructure and operations.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "electricityMeterCreate",
+      "display_name": "Resources - Electricity Meters - Create",
+      "description": "Create a new electricity meter."
+    },
+    {
+      "name": "electricityMeterUpdate",
+      "display_name": "Resources - Electricity Meters - Update",
+      "description": "Update electricity meter."
+    },
+    {
+      "name": "electricityMeterRead",
+      "display_name": "Resources - Electricity Meters - Read",
+      "description": "Get information for an electricity meter by ID."
+    },
+    {
+      "name": "electricityMetersLising",
+      "display_name": "Resources - Electricity Meters - Lising",
+      "description": "Get all electricity meters."
+    },
+    {
+      "name": "electricityMeterDelete",
+      "display_name": "Resources - Electricity Meters - Delete",
+      "description": "Delete an electricity meter."
+    },
+    {
+      "name": "chargePointModelCreate",
+      "display_name": "Resources - Charge Point Models - Create",
+      "description": "Create new Charge Point Model."
+    },
+    {
+      "name": "chargePointModelRead",
+      "display_name": "Resources - Charge Point Models - Read",
+      "description": "Get a Charge Point Model."
+    },
+    {
+      "name": "chargePointModelsListing",
+      "display_name": "Resources - Charge Point Models - Listing",
+      "description": "Get all Charge Point Models."
+    },
+    {
+      "name": "chargePointModelUpdate",
+      "display_name": "Resources - Charge Point Models - Update",
+      "description": "Charge Point Model."
+    },
+    {
+      "name": "chargePointModelDelete",
+      "display_name": "Resources - Charge Point Models - Delete",
+      "description": "Delete a Charge Point Model."
+    },
+    {
+      "name": "currencyCreate",
+      "display_name": "Resources - Currencies - Create",
+      "description": "Create currency."
+    },
+    {
+      "name": "currencyRead",
+      "display_name": "Resources - Currencies - Read",
+      "description": "Currency / Read."
+    },
+    {
+      "name": "currenciesListing",
+      "display_name": "Resources - Currencies - Listing",
+      "description": "Currencies / Listing."
+    },
+    {
+      "name": "currencyUpdate",
+      "display_name": "Resources - Currencies - Update",
+      "description": "Update a currency."
+    },
+    {
+      "name": "roamingTariffUpdate",
+      "display_name": "Resources - Roaming Tariffs - Update",
+      "description": "Update Roaming Tariff."
+    },
+    {
+      "name": "roamingTariffRead",
+      "display_name": "Resources - Roaming Tariffs - Read",
+      "description": "Get a Roaming Tariff."
+    },
+    {
+      "name": "roamingTariffsListing",
+      "display_name": "Resources - Roaming Tariffs - Listing",
+      "description": "Get all Roaming Tariffs."
+    },
+    {
+      "name": "revenuesListing",
+      "display_name": "Resources - Partner Revenues - Revenues Listing",
+      "description": "Get all revenues."
+    },
+    {
+      "name": "locationCreate",
+      "display_name": "Resources - Locations - Create",
+      "description": "Create a new location."
+    },
+    {
+      "name": "locationChargingZoneUpdate",
+      "display_name": "Resources - Locations - Update Charging Zone",
+      "description": "Update a existing Charging Zone."
+    },
+    {
+      "name": "locationChargingZonesListing",
+      "display_name": "Resources - Locations - Listing Charging Zones",
+      "description": "Get all Charging Zones."
+    },
+    {
+      "name": "locationUpdate",
+      "display_name": "Resources - Locations - Update",
+      "description": "Update a location."
+    },
+    {
+      "name": "locationsListing",
+      "display_name": "Resources - Locations - Listing",
+      "description": "Get all locations."
+    },
+    {
+      "name": "locationChargingZoneRead",
+      "display_name": "Resources - Locations - Read Charging Zone",
+      "description": "Get a Charging Zone."
+    },
+    {
+      "name": "locationRead",
+      "display_name": "Resources - Locations - Read",
+      "description": "Get a location."
+    },
+    {
+      "name": "locationChargingZoneDelete",
+      "display_name": "Resources - Locations - Delete Charging Zone",
+      "description": "Location / Charging Zone / Delete."
+    },
+    {
+      "name": "locationDelete",
+      "display_name": "Resources - Locations - Delete",
+      "description": "Delete a location."
+    },
+    {
+      "name": "locationChargingZoneCreate",
+      "display_name": "Resources - Locations - Create Charging Zone",
+      "description": "Create a new Charging Zone."
+    },
+    {
+      "name": "chargePointEvseRead",
+      "display_name": "Resources - Charge Points - Charge Point Evse Read",
+      "description": "Get an EVSE from a Charge Point."
+    },
+    {
+      "name": "chargePointShareRead",
+      "display_name": "Resources - Charge Points - Charge Point Share Read",
+      "description": "Get an Share from a Charge Point."
+    },
+    {
+      "name": "listChargePointNetworkStatusLogs",
+      "display_name": "Resources - Charge Points - List Charge Point Network Status Logs",
+      "description": "Get paginated list of network status logs for a charge point with optional date filtering."
+    },
+    {
+      "name": "chargePointEvsesListing",
+      "display_name": "Resources - Charge Points - Charge Point Evses Listing",
+      "description": "Get all EVSEs of the Charge Point."
+    },
+    {
+      "name": "chargePointDelete",
+      "display_name": "Resources - Charge Points - Charge Point Delete",
+      "description": "Delete a charge point."
+    },
+    {
+      "name": "chargePointPersonalSmartChargingPreferencesRead",
+      "display_name": "Resources - Charge Points - Charge Point Personal Smart Charging Preferences Read",
+      "description": "Get personal smart charging preferences of the charge point."
+    },
+    {
+      "name": "chargePointConfigurationUpdate",
+      "display_name": "Resources - Charge Points - Charge Point Configuration Update",
+      "description": "This field is required when the configuration key is one of the standard OCPP keys, as defined in the OCPP documentation under \"Standard Configuration Key Names & Values\"."
+    },
+    {
+      "name": "charegPointShareDelete",
+      "display_name": "Resources - Charge Points - Chareg Point Share Delete",
+      "description": "Delete an Share."
+    },
+    {
+      "name": "chargePointSharedPartnersSync",
+      "display_name": "Resources - Charge Points - Charge Point Shared Partners Sync",
+      "description": "Set the Shared Partners of the Charge Point. Attach Shared Partners within the Charge Point. The charge point must have an owner associated and its \"access_type\" must be \"private\"."
+    },
+    {
+      "name": "chargePointConfigurationsListing",
+      "display_name": "Resources - Charge Points - Charge Point Configurations Listing",
+      "description": "Only list configuration keys identified by variable name"
+    },
+    {
+      "name": "chargePointSmartChargingUpdate",
+      "display_name": "Resources - Charge Points - Charge Point Smart Charging Update",
+      "description": "Update smart charging details for the charge point."
+    },
+    {
+      "name": "chargePointEvseConnectorRead",
+      "display_name": "Resources - Charge Points - Charge Point Evse Connector Read",
+      "description": "Get a charge point evse's connector."
+    },
+    {
+      "name": "chargePointConfigurationRead",
+      "display_name": "Resources - Charge Points - Charge Point Configuration Read",
+      "description": "Get a charge point's cached configuration for a single key."
+    },
+    {
+      "name": "chargePointUpdate",
+      "display_name": "Resources - Charge Points - Charge Point Update",
+      "description": "Update a charge point."
+    },
+    {
+      "name": "chargePointEvseDelete",
+      "display_name": "Resources - Charge Points - Charge Point Evse Delete",
+      "description": "Delete an EVSE."
+    },
+    {
+      "name": "chargePointSharedPartnersListing",
+      "display_name": "Resources - Charge Points - Charge Point Shared Partners Listing",
+      "description": "Get all Shared Partners of the Charge Point."
+    },
+    {
+      "name": "chargePointEvseConnectorsListing",
+      "display_name": "Resources - Charge Points - Charge Point Evse Connectors Listing",
+      "description": "Get a charge point evse\\"
+    },
+    {
+      "name": "personalSmartChargingPreferencesUpdate",
+      "display_name": "Resources - Charge Points - Personal Smart Charging Preferences Update",
+      "description": "Update personal smart charging preferences."
+    },
+    {
+      "name": "chargePointEvseUpdate",
+      "display_name": "Resources - Charge Points - Charge Point Evse Update",
+      "description": "Update an EVSE within the Charge Point."
+    },
+    {
+      "name": "chargePointEvseCreate",
+      "display_name": "Resources - Charge Points - Charge Point Evse Create",
+      "description": "Create new EVSE within the Charge Point."
+    },
+    {
+      "name": "getChargePointLatestHardwareStatusLog",
+      "display_name": "Resources - Charge Points - Get Charge Point Latest Hardware Status Log",
+      "description": "Get the latest hardware status log entry for a charge point."
+    },
+    {
+      "name": "chargePointStatusRead",
+      "display_name": "Resources - Charge Points - Charge Point Status Read",
+      "description": "Get a charge point\\"
+    },
+    {
+      "name": "chargePointCreate",
+      "display_name": "Resources - Charge Points - Charge Point Create",
+      "description": "Create new charge point."
+    },
+    {
+      "name": "chargePointsListing",
+      "display_name": "Resources - Charge Points - Charge Points Listing",
+      "description": "Get all charge points."
+    },
+    {
+      "name": "chargePointEvseConnectorUpdate",
+      "display_name": "Resources - Charge Points - Charge Point Evse Connector Update",
+      "description": "Update a charge point evse's connector."
+    },
+    {
+      "name": "chargePointEvseConnectorDelete",
+      "display_name": "Resources - Charge Points - Charge Point Evse Connector Delete",
+      "description": "Delete a charge point evse\\"
+    },
+    {
+      "name": "chargePointShareCreate",
+      "display_name": "Resources - Charge Points - Charge Point Share Create",
+      "description": "Create new Share within the Charge Point."
+    },
+    {
+      "name": "chargePointRead",
+      "display_name": "Resources - Charge Points - Charge Point Read",
+      "description": "Get a charge point."
+    },
+    {
+      "name": "chargePointAvailablePersonalSmartChargingModesListing",
+      "display_name": "Resources - Charge Points - Available Personal Smart Charging Modes Listing",
+      "description": "Get all available personal smart charging modes."
+    },
+    {
+      "name": "listChargePointHardwareStatusLogs",
+      "display_name": "Resources - Charge Points - List Charge Point Hardware Status Logs",
+      "description": "Get paginated list of hardware status logs for a charge point with optional date filtering."
+    },
+    {
+      "name": "chargePointSharesListing",
+      "display_name": "Resources - Charge Points - Charge Point Shares Listing",
+      "description": "Get all Shares of the Charge Point."
+    },
+    {
+      "name": "chargePointEvseConnectorCreate",
+      "display_name": "Resources - Charge Points - Charge Point Evse Connector Create",
+      "description": "Create a charge point evse's connector."
+    },
+    {
+      "name": "getChargePointLatestNetworkStatusLog",
+      "display_name": "Resources - Charge Points - Get Charge Point Latest Network Status Log",
+      "description": "Get the latest network status log entry for a charge point."
+    },
+    {
+      "name": "listPcIds",
+      "display_name": "Resources - Provisioning Certificates - List Pc Ids",
+      "description": "Get all Provisioning Certificates."
+    },
+    {
+      "name": "updatePcId",
+      "display_name": "Resources - Provisioning Certificates - Update Pc Id",
+      "description": "Update a Provisioning Certificate."
+    },
+    {
+      "name": "getPcId",
+      "display_name": "Resources - Provisioning Certificates - Get Pc Id",
+      "description": "Get a Provisioning Certificate."
+    },
+    {
+      "name": "deletePcId",
+      "display_name": "Resources - Provisioning Certificates - Delete Pc Id",
+      "description": "Delete a provisioning certificate."
+    },
+    {
+      "name": "createPcId",
+      "display_name": "Resources - Provisioning Certificates - Create Pc Id",
+      "description": "Create Provisioning Certificate."
+    },
+    {
+      "name": "voucherUpdate",
+      "display_name": "Resources - Vouchers - Voucher Update",
+      "description": "Update a Voucher."
+    },
+    {
+      "name": "vouchersListing",
+      "display_name": "Resources - Vouchers - Vouchers Listing",
+      "description": "Get all Vouchers."
+    },
+    {
+      "name": "voucherRead",
+      "display_name": "Resources - Vouchers - Voucher Read",
+      "description": "Get a Voucher."
+    },
+    {
+      "name": "voucherDelete",
+      "display_name": "Resources - Vouchers - Voucher Delete",
+      "description": "Delete a Voucher."
+    },
+    {
+      "name": "voucherCreate",
+      "display_name": "Resources - Vouchers - Voucher Create",
+      "description": "Create new Voucher."
+    },
+    {
+      "name": "subOperatorsListing",
+      "display_name": "Resources - Sub Operators - Listing",
+      "description": "Get all sub operators."
+    },
+    {
+      "name": "subOperatorRead",
+      "display_name": "Resources - Sub Operators - Read",
+      "description": "Get a sub operator."
+    },
+    {
+      "name": "evseDelete",
+      "display_name": "Resources - Evses - Evse Delete",
+      "description": "Delete an EVSE."
+    },
+    {
+      "name": "evseCreate",
+      "display_name": "Resources - Evses - Create",
+      "description": "Create new EVSE."
+    },
+    {
+      "name": "getEvseLatestHardwareStatusLog",
+      "display_name": "Resources - Evses - Get Evse Latest Hardware Status Log",
+      "description": "Get the latest hardware status log entry for an EVSE."
+    },
+    {
+      "name": "listEvseHardwareStatusLogs",
+      "display_name": "Resources - Evses - List Evse Hardware Status Logs",
+      "description": "Get paginated list of hardware status logs for an EVSE with optional date filtering."
+    },
+    {
+      "name": "evsesListing",
+      "display_name": "Resources - Evses - Listing",
+      "description": "Get all EVSEs."
+    },
+    {
+      "name": "evseUpdate",
+      "display_name": "Resources - Evses - Update",
+      "description": "Update an EVSE."
+    },
+    {
+      "name": "evseRead",
+      "display_name": "Resources - Evses - Read",
+      "description": "Get an EVSE."
+    },
+    {
+      "name": "getUtility",
+      "display_name": "Resources - Utilities - Get Utility",
+      "description": "Get a single Utility."
+    },
+    {
+      "name": "deleteUtility",
+      "display_name": "Resources - Utilities - Delete Utility",
+      "description": "Delete a single Utility."
+    },
+    {
+      "name": "listUtilities",
+      "display_name": "Resources - Utilities - List Utilities",
+      "description": "Get all Utilities."
+    },
+    {
+      "name": "updateUtility",
+      "display_name": "Resources - Utilities - Update Utility",
+      "description": "Update a single Utility."
+    },
+    {
+      "name": "createUtility",
+      "display_name": "Resources - Utilities - Create Utility",
+      "description": "Create Utility."
+    },
+    {
+      "name": "topUpPackageUpdate",
+      "display_name": "Resources - Top Up Packages - Update",
+      "description": "Top-Up Packages."
+    },
+    {
+      "name": "topUpPackageDelete",
+      "display_name": "Resources - Top Up Packages - Delete",
+      "description": "Delete a Top-Up Package."
+    },
+    {
+      "name": "topUpPackagCreate",
+      "display_name": "Resources - Top Up Packages - Create",
+      "description": "Create new Top-Up Package."
+    },
+    {
+      "name": "topUpPackagesListing",
+      "display_name": "Resources - Top Up Packages - Listing",
+      "description": "Get all Top-Up Packages."
+    },
+    {
+      "name": "topUpPackageRead",
+      "display_name": "Resources - Top Up Packages - Read",
+      "description": "Get a Top-Up Package."
+    },
+    {
+      "name": "taxRead",
+      "display_name": "Resources - Taxes - Read",
+      "description": "Get a Tax."
+    },
+    {
+      "name": "taxDelete",
+      "display_name": "Resources - Taxes - Delete",
+      "description": "Delete a Tax."
+    },
+    {
+      "name": "taxCreate",
+      "display_name": "Resources - Taxes - Create",
+      "description": "Create new Tax."
+    },
+    {
+      "name": "taxUpdate",
+      "display_name": "Resources - Taxes - Update",
+      "description": "Update Taxes."
+    },
+    {
+      "name": "taxesListing",
+      "display_name": "Resources - Taxes - Listing",
+      "description": "Get all Taxes."
+    },
+    {
+      "name": "securityEventsListing",
+      "display_name": "Resources - Security Events - Security Events Listing",
+      "description": "Get all Security Events."
+    },
+    {
+      "name": "securityEventRead",
+      "display_name": "Resources - Security Events - Security Event Read",
+      "description": "Get a Security Event."
+    },
+    {
+      "name": "tariffSnapshotRead",
+      "display_name": "Resources - Tariff Snapshots - Read Tariff Snapshot",
+      "description": "Get a tariff snapshot by id."
+    },
+    {
+      "name": "chargePointVendorsListing",
+      "display_name": "Resources - Charge Point Vendors - Listing",
+      "description": "Get all Charge Point Vendors."
+    },
+    {
+      "name": "chargePointVendorRead",
+      "display_name": "Resources - Charge Point Vendors - Read",
+      "description": "Get a Charge Point Vendor."
+    },
+    {
+      "name": "chargePointVendorDelete",
+      "display_name": "Resources - Charge Point Vendors - Delete",
+      "description": "Delete a Charge Point Vendor."
+    },
+    {
+      "name": "chargePointVendorUpdate",
+      "display_name": "Resources - Charge Point Vendors - Update",
+      "description": "Charge Point Vendor."
+    },
+    {
+      "name": "chargePointVendorCreate",
+      "display_name": "Resources - Charge Point Vendors - Create",
+      "description": "Create new Charge Point Vendor."
+    },
+    {
+      "name": "listRoamingCustomTariffFilters",
+      "display_name": "Resources - Roaming Operators - List Roaming Custom Tariff Filters",
+      "description": "Get all custom tariff filters for a roaming operator."
+    },
+    {
+      "name": "roamingOperatorUpdate",
+      "display_name": "Resources - Roaming Operators - Roaming Operator Update",
+      "description": "Update Roaming Operator."
+    },
+    {
+      "name": "deleteRoamingCustomTariffFilter",
+      "display_name": "Resources - Roaming Operators - Delete Roaming Custom Tariff Filter",
+      "description": "Delete a custom tariff filter."
+    },
+    {
+      "name": "roamingOperatorsListing",
+      "display_name": "Resources - Roaming Operators - Roaming Operators Listing",
+      "description": "Get all Roaming Operators."
+    },
+    {
+      "name": "reorderRoamingCustomTariffFilters",
+      "display_name": "Resources - Roaming Operators - Reorder Roaming Custom Tariff Filters",
+      "description": "Change the ordering of custom tariff filters for a roaming operator. This operation allows partial reordering - you only need to specify the filters that need to move. Filters not included in the request will maintain their relative positions."
+    },
+    {
+      "name": "roamingOperatorRead",
+      "display_name": "Resources - Roaming Operators - Roaming Operator Read",
+      "description": "Get a Roaming Operator."
+    },
+    {
+      "name": "getRoamingCustomTariffFilter",
+      "display_name": "Resources - Roaming Operators - Get Roaming Custom Tariff Filter",
+      "description": "Get a specific custom tariff filter."
+    },
+    {
+      "name": "createRoamingCustomTariffFilter",
+      "display_name": "Resources - Roaming Operators - Create Roaming Custom Tariff Filter",
+      "description": "Create new custom tariff filter for a roaming operator."
+    },
+    {
+      "name": "updateRoamingCustomTariffFilter",
+      "display_name": "Resources - Roaming Operators - Update Roaming Custom Tariff Filter",
+      "description": "Update an existing custom tariff filter."
+    },
+    {
+      "name": "partnerInviteRead",
+      "display_name": "Resources - Partner Invites - Read",
+      "description": "Get a invite."
+    },
+    {
+      "name": "partnerInviteUpdate",
+      "display_name": "Resources - Partner Invites - Update",
+      "description": "Update a invite."
+    },
+    {
+      "name": "partnerInvitesListing",
+      "display_name": "Resources - Partner Invites - Listing",
+      "description": "Get all partner invites."
+    },
+    {
+      "name": "partnerInviteCreate",
+      "display_name": "Resources - Partner Invites - Create",
+      "description": "Create new invite."
+    },
+    {
+      "name": "partnerInviteDelete",
+      "display_name": "Resources - Partner Invites - Partner Invite Delete",
+      "description": "Delete an invite."
+    },
+    {
+      "name": "invoiceRead",
+      "display_name": "Resources - Invoices - Read",
+      "description": "Invoice / Read."
+    },
+    {
+      "name": "invoicesListing",
+      "display_name": "Resources - Invoices - Listing",
+      "description": "Get all invoices."
+    },
+    {
+      "name": "tariffUpdate",
+      "display_name": "Resources - Tariffs - Update",
+      "description": "Update a tariff."
+    },
+    {
+      "name": "tariffRead",
+      "display_name": "Resources - Tariffs - Read",
+      "description": "Get a tariff."
+    },
+    {
+      "name": "tariffDelete",
+      "display_name": "Resources - Tariffs - Delete",
+      "description": "Delete a tariff."
+    },
+    {
+      "name": "tariffCreate",
+      "display_name": "Resources - Tariffs - Create",
+      "description": "Create new tariff."
+    },
+    {
+      "name": "tariffsListing",
+      "display_name": "Resources - Tariffs - Listing",
+      "description": "Get all tariff. Also you could use the \"tariffGroupId\" and the \"userId\" to \"resolve\" the concrete tariff within a group that would be applied to the specified user."
+    },
+    {
+      "name": "updateInstallerJob",
+      "display_name": "Resources - Installer Jobs - Update",
+      "description": "Update Installer Job."
+    },
+    {
+      "name": "getInstallerJobsList",
+      "display_name": "Resources - Installer Jobs - Get Installer Jobs List",
+      "description": "Get all Installer Jobs."
+    },
+    {
+      "name": "createInstallerJob",
+      "display_name": "Resources - Installer Jobs - Create",
+      "description": "Create Installer Job."
+    },
+    {
+      "name": "deleteInstallerJob",
+      "display_name": "Resources - Installer Jobs - Delete",
+      "description": "Delete Installer Job."
+    },
+    {
+      "name": "getInstallerJob",
+      "display_name": "Resources - Installer Jobs - Get",
+      "description": "Get Installer Job."
+    },
+    {
+      "name": "electricityRatePricePeriodsDateDelete",
+      "display_name": "Resources - Electricity Rates - Price Periods Date Delete",
+      "description": "Delete the price periods for a specific date."
+    },
+    {
+      "name": "electricityRatePricePeriodsWeekDayCreateaOrUpdate",
+      "display_name": "Resources - Electricity Rates - Price Periods Week Day Createa Or Update",
+      "description": "Update the price periods for a specific week day. This operation will overwrite all existing periods for the given day, so a complete list must be provided."
+    },
+    {
+      "name": "electricityRatesListing",
+      "display_name": "Resources - Electricity Rates - Electricity Rates Listing",
+      "description": "Get all Electricity rates."
+    },
+    {
+      "name": "electricityRatePricePeriodsDateListing",
+      "display_name": "Resources - Electricity Rates - Price Periods Date Listing",
+      "description": "List all of the configured price period dates."
+    },
+    {
+      "name": "electricityRateCreate",
+      "display_name": "Resources - Electricity Rates - Create",
+      "description": "Create a new Electricity rate."
+    },
+    {
+      "name": "electricityRateEnergyMixUpdate",
+      "display_name": "Resources - Electricity Rates - Energy Mix Update",
+      "description": "Set an electricity rate energy mix. By default the energy mix generated with creation of the electricity rate is filled with 0."
+    },
+    {
+      "name": "electricityRatePricePeriodsWeekDayRead",
+      "display_name": "Resources - Electricity Rates - Price Periods Week Day Read",
+      "description": "Get the price periods for a specific week day."
+    },
+    {
+      "name": "electricityRatePricePeriodsWeekDayDelete",
+      "display_name": "Resources - Electricity Rates - Price Periods Week Day Delete",
+      "description": "Delete the price periods for a specific week day."
+    },
+    {
+      "name": "electricityRatePricePeriodsWeekDayListing",
+      "display_name": "Resources - Electricity Rates - Price Periods Week Day Listing",
+      "description": "List all of the configured price period week days."
+    },
+    {
+      "name": "electricityRatePricePeriodsListing",
+      "display_name": "Resources - Electricity Rates - Price Periods Listing",
+      "description": "List all of the configured price period days (including week days and dates)."
+    },
+    {
+      "name": "electricityRatePricePeriodsDateRead",
+      "display_name": "Resources - Electricity Rates - Price Periods Date Read",
+      "description": "Get the price periods for a specific date."
+    },
+    {
+      "name": "electricityRatePricePeriodsDateCreateOrUpdate",
+      "display_name": "Resources - Electricity Rates - Price Periods Date Create Or Update",
+      "description": "Update the price periods for a specific date. This operation will overwrite all existing periods for the given date, so a complete list must be provided."
+    },
+    {
+      "name": "electricityRateRead",
+      "display_name": "Resources - Electricity Rates - Read",
+      "description": "Get a single Electricity rate."
+    },
+    {
+      "name": "electricityRateUpdate",
+      "display_name": "Resources - Electricity Rates - Update",
+      "description": "Update a Electricity rate."
+    },
+    {
+      "name": "electricityRateEnergyMixRead",
+      "display_name": "Resources - Electricity Rates - Electricity Rate Energy Mix Read",
+      "description": "Get an electricity rate energy mix."
+    },
+    {
+      "name": "electricityRateDelete",
+      "display_name": "Resources - Electricity Rates - Delete",
+      "description": "Delete a Electricity rate."
+    },
+    {
+      "name": "evseDowntimePeriodUpdate",
+      "display_name": "Resources - Evse Downtime Periods - Update",
+      "description": "Update EVSE Downtime Period."
+    },
+    {
+      "name": "evseDowntimePeriodRead",
+      "display_name": "Resources - Evse Downtime Periods - Read",
+      "description": "Get EVSE Downtime Period."
+    },
+    {
+      "name": "evseDowntimePeriodDelete",
+      "display_name": "Resources - Evse Downtime Periods - Delete",
+      "description": "Delete Manual Created EVSE Downtime Period."
+    },
+    {
+      "name": "evseDowntimePeriodsListing",
+      "display_name": "Resources - Evse Downtime Periods - Listing",
+      "description": "Get all EVSE Downtime Periods."
+    },
+    {
+      "name": "evseDowntimePeriodCreate",
+      "display_name": "Resources - Evse Downtime Periods - Create",
+      "description": "Create Manual Exempt EVSE Downtime Period."
+    },
+    {
+      "name": "bookingRequestCreate",
+      "display_name": "Resources - Booking Requests - Create",
+      "description": "Create a new booking request. If you want to find the available slots for a given location use the Actions / Location / Check Booking Availability."
+    },
+    {
+      "name": "bookingRequestRead",
+      "display_name": "Resources - Booking Requests - Read",
+      "description": "Get information for a booking request by ID."
+    },
+    {
+      "name": "bookingRequestsListing",
+      "display_name": "Resources - Booking Requests - Booking Requests Listing",
+      "description": "Get all booking requests."
+    },
+    {
+      "name": "tariffGroupUpdate",
+      "display_name": "Resources - Tariff Groups - Update",
+      "description": "Update a tariff group."
+    },
+    {
+      "name": "tariffGroupDelete",
+      "display_name": "Resources - Tariff Groups - Delete",
+      "description": "Delete a tariff group."
+    },
+    {
+      "name": "tariffGroupCreate",
+      "display_name": "Resources - Tariff Groups - Create",
+      "description": "Create new tariff group. Please note that createing a new tariff group will also automatically create a free base tariff, as it is not allowed to have empty tariff groups."
+    },
+    {
+      "name": "tariffGroupRead",
+      "display_name": "Resources - Tariff Groups - Read",
+      "description": "Get a tariff group."
+    },
+    {
+      "name": "tariffGroupsListing",
+      "display_name": "Resources - Tariff Groups - Listing",
+      "description": "Get all tariff groups."
+    },
+    {
+      "name": "transactionsListing",
+      "display_name": "Resources - Transactions - Listing",
+      "description": "Get all transactions."
+    },
+    {
+      "name": "transactionsCreate",
+      "display_name": "Resources - Transactions - Create",
+      "description": "Create new Transaction."
+    },
+    {
+      "name": "transactionUpdate",
+      "display_name": "Resources - Transactions - Update",
+      "description": "Update a non-finalised transaction."
+    },
+    {
+      "name": "transactionRead",
+      "display_name": "Resources - Transactions - Read",
+      "description": "Get a transation."
+    },
+    {
+      "name": "chargePointDowntimePeriodCreate",
+      "display_name": "Resources - Charge Point Downtime Periods - Create",
+      "description": "Create Manual Exempt Charge Point Downtime Period."
+    },
+    {
+      "name": "chargePointDowntimePeriodUpdate",
+      "display_name": "Resources - Charge Point Downtime Periods - Update",
+      "description": "Update Charge Point Downtime Period."
+    },
+    {
+      "name": "chargePointDowntimePeriodsListing",
+      "display_name": "Resources - Charge Point Downtime Periods - Listing",
+      "description": "Get all Charge Point Downtime Periods."
+    },
+    {
+      "name": "chargePointDowntimePeriodDelete",
+      "display_name": "Resources - Charge Point Downtime Periods - Delete",
+      "description": "Delete Manual Created Charge Point Downtime Period."
+    },
+    {
+      "name": "chargePointDowntimePeriodRead",
+      "display_name": "Resources - Charge Point Downtime Periods - Read",
+      "description": "Get Charge Point Downtime Period."
+    },
+    {
+      "name": "receiptsListing",
+      "display_name": "Resources - Receipts - Receipts Listing",
+      "description": "Get all receipts."
+    },
+    {
+      "name": "receiptRead",
+      "display_name": "Resources - Receipts - Receipt Read",
+      "description": "Get a single receipt."
+    },
+    {
+      "name": "subscriptionPlansListing",
+      "display_name": "Resources - Subscription Plans - Listing",
+      "description": "Get all Subscription plans."
+    },
+    {
+      "name": "subscriptionPlanUpdate",
+      "display_name": "Resources - Subscription Plans - Update",
+      "description": "Update a Subscription plan."
+    },
+    {
+      "name": "subscriptionPlanCreate",
+      "display_name": "Resources - Subscription Plans -  Create",
+      "description": "Create a new Subscription plans."
+    },
+    {
+      "name": "subscriptionPlanRead",
+      "display_name": "Resources - Subscription Plans - Read",
+      "description": "Get a single subscription plan."
+    },
+    {
+      "name": "subscriptionPlanDelete",
+      "display_name": "Resources - Subscription Plans - Delete",
+      "description": "Delete a Subscription plan."
+    },
+    {
+      "name": "userGroupsListing",
+      "display_name": "Resources - User Groups - Listing",
+      "description": "Get all user groups."
+    },
+    {
+      "name": "userGroupUpdate",
+      "display_name": "Resources - User Groups - Update",
+      "description": "Update a user group."
+    },
+    {
+      "name": "userGroupCreate",
+      "display_name": "Resources - User Groups - Create",
+      "description": "Create new user group."
+    },
+    {
+      "name": "userGroupRead",
+      "display_name": "Resources - User Groups - Read",
+      "description": "Get an user group."
+    },
+    {
+      "name": "userGroupDelete",
+      "display_name": "Resources - User Groups - Delete",
+      "description": "Delete a user group."
+    },
+    {
+      "name": "sessionRead",
+      "display_name": "Resources - Sessions - Read",
+      "description": "Session / Read."
+    },
+    {
+      "name": "sessionsListing",
+      "display_name": "Resources - Sessions - Listing",
+      "description": "Sessions / Listing."
+    },
+    {
+      "name": "sessionsConsumptionStatsRead",
+      "display_name": "Resources - Sessions - Read Sessions Consumption Stats",
+      "description": "Consumption statistics may differ between active and finished sessions, as finished sessions display aggregated final data with a maximum of 300 items."
+    },
+    {
+      "name": "partnerDelete",
+      "display_name": "Resources - Partners - Delete",
+      "description": "Delete a partner."
+    },
+    {
+      "name": "partnersListing",
+      "display_name": "Resources - Partners - Listing",
+      "description": "Get all partners."
+    },
+    {
+      "name": "partnerCreate",
+      "display_name": "Resources - Partners - Create",
+      "description": "Create new partner."
+    },
+    {
+      "name": "partnerUpdate",
+      "display_name": "Resources - Partners - Update",
+      "description": "Update a partner."
+    },
+    {
+      "name": "partnerRead",
+      "display_name": "Resources - Partners - Read",
+      "description": "Get a partner."
+    },
+    {
+      "name": "termsAndPoliciesRead",
+      "display_name": "Resources - Terms And Policies - Read",
+      "description": "Terms and policies / Read."
+    },
+    {
+      "name": "termsAndPoliciesListing",
+      "display_name": "Resources - Terms And Policies - Listing",
+      "description": "Terms and policies / Listing."
+    },
+    {
+      "name": "customFeeRead",
+      "display_name": "Resources - Custom Fees - Read",
+      "description": "Get a single custom fee."
+    },
+    {
+      "name": "customFeesListing",
+      "display_name": "Resources - Custom Fees - Listing",
+      "description": "Get all custom fees."
+    },
+    {
+      "name": "cdrRead",
+      "display_name": "Resources - Cdrs - Read",
+      "description": "Get a CDR."
+    },
+    {
+      "name": "cdrsListing",
+      "display_name": "Resources - Cdrs - Listing",
+      "description": "Get all CDRs."
+    },
+    {
+      "name": "settingsListing",
+      "display_name": "Resources - Settings - Settings Listing",
+      "description": "Get all settings."
+    },
+    {
+      "name": "reservationsListing",
+      "display_name": "Resources - Reservations - Reservations Listing",
+      "description": "Get all reservations."
+    },
+    {
+      "name": "reservationRead",
+      "display_name": "Resources - Reservations - Reservation Read",
+      "description": "Get information for a reservation by ID."
+    },
+    {
+      "name": "createParkingSpace",
+      "display_name": "Resources - Parking Spaces - Create",
+      "description": "Create new Parking Space."
+    },
+    {
+      "name": "getParkingSpace",
+      "display_name": "Resources - Parking Spaces - Get",
+      "description": "Get Parking Space."
+    },
+    {
+      "name": "deleteParkingSpace",
+      "display_name": "Resources - Parking Spaces - Delete",
+      "description": "Delete Parking Space."
+    },
+    {
+      "name": "updateParkingSpace",
+      "display_name": "Resources - Parking Spaces - Update",
+      "description": "Update Parking Space."
+    },
+    {
+      "name": "listParkingSpace",
+      "display_name": "Resources - Parking Spaces - List",
+      "description": "Get all Parking spaces."
+    },
+    {
+      "name": "faqUpdate",
+      "display_name": "Resources - Faqs - Update",
+      "description": "Update FAQs."
+    },
+    {
+      "name": "faqsListing",
+      "display_name": "Resources - Faqs - Listing",
+      "description": "Get all FAQs."
+    },
+    {
+      "name": "faqDelete",
+      "display_name": "Resources - Faqs - Faq Delete",
+      "description": "Delete a FAQ."
+    },
+    {
+      "name": "faqCreate",
+      "display_name": "Resources - Faqs - Create",
+      "description": "Create new FAQ."
+    },
+    {
+      "name": "faqRead",
+      "display_name": "Resources - Faqs - Faq Read",
+      "description": "Get a FAQ."
+    },
+    {
+      "name": "vendorErrorCodeUpdate",
+      "display_name": "Resources - Vendor Error Codes - Vendor Error Code Update",
+      "description": "Vendor Error Code."
+    },
+    {
+      "name": "vendorErrorCodeRead",
+      "display_name": "Resources - Vendor Error Codes - Vendor Error Code Read",
+      "description": "Get a Vendor Error Code."
+    },
+    {
+      "name": "vendorErrorCodeCreate",
+      "display_name": "Resources - Vendor Error Codes - Vendor Error Code Create",
+      "description": "Create new Vendor Error Code."
+    },
+    {
+      "name": "vendorErrorCodesListing",
+      "display_name": "Resources - Vendor Error Codes - Vendor Error Codes Listing",
+      "description": "Get all Vendor Error Codes."
+    },
+    {
+      "name": "vendorErrorCodeDelete",
+      "display_name": "Resources - Vendor Error Codes - Vendor Error Code Delete",
+      "description": "Delete a Vendor Error Code."
+    },
+    {
+      "name": "deleteCurrencyRate",
+      "display_name": "Resources - Currency Rates - Delete",
+      "description": "Delete Currency Rate."
+    },
+    {
+      "name": "updateCurrencyRate",
+      "display_name": "Resources - Currency Rates - Update",
+      "description": "Update Currency Rate."
+    },
+    {
+      "name": "getCurrencyRate",
+      "display_name": "Resources - Currency Rates - Get",
+      "description": "Get Currency Rate."
+    },
+    {
+      "name": "listCurrencyRates",
+      "display_name": "Resources - Currency Rates - List",
+      "description": "Get all Currency Rates."
+    },
+    {
+      "name": "createCurrencyRate",
+      "display_name": "Resources - Currency Rates - Create",
+      "description": "Create new Currency Rate."
+    },
+    {
+      "name": "contactDetailsUpdate",
+      "display_name": "Resources - Contact Details - Contact Details Update",
+      "description": "Update the contact details."
+    },
+    {
+      "name": "contactDetailsRead",
+      "display_name": "Resources - Contact Details - Contact Details Read",
+      "description": "Get the contact details."
+    },
+    {
+      "name": "contactDetailsDelete",
+      "display_name": "Resources - Contact Details - Contact Details Delete",
+      "description": "Delete contact details."
+    },
+    {
+      "name": "getPaymentTerminal",
+      "display_name": "Resources - Payment Terminals - Get Payment Terminal",
+      "description": "Get information for a payment terminal by ID."
+    },
+    {
+      "name": "deletePaymentTerminal",
+      "display_name": "Resources - Payment Terminals - Delete Payment Terminal",
+      "description": "Delete a payment terminal."
+    },
+    {
+      "name": "getPaymentTerminals",
+      "display_name": "Resources - Payment Terminals - Get Payment Terminals",
+      "description": "Get all payment terminals."
+    },
+    {
+      "name": "updatePaymentTerminal",
+      "display_name": "Resources - Payment Terminals - Update Payment Terminal",
+      "description": "Update Payment terminal."
+    },
+    {
+      "name": "createPaymentTerminal",
+      "display_name": "Resources - Payment Terminals - Create Payment Terminal",
+      "description": "Create a new payment terminal."
+    },
+    {
+      "name": "configurationTemplateVariableCreate",
+      "display_name": "Resources - Configuration Templates - Configuration Template Variable Create",
+      "description": "Create a new Configuration Template Variable."
+    },
+    {
+      "name": "getConfigurationTemplate",
+      "display_name": "Resources - Configuration Templates - Get Configuration Template",
+      "description": "Get Configuration Template."
+    },
+    {
+      "name": "createConfigurationTemplate",
+      "display_name": "Resources - Configuration Templates - Create Configuration Template",
+      "description": "Create new Configuration Template."
+    },
+    {
+      "name": "updateConfigurationTemplate",
+      "display_name": "Resources - Configuration Templates - Update Configuration Template",
+      "description": "Update Configuration Template."
+    },
+    {
+      "name": "configurationTemplateVariableDelete",
+      "display_name": "Resources - Configuration Templates - Configuration Template Variable Delete",
+      "description": "Delete a Configuration Template Variable."
+    },
+    {
+      "name": "listConfigurationTemplates",
+      "display_name": "Resources - Configuration Templates - List Configuration Templates",
+      "description": "Get all Configuration Templates."
+    },
+    {
+      "name": "deleteConfigurationTemplate",
+      "display_name": "Resources - Configuration Templates - Delete Configuration Template",
+      "description": "Delete Configuration Template."
+    },
+    {
+      "name": "configurationTemplateVariableUpdate",
+      "display_name": "Resources - Configuration Templates - Configuration Template Variable Update",
+      "description": "Update a Configuration Template Variable."
+    },
+    {
+      "name": "configurationTemplateVariableListing",
+      "display_name": "Resources - Configuration Templates - Configuration Template Variable Listing",
+      "description": "Get all Configuration Template Variables."
+    },
+    {
+      "name": "partnerContractDelete",
+      "display_name": "Resources - Partner Contracts - Delete",
+      "description": "Delete a Partner Contract."
+    },
+    {
+      "name": "partnerContractCreate",
+      "display_name": "Resources - Partner Contracts -Create",
+      "description": "Create new Partner Contract."
+    },
+    {
+      "name": "partnerContractUpdate",
+      "display_name": "Resources - Partner Contracts - Update",
+      "description": "Update a Partner Contract."
+    },
+    {
+      "name": "partnerContractRead",
+      "display_name": "Resources - Partner Contracts - Read",
+      "description": "Get a Partner Contract."
+    },
+    {
+      "name": "partnerContractsListing",
+      "display_name": "Resources - Partner Contracts - Listing",
+      "description": "Get all Partner Contracts."
+    },
+    {
+      "name": "postDowntimePeriodNotice",
+      "display_name": "Resources - Downtime Period Notices - Post Downtime Period Notice",
+      "description": "Create Downtime Period Notice."
+    },
+    {
+      "name": "getDowntimePeriodNotice",
+      "display_name": "Resources - Downtime Period Notices - Get",
+      "description": "Get Downtime Period Notice."
+    },
+    {
+      "name": "patchDowntimePeriodNotice",
+      "display_name": "Resources - Downtime Period Notices - Patch Downtime Period Notice",
+      "description": "Update Downtime Period Notice."
+    },
+    {
+      "name": "deleteDowntimePeriodNotice",
+      "display_name": "Resources - Downtime Period Notices - Delete",
+      "description": "Delete Downtime Period Notice."
+    },
+    {
+      "name": "getDowntimePeriodNotices",
+      "display_name": "Resources - Downtime Period Notices - Get Downtime Period Notices",
+      "description": "Get all Downtime Period Notices."
+    },
+    {
+      "name": "idTagUpdate",
+      "display_name": "Resources - Id Tags - Update",
+      "description": "Update a Id Tag."
+    },
+    {
+      "name": "idTagsListing",
+      "display_name": "Resources - Id Tags - Listing",
+      "description": "Get all id tags."
+    },
+    {
+      "name": "idTagRead",
+      "display_name": "Resources - Id Tags - Read",
+      "description": "Get a Id Tag."
+    },
+    {
+      "name": "idTagCreate",
+      "display_name": "Resources - Id Tags - Create",
+      "description": "Create new Id Tag."
+    },
+    {
+      "name": "idTagDelete",
+      "display_name": "Resources - Id Tags - Delete",
+      "description": "Delete a Id Tag."
+    },
+    {
+      "name": "subscriptionsListing",
+      "display_name": "Resources - Subscriptions - Subscriptions Listing",
+      "description": "Get all subscriptions."
+    },
+    {
+      "name": "subscriptionRead",
+      "display_name": "Resources - Subscriptions - Subscription Read",
+      "description": "Get a single subscription."
+    },
+    {
+      "name": "roamingProviderDelete",
+      "display_name": "Resources - Roaming Providers - Delete",
+      "description": "Delete a Roaming Provider."
+    },
+    {
+      "name": "roamingProvidersListing",
+      "display_name": "Resources - Roaming Providers - Listing",
+      "description": "Get all Roaming Providers."
+    },
+    {
+      "name": "roamingProviderRead",
+      "display_name": "Resources - Roaming Providers - Read",
+      "description": "Get a Roaming Provider."
+    },
+    {
+      "name": "roamingProviderUpdate",
+      "display_name": "Resources - Roaming Providers - Update",
+      "description": "Update Roaming Providers."
+    },
+    {
+      "name": "roamingProviderCreate",
+      "display_name": "Resources - Roaming Providers - Create",
+      "description": "Create new Roaming Provider **Only applicable for Hubject, Gireve 2.2.1 and OCPI with missing credentials module emsp roaming connections**."
+    },
+    {
+      "name": "getTimeSeriesForecast",
+      "display_name": "Resources - Flexibility Assets - Get Time Series Forecast",
+      "description": "Get Time Series Forecast for a Flexibility Asset."
+    },
+    {
+      "name": "createFlexibilityAsset",
+      "display_name": "Resources - Flexibility Assets - Create",
+      "description": "Create new flexibility asset."
+    },
+    {
+      "name": "deleteFlexibilityAsset",
+      "display_name": "Resources - Flexibility Assets - Delete",
+      "description": "Delete a flexibility asset."
+    },
+    {
+      "name": "listFlexibilityAssets",
+      "display_name": "Resources - Flexibility Assets - List",
+      "description": "Get a list of Flexibility Assets."
+    },
+    {
+      "name": "getFlexibilityAsset",
+      "display_name": "Resources - Flexibility Assets - Get",
+      "description": "Get a flexibility asset."
+    },
+    {
+      "name": "updateFlexibilityAsset",
+      "display_name": "Resources - Flexibility Assets - Update",
+      "description": "Update a flexibility asset."
+    },
+    {
+      "name": "getHistoricalTimeSeries",
+      "display_name": "Resources - Flexibility Assets - Get Historical Time Series",
+      "description": "Get Historical Time Series for a Flexibility Asset."
+    },
+    {
+      "name": "authorizationRead",
+      "display_name": "Resources - Authorizations - Authorization Read",
+      "description": "Authorization / Read."
+    },
+    {
+      "name": "authorizationsListing",
+      "display_name": "Resources - Authorizations - Authorizations Listing",
+      "description": "Get all authorizations."
+    },
+    {
+      "name": "templatesListing",
+      "display_name": "Resources - Templates - Templates Listing",
+      "description": "Get all charge points templates."
+    },
+    {
+      "name": "taxIdentificationNumberUpdate",
+      "display_name": "Resources - Tax Identification Numbers - Update",
+      "description": "Tax Identification Numbers."
+    },
+    {
+      "name": "taxIdentificationNumberRead",
+      "display_name": "Resources - Tax Identification Numbers - Read",
+      "description": "Get a Tax Identification Number."
+    },
+    {
+      "name": "taxIdentificationNumberCreate",
+      "display_name": "Resources - Tax Identification Numbers - Create",
+      "description": "Create new Tax Identification Number."
+    },
+    {
+      "name": "taxIdentificationNumbersListing",
+      "display_name": "Resources - Tax Identification Numbers - Listing",
+      "description": "Get all Tax Identification Numbers."
+    },
+    {
+      "name": "taxIdentificationNumberDelete",
+      "display_name": "Resources - Tax Identification Numbers - Delete",
+      "description": "Delete a Tax Identification Number."
+    },
+    {
+      "name": "partnertSettlementReportPartnerSettlementRecordRead",
+      "display_name": "Resources - Partner Settlement Reports - Read Partner Settlement Record",
+      "description": "Read Partner Settlement Record."
+    },
+    {
+      "name": "partnerSettlementReportsListing",
+      "display_name": "Resources - Partner Settlement Reports - Listing",
+      "description": "Get all Partner Settlement Reports."
+    },
+    {
+      "name": "partnerSettlementReportRead",
+      "display_name": "Resources - Partner Settlement Reports - Read",
+      "description": "Get a single Partner Settlement Report."
+    },
+    {
+      "name": "partnerSettlementReportPartnerSettlementRecordsListing",
+      "display_name": "Resources - Partner Settlement Reports - Listing Partner Settlement Records",
+      "description": "Get all Partner Settlement Records."
+    },
+    {
+      "name": "partnerSettlementReportPartnerSettlementRecordCreate",
+      "display_name": "Resources - Partner Settlement Reports - Create Partner Settlement Record",
+      "description": "Create Partner Settlement Record."
+    },
+    {
+      "name": "partnerSettlementReportPartnerSettlementRecordDelete",
+      "display_name": "Resources - Partner Settlement Reports - Delete Partner Settlement Record",
+      "description": "Delete a single Partner Settlement Record."
+    },
+    {
+      "name": "partnerSettlementReportPartnerSettlementRecordUpdate",
+      "display_name": "Resources - Partner Settlement Reports - Update Partner Settlement Record",
+      "description": "Update a single Partner Settlement Record."
+    },
+    {
+      "name": "bookingRead",
+      "display_name": "Resources - Bookings - Read",
+      "description": "Get information for a booking by ID."
+    },
+    {
+      "name": "bookingsListing",
+      "display_name": "Resources - Bookings - Listing",
+      "description": "Get all bookings."
+    },
+    {
+      "name": "firmwareVersionAttachedModels",
+      "display_name": "Resources - Firmware Versions - Get Attached Models",
+      "description": "Get all charge point models attached to this firmware version."
+    },
+    {
+      "name": "firmwareVersionsListing",
+      "display_name": "Resources - Firmware Versions - Listing",
+      "description": "Get all Firmware Versions."
+    },
+    {
+      "name": "firmwareVersionRead",
+      "display_name": "Resources - Firmware Versions - Read",
+      "description": "Get a Firmware Version."
+    },
+    {
+      "name": "paymentMethodDelete",
+      "display_name": "Resources - Users - Payment Method Delete",
+      "description": "Delete Payment method. Please note that \";balance\"; and \";corporate\"; payment methods CANNOT be removed from this interface."
+    },
+    {
+      "name": "paymentMethodsListing",
+      "display_name": "Resources - Users - Payment Methods Listing",
+      "description": "Get all payment methods for a user."
+    },
+    {
+      "name": "userDelete",
+      "display_name": "Resources - Users - User Delete",
+      "description": "Delete a user."
+    },
+    {
+      "name": "paymentMethodUpdate",
+      "display_name": "Resources - Users - Payment Method Update",
+      "description": "Update Payment method. Please note that \";balance\"; and \";corporate\"; payment methods CANNOT be set as default"
+    },
+    {
+      "name": "userCreate",
+      "display_name": "Resources - Users - User Create",
+      "description": "Create new User."
+    },
+    {
+      "name": "invoiceDetailsCreateOrUpdate",
+      "display_name": "Resources - Users - Invoice Details Create Or Update",
+      "description": "Create or update user invoice details."
+    },
+    {
+      "name": "userRead",
+      "display_name": "Resources - Users - User Read",
+      "description": "Get a user."
+    },
+    {
+      "name": "paymentMethodCreate",
+      "display_name": "Resources - Users - Payment Method Create",
+      "description": "Initiate a new payment method registration, or finalize it. Note that this is a two step process! # For payment processors with web view integration You will need to initiate a call with no parameters to this endpoint to get a new request to add payment method (Step 1). Then you will have to redirect to an endpoint and wait for the client to enter his credit card details there."
+    },
+    {
+      "name": "usersListing",
+      "display_name": "Resources - Users - Users Listing",
+      "description": "Get all users."
+    },
+    {
+      "name": "paymentMethodRead",
+      "display_name": "Resources - Users - Payment Method Read",
+      "description": "Get information for a payment method by ID."
+    },
+    {
+      "name": "userUpdate",
+      "display_name": "Resources - Users - User Update",
+      "description": "Update user."
+    },
+    {
+      "name": "invoiceDetailsRead",
+      "display_name": "Resources - Users - Invoice Details Read",
+      "description": "Invoice details / Read."
+    },
+    {
+      "name": "getFlexibilityActivationRequest",
+      "display_name": "Resources - Flexibility Activation Requests - Get Flexibility Activation Request",
+      "description": "Get a flexibility activation request."
+    },
+    {
+      "name": "listFlexibilityActivationRequests",
+      "display_name": "Resources - Flexibility Activation Requests - List",
+      "description": "Get a list of Flexibility Requests."
+    },
+    {
+      "name": "circuitSocPrioritiesListing",
+      "display_name": "Resources - Circuits - Circuit Soc Priorities Listing",
+      "description": "Get a circuit&#x27;s SoC priority."
+    },
+    {
+      "name": "circuitUserPriorityDelete",
+      "display_name": "Resources - Circuits - Circuit User Priority Delete",
+      "description": "Delete a circuit&#x27;s user priority."
+    },
+    {
+      "name": "circuitUpdate",
+      "display_name": "Resources - Circuits - Update",
+      "description": "Update a circuit."
+    },
+    {
+      "name": "circuitConsumption",
+      "display_name": "Resources - Circuits - Circuit Consumption",
+      "description": "Get the consumption of a circuit for each phase."
+    },
+    {
+      "name": "circuitUserPriorityUpdate",
+      "display_name": "Resources - Circuits - Circuit User Priority Update",
+      "description": "Update a circuit\\"
+    },
+    {
+      "name": "circuitUserPriorityCreate",
+      "display_name": "Resources - Circuits - Circuit User Priority Create",
+      "description": "Create a circuit\\"
+    },
+    {
+      "name": "circuitDelete",
+      "display_name": "Resources - Circuits - Delete",
+      "description": "Delete a circuit."
+    },
+    {
+      "name": "circuitRead",
+      "display_name": "Resources - Circuits - Read",
+      "description": "Get a circuit."
+    },
+    {
+      "name": "circuitChargePointPrioritiesListing",
+      "display_name": "Resources - Circuits - Circuit Charge Point Priorities Listing",
+      "description": "Get all circuit&#x27;s charge point priorities."
+    },
+    {
+      "name": "circuitUserPrioritiesListing",
+      "display_name": "Resources - Circuits - Circuit User Priorities Listing",
+      "description": "Get all circuit&#x27;s user priorities."
+    },
+    {
+      "name": "circuitUserPriorityRead",
+      "display_name": "Resources - Circuits - Circuit User Priority Read",
+      "description": "Get a circuit\\"
+    },
+    {
+      "name": "circuitCreate",
+      "display_name": "Resources - Circuits - Create",
+      "description": "Create a new circuit."
+    },
+    {
+      "name": "circuitsListing",
+      "display_name": "Resources - Circuits - Circuits Listing",
+      "description": "Get all circuits."
+    },
+    {
+      "name": "circuitUnmanagedLoadRead",
+      "display_name": "Resources - Circuits - Circuit Unmanaged Load Read",
+      "description": "Get a circuit's unmanaged load."
+    },
+    {
+      "name": "listRoamingConnections",
+      "display_name": "Resources - Roaming Connections - List Roaming Connections",
+      "description": "Get all Roaming Connections."
+    },
+    {
+      "name": "getRoamingConnection",
+      "display_name": "Resources - Roaming Connections - Get Roaming Connection",
+      "description": "Get a Roaming Connections."
+    },
+    {
+      "name": "expensesListing",
+      "display_name": "Resources - Partner Expenses - Expenses Listing",
+      "description": "Get all expenses."
+    },
+    {
+      "name": "locationCheckBookingAvailability",
+      "display_name": "Actions - Locations - Check Booking Availability",
+      "description": "Get a consolidated view of EVSEs availability for a given location and time frame. Returns available time slots for each bookable EVSE at the location."
+    },
+    {
+      "name": "certificateReissueAnEmaid",
+      "display_name": "Actions - Id Tag - Certificate Reissue An EMAID",
+      "description": "Certificate / Reissue an EMAID."
+    },
+    {
+      "name": "reservationCancel",
+      "display_name": "Actions - Reservation - Reservation Cancel",
+      "description": "Cancel a reservation."
+    },
+    {
+      "name": "chargePointChangeSharingCode",
+      "display_name": "Actions - Charge Point - Change Sharing Code",
+      "description": "Change sharing code for the Charge Point."
+    },
+    {
+      "name": "chargePointChangeOwner",
+      "display_name": "Actions - Charge Point - Change Owner",
+      "description": "Change the owner of the Charge Point."
+    },
+    {
+      "name": "chargePointDeleteCertificate",
+      "display_name": "Actions - Charge Point - Delete Certificate",
+      "description": "Delete certificate."
+    },
+    {
+      "name": "chargePointSetChargingProfile",
+      "display_name": "Actions - Charge Point - Set Charging Profile",
+      "description": "Set a smart charging profile."
+    },
+    {
+      "name": "chargePointStartChargingSessionWithoutEvse",
+      "display_name": "Actions - Charge Point -  Start Charging Session Without EVSE",
+      "description": "Start a charging session."
+    },
+    {
+      "name": "chargePointMoveEvsesToSatellite",
+      "display_name": "Actions - Charge Point - Move EVSEs To Satellite",
+      "description": "Move one or more EVSEs from this charge point to a satellite charge point."
+    },
+    {
+      "name": "chargePointReset",
+      "display_name": "Actions - Charge Point - Reset",
+      "description": "Reset a charge point."
+    },
+    {
+      "name": "chargePointTriggerMessageChargePoint",
+      "display_name": "Actions - Charge Point - Trigger Message Charge Point",
+      "description": "Trigger message to given Charge Point."
+    },
+    {
+      "name": "chargePointGetSecurityLog",
+      "display_name": "Actions - Charge Point - Get Security Log",
+      "description": "Charge Point / Get Security Log. "
+    },
+    {
+      "name": "chargePointSetConfiguration",
+      "display_name": "Actions - Charge Point - Set Configuration",
+      "description": "Set Configuration for the Charge Point."
+    },
+    {
+      "name": "chargePointEvseUnlock",
+      "display_name": "Actions - Charge Point - EVSE Unlock",
+      "description": "Unlock an EVSE."
+    },
+    {
+      "name": "chargePointGetDiagnostics",
+      "display_name": "Actions - Charge Point - Get Diagnostics",
+      "description": "Request a get diagnostics upload from the charge point."
+    },
+    {
+      "name": "chargePointUpdateFirmware",
+      "display_name": "Actions - Charge Point - Update Firmware",
+      "description": "Charge Point / Update Firmware."
+    },
+    {
+      "name": "chargePointChangeAvailability",
+      "display_name": "Actions - Charge Point - Change Availability",
+      "description": "Change the availability to available or unavailable. A Charge Point is considered unavailable when it does not allow any charging."
+    },
+    {
+      "name": "chargePointSendDataTransfer",
+      "display_name": "Actions - Charge Point - Send Data Transfer",
+      "description": "Charge Point / Send Data Transfer."
+    },
+    {
+      "name": "chargePointClearChargingProfile",
+      "display_name": "Actions - Charge Point - Clear Charging Profile",
+      "description": "If you are not using networkId and not passing other criteria in the body it will clear the charging profile for the charge point (ChargePointMaxProfile)."
+    },
+    {
+      "name": "chargePointGetInstalledCertificateIds",
+      "display_name": "Actions - Charge Point - Get Installed Certificate Ids",
+      "description": "Charge Point / Get Installed Certificate IDs. "
+    },
+    {
+      "name": "chargePointResetSecurityProfile",
+      "display_name": "Actions - Charge Point - Reset Security Profile",
+      "description": "Reset the current security profile of the charge point in the backend. The next time the charge point connects, the backend will accept the connection and update the current security profile with the one that the charge point actually used to establish the connection."
+    },
+    {
+      "name": "chargePointStartChargingSession",
+      "display_name": "Actions - Charge Point - Start Charging Session",
+      "description": "Start a charging session."
+    },
+    {
+      "name": "chargePointSyncConfiguration",
+      "display_name": "Actions - Charge Point - Sync Configuration",
+      "description": "Send a partial or full sync configuration request to the chargepoint. You will get back a requerstId that you can monitor the status of using the ChargePointSyncConfigurationNotification. Please note that calling this action should not be required, as each time the charge point boots the configuration is automatically synced."
+    },
+    {
+      "name": "chargePointStopChargingSession",
+      "display_name": "Actions - Charge Point - Stop Charging Session",
+      "description": "Stop a charging session."
+    },
+    {
+      "name": "chargePointInstallCertificate",
+      "display_name": "Actions - Charge Point - Install Certificate",
+      "description": "Charge Point / Install Certificate."
+    },
+    {
+      "name": "chargePointReserve",
+      "display_name": "Actions - Charge Point - Reserve",
+      "description": "Reserve an evse."
+    },
+    {
+      "name": "sessionAssignToUser",
+      "display_name": "Actions - Session - Assign To User",
+      "description": "Assign a user to a session. This action is only applicable to sessions with Completed billing status that have no user associated with them. This operation can be done only once and is not reversible."
+    },
+    {
+      "name": "sessionRetryPayment",
+      "display_name": "Actions - Session - Retry Payment",
+      "description": "Retry failed payment for a session."
+    },
+    {
+      "name": "tariffSetDisplayInformation",
+      "display_name": "Actions - Tariffs - Set Display Information",
+      "description": "Apply a Tariff Display Information to tariff."
+    },
+    {
+      "name": "electricityMeterReportConsumption",
+      "display_name": "Actions - Electricity Meter - Report Consumption",
+      "description": "Add an electricity meter report for the meter readings at the current moment."
+    },
+    {
+      "name": "transactionUpdatePaymentReference",
+      "display_name": "Actions - Transactions - Update Payment Reference",
+      "description": "Link the transaction to external resource where the payment took place."
+    },
+    {
+      "name": "transactionIssueInvoice",
+      "display_name": "Actions - Transactions - Issue Invoice",
+      "description": "Issue ad-hoc invoice for the transaction (only if AMPECO invoice integration is used). For Számlázz.hu integration in Hungary, if a fiscalized receipt exists for the transaction, it will be automatically canceled and both the invoice and storno receipt will be sent to the user."
+    },
+    {
+      "name": "transactionResendInvoice",
+      "display_name": "Actions - Transactions - Resend Invoice",
+      "description": "Resend already issued invoice. If the transaction has an associated fiscalized receipt that was automatically canceled (Hungary compliance), both the invoice and the storno receipt will be sent together."
+    },
+    {
+      "name": "subscriptionPlanReplace",
+      "display_name": "Actions - Subscription Plans - Replace",
+      "description": "Replace a subscription plan with another one."
+    },
+    {
+      "name": "notificationsResendFailed",
+      "display_name": "Actions - Notifications - Resend Failed",
+      "description": "Resend failed webhook notifications. - Resend for a specific notification ID can be requested once every 15 minutes. - Notifications that are disabled cannot be resent."
+    },
+    {
+      "name": "evseTriggerMessage",
+      "display_name": "Actions - EVSE - Trigger Message",
+      "description": "Trigger message to given EVSE."
+    },
+    {
+      "name": "evseStartChargingWithEvseId",
+      "display_name": "Actions - EVSE - Start Charging With EVSE Id",
+      "description": "Start a charging session."
+    },
+    {
+      "name": "parkingSpaceUpdateOccupancyStatus",
+      "display_name": "Actions - Parking Spaces - Update Occupancy Status",
+      "description": "Parking Space / Update occupancy status."
+    },
+    {
+      "name": "configurationTemplateApplyToChargePoints",
+      "display_name": "Actions - Configuration Template - Apply To Charge Points",
+      "description": "Apply a configuration template to charge points."
+    },
+    {
+      "name": "configurationTemplateBulkCreateVariables",
+      "display_name": "Actions - Configuration Template - Bulk Create Variables",
+      "description": "Create multiple variables for a specific configuration template, adds them to the already existing keys and validates if there are duplicates."
+    },
+    {
+      "name": "changeFlexibilityAssetStatus",
+      "display_name": "Actions - Flexibility Asset - Change Flexibility Asset Status",
+      "description": "Change the status of the Flexibility Asset."
+    },
+    {
+      "name": "flexibilityAssetCreateActivationRequest",
+      "display_name": "Actions - Flexibility Asset - Create Activation Request",
+      "description": "Create Flexibility Activation Request for a specific Asset."
+    },
+    {
+      "name": "updateCustomTariffFilterTariff",
+      "display_name": "Actions - Roaming Operator - Update Custom Tariff Filter Tariff",
+      "description": "Set the pricing data for a custom tariff filter. This action will update the underling roaming tariff and create a pricing based on it. The pricing can then be utilized by attaching a markup tariff to the tariff map of the custom tariff filter."
+    },
+    {
+      "name": "userExportAllPrivateData",
+      "display_name": "Actions - Users - Export All Private Data",
+      "description": "Export all private data."
+    },
+    {
+      "name": "userClearSubscriptionAmountDue",
+      "display_name": "Actions - Users - Clear Subscription Amount Due",
+      "description": "Clear a user's subscription amount due. Any unsettled transactions related to the user's current subscription — such as fees and charging sessions will be set to an amount of 0.This operation is irreversible."
+    },
+    {
+      "name": "userRedeemVoucher",
+      "display_name": "Actions - Users - Redeem Voucher",
+      "description": "Apply a voucher to a user."
+    },
+    {
+      "name": "userCancelSubscription",
+      "display_name": "Actions - Users - Cancel Subscription",
+      "description": "Cancel a subscription to a user."
+    },
+    {
+      "name": "userAddBalance",
+      "display_name": "Actions - Users - Add Balance",
+      "description": "Add to the current balance of the user."
+    },
+    {
+      "name": "userApplyCustomFee",
+      "display_name": "Actions - Users - Apply Custom Fee",
+      "description": "Apply custom fee for a user."
+    },
+    {
+      "name": "userChangeStatus",
+      "display_name": "Actions - Users - Change Status",
+      "description": "Set the status for a user."
+    },
+    {
+      "name": "userActivateSubscription",
+      "display_name": "Actions - Users - Activate Subscription",
+      "description": "Activate a subscription to a user."
+    },
+    {
+      "name": "circuitSetChargePointEvsePriority",
+      "display_name": "Actions - Circuit - Set Charge Point EVSE Priority",
+      "description": "Circuit / Set Charge Point EVSE Priority."
+    },
+    {
+      "name": "circuitSetSessionPriority",
+      "display_name": "Actions - Circuit - Set Session Priority",
+      "description": "Circuit / Set Session Priority."
+    },
+    {
+      "name": "circuitSetCircuitSocPriority",
+      "display_name": "Actions - Circuit - Set Circuit SoC Priority",
+      "description": "Set DLM priority based on the session\\"
+    },
+    {
+      "name": "circuitAttachChargePoint",
+      "display_name": "Actions - Circuit - Attach Charge Point",
+      "description": "To maintain safety and compatibility, only charge points with an identical electrical configuration to the circuit can be added."
+    },
+    {
+      "name": "circuitSetChargePointPriority",
+      "display_name": "Actions - Circuit - Set Charge Point Priority",
+      "description": "Circuit / Set Charge Point Priority."
+    },
+    {
+      "name": "circuitDetachChargePoint",
+      "display_name": "Actions - Circuit - Detach Charge Point",
+      "description": "Circuit / Detach Charge Point."
+    },
+    {
+      "name": "certificateIssueAnEmaid",
+      "display_name": "Actions - Provisioning Certificate - Certificate Issue An EMAID",
+      "description": "Certificate / Issue an EMAID."
+    },
+    {
+      "name": "notificationsListing",
+      "display_name": "Notifications - V2.0 - Notifications Listing",
+      "description": "Notifications / Listing"
+    },
+    {
+      "name": "notificationsSubscribe",
+      "display_name": "Notifications - V2.0 - Notifications Subscribe",
+      "description": "Subscribe for a webhook or kafka events. Each notification sent to the webhook/kafka will be retried a number of times and will be rate limited. The rate limits, retries and retry intervals will be configured by Ampeco."
+    },
+    {
+      "name": "notificationsCreate",
+      "display_name": "Notifications - V2.0 - Notifications Create",
+      "description": "Update a notification."
+    },
+    {
+      "name": "notificationsUnsubscribe",
+      "display_name": "Notifications - V2.0 - Notifications Unsubscribe",
+      "description": "Unsubscribe for a notification."
+    },
+    {
+      "name": "notificationRead",
+      "display_name": "Notifications - V2.0 - Notification Read",
+      "description": "Get a notification."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_notification",
+      "display_name": "New notification",
+      "description": "Triggers when a webhook notification event is received from Ampeco",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/ampeco"
+}

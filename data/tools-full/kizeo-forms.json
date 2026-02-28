@@ -1,0 +1,171 @@
+{
+  "id": "kizeo-forms",
+  "displayName": "Kizeo Forms API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_list_item": {
+      "displayName": "Create List Item",
+      "description": "Create a new list item in Kizeo Forms",
+      "props": [
+        {
+          "name": "itemLabel",
+          "displayName": "Item Label",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Label for the new list item"
+        }
+      ]
+    },
+    "delete_list_item": {
+      "displayName": "Delete List Item",
+      "description": "Delete a specific item from a list",
+      "props": [
+        {
+          "name": "itemId",
+          "displayName": "Item Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the item to delete"
+        }
+      ]
+    },
+    "download_custom_export_in_its_original_format": {
+      "displayName": "Download custom export in its original format",
+      "description": "Download a custom export in its original format",
+      "props": [
+        {
+          "name": "exportInPdf",
+          "displayName": "Export in PDF",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "dataId",
+          "displayName": "Data Id",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "download_standard_pdf": {
+      "displayName": "Download Standard PDF",
+      "description": "Get PDF data of a form",
+      "props": [
+        {
+          "name": "dataId",
+          "displayName": "Data Id",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "edit_list_item": {
+      "displayName": "Edit List Item",
+      "description": "Edit a specific item in a list",
+      "props": [
+        {
+          "name": "itemId",
+          "displayName": "Item Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the item to edit"
+        },
+        {
+          "name": "itemLabel",
+          "displayName": "Item Label",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Label for the new list item"
+        }
+      ]
+    },
+    "get_all_list_items": {
+      "displayName": "Get All List Items",
+      "description": "Get all items from a specific list",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pattern to search"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Max number of results to return"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Target for sorting"
+        },
+        {
+          "name": "direction",
+          "displayName": "Direction",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sorting: asc or desc"
+        }
+      ]
+    },
+    "get_data_definition": {
+      "displayName": "Get Data Definition",
+      "description": "Get the definition of a data",
+      "props": [
+        {
+          "name": "dataId",
+          "displayName": "Data Id",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get_list_definition": {
+      "displayName": "Get List Definition",
+      "description": "Get the definition of a list",
+      "props": []
+    },
+    "get_list_item": {
+      "displayName": "Get List Item",
+      "description": "Get a specific item from a list",
+      "props": [
+        {
+          "name": "itemId",
+          "displayName": "Item Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the item you want to retrieve from the list"
+        }
+      ]
+    },
+    "push_data": {
+      "displayName": "Push Data",
+      "description": "Push a data to a form",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

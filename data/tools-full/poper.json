@@ -1,0 +1,16 @@
+{
+  "id": "poper",
+  "displayName": "Poper",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {},
+  "triggers": {
+    "newLead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead is obtained from popup.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

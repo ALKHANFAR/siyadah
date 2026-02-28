@@ -1,0 +1,36 @@
+{
+  "id": "loop",
+  "package": "@activepieces/piece-loop",
+  "version": "0.2.0",
+  "category": "A_essential",
+  "auth": {
+    "required": false
+  },
+  "actions": {
+    "loop": {
+      "displayName": "Loop",
+      "description": "Loop through list items",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "EMPTY_ARRAY",
+      "cause": "Items array is empty",
+      "auto_fix": "Add empty check before loop",
+      "severity": "low"
+    },
+    {
+      "code": "ITERATION_LIMIT",
+      "cause": "More than 1000 items",
+      "auto_fix": "Batch into groups of 100",
+      "severity": "medium"
+    }
+  ],
+  "limits": {
+    "max_iterations": 1000
+  },
+  "notes": "Always add delay inside loops to prevent rate limits. Used for bulk operations.",
+  "displayName": "Loop"
+}

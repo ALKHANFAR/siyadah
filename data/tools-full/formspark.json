@@ -1,0 +1,31 @@
+{
+  "id": "formspark",
+  "displayName": "Formspark",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {},
+  "triggers": {
+    "new-submission": {
+      "displayName": "New Submission",
+      "description": "Triggers when form receives a new submission.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "liveMarkdown",
+          "displayName": "liveMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "md",
+          "displayName": "md",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

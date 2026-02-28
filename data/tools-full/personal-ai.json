@@ -1,0 +1,484 @@
+{
+  "id": "personal-ai",
+  "displayName": "Personal AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_chatgpt_instruction": {
+      "displayName": "Send ChatGPT Instruction",
+      "description": "Send an instruction to AI assistant using ChatGPT integration.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Instruction Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "context",
+          "displayName": "Context",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "userName",
+          "displayName": "User Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sessionId",
+          "displayName": "Session ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "isStack",
+          "displayName": "Add to Memory",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "isDraft",
+          "displayName": "Create Draft",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "create_custom_training": {
+      "displayName": "Send Custom Training",
+      "description": "Send a custom training instruction to AI assistant.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Training Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "context",
+          "displayName": "Context",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "userName",
+          "displayName": "User Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sessionId",
+          "displayName": "Session ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "isStack",
+          "displayName": "Add to Memory",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "isDraft",
+          "displayName": "Create Draft",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "get_document": {
+      "displayName": "Get Document",
+      "description": "Retrieve a document from AI assistant.",
+      "props": [
+        {
+          "name": "documentId",
+          "displayName": "Document ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "includeContent",
+          "displayName": "Include Content",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "update_document": {
+      "displayName": "Update Document",
+      "description": "Update an existing document in AI assistant.",
+      "props": [
+        {
+          "name": "documentId",
+          "displayName": "Document ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "text",
+          "displayName": "Document Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "title",
+          "displayName": "Document Title",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "createdTime",
+          "displayName": "Created Time",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "isStack",
+          "displayName": "Add to Memory",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "upload_document": {
+      "displayName": "Upload Document",
+      "description": "Upload a text document to AI assistant.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Document Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "title",
+          "displayName": "Document Title",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "createdTime",
+          "displayName": "Created Time",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "isStack",
+          "displayName": "Add to Memory",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "upload_file": {
+      "displayName": "Upload File",
+      "description": "Upload a file to AI assistant.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "File",
+          "required": true
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "createdTime",
+          "displayName": "Created Time",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "isStack",
+          "displayName": "Add to Memory",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "upload_url": {
+      "displayName": "Upload URL Content",
+      "description": "Upload content from a URL to AI assistant.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "createdTime",
+          "displayName": "Created Time",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "isStack",
+          "displayName": "Add to Memory",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "create_memory": {
+      "displayName": "Create Memory",
+      "description": "Upload memories to your AI assistant stack.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Memory Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "createdTime",
+          "displayName": "Created Time",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "rawFeedText",
+          "displayName": "Raw Feed Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "create_message": {
+      "displayName": "Send Message",
+      "description": "Send a message to the AI assistant for a response.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Message Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "context",
+          "displayName": "Context",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "userName",
+          "displayName": "User Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sessionId",
+          "displayName": "Session ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "isStack",
+          "displayName": "Add to Memory",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "isDraft",
+          "displayName": "Create Draft",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "get_conversation": {
+      "displayName": "Get Conversation History",
+      "description": "Retrieve conversation history from AI assistant.",
+      "props": [
+        {
+          "name": "channelId",
+          "displayName": "Channel ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "domainName",
+          "displayName": "Domain Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "userName",
+          "displayName": "User Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sessionId",
+          "displayName": "Session ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "sourceName",
+          "displayName": "Source Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "skip",
+          "displayName": "Skip",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

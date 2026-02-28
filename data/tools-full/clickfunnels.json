@@ -1,0 +1,160 @@
+{
+  "id": "clickfunnels",
+  "displayName": "ClickFunnels",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "applyTagToContact": {
+      "displayName": "Apply Tag to Contact",
+      "description": "Apply a tag to a contact if it doesn’t already exist.",
+      "props": []
+    },
+    "createOpportunity": {
+      "displayName": "Create Opportunity",
+      "description": "Create a new opportunity for a contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Opportunity Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name or title of the opportunity."
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The potential value of this opportunity in the default currency of the workspace"
+        },
+        {
+          "name": "closedAt",
+          "displayName": "Close Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The expected close date for the opportunity."
+        }
+      ]
+    },
+    "enrollAContactIntoACourse": {
+      "displayName": "Enroll a Contact Into a Course",
+      "description": "Create an enrollment for a contact in a course.",
+      "props": []
+    },
+    "removeTagFromContact": {
+      "displayName": "Remove Tag From Contact",
+      "description": "Remove a specific tag from a contact.",
+      "props": []
+    },
+    "searchContacts": {
+      "displayName": "Search Contacts",
+      "description": "Look up contacts by ID or email",
+      "props": [
+        {
+          "name": "searchTerm",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Filter contacts by either email or id"
+        }
+      ]
+    },
+    "updateOrCreateContact": {
+      "displayName": "Update or Create Contact",
+      "description": "Searches for a contact by email and updates it, or creates a new one if not found.",
+      "props": [
+        {
+          "name": "emailAddress",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact's email address. This is used to find and (update/create) the contact."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phoneNumber",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customAttributes",
+          "displayName": "Custom Attributes",
+          "type": "OBJECT",
+          "required": false,
+          "description": "A key-value object for custom contact data. Keys that are default properties on the Contact resource or variations of it will result in an error. E.g., first_name, First Name, etc. are not valid inputs."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "contactCompletedCourse": {
+      "displayName": "contactCompletedCourse",
+      "description": "Triggers when a contact completes a course.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "contactIdentified": {
+      "displayName": "contactIdentified",
+      "description": "Triggers when a new contact is identified by email/phone.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "contactSubmittedForm": {
+      "displayName": "contactSubmittedForm",
+      "description": "Triggers each time a contact submits a form (opt-in or order).",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "contactSuspendedFromCourse": {
+      "displayName": "${MODULE_NAME} From Course",
+      "description": "Triggers when a contact is suspended from a course.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "courseEnrollmentCreatedForContact": {
+      "displayName": "${MODULE_NAME} for contact",
+      "description": "Triggers when a course enrollment is created for a contact.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "OneTimeOrderPaid": {
+      "displayName": "OneTimeOrderPaid",
+      "description": "Triggers when a customer pays a one-time order.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "scheduledAppointmentEventCreated": {
+      "displayName": "${MODULE_NAME} Created",
+      "description": "Triggers when a scheduled appointment event is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscriptionInvoicePaid": {
+      "displayName": "subscriptionInvoicePaid",
+      "description": "Triggers when a subscription invoice is paid.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

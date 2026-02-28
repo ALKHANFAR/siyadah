@@ -1,0 +1,70 @@
+{
+  "id": "certopus",
+  "displayName": "Certopus",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_credential": {
+      "displayName": "Create Credential",
+      "description": "Create a credential",
+      "props": [
+        {
+          "name": "organisation",
+          "displayName": "Organisations",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "event",
+          "displayName": "Event",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "generate",
+          "displayName": "Generate",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Automatically generate the crentials"
+        },
+        {
+          "name": "publish",
+          "displayName": "Publish",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Automatically publish the crentials"
+        },
+        {
+          "name": "email",
+          "displayName": "Recipient Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the recipient"
+        },
+        {
+          "name": "fields",
+          "displayName": "Recipient Data",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Enter data for the ${field.label} field"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

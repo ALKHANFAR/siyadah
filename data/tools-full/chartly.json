@@ -1,0 +1,113 @@
+{
+  "id": "chartly",
+  "displayName": "Chartly",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_chart": {
+      "displayName": "Create Chart",
+      "description": "Generates a chart image based on the provided data, configuration, and chart type",
+      "props": [
+        {
+          "name": "chart_type",
+          "displayName": "Chart Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of chart to generate"
+        },
+        {
+          "name": "chart_title",
+          "displayName": "Chart Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title for the chart"
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Labels for the data points (e.g., [\"Jan\", \"Feb\", \"Mar\"])"
+        },
+        {
+          "name": "dataset_label",
+          "displayName": "Dataset Label",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Label for the data series"
+        },
+        {
+          "name": "data_values",
+          "displayName": "Data Values",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Numeric values for the chart (e.g., [10, 20, 30])"
+        },
+        {
+          "name": "background_color",
+          "displayName": "Background Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Background color for data points (e.g., \"rgba(54, 162, 235, 0.8)\" or \"#36A2EB\")"
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Image width in pixels (1-2000)"
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Image height in pixels (1-2000)"
+        },
+        {
+          "name": "format",
+          "displayName": "Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Output format for the chart image"
+        },
+        {
+          "name": "background_color_image",
+          "displayName": "Image Background Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Background color for the image (e.g., \"white\", \"transparent\", \"#FFFFFF\")"
+        },
+        {
+          "name": "advanced_config",
+          "displayName": "Advanced Chart.js Configuration",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Complete Chart.js configuration as JSON (overrides other settings)"
+        }
+      ]
+    },
+    "get_chart": {
+      "displayName": "Get Chart",
+      "description": "Retrieve a previously created chart by its ID. Returns cached image data optimized for sharing.",
+      "props": [
+        {
+          "name": "chart_id",
+          "displayName": "Chart ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the chart to retrieve (from create chart response)"
+        },
+        {
+          "name": "format",
+          "displayName": "Expected Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Expected output format of the chart"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

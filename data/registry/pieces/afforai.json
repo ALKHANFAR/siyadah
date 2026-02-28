@@ -1,0 +1,20 @@
+{
+  "id": "afforai",
+  "package": "@activepieces/piece-afforai",
+  "display_name": "Afforai",
+  "display_name_ar": "Afforai",
+  "description": "Helps you search, summarize, and translate knowledge from hundreds of documents to help you produce trustworthy research.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "afforai_ask_chatbot",
+      "display_name": "Ask Chatbot",
+      "description": "Gets AI-generated completions for a given chatbot."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/afforai"
+}

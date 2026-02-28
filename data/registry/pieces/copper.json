@@ -1,0 +1,182 @@
+{
+  "id": "copper",
+  "package": "@activepieces/piece-copper",
+  "display_name": "Copper",
+  "display_name_ar": "Copper",
+  "description": "Copper integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "convertLead",
+      "display_name": "Convert Lead",
+      "description": "Converts a lead into a person (optionally with company/opportunity)."
+    },
+    {
+      "name": "createActivity",
+      "display_name": "Create Activity",
+      "description": "Logs an activity related to CRM entities."
+    },
+    {
+      "name": "createCompany",
+      "display_name": "Create Company",
+      "description": "Adds a new company."
+    },
+    {
+      "name": "createLead",
+      "display_name": "Create Lead",
+      "description": "Adds a new lead."
+    },
+    {
+      "name": "createOpportunity",
+      "display_name": "Create Opportunity",
+      "description": "Adds a new opportunity."
+    },
+    {
+      "name": "createPerson",
+      "display_name": "Create Person",
+      "description": "Adds a new person/contact."
+    },
+    {
+      "name": "createProject",
+      "display_name": "Create Project",
+      "description": "Adds a new project."
+    },
+    {
+      "name": "createTask",
+      "display_name": "Create Task",
+      "description": "Adds a new task under a person, lead, or opportunity."
+    },
+    {
+      "name": "searchForACompany",
+      "display_name": "Search for a Company",
+      "description": "Lookup a company."
+    },
+    {
+      "name": "searchForALead",
+      "display_name": "Search for a Lead",
+      "description": "Lookup a lead using match criteria."
+    },
+    {
+      "name": "searchForAPerson",
+      "display_name": "Search for a Person",
+      "description": "Lookup a person using match criteria."
+    },
+    {
+      "name": "searchForAProject",
+      "display_name": "Search for a Project",
+      "description": "Lookup a project."
+    },
+    {
+      "name": "searchForAnActivity",
+      "display_name": "Search for an Activity",
+      "description": "Find an existing activity by type/criteria."
+    },
+    {
+      "name": "searchForAnOpportunity",
+      "display_name": "Search for an Opportunity",
+      "description": "Lookup an opportunity."
+    },
+    {
+      "name": "updateCompany",
+      "display_name": "Update Company",
+      "description": "Updates a company record."
+    },
+    {
+      "name": "updateLead",
+      "display_name": "Update Lead",
+      "description": "Updates an existing lead."
+    },
+    {
+      "name": "updateOpportunity",
+      "display_name": "Update Opportunity",
+      "description": "Updates an opportunity using match criteria."
+    },
+    {
+      "name": "updatePerson",
+      "display_name": "Update Person",
+      "description": "Updates a person based on matching criteria."
+    },
+    {
+      "name": "updateProject",
+      "display_name": "Update Project",
+      "description": "Updates a project record."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newActivity",
+      "display_name": "New Activity",
+      "description": "Triggers when a new activity is logged",
+      "type": "scheduled"
+    },
+    {
+      "name": "newLead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead is created.",
+      "type": "instant"
+    },
+    {
+      "name": "newPerson",
+      "display_name": "New Person",
+      "description": "Triggers when a new person/contact is created.",
+      "type": "instant"
+    },
+    {
+      "name": "newTask",
+      "display_name": "New Task",
+      "description": "Triggers when a new task is created.",
+      "type": "instant"
+    },
+    {
+      "name": "updatedLeadStatus",
+      "display_name": "Updated Lead Status",
+      "description": "Triggers when the status of a lead changes.",
+      "type": "instant"
+    },
+    {
+      "name": "updatedLead",
+      "display_name": "Updated Lead",
+      "description": "Triggers when a lead is modified.",
+      "type": "instant"
+    },
+    {
+      "name": "updatedOpportunityStage",
+      "display_name": "Updated Opportunity Stage",
+      "description": "Triggers when an opportunity stage changes",
+      "type": "instant"
+    },
+    {
+      "name": "updatedOpportunityStatus",
+      "display_name": "Updated Opportunity Status",
+      "description": "Triggers when an opportunity's status changes.",
+      "type": "instant"
+    },
+    {
+      "name": "updatedOpportunity",
+      "display_name": "Updated Opportunity",
+      "description": "Triggers when an opportunity changes.",
+      "type": "instant"
+    },
+    {
+      "name": "updatedProject",
+      "display_name": "Updated Project",
+      "description": "Triggers when a project is updated.",
+      "type": "instant"
+    },
+    {
+      "name": "updatedTask",
+      "display_name": "Updated Task",
+      "description": "Triggers when a task is updated.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/copper"
+}

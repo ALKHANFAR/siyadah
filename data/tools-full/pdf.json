@@ -1,0 +1,143 @@
+{
+  "id": "pdf",
+  "displayName": "PDF",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "convertToImage": {
+      "displayName": "Convert to Image",
+      "description": "Convert a PDF file or URL to an image",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "PDF File or URL",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "imageOutputType",
+          "displayName": "Output Image Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "extractPdfPages": {
+      "displayName": "Extract PDF Pages",
+      "description": "Extract or rearrange page(s)from PDF File.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "PDF File or URL",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "pageRanges",
+          "displayName": "Page Ranges",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "startPage",
+          "displayName": "Start Page",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "endPage",
+          "displayName": "End Page",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "extractText": {
+      "displayName": "Extract Text",
+      "description": "Extract text from PDF file or url",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "PDF File or URL",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "imageToPdf": {
+      "displayName": "Image to PDF",
+      "description": "Convert image to PDF",
+      "props": [
+        {
+          "name": "image",
+          "displayName": "image",
+          "type": "FILE",
+          "required": true,
+          "description": "Image has to be png, jpeg or jpg and it will be scaled down to fit the page when image is larger than an A4 page"
+        }
+      ]
+    },
+    "mergePdfs": {
+      "displayName": "Merge PDFs",
+      "description": "Merges multiple PDF files into a single PDF document.",
+      "props": [
+        {
+          "name": "pdfFiles",
+          "displayName": "PDF Files",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of PDF files to merge"
+        },
+        {
+          "name": "file",
+          "displayName": "PDF File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "outputFileName",
+          "displayName": "Output File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name for the merged PDF file (without extension)"
+        }
+      ]
+    },
+    "pdfPageCount": {
+      "displayName": "PDF Page Count",
+      "description": "Get page count of PDF file.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "PDF File or URL",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "textToPdf": {
+      "displayName": "Text to PDF",
+      "description": "Convert text to PDF",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter text to convert"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

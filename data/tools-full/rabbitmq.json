@@ -1,0 +1,79 @@
+{
+  "id": "rabbitmq",
+  "displayName": "RabbitMQ",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "sendMessageToExchange": {
+      "displayName": "sendMessageToExchange",
+      "description": "Send a message on a RabbitMQ exchange",
+      "props": [
+        {
+          "name": "exchange",
+          "displayName": "Exchange",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the exchange to send the message to"
+        },
+        {
+          "name": "routingKey",
+          "displayName": "Routing Key (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The routing key to use when sending the message"
+        },
+        {
+          "name": "data",
+          "displayName": "Data",
+          "type": "JSON",
+          "required": true,
+          "description": "The data to send"
+        }
+      ]
+    },
+    "sendMessageToQueue": {
+      "displayName": "sendMessageToQueue",
+      "description": "Send a message on a RabbitMQ queue",
+      "props": [
+        {
+          "name": "queue",
+          "displayName": "Queue",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the exchange to send the message to"
+        },
+        {
+          "name": "data",
+          "displayName": "Data",
+          "type": "JSON",
+          "required": true,
+          "description": "The data to send"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "messageReceived": {
+      "displayName": "Message Received",
+      "description": "Triggers when a message is received on a RabbitMQ queue",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "queue",
+          "displayName": "Queue",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the queue to listen to"
+        },
+        {
+          "name": "maxMessagesPerPoll",
+          "displayName": "Max Messages Per Poll",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The maximum number of messages to fetch per poll"
+        }
+      ]
+    }
+  }
+}

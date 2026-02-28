@@ -1,0 +1,118 @@
+{
+  "id": "gladia",
+  "displayName": "Gladia",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createTranscription": {
+      "displayName": "Create Transcription",
+      "description": "Initiate a pre-recorded transcription job from an audio or video URL",
+      "props": [
+        {
+          "name": "audio_url",
+          "displayName": "Audio URL",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "URL to a Gladia file or to an external audio or video file"
+        },
+        {
+          "name": "languages",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the language spoken in the audio for better transcription accuracy"
+        },
+        {
+          "name": "code_switching",
+          "displayName": "Enable Code Switching",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable code switching to handle multiple languages in the audio"
+        },
+        {
+          "name": "subtitles",
+          "displayName": "Enable Subtitles",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable subtitles generation for this transcription"
+        },
+        {
+          "name": "subtitles_format",
+          "displayName": "Subtitles Format",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the subtitle format(s) for transcription output"
+        },
+        {
+          "name": "diarization",
+          "displayName": "Enable Diarization",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable speaker recognition (diarization) for this audio"
+        },
+        {
+          "name": "translation",
+          "displayName": "Enable Translation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable translation for this audio"
+        },
+        {
+          "name": "summarization",
+          "displayName": "Enable Summarization",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable summarization for this audio"
+        },
+        {
+          "name": "summarization_type",
+          "displayName": "Summarization Type",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Choose the type of summarization to apply. "
+        },
+        {
+          "name": "sentiment_analysis",
+          "displayName": "Enable Sentiment Analysis",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable sentiment analysis for this audio"
+        },
+        {
+          "name": "sentences",
+          "displayName": "Enable Sentences",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable sentence detection for this audio"
+        },
+        {
+          "name": "custom_metadata",
+          "displayName": "Custom Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Add custom metadata to the transcription job"
+        }
+      ]
+    },
+    "uploadAFile": {
+      "displayName": "Upload Audio File",
+      "description": "Upload an audio or video file for use in a pre-recorded transcription job",
+      "props": [
+        {
+          "name": "audio_file",
+          "displayName": "Audio File",
+          "type": "FILE",
+          "required": true,
+          "description": "The audio or video file to upload"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

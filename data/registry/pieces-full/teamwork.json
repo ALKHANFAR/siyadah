@@ -1,0 +1,158 @@
+{
+  "id": "teamwork",
+  "package": "@activepieces/piece-teamwork",
+  "display_name": "Teamwork",
+  "display_name_ar": "",
+  "description": "Teamwork is a work and project management tool that helps teams improve collaboration, visibility, and accountability.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "add_people_to_project",
+      "display_name": "Add People to Project",
+      "description": "Add existing users to a project."
+    },
+    {
+      "name": "create_company",
+      "display_name": "Create Company",
+      "description": "Create a new company in Teamwork."
+    },
+    {
+      "name": "create_expense",
+      "display_name": "Create Expense",
+      "description": "Log new expense in a project with cost, description, date."
+    },
+    {
+      "name": "create_message_reply",
+      "display_name": "Create Message Reply",
+      "description": "Post a reply in a message thread."
+    },
+    {
+      "name": "create_milestone",
+      "display_name": "Create Milestone",
+      "description": "Add a milestone with due date, description, responsible user, etc."
+    },
+    {
+      "name": "create_notebook_comment",
+      "display_name": "Create Notebook Comment",
+      "description": "Add a comment on a notebook (collaborative document) with optional attachments."
+    },
+    {
+      "name": "create_person",
+      "display_name": "Create Person",
+      "description": "Create a new user/contact (name, email, invite options)."
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Create a new project (name, description, belongs to company, dates, etc.)."
+    },
+    {
+      "name": "create_stage",
+      "display_name": "Create Stage",
+      "description": "Add a new stage in a workflow or board."
+    },
+    {
+      "name": "create_task_comment",
+      "display_name": "Create Task Comment",
+      "description": "Leave a comment in a task."
+    },
+    {
+      "name": "create_task_list",
+      "display_name": "Create Task List",
+      "description": "Add a new task list under a project."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Add a new task under a project with description, due date, assignee, tags, etc."
+    },
+    {
+      "name": "create_time_entry_on_task",
+      "display_name": "Create Time Entry on Task",
+      "description": "Log time spent on a task with duration, description."
+    },
+    {
+      "name": "find_company",
+      "display_name": "Find Company",
+      "description": "Search for a company by name or domain."
+    },
+    {
+      "name": "find_milestone",
+      "display_name": "Find Milestone",
+      "description": "Find a milestone by name or due date in a project."
+    },
+    {
+      "name": "find_notebook_or_comment",
+      "display_name": "Find Notebook / Notebook Comment",
+      "description": "Locate notebooks or note comments by search parameters."
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Search for tasks."
+    },
+    {
+      "name": "mark_task_complete",
+      "display_name": "Mark Task Complete",
+      "description": "Set a task’s status to complete."
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Modify a task’s fields (due date, assignee, content, priority, etc.)."
+    },
+    {
+      "name": "upload_file_to_project",
+      "display_name": "Upload File to Project",
+      "description": "Upload a file to a Teamwork project."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_comment",
+      "display_name": "New Comment",
+      "description": "Fires when a new comment is posted.",
+      "type": "instant"
+    },
+    {
+      "name": "new_expense",
+      "display_name": "New Expense",
+      "description": "Fires when a new expense entry is added.",
+      "type": "instant"
+    },
+    {
+      "name": "new_file",
+      "display_name": "New File",
+      "description": "Fires when a new file is added.",
+      "type": "instant"
+    },
+    {
+      "name": "new_invoice",
+      "display_name": "New Invoice",
+      "description": "Fires when a new invoice is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new_message",
+      "display_name": "New Message",
+      "description": "Fires when a new message is posted (in project messages or discussions).",
+      "type": "instant"
+    },
+    {
+      "name": "new_person",
+      "display_name": "New Person",
+      "description": "Fires when a new person (user/contact) is added.",
+      "type": "instant"
+    },
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Fires when a task is created.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

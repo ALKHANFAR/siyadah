@@ -1,0 +1,25 @@
+{
+  "id": "fliqr-ai",
+  "displayName": "Fliqr AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_fliqr_account_details": {
+      "displayName": "Get Business Account details",
+      "description": "Get basic account details of business",
+      "props": []
+    },
+    "get_fliqr_account_flows": {
+      "displayName": "Get Account Flows",
+      "description": "Get all flows from the account",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

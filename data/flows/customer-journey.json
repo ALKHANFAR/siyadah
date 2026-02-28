@@ -1,0 +1,352 @@
+{
+  "_meta": {
+    "id": "customer-journey",
+    "version": "1.0.0",
+    "display_name": "رحلة العميل",
+    "display_name_en": "Customer Journey",
+    "description": "عميل جديد → ترحيب → متابعة 3 أيام → متابعة 7 أيام → تقييم 14 يوم",
+    "category": "marketing",
+    "industries": [
+      "all"
+    ],
+    "estimated_setup_time": "3 min",
+    "user_request_examples": [
+      "أبي أتابع العميل بعد ما يشتري",
+      "سو لي رحلة عميل تلقائية",
+      "أبي أرسل متابعات للعملاء",
+      "أبي نظام يتابع العملاء بعد الخدمة"
+    ],
+    "intent_keywords": [
+      "متابعة",
+      "رحلة",
+      "بعد",
+      "follow",
+      "journey",
+      "تقييم"
+    ]
+  },
+  "trigger": {
+    "tool_id": "google-sheets",
+    "action": "new_row",
+    "description": "لما ينضاف عميل جديد في الشيت (أو بعد lead-capture)",
+    "config": {
+      "spreadsheet_id": "{{company.leads_spreadsheet_id}}",
+      "sheet_name": "العملاء"
+    },
+    "alternative_triggers": [
+      "webhook.catch_webhook",
+      "stripe.new_payment"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "id": "check_duplicate",
+      "tool_id": "storage",
+      "action": "store_get",
+      "description": "تأكد ما دخل رحلة قبل",
+      "config": {},
+      "input_mapping": {
+        "key": "journey_{{trigger.row.الجوال}}",
+        "default_value": null
+      },
+      "on_error": {
+        "action": "continue"
+      }
+    },
+    {
+      "order": 2,
+      "id": "format_phone",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "تنسيق رقم الجوال",
+      "config": {
+        "code": "const phone = (inputs.phone || \"\").replace(/^0/, \"+966\").replace(/^966/, \"+966\"); return { formatted_phone: phone };"
+      },
+      "input_mapping": {
+        "phone": "{{trigger.row.الجوال}}"
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "formatted_phone": "{{trigger.row.الجوال}}"
+        }
+      }
+    },
+    {
+      "order": 3,
+      "id": "send_welcome",
+      "tool_id": "whatsapp-business",
+      "action": "send_message",
+      "description": "رسالة ترحيب فورية",
+      "config": {},
+      "input_mapping": {
+        "phone_number": "{{trigger.row.الجوال}}",
+        "message": "{{templates.welcome.{company.industry}}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{trigger.row.الاسم}}",
+        "company_name": "{{company.company_name}}",
+        "greeting": "{{context.greeting}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          }
+        ]
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 4,
+      "id": "mark_journey_started",
+      "tool_id": "storage",
+      "action": "store_put",
+      "description": "سجّل إن الرحلة بدأت",
+      "input_mapping": {
+        "key": "journey_{{trigger.row.الجوال}}",
+        "value": {
+          "started": "{{context.now}}",
+          "stage": "welcome"
+        }
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 5,
+      "id": "delay_3_days",
+      "tool_id": "delay",
+      "action": "delay_for",
+      "description": "انتظار 3 أيام",
+      "config": {
+        "amount": 3,
+        "unit": "days"
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 6,
+      "id": "followup_1",
+      "tool_id": "whatsapp-business",
+      "action": "send_message",
+      "description": "متابعة أولى بعد 3 أيام",
+      "input_mapping": {
+        "phone_number": "{{trigger.row.الجوال}}",
+        "message": "{{templates.followup.day3}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{trigger.row.الاسم}}",
+        "company_name": "{{company.company_name}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          }
+        ]
+      }
+    },
+    {
+      "order": 7,
+      "id": "delay_7_days",
+      "tool_id": "delay",
+      "action": "delay_for",
+      "description": "انتظار 4 أيام إضافية (المجموع 7)",
+      "config": {
+        "amount": 4,
+        "unit": "days"
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 8,
+      "id": "followup_2",
+      "tool_id": "whatsapp-business",
+      "action": "send_message",
+      "description": "متابعة ثانية بعد 7 أيام",
+      "input_mapping": {
+        "phone_number": "{{trigger.row.الجوال}}",
+        "message": "{{templates.followup.day7}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{trigger.row.الاسم}}",
+        "company_name": "{{company.company_name}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          }
+        ]
+      }
+    },
+    {
+      "order": 9,
+      "id": "delay_14_days",
+      "tool_id": "delay",
+      "action": "delay_for",
+      "description": "انتظار 7 أيام إضافية (المجموع 14)",
+      "config": {
+        "amount": 7,
+        "unit": "days"
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 10,
+      "id": "send_review_request",
+      "tool_id": "whatsapp-business",
+      "action": "send_message",
+      "description": "طلب تقييم بعد 14 يوم",
+      "input_mapping": {
+        "phone_number": "{{trigger.row.الجوال}}",
+        "message": "{{templates.review.{company.industry}}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{trigger.row.الاسم}}",
+        "company_name": "{{company.company_name}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          }
+        ]
+      }
+    },
+    {
+      "order": 11,
+      "id": "update_journey_complete",
+      "tool_id": "google-sheets",
+      "action": "update_row",
+      "description": "تحديث الشيت — الرحلة اكتملت",
+      "input_mapping": {
+        "spreadsheet_id": "{{company.leads_spreadsheet_id}}",
+        "sheet_name": "العملاء",
+        "lookup_column": "الجوال",
+        "lookup_value": "{{trigger.row.الجوال}}",
+        "values": {
+          "الحالة": "رحلة مكتملة",
+          "تاريخ_الإكمال": "{{context.today}}"
+        }
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    }
+  ],
+  "branches": [],
+  "delays": [
+    {
+      "after_step": "send_welcome",
+      "duration": {
+        "amount": 3,
+        "unit": "days"
+      },
+      "purpose": "First follow-up"
+    },
+    {
+      "after_step": "followup_1",
+      "duration": {
+        "amount": 4,
+        "unit": "days"
+      },
+      "purpose": "Second follow-up"
+    },
+    {
+      "after_step": "followup_2",
+      "duration": {
+        "amount": 7,
+        "unit": "days"
+      },
+      "purpose": "Review request"
+    }
+  ],
+  "required_connections": [
+    "google-sheets"
+  ],
+  "recommended_connections": [
+    "whatsapp-business",
+    "gmail"
+  ],
+  "minimum_connections": [
+    "google-sheets",
+    "gmail"
+  ],
+  "required_variables": {
+    "company": [
+      "company_name",
+      "leads_spreadsheet_id"
+    ],
+    "trigger": [
+      "row.الاسم",
+      "row.الجوال"
+    ]
+  },
+  "sheets_template": {
+    "name": "العملاء",
+    "columns": [
+      "الاسم",
+      "الجوال",
+      "الإيميل",
+      "النوع",
+      "الحالة",
+      "تاريخ_الإكمال"
+    ]
+  },
+  "industry_variants": {
+    "clinic": {
+      "delay_review": 7,
+      "review_focus": "تجربة العلاج"
+    },
+    "ecommerce": {
+      "delay_review": 5,
+      "review_focus": "المنتج والتوصيل"
+    },
+    "restaurant": {
+      "delay_review": 1,
+      "review_focus": "جودة الطعام والخدمة"
+    }
+  },
+  "protection": {
+    "idempotency": "hash(phone) — one journey per customer",
+    "rate_limit": "Max 50 journeys started/day",
+    "circuit_breaker": "3 WhatsApp fails → pause journey → alert"
+  },
+  "expected_execution_time": "14 days total (5 seconds per step)",
+  "success_criteria": {
+    "must": [
+      "Welcome sent",
+      "Journey tracked"
+    ],
+    "should": [
+      "All follow-ups delivered",
+      "Review requested"
+    ],
+    "nice": [
+      "Sheet updated at each stage"
+    ]
+  }
+}

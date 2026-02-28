@@ -1,0 +1,55 @@
+{
+  "id": "clarifai",
+  "package": "@activepieces/piece-clarifai",
+  "display_name": "Clarifai",
+  "display_name_ar": "Clarifai",
+  "description": "AI-powered visual recognition",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask-llm",
+      "display_name": "Ask LLM",
+      "description": "Send a prompt to any large language models (LLM) supported by clarifai."
+    },
+    {
+      "name": "audio_text_model",
+      "display_name": "Audio to Text",
+      "description": "Call a audio to text AI model"
+    },
+    {
+      "name": "visual_classifier_model",
+      "display_name": "Classify Images or Videos",
+      "description": "Call an visual classifier AI model to recognize concepts"
+    },
+    {
+      "name": "post_inputs",
+      "display_name": "Add Inputs",
+      "description": "Add inputs to your clarifai app"
+    },
+    {
+      "name": "text_classifier_model",
+      "display_name": "Classify Text",
+      "description": "Call a text classifier AI model to recognize concepts"
+    },
+    {
+      "name": "workflow_predict",
+      "display_name": "Run Workflow",
+      "description": "Call a Clarifai workflow"
+    },
+    {
+      "name": "generate-igm",
+      "display_name": "Ask IGM",
+      "description": "Generate an image using the Image generating models supported by clarifai."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/clarifai"
+}

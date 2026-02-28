@@ -1,0 +1,25 @@
+{
+  "id": "razorpay",
+  "package": "@activepieces/piece-razorpay",
+  "display_name": "Key ID",
+  "display_name_ar": "Key ID",
+  "description": "\n          Enter your Key ID and Key Secret\n\n          Login to your Dashboard with appropriate credentials.\n          Select the mode (Test or Live) for which you want to generate the API key\n          Navigate to Settings > API Keys > Generate Key to generate keys for the selected mode.\n\n          The Key ID and Key Secret appear in a pop-out window.\n        ",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create-payment-link",
+      "display_name": "Create Payment Link",
+      "description": "Create a payment link"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/razorpay"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "bettermode",
+  "package": "@activepieces/piece-bettermode",
+  "display_name": "Bettermode",
+  "display_name_ar": "Bettermode",
+  "description": "Feature-rich engagement platform. Browse beautifully designed templates, each flexible for precise customization to your needs.",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "assign_badge",
+      "display_name": "Assign Badge to Member",
+      "description": "Assign an existing badge to a member by email"
+    },
+    {
+      "name": "create_discussion",
+      "display_name": "Create Discussion Post",
+      "description": "Create a new discussion post in a space"
+    },
+    {
+      "name": "create_question",
+      "display_name": "Create Question Post",
+      "description": "Create a new question post in a space"
+    },
+    {
+      "name": "revoke_badge",
+      "display_name": "Revoke Badge from Member",
+      "description": "Revoke a badge from a member by email"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bettermode"
+}

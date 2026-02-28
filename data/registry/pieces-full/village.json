@@ -1,0 +1,65 @@
+{
+  "id": "village",
+  "package": "@activepieces/piece-village",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Your Village API Key",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "enrichCompanyBasicBulk",
+      "display_name": "Enrich Company - Bulk",
+      "description": "Enrich multiple company profiles (max 10) with basic information including employee size, industry, and founding details."
+    },
+    {
+      "name": "enrichCompanyBasic",
+      "display_name": "Enrich Company",
+      "description": "Enrich a single company profile with basic information including employee size, industry, and founding details"
+    },
+    {
+      "name": "getCompanyPaths",
+      "display_name": "Get Company Paths",
+      "description": "Returns connection paths to a company using either its LinkedIn URL or domain URL"
+    },
+    {
+      "name": "sortCompanies",
+      "display_name": "Sort Companies",
+      "description": "Sort a list of companies by relationship strength with the user"
+    },
+    {
+      "name": "enrichEmail",
+      "display_name": "Enrich Email",
+      "description": "Enrich a single LinkedIn profile or Village ID with an email address"
+    },
+    {
+      "name": "enrichEmailsBulk",
+      "display_name": "Enrich Emails (Bulk)",
+      "description": "Enrich multiple LinkedIn profiles or Village IDs with email addresses"
+    },
+    {
+      "name": "enrichPersonBasicBulk",
+      "display_name": "Enrich Profile - Bulk",
+      "description": "Enrich multiple person profiles (max 10) with basic professional information and work history."
+    },
+    {
+      "name": "enrichPersonBasic",
+      "display_name": "Enrich Profile",
+      "description": "Enrich a single person profile with basic professional information and work history"
+    },
+    {
+      "name": "getPersonPaths",
+      "display_name": "Get Person Paths",
+      "description": "Returns connection paths and warmth score to a LinkedIn profile"
+    },
+    {
+      "name": "sortPeople",
+      "display_name": "Sort People",
+      "description": "Sort a list of LinkedIn profiles by relationship strength with the user"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

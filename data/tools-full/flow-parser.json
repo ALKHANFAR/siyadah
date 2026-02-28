@@ -1,0 +1,36 @@
+{
+  "id": "flow-parser",
+  "displayName": "FlowParser",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "upload_document": {
+      "displayName": "Upload Document",
+      "description": "Upload a new document to FlowParser for processing",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The document file to upload"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_parsed_document_by_template": {
+      "displayName": "New Parsed Document by Template",
+      "description": "Triggers when a new document is parsed using a specific template",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_parsed_document_found": {
+      "displayName": "New Parsed Document Found",
+      "description": "Triggers when a document has been successfully parsed",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "twin-labs",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "startBrowsingTask": {
+      "displayName": "Browse",
+      "description": "Browse the internet with an AI web navigation agent that can find information for you",
+      "props": [
+        {
+          "name": "startUrl",
+          "displayName": "startUrl",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL where the browsing task should begin"
+        },
+        {
+          "name": "goal",
+          "displayName": "Goal",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The goal or objective of the browsing task"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

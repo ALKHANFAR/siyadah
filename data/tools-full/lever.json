@@ -1,0 +1,143 @@
+{
+  "id": "lever",
+  "displayName": "API key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addFeedbackToOpportunity": {
+      "displayName": "Add feedback to opportunity",
+      "description": "Provide feedback to a candidate after an interview",
+      "props": [
+        {
+          "name": "performAs",
+          "displayName": "Feedback author",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "opportunityId",
+          "displayName": "Opportunity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "panelId",
+          "displayName": "Interview panel",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "If you select one, you must select an interview too"
+        },
+        {
+          "name": "interviewId",
+          "displayName": "Interview",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Mandatory is you select an interview panel"
+        },
+        {
+          "name": "feedbackTemplateId",
+          "displayName": "Feedback template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Ignored if you select an interview panel and an interview"
+        },
+        {
+          "name": "feedbackFields",
+          "displayName": "Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "getOpportunity": {
+      "displayName": "Get opportunity",
+      "description": "Retrieve a single opportunity, i.e. an individual's unique candidacy or journey for a given job position",
+      "props": [
+        {
+          "name": "opportunityId",
+          "displayName": "Opportunity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "listOpportunityFeedback": {
+      "displayName": "List opportunity feedback",
+      "description": "Get all feedback for a given opportunity, optionally for a given template",
+      "props": [
+        {
+          "name": "opportunityId",
+          "displayName": "Opportunity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "template",
+          "displayName": "Feedback template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "listOpportunityForms": {
+      "displayName": "List opportunity forms",
+      "description": "Get all forms for a given opportunity, optionally for a given form template",
+      "props": [
+        {
+          "name": "opportunityId",
+          "displayName": "Opportunity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "template",
+          "displayName": "Form template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "updateOpportunityStage": {
+      "displayName": "Update opportunity stage",
+      "description": "Change an Opportunity's current stage",
+      "props": [
+        {
+          "name": "opportunityId",
+          "displayName": "Opportunity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "stage",
+          "displayName": "Stage",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

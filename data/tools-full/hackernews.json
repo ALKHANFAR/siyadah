@@ -1,0 +1,23 @@
+{
+  "id": "hackernews",
+  "displayName": "Hacker News",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "fetch_top_stories": {
+      "displayName": "Fetch Top Stories",
+      "description": "Fetch top stories from hackernews",
+      "props": [
+        {
+          "name": "number_of_stories",
+          "displayName": "Number of Stories",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

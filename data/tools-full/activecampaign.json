@@ -1,0 +1,196 @@
+{
+  "id": "activecampaign",
+  "displayName": "ActiveCampaign",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "activecampaign_create_account": {
+      "displayName": "Create Account",
+      "description": "Creates a new account.",
+      "props": [
+        {
+          "name": "accountUrl",
+          "displayName": "Account URL",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "activecampaign_update_account": {
+      "displayName": "Update Account",
+      "description": "Updates an account.",
+      "props": [
+        {
+          "name": "accountUrl",
+          "displayName": "Account URL",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "activecampaign_add_contact_to_account": {
+      "displayName": "Add Contact to Account",
+      "description": "Adds a contact to an ActiveCampaign account.",
+      "props": [
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "activecampaign_add_tag_to_contact": {
+      "displayName": "Add Tag to Contact",
+      "description": "Adds a tag to contact.",
+      "props": []
+    },
+    "activecampaign_create_contact": {
+      "displayName": "Create Contact",
+      "description": "Creates a new contact.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "activecampaign_subscribe_or_unsubscribe_contact_from_list": {
+      "displayName": "Subscribe or Unsubscribe Contact From List",
+      "description": "Subscribes a Contact to a List it is not currently associated with, or Unsubscribes a Contact from a list is currently associated with.",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Action",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "activecampaign_update_contact": {
+      "displayName": "Update Contact",
+      "description": "Updates an existing contact.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "activecampaign_campaign_link_clicked": {
+      "displayName": "New Campaign Link Click",
+      "description": "Triggers when a contact clicks a link in a campaign message (will only run once for each unique link).",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_deal_task_completed": {
+      "displayName": "Deal Task Completed",
+      "description": "Triggers when a deal task has been completed.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_campaign_bounce": {
+      "displayName": "New Campaign Bounce",
+      "description": "Triggers when a contact email address bounces from a sent campaign.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_contact_note": {
+      "displayName": "New Contact Note",
+      "description": "Triggers when a new contact note is added.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_contact_task": {
+      "displayName": "New Contact Task",
+      "description": "Triggers when a new contact task is added.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_deal_added_or_updated": {
+      "displayName": "New Deal Added or Updated",
+      "description": "Triggers when a new deal is created or existing deal is updated.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_deal_note": {
+      "displayName": "New Deal Note",
+      "description": "Triggers when a new deal note is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_deal_task": {
+      "displayName": "New Deal Task",
+      "description": "Triggers when a new deal task is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_or_updated_account": {
+      "displayName": "New or Updated Account",
+      "description": "Triggers when a new account is added or an existing account’s details are updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_new_tag_added_or_removed_from_contact": {
+      "displayName": "Tag Added or Removed From Contact",
+      "description": "Triggers when a a Tag is added or removed from a Contact",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "activecampaign_updated_contact": {
+      "displayName": "Updated Contact",
+      "description": "Triggers when an existing contact details are updated.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

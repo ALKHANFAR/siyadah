@@ -1,0 +1,106 @@
+{
+  "id": "lemon-squeezy",
+  "displayName": "Lemon Squeezy",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {
+    "affiliate_activated": {
+      "displayName": "Affiliate Activated",
+      "description": "Triggers when an affiliate is activated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "license_key_created": {
+      "displayName": "License Key Created",
+      "description": "Triggers when a license key is created from a new order",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "license_key_updated": {
+      "displayName": "License Key Updated",
+      "description": "Triggers when a license key is updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "order_created": {
+      "displayName": "Order Created",
+      "description": "Triggers when a new order is successfully placed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "order_refunded": {
+      "displayName": "Order Refunded",
+      "description": "Triggers when a full or partial refund is made on an order",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_cancelled": {
+      "displayName": "Subscription Cancelled",
+      "description": "Triggers when a subscription is cancelled manually by the customer or store owner",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_created": {
+      "displayName": "Subscription Created",
+      "description": "Triggers when a new subscription is successfully created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_expired": {
+      "displayName": "Subscription Expired",
+      "description": "Triggers when a subscription has ended after being previously cancelled",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_paused": {
+      "displayName": "Subscription Paused",
+      "description": "Triggers when a subscription\\",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_payment_failed": {
+      "displayName": "Subscription Payment Failed",
+      "description": "Triggers when a subscription renewal payment fails",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_payment_recovered": {
+      "displayName": "Subscription Payment Recovered",
+      "description": "Triggers when a subscription has a successful payment after a failed payment",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_payment_refunded": {
+      "displayName": "Subscription Payment Refunded",
+      "description": "Triggers when a subscription payment is refunded",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_payment_success": {
+      "displayName": "Subscription Payment Success",
+      "description": "Triggers when a subscription payment is successful",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_resumed": {
+      "displayName": "Subscription Resumed",
+      "description": "Triggers when a subscription is resumed after being previously cancelled",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_unpaused": {
+      "displayName": "Subscription Unpaused",
+      "description": "Triggers when a subscription\\",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscription_updated": {
+      "displayName": "Subscription Updated",
+      "description": "Triggers when a subscription\\",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

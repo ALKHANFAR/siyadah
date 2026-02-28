@@ -1,0 +1,67 @@
+{
+  "id": "hunter",
+  "package": "@activepieces/piece-hunter",
+  "display_name": "Hunter",
+  "display_name_ar": "",
+  "description": "Find, verify and manage professional email addresses at scale. Automate email discovery, validation, lead tracking, and campaign outreach with Hunter.io.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add-recipients",
+      "display_name": "Add Recipients",
+      "description": "Add one or multiple recipients to a campaign."
+    },
+    {
+      "name": "count-emails",
+      "display_name": "Count Emails",
+      "description": "Returns the number of email addresses found for a domain or company."
+    },
+    {
+      "name": "create-lead",
+      "display_name": "Create Lead",
+      "description": "Create and store a lead record."
+    },
+    {
+      "name": "delete-lead",
+      "display_name": "Delete Lead",
+      "description": "Delete a specific lead record by ID."
+    },
+    {
+      "name": "find-email",
+      "display_name": "Find Email",
+      "description": "Retrieve/propose the most likely email for a person at a domain."
+    },
+    {
+      "name": "get-lead",
+      "display_name": "Get Lead",
+      "description": "Retrieve details of a specific lead."
+    },
+    {
+      "name": "search-leads",
+      "display_name": "Search Leads",
+      "description": "List and filter leads in the account."
+    },
+    {
+      "name": "update-lead",
+      "display_name": "Update Lead",
+      "description": "Modify existing lead data."
+    },
+    {
+      "name": "verify-email",
+      "display_name": "Verify Email",
+      "description": "Check email deliverability and validation status."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-lead",
+      "display_name": "New Lead",
+      "description": "Fires when a new lead is created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

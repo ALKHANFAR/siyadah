@@ -1,0 +1,50 @@
+{
+  "id": "dumpling-ai",
+  "package": "@activepieces/piece-dumpling-ai",
+  "display_name": "Dumpling AI",
+  "display_name_ar": "Dumpling AI",
+  "description": "Transform unstructured website content into clean, AI-ready data",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "crawl_website",
+      "display_name": "Crawl Website",
+      "description": "Crawl a website and return structured content from multiple pages."
+    },
+    {
+      "name": "extract_document",
+      "display_name": "Extract Document Data",
+      "description": "Extract structured data from documents using vision-capable AI."
+    },
+    {
+      "name": "generate_image",
+      "display_name": "Generate Image",
+      "description": "Generate images based on a text prompt using AI."
+    },
+    {
+      "name": "scrape_website",
+      "display_name": "Scrape Website",
+      "description": "Scrapes data from a specified URL and format the result."
+    },
+    {
+      "name": "search_news",
+      "display_name": "Search News",
+      "description": "Search for news articles using Google News."
+    },
+    {
+      "name": "web_search",
+      "display_name": "Web Search",
+      "description": "Search the web and optionally retrieve content from top results."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/dumpling-ai"
+}

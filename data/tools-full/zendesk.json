@@ -1,0 +1,956 @@
+{
+  "id": "zendesk",
+  "displayName": "Agent Email",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add-comment-to-ticket": {
+      "displayName": "Add Comment to Ticket",
+      "description": "Append a public/private comment to a ticket.",
+      "props": [
+        {
+          "name": "comment_body",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The comment text content"
+        },
+        {
+          "name": "comment_html_body",
+          "displayName": "Comment HTML Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "HTML formatted comment (takes precedence over text)"
+        },
+        {
+          "name": "public",
+          "displayName": "Public Comment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Make comment visible to requester (default: true)"
+        },
+        {
+          "name": "author_email",
+          "displayName": "Author Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email of comment author (defaults to authenticated user)"
+        },
+        {
+          "name": "uploads",
+          "displayName": "Attachment Tokens",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Upload tokens for file attachments"
+        },
+        {
+          "name": "via_followup_source_id",
+          "displayName": "Via Followup Source ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Original ticket ID if this is from a follow-up"
+        }
+      ]
+    },
+    "add-tag-to-ticket": {
+      "displayName": "Add Tag to Ticket",
+      "description": "Apply one or more tags to a ticket.",
+      "props": [
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Tags to add to the ticket (adds to existing tags)"
+        },
+        {
+          "name": "safe_update",
+          "displayName": "Safe Update",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Prevent tag loss from concurrent updates"
+        },
+        {
+          "name": "updated_stamp",
+          "displayName": "Updated Timestamp",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Ticket timestamp from updated_at field for collision prevention"
+        }
+      ]
+    },
+    "create-organization": {
+      "displayName": "Create Organization",
+      "description": "Create a new organization record.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique name for the organization"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional details about the organization"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal notes about the organization"
+        },
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External ID for integration purposes"
+        },
+        {
+          "name": "domain_names",
+          "displayName": "Domain Names",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Domain names associated with the organization"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags to apply to the organization"
+        },
+        {
+          "name": "organization_fields",
+          "displayName": "Organization Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Custom organization field values"
+        },
+        {
+          "name": "shared_tickets",
+          "displayName": "Shared Tickets",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow users to see each other\\"
+        },
+        {
+          "name": "shared_comments",
+          "displayName": "Shared Comments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow users to see each other\\"
+        }
+      ]
+    },
+    "create-ticket": {
+      "displayName": "Create Ticket",
+      "description": "Create a new ticket in Zendesk.",
+      "props": [
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The subject of the ticket (optional - will use first comment text if not provided)"
+        },
+        {
+          "name": "comment_body",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The comment body (text). Use this for plain text comments."
+        },
+        {
+          "name": "comment_html_body",
+          "displayName": "Comment HTML Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The comment body (HTML). Use this for HTML formatted comments. If provided, this takes precedence over Comment Body."
+        },
+        {
+          "name": "requester_email",
+          "displayName": "Requester Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the ticket requester. If not provided, the authenticated user will be the requester."
+        },
+        {
+          "name": "requester_name",
+          "displayName": "Requester Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the ticket requester (used when creating a new user)."
+        },
+        {
+          "name": "assignee_email",
+          "displayName": "Assignee Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the agent to assign the ticket to."
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The priority of the ticket."
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of ticket."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the ticket."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags to apply to the ticket."
+        },
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An external ID for the ticket (useful for integrations)."
+        },
+        {
+          "name": "collaborator_emails",
+          "displayName": "Collaborator Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of email addresses to add as collaborators."
+        },
+        {
+          "name": "follower_emails",
+          "displayName": "Follower Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of email addresses to add as followers."
+        },
+        {
+          "name": "due_at",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the ticket is due."
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Custom ticket field values"
+        },
+        {
+          "name": "comment_public",
+          "displayName": "Public Comment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the comment is public (visible to the requester). Defaults to true."
+        },
+        {
+          "name": "forum_topic_id",
+          "displayName": "Forum Topic ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The ID of the forum topic associated with the ticket."
+        }
+      ]
+    },
+    "create-user": {
+      "displayName": "Create User",
+      "description": "Add a new user to the Zendesk instance.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the user"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The primary email address of the user"
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The role of the user. Defaults to \"end-user\" if not specified."
+        },
+        {
+          "name": "organization_name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Create and associate user with a new organization by name (alternative to Organization ID)"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the user"
+        },
+        {
+          "name": "alias",
+          "displayName": "Alias",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An alias displayed to end users"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional details about the user"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal notes about the user"
+        },
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A unique external ID for the user (useful for integrations)"
+        },
+        {
+          "name": "time_zone",
+          "displayName": "Time Zone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The time zone of the user (e.g., \"America/New_York\")"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The locale of the user (e.g., \"en-US\")"
+        },
+        {
+          "name": "verified",
+          "displayName": "Verified",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user is verified"
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user is active. Defaults to true."
+        },
+        {
+          "name": "shared",
+          "displayName": "Shared",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user is shared from a different Zendesk Support instance"
+        },
+        {
+          "name": "shared_agent",
+          "displayName": "Shared Agent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user is a shared agent from a different Zendesk Support instance"
+        },
+        {
+          "name": "moderator",
+          "displayName": "Moderator",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user has forum moderation capabilities"
+        },
+        {
+          "name": "suspended",
+          "displayName": "Suspended",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user is suspended"
+        },
+        {
+          "name": "restricted_agent",
+          "displayName": "Restricted Agent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the agent has restrictions on what tickets they can access"
+        },
+        {
+          "name": "only_private_comments",
+          "displayName": "Only Private Comments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user can only create private comments"
+        },
+        {
+          "name": "report_csv",
+          "displayName": "Report CSV",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the user can access CSV reports"
+        },
+        {
+          "name": "skip_verify_email",
+          "displayName": "Skip Verify Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Skip sending a verification email to the user"
+        },
+        {
+          "name": "ticket_restriction",
+          "displayName": "Ticket Restriction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The ticket restriction for the user"
+        },
+        {
+          "name": "signature",
+          "displayName": "Signature",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The user's signature for email responses"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags to apply to the user"
+        },
+        {
+          "name": "user_fields",
+          "displayName": "User Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Custom user field values"
+        },
+        {
+          "name": "identities",
+          "displayName": "Identities",
+          "type": "JSON",
+          "required": false,
+          "description": "Array of identity objects with type and value. Example: [{\"type\": \"email\", \"value\": \"test@user.com\"}, {\"type\": \"twitter\", \"value\": \"username\"}]"
+        }
+      ]
+    },
+    "delete-user": {
+      "displayName": "Delete User",
+      "description": "Remove a user and associated records from the account.",
+      "props": [
+        {
+          "name": "confirmation",
+          "displayName": "Confirm Deletion",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "I understand that deleted users are not recoverable and this action cannot be undone."
+        }
+      ]
+    },
+    "find-organization": {
+      "displayName": "Find Organization(s)",
+      "description": "Search organizations by name, domain, external ID, or other criteria.",
+      "props": [
+        {
+          "name": "search_type",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to search for organizations"
+        },
+        {
+          "name": "name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the organization to search for"
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search organizations by domain name"
+        },
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search organizations by external ID"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search organizations containing this tag"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search in organization details/notes"
+        },
+        {
+          "name": "custom_query",
+          "displayName": "Custom Query",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom search query using Zendesk search syntax (e.g., \"type:organization domain:example.com\")"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort the results"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort order for results"
+        }
+      ]
+    },
+    "find-tickets": {
+      "displayName": "Find Ticket(s)",
+      "description": "Search tickets by ID, field, or content.",
+      "props": [
+        {
+          "name": "search_type",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to search for tickets"
+        },
+        {
+          "name": "timeFilter",
+          "displayName": "Date Time Filter",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Date field to apply filter on"
+        },
+        {
+          "name": "field",
+          "displayName": "Date Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Date field to apply filter on"
+        },
+        {
+          "name": "operator",
+          "displayName": "Operator",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fieldValue",
+          "displayName": "Date Field Value",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ticket_id",
+          "displayName": "Ticket ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the ticket to find"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search tickets by status"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search tickets by priority"
+        },
+        {
+          "name": "ticket_type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search tickets by type"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search tickets containing this tag"
+        },
+        {
+          "name": "requester_email",
+          "displayName": "Requester Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search tickets by requester email address"
+        },
+        {
+          "name": "assignee_email",
+          "displayName": "Assignee Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search tickets by assignee email address"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search in ticket subject and content"
+        },
+        {
+          "name": "custom_query",
+          "displayName": "Custom Query",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom search query using Zendesk search syntax (e.g., \"type:ticket status:open priority:high\")"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort the results"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort order for results"
+        }
+      ]
+    },
+    "find-user": {
+      "displayName": "Find User(s)",
+      "description": "Search users by email, name, role, or other criteria.",
+      "props": [
+        {
+          "name": "search_type",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to search for users"
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email address of the user to search for"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the user to search for"
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search users by role"
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search users by organization name"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search users containing this tag"
+        },
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search users by external ID"
+        },
+        {
+          "name": "custom_query",
+          "displayName": "Custom Query",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom search query using Zendesk search syntax (e.g., \"type:user role:agent\")"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort the results"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort order for results"
+        }
+      ]
+    },
+    "update-organization": {
+      "displayName": "Update Organization",
+      "description": "Update existing organization fields.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New name for the organization (must be unique)"
+        },
+        {
+          "name": "details",
+          "displayName": "Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional details about the organization"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal notes about the organization"
+        },
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External ID for integration purposes"
+        },
+        {
+          "name": "domain_names",
+          "displayName": "Domain Names",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Domain names for the organization (replaces all existing)"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags for the organization (replaces all existing)"
+        },
+        {
+          "name": "organization_fields",
+          "displayName": "Organization Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Custom organization field values"
+        },
+        {
+          "name": "shared_tickets",
+          "displayName": "Shared Tickets",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow users to see each other\\"
+        },
+        {
+          "name": "shared_comments",
+          "displayName": "Shared Comments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow users to see each other\\"
+        }
+      ]
+    },
+    "update-ticket": {
+      "displayName": "Update Ticket",
+      "description": "Modify ticket fields or status via API call.",
+      "props": [
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Update the subject of the ticket"
+        },
+        {
+          "name": "comment_body",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Add a comment to the ticket (plain text)"
+        },
+        {
+          "name": "comment_html_body",
+          "displayName": "Comment HTML Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Add a comment to the ticket (HTML). If provided, this takes precedence over Comment Body."
+        },
+        {
+          "name": "comment_public",
+          "displayName": "Public Comment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the comment is public (visible to the requester). Defaults to true."
+        },
+        {
+          "name": "assignee_email",
+          "displayName": "Assignee Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the agent to assign the ticket to"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Update the priority of the ticket"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Update the type of ticket"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Update the status of the ticket"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Replace all tags with this array. Use \"Add Tag to Ticket\" action to add tags without replacing existing ones."
+        },
+        {
+          "name": "external_id",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Update the external ID for the ticket"
+        },
+        {
+          "name": "due_at",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Update the date and time when the ticket is due"
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Update custom ticket field values"
+        },
+        {
+          "name": "custom_status_id",
+          "displayName": "Custom Status ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Set a custom status ID for the ticket"
+        },
+        {
+          "name": "forum_topic_id",
+          "displayName": "Forum Topic ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Update the forum topic associated with the ticket"
+        },
+        {
+          "name": "collaborator_emails",
+          "displayName": "Collaborator Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Replace collaborators with this array of email addresses"
+        },
+        {
+          "name": "follower_emails",
+          "displayName": "Follower Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Replace followers with this array of email addresses"
+        },
+        {
+          "name": "requester_email",
+          "displayName": "Requester Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Update the requester of the ticket"
+        },
+        {
+          "name": "safe_update",
+          "displayName": "Safe Update",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Prevent update collisions by checking timestamp"
+        },
+        {
+          "name": "updated_stamp",
+          "displayName": "Updated Timestamp",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Ticket timestamp from updated_at field for collision prevention"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

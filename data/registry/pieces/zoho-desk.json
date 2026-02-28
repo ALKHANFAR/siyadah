@@ -1,0 +1,35 @@
+{
+  "id": "zoho-desk",
+  "package": "@activepieces/piece-zoho-desk",
+  "display_name": "Zoho Desk",
+  "display_name_ar": "Zoho Desk",
+  "description": "Helpdesk management software",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_ticket",
+      "display_name": "Create Ticket",
+      "description": "Creates a new ticket."
+    },
+    {
+      "name": "find-contact",
+      "display_name": "Find Contact",
+      "description": "Finds an existing contact by email."
+    },
+    {
+      "name": "list_tickets",
+      "display_name": "List tickets.",
+      "description": "List tickets"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/zoho-desk"
+}

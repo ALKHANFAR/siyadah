@@ -1,0 +1,40 @@
+{
+  "id": "lofty",
+  "package": "@activepieces/piece-lofty",
+  "display_name": "Lofty",
+  "display_name_ar": "Lofty",
+  "description": "Lofty is a product of the technology company Lofty Inc, which offers a complete tech solution for real estate agents.",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createLead",
+      "display_name": "Create Lead",
+      "description": "Create a lead in Lofty"
+    },
+    {
+      "name": "createTransaction",
+      "display_name": "Create Transaction",
+      "description": "Create a transaction for a Lofty lead"
+    },
+    {
+      "name": "updateLead",
+      "display_name": "Update Lead",
+      "description": "Update a lead in Lofty"
+    },
+    {
+      "name": "updateTransaction",
+      "display_name": "Update Transaction",
+      "description": "Update a transaction for a Lofty lead"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/lofty"
+}

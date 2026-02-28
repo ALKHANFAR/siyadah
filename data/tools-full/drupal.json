@@ -1,0 +1,222 @@
+{
+  "id": "drupal",
+  "displayName": "Drupal",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "drupal-create-entity": {
+      "displayName": "Create Entity",
+      "description": "Create a new entity in Drupal with smart field discovery and validation",
+      "props": [
+        {
+          "name": "entity_type",
+          "displayName": "Entity Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose the type of content to create."
+        },
+        {
+          "name": "entity_fields",
+          "displayName": "Entity Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Fill in the content fields. Available fields depend on the entity type selected above."
+        }
+      ]
+    },
+    "drupal-delete-entity": {
+      "displayName": "Delete Entity",
+      "description": "Delete an entity from Drupal",
+      "props": [
+        {
+          "name": "entity_type",
+          "displayName": "Entity Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose the type of content to delete."
+        },
+        {
+          "name": "entity_uuid",
+          "displayName": "Entity UUID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier (UUID) of the specific content item to delete."
+        }
+      ]
+    },
+    "drupal-get-entity": {
+      "displayName": "Get Entity",
+      "description": "Retrieve a single entity by UUID",
+      "props": [
+        {
+          "name": "entity_type",
+          "displayName": "Entity Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose the type of content to retrieve."
+        },
+        {
+          "name": "entity_uuid",
+          "displayName": "Entity UUID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier (UUID) of the specific content item to retrieve."
+        }
+      ]
+    },
+    "drupal-list-entities": {
+      "displayName": "List Entities",
+      "description": "List entities from Drupal using JSON:API",
+      "props": [
+        {
+          "name": "entity_type",
+          "displayName": "Entity Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose what type of content to list."
+        },
+        {
+          "name": "published_status",
+          "displayName": "Published Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by publication status"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort Options",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Choose how to sort the entities"
+        },
+        {
+          "name": "sort_field",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Maximum number of entities to retrieve (0 = all entities)"
+        },
+        {
+          "name": "output_options",
+          "displayName": "Output Options",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Return only basic fields (UUID, title, status, dates) instead of all entity data"
+        },
+        {
+          "name": "minimal_output",
+          "displayName": "Minimal Output",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return only basic fields (UUID, title, status, dates) instead of all entity data"
+        }
+      ]
+    },
+    "drupal-call-service": {
+      "displayName": "Call Service",
+      "description": "Call a service on the Drupal site",
+      "props": [
+        {
+          "name": "service",
+          "displayName": "Service",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The service to call."
+        },
+        {
+          "name": "config",
+          "displayName": "Service configuration",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "drupal-update-entity": {
+      "displayName": "Update Entity",
+      "description": "Update an existing entity in Drupal with smart field discovery and validation",
+      "props": [
+        {
+          "name": "entity_type",
+          "displayName": "Entity Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the entity type and bundle"
+        },
+        {
+          "name": "entity_uuid",
+          "displayName": "Entity UUID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The UUID of the entity to update"
+        },
+        {
+          "name": "entity_fields",
+          "displayName": "Entity Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Update the values for the entity fields (only provide values for fields you want to change)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "drupalPollingId": {
+      "displayName": "Polling by ID",
+      "description": "A trigger that polls the Drupal site by ID.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name identifies the poll. It must be unique. It will be used to identify the poll in the Drupal site, e.g. if you use ECA to respond to this poll, you need to use the same name in the configuration of its poll event."
+        }
+      ]
+    },
+    "drupalPollingTimestamp": {
+      "displayName": "Polling by timestamp",
+      "description": "A trigger that polls the Drupal site by timestamp.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name identifies the poll. It must be unique. It will be used to identify the poll in the Drupal site, e.g. if you use ECA to respond to this poll, you need to use the same name in the configuration of its poll event."
+        }
+      ]
+    },
+    "drupalWebhook": {
+      "displayName": "Webhook",
+      "description": "A webhook that the Drupal site can call to trigger a flow.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "This name identifies the webhook. It must be unique. It will be used to identify the webhook in the Drupal site, e.g. if you use ECA to call this webhook, you will find this name in the list of available webhooks."
+        }
+      ]
+    }
+  }
+}

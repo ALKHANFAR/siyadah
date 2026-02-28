@@ -1,0 +1,21 @@
+{
+  "id": "square",
+  "package": "@activepieces/piece-square",
+  "display_name": "Square",
+  "display_name_ar": "",
+  "description": "Payment solutions for every business",
+  "category": "F_ecommerce",
+  "auth_type": "oauth2",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "new_order",
+      "display_name": "New Order",
+      "description": "Triggered when a new order is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

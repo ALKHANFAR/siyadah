@@ -1,0 +1,25 @@
+{
+  "id": "resend",
+  "package": "@activepieces/piece-resend",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Email for developers",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "send_email",
+      "display_name": "Send Email",
+      "description": "Send a text or HTML email"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/resend"
+}

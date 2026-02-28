@@ -1,0 +1,30 @@
+{
+  "id": "linkedin",
+  "package": "@activepieces/piece-linkedin",
+  "display_name": "LinkedIn",
+  "display_name_ar": "LinkedIn",
+  "description": "Connect and network with professionals",
+  "category": "H_marketing",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_company_update",
+      "display_name": "Create Company Update",
+      "description": "Create a new company update for Company Page"
+    },
+    {
+      "name": "create_share_update",
+      "display_name": "Create Share Update",
+      "description": "Create a share update on LinkedIn"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/linkedin"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "easy-peasy-ai",
+  "displayName": "Easy-Peasy.AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "customGeneratorText": {
+      "displayName": "Custom Generator (Text)",
+      "description": "Generate custom text for any purpose using the EasyPeasy AI template engine",
+      "props": [
+        {
+          "name": "keywords",
+          "displayName": "Keywords",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "What do you want to generate? (max 1000 characters)"
+        },
+        {
+          "name": "extra1",
+          "displayName": "Background Information",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional context or background information (optional, max 1000 characters)"
+        },
+        {
+          "name": "outputs",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many outputs to generate (default: 1)"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language for the generated text (default: English)"
+        },
+        {
+          "name": "shouldUseGPT4",
+          "displayName": "Use GPT-4",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use GPT-4 model for generation (may incur higher costs)"
+        }
+      ]
+    },
+    "generateAiImage": {
+      "displayName": "Generate AI Image",
+      "description": "Generate AI images based on text prompts using various models and styles",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Description of the image you want to generate"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "AI model to use for image generation"
+        },
+        {
+          "name": "style",
+          "displayName": "Style",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Art style or aesthetic for the generated image (e.g., \"oil painting\", \"watercolor\", \"cyberpunk\")"
+        },
+        {
+          "name": "artist",
+          "displayName": "Artist Inspiration",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Art style inspired by a specific artist (e.g., \"Van Gogh\", \"Picasso\")"
+        },
+        {
+          "name": "dimensions",
+          "displayName": "Dimensions",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Image dimensions/aspect ratio"
+        },
+        {
+          "name": "useHD",
+          "displayName": "Use HD Quality",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Generate image in HD quality (may incur higher costs)"
+        },
+        {
+          "name": "image",
+          "displayName": "Image Reference URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional URL to a reference image for style consistency"
+        }
+      ]
+    },
+    "getAiTranscription": {
+      "displayName": "Get AI Transcription",
+      "description": "Generate AI transcriptions from audio files with speaker detection and enhanced quality options",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Audio File URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL to the audio file to transcribe"
+        },
+        {
+          "name": "name",
+          "displayName": "Transcription Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name or title for this transcription"
+        },
+        {
+          "name": "audio_type",
+          "displayName": "Audio Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of audio content being transcribed"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language of the audio content"
+        },
+        {
+          "name": "detect_speakers",
+          "displayName": "Detect Speakers",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically detect and identify different speakers in the audio"
+        },
+        {
+          "name": "enhanced_quality",
+          "displayName": "Enhanced Quality",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use enhanced quality processing for better transcription accuracy"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

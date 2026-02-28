@@ -1,0 +1,57 @@
+{
+  "id": "workable",
+  "package": "@activepieces/piece-workable",
+  "display_name": "Workable",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "getCandidate",
+      "display_name": "Get Candidate",
+      "description": "Gets candidate's information."
+    },
+    {
+      "name": "getJob",
+      "display_name": "Get Job",
+      "description": "Gets specific job deatils."
+    },
+    {
+      "name": "getMembers",
+      "display_name": "Get Members",
+      "description": "Gets members of hiring team."
+    },
+    {
+      "name": "getStages",
+      "display_name": "Get Stages",
+      "description": "Gets stages in your recruitment pipeline stages."
+    },
+    {
+      "name": "moveCandidate",
+      "display_name": "Move Candidate",
+      "description": "Moves candidate to the specified stage."
+    },
+    {
+      "name": "rateCandidate",
+      "display_name": "Rate candidate",
+      "description": "Rates the candidate on workable."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newCandidate",
+      "display_name": "New Candidate",
+      "description": "Triggers when new candidate submits application. Can be filtered by specific job and/or hiring pipeline stage.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

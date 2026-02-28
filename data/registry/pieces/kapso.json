@@ -1,0 +1,103 @@
+{
+  "id": "kapso",
+  "package": "@activepieces/piece-kapso",
+  "display_name": "Kapso",
+  "display_name_ar": "Kapso",
+  "description": "Send and receive WhatsApp messages, media, templates, and more using the Kapso WhatsApp API.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "mark_as_read",
+      "display_name": "Mark Message as Read",
+      "description": "Mark a WhatsApp message as read."
+    },
+    {
+      "name": "request_user_location",
+      "display_name": "Request User Location",
+      "description": "Send a location request message to a WhatsApp user."
+    },
+    {
+      "name": "send_audio",
+      "display_name": "Send Audio",
+      "description": "Send an audio message via WhatsApp."
+    },
+    {
+      "name": "send_buttons",
+      "display_name": "Send Button Message",
+      "description": "Send an interactive button message via WhatsApp (up to 3 buttons)."
+    },
+    {
+      "name": "send_contact",
+      "display_name": "Send Contact",
+      "description": "Send a contact card via WhatsApp."
+    },
+    {
+      "name": "send_document",
+      "display_name": "Send Document",
+      "description": "Send a document message via WhatsApp."
+    },
+    {
+      "name": "send_image",
+      "display_name": "Send Image",
+      "description": "Send an image message via WhatsApp."
+    },
+    {
+      "name": "send_list_message",
+      "display_name": "Send List Message",
+      "description": "Send an interactive list message via WhatsApp."
+    },
+    {
+      "name": "send_location",
+      "display_name": "Send Location",
+      "description": "Send a location message via WhatsApp."
+    },
+    {
+      "name": "send_reaction",
+      "display_name": "Send Reaction",
+      "description": "React to a WhatsApp message with an emoji."
+    },
+    {
+      "name": "send_sticker",
+      "display_name": "Send Sticker",
+      "description": "Send a sticker message via WhatsApp."
+    },
+    {
+      "name": "send_template_message",
+      "display_name": "Send Template Message",
+      "description": "Send a pre-approved WhatsApp template message."
+    },
+    {
+      "name": "send_text_message",
+      "display_name": "Send Text Message",
+      "description": "Send a text message via WhatsApp."
+    },
+    {
+      "name": "send_video",
+      "display_name": "Send Video",
+      "description": "Send a video message via WhatsApp."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "message_status_update",
+      "display_name": "Message Status Update",
+      "description": "Triggers when a message status changes (sent, delivered, read).",
+      "type": "instant"
+    },
+    {
+      "name": "new_message_received",
+      "display_name": "New Message Received",
+      "description": "Triggers when a new WhatsApp message is received.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/kapso"
+}

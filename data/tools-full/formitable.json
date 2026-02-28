@@ -1,0 +1,16 @@
+{
+  "id": "formitable",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {
+    "formitable_${name}": {
+      "displayName": "formitable_${name}",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

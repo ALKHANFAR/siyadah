@@ -1,0 +1,49 @@
+{
+  "id": "customer-io",
+  "displayName": "customer.io",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_event": {
+      "displayName": "Create Event",
+      "description": "Create an event in Customer.io",
+      "props": [
+        {
+          "name": "customer_identifier",
+          "displayName": "Customer identifier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique value representing a person. You may identify a person by id, email address, or the cio_id (when updating people), depending on your workspace settings"
+        },
+        {
+          "name": "event_name",
+          "displayName": "Event Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the event. This is how you\\"
+        },
+        {
+          "name": "body_type",
+          "displayName": "parameters",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Event information to be sent to Customer.io"
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

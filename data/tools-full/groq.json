@@ -1,0 +1,173 @@
+{
+  "id": "groq",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask-ai": {
+      "displayName": "Ask AI",
+      "description": "Ask Groq anything using fast language models.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the completion."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The maximum number of tokens to generate. The total length of input tokens and generated tokens is limited by the model's context length."
+        },
+        {
+          "name": "topP",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered."
+        },
+        {
+          "name": "frequencyPenalty",
+          "displayName": "Frequency penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+        },
+        {
+          "name": "presencePenalty",
+          "displayName": "Presence penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics."
+        },
+        {
+          "name": "memoryKey",
+          "displayName": "Memory Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memory key that will keep the chat history shared across runs and flows. Keep it empty to leave Groq without memory of previous messages."
+        },
+        {
+          "name": "roles",
+          "displayName": "Roles",
+          "type": "JSON",
+          "required": false,
+          "description": "Array of roles to specify more accurate response"
+        }
+      ]
+    },
+    "transcribe-audio": {
+      "displayName": "Transcribe Audio",
+      "description": "Transcribes audio into text in the input language.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Audio File",
+          "type": "FILE",
+          "required": true,
+          "description": "The audio file to transcribe. Supported formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model to use for transcription."
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The language of the input audio in ISO-639-1 format (e.g., \"en\" for English). This will improve accuracy and latency."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The format of the transcript output."
+        }
+      ]
+    },
+    "translate-audio": {
+      "displayName": "Translate Audio",
+      "description": "Translates audio into English text.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Audio File",
+          "type": "FILE",
+          "required": true,
+          "description": "The audio file to translate. Supported formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model to use for translation."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "An optional text in English to guide the model's style or continue a previous audio segment."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The format of the translation output."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

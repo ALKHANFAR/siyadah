@@ -1,0 +1,178 @@
+{
+  "id": "bexio",
+  "package": "@activepieces/piece-bexio",
+  "display_name": "Bexio",
+  "display_name_ar": "Bexio",
+  "description": "Swiss business software for accounting, invoicing, and project management",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_company",
+      "display_name": "Create Company",
+      "description": "Create a new company contact"
+    },
+    {
+      "name": "create_file",
+      "display_name": "Create File",
+      "description": "Upload a new file to Bexio"
+    },
+    {
+      "name": "create_manual_entry",
+      "display_name": "Create Manual Entry",
+      "description": "Create a manual accounting entry (single, compound, or group)"
+    },
+    {
+      "name": "create_person",
+      "display_name": "Create Person",
+      "description": "Create a new person contact"
+    },
+    {
+      "name": "create_product",
+      "display_name": "Create Product",
+      "description": "Create a new product or service"
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Create a new project"
+    },
+    {
+      "name": "create_sales_invoice",
+      "display_name": "Create Sales Invoice",
+      "description": "Create a new product-based sales invoice"
+    },
+    {
+      "name": "create_sales_order",
+      "display_name": "Create Sales Order",
+      "description": "Create a new product-based sales order"
+    },
+    {
+      "name": "create_sales_quote",
+      "display_name": "Create Sales Quote",
+      "description": "Create a new product-based sales quote"
+    },
+    {
+      "name": "create_time_tracking",
+      "display_name": "Create Time Tracking",
+      "description": "Create a new timesheet entry"
+    },
+    {
+      "name": "export_invoice_pdf",
+      "display_name": "Export Invoice to PDF",
+      "description": "Export an existing sales invoice as a PDF document"
+    },
+    {
+      "name": "find_account",
+      "display_name": "Find Account",
+      "description": "Search for accounts using various criteria"
+    },
+    {
+      "name": "find_company",
+      "display_name": "Find Company",
+      "description": "Search for company contacts using various criteria"
+    },
+    {
+      "name": "find_country",
+      "display_name": "Find Country",
+      "description": "Search for countries using various criteria"
+    },
+    {
+      "name": "find_person",
+      "display_name": "Find Person",
+      "description": "Search for person contacts using various criteria"
+    },
+    {
+      "name": "find_product",
+      "display_name": "Find Product",
+      "description": "Search for products by name or code"
+    },
+    {
+      "name": "search_invoice",
+      "display_name": "Search Invoice",
+      "description": "Search for invoices using various criteria"
+    },
+    {
+      "name": "search_order",
+      "display_name": "Search Order",
+      "description": "Search for orders using various criteria"
+    },
+    {
+      "name": "search_quote",
+      "display_name": "Search Quote",
+      "description": "Search for quotes using various criteria"
+    },
+    {
+      "name": "send_sales_invoice",
+      "display_name": "Send Sales Invoice",
+      "description": "Send a sales invoice to an email address"
+    },
+    {
+      "name": "update_company",
+      "display_name": "Update Company",
+      "description": "Update an existing company contact"
+    },
+    {
+      "name": "update_person",
+      "display_name": "Update Person",
+      "description": "Update an existing person contact"
+    },
+    {
+      "name": "update_product",
+      "display_name": "Update Product",
+      "description": "Update an existing product or service"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_order",
+      "display_name": "New Order",
+      "description": "Triggers when an Order is created or updated with the chosen status",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_product",
+      "display_name": "New Product",
+      "description": "Triggers when a new product is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_project",
+      "display_name": "New Project",
+      "description": "Triggers when a Project is created or updated with the chosen status",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_quote",
+      "display_name": "New Quotes",
+      "description": "Triggers when a quote is created or updated with the chosen status",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_sales_invoice",
+      "display_name": "New Sales-Invoice",
+      "description": "Triggers when a Sales-Invoice is created or updated with the chosen status",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_updated_company",
+      "display_name": "New/Updated Company",
+      "description": "Triggers when a company is added or updated",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_updated_person",
+      "display_name": "New/Updated Person",
+      "description": "Triggers when a person is added or updated",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bexio"
+}

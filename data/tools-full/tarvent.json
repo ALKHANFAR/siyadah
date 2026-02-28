@@ -1,0 +1,589 @@
+{
+  "id": "tarvent",
+  "displayName": "Tarvent",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "tarvent_create_audience_group": {
+      "displayName": "Create An Audience Group",
+      "description": "Creates an audience group in the selected audience.",
+      "props": [
+        {
+          "name": "isPublic",
+          "displayName": "Public group",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether the group is public or not. Public groups are shown in forms with the groups question."
+        }
+      ]
+    },
+    "tarvent_create_contact_note": {
+      "displayName": "Add Note To Contact",
+      "description": "Adds a note to a contact.",
+      "props": [
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the note you would like to add to the contact."
+        }
+      ]
+    },
+    "tarvent_create_contact": {
+      "displayName": "Create/Update Contact",
+      "description": "This action is used to create or update a contact in an audience.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the contacts email. NOTE: If the audience uses a custom contact identifier and overwrite is enabled, then this will update the FIRST contact that matches the email."
+        },
+        {
+          "name": "updateAction",
+          "displayName": "Update existing contact",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Update the contact\\"
+        },
+        {
+          "name": "groupAction",
+          "displayName": "Replace existing groups",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select whether to replace or only add to contact groups. NOTE: Add only will only add the contact to the groups they are not already in. Replace will remove the contact from all existing groups and add them to the selected groups."
+        },
+        {
+          "name": "tagAction",
+          "displayName": "Replace existing tags",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select whether to replace or only add to contact tags of an existing contact. NOTE: Add only will only add the tags the contact does not already have. Replace will replace all contact tags with the entered tags."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contacts first name."
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contacts last name."
+        },
+        {
+          "name": "streetAddress",
+          "displayName": "Street address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "streetAddress2",
+          "displayName": "Street address 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "addressLocality",
+          "displayName": "City (Locality)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "addressRegion",
+          "displayName": "State (Region)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "postalCode",
+          "displayName": "Zip code (Postal code)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "addressCountry",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "tarvent_create_suppression_filter": {
+      "displayName": "Add Contact To Suppression List",
+      "description": "Creates a suppression filter in your account to suppress a contact.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the email to add to the suppression list."
+        },
+        {
+          "name": "reason",
+          "displayName": "Suppression reason",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Use the description to describe why this contact is being suppressed."
+        }
+      ]
+    },
+    "tarvent_create_transaction": {
+      "displayName": "Send A Transactional Email",
+      "description": "Sends a transactional email. NOTE: This will use your email API credits.",
+      "props": [
+        {
+          "name": "fromEmail",
+          "displayName": "From email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter who this transaction is from."
+        },
+        {
+          "name": "fromName",
+          "displayName": "From name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter a friendly name for who this transaction is from."
+        },
+        {
+          "name": "toEmail",
+          "displayName": "To email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the email that the transaction should be sent to."
+        },
+        {
+          "name": "ccEmail",
+          "displayName": "CC Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Enter emails that this transaction should be CC\\"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bccEmail",
+          "displayName": "BCC Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Enter emails that this transaction should be BCC\\"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject line",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter a subject line for the transaction."
+        },
+        {
+          "name": "replyToEmail",
+          "displayName": "Reply to email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the email that the replies should go to."
+        },
+        {
+          "name": "replyToName",
+          "displayName": "Reply to name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter a friendly name the replies should go to."
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "NOTE: Variable names (first column) can have Letters, numbers, underscores, and hyphens. Any other characters in the first column only will be removed."
+        },
+        {
+          "name": "mimeType",
+          "displayName": "Message type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "If \"Template\" is specified, this will be ignored.."
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "To merge in variables, you must use the syntax [[Tx.VariableData.VariableName]] (ex. Variable name is FirstName, merge syntax would be [[Tx.VariableData.FirstName]]) If \"Template\" is specified, this will be ignored."
+        },
+        {
+          "name": "ignoreSuppressCheck",
+          "displayName": "Ignore suppression filters",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select if the suppression filters on your account should be ignored for this transaction."
+        }
+      ]
+    },
+    "tarvent_generate_custom_event": {
+      "displayName": "Generate A Custom Event",
+      "description": "Generate a custom event in your Tarvent account.",
+      "props": []
+    },
+    "tarvent_get_audience_groups": {
+      "displayName": "Find Audience Group",
+      "description": "Finds an audience group by name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Audience name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find an audience by searching using its name."
+        }
+      ]
+    },
+    "tarvent_get_audiences": {
+      "displayName": "Find Audience",
+      "description": "Finds an audience by name or tags.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Audience name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find an audience by searching using its name."
+        },
+        {
+          "name": "tags",
+          "displayName": "Audience tags",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Find an audience by searching using its tags. To search using multiple tags, separate the tags with a comma."
+        }
+      ]
+    },
+    "tarvent_get_campaigns": {
+      "displayName": "Find Campaign",
+      "description": "Finds a campaign by name, status or tags.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Campaign name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a campaign by searching using its name."
+        },
+        {
+          "name": "tags",
+          "displayName": "Campaign tags",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Find a campaign by searching using its tags. To search using multiple tags, separate the tags with a comma."
+        },
+        {
+          "name": "status",
+          "displayName": "Campaign status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "tarvent_get_contact": {
+      "displayName": "Find Contact",
+      "description": "Finds a contact by your custom key data field (typically this is by email).",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Contact email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search for a contact by email. If the audience uses a custom contact identifier, then the search returns the FIRST contact that matches the email address. To target a specific contact, please use the contact\\"
+        }
+      ]
+    },
+    "tarvent_get_custom_event": {
+      "displayName": "Find Custom Event",
+      "description": "Finds a custom event by name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Custom event name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a custom event by searching using its name."
+        }
+      ]
+    },
+    "tarvent_get_journey": {
+      "displayName": "Find Journey",
+      "description": "Finds a journey by name, status or tags.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Journey name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a journey by searching using its name."
+        },
+        {
+          "name": "tags",
+          "displayName": "Journey tags",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Find a journey by searching using its tags. To search using multiple tags, separate the tags with a comma."
+        },
+        {
+          "name": "status",
+          "displayName": "Journey status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "tarvent_send_campaign": {
+      "displayName": "Send Campaign",
+      "description": "Sends a copy of a campaign.",
+      "props": []
+    },
+    "tarvent_update_contact_group": {
+      "displayName": "Add/Remove Contact From Audience Group",
+      "description": "Adds or removes a contact from an audience group.",
+      "props": [
+        {
+          "name": "action",
+          "displayName": "Add or remove",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether to add or remove the contact from the group."
+        }
+      ]
+    },
+    "tarvent_update_contact_journey": {
+      "displayName": "Add/Remove A Contact From A Journey",
+      "description": "Adds or removes the contact from a journey.",
+      "props": [
+        {
+          "name": "action",
+          "displayName": "Add or remove",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether to add or remove the contact from the journey."
+        }
+      ]
+    },
+    "tarvent_update_contact_status": {
+      "displayName": "Subscribe/Unsubscribe Contact From Audience",
+      "description": "Subscribes or unsubscribe a contact in an audience.",
+      "props": [
+        {
+          "name": "action",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether to subscribe or unsubscribe the contact."
+        }
+      ]
+    },
+    "tarvent_update_contact_tag": {
+      "displayName": "Add/Remove Contact Tag",
+      "description": "Adds or removes a tag from contact.",
+      "props": [
+        {
+          "name": "action",
+          "displayName": "Tag action",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether to add or remove tags."
+        }
+      ]
+    },
+    "tarvent_update_journey_status": {
+      "displayName": "Start/Stop Journey",
+      "description": "Starts or stops a journey.",
+      "props": [
+        {
+          "name": "action",
+          "displayName": "Action",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select whether to start or stop the journey."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "tarvent_campaign_send_finished": {
+      "displayName": "Campaign Sent",
+      "description": "Triggers when a campaign has been sent to a contact. WARNING: This will fire for every contact the campaign is sent to, please be careful using this trigger.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_contact_added": {
+      "displayName": "Contact Added",
+      "description": "Triggers when a contact is added to the selected audience.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_contact_bounced": {
+      "displayName": "Campaign Or Transactional Email Bounced",
+      "description": "Triggers when a campaign or transactional email bounces (is rejected) for a contact.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Bounce type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select which bounce type should fire the trigger."
+        }
+      ]
+    },
+    "tarvent_contact_clicked": {
+      "displayName": "Campaign Or Transactional Link Clicked",
+      "description": "Triggers when a link within a campaign or transactional email is clicked by a recipient.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "campaignType",
+          "displayName": "Campaign",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select what campaign(s) should fire the trigger."
+        }
+      ]
+    },
+    "tarvent_contact_group_updated": {
+      "displayName": "Contact Added Or Removed From A Group",
+      "description": "Triggers when a contact is added or removed from a group.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "action",
+          "displayName": "Contact action",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select if the trigger should fire when a contact is added or removed."
+        }
+      ]
+    },
+    "tarvent_contact_note_added": {
+      "displayName": "Contact Note Added",
+      "description": "Triggers when a note is added to a contact.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_contact_opened": {
+      "displayName": "Campaign Or Transactional Email Opened",
+      "description": "Triggers when a campaign or transactional email is opened by a recipient.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "campaignType",
+          "displayName": "Campaign",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select what campaign(s) should fire the trigger."
+        }
+      ]
+    },
+    "tarvent_contact_replied": {
+      "displayName": "Contact Replied",
+      "description": "Triggers when a contact replies.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_contact_status_updated": {
+      "displayName": "Contact Status Changed",
+      "description": "Triggers when a contact\\",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Select what status should fire this trigger.",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "If not included, only the contact ID, email and unique identifier will be passed back."
+        }
+      ]
+    },
+    "tarvent_contact_tag_updated": {
+      "displayName": "Contact Tag Added Or Removed",
+      "description": "Triggers when a tag is added or removed from a contact.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "action",
+          "displayName": "Tag action",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select if the trigger should fire when a tag is added or removed."
+        }
+      ]
+    },
+    "tarvent_contact_unsubscribed": {
+      "displayName": "Contact Unsubscribed",
+      "description": "Triggers when a contact unsubscribes from an audience.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_contact_updated": {
+      "displayName": "Contact Profile Updated",
+      "description": "Triggers when a contact\\",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_form_submitted": {
+      "displayName": "Form Submission Received",
+      "description": "Triggers when a known or unknown contact submits a sign up, profile update, or other form.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_page_performed": {
+      "displayName": "Landing Page CTA Performed",
+      "description": "Triggers when a known or unknown contact performs a Call-To-Action within a landing page.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_survey_submitted": {
+      "displayName": "Survey Submission Received",
+      "description": "Triggers when a known or unknown contact submits a survey.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_transaction_created": {
+      "displayName": "Transaction Created",
+      "description": "Triggers when a transactional email is created for a known or unknown contact.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tarvent_transaction_sent": {
+      "displayName": "Transaction Sent",
+      "description": "Triggers when a transactional email is processed and sent to one or more recipients.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

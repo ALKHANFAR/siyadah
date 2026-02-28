@@ -1,0 +1,66 @@
+{
+  "id": "cursor",
+  "package": "@activepieces/piece-cursor",
+  "display_name": "Cursor",
+  "display_name_ar": "",
+  "description": "AI-powered code editor with cloud agents that can work on your repositories. Launch agents, monitor their status, and automate code-related tasks.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_followup_instruction",
+      "display_name": "Add Followup Instruction to Agent",
+      "description": "Adds follow-up instructions to a running cloud agent"
+    },
+    {
+      "name": "delete_agent",
+      "display_name": "Delete Agent",
+      "description": "Delete a cloud agent. This action is permanent and cannot be undone."
+    },
+    {
+      "name": "find_agent_status",
+      "display_name": "Find Agent Status",
+      "description": "Retrieve the current status and results of a cloud agent"
+    },
+    {
+      "name": "launch_agent",
+      "display_name": "Launch Agent",
+      "description": "Start a new cloud agent to work on your repository"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "agent_pull_request_created",
+      "display_name": "Agent Pull Request Created",
+      "description": "Triggers when a background agent creates a pull request",
+      "type": "scheduled"
+    },
+    {
+      "name": "agent_status_changed_webhook",
+      "display_name": "Agent Status Changed (Webhook)",
+      "description": "Triggers when an agent status changes (ERROR or FINISHED). Configure this webhook URL when launching an agent.",
+      "type": "instant"
+    },
+    {
+      "name": "agent_status_equals",
+      "display_name": "Agent Status Equals",
+      "description": "Triggers when a Cursor agent has the specified status (e.g., \"FINISHED\", \"FAILED\")",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_agent_conversation_message",
+      "display_name": "New Agent Conversation Message",
+      "description": "Triggers when a new message appears in a specific agent\\",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_agent",
+      "display_name": "New Agent",
+      "description": "Triggers when a new Cursor agent is created or when agent status changes",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

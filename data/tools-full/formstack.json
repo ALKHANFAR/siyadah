@@ -1,0 +1,164 @@
+{
+  "id": "formstack",
+  "displayName": "Formstack",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "createSubmission": {
+      "displayName": "Create Submission",
+      "description": "Submit data to a Formstack form",
+      "props": [
+        {
+          "name": "user_agent",
+          "displayName": "User Agent",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Browser user agent to record"
+        },
+        {
+          "name": "remote_addr",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "IP address to record"
+        },
+        {
+          "name": "payment_status",
+          "displayName": "Payment Status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Payment integration status"
+        },
+        {
+          "name": "read",
+          "displayName": "Mark as Read",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark submission as read when created"
+        },
+        {
+          "name": "encryption_password",
+          "displayName": "Encryption Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for encrypted forms"
+        },
+        {
+          "name": "form_fields",
+          "displayName": "Form Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Fill out the form fields"
+        }
+      ]
+    },
+    "findFormByNameOrId": {
+      "displayName": "Find Form by Name or ID",
+      "description": "Find a form by name or ID",
+      "props": [
+        {
+          "name": "search_query",
+          "displayName": "Form Name or ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter form name or ID to search"
+        },
+        {
+          "name": "include_folders",
+          "displayName": "Group by Folders",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Organize results by folders"
+        },
+        {
+          "name": "exact_match",
+          "displayName": "Exact Name Match",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only exact name matches"
+        }
+      ]
+    },
+    "findSubmissionByFieldValue": {
+      "displayName": "Find Submission by Field Value",
+      "description": "Search submissions by field values",
+      "props": [
+        {
+          "name": "search_value",
+          "displayName": "Search Value",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Value to search for (minimum 3 characters)"
+        },
+        {
+          "name": "per_page",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-100)"
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number to return"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort results by submission ID"
+        },
+        {
+          "name": "include_form_names",
+          "displayName": "Include Form Names",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include form names in results"
+        }
+      ]
+    },
+    "getSubmissionDetails": {
+      "displayName": "Get Submission Details",
+      "description": "Get details of a form submission",
+      "props": [
+        {
+          "name": "encryption_password",
+          "displayName": "Encryption Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password for encrypted forms"
+        },
+        {
+          "name": "include_metadata",
+          "displayName": "Include Technical Metadata",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include IP, user agent, and location data"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newForm": {
+      "displayName": "New Form",
+      "description": "Triggers when a new form is created",
+      "type": "POLLING",
+      "props": []
+    },
+    "newSubmission": {
+      "displayName": "New Submission",
+      "description": "Triggers when a form receives a new submission",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "time-ops",
+  "package": "@activepieces/piece-time-ops",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Enter your TimeOps API key. You can find it in your TimeOps account settings.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Creates a customer."
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Create a project."
+    },
+    {
+      "name": "create_registration",
+      "display_name": "Create Registration",
+      "description": "Creates a registration."
+    },
+    {
+      "name": "start_timer",
+      "display_name": "Start Timer",
+      "description": "Starts the timer by creating a new Registration."
+    },
+    {
+      "name": "stop_timer",
+      "display_name": "Stop Timer",
+      "description": "Stop the currently running timer."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_customer",
+      "display_name": "New Customer",
+      "description": "Triggers when a new customer is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_project",
+      "display_name": "New Project",
+      "description": "Triggers when a new project is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_registration",
+      "display_name": "New Registration",
+      "description": "Triggers when new registrations are added.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_user",
+      "display_name": "New User",
+      "description": "Triggers when a new user has been created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/time-ops"
+}

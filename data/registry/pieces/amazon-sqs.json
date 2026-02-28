@@ -1,0 +1,20 @@
+{
+  "id": "amazon-sqs",
+  "package": "@activepieces/piece-amazon-sqs",
+  "display_name": "Access Key ID",
+  "display_name_ar": "Access Key ID",
+  "description": "Access Key ID integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "sendMessage",
+      "display_name": "Send Message",
+      "description": ""
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/amazon-sqs"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "microsoft-outlook-calendar",
+  "displayName": "Microsoft Outlook Calendar",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_event": {
+      "displayName": "Create a new event in a calendar",
+      "description": "Create a new event in a calendar",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title of the event",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start",
+          "displayName": "Start date time of the event",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "end",
+          "displayName": "End date time of the event",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "By default it'll be 30 min post start time"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete_event": {
+      "displayName": "Delete an event in a calendar",
+      "description": "Delete an event in a calendar",
+      "props": [
+        {
+          "name": "eventId",
+          "displayName": "Event ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "list_events": {
+      "displayName": "List events in a calendar",
+      "description": "List events in a calendar",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Search query filter, see: https://learn.microsoft.com/en-us/graph/filter-query-parameter"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

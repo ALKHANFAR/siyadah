@@ -1,0 +1,160 @@
+{
+  "id": "pipedrive",
+  "package": "@activepieces/piece-pipedrive",
+  "display_name": "Pipedrive",
+  "display_name_ar": "",
+  "description": "Sales CRM and pipeline management software",
+  "category": "E_crm",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add-follower",
+      "display_name": "Add Follower",
+      "description": "Adds a follower to a deal, person, organization or product."
+    },
+    {
+      "name": "add-labels-to-person",
+      "display_name": "Add Labels to Person",
+      "description": "Adds existing labels to an existing person."
+    },
+    {
+      "name": "add-product-to-deal",
+      "display_name": "Add Product to Deal",
+      "description": "Adds a product to a deal."
+    },
+    {
+      "name": "attach-file",
+      "display_name": "Attach File",
+      "description": "Uploads a file and attaches it to a deal,person,organization,activity or product."
+    },
+    {
+      "name": "create-activity",
+      "display_name": "Create Activity",
+      "description": "Creates a new activity."
+    },
+    {
+      "name": "create-deal",
+      "display_name": "Create Deal",
+      "description": "Creates a new deal."
+    },
+    {
+      "name": "create-lead",
+      "display_name": "Create Lead",
+      "description": "Creates a new lead."
+    },
+    {
+      "name": "create-note",
+      "display_name": "Create Note",
+      "description": "Creates a new note."
+    },
+    {
+      "name": "create-organization",
+      "display_name": "Create Organization",
+      "description": "Creates a new organization."
+    },
+    {
+      "name": "create-person",
+      "display_name": "Create Person",
+      "description": "Creates a new person."
+    },
+    {
+      "name": "create-product",
+      "display_name": "Create Product",
+      "description": "Creates a new product."
+    },
+    {
+      "name": "find-activity",
+      "display_name": "Find Activity",
+      "description": "Finds an activity by subject."
+    },
+    {
+      "name": "find-deal",
+      "display_name": "Find Deal",
+      "description": "Finds a deal by any field."
+    },
+    {
+      "name": "find-deals-associated-with-person",
+      "display_name": "Find Deals Associated With Person",
+      "description": "Finds multiple deals related to a specific person."
+    },
+    {
+      "name": "find-notes",
+      "display_name": "Find Notes",
+      "description": "Finds notes by Deal, Lead, Person, or Organization ID."
+    },
+    {
+      "name": "find-organization",
+      "display_name": "Find Organization",
+      "description": "Finds an organization."
+    },
+    {
+      "name": "find-person",
+      "display_name": "Find Person",
+      "description": "Finds a person."
+    },
+    {
+      "name": "find-product",
+      "display_name": "Find Product",
+      "description": "Finds a product by name "
+    },
+    {
+      "name": "find-products",
+      "display_name": "Find Products",
+      "description": "Finds a product or products by name or product code."
+    },
+    {
+      "name": "find-user",
+      "display_name": "Find User",
+      "description": "Finds a user by name or email."
+    },
+    {
+      "name": "get-note",
+      "display_name": "Retrieve a Note",
+      "description": "Finds a note by ID."
+    },
+    {
+      "name": "get-product",
+      "display_name": "Retrieve a Product",
+      "description": "Finds a product by ID."
+    },
+    {
+      "name": "update-activity",
+      "display_name": "Update Activity",
+      "description": "Updates an existing activity."
+    },
+    {
+      "name": "update-deal",
+      "display_name": "Update Deal",
+      "description": "Updates an existing deal."
+    },
+    {
+      "name": "update-lead",
+      "display_name": "Update Lead",
+      "description": "Updates an existing lead."
+    },
+    {
+      "name": "update-organization",
+      "display_name": "Update Organization",
+      "description": "Updates an existing organization."
+    },
+    {
+      "name": "update-person",
+      "display_name": "Update Person",
+      "description": "Updates an existing person."
+    },
+    {
+      "name": "update-product",
+      "display_name": "Update Product",
+      "description": "Updates an existing product."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

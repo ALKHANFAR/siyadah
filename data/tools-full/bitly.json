@@ -1,0 +1,387 @@
+{
+  "id": "bitly",
+  "displayName": "Bitly",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "archive_bitlink": {
+      "displayName": "Archive Bitlink",
+      "description": "Archive a Bitlink to stop redirects.",
+      "props": []
+    },
+    "create_bitlink": {
+      "displayName": "Create Bitlink",
+      "description": "Shorten a long URL with optional customization.",
+      "props": [
+        {
+          "name": "long_url",
+          "displayName": "Long URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL to shorten (must include http:// or https://)."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom title for the Bitlink."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags to apply to the Bitlink."
+        },
+        {
+          "name": "force_new_link",
+          "displayName": "Force New Link",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Create new link even if one exists for this URL."
+        },
+        {
+          "name": "app_id",
+          "displayName": "Mobile App ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile app identifier (e.g., com.yourapp.name)."
+        },
+        {
+          "name": "app_uri_path",
+          "displayName": "App URI Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Path within the mobile app (e.g., /product/123)."
+        },
+        {
+          "name": "install_url",
+          "displayName": "App Install URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL where users can install the mobile app."
+        },
+        {
+          "name": "install_type",
+          "displayName": "Install Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle app installation."
+        }
+      ]
+    },
+    "create_qr_code": {
+      "displayName": "Create QR Code",
+      "description": "Generate a customized QR code for a Bitlink.",
+      "props": [
+        {
+          "name": "destination_type",
+          "displayName": "Destination Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "destination",
+          "displayName": "Destination",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Internal title for the QR Code."
+        },
+        {
+          "name": "archived",
+          "displayName": "Archive on Create",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Archive the QR code upon creation."
+        },
+        {
+          "name": "background_color",
+          "displayName": "Style: Background Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Hex code (e.g., #FFFFFF)"
+        },
+        {
+          "name": "dot_pattern_color",
+          "displayName": "Style: Dot Pattern Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Hex code (e.g., #000000)"
+        },
+        {
+          "name": "dot_pattern_type",
+          "displayName": "Style: Dot Pattern Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_1_shape",
+          "displayName": "Corner 1 (Top-Left): Shape",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_1_inner_color",
+          "displayName": "Corner 1 (Top-Left): Inner Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_1_outer_color",
+          "displayName": "Corner 1 (Top-Left): Outer Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_2_shape",
+          "displayName": "Corner 2 (Top-Right): Shape",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_2_inner_color",
+          "displayName": "Corner 2 (Top-Right): Inner Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_2_outer_color",
+          "displayName": "Corner 2 (Top-Right): Outer Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_3_shape",
+          "displayName": "Corner 3 (Bottom-Right): Shape",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_3_inner_color",
+          "displayName": "Corner 3 (Bottom-Right): Inner Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "corner_3_outer_color",
+          "displayName": "Corner 3 (Bottom-Right): Outer Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "gradient_style",
+          "displayName": "Gradient: Style",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "gradient_color_1",
+          "displayName": "Gradient: Color 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First gradient color (hex code)"
+        },
+        {
+          "name": "gradient_color_2",
+          "displayName": "Gradient: Color 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Second gradient color (hex code)"
+        },
+        {
+          "name": "gradient_angle",
+          "displayName": "Gradient: Angle (for Linear)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "gradient_exclude_corners",
+          "displayName": "Gradient: Exclude Corners",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "frame_id",
+          "displayName": "Frame: Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "frame_primary_color",
+          "displayName": "Frame: Primary Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "frame_secondary_color",
+          "displayName": "Frame: Secondary Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "frame_background_color",
+          "displayName": "Frame: Background Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "frame_text",
+          "displayName": "Frame: Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary text for frames that support it."
+        },
+        {
+          "name": "logo_image_guid",
+          "displayName": "Branding: Logo Image GUID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A GUID for a logo image previously uploaded to Bitly."
+        },
+        {
+          "name": "bitly_brand",
+          "displayName": "Branding: Show Bitly Logo",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show the Bitly logo in the bottom right corner."
+        },
+        {
+          "name": "error_correction",
+          "displayName": "Specs: Error Correction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_bitlink_details": {
+      "displayName": "Get Bitlink Details",
+      "description": "Retrieve metadata for a Bitlink.",
+      "props": []
+    },
+    "update_bitlink": {
+      "displayName": "Update Bitlink",
+      "description": "Modify properties of an existing Bitlink.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New title for the Bitlink."
+        },
+        {
+          "name": "archived",
+          "displayName": "Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Archive or unarchive the Bitlink."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags to apply (overwrites existing tags)."
+        },
+        {
+          "name": "app_uri_path",
+          "displayName": "App URI Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Path within the mobile app (e.g., /product/123)."
+        },
+        {
+          "name": "install_url",
+          "displayName": "App Install URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "URL where users can install the mobile app."
+        },
+        {
+          "name": "os",
+          "displayName": "Mobile OS",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Target mobile operating system."
+        },
+        {
+          "name": "install_type",
+          "displayName": "Install Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle app installation."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_bitlink_created": {
+      "displayName": "New Bitlink Created",
+      "description": "Fires when a new Bitlink is created.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "pollingInterval",
+          "displayName": "Polling Interval",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How frequently to check for new Bitlinks."
+        },
+        {
+          "name": "titleFilter",
+          "displayName": "Title Filter (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only trigger for Bitlinks containing this text in their title."
+        },
+        {
+          "name": "tagFilter",
+          "displayName": "Tag Filter (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only trigger for Bitlinks containing this tag."
+        },
+        {
+          "name": "includeArchived",
+          "displayName": "Include Archived Bitlinks",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include archived Bitlinks in monitoring."
+        }
+      ]
+    }
+  }
+}

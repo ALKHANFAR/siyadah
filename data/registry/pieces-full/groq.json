@@ -1,0 +1,35 @@
+{
+  "id": "groq",
+  "package": "@activepieces/piece-groq",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Enter your Groq API Key",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask-ai",
+      "display_name": "Ask AI",
+      "description": "Ask Groq anything using fast language models."
+    },
+    {
+      "name": "transcribe-audio",
+      "display_name": "Transcribe Audio",
+      "description": "Transcribes audio into text in the input language."
+    },
+    {
+      "name": "translate-audio",
+      "display_name": "Translate Audio",
+      "description": "Translates audio into English text."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

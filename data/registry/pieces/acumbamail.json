@@ -1,0 +1,50 @@
+{
+  "id": "acumbamail",
+  "package": "@activepieces/piece-acumbamail",
+  "display_name": "Acumbamail",
+  "display_name_ar": "Acumbamail",
+  "description": "Easily send email and SMS campaigns and boost your business",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "acumbamail_add_update_subscriber",
+      "display_name": "Add/Update Subscriber",
+      "description": "Adds a new subscriber to a subscriber list of your choosing.Can be used to update an existing subscriber too."
+    },
+    {
+      "name": "acumbamail_create_subscriber_list",
+      "display_name": "Create Subscriber List",
+      "description": "Creates a new subscriber list."
+    },
+    {
+      "name": "acumbamail_delete_subscriber_list",
+      "display_name": "Delete Subscriber List",
+      "description": "Deletes an existing subscriber list."
+    },
+    {
+      "name": "acumbamail_remove_subscriber",
+      "display_name": "Remove Subscriber",
+      "description": "Removes a subscriber from a list"
+    },
+    {
+      "name": "acumbamail_duplicate_template",
+      "display_name": "Duplicate Template",
+      "description": "Duplicates an existing template to use it on a email marketing campaign shipping."
+    },
+    {
+      "name": "acumbamail_search_subscriber",
+      "display_name": "Search Subscriber",
+      "description": "Returns the subscriber's advanced data in each list to which they belong."
+    },
+    {
+      "name": "acumbamail_unsubscribe_subscriber",
+      "display_name": "Unsuscribe Subscriber",
+      "description": "Unsubscribes an email address from a subscriber list of your choosing."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/acumbamail"
+}

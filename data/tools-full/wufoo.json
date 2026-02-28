@@ -1,0 +1,271 @@
+{
+  "id": "wufoo",
+  "displayName": "Wufoo",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create-form-entry": {
+      "displayName": "Create Form Entry",
+      "description": "Submit a new entry to a Wufoo form with dynamic field selection.",
+      "props": [
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the format for the API response. JSON is recommended for most use cases."
+        }
+      ]
+    },
+    "find-form": {
+      "displayName": "Find Form by Name or Hash",
+      "description": "Get details about a Wufoo form including settings, entry counts, and metadata.",
+      "props": [
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the format for the API response. JSON is recommended for most integrations."
+        },
+        {
+          "name": "includeTodayCount",
+          "displayName": "Include Today Count",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the number of entries submitted today in the response. Useful for daily analytics and monitoring."
+        }
+      ]
+    },
+    "find-submission-by-field": {
+      "displayName": "Find Submission by Field Value",
+      "description": "Search for form submissions by field value for deduplication and lookup operations.",
+      "props": [
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the format for the API response. JSON is recommended for most workflows."
+        },
+        {
+          "name": "fieldId",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The form field to search in (e.g., Field1 for first name, Field218 for email). You can find Field IDs in the form builder or via the Form Fields API."
+        },
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to search for in the specified field. For exact matches, use the complete value."
+        },
+        {
+          "name": "matchType",
+          "displayName": "Match Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to match the search value with field data. Choose based on your use case."
+        },
+        {
+          "name": "maxResults",
+          "displayName": "Maximum Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Limit the number of results returned (1-50). Lower numbers are faster for deduplication checks."
+        },
+        {
+          "name": "sortOrder",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Order to return results. \"Newest First\" is best for finding recent duplicates."
+        },
+        {
+          "name": "includeMetadata",
+          "displayName": "Include Metadata",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include additional information like submission date, IP address, and creation details."
+        }
+      ]
+    },
+    "get-entry-details": {
+      "displayName": "Get Entry Details",
+      "description": "Get form entries with filtering, sorting, and pagination options.",
+      "props": [
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the format for the API response. JSON is recommended for most integrations."
+        },
+        {
+          "name": "entryId",
+          "displayName": "Specific Entry ID (Optional)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter a specific Entry ID to retrieve just that entry. Leave blank to get multiple entries with other filters."
+        },
+        {
+          "name": "filterField",
+          "displayName": "Filter Field ID (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The field ID to filter by (e.g., Field1, Field105, EntryId, DateCreated). Leave blank for no filtering."
+        },
+        {
+          "name": "filterOperator",
+          "displayName": "Filter Operator",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to compare the filter value with the field data."
+        },
+        {
+          "name": "filterValue",
+          "displayName": "Filter Value (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The value to filter by. For dates, use YYYY-MM-DD format or YYYY-MM-DD HH:MM:SS for specific times."
+        },
+        {
+          "name": "additionalFilterField",
+          "displayName": "Second Filter Field (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Add a second filter field for more complex queries."
+        },
+        {
+          "name": "additionalFilterOperator",
+          "displayName": "Second Filter Operator",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Operator for the second filter."
+        },
+        {
+          "name": "additionalFilterValue",
+          "displayName": "Second Filter Value (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Value for the second filter."
+        },
+        {
+          "name": "filterLogic",
+          "displayName": "Filter Logic",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to combine multiple filters. Only applies when using multiple filters."
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort By Field ID (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sort results by field ID (e.g., EntryId, DateCreated, Field1). Leave blank for default order."
+        },
+        {
+          "name": "sortDirection",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Order to sort the results."
+        },
+        {
+          "name": "pageStart",
+          "displayName": "Page Start",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Starting entry number for pagination (0 = first entry)."
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of entries to return (maximum 100 per request)."
+        },
+        {
+          "name": "includeSystem",
+          "displayName": "Include System Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include additional metadata like IP address, payment status, and completion status."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_form_entry": {
+      "displayName": "New Form Entry",
+      "description": "Triggers when someone submits a new entry to your Wufoo form.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "handshakeKey",
+          "displayName": "Handshake Key (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A secret key to validate webhook authenticity and prevent unauthorized requests. Recommended for production workflows."
+        },
+        {
+          "name": "includeMetadata",
+          "displayName": "Include Form Structure Metadata",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include detailed form and field structure information with each submission. Useful for dynamic processing but increases payload size."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Webhook Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose the format for webhook data. JSON is recommended for most automation workflows."
+        }
+      ]
+    },
+    "new_form_created": {
+      "displayName": "New Form Created",
+      "description": "Triggers when a new form is created in your Wufoo account.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "pollingInterval",
+          "displayName": "Polling Interval",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How frequently to check for new forms. More frequent checking provides faster detection but uses more API calls."
+        },
+        {
+          "name": "nameFilter",
+          "displayName": "Form Name Filter (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only trigger for forms containing this text in their name. Leave empty to monitor all forms."
+        },
+        {
+          "name": "includeInactive",
+          "displayName": "Include Inactive Forms",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include forms that are not currently active/published. Useful for monitoring all form creation activity."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose the format for form data. JSON is recommended for most workflows."
+        }
+      ]
+    }
+  }
+}

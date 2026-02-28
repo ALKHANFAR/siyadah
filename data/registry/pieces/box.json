@@ -1,0 +1,39 @@
+{
+  "id": "box",
+  "package": "@activepieces/piece-box",
+  "display_name": "Box",
+  "display_name_ar": "Box",
+  "description": "Secure content management and collaboration",
+  "category": "I_content",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_comment",
+      "display_name": "New Comment",
+      "description": "Triggers when a comment is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_file",
+      "display_name": "New File",
+      "description": "Triggers when a file is uploaded",
+      "type": "instant"
+    },
+    {
+      "name": "new_folder",
+      "display_name": "New Folder",
+      "description": "Triggers when a folder is created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/box"
+}

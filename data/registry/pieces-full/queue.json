@@ -1,0 +1,30 @@
+{
+  "id": "queue",
+  "package": "@activepieces/piece-queue",
+  "display_name": "Queue",
+  "display_name_ar": "",
+  "description": "A piece that allows you to push items into a queue, providing a way to throttle requests or process data in a First-In-First-Out (FIFO) manner.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "clear-queue",
+      "display_name": "Clear queue",
+      "description": "Clears all items inside a queue"
+    },
+    {
+      "name": "pull-from-queue",
+      "display_name": "Pull items from queue",
+      "description": "Pull items from queue"
+    },
+    {
+      "name": "push-to-queue",
+      "display_name": "Push to Queue",
+      "description": "Push item to queue"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

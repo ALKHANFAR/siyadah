@@ -1,0 +1,231 @@
+{
+  "id": "mycase-piece",
+  "package": "@activepieces/piece-mycase-piece",
+  "display_name": "MyCase",
+  "display_name_ar": "",
+  "description": "Automate legal case management workflows with MyCase. Create and manage cases, clients, companies, events, tasks, time entries, documents, and more. Get notified when cases, events, people, companies, or leads are added or updated.",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_call",
+      "display_name": "Create Call",
+      "description": "Creates a new call in the call log in MyCase"
+    },
+    {
+      "name": "create_case_stage",
+      "display_name": "Create Case Stage",
+      "description": "Creates a new case stage in MyCase"
+    },
+    {
+      "name": "create_case",
+      "display_name": "Create Case",
+      "description": "Creates a new case in MyCase"
+    },
+    {
+      "name": "create_company",
+      "display_name": "Create Company",
+      "description": "Creates a new company in MyCase"
+    },
+    {
+      "name": "create_custom_field",
+      "display_name": "Create Custom Field",
+      "description": "Creates a new custom field in MyCase"
+    },
+    {
+      "name": "create_document",
+      "display_name": "Create Document",
+      "description": "Creates a new document in MyCase"
+    },
+    {
+      "name": "create_event",
+      "display_name": "Create Event",
+      "description": "Creates a new event in MyCase"
+    },
+    {
+      "name": "create_expense",
+      "display_name": "Create Expense",
+      "description": "Creates a new expense in MyCase"
+    },
+    {
+      "name": "create_lead",
+      "display_name": "Create Lead",
+      "description": "Creates a new lead in MyCase"
+    },
+    {
+      "name": "create_location",
+      "display_name": "Create Location",
+      "description": "Creates a new location in MyCase"
+    },
+    {
+      "name": "create_note",
+      "display_name": "Create Note",
+      "description": "Creates a new note for a case, client, or company in MyCase"
+    },
+    {
+      "name": "create_person",
+      "display_name": "Create Person (Client)",
+      "description": "Creates a new individual client (person) in MyCase"
+    },
+    {
+      "name": "create_practice_area",
+      "display_name": "Create Practice Area",
+      "description": "Creates a new practice area in MyCase"
+    },
+    {
+      "name": "create_referral_source",
+      "display_name": "Create Referral Source",
+      "description": "Creates a new referral source in MyCase"
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Creates a new task in MyCase"
+    },
+    {
+      "name": "create_time_entry",
+      "display_name": "Create Time Entry",
+      "description": "Creates a new time entry in MyCase"
+    },
+    {
+      "name": "find_call",
+      "display_name": "Find Call",
+      "description": "Searches for calls with optional filters"
+    },
+    {
+      "name": "find_case_stage",
+      "display_name": "Find Case Stage",
+      "description": "Searches for case stages with optional filters"
+    },
+    {
+      "name": "find_case",
+      "display_name": "Find Case",
+      "description": "Searches for cases with optional filters"
+    },
+    {
+      "name": "find_company",
+      "display_name": "Find Company",
+      "description": "Searches for companies with optional filters"
+    },
+    {
+      "name": "find_location",
+      "display_name": "Find Location",
+      "description": "Searches for locations with optional filters"
+    },
+    {
+      "name": "find_or_create_case_stage",
+      "display_name": "Find or Create Case Stage",
+      "description": "Finds a case stage by name or creates a new one if it does not exist"
+    },
+    {
+      "name": "find_or_create_case",
+      "display_name": "Find or Create Case",
+      "description": "Finds a case by name or creates a new one if it does not exist"
+    },
+    {
+      "name": "find_or_create_company",
+      "display_name": "Find or Create Company",
+      "description": "Finds a company by name or creates a new one if it does not exist"
+    },
+    {
+      "name": "find_or_create_location",
+      "display_name": "Find or Create Location",
+      "description": "Finds a location by name or creates a new one if it does not exist"
+    },
+    {
+      "name": "find_or_create_person",
+      "display_name": "Find or Create Person (Client)",
+      "description": "Finds a person by first and last name or creates a new one if not found"
+    },
+    {
+      "name": "find_or_create_practice_area",
+      "display_name": "Find or Create Practice Area",
+      "description": "Finds a practice area by name or creates a new one if it does not exist"
+    },
+    {
+      "name": "find_or_create_referral_source",
+      "display_name": "Find or Create Referral Source",
+      "description": "Finds a referral source by name or creates a new one if it does not exist"
+    },
+    {
+      "name": "find_people_group",
+      "display_name": "Find People Group",
+      "description": "Searches for people groups with optional filters"
+    },
+    {
+      "name": "find_person",
+      "display_name": "Find Person (Client)",
+      "description": "Searches for clients (people) with optional filters"
+    },
+    {
+      "name": "find_practice_area",
+      "display_name": "Find Practice Area",
+      "description": "Searches for practice areas with optional filters"
+    },
+    {
+      "name": "find_referral_source",
+      "display_name": "Find Referral Source",
+      "description": "Searches for referral sources with optional filters"
+    },
+    {
+      "name": "find_staff",
+      "display_name": "Find Staff",
+      "description": "Searches for staff members with optional filters"
+    },
+    {
+      "name": "make_request",
+      "display_name": "API Request",
+      "description": "Makes a raw HTTP request to the MyCase API"
+    },
+    {
+      "name": "update_case",
+      "display_name": "Update Case",
+      "description": "Updates an existing case in MyCase"
+    },
+    {
+      "name": "update_company",
+      "display_name": "Update Company",
+      "description": "Updates an existing company in MyCase"
+    },
+    {
+      "name": "update_person",
+      "display_name": "Update Person (Client)",
+      "description": "Updates an existing individual client (person) in MyCase"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "case_added_or_updated",
+      "display_name": "Case Added or Updated",
+      "description": "Triggers when a case has been added or updated",
+      "type": "instant"
+    },
+    {
+      "name": "company_added_or_updated",
+      "display_name": "Company Added or Updated",
+      "description": "Triggers when a company has been added or updated",
+      "type": "instant"
+    },
+    {
+      "name": "event_added_or_updated",
+      "display_name": "Event Added or Updated",
+      "description": "Triggers when an event has been added or updated",
+      "type": "instant"
+    },
+    {
+      "name": "lead_added_or_updated",
+      "display_name": "Lead Added or Updated",
+      "description": "Triggers when a lead has been added or updated",
+      "type": "instant"
+    },
+    {
+      "name": "person_added_or_updated",
+      "display_name": "Person Added or Updated",
+      "description": "Triggers when a person has been added or updated",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

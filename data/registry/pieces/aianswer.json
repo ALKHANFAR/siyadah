@@ -1,0 +1,45 @@
+{
+  "id": "aianswer",
+  "package": "@activepieces/piece-aianswer",
+  "display_name": "AI Answer",
+  "display_name_ar": "AI Answer",
+  "description": "AI Answer integration",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createPhoneCall",
+      "display_name": "Create Phone Call",
+      "description": "Create a phone call to customer from Agent"
+    },
+    {
+      "name": "getCallDetails",
+      "display_name": "Get Call Details",
+      "description": "Fetch Call details by Call ID"
+    },
+    {
+      "name": "getCallTranscript",
+      "display_name": "Get Call Transcript",
+      "description": "Fetch the transcript of a call by Call ID"
+    },
+    {
+      "name": "gmailGetListOfAgents",
+      "display_name": "Gmail get list of Agents",
+      "description": "get the lists of agents with Gmail"
+    },
+    {
+      "name": "scheduleCallAgent",
+      "display_name": "Schedule Call Agent",
+      "description": "Schedule a call with an agent"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/aianswer"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "folk",
+  "package": "@activepieces/piece-folk",
+  "display_name": "Folk",
+  "display_name_ar": "Folk",
+  "description": "Folk is a CRM for building relationships at scale. Manage your contacts, companies, and relationships in one place.",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createCompany",
+      "display_name": "Create Company",
+      "description": "Create a new company in your Folk workspace. You can add emails, links, phone numbers, and assign it to a group."
+    },
+    {
+      "name": "createPerson",
+      "display_name": "Create Person",
+      "description": "Create a new person in your Folk workspace. You can link them to a company, add contact details, and assign to a group."
+    },
+    {
+      "name": "findCompany",
+      "display_name": "Find Company",
+      "description": "Search for companies in your Folk workspace by name or email address."
+    },
+    {
+      "name": "findPerson",
+      "display_name": "List People",
+      "description": "Retrieve a paginated list of people in your Folk workspace with optional filtering."
+    },
+    {
+      "name": "getCompany",
+      "display_name": "Get Company",
+      "description": "Retrieve detailed information about a company from your Folk workspace."
+    },
+    {
+      "name": "getPerson",
+      "display_name": "Get Person",
+      "description": "Retrieve detailed information about a person from your Folk workspace."
+    },
+    {
+      "name": "updateCompany",
+      "display_name": "Update Company",
+      "description": "Update an existing company in your Folk workspace. Select the company from the dropdown to update its details."
+    },
+    {
+      "name": "updatePerson",
+      "display_name": "Update Person",
+      "description": "Update an existing person in your Folk workspace with new information."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "company_added",
+      "display_name": "Company Added",
+      "description": "Fires when a new company is added to your Folk workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "company_custom_field_updated",
+      "display_name": "Company Groups Updated",
+      "description": "Fires when a company's group assignments are updated in your Folk workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "company_removed",
+      "display_name": "Company Removed",
+      "description": "Fires when a company is removed from your Folk workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "company_updated",
+      "display_name": "Company Updated",
+      "description": "Fires when a company is updated in your Folk workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "person_added",
+      "display_name": "Person Added",
+      "description": "Fires when a new person is added to your Folk workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "person_custom_field_updated",
+      "display_name": "Person Groups Updated",
+      "description": "Fires when a person's group assignments are updated in your Folk workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "person_removed",
+      "display_name": "Person Removed",
+      "description": "Fires when a person is removed from your Folk workspace.",
+      "type": "instant"
+    },
+    {
+      "name": "person_updated",
+      "display_name": "Person Updated",
+      "description": "Fires when a person is updated in your Folk workspace.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/folk"
+}

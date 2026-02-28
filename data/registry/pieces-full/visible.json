@@ -1,0 +1,35 @@
+{
+  "id": "visible",
+  "package": "@activepieces/piece-visible",
+  "display_name": "Access Token",
+  "display_name_ar": "",
+  "description": "Enter your Visible access token.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_metric",
+      "display_name": "Create Metric",
+      "description": "Create a new metric for a company."
+    },
+    {
+      "name": "create_or_update_contact",
+      "display_name": "Create or Update Contact",
+      "description": "Creates a contact (or updates contact based on email address)."
+    },
+    {
+      "name": "create_portfolio_company",
+      "display_name": "Create Portfolio Company",
+      "description": "Creates a new portfolio company."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

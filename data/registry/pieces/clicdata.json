@@ -1,0 +1,25 @@
+{
+  "id": "clicdata",
+  "package": "@activepieces/piece-clicdata",
+  "display_name": "Clicdata",
+  "display_name_ar": "Clicdata",
+  "description": "ClicData enables True Performance with an end-to-end data analytics platform: connect, transform, automate, visualize and share data from 300+ sources.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "insert_row",
+      "display_name": "Insert Row",
+      "description": "Insert rows into a ClicData table (maximum 500 rows)"
+    },
+    {
+      "name": "refresh_table",
+      "display_name": "Refresh Table",
+      "description": "Refresh the selected table depending on the refresh mode"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/clicdata"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "linear",
+  "package": "@activepieces/piece-linear",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Issue tracking for modern software teams",
+  "category": "K_dev",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "rawGraphqlQuery",
+      "display_name": "Raw GraphQL query",
+      "description": "Perform a raw GraphQL query"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_issue",
+      "display_name": "New Issue",
+      "description": "Triggers when Linear receives a new issue",
+      "type": "instant"
+    },
+    {
+      "name": "removed_issue",
+      "display_name": "Removed Issue",
+      "description": "Triggers when an existing Linear issue is removed",
+      "type": "instant"
+    },
+    {
+      "name": "updated_issue",
+      "display_name": "Updated Issue",
+      "description": "Triggers when an existing Linear issue is updated",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

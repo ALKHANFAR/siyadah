@@ -1,0 +1,265 @@
+{
+  "id": "vadoo-ai",
+  "displayName": "Vadoo AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate_ai_captions": {
+      "displayName": "Generate AI Captions",
+      "description": "Generates AI captions for a video.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL of the input video to add captions to"
+        },
+        {
+          "name": "theme",
+          "displayName": "Theme",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "To display captions with style"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "To generate captions in language you want"
+        }
+      ]
+    },
+    "generate_ai_image": {
+      "displayName": "Generate AI Image",
+      "description": "Generates AI generated image based on prompt for a character.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Character",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the character to generate an image for"
+        },
+        {
+          "name": "ratio",
+          "displayName": "Aspect Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The aspect ratio for the generated image"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Image Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Prompt to generate a character image"
+        }
+      ]
+    },
+    "generate_podcast": {
+      "displayName": "Generate Podcast",
+      "description": "Generates a podcast-style video.",
+      "props": [
+        {
+          "name": "content_source",
+          "displayName": "Content Source",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the source of content for the podcast"
+        },
+        {
+          "name": "url",
+          "displayName": "Website/PDF URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the website or PDF to create a podcast from"
+        },
+        {
+          "name": "text",
+          "displayName": "Custom Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom content for the podcast"
+        },
+        {
+          "name": "name1",
+          "displayName": "Host Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The host name for AI Podcast"
+        },
+        {
+          "name": "voice1",
+          "displayName": "Host Voice",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The host voice for AI Podcast"
+        },
+        {
+          "name": "name2",
+          "displayName": "Guest Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The guest name for AI Podcast"
+        },
+        {
+          "name": "voice2",
+          "displayName": "Guest Voice",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The guest voice for AI Podcast"
+        },
+        {
+          "name": "theme",
+          "displayName": "Theme",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "To display captions with style"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "To generate video in language you want"
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Podcast Duration in minutes"
+        },
+        {
+          "name": "tone",
+          "displayName": "Tone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tone of the Podcast"
+        }
+      ]
+    },
+    "generate_video": {
+      "displayName": "Generate Video",
+      "description": "Create an AI-generated video from parameters",
+      "props": [
+        {
+          "name": "topic",
+          "displayName": "Topic",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "To create content for AI Video"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Custom Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Prompt to generate a custom script (required when topic is 'Custom')"
+        },
+        {
+          "name": "voice",
+          "displayName": "Voice",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The voice for AI Video"
+        },
+        {
+          "name": "theme",
+          "displayName": "Theme",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "To display captions with style"
+        },
+        {
+          "name": "style",
+          "displayName": "Style",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "AI image style"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "To generate video in language you want"
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Video Duration"
+        },
+        {
+          "name": "aspect_ratio",
+          "displayName": "Aspect Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Video aspect ratio"
+        },
+        {
+          "name": "custom_instruction",
+          "displayName": "Custom Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom instructions to guide AI (character descriptions, image visuals, background styles, etc.)"
+        },
+        {
+          "name": "use_ai",
+          "displayName": "Use AI to Modify Script",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Modify script with AI"
+        },
+        {
+          "name": "include_voiceover",
+          "displayName": "Include Voiceover",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Include AI voiceover in the video"
+        },
+        {
+          "name": "size",
+          "displayName": "Caption Size",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Size of captions (take reference values from dashboard)"
+        },
+        {
+          "name": "ypos",
+          "displayName": "Caption Position",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Position of captions (take reference values from dashboard)"
+        },
+        {
+          "name": "url",
+          "displayName": "Blog URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL input for Blog to Video"
+        },
+        {
+          "name": "bg_music",
+          "displayName": "Background Music",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Background music to use along with the video"
+        },
+        {
+          "name": "bg_music_volume",
+          "displayName": "Background Music Volume",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Background music volume (1-100)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

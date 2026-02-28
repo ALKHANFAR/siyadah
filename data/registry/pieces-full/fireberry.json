@@ -1,0 +1,42 @@
+{
+  "id": "fireberry",
+  "package": "@activepieces/piece-fireberry",
+  "display_name": "Fireberry",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_record",
+      "display_name": "Create Record",
+      "description": "Create a new record in Fireberry."
+    },
+    {
+      "name": "delete_record",
+      "display_name": "Records to Delete",
+      "description": "Delete records from Fireberry."
+    },
+    {
+      "name": "find_record",
+      "display_name": "Fields to Return",
+      "description": "Search for records in Fireberry."
+    },
+    {
+      "name": "update_record",
+      "display_name": "Record",
+      "description": "Leave empty to keep current value"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "record_created_or_updated",
+      "display_name": "Record Created or Updated",
+      "description": "Fires when a record is created or updated in Fireberry.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

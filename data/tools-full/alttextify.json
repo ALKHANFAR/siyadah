@@ -1,0 +1,49 @@
+{
+  "id": "alttextify",
+  "displayName": "AltTextify",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate-alt-text": {
+      "displayName": "Generate Image Alt Text",
+      "description": "Generates alt text for specified image.",
+      "props": [
+        {
+          "name": "image",
+          "displayName": "Image File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "lang",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specifies the language for the alt text. Supported language codes are accepted."
+        },
+        {
+          "name": "keywords",
+          "displayName": "Keywords",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of keywords/phrases for SEO-optimized alt text."
+        },
+        {
+          "name": "negative_keywords",
+          "displayName": "Negative Keywords",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of negative keywords/phrases for SEO-optimized alt text."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

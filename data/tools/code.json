@@ -1,0 +1,43 @@
+{
+  "id": "code",
+  "package": "@activepieces/piece-code",
+  "version": "0.4.0",
+  "category": "A_essential",
+  "auth": {
+    "required": false
+  },
+  "actions": {
+    "run_code": {
+      "displayName": "Run Code",
+      "description": "Execute custom code",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "EXECUTION_TIMEOUT",
+      "cause": "Code took more than 30 seconds",
+      "auto_fix": "Simplify logic or split into multiple steps",
+      "severity": "medium"
+    },
+    {
+      "code": "RUNTIME_ERROR",
+      "cause": "JavaScript error in code",
+      "auto_fix": "Add try-catch wrapper",
+      "severity": "medium"
+    },
+    {
+      "code": "MEMORY_LIMIT",
+      "cause": "Code uses too much memory",
+      "auto_fix": "Reduce data size, process in chunks",
+      "severity": "high"
+    }
+  ],
+  "limits": {
+    "timeout_seconds": 30,
+    "max_memory_mb": 128
+  },
+  "notes": "Used for data transformation. Keep code simple. Common uses: phone formatting, date conversion, text manipulation.",
+  "displayName": "Code"
+}

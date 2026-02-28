@@ -1,0 +1,62 @@
+{
+  "id": "roe-ai",
+  "displayName": "Roe AI",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "runAgent": {
+      "displayName": "Run Agent",
+      "description": "Execute an agent with provided inputs and return results immediately",
+      "props": [
+        {
+          "name": "agent_input",
+          "displayName": "Agent Input",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Dynamic input fields based on agent configuration. Can include text or file inputs."
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional metadata as JSON object"
+        }
+      ]
+    },
+    "runQuery": {
+      "displayName": "Run Query",
+      "description": "Execute a query synchronously and return results",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "SQL Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "SQL query to execute"
+        },
+        {
+          "name": "worksheet_id",
+          "displayName": "Worksheet ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional worksheet ID"
+        },
+        {
+          "name": "use_admin",
+          "displayName": "Use Admin Privileges",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use admin privileges for the query"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

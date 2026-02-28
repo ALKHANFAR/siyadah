@@ -1,0 +1,396 @@
+{
+  "id": "quaderno",
+  "displayName": "Quaderno",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createContact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact in Quaderno (customer or vendor)",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact's first name (required for person contacts)"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's last name (optional)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's email address"
+        },
+        {
+          "name": "fullName",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's full name"
+        },
+        {
+          "name": "kind",
+          "displayName": "Kind",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of contact"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "2-letter ISO country code (e.g., US, GB)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City/District/Suburb/Town/Village"
+        },
+        {
+          "name": "postalCode",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP or postal code"
+        },
+        {
+          "name": "region",
+          "displayName": "Region/State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State/Province/Region"
+        },
+        {
+          "name": "streetLine1",
+          "displayName": "Street Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address or PO Box"
+        },
+        {
+          "name": "streetLine2",
+          "displayName": "Street Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Apartment/Suite/Unit/Building"
+        },
+        {
+          "name": "taxId",
+          "displayName": "Tax ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tax identification number (VAT, ABN, etc.)"
+        },
+        {
+          "name": "taxStatus",
+          "displayName": "Tax Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Tax status of the contact"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "2-letter ISO language code (e.g., EN, FR, ES)"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's phone number"
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's website URL"
+        },
+        {
+          "name": "discount",
+          "displayName": "Discount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default discount for this contact (as a percentage)"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal notes about the contact"
+        },
+        {
+          "name": "processorId",
+          "displayName": "Processor ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID assigned by an external payment processor (e.g., Stripe customer ID)"
+        },
+        {
+          "name": "processor",
+          "displayName": "Processor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The external platform where the contact was imported from (e.g., stripe)"
+        }
+      ]
+    },
+    "createExpense": {
+      "displayName": "Create Expense",
+      "description": "Create a new expense in Quaderno",
+      "props": [
+        {
+          "name": "issueDate",
+          "displayName": "Issue Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Date when the expense was issued (YYYY-MM-DD)"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "3-letter ISO currency code (USD, EUR, GBP, etc.)"
+        },
+        {
+          "name": "contactFirstName",
+          "displayName": "Vendor First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The vendor's first name"
+        },
+        {
+          "name": "contactLastName",
+          "displayName": "Vendor Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The vendor's last name (optional for person contacts)"
+        },
+        {
+          "name": "contactEmail",
+          "displayName": "Vendor Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The vendor's email address"
+        },
+        {
+          "name": "contactCountry",
+          "displayName": "Vendor Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "2-letter ISO country code (e.g., US, GB)"
+        },
+        {
+          "name": "itemDescription",
+          "displayName": "Item Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Description of the expense item"
+        },
+        {
+          "name": "itemQuantity",
+          "displayName": "Item Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Quantity of the expense item"
+        },
+        {
+          "name": "itemUnitCost",
+          "displayName": "Item Unit Cost",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unit cost of the expense item"
+        },
+        {
+          "name": "paymentMethod",
+          "displayName": "Payment Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How the expense was paid"
+        },
+        {
+          "name": "country",
+          "displayName": "Expense Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "2-letter ISO country code for the expense location"
+        },
+        {
+          "name": "poNumber",
+          "displayName": "Purchase Order Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Purchase order number (optional)"
+        },
+        {
+          "name": "tagList",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tags for the expense, separated by commas"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the expense"
+        }
+      ]
+    },
+    "createInvoice": {
+      "displayName": "Create Invoice",
+      "description": "Create a new invoice in Quaderno",
+      "props": [
+        {
+          "name": "issueDate",
+          "displayName": "Issue Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Date when the invoice was issued (YYYY-MM-DD)"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "3-letter ISO currency code (USD, EUR, GBP, etc.)"
+        },
+        {
+          "name": "invoiceNumber",
+          "displayName": "Invoice Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A unique, sequential code that identifies the invoice"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date on which payment for this invoice is due (YYYY-MM-DD)"
+        },
+        {
+          "name": "customerFirstName",
+          "displayName": "Customer First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The customer's first name"
+        },
+        {
+          "name": "customerLastName",
+          "displayName": "Customer Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer's last name"
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer's email address"
+        },
+        {
+          "name": "customerCountry",
+          "displayName": "Customer Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "2-letter ISO country code (e.g., US, GB)"
+        },
+        {
+          "name": "itemDescription",
+          "displayName": "Item Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Description of the invoice line item"
+        },
+        {
+          "name": "itemQuantity",
+          "displayName": "Item Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Quantity of the invoice item"
+        },
+        {
+          "name": "itemUnitCost",
+          "displayName": "Item Unit Cost",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unit cost of the invoice item"
+        },
+        {
+          "name": "poNumber",
+          "displayName": "PO Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Purchase order number"
+        },
+        {
+          "name": "tagList",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tags attached to the invoice (comma-separated)"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Extra notes about the invoice"
+        }
+      ]
+    },
+    "findContact": {
+      "displayName": "Find Contact",
+      "description": "Search and list contacts from Quaderno",
+      "props": [
+        {
+          "name": "searchQuery",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search for contacts by name, email, or tax ID (optional)"
+        },
+        {
+          "name": "processorId",
+          "displayName": "Processor ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by processor ID (optional)"
+        },
+        {
+          "name": "limit",
+          "displayName": "Results Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (default: 25, max: 100)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

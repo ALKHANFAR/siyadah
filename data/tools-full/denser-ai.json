@@ -1,0 +1,44 @@
+{
+  "id": "denser-ai",
+  "displayName": "Denser.ai",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "processInputText": {
+      "displayName": "Process input text",
+      "description": "Input text processed by the chatbot",
+      "props": [
+        {
+          "name": "question",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question to be processed by the chatbot"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The prompt to be used by the chatbot e.g., \"Please provide your answer in the following format: ...\""
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The model to be used by the chatbot (e.g., gpt-3.5, gpt-4)"
+        },
+        {
+          "name": "citation",
+          "displayName": "Citations",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include citations in the response"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,80 @@
+{
+  "id": "assemblyai",
+  "package": "@activepieces/piece-assemblyai",
+  "display_name": "AssemblyAI",
+  "display_name_ar": "AssemblyAI",
+  "description": "Transcribe and extract data from audio using AssemblyAI's Speech AI.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "purgeLemurRequestData",
+      "display_name": "Purge LeMUR request data",
+      "description": "Delete the data for a previously submitted LeMUR request.\nThe LLM response data, as well as any context provided in the original request will be removed."
+    },
+    {
+      "name": "getLemurResponse",
+      "display_name": "Retrieve LeMUR response",
+      "description": "Retrieve a LeMUR response that was previously generated."
+    },
+    {
+      "name": "lemurTask",
+      "display_name": "Run a Task using LeMUR",
+      "description": "Use the LeMUR task endpoint to input your own LLM prompt."
+    },
+    {
+      "name": "getTranscript",
+      "display_name": "Get Transcript",
+      "description": "Retrieves a transcript by its ID."
+    },
+    {
+      "name": "getTranscriptSentences",
+      "display_name": "Get Transcript Sentences",
+      "description": "Retrieve the sentences of the transcript by its ID."
+    },
+    {
+      "name": "transcribe",
+      "display_name": "Transcribe",
+      "description": "Transcribe an audio or video file using AssemblyAI."
+    },
+    {
+      "name": "wordSearch",
+      "display_name": "Search words in transcript",
+      "description": "Search through the transcript for keywords. "
+    },
+    {
+      "name": "getTranscriptParagraphs",
+      "display_name": "Get Transcript Paragraphs",
+      "description": "Retrieve the paragraphs of the transcript by its ID."
+    },
+    {
+      "name": "deleteTranscript",
+      "display_name": "Delete transcript",
+      "description": "Remove the data from the transcript and mark it as deleted."
+    },
+    {
+      "name": "listTranscripts",
+      "display_name": "List transcripts",
+      "description": "Retrieve a list of transcripts you created.\nTranscripts are sorted from newest to oldest. The previous URL always points to a page with older transcripts."
+    },
+    {
+      "name": "getRedactedAudio",
+      "display_name": "Get Transcript Redacted Audio",
+      "description": "Get the result of the redacted audio model."
+    },
+    {
+      "name": "getSubtitles",
+      "display_name": "Get Transcript Subtitles",
+      "description": "Export the transcript as SRT or VTT subtitles."
+    },
+    {
+      "name": "uploadFile",
+      "display_name": "Upload File",
+      "description": "The File or URL of the audio or video file."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/assemblyai"
+}

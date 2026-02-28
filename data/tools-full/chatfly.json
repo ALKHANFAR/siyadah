@@ -1,0 +1,37 @@
+{
+  "id": "chatfly",
+  "displayName": "Chatfly",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "send_message": {
+      "displayName": "Send Message",
+      "description": "Send a message to ChatFly bot",
+      "props": [
+        {
+          "name": "bot_id",
+          "displayName": "Bot ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of your bot"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send"
+        },
+        {
+          "name": "session_id",
+          "displayName": "Session ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the session"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

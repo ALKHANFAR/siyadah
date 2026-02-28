@@ -1,0 +1,248 @@
+{
+  "id": "tableau",
+  "displayName": "Tableau",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "download_view": {
+      "displayName": "Download View",
+      "description": "Download a view from a workbook in the specified format",
+      "props": [
+        {
+          "name": "viewId",
+          "displayName": "View",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the view to download"
+        },
+        {
+          "name": "format",
+          "displayName": "Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The format to download the view in"
+        },
+        {
+          "name": "maxAge",
+          "displayName": "Max Age (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum age of cached data in minutes (default: 60)"
+        },
+        {
+          "name": "resolution",
+          "displayName": "Image Resolution",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Resolution for image format (high for maximum pixel density)"
+        },
+        {
+          "name": "vizWidth",
+          "displayName": "Visualization Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width of the rendered image/PDF in pixels"
+        },
+        {
+          "name": "vizHeight",
+          "displayName": "Visualization Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Height of the rendered image/PDF in pixels"
+        },
+        {
+          "name": "pageType",
+          "displayName": "Page Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Page size for PDF format"
+        },
+        {
+          "name": "orientation",
+          "displayName": "Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Page orientation for PDF format"
+        }
+      ]
+    },
+    "find_view": {
+      "displayName": "Find View",
+      "description": "Finds a view based on name (URL name)",
+      "props": [
+        {
+          "name": "viewName",
+          "displayName": "View Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL name of the view to find (e.g., Sheet1 from /views/workbook/Sheet1)"
+        }
+      ]
+    },
+    "find_workbook": {
+      "displayName": "Find Workbook",
+      "description": "Finds a workbook based on ID or content URL",
+      "props": [
+        {
+          "name": "searchType",
+          "displayName": "Search By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose whether to search by workbook ID or content URL"
+        },
+        {
+          "name": "workbookId",
+          "displayName": "Workbook ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the workbook to find"
+        },
+        {
+          "name": "contentUrl",
+          "displayName": "Content URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The content URL of the workbook to find (e.g., \"MyWorkbook\" from /workbooks/MyWorkbook)"
+        }
+      ]
+    },
+    "refresh_workbook": {
+      "displayName": "Refresh Workbook",
+      "description": "Refreshes the specified workbook immediately",
+      "props": [
+        {
+          "name": "workbookId",
+          "displayName": "Workbook",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the workbook to refresh"
+        }
+      ]
+    },
+    "run_extract_refresh_task": {
+      "displayName": "Run Extract Refresh Task",
+      "description": "Runs the specified extract refresh task and returns job information",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Extract Refresh Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the extract refresh task to run"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "datasource_event": {
+      "displayName": "Datasource Event",
+      "description": "Triggers when a datasource event occurs (created, updated, or deleted)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventType",
+          "displayName": "Event Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the datasource event to trigger on"
+        }
+      ]
+    },
+    "datasource_refresh_event": {
+      "displayName": "Datasource Refresh Event",
+      "description": "Triggers when a datasource refresh event occurs (started, succeeded, or failed)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventType",
+          "displayName": "Event Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the datasource refresh event to trigger on"
+        }
+      ]
+    },
+    "label_event": {
+      "displayName": "Label Event",
+      "description": "Triggers when a label event occurs (created, updated, or deleted)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventType",
+          "displayName": "Event Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the label event to trigger on"
+        }
+      ]
+    },
+    "list_extract_refresh_tasks": {
+      "displayName": "List Extract Refresh Tasks",
+      "description": "Lists extract refresh tasks for the site",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_job": {
+      "displayName": "New Job",
+      "description": "Triggers when a job matches the specified criteria",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "jobType",
+          "displayName": "Job Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by job type (optional)"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by job status (optional)"
+        }
+      ]
+    },
+    "user_deleted": {
+      "displayName": "User Deleted",
+      "description": "Triggers when a user is deleted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "view_deleted": {
+      "displayName": "View Deleted",
+      "description": "Triggers when a workbook view is deleted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "workbook_event": {
+      "displayName": "Workbook Event",
+      "description": "Triggers when a workbook event occurs (created, updated, or deleted)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventType",
+          "displayName": "Event Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the workbook event to trigger on"
+        }
+      ]
+    },
+    "workbook_refresh_event": {
+      "displayName": "Workbook Refresh Event",
+      "description": "Triggers when a workbook refresh event occurs (started, succeeded, or failed)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventType",
+          "displayName": "Event Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the workbook refresh event to trigger on"
+        }
+      ]
+    }
+  }
+}

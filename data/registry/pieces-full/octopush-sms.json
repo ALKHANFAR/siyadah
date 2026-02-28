@@ -1,0 +1,30 @@
+{
+  "id": "octopush-sms",
+  "package": "@activepieces/piece-octopush-sms",
+  "display_name": "Octopush SMS",
+  "display_name_ar": "",
+  "description": "Send bulk messaging for your promotions, order tracking, appointment reminders, voice messages, one-time passwords (OTP), 2-way chat sms and much more!",
+  "category": "C_communication",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addContact",
+      "display_name": "Add Contact",
+      "description": "Add one or more contacts to a contact list"
+    },
+    {
+      "name": "sendANewSms",
+      "display_name": "Send a New SMS",
+      "description": "Send an SMS message to one or more recipients"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

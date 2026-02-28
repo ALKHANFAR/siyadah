@@ -1,0 +1,612 @@
+{
+  "id": "pipedrive",
+  "displayName": "Pipedrive",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add-follower": {
+      "displayName": "Add Follower",
+      "description": "Adds a follower to a deal, person, organization or product.",
+      "props": [
+        {
+          "name": "entity",
+          "displayName": "Target Object",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of object to add the follower to."
+        },
+        {
+          "name": "entityId",
+          "displayName": "Target Object ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the object to add the follower to."
+        }
+      ]
+    },
+    "add-labels-to-person": {
+      "displayName": "Add Labels to Person",
+      "description": "Adds existing labels to an existing person.",
+      "props": []
+    },
+    "add-product-to-deal": {
+      "displayName": "Add Product to Deal",
+      "description": "Adds a product to a deal.",
+      "props": [
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "discount",
+          "displayName": "Discount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "discountType",
+          "displayName": "Discount Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "comments",
+          "displayName": "Comments",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "enableProduct",
+          "displayName": "Enable Product?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "taxMethod",
+          "displayName": "Tax Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "taxPercentage",
+          "displayName": "Tax Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "attach-file": {
+      "displayName": "Attach File",
+      "description": "Uploads a file and attaches it to a deal,person,organization,activity or product.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "activityId",
+          "displayName": "Activity ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-activity": {
+      "displayName": "Create Activity",
+      "description": "Creates a new activity.",
+      "props": [
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create-deal": {
+      "displayName": "Create Deal",
+      "description": "Creates a new deal.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create-lead": {
+      "displayName": "Create Lead",
+      "description": "Creates a new lead.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create-note": {
+      "displayName": "Create Note",
+      "description": "Creates a new note.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "pinnedToDeal",
+          "displayName": "Pin note to deal?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "pinnedToPerson",
+          "displayName": "Pin note to person?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "pinnedToOrganization",
+          "displayName": "Pin note to organization?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "pinnedToLead",
+          "displayName": "Pin note to lead?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-organization": {
+      "displayName": "Create Organization",
+      "description": "Creates a new organization.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create-person": {
+      "displayName": "Create Person",
+      "description": "Creates a new person.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-product": {
+      "displayName": "Create Product",
+      "description": "Creates a new product.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "code",
+          "displayName": "Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tax",
+          "displayName": "Tax percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "isActive",
+          "displayName": "Is Active ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please enter currency code (e.g., \"USD\", \"EUR\")."
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "cost",
+          "displayName": "Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "overheadCost",
+          "displayName": "Overhead Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find-activity": {
+      "displayName": "Find Activity",
+      "description": "Finds an activity by subject.",
+      "props": [
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "exactMatch",
+          "displayName": "Exact Match",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find-deal": {
+      "displayName": "Find Deal",
+      "description": "Finds a deal by any field.",
+      "props": []
+    },
+    "find-deals-associated-with-person": {
+      "displayName": "Find Deals Associated With Person",
+      "description": "Finds multiple deals related to a specific person.",
+      "props": []
+    },
+    "find-notes": {
+      "displayName": "Find Notes",
+      "description": "Finds notes by Deal, Lead, Person, or Organization ID.",
+      "props": [
+        {
+          "name": "objectType",
+          "displayName": "Search By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "objectId",
+          "displayName": "ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find-organization": {
+      "displayName": "Find Organization",
+      "description": "Finds an organization.",
+      "props": []
+    },
+    "find-person": {
+      "displayName": "Find Person",
+      "description": "Finds a person.",
+      "props": []
+    },
+    "find-product": {
+      "displayName": "Find Product",
+      "description": "Finds a product by name ",
+      "props": [
+        {
+          "name": "searchTerm",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find-products": {
+      "displayName": "Find Products",
+      "description": "Finds a product or products by name or product code.",
+      "props": [
+        {
+          "name": "field",
+          "displayName": "Field to search by",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fieldValue",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find-user": {
+      "displayName": "Find User",
+      "description": "Finds a user by name or email.",
+      "props": [
+        {
+          "name": "field",
+          "displayName": "Field to search by",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fieldValue",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-note": {
+      "displayName": "Retrieve a Note",
+      "description": "Finds a note by ID.",
+      "props": [
+        {
+          "name": "noteId",
+          "displayName": "Note ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-product": {
+      "displayName": "Retrieve a Product",
+      "description": "Finds a product by ID.",
+      "props": [
+        {
+          "name": "productId",
+          "displayName": "Product ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "update-activity": {
+      "displayName": "Update Activity",
+      "description": "Updates an existing activity.",
+      "props": [
+        {
+          "name": "activityId",
+          "displayName": "Activity ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update-deal": {
+      "displayName": "Update Deal",
+      "description": "Updates an existing deal.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update-lead": {
+      "displayName": "Update Lead",
+      "description": "Updates an existing lead.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update-organization": {
+      "displayName": "Update Organization",
+      "description": "Updates an existing organization.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update-person": {
+      "displayName": "Update Person",
+      "description": "Updates an existing person.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update-product": {
+      "displayName": "Update Product",
+      "description": "Updates an existing product.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "code",
+          "displayName": "Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tax",
+          "displayName": "Tax percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "isActive",
+          "displayName": "Is Active ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please enter currency code (e.g., \"USD\", \"EUR\")."
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "cost",
+          "displayName": "Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "overheadCost",
+          "displayName": "Overhead Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

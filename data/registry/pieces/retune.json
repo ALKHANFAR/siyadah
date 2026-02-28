@@ -1,0 +1,25 @@
+{
+  "id": "retune",
+  "package": "@activepieces/piece-retune",
+  "display_name": "re:tune",
+  "display_name_ar": "re:tune",
+  "description": "Everything you need to transform your business with AI, from custom chatbots to autonomous agents.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask_chatbot",
+      "display_name": "Ask Chatbot",
+      "description": "Sends a message to an existing thread with a chatbot."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/retune"
+}

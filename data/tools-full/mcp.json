@@ -1,0 +1,108 @@
+{
+  "id": "mcp",
+  "displayName": "MCP",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "reply_to_mcp_client": {
+      "displayName": "Reply to MCP Client",
+      "description": "Return a response to the MCP client that called the tool.",
+      "props": [
+        {
+          "name": "note",
+          "displayName": "note",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "displayName": "Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose Simple for key-value or Advanced for JSON."
+        },
+        {
+          "name": "response",
+          "displayName": "Response",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "respond",
+          "displayName": "Flow Execution",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "mcp_tool": {
+      "displayName": "MCP Tool",
+      "description": "Creates a tool that MCP clients can call to execute this flow",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "toolName",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Used to call this tool from MCP clients like Claude Desktop, Cursor, or Windsurf"
+        },
+        {
+          "name": "toolDescription",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Used to describe what this tool does and when to use it"
+        },
+        {
+          "name": "inputSchema",
+          "displayName": "Parameters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Define the input parameters that this tool accepts. Parameters will be shown to users when calling the tool."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "required",
+          "displayName": "Required",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "returnsResponse",
+          "displayName": "Wait for Response",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Keep the MCP client waiting until it receives a response via the Reply to MCP Client action"
+        }
+      ]
+    }
+  }
+}

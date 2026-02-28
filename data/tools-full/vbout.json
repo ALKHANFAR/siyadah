@@ -1,0 +1,279 @@
+{
+  "id": "vbout",
+  "displayName": "VBOUT",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "vbout_add_contact": {
+      "displayName": "Add Contact to List",
+      "description": "Adds a contact to a given email list.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ipaddress",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "vbout_add_tag": {
+      "displayName": "Add Tag to Contact",
+      "description": "Adds the tag to the contact.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "tagname",
+          "displayName": "Tag Name",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "vbout_add_email_marketing_campaign": {
+      "displayName": "Create Email Marketing Campaign",
+      "description": "Creates a new email campaign for specific list.",
+      "props": [
+        {
+          "name": "lists",
+          "displayName": "Campaign Recipients List",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Campaign Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "subject",
+          "displayName": "Campaign Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Campaign Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fromemail",
+          "displayName": "From Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "from_name",
+          "displayName": "From Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Message Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "vbout_create_email_list": {
+      "displayName": "Create Email List",
+      "description": "Creates a new email list.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the list."
+        },
+        {
+          "name": "email_subject",
+          "displayName": "Email Subject",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The default subscription subject."
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The Reply to email of the list."
+        },
+        {
+          "name": "fromemail",
+          "displayName": "From Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The From email of the list."
+        },
+        {
+          "name": "from_name",
+          "displayName": "From Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The From name of the list."
+        },
+        {
+          "name": "notify_email",
+          "displayName": "Notify Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Notification Email."
+        },
+        {
+          "name": "success_email",
+          "displayName": "Success Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subscription Success Email."
+        },
+        {
+          "name": "success_message",
+          "displayName": "Success Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subscription Success Message."
+        },
+        {
+          "name": "error_message",
+          "displayName": "Error Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subscription Error Message."
+        },
+        {
+          "name": "confirmation_email",
+          "displayName": "Confirmation Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Confirmation Email Message."
+        },
+        {
+          "name": "confirmation_message",
+          "displayName": "Confirmation Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "vbout_create_social_media_message": {
+      "displayName": "Create Social Media Message",
+      "description": "Post a message to one of your social media channel.",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "vbout_get_contact_by_email": {
+      "displayName": "Get Contact by Email",
+      "description": "Retrieves the contact by email.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "vbout_get_email_list": {
+      "displayName": "Get List Details with Custom Fields",
+      "description": "Retrieves specific list details with custom fields.",
+      "props": []
+    },
+    "vbout_remove_tag": {
+      "displayName": "Remove Tags from Contact",
+      "description": "Removes tags from an existing contact.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "tagname",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "use comma for multiple tag e.g. **tag1,tag2**."
+        }
+      ]
+    },
+    "vbout_unsubscribe_contact": {
+      "displayName": "Unsubscribe Contact",
+      "description": "Unsubscribes an existing contact in a given email list.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Contact Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Contact email for update."
+        }
+      ]
+    },
+    "vbout_update_contact": {
+      "displayName": "Update Contact",
+      "description": "Updates a contact in a given email list.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Contact Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Contact email for update."
+        },
+        {
+          "name": "ipaddress",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

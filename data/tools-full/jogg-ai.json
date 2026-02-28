@@ -1,0 +1,442 @@
+{
+  "id": "jogg-ai",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAiAvatarPhoto": {
+      "displayName": "Create AI Avatar Photo",
+      "description": "Creates an AI avatar photo using JoggAI API",
+      "props": [
+        {
+          "name": "age",
+          "displayName": "Age",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The age group for the avatar"
+        },
+        {
+          "name": "appearance",
+          "displayName": "Appearance",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the appearance"
+        },
+        {
+          "name": "aspect_ratio",
+          "displayName": "Aspect Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Photo aspect ratio"
+        },
+        {
+          "name": "avatar_style",
+          "displayName": "Avatar Style",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Style of the avatar"
+        },
+        {
+          "name": "background",
+          "displayName": "Background",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the background"
+        },
+        {
+          "name": "ethnicity",
+          "displayName": "Ethnicity",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The ethnicity for the avatar"
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The gender for the avatar"
+        },
+        {
+          "name": "image_url",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of an existing image to use as reference"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The AI model to use"
+        }
+      ]
+    },
+    "createAvatarVideo": {
+      "displayName": "Create Avatar Video",
+      "description": "Creates an avatar video using JoggAI API",
+      "props": [
+        {
+          "name": "screen_style",
+          "displayName": "Screen Style",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Background style"
+        },
+        {
+          "name": "avatar_id",
+          "displayName": "Avatar",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select an avatar to use"
+        },
+        {
+          "name": "avatar_type",
+          "displayName": "Avatar Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Source type of the avatar"
+        },
+        {
+          "name": "voice_id",
+          "displayName": "Voice",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a voice to use"
+        },
+        {
+          "name": "script",
+          "displayName": "Script",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Script content for the avatar to speak. Must provide either script or audio_url"
+        },
+        {
+          "name": "audio_url",
+          "displayName": "Audio URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL for audio. Must provide either script or audio_url"
+        },
+        {
+          "name": "aspect_ratio",
+          "displayName": "Aspect Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Aspect ratio of the output video"
+        },
+        {
+          "name": "caption",
+          "displayName": "Caption",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable subtitles"
+        },
+        {
+          "name": "video_name",
+          "displayName": "Video Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the generated video"
+        }
+      ]
+    },
+    "createProductFromProductInfo": {
+      "displayName": "Create Product from Product Info",
+      "description": "Creates a product from product information",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Product URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the product to crawl for information"
+        },
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the product"
+        },
+        {
+          "name": "description",
+          "displayName": "Product Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Product introduction and selling points"
+        },
+        {
+          "name": "target_audience",
+          "displayName": "Target Audience",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Target audience for the product"
+        },
+        {
+          "name": "media",
+          "displayName": "Media",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Media resources for the product"
+        },
+        {
+          "name": "type",
+          "displayName": "Media Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of media"
+        },
+        {
+          "name": "name",
+          "displayName": "Media Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name/filename of the media"
+        },
+        {
+          "name": "url",
+          "displayName": "Media URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL of the media file"
+        },
+        {
+          "name": "description",
+          "displayName": "Media Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the media"
+        }
+      ]
+    },
+    "createProductFromUrl": {
+      "displayName": "Create Product from URL",
+      "description": "Creates a product by crawling product information from a URL",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Product URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL of the product to crawl and extract information from"
+        }
+      ]
+    },
+    "createVideoFromTemplate": {
+      "displayName": "Create Video from Template",
+      "description": "Creates a new video from templates",
+      "props": [
+        {
+          "name": "template_type",
+          "displayName": "Template Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Template source type"
+        },
+        {
+          "name": "template_id",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a template to use"
+        },
+        {
+          "name": "lang",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Language for text-to-speech conversion"
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Variables to replace in the template"
+        },
+        {
+          "name": "type",
+          "displayName": "Variable Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of variable content"
+        },
+        {
+          "name": "name",
+          "displayName": "Variable Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the variable to replace (as defined in template)"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Content for text/script variables"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL for image/video variables"
+        },
+        {
+          "name": "avatar_type",
+          "displayName": "Avatar Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Source type of the avatar"
+        },
+        {
+          "name": "avatar_id",
+          "displayName": "Avatar",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select an avatar to use"
+        },
+        {
+          "name": "voice_id",
+          "displayName": "Voice ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Voice ID for text-to-speech (optional)"
+        },
+        {
+          "name": "caption",
+          "displayName": "Enable Captions",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to enable captions"
+        },
+        {
+          "name": "music_id",
+          "displayName": "Music ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Background music ID (optional)"
+        },
+        {
+          "name": "video_name",
+          "displayName": "Video Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the generated video (optional)"
+        }
+      ]
+    },
+    "getGeneratedVideo": {
+      "displayName": "Get Generated Video",
+      "description": "Get information about a specific generated video project using its ID",
+      "props": [
+        {
+          "name": "project_id",
+          "displayName": "Project ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the project to retrieve information for"
+        }
+      ]
+    },
+    "updateProductInfo": {
+      "displayName": "Update Product Info",
+      "description": "Updates existing product information using product ID",
+      "props": [
+        {
+          "name": "product_id",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Product ID obtained from product creation"
+        },
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Updated product name"
+        },
+        {
+          "name": "description",
+          "displayName": "Product Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Updated product description"
+        },
+        {
+          "name": "target_audience",
+          "displayName": "Target Audience",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Updated target audience for the product"
+        },
+        {
+          "name": "media",
+          "displayName": "Media",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Updated media resources for the product (replaces existing media)"
+        },
+        {
+          "name": "type",
+          "displayName": "Media Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of media"
+        },
+        {
+          "name": "name",
+          "displayName": "Media Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name/filename of the media"
+        },
+        {
+          "name": "url",
+          "displayName": "Media URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL of the media file"
+        },
+        {
+          "name": "description",
+          "displayName": "Media Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the media"
+        }
+      ]
+    },
+    "uploadMedia": {
+      "displayName": "Upload Media",
+      "description": "Generate a signed URL for file upload. Use the returned sign_url to upload your file with a PUT request.",
+      "props": [
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the file to upload with extension (e.g., \"image.jpg\", \"video.mp4\")"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "videoGeneratedSuccessfully": {
+      "displayName": "Video Generated Successfully",
+      "description": "Fires when a video is generated successfully",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "videoGenerationFailed": {
+      "displayName": "Video Generation Failed",
+      "description": "Fires when video generation fails",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

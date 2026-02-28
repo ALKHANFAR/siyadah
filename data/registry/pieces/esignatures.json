@@ -1,0 +1,50 @@
+{
+  "id": "esignatures",
+  "package": "@activepieces/piece-esignatures",
+  "display_name": "eSignatures",
+  "display_name_ar": "eSignatures",
+  "description": "eSignatures integration",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createContract",
+      "display_name": "Create Contract",
+      "description": "Create a new contract from a template in eSignatures"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "contractSentToASigner",
+      "display_name": "Contract Sent to a Signer",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "contractSigned",
+      "display_name": "Contract Signed",
+      "description": "Triggers when a contract is signed",
+      "type": "instant"
+    },
+    {
+      "name": "signatureReceived",
+      "display_name": "Signature Received",
+      "description": "Trigger when a singer has signed the contract",
+      "type": "instant"
+    },
+    {
+      "name": "signerDeclined",
+      "display_name": "Signer declined",
+      "description": "Trigger when a signer has declined to sign the contract",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/esignatures"
+}

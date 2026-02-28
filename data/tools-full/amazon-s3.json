@@ -1,0 +1,179 @@
+{
+  "id": "amazon-s3",
+  "displayName": "Amazon S3",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "decrypt-pgp-file": {
+      "displayName": "Decrypt PGP File",
+      "description": "Decrypt a PGP encrypted file from S3 using a private key stored in AWS Secrets Manager",
+      "props": [
+        {
+          "name": "key",
+          "displayName": "S3 File Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key (path) of the encrypted file in S3"
+        },
+        {
+          "name": "secretArn",
+          "displayName": "Secret ARN",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ARN of the secret in AWS Secrets Manager containing the PGP private key"
+        },
+        {
+          "name": "passphraseArn",
+          "displayName": "Passphrase ARN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional ARN of the secret in AWS Secrets Manager containing the passphrase for the private key (if the key is encrypted)"
+        },
+        {
+          "name": "secretsManagerRegion",
+          "displayName": "Secrets Manager Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The AWS region where the Secrets Manager secret is stored (defaults to S3 region if not provided)"
+        }
+      ]
+    },
+    "deleteFile": {
+      "displayName": "Delete File",
+      "description": "Deletes an existing file.",
+      "props": [
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key of the file to delete."
+        }
+      ]
+    },
+    "generate-signed-url": {
+      "displayName": "Generate signed URL",
+      "description": "Generate a signed URL for a file in a s3 bucket",
+      "props": [
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path/filename of the file to get"
+        },
+        {
+          "name": "expiresIn",
+          "displayName": "Expires In (minutes)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "How long the URL should remain valid (in minutes)."
+        }
+      ]
+    },
+    "list-files": {
+      "displayName": "List Files",
+      "description": "List all files from an S3 bucket folder/prefix.",
+      "props": [
+        {
+          "name": "prefix",
+          "displayName": "Folder path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The folder path to list files from (e.g., \"folder/\"). Leave empty to list from root."
+        },
+        {
+          "name": "maxKeys",
+          "displayName": "Maximum Files",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of files to return (1-1000)"
+        }
+      ]
+    },
+    "moveFile": {
+      "displayName": "Move File",
+      "description": "Move a File to Another Folder",
+      "props": [
+        {
+          "name": "fileKey",
+          "displayName": "File Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key of the file to move"
+        },
+        {
+          "name": "folderKey",
+          "displayName": "Folder Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key of the folder to move the file to"
+        }
+      ]
+    },
+    "read-file": {
+      "displayName": "Read File",
+      "description": "Read a file from S3 to use it in other steps",
+      "props": [
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key of the file to read"
+        }
+      ]
+    },
+    "upload-file": {
+      "displayName": "Upload File",
+      "description": "Upload an File to S3",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The File Name to use, if not set the API will try to figure out the file name."
+        },
+        {
+          "name": "acl",
+          "displayName": "ACL",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Content Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Content Type of the uploaded file, if not set the API will try to figure out the content type."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_file": {
+      "displayName": "New or Updated File",
+      "description": "Triggers when you add or update a file in your bucket. The bucket/folder you choose must not contain more than 10,000 files.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "folderPath",
+          "displayName": "Folder Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "bubble",
+  "package": "@activepieces/piece-bubble",
+  "display_name": "Bubble",
+  "display_name_ar": "",
+  "description": "No-code platform for web and mobile apps",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "bubble_create_thing",
+      "display_name": "Create Thing",
+      "description": "Create a thing"
+    },
+    {
+      "name": "bubble_delete_thing",
+      "display_name": "Delete Thing",
+      "description": "Delete a thing"
+    },
+    {
+      "name": "bubble_get_thing",
+      "display_name": "Get Thing",
+      "description": "Get a thing by id"
+    },
+    {
+      "name": "bubble_list_things",
+      "display_name": "List Thing",
+      "description": "List things by type"
+    },
+    {
+      "name": "bubble_update_thing",
+      "display_name": "Update Thing",
+      "description": "Updates a thing"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "matrix",
+  "package": "@activepieces/piece-matrix",
+  "display_name": "Home Server",
+  "display_name_ar": "",
+  "description": "Open standard for interoperable, decentralized, real-time communication",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "send_message",
+      "display_name": "Send Message",
+      "description": "Send a message to a room"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

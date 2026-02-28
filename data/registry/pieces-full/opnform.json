@@ -1,0 +1,27 @@
+{
+  "id": "opnform",
+  "package": "@activepieces/piece-opnform",
+  "display_name": "Opnform",
+  "display_name_ar": "",
+  "description": "Create beautiful online forms and surveys with unlimited fields and submissions",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_submission",
+      "display_name": "New Submission",
+      "description": "Triggers when Opnform receives a new submission.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

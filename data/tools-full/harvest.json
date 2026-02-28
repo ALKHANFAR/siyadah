@@ -1,0 +1,495 @@
+{
+  "id": "harvest",
+  "displayName": "Harvest",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "get_clients": {
+      "displayName": "Get Clients",
+      "description": "Fetches Clients",
+      "props": [
+        {
+          "name": "is_active",
+          "displayName": "Is Active",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass `true` to only return active clients and `false` to return inactive clients."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return clients that have been updated since the given date and time."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "DEPRECATED: The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_estimates": {
+      "displayName": "Get Estimates",
+      "description": "Fetches Estimates",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return estimates with an issue_date on or after the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return estimates with an issue_date on or before the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return estimates with a state matching the value provided. Options: draft, open, accepted, or declined."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return estimates that have been updated since the given date and time."
+        },
+        {
+          "name": "client_id",
+          "displayName": "Client Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return estimates belonging to the client with the given ID."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_expenses": {
+      "displayName": "Get Expenses",
+      "description": "Fetches expenses",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return expenses with an spent_date on or after the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return expenses with an spent_date on or before the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return expenses belonging to the user with the given ID."
+        },
+        {
+          "name": "client_id",
+          "displayName": "Client Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return expenses belonging to the client with the given ID."
+        },
+        {
+          "name": "project_id",
+          "displayName": "Project Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return expenses belonging to the project with the given ID."
+        },
+        {
+          "name": "is_billed",
+          "displayName": "Is Billed",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass `true` to only return expenses that have been invoiced and `false` to return expenses that have not been invoiced."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return expenses that have been updated since the given date and time."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_invoices": {
+      "displayName": "Get Invoices",
+      "description": "Fetches invoices",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return invoices with an issue_date on or after the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return invoices with an issue_date on or before the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return invoices with a state matching the value provided. Options: draft, open, paid, or closed."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return invoices that have been updated since the given date and time."
+        },
+        {
+          "name": "client_id",
+          "displayName": "Client Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return invoices belonging to the client with the given ID."
+        },
+        {
+          "name": "project_id",
+          "displayName": "Project Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return invoices belonging to the project with the given ID."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_projects": {
+      "displayName": "Get Projects",
+      "description": "Fetches projects",
+      "props": [
+        {
+          "name": "is_active",
+          "displayName": "Is Active",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass `true` to only return active projects and `false` to return inactive projects."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return projects that have been updated since the given date and time."
+        },
+        {
+          "name": "client_id",
+          "displayName": "Client Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return invoices belonging to the client with the given ID."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "DEPRECATED: The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_roles": {
+      "displayName": "Get Roles",
+      "description": "Fetches Roles",
+      "props": [
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "DEPRECATED: The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_tasks": {
+      "displayName": "Get Tasks",
+      "description": "Fetches Tasks",
+      "props": [
+        {
+          "name": "is_active",
+          "displayName": "Is Active",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass `true` to only return active tasks and `false` to return inactive tasks."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return tasks that have been updated since the given date and time."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "DEPRECATED: The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_time_entries": {
+      "displayName": "Get Time Entries",
+      "description": "Fetches Time Entries",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries with an spent_date on or after the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries with an spent_date on or before the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries belonging to the user with the given ID."
+        },
+        {
+          "name": "client_id",
+          "displayName": "Client Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries belonging to the client with the given ID."
+        },
+        {
+          "name": "project_id",
+          "displayName": "Project Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries belonging to the project with the given ID."
+        },
+        {
+          "name": "task_id",
+          "displayName": "Task Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries belonging to the task with the given ID."
+        },
+        {
+          "name": "external_reference_id",
+          "displayName": "External Reference Id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries with the given external reference ID."
+        },
+        {
+          "name": "is_billed",
+          "displayName": "Is Billed",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass `true` to only return time entries that have been invoiced and `false` to return time entries that have not been invoiced."
+        },
+        {
+          "name": "is_running",
+          "displayName": "Is Running",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass `true` to only return running time entries and `false` to return non-running time entries."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return time entries that have been updated since the given date and time."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "get_users": {
+      "displayName": "Get Users",
+      "description": "Fetches Users",
+      "props": [
+        {
+          "name": "is_active",
+          "displayName": "Is Active",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pass `true` to only return active users and `false` to return inactive users."
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated since",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Only return users that have been updated since the given date and time."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "DEPRECATED: The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "reports-uninvoiced": {
+      "displayName": "Uninvoiced Report",
+      "description": "Uninvoiced hours and expenses for all billable projects",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Only report on time entries and expenses with a spent_date on or after the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Only report on time entries and expenses with a spent_date on or before the given date. (YYYY-MM-DD)"
+        },
+        {
+          "name": "include_fixed_fee",
+          "displayName": "Include Fixed Fee",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Whether or not to include fixed-fee projects in the response. (Default: true)"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The page number to use in pagination."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Records per page",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The number of records to return per page. (1-2000)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

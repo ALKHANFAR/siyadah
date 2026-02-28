@@ -1,0 +1,74 @@
+{
+  "id": "gender-api",
+  "displayName": "Gender API",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "getGenderByFirstName": {
+      "displayName": "Get Gender by First Name",
+      "description": "Predict the gender of a person based on their first name",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The first name to query"
+        },
+        {
+          "name": "country_code",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code to improve accuracy (e.g., \"US\", \"DE\")"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Browser locale for localization (e.g., \"en-US\", \"de-DE\")"
+        }
+      ]
+    },
+    "getGenderByFullName": {
+      "displayName": "Get Gender by Full Name",
+      "description": "Predict the gender of a person based on their full name",
+      "props": [
+        {
+          "name": "full_name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The full name (first and last name) to query"
+        },
+        {
+          "name": "country_code",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 3166-1 alpha-2 country code to improve accuracy (e.g., \"US\", \"DE\")"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Browser locale for localization (e.g., \"en-US\", \"de-DE\")"
+        }
+      ]
+    },
+    "getStatistics": {
+      "displayName": "Get Statistics",
+      "description": "Get account statistics including remaining credits and usage information",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,75 @@
+{
+  "id": "attio",
+  "package": "@activepieces/piece-attio",
+  "display_name": "Attio",
+  "display_name_ar": "Attio",
+  "description": "Modern, collaborative CRM platform built to be fully customizable and real-time.",
+  "category": "E_crm",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_entry",
+      "display_name": "Create List Entry",
+      "description": "Add a record to a specified list."
+    },
+    {
+      "name": "create_record",
+      "display_name": "Create Record",
+      "description": "Creates a new record such as peron,company or deal."
+    },
+    {
+      "name": "find_list_entry",
+      "display_name": "Find List Entry",
+      "description": "Search for entries in a specific list in Attio using filters and return matching results."
+    },
+    {
+      "name": "find_record",
+      "display_name": "Find Record",
+      "description": "Search for records in Attio using filters and return matching results."
+    },
+    {
+      "name": "update_entry",
+      "display_name": "Update List Entry",
+      "description": "Update the attributes of an existing entry in a list."
+    },
+    {
+      "name": "update_record",
+      "display_name": "Update Record",
+      "description": "Update an existing record with new attribute values."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "list_entry_created",
+      "display_name": "List Entry Created",
+      "description": "Triggers when a new entry is added.",
+      "type": "instant"
+    },
+    {
+      "name": "list_entry_updated",
+      "display_name": "List Entry Updated",
+      "description": "Triggers when an existing entry is updated.",
+      "type": "instant"
+    },
+    {
+      "name": "record_created",
+      "display_name": "Record Created",
+      "description": "Triggers when a new record such as person,company or deal is created.",
+      "type": "instant"
+    },
+    {
+      "name": "record_updated",
+      "display_name": "Record Updated",
+      "description": "Triggers when an existing record is updated (people, companies, deals, etc.).",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/attio"
+}

@@ -1,0 +1,98 @@
+{
+  "id": "heartbeat",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "heartbeat_create_user": {
+      "displayName": "Create User",
+      "description": "Create a new user in a Heartbeat community",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's full name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user's email. Must be unique to the community"
+        },
+        {
+          "name": "role_id",
+          "displayName": "Roles",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The role the user should have"
+        },
+        {
+          "name": "group_ids",
+          "displayName": "Groups",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "A list of the ids of the groups that the user should belong to."
+        },
+        {
+          "name": "profile_picture",
+          "displayName": "Profile Picture",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A Data URI scheme in the JPG, GIF, or PNG format. Ensure you use the proper content type (image/jpeg, image/png, image/gif) that matches the image data being provided"
+        },
+        {
+          "name": "bio",
+          "displayName": "Bio",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's bio"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user's status"
+        },
+        {
+          "name": "linkedin",
+          "displayName": "LinkedIn",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A link to the user's LinkedIn profile"
+        },
+        {
+          "name": "twitter",
+          "displayName": "Twitter",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A link to the user's Twitter profile"
+        },
+        {
+          "name": "instagram",
+          "displayName": "Instagram",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A link to the user's Instagram profile"
+        },
+        {
+          "name": "create_introduction_thread",
+          "displayName": "Create introduction thread",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true and a value for bio is provided, an introduction thread for the user will be created in the channel designated for introductions in your community settings."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

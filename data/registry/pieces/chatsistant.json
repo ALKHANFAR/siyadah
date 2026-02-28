@@ -1,0 +1,32 @@
+{
+  "id": "chatsistant",
+  "package": "@activepieces/piece-chatsistant",
+  "display_name": "Chatsistant",
+  "display_name_ar": "Chatsistant",
+  "description": "Chatsistant integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "sendMessage",
+      "display_name": "Send Message",
+      "description": "Send a message to a chatbot session"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "formSubmission",
+      "display_name": "form submission",
+      "description": "Triggered when a form is submitted",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/chatsistant"
+}

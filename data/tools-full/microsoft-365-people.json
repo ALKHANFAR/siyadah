@@ -1,0 +1,60 @@
+{
+  "id": "microsoft-365-people",
+  "displayName": "Microsoft 365 People",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "createContactFolder": {
+      "displayName": "Create a Contact Folder",
+      "description": "Organize contacts by adding a new contact folder.",
+      "props": []
+    },
+    "createContact": {
+      "displayName": "Create a Contact",
+      "description": "Create a new contact in People with detailed attributes (email, phone, address, etc.).",
+      "props": []
+    },
+    "deleteContact": {
+      "displayName": "Delete a Contact",
+      "description": "Permanently remove a contact.",
+      "props": []
+    },
+    "getContactFolder": {
+      "displayName": "Get a Contact Folder",
+      "description": "Retrieve metadata (name, ID) of a specified contact folder.",
+      "props": []
+    },
+    "searchContacts": {
+      "displayName": "Search Contacts",
+      "description": "Find contacts by name, email, or other properties.",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Find contacts by name, email, or other properties."
+        }
+      ]
+    },
+    "updateContact": {
+      "displayName": "Update a Contact",
+      "description": "Modify fields of an existing contact.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newOrUpdatedContact": {
+      "displayName": "New or Updated Contact",
+      "description": "Triggers when a contact is created or updated in Microsoft 365 People.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

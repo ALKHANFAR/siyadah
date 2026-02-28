@@ -1,0 +1,68 @@
+{
+  "id": "acuity-scheduling",
+  "package": "@activepieces/piece-acuity-scheduling",
+  "display_name": "Acuity Scheduling",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_blocked_time",
+      "display_name": "Add Blocked Off Time",
+      "description": "Block off a specific time range on a calendar."
+    },
+    {
+      "name": "create_appointment",
+      "display_name": "Create Appointment",
+      "description": "Creates a new appointment."
+    },
+    {
+      "name": "create_client",
+      "display_name": "Create Client",
+      "description": "Creates a new client."
+    },
+    {
+      "name": "find_appointment",
+      "display_name": "Find Appointment(s)",
+      "description": "Find appointments based on various criteria, including client information."
+    },
+    {
+      "name": "find_client",
+      "display_name": "Find Client",
+      "description": "Finds client based on seach term."
+    },
+    {
+      "name": "reschedule_appointment",
+      "display_name": "Reschedule Appointment",
+      "description": "Reschedules an existing appointment to a new date/time."
+    },
+    {
+      "name": "update_client",
+      "display_name": "Update Client",
+      "description": "Updates an existing client."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "appointment_canceled",
+      "display_name": "Appointment Canceled",
+      "description": "Triggers when an appointment is canceled.",
+      "type": "instant"
+    },
+    {
+      "name": "new_appointment",
+      "display_name": "New Appointment",
+      "description": "Triggers when a new appointment is scheduled.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

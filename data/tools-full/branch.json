@@ -1,0 +1,15 @@
+{
+  "id": "branch",
+  "displayName": "Branch",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "branch": {
+      "displayName": "Branch",
+      "description": "Branch based on conditions",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

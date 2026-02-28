@@ -1,0 +1,20 @@
+{
+  "id": "pushover",
+  "package": "@activepieces/piece-pushover",
+  "display_name": "Api Token",
+  "display_name_ar": "Api Token",
+  "description": "Pushover Api Token",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "send_notification",
+      "display_name": "Send Notification",
+      "description": "Send a notification to Pushover"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pushover"
+}

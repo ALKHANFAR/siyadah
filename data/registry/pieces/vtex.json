@@ -1,0 +1,100 @@
+{
+  "id": "vtex",
+  "package": "@activepieces/piece-vtex",
+  "display_name": "Host Url",
+  "display_name_ar": "Host Url",
+  "description": "{accountName}.{environment}.com",
+  "category": "F_ecommerce",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "Update-product",
+      "display_name": "Update a Product",
+      "description": "Update a product in your catalog"
+    },
+    {
+      "name": "get-product-by-id",
+      "display_name": "Get Product By ID",
+      "description": "The product ID"
+    },
+    {
+      "name": "create-product",
+      "display_name": "Create New Product",
+      "description": "Create a new product in your catalog"
+    },
+    {
+      "name": "create-sku-file",
+      "display_name": "Create New Sku File",
+      "description": "Create a new SKU File to your catalog"
+    },
+    {
+      "name": "create-sku",
+      "display_name": "Create New Sku",
+      "description": "Create a new SKU to your catalog"
+    },
+    {
+      "name": "get-sku-by-product-id",
+      "display_name": "Get SKU By Product ID",
+      "description": "Find a Sku in your catalog by a Product id"
+    },
+    {
+      "name": "get-client-by-id",
+      "display_name": "Get Client By ID",
+      "description": "Find a Client by Id"
+    },
+    {
+      "name": "get-client-list",
+      "display_name": "Get Client List",
+      "description": "Find all Clients"
+    },
+    {
+      "name": "create-brand",
+      "display_name": "Create new Brand",
+      "description": "Create a new Brand to your catalog"
+    },
+    {
+      "name": "update-brand",
+      "display_name": "Update Brand",
+      "description": "Update a Brand in your catalog"
+    },
+    {
+      "name": "get-brand-by-id",
+      "display_name": "Get Brand By ID",
+      "description": "The Brand ID"
+    },
+    {
+      "name": "delete-brand",
+      "display_name": "Delete Brand",
+      "description": "The Brand ID"
+    },
+    {
+      "name": "get-brand-list",
+      "display_name": "Get Brand List",
+      "description": "Find all Brands in your catalog"
+    },
+    {
+      "name": "get-order-list",
+      "display_name": "Get Orders List",
+      "description": "Find Orders"
+    },
+    {
+      "name": "get-order-by-id",
+      "display_name": "Get Order By ID",
+      "description": "Find a Order by Id"
+    },
+    {
+      "name": "get-category-by-id",
+      "display_name": "Get Category",
+      "description": "The Category ID"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/vtex"
+}

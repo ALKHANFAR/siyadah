@@ -1,0 +1,32 @@
+{
+  "id": "zoho-crm",
+  "package": "@activepieces/piece-zoho-crm",
+  "display_name": "Zoho CRM",
+  "display_name_ar": "",
+  "description": "Customer relationship management software",
+  "category": "E_crm",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "read-file",
+      "display_name": "Read file",
+      "description": "Download a file content from Zoho CRM. e.g.: a Backup File"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Triggers when a new contact is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "smsmode",
+  "displayName": "smsmode",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "sendMessage": {
+      "displayName": "Send Message",
+      "description": "Send an SMS message to a recipient",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to send the message to (e.g., 33600000001)"
+        },
+        {
+          "name": "text",
+          "displayName": "Message Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the SMS message"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

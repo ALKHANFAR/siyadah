@@ -1,0 +1,95 @@
+{
+  "id": "microsoft-todo",
+  "package": "@activepieces/piece-microsoft-todo",
+  "display_name": "Microsoft To Do",
+  "display_name_ar": "Microsoft To Do",
+  "description": "Cloud based task management application.",
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_attachment",
+      "display_name": "Add an Attachment",
+      "description": "Adds an attachment to a task."
+    },
+    {
+      "name": "complete_task",
+      "display_name": "Complete Task",
+      "description": "Marks a task as completed."
+    },
+    {
+      "name": "create_task_list",
+      "display_name": "Create Task List",
+      "description": "Create a new task list."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Creates a new task."
+    },
+    {
+      "name": "delete_task",
+      "display_name": "Delete Task",
+      "description": "Deletes an existing task."
+    },
+    {
+      "name": "find_task_by_title",
+      "display_name": "Find Task",
+      "description": "Finds tasks by title."
+    },
+    {
+      "name": "find_task_list_by_name",
+      "display_name": "Find Task List",
+      "description": "Finds a task list by its name."
+    },
+    {
+      "name": "get_task",
+      "display_name": "Get Task",
+      "description": "Gets the details of a specific task."
+    },
+    {
+      "name": "update_task_list",
+      "display_name": "Update Task List",
+      "description": "Updates an existing task list."
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Update an existing task."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_list_created",
+      "display_name": "New List",
+      "description": "Triggers when a new task list is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_task_created",
+      "display_name": "New Task",
+      "description": "Triggers when a new task is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "task_completed",
+      "display_name": "Task Completed",
+      "description": "Triggers when a task is completed in a specific list.",
+      "type": "instant"
+    },
+    {
+      "name": "new_or_updated_task",
+      "display_name": "New or Updated Task",
+      "description": "Triggers when a new task is created or an existing task is updated.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/microsoft-todo"
+}

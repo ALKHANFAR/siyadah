@@ -1,0 +1,53 @@
+{
+  "id": "formstack",
+  "package": "@activepieces/piece-formstack",
+  "display_name": "Formstack",
+  "display_name_ar": "Formstack",
+  "description": "Formstack integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createSubmission",
+      "display_name": "Create Submission",
+      "description": "Submit data to a Formstack form"
+    },
+    {
+      "name": "findFormByNameOrId",
+      "display_name": "Find Form by Name or ID",
+      "description": "Find a form by name or ID"
+    },
+    {
+      "name": "findSubmissionByFieldValue",
+      "display_name": "Find Submission by Field Value",
+      "description": "Search submissions by field values"
+    },
+    {
+      "name": "getSubmissionDetails",
+      "display_name": "Get Submission Details",
+      "description": "Get details of a form submission"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newForm",
+      "display_name": "New Form",
+      "description": "Triggers when a new form is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "newSubmission",
+      "display_name": "New Submission",
+      "description": "Triggers when a form receives a new submission",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/formstack"
+}

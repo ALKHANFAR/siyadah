@@ -1,0 +1,171 @@
+{
+  "id": "systeme-io",
+  "displayName": "Systeme.io",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addTagToContact": {
+      "displayName": "Add Tag to Contact",
+      "description": "Assign a tag to an existing contact - select an existing tag or create a new one",
+      "props": [
+        {
+          "name": "tagSource",
+          "displayName": "Tag Source",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose whether to use an existing tag or create a new one"
+        },
+        {
+          "name": "existingTagId",
+          "displayName": "Existing Tag",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select an existing tag"
+        },
+        {
+          "name": "newTagName",
+          "displayName": "New Tag Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the name for the new tag (only used when \"Create New Tag\" is selected)"
+        }
+      ]
+    },
+    "createContact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact with email and contact fields from your Systeme.io account, with optional tags",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Contact email address"
+        },
+        {
+          "name": "locale",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Contact preferred language"
+        },
+        {
+          "name": "dynamicContactFields",
+          "displayName": "Contact Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Set contact fields from your Systeme.io account"
+        },
+        {
+          "name": "tagSource",
+          "displayName": "Tag Source",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose how to handle tags for this contact"
+        },
+        {
+          "name": "existingTags",
+          "displayName": "Existing Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select existing tags to assign"
+        },
+        {
+          "name": "newTagNames",
+          "displayName": "New Tag Names",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Enter names for new tags to create and assign (only used when \"Create New Tags\" is selected)"
+        },
+        {
+          "name": "name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the tag name"
+        }
+      ]
+    },
+    "findContactByEmail": {
+      "displayName": "Find Contact by Email",
+      "description": "Locate an existing contact by email address",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address to search for"
+        }
+      ]
+    },
+    "removeTagFromContact": {
+      "displayName": "Remove Tag from Contact",
+      "description": "Remove a tag that is currently assigned to an existing contact",
+      "props": [
+        {
+          "name": "tagId",
+          "displayName": "Tag to Remove",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a tag currently assigned to this contact"
+        }
+      ]
+    },
+    "updateContact": {
+      "displayName": "Update Contact",
+      "description": "Update fields (name, phone, custom fields) of an existing contact using fields from your Systeme.io account",
+      "props": [
+        {
+          "name": "dynamicContactFields",
+          "displayName": "Contact Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select which contact fields to update"
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields (Manual Entry)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add or update custom fields with manual slug entry (use empty value to clear field)"
+        },
+        {
+          "name": "fieldSlug",
+          "displayName": "Field Slug",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier for this field (e.g., custom_field_1, my_field)"
+        },
+        {
+          "name": "fieldValue",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The value for this field (leave empty to clear the field)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newContact": {
+      "displayName": "New Contact",
+      "description": "Fires when a new contact is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newSale": {
+      "displayName": "New Sale",
+      "description": "Fires when a new purchase is made within a funnel",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newTagAddedToContact": {
+      "displayName": "New Tag Added to Contact",
+      "description": "Fires when a specific tag is assigned to a contact",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

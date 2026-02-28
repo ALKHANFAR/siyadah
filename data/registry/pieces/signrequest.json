@@ -1,0 +1,44 @@
+{
+  "id": "signrequest",
+  "package": "@activepieces/piece-signrequest",
+  "display_name": "Signrequest",
+  "display_name_ar": "Signrequest",
+  "description": "Signrequest integration",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "send_signrequest",
+      "display_name": "Send signrequest",
+      "description": "Create a SignRequest via the Signrequest API"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "signrequestDeclined",
+      "display_name": "signrequest declined",
+      "description": "Fires when a SignRequest is declined",
+      "type": "instant"
+    },
+    {
+      "name": "signrequestReceived",
+      "display_name": "signrequest received",
+      "description": "Triggers when a SignRequest is received",
+      "type": "instant"
+    },
+    {
+      "name": "signrequestSigned",
+      "display_name": "signrequest signed",
+      "description": "Triggers when a SignRequest signer is signed",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/signrequest"
+}

@@ -1,0 +1,510 @@
+{
+  "id": "microsoft-excel-365",
+  "displayName": "Microsoft Excel 365",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_worksheet": {
+      "displayName": "Add a Worksheet to a Workbook",
+      "description": "Add a worksheet to a workbook",
+      "props": [
+        {
+          "name": "worksheet_name",
+          "displayName": "Worksheet Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the new worksheet"
+        }
+      ]
+    },
+    "append_multiple_rows": {
+      "displayName": "Append Multiple Rows",
+      "description": "Appends multiple row of values to a worksheet.",
+      "props": [
+        {
+          "name": "values",
+          "displayName": "Values",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "filterMarkdown",
+          "displayName": "filterMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filterColumn",
+          "displayName": "Filter Column",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filterType",
+          "displayName": "Filter Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filterValue",
+          "displayName": "Filter Value",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "append_row": {
+      "displayName": "Append Row to Worksheet",
+      "description": "Append row of values to a worksheet",
+      "props": [
+        {
+          "name": "first_row_headers",
+          "displayName": "Does the first row contain headers?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "If the first row is headers"
+        }
+      ]
+    },
+    "append_table_rows": {
+      "displayName": "Append Rows to a Table",
+      "description": "Append rows to a table",
+      "props": []
+    },
+    "clear_range": {
+      "displayName": "Clear Cells by Range",
+      "description": "Clear a block of cells (range) content or formatting.",
+      "props": [
+        {
+          "name": "range",
+          "displayName": "Range",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The range of cells to clear, in A1 notation (e.g., \"A1:C5\")."
+        },
+        {
+          "name": "applyTo",
+          "displayName": "Clear Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Specify what to clear from the range."
+        }
+      ]
+    },
+    "clear_column": {
+      "displayName": "Clear Column by Index",
+      "description": "Clear contents/formatting of a column by its index.",
+      "props": [
+        {
+          "name": "column_index",
+          "displayName": "Column Index",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The 1-based index of the column to be cleared (e.g., 1 for column A, 2 for column B)."
+        },
+        {
+          "name": "applyTo",
+          "displayName": "Clear Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Specify what to clear from the column."
+        }
+      ]
+    },
+    "clear_row": {
+      "displayName": "Clear Row by ID",
+      "description": "Clear contents/formatting of an entire row by its ID.",
+      "props": [
+        {
+          "name": "row_id",
+          "displayName": "Row Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the row to be cleared (e.g., 5 for the 5th row)."
+        },
+        {
+          "name": "applyTo",
+          "displayName": "Clear Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Specify what to clear from the row."
+        }
+      ]
+    },
+    "clear_worksheet": {
+      "displayName": "Clear Worksheet",
+      "description": "Clear a worksheet",
+      "props": [
+        {
+          "name": "range",
+          "displayName": "Range",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The range in A1 notation (e.g., A2:B2) to clear in the worksheet, if not provided, clear the entire worksheet"
+        }
+      ]
+    },
+    "convert_to_range": {
+      "displayName": "Convert to Range",
+      "description": "Converts a table to a range",
+      "props": []
+    },
+    "create_table": {
+      "displayName": "Create Table",
+      "description": "Create a table in a worksheet",
+      "props": [
+        {
+          "name": "selectRange",
+          "displayName": "Select Range",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "How to select the range for the table"
+        },
+        {
+          "name": "range",
+          "displayName": "Range",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The range of cells in A1 notation (e.g., A2:B2) that will be converted to a table"
+        },
+        {
+          "name": "hasHeaders",
+          "displayName": "Has Headers",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Whether the range has column labels"
+        }
+      ]
+    },
+    "createWorkbook": {
+      "displayName": "Create Workbook",
+      "description": "Create a new workbook at the specified location",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the new workbook"
+        }
+      ]
+    },
+    "create_worksheet": {
+      "displayName": "Create Worksheet",
+      "description": "Add a new worksheet (tab) to an existing workbook with optional default headers.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Worksheet Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name for the new worksheet. If not provided, a default name like 'Sheet1' will be assigned."
+        },
+        {
+          "name": "headers",
+          "displayName": "Headers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Optional: A list of headers to add to the first row. A table will be created from these headers."
+        }
+      ]
+    },
+    "delete_table": {
+      "displayName": "Delete Table",
+      "description": "Delete a table from a worksheet",
+      "props": []
+    },
+    "delete_workbook": {
+      "displayName": "Delete Workbook",
+      "description": "Delete a workbook",
+      "props": []
+    },
+    "delete_worksheet": {
+      "displayName": "Delete Worksheet",
+      "description": "Delete a worksheet in a workbook",
+      "props": []
+    },
+    "find_row": {
+      "displayName": "Find Row",
+      "description": "Locate a row by specifying a lookup column and value (e.g. find a row where “ID” = 123).",
+      "props": [
+        {
+          "name": "lookup_column",
+          "displayName": "Lookup Column",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The column to search in."
+        },
+        {
+          "name": "lookup_value",
+          "displayName": "Lookup Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to find in the lookup column."
+        }
+      ]
+    },
+    "find-workbook": {
+      "displayName": "Find Workbook",
+      "description": "Finds an existing workbook by name.",
+      "props": [
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Excel File name to search for without extension."
+        }
+      ]
+    },
+    "find-worksheet": {
+      "displayName": "Find Worksheet",
+      "description": "Finds an existing worksheet by name.",
+      "props": [
+        {
+          "name": "sheetName",
+          "displayName": "Worksheet Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "exactMatch",
+          "displayName": "Exact Match",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, only return worksheets that exactly match the name. If false, return worksheets that contain the name."
+        }
+      ]
+    },
+    "get_range": {
+      "displayName": "Get Cells in Range",
+      "description": "Retrieve the values in a given cell range (e.g., “A1:C10”).",
+      "props": [
+        {
+          "name": "range",
+          "displayName": "Range",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The range of cells to retrieve, in A1 notation (e.g., \"A1:C10\")."
+        }
+      ]
+    },
+    "getRowById": {
+      "displayName": "Get Row by ID",
+      "description": "  Retrieve the entire content of a row by its row ID.",
+      "props": [
+        {
+          "name": "row_id",
+          "displayName": "Row ID (Index)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The zero-based index of the row to retrieve (e.g., 0 for the first row, 1 for the second)."
+        }
+      ]
+    },
+    "get_table_columns": {
+      "displayName": "Get Table Columns",
+      "description": "List columns of a table in a worksheet",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Limit the number of columns retrieved"
+        }
+      ]
+    },
+    "get_table_rows": {
+      "displayName": "Get Table Rows",
+      "description": "List rows of a table in a worksheet",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Limit the number of rows retrieved"
+        }
+      ]
+    },
+    "get_workbooks": {
+      "displayName": "Get Workbooks",
+      "description": "Retrieve a list of workbooks",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Limits the number of workbooks returned, returns all workbooks if empty"
+        }
+      ]
+    },
+    "get_worksheet": {
+      "displayName": "Get Worksheet by ID",
+      "description": "Retrieve metadata of a worksheet by its ID.",
+      "props": []
+    },
+    "get_worksheet_rows": {
+      "displayName": "Get Worksheet Rows",
+      "description": "Retrieve rows from a worksheet",
+      "props": [
+        {
+          "name": "range",
+          "displayName": "Range",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Range of the rows to retrieve (e.g., A2:B2)"
+        },
+        {
+          "name": "headerRow",
+          "displayName": "Header Row",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Row number of the header"
+        },
+        {
+          "name": "firstDataRow",
+          "displayName": "First Data Row",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Row number of the first data row"
+        },
+        {
+          "name": "useFilter",
+          "displayName": "Use Filters ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enables the column wise filter."
+        },
+        {
+          "name": "filterList",
+          "displayName": "Filter",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filterColumn",
+          "displayName": "Filter Column",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filterOperator",
+          "displayName": "Filter Operator",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filterValue",
+          "displayName": "Filter Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_worksheets": {
+      "displayName": "Get Worksheets",
+      "description": "Retrieve worksheets from a workbook",
+      "props": [
+        {
+          "name": "returnAll",
+          "displayName": "Return All",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If checked, all worksheets will be returned"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Limit the number of worksheets returned"
+        }
+      ]
+    },
+    "get-worksheet-columns": {
+      "displayName": "Get Worksheet Columns",
+      "description": "List columns of a worksheet.",
+      "props": []
+    },
+    "lookup_table_column": {
+      "displayName": "Lookup Table Column",
+      "description": "Lookup a value in a table column in a worksheet",
+      "props": [
+        {
+          "name": "lookup_column",
+          "displayName": "Lookup Column",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The column name to lookup the value in"
+        },
+        {
+          "name": "lookup_value",
+          "displayName": "Lookup Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to lookup"
+        },
+        {
+          "name": "return_all_matches",
+          "displayName": "Return All Matches",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If checked, all matching rows will be returned"
+        }
+      ]
+    },
+    "rename_worksheet": {
+      "displayName": "Rename Worksheet",
+      "description": "Change the name of an existing worksheet.",
+      "props": [
+        {
+          "name": "new_name",
+          "displayName": "New Worksheet Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "update_row": {
+      "displayName": "Update Worksheet Rows",
+      "description": "Update a row in a worksheet",
+      "props": [
+        {
+          "name": "row_number",
+          "displayName": "Row number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The row number to update"
+        },
+        {
+          "name": "first_row_headers",
+          "displayName": "Does the first row contain headers?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "If the first row is headers"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

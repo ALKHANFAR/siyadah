@@ -1,0 +1,256 @@
+{
+  "id": "ai",
+  "displayName": "AI",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "run_agent": {
+      "displayName": "Tool Type",
+      "description": "Handles complex, multi-step tasks by reasoning through problems, using tools accurately, and iterating until the job is done.",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "generateImage": {
+      "displayName": "Generate Image",
+      "description": "Create unique, high-quality images from simple text descriptions using AI.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "advancedOptions",
+          "displayName": "Advanced Options",
+          "type": "DynamicProperties",
+          "required": true
+        },
+        {
+          "name": "image",
+          "displayName": "Images",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "file",
+          "displayName": "Image File",
+          "type": "File",
+          "required": true
+        }
+      ]
+    },
+    "askAi": {
+      "displayName": "Ask AI",
+      "description": "A flexible AI step. ask it to analyze data, explain, draft, or decide based on your flow\\",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "conversationKey",
+          "displayName": "Conversation Key",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "creativity",
+          "displayName": "Creativity",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "maxOutputTokens",
+          "displayName": "Max Tokens",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "webSearch",
+          "displayName": "Web Search",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "webSearchOptions",
+          "displayName": "Web Search Options",
+          "type": "DynamicProperties",
+          "required": true
+        },
+        {
+          "name": "maxUses",
+          "displayName": "Max Web Search Uses",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "includeSources",
+          "displayName": "Include Sources",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "userLocationCity",
+          "displayName": "User Location - City",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "userLocationRegion",
+          "displayName": "User Location - Region",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "userLocationCountry",
+          "displayName": "User Location - Country",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "userLocationTimezone",
+          "displayName": "User Location - Timezone",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "allowedDomains",
+          "displayName": "Allowed Domains",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "blockedDomains",
+          "displayName": "Blocked Domains",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "searchContextSize",
+          "displayName": "Search Context Size",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "summarizeText": {
+      "displayName": "Summarize Text",
+      "description": "Summarize long emails, articles, or documents into what matters.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "maxOutputTokens",
+          "displayName": "Max Tokens",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "classifyText": {
+      "displayName": "Classify Text",
+      "description": "Categorize any text input using custom labels, so your flow knows what to do next.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Classify",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "Array",
+          "required": true
+        }
+      ]
+    },
+    "extractStructuredData": {
+      "displayName": "Extract Structured Data",
+      "description": "Accurately Pull names, amounts, and other structured data from emails, invoices, and scanned documents.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "files",
+          "displayName": "Files",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "file",
+          "displayName": "Image/PDF",
+          "type": "File",
+          "required": true
+        },
+        {
+          "name": "prompt",
+          "displayName": "Guide Prompt",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "schema",
+          "displayName": "Data Definition",
+          "type": "DynamicProperties",
+          "required": true
+        },
+        {
+          "name": "fields",
+          "displayName": "Data Definition",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "type",
+          "displayName": "Data Type",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "isRequired",
+          "displayName": "Fail if Not present?",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "maxOutputTokens",
+          "displayName": "Max Tokens",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

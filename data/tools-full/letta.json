@@ -1,0 +1,222 @@
+{
+  "id": "letta",
+  "displayName": "Letta",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createAgentFromTemplate": {
+      "displayName": "Create Agent From Template",
+      "description": "Creates an agent from a template",
+      "props": [
+        {
+          "name": "templateVersion",
+          "displayName": "Template Version",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The template version ID to create the agent from"
+        },
+        {
+          "name": "agentName",
+          "displayName": "Agent Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the agent (optional, a random name will be assigned if not provided)"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags to assign to the agent"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Tag name"
+        },
+        {
+          "name": "memoryVariables",
+          "displayName": "Memory Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Memory variables to assign to the agent (key-value pairs)"
+        },
+        {
+          "name": "toolVariables",
+          "displayName": "Tool Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Tool variables to assign to the agent (key-value pairs)"
+        },
+        {
+          "name": "initialMessageSequence",
+          "displayName": "Initial Message Sequence",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Initial sequence of messages to start the agent with"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Message content"
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Message role"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional name of the participant"
+        }
+      ]
+    },
+    "createIdentity": {
+      "displayName": "Create Identity",
+      "description": "Creates a Letta identity",
+      "props": [
+        {
+          "name": "identifierKey",
+          "displayName": "Identifier Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "External, user-generated identifier key of the identity"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the identity"
+        },
+        {
+          "name": "identityType",
+          "displayName": "Identity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of the identity"
+        },
+        {
+          "name": "projectId",
+          "displayName": "Project ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The project ID of the identity (optional)"
+        },
+        {
+          "name": "properties",
+          "displayName": "Properties",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of properties associated with the identity"
+        },
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Property key"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Property type"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Property value (for JSON type, enter valid JSON string)"
+        }
+      ]
+    },
+    "getIdentities": {
+      "displayName": "Get Identities",
+      "description": "Searches for identities in your Letta Project",
+      "props": [
+        {
+          "name": "identifierKey",
+          "displayName": "Identifier Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by identifier key"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by identity name"
+        },
+        {
+          "name": "identityType",
+          "displayName": "Identity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by identity type"
+        },
+        {
+          "name": "projectId",
+          "displayName": "Project ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by project ID"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of identities to return"
+        }
+      ]
+    },
+    "sendMessageToAgent": {
+      "displayName": "Send Message to Agent",
+      "description": "Send message to an agent",
+      "props": [
+        {
+          "name": "input",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message content to send to the agent"
+        },
+        {
+          "name": "maxSteps",
+          "displayName": "Max Steps",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of steps the agent should take to process the request"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newAgent": {
+      "displayName": "New Agent",
+      "description": "Triggers when a new agent is created",
+      "type": "POLLING",
+      "props": []
+    },
+    "newMessage": {
+      "displayName": "New Message",
+      "description": "Triggers when an agent uses send_message",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

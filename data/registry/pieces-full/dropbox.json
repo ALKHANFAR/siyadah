@@ -1,0 +1,85 @@
+{
+  "id": "dropbox",
+  "package": "@activepieces/piece-dropbox",
+  "display_name": "Dropbox",
+  "display_name_ar": "",
+  "description": "Cloud storage and file synchronization",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "copy_dropbox_file",
+      "display_name": "Copy file",
+      "description": "Copy a file"
+    },
+    {
+      "name": "copy_dropbox_folder",
+      "display_name": "Copy folder",
+      "description": "Copy a folder"
+    },
+    {
+      "name": "create_new_dropbox_folder",
+      "display_name": "Create New Folder",
+      "description": "Create a new empty folder"
+    },
+    {
+      "name": "create_new_dropbox_text_file",
+      "display_name": "Create New Text File",
+      "description": "Create a new text file from text input"
+    },
+    {
+      "name": "delete_dropbox_file",
+      "display_name": "Delete file",
+      "description": "Delete a file"
+    },
+    {
+      "name": "delete_dropbox_folder",
+      "display_name": "Delete folder",
+      "description": "Delete a folder"
+    },
+    {
+      "name": "downloadFile",
+      "display_name": "Download File",
+      "description": "Download a File from Dropbox"
+    },
+    {
+      "name": "get_dropbox_file_link",
+      "display_name": "Get temporary file link",
+      "description": "Get a temporary file link"
+    },
+    {
+      "name": "list_dropbox_folder",
+      "display_name": "List a folder",
+      "description": "List the contents of a folder"
+    },
+    {
+      "name": "move_dropbox_file",
+      "display_name": "Move file",
+      "description": "Move a file"
+    },
+    {
+      "name": "move_dropbox_folder",
+      "display_name": "Move folder",
+      "description": "Move a folder"
+    },
+    {
+      "name": "search_dropbox",
+      "display_name": "Search",
+      "description": "Search for files and folders"
+    },
+    {
+      "name": "upload_dropbox_file",
+      "display_name": "Upload file",
+      "description": "Upload a file"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

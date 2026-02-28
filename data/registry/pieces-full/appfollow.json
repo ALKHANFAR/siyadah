@@ -1,0 +1,43 @@
+{
+  "id": "appfollow",
+  "package": "@activepieces/piece-appfollow",
+  "display_name": "AppFollow",
+  "display_name_ar": "",
+  "description": "Appfollow helps to manage and improve app reviews and ratings.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addUser",
+      "display_name": "Add user",
+      "description": "Adds a new user to the Appfollow account"
+    },
+    {
+      "name": "replyToReview",
+      "display_name": "Reply to Review",
+      "description": "Reply to a specific review within a date range for a selected application and collection"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newReview",
+      "display_name": "New Review",
+      "description": "Triggered when a new review is added",
+      "type": "scheduled"
+    },
+    {
+      "name": "newTag",
+      "display_name": "Collection ID",
+      "description": "ID of the collection",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

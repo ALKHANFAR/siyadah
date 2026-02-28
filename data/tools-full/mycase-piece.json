@@ -1,0 +1,2244 @@
+{
+  "id": "mycase-piece",
+  "displayName": "MyCase",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_call": {
+      "displayName": "Create Call",
+      "description": "Creates a new call in the call log in MyCase",
+      "props": [
+        {
+          "name": "called_at",
+          "displayName": "Called At",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When the call happened"
+        },
+        {
+          "name": "caller_phone_number",
+          "displayName": "Caller Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The caller\\"
+        },
+        {
+          "name": "call_for",
+          "displayName": "Call For",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The staff member this call is associated with"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A description of the call"
+        },
+        {
+          "name": "caller_type",
+          "displayName": "Caller Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to identify the caller"
+        },
+        {
+          "name": "caller_name",
+          "displayName": "Caller Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The caller\\"
+        },
+        {
+          "name": "client",
+          "displayName": "Client",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The existing client"
+        },
+        {
+          "name": "lead",
+          "displayName": "Lead",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The existing lead"
+        },
+        {
+          "name": "call_type",
+          "displayName": "Call Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of call"
+        },
+        {
+          "name": "resolved",
+          "displayName": "Resolved",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Should this call show as resolved?"
+        }
+      ]
+    },
+    "create_case_stage": {
+      "displayName": "Create Case Stage",
+      "description": "Creates a new case stage in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Case Stage Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the case stage"
+        }
+      ]
+    },
+    "create_case": {
+      "displayName": "Create Case",
+      "description": "Creates a new case in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Case Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the case (must be unique)"
+        },
+        {
+          "name": "case_number",
+          "displayName": "Case Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An identifier for this case (recommended to be unique)"
+        },
+        {
+          "name": "opened_date",
+          "displayName": "Opened Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The date the case was created/opened (ISO-8601 format: YYYY-MM-DD)"
+        },
+        {
+          "name": "case_stage",
+          "displayName": "Case Stage",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The stage the case is currently in (must match MyCase system)"
+        },
+        {
+          "name": "practice_area",
+          "displayName": "Practice Area",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The practice area for this case (must match MyCase system)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the case"
+        },
+        {
+          "name": "sol_date",
+          "displayName": "Statute of Limitations Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The statute of limitations date (ISO-8601 date format: YYYY-MM-DD)"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the case"
+        },
+        {
+          "name": "outstanding_balance",
+          "displayName": "Outstanding Balance",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The outstanding balance of this case"
+        },
+        {
+          "name": "billing_contact_id",
+          "displayName": "Billing Contact ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The ID of the client or company to assign as the billing contact"
+        },
+        {
+          "name": "client_ids",
+          "displayName": "Client IDs",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of client IDs to associate with the case"
+        },
+        {
+          "name": "company_ids",
+          "displayName": "Company IDs",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of company IDs to associate with the case"
+        },
+        {
+          "name": "staff_id",
+          "displayName": "Staff ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of staff member to associate with the case"
+        },
+        {
+          "name": "lead_lawyer",
+          "displayName": "Lead Lawyer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is the staff member the lead lawyer for this case?"
+        },
+        {
+          "name": "originating_lawyer",
+          "displayName": "Originating Lawyer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is the staff member the originating lawyer for this case?"
+        }
+      ]
+    },
+    "create_company": {
+      "displayName": "Create Company",
+      "description": "Creates a new company in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the company"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company email address"
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company website URL"
+        },
+        {
+          "name": "main_phone_number",
+          "displayName": "Main Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Main phone number for the company"
+        },
+        {
+          "name": "fax_phone_number",
+          "displayName": "Fax Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax phone number for the company"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information about the company (visible to firm members only)"
+        },
+        {
+          "name": "cases",
+          "displayName": "Cases",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Cases to associate with the company"
+        },
+        {
+          "name": "clients",
+          "displayName": "Clients",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Clients to associate with the company"
+        }
+      ]
+    },
+    "create_custom_field": {
+      "displayName": "Create Custom Field",
+      "description": "Creates a new custom field in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the custom field"
+        },
+        {
+          "name": "parent_type",
+          "displayName": "Parent Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The parent resource type of the custom field"
+        },
+        {
+          "name": "field_type",
+          "displayName": "Field Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The field type of the custom field"
+        },
+        {
+          "name": "list_options",
+          "displayName": "List Options",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of options for the custom field (required if field type is \"list\")"
+        },
+        {
+          "name": "option",
+          "displayName": "Option Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the list option"
+        }
+      ]
+    },
+    "create_document": {
+      "displayName": "Create Document",
+      "description": "Creates a new document in MyCase",
+      "props": [
+        {
+          "name": "document_type",
+          "displayName": "Document Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose whether to create a firm document or associate it with a specific case"
+        },
+        {
+          "name": "case",
+          "displayName": "Case",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the case to associate this document with"
+        },
+        {
+          "name": "path",
+          "displayName": "Document Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The relative path including document name (e.g., folder1/folder2/document_name). Folders will be created automatically."
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The filename of the physical file including extension (e.g., file.pdf)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of this document"
+        },
+        {
+          "name": "assigned_date",
+          "displayName": "Assigned Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The assigned date of this document"
+        },
+        {
+          "name": "staff",
+          "displayName": "Staff",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Staff members to share this document with (only for firm documents)"
+        }
+      ]
+    },
+    "create_event": {
+      "displayName": "Create Event",
+      "description": "Creates a new event in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Event Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of this event"
+        },
+        {
+          "name": "start",
+          "displayName": "Start Date/Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The start date and time of this event"
+        },
+        {
+          "name": "end",
+          "displayName": "End Date/Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The end date and time of this event"
+        },
+        {
+          "name": "staff",
+          "displayName": "Staff",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Staff members to associate with this event"
+        },
+        {
+          "name": "required_staff",
+          "displayName": "Required Staff",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Staff members who are required to attend (all others are optional)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Event description"
+        },
+        {
+          "name": "all_day",
+          "displayName": "All Day Event",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is this an all day event?"
+        },
+        {
+          "name": "private",
+          "displayName": "Private Event",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is this a private event?"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The location associated with this event"
+        },
+        {
+          "name": "case",
+          "displayName": "Case",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The case associated with this event"
+        }
+      ]
+    },
+    "create_expense": {
+      "displayName": "Create Expense",
+      "description": "Creates a new expense in MyCase",
+      "props": [
+        {
+          "name": "activity_name",
+          "displayName": "Activity Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The activity name for this expense (will be created if it doesn\\"
+        },
+        {
+          "name": "case",
+          "displayName": "Case",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The case to associate with this expense"
+        },
+        {
+          "name": "entry_date",
+          "displayName": "Entry Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The entry date of this expense"
+        },
+        {
+          "name": "cost",
+          "displayName": "Cost",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Cost of the expense"
+        },
+        {
+          "name": "units",
+          "displayName": "Units",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of units"
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Is this expense billable?"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the expense"
+        },
+        {
+          "name": "staff",
+          "displayName": "Staff",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The staff member associated with this expense"
+        }
+      ]
+    },
+    "create_lead": {
+      "displayName": "Create Lead",
+      "description": "Creates a new lead in MyCase",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The first name of the lead"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The last name of the lead"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the lead"
+        },
+        {
+          "name": "middle_initial",
+          "displayName": "Middle Initial",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The middle name or initial of the lead"
+        },
+        {
+          "name": "cell_phone_number",
+          "displayName": "Cell Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cell phone number"
+        },
+        {
+          "name": "work_phone_number",
+          "displayName": "Work Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work phone number"
+        },
+        {
+          "name": "home_phone_number",
+          "displayName": "Home Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home phone number"
+        },
+        {
+          "name": "birthdate",
+          "displayName": "Birthdate",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date of birth"
+        },
+        {
+          "name": "drivers_license_number",
+          "displayName": "Drivers License Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Drivers license number"
+        },
+        {
+          "name": "drivers_license_state",
+          "displayName": "Drivers License State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Drivers license state"
+        },
+        {
+          "name": "lead_details",
+          "displayName": "Lead Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information (visible to firm members only)"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "referral_source",
+          "displayName": "Referral Source",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The referral source to associate with this lead"
+        },
+        {
+          "name": "referred_by",
+          "displayName": "Referred By",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Existing client or company who referred this lead"
+        }
+      ]
+    },
+    "create_location": {
+      "displayName": "Create Location",
+      "description": "Creates a new location in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Location Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the location"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        }
+      ]
+    },
+    "create_note": {
+      "displayName": "Create Note",
+      "description": "Creates a new note for a case, client, or company in MyCase",
+      "props": [
+        {
+          "name": "entity_type",
+          "displayName": "Entity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the type of entity to create the note for"
+        },
+        {
+          "name": "entity",
+          "displayName": "Entity",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the entity to create the note for"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Subject of the note"
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The body text of the note"
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The date and time of the note"
+        }
+      ]
+    },
+    "create_person": {
+      "displayName": "Create Person (Client)",
+      "description": "Creates a new individual client (person) in MyCase",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The first name of the client"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The last name of the client"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the client"
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The middle name of the client"
+        },
+        {
+          "name": "cell_phone_number",
+          "displayName": "Cell Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cell phone number"
+        },
+        {
+          "name": "work_phone_number",
+          "displayName": "Work Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work phone number"
+        },
+        {
+          "name": "home_phone_number",
+          "displayName": "Home Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home phone number"
+        },
+        {
+          "name": "fax_phone_number",
+          "displayName": "Fax Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax phone number"
+        },
+        {
+          "name": "birthdate",
+          "displayName": "Birthdate",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date of birth"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information (visible to firm members only)"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "people_group",
+          "displayName": "People Group",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The people group to associate with this client"
+        },
+        {
+          "name": "cases",
+          "displayName": "Cases",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Cases to associate with this client"
+        }
+      ]
+    },
+    "create_practice_area": {
+      "displayName": "Create Practice Area",
+      "description": "Creates a new practice area in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Practice Area Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the practice area"
+        }
+      ]
+    },
+    "create_referral_source": {
+      "displayName": "Create Referral Source",
+      "description": "Creates a new referral source in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Referral Source Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the referral source"
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Creates a new task in MyCase",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of this task"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The priority of this task"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The due date of this task"
+        },
+        {
+          "name": "staff",
+          "displayName": "Staff",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Staff members to assign this task to"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Task description"
+        },
+        {
+          "name": "completed",
+          "displayName": "Completed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is this task completed?"
+        },
+        {
+          "name": "case",
+          "displayName": "Case",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The case to associate with this task"
+        }
+      ]
+    },
+    "create_time_entry": {
+      "displayName": "Create Time Entry",
+      "description": "Creates a new time entry in MyCase",
+      "props": [
+        {
+          "name": "activity_name",
+          "displayName": "Activity Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The activity name for this time entry"
+        },
+        {
+          "name": "case",
+          "displayName": "Case",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The case to associate with this time entry"
+        },
+        {
+          "name": "staff",
+          "displayName": "Staff",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The staff member associated with this time entry"
+        },
+        {
+          "name": "entry_date",
+          "displayName": "Entry Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The entry date of this time entry"
+        },
+        {
+          "name": "rate",
+          "displayName": "Rate",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The rate in dollars"
+        },
+        {
+          "name": "hours",
+          "displayName": "Hours",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The duration in hours"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the time entry"
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is this time entry billable?"
+        },
+        {
+          "name": "flat_fee",
+          "displayName": "Flat Fee",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is this time entry a flat fee?"
+        }
+      ]
+    },
+    "find_call": {
+      "displayName": "Find Call",
+      "description": "Searches for calls with optional filters",
+      "props": [
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter calls updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_case_stage": {
+      "displayName": "Find Case Stage",
+      "description": "Searches for case stages with optional filters",
+      "props": [
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter case stages updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_case": {
+      "displayName": "Find Case",
+      "description": "Searches for cases with optional filters",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by case status"
+        },
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter cases updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        },
+        {
+          "name": "client_fields",
+          "displayName": "Client Fields",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of client fields to include (e.g., id,first_name,last_name)"
+        },
+        {
+          "name": "custom_field_fields",
+          "displayName": "Custom Field Fields",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of custom field fields to include (e.g., id,field_type)"
+        }
+      ]
+    },
+    "find_company": {
+      "displayName": "Find Company",
+      "description": "Searches for companies with optional filters",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by company name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by email address"
+        },
+        {
+          "name": "main_phone_number",
+          "displayName": "Main Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by main phone number"
+        },
+        {
+          "name": "fax_phone_number",
+          "displayName": "Fax Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by fax phone number"
+        },
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter companies updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_location": {
+      "displayName": "Find Location",
+      "description": "Searches for locations with optional filters",
+      "props": [
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter locations updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_or_create_case_stage": {
+      "displayName": "Find or Create Case Stage",
+      "description": "Finds a case stage by name or creates a new one if it does not exist",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Case Stage Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the case stage to find or create"
+        }
+      ]
+    },
+    "find_or_create_case": {
+      "displayName": "Find or Create Case",
+      "description": "Finds a case by name or creates a new one if it does not exist",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Case Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the case to find or create"
+        },
+        {
+          "name": "case_number",
+          "displayName": "Case Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An identifier for this case (used only when creating)"
+        },
+        {
+          "name": "opened_date",
+          "displayName": "Opened Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date the case was created/opened (used only when creating)"
+        },
+        {
+          "name": "case_stage",
+          "displayName": "Case Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The stage the case is currently in (used only when creating)"
+        },
+        {
+          "name": "practice_area",
+          "displayName": "Practice Area",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The practice area for this case (used only when creating)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the case (used only when creating)"
+        },
+        {
+          "name": "sol_date",
+          "displayName": "Statute of Limitations Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The statute of limitations date (used only when creating)"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the case (used only when creating)"
+        },
+        {
+          "name": "outstanding_balance",
+          "displayName": "Outstanding Balance",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The outstanding balance of this case (used only when creating)"
+        },
+        {
+          "name": "billing_contact",
+          "displayName": "Billing Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The client or company to assign as the billing contact (used only when creating)"
+        },
+        {
+          "name": "clients",
+          "displayName": "Clients",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Clients to associate with the case (used only when creating)"
+        },
+        {
+          "name": "companies",
+          "displayName": "Companies",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Companies to associate with the case (used only when creating)"
+        },
+        {
+          "name": "staff",
+          "displayName": "Staff",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Staff members to associate with the case (used only when creating)"
+        },
+        {
+          "name": "lead_lawyer",
+          "displayName": "Lead Lawyer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the lead lawyer for this case (used only when creating)"
+        },
+        {
+          "name": "originating_lawyer",
+          "displayName": "Originating Lawyer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the originating lawyer for this case (used only when creating)"
+        }
+      ]
+    },
+    "find_or_create_company": {
+      "displayName": "Find or Create Company",
+      "description": "Finds a company by name or creates a new one if it does not exist",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the company to find or create"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company email address (used only when creating)"
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company website URL (used only when creating)"
+        },
+        {
+          "name": "main_phone_number",
+          "displayName": "Main Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Main phone number for the company (used only when creating)"
+        },
+        {
+          "name": "fax_phone_number",
+          "displayName": "Fax Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax phone number for the company (used only when creating)"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1 (used only when creating)"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2 (used only when creating)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City (used only when creating)"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State (used only when creating)"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code (used only when creating)"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country (used only when creating)"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information about the company (used only when creating)"
+        },
+        {
+          "name": "cases",
+          "displayName": "Cases",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Cases to associate with the company (used only when creating)"
+        },
+        {
+          "name": "clients",
+          "displayName": "Clients",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Clients to associate with the company (used only when creating)"
+        }
+      ]
+    },
+    "find_or_create_location": {
+      "displayName": "Find or Create Location",
+      "description": "Finds a location by name or creates a new one if it does not exist",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Location Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the location to find or create"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1 (used only when creating)"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2 (used only when creating)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City (used only when creating)"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State (used only when creating)"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code (used only when creating)"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country (used only when creating)"
+        }
+      ]
+    },
+    "find_or_create_person": {
+      "displayName": "Find or Create Person (Client)",
+      "description": "Finds a person by first and last name or creates a new one if not found",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The first name of the client"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The last name of the client"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the client (used only when creating)"
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The middle name of the client (used only when creating)"
+        },
+        {
+          "name": "cell_phone_number",
+          "displayName": "Cell Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cell phone number (used only when creating)"
+        },
+        {
+          "name": "work_phone_number",
+          "displayName": "Work Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work phone number (used only when creating)"
+        },
+        {
+          "name": "home_phone_number",
+          "displayName": "Home Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home phone number (used only when creating)"
+        },
+        {
+          "name": "fax_phone_number",
+          "displayName": "Fax Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax phone number (used only when creating)"
+        },
+        {
+          "name": "birthdate",
+          "displayName": "Birthdate",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date of birth in ISO-8601 format: YYYY-MM-DD (used only when creating)"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information (used only when creating)"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1 (used only when creating)"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2 (used only when creating)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City (used only when creating)"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State (used only when creating)"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code (used only when creating)"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country (used only when creating)"
+        },
+        {
+          "name": "people_group",
+          "displayName": "People Group",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The people group to associate (used only when creating)"
+        },
+        {
+          "name": "cases",
+          "displayName": "Cases",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Cases to associate with the client (used only when creating)"
+        }
+      ]
+    },
+    "find_or_create_practice_area": {
+      "displayName": "Find or Create Practice Area",
+      "description": "Finds a practice area by name or creates a new one if it does not exist",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Practice Area Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the practice area to find or create"
+        }
+      ]
+    },
+    "find_or_create_referral_source": {
+      "displayName": "Find or Create Referral Source",
+      "description": "Finds a referral source by name or creates a new one if it does not exist",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Referral Source Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the referral source to find or create"
+        }
+      ]
+    },
+    "find_people_group": {
+      "displayName": "Find People Group",
+      "description": "Searches for people groups with optional filters",
+      "props": [
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter people groups updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_person": {
+      "displayName": "Find Person (Client)",
+      "description": "Searches for clients (people) with optional filters",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by first name"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by last name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by email address"
+        },
+        {
+          "name": "cell_phone_number",
+          "displayName": "Cell Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by cell phone number"
+        },
+        {
+          "name": "work_phone_number",
+          "displayName": "Work Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by work phone number"
+        },
+        {
+          "name": "home_phone_number",
+          "displayName": "Home Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by home phone number"
+        },
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter clients updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_practice_area": {
+      "displayName": "Find Practice Area",
+      "description": "Searches for practice areas with optional filters",
+      "props": [
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter practice areas updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_referral_source": {
+      "displayName": "Find Referral Source",
+      "description": "Searches for referral sources with optional filters",
+      "props": [
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter referral sources updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "find_staff": {
+      "displayName": "Find Staff",
+      "description": "Searches for staff members with optional filters",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by staff status"
+        },
+        {
+          "name": "updated_after",
+          "displayName": "Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter staff updated after this date and time"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (1-1000)"
+        }
+      ]
+    },
+    "make_request": {
+      "displayName": "API Request",
+      "description": "Makes a raw HTTP request to the MyCase API",
+      "props": [
+        {
+          "name": "method",
+          "displayName": "Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "HTTP method to use"
+        },
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "API endpoint path (e.g., /cases or /clients/123)"
+        },
+        {
+          "name": "query_params",
+          "displayName": "Query Parameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Query parameters as JSON object"
+        },
+        {
+          "name": "body",
+          "displayName": "Request Body",
+          "type": "JSON",
+          "required": false,
+          "description": "Request body as JSON (for POST, PUT, PATCH)"
+        },
+        {
+          "name": "headers",
+          "displayName": "Additional Headers",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional headers as JSON object"
+        }
+      ]
+    },
+    "update_case": {
+      "displayName": "Update Case",
+      "description": "Updates an existing case in MyCase",
+      "props": [
+        {
+          "name": "case_id",
+          "displayName": "Case",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the case to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Case Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the case (must be unique)"
+        },
+        {
+          "name": "case_number",
+          "displayName": "Case Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An identifier for this case"
+        },
+        {
+          "name": "opened_date",
+          "displayName": "Opened Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date the case was created/opened"
+        },
+        {
+          "name": "case_stage",
+          "displayName": "Case Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The stage the case is currently in"
+        },
+        {
+          "name": "practice_area",
+          "displayName": "Practice Area",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The practice area for this case"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the case"
+        },
+        {
+          "name": "sol_date",
+          "displayName": "Statute of Limitations Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The statute of limitations date"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the case"
+        },
+        {
+          "name": "outstanding_balance",
+          "displayName": "Outstanding Balance",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The outstanding balance of this case"
+        },
+        {
+          "name": "billing_contact",
+          "displayName": "Billing Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The client or company to assign as the billing contact"
+        },
+        {
+          "name": "clients",
+          "displayName": "Clients",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Clients to associate with the case"
+        },
+        {
+          "name": "companies",
+          "displayName": "Companies",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Companies to associate with the case"
+        },
+        {
+          "name": "staff",
+          "displayName": "Staff",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Staff members to associate with the case"
+        },
+        {
+          "name": "lead_lawyer",
+          "displayName": "Lead Lawyer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the lead lawyer for this case"
+        },
+        {
+          "name": "originating_lawyer",
+          "displayName": "Originating Lawyer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the originating lawyer for this case"
+        }
+      ]
+    },
+    "update_company": {
+      "displayName": "Update Company",
+      "description": "Updates an existing company in MyCase",
+      "props": [
+        {
+          "name": "company_id",
+          "displayName": "Company",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the company to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the company"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company email address"
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company website URL"
+        },
+        {
+          "name": "main_phone_number",
+          "displayName": "Main Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Main phone number for the company"
+        },
+        {
+          "name": "fax_phone_number",
+          "displayName": "Fax Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax phone number for the company"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information about the company (visible to firm members only)"
+        },
+        {
+          "name": "cases",
+          "displayName": "Cases",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Cases to associate with the company"
+        },
+        {
+          "name": "clients",
+          "displayName": "Clients",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Clients to associate with the company"
+        }
+      ]
+    },
+    "update_person": {
+      "displayName": "Update Person (Client)",
+      "description": "Updates an existing individual client (person) in MyCase",
+      "props": [
+        {
+          "name": "client_id",
+          "displayName": "Client",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the client to update"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The first name of the client"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The last name of the client"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the client"
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The middle name of the client"
+        },
+        {
+          "name": "cell_phone_number",
+          "displayName": "Cell Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cell phone number"
+        },
+        {
+          "name": "work_phone_number",
+          "displayName": "Work Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work phone number"
+        },
+        {
+          "name": "home_phone_number",
+          "displayName": "Home Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Home phone number"
+        },
+        {
+          "name": "fax_phone_number",
+          "displayName": "Fax Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax phone number"
+        },
+        {
+          "name": "birthdate",
+          "displayName": "Birthdate",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date of birth"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information (visible to firm members only)"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 1"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address line 2"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP/Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "people_group",
+          "displayName": "People Group",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The people group to associate with this client"
+        },
+        {
+          "name": "cases",
+          "displayName": "Cases",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Cases to associate with this client"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "case_added_or_updated": {
+      "displayName": "Case Added or Updated",
+      "description": "Triggers when a case has been added or updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "company_added_or_updated": {
+      "displayName": "Company Added or Updated",
+      "description": "Triggers when a company has been added or updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "event_added_or_updated": {
+      "displayName": "Event Added or Updated",
+      "description": "Triggers when an event has been added or updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "lead_added_or_updated": {
+      "displayName": "Lead Added or Updated",
+      "description": "Triggers when a lead has been added or updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "person_added_or_updated": {
+      "displayName": "Person Added or Updated",
+      "description": "Triggers when a person has been added or updated",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

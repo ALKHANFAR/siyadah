@@ -1,0 +1,40 @@
+{
+  "id": "docsbot",
+  "displayName": "DocsBot",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "askQuestion": {
+      "displayName": "Ask Question",
+      "description": "Ask a question to a specific bot in a specific team.",
+      "props": []
+    },
+    "createBot": {
+      "displayName": "Create Bot",
+      "description": "Creates a new bot.",
+      "props": []
+    },
+    "createSource": {
+      "displayName": "Create Source",
+      "description": "Create a new source for a bot.",
+      "props": []
+    },
+    "findBot": {
+      "displayName": "Find Bot",
+      "description": "Finds bot by name.",
+      "props": []
+    },
+    "uploadSourceFile": {
+      "displayName": "Upload Source File",
+      "description": "Upload a file to be used as a source.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

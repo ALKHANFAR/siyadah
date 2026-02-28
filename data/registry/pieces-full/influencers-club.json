@@ -1,0 +1,35 @@
+{
+  "id": "influencers-club",
+  "package": "@activepieces/piece-influencers-club",
+  "display_name": "Influencers.club",
+  "display_name_ar": "",
+  "description": "Connect to Influencers.club to enrich and find influencers for your marketing campaigns.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "enrichCreatorByEmail",
+      "display_name": "Enrich Creator by Email",
+      "description": "Enrich creator data by email address with advanced mode including all social medias and full profile stats"
+    },
+    {
+      "name": "enrichCreatorByHandle",
+      "display_name": "Enrich Creator Social Profile by Handle",
+      "description": "Enrich creator data by social media handle with full mode including all connected platforms and detailed stats"
+    },
+    {
+      "name": "findSimilarCreator",
+      "display_name": "Find Similar Creator",
+      "description": "Find creators similar to a given creator handle or profile URL with optional filters"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

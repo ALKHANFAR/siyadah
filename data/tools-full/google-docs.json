@@ -1,0 +1,121 @@
+{
+  "id": "google-docs",
+  "displayName": "Google Docs",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "append_text": {
+      "displayName": "Append text to google docs",
+      "description": "Appends text to google docs",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to append",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to append to the document"
+        },
+        {
+          "name": "documentId",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the document to append text to"
+        }
+      ]
+    },
+    "create_document_based_on_template": {
+      "displayName": "Edit template file",
+      "description": "Edit a template file and replace the values with the ones provided",
+      "props": [
+        {
+          "name": "template",
+          "displayName": "Destination File",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the file to replace the values"
+        },
+        {
+          "name": "values",
+          "displayName": "Variables",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Dont include the placeholder format \"[[]]\" or \"{{}}\", only the key name and its value"
+        },
+        {
+          "name": "images",
+          "displayName": "Images",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Key: Image ID (get it manually from the Read File Action), Value: Image URL"
+        },
+        {
+          "name": "placeholder_format",
+          "displayName": "Placeholder Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the format of placeholders in your template"
+        }
+      ]
+    },
+    "create_document": {
+      "displayName": "Create Document",
+      "description": "Create a document on Google Docs",
+      "props": []
+    },
+    "google-docs-find-document": {
+      "displayName": "Find Document",
+      "description": "Search for document by name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Document Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "createIfNotFound",
+          "displayName": "Create a new document if not found?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "newDocumentProps",
+          "displayName": "New Document Properties",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "read_document": {
+      "displayName": "Read Document",
+      "description": "Read a document from Google Docs",
+      "props": [
+        {
+          "name": "documentId",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the document to read"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-document": {
+      "displayName": "New Document",
+      "description": "Triggers when a new document is added to a specific folder(optional).",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

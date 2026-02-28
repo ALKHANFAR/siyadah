@@ -1,0 +1,135 @@
+{
+  "id": "splitwise",
+  "displayName": "Splitwise",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_expense": {
+      "displayName": "Create Expense",
+      "description": "Creates a new expense, optionally in a group or with specific friends",
+      "props": [
+        {
+          "name": "split_type",
+          "displayName": "Split Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to split the expense"
+        },
+        {
+          "name": "cost",
+          "displayName": "Cost",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Amount (e.g., \"25.50\")"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Short description of the expense"
+        },
+        {
+          "name": "details",
+          "displayName": "Details/Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the expense"
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date and time the expense took place"
+        },
+        {
+          "name": "repeat_interval",
+          "displayName": "Repeat Interval",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How often to repeat this expense"
+        },
+        {
+          "name": "currency_code",
+          "displayName": "Currency Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code (e.g., USD, EUR)"
+        },
+        {
+          "name": "category_id",
+          "displayName": "Category",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Expense category"
+        },
+        {
+          "name": "group_id",
+          "displayName": "Group",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Group to put this expense in (required for equal split)"
+        },
+        {
+          "name": "users",
+          "displayName": "Users (Custom Split)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Users and their shares for custom split (only used when Split Type is \"by_shares\")"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Splitwise user ID"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "User first name (if no user ID)"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "User last name (if no user ID)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "User email (if no user ID)"
+        },
+        {
+          "name": "paid_share",
+          "displayName": "Paid Share",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Amount this user paid (e.g., \"25.50\")"
+        },
+        {
+          "name": "owed_share",
+          "displayName": "Owed Share",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Amount this user owes (e.g., \"12.75\")"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_expense": {
+      "displayName": "Group",
+      "description": "Filter expenses from a specific group (optional)",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

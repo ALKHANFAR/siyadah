@@ -1,0 +1,121 @@
+{
+  "id": "zoho-mail",
+  "displayName": "Zoho Mail",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "archive_email": {
+      "displayName": "Archive Email",
+      "description": "Archives an email.",
+      "props": []
+    },
+    "get_email_details": {
+      "displayName": "Get Email Details",
+      "description": "Retrieves full content and metadata of a specific email.",
+      "props": []
+    },
+    "mark_email_as_read": {
+      "displayName": "Mark Email as Read",
+      "description": "Marks an email as read.",
+      "props": []
+    },
+    "mark_email_as_unread": {
+      "displayName": "Mark Emai as Unread",
+      "description": "Marks an email as unread.",
+      "props": []
+    },
+    "move_email": {
+      "displayName": "Move Email to Folder",
+      "description": "Moves an email to a different folder.",
+      "props": []
+    },
+    "send_email": {
+      "displayName": "Send Email",
+      "description": "Sends an email.",
+      "props": [
+        {
+          "name": "toAddress",
+          "displayName": "To Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Recipient's email address."
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "mailFormat",
+          "displayName": "Mail Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "HTML or plain text content of the email."
+        },
+        {
+          "name": "ccAddress",
+          "displayName": "CC Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "CC recipient's email address."
+        },
+        {
+          "name": "bccAddress",
+          "displayName": "BCC Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "BCC recipient's email address."
+        },
+        {
+          "name": "askReceipt",
+          "displayName": "Ask for Read Receipt",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "attachment",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "attachmentName",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "In case you want to change the name of the attachment."
+        }
+      ]
+    },
+    "unarchive_email": {
+      "displayName": "Unarchive Email",
+      "description": "Unarchives an email.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_email_received": {
+      "displayName": "New Email Received",
+      "description": "Triggers when a new email is received in a specified folder (or inbox).",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "code",
+  "displayName": "Code",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "run_code": {
+      "displayName": "Run Code",
+      "description": "Execute custom code",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

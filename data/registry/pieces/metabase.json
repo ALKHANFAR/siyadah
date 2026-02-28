@@ -1,0 +1,40 @@
+{
+  "id": "metabase",
+  "package": "@activepieces/piece-metabase",
+  "display_name": "Metabase API base URL",
+  "display_name_ar": "Metabase API base URL",
+  "description": "Generate one on your Metabase instance (settings -> authentication -> API keys)",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "embedQuestion",
+      "display_name": "Embed question",
+      "description": "Enable embedding for a Metabase question and configure parameters"
+    },
+    {
+      "name": "getDashboardQuestions",
+      "display_name": "Get Dashboard Questions",
+      "description": "Execute all questions across all tabs in a Metabase dashboard and return their consolidated results in a single response"
+    },
+    {
+      "name": "getGraphQuestion",
+      "display_name": "Get the graph of the question",
+      "description": "Get the graph of a Metabase question and save it as a png"
+    },
+    {
+      "name": "getQuestionPngPreview",
+      "display_name": "Get Question PNG Preview",
+      "description": "Get PNG preview rendering (low resolution) of a Metabase card/question."
+    },
+    {
+      "name": "getQuestion",
+      "display_name": "Get question",
+      "description": "Fetch the results of a Metabase question"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/metabase"
+}

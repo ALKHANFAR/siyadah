@@ -1,0 +1,137 @@
+{
+  "id": "bettermode",
+  "displayName": "Bettermode",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "assign_badge": {
+      "displayName": "Assign Badge to Member",
+      "description": "Assign an existing badge to a member by email",
+      "props": [
+        {
+          "name": "badgeId",
+          "displayName": "Badge",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The badge to assign"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the member to assign the badge to"
+        }
+      ]
+    },
+    "create_discussion": {
+      "displayName": "Create Discussion Post",
+      "description": "Create a new discussion post in a space",
+      "props": [
+        {
+          "name": "spaceId",
+          "displayName": "Space",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The space to create the discussion in"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the discussion"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the discussion"
+        },
+        {
+          "name": "tagNames",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The tags to add to the discussion"
+        },
+        {
+          "name": "locked",
+          "displayName": "Locked",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If the discussion should be locked"
+        }
+      ]
+    },
+    "create_question": {
+      "displayName": "Create Question Post",
+      "description": "Create a new question post in a space",
+      "props": [
+        {
+          "name": "spaceId",
+          "displayName": "Space",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The space to create the question in"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the question"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the question"
+        },
+        {
+          "name": "tagNames",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The tags to add to the question"
+        },
+        {
+          "name": "locked",
+          "displayName": "Locked",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If the question should be locked"
+        }
+      ]
+    },
+    "revoke_badge": {
+      "displayName": "Revoke Badge from Member",
+      "description": "Revoke a badge from a member by email",
+      "props": [
+        {
+          "name": "badgeId",
+          "displayName": "Badge",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The badge to revoke"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email of the member to revoke the badge from"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,25 @@
+{
+  "id": "leap-ai",
+  "package": "@activepieces/piece-leap-ai",
+  "display_name": "Leap AI",
+  "display_name_ar": "",
+  "description": "Automate any workflow with AI. Build custom AI automations to scale your marketing, sales, and operations.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "getAWorkflowRun",
+      "display_name": "Get a Workflow Run",
+      "description": "Retrieve the status and results of a workflow run"
+    },
+    {
+      "name": "runAWorkflow",
+      "display_name": "Run a Workflow",
+      "description": "Execute a Leap AI workflow and return the run ID"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

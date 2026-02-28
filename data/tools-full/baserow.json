@@ -1,0 +1,122 @@
+{
+  "id": "baserow",
+  "displayName": "Baserow",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "baserow_create_row": {
+      "displayName": "Create Row",
+      "description": "Creates a new row.",
+      "props": [
+        {
+          "name": "table_id",
+          "displayName": "Table ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the table ID where the row must be created in. You can find the ID by clicking on the three dots next to the table. It's the number between brackets."
+        }
+      ]
+    },
+    "baserow_delete_row": {
+      "displayName": "Delete Row",
+      "description": "Deletes an existing row.",
+      "props": [
+        {
+          "name": "table_id",
+          "displayName": "Table ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the table ID where the row must be deleted in.You can find the ID by clicking on the three dots next to the table. It's the number between brackets."
+        },
+        {
+          "name": "row_id",
+          "displayName": "Row ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the row ID that needs to be deleted."
+        }
+      ]
+    },
+    "baserow_get_row": {
+      "displayName": "Get Row",
+      "description": "Fetches a single table row.",
+      "props": [
+        {
+          "name": "table_id",
+          "displayName": "Table ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the table ID where you want to get the row from. You can find the ID by clicking on the three dots next to the table. It's the number between brackets."
+        },
+        {
+          "name": "row_id",
+          "displayName": "Row ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the row ID that is requested."
+        }
+      ]
+    },
+    "baserow_list_rows": {
+      "displayName": "List Rows",
+      "description": "Finds a page of rows in given table.",
+      "props": [
+        {
+          "name": "table_id",
+          "displayName": "Table ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the table ID where you want to get the rows from. You can find the ID by clicking on the three dots next to the table. It's the number between brackets."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of rows to return."
+        },
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If provided only rows with cell data that matches the search query are going to be returned."
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If provided rows will be order by specific field.Use **-** sign for descending / **+** sing for ascending ordering.\n        Example. \"-My Field\" will return rows in descending order based on \"My Field\" field."
+        }
+      ]
+    },
+    "baserow_update_row": {
+      "displayName": "Update Row",
+      "description": "Updates an existing row.",
+      "props": [
+        {
+          "name": "table_id",
+          "displayName": "Table ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the table ID where the row must be updated in. You can find the ID by clicking on the three dots next to the table. It's the number between brackets."
+        },
+        {
+          "name": "row_id",
+          "displayName": "Row ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Please enter the row ID that needs to be updated."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,30 @@
+{
+  "id": "messagebird",
+  "package": "@activepieces/piece-messagebird",
+  "display_name": "Bird",
+  "display_name_ar": "Bird",
+  "description": "Unified CRM for Marketing, Service & Payments",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "listMessages",
+      "display_name": "List Messages",
+      "description": "Lists an Messages via Bird Channels API"
+    },
+    {
+      "name": "send-sms",
+      "display_name": "Send SMS",
+      "description": "Sends an SMS message via Bird Channels API."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/messagebird"
+}

@@ -1,0 +1,209 @@
+{
+  "id": "aidbase",
+  "displayName": "Aidbase",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_faq_item": {
+      "displayName": "Add FAQ Item",
+      "description": "Adds a new question/answer item to an existing FAQ; supports categories.",
+      "props": [
+        {
+          "name": "question",
+          "displayName": "Question",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "answer",
+          "displayName": "Answer",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "source_url",
+          "displayName": "Source URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An optional URL for the source of the information."
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "ARRAY",
+          "required": false,
+          "description": "A list of category names. New categories will be created if they do not exist."
+        }
+      ]
+    },
+    "add_video": {
+      "displayName": "Add Video",
+      "description": "Adds a YouTube video URL as knowledge to the Aidbase knowledge base.",
+      "props": [
+        {
+          "name": "video_url",
+          "displayName": "YouTube Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the YouTube video to add as a knowledge source."
+        }
+      ]
+    },
+    "add_website": {
+      "displayName": "Add Website",
+      "description": "Adds a website URL as a knowledge source for Aidbase.",
+      "props": [
+        {
+          "name": "website_url",
+          "displayName": "Website URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the website to add as a knowledge source (e.g., https://www.example.com)."
+        }
+      ]
+    },
+    "create_chatbot_reply": {
+      "displayName": "Create Chatbot Reply",
+      "description": "Generates an AI chatbot reply given a message and optional session context.",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message or question to send to the chatbot."
+        },
+        {
+          "name": "session_id",
+          "displayName": "Session ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "An optional session ID to maintain conversation context. If omitted, a new conversation will start."
+        }
+      ]
+    },
+    "create_faq": {
+      "displayName": "Create FAQ",
+      "description": "Creates a new FAQ entry with title and description.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the new FAQ knowledge base."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "An optional description for the FAQ."
+        }
+      ]
+    },
+    "start_training": {
+      "displayName": "Start Training",
+      "description": "Starts a training job on an existing knowledge base item (FAQ, website, video, etc.).",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "email_priority_changed": {
+      "displayName": "Email Priority Changed",
+      "description": "Fires when an email’s priority is changed.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "priority",
+          "displayName": "New Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the priority to trigger on. Leave blank to trigger for any priority change."
+        }
+      ]
+    },
+    "email_received": {
+      "displayName": "Email Received",
+      "description": "Fires when a new email is received in an Aidbase inbox.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "email_sent": {
+      "displayName": "Email Sent",
+      "description": "Fires when an email is sent from Aidbase.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "email_status_changed": {
+      "displayName": "Email Status Changed",
+      "description": "Fires when the status of an email changes.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "New Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the status to trigger on. Leave blank to trigger for any status change."
+        }
+      ]
+    },
+    "ticket_created": {
+      "displayName": "Ticket Created",
+      "description": "Fires when a new ticket is created in Aidbase.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "ticket_new_comment": {
+      "displayName": "Ticket New Comment",
+      "description": "Fires when a new comment is added to an existing ticket.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "commenter_type",
+          "displayName": "Commenter Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the type of commenter to trigger on. Leave blank for all comments."
+        }
+      ]
+    },
+    "ticket_priority_changed": {
+      "displayName": "Ticket Priority Changed",
+      "description": "Fires when the priority of an existing ticket changes.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "priority",
+          "displayName": "New Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the priority to trigger on. Leave blank to trigger for any priority change."
+        }
+      ]
+    },
+    "ticket_status_changed": {
+      "displayName": "Ticket Status Changed",
+      "description": "Fires when a ticket’s overall status changes.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "New Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the status to trigger on. Leave blank to trigger for any status change."
+        }
+      ]
+    }
+  }
+}

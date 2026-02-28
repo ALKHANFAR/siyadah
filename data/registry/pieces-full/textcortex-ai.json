@@ -1,0 +1,60 @@
+{
+  "id": "textcortex-ai",
+  "package": "@activepieces/piece-textcortex-ai",
+  "display_name": "TextCortex AI",
+  "display_name_ar": "",
+  "description": "AI-powered writing assistant for content creation, code generation, translations, and more using multiple AI models.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_code",
+      "display_name": "Create Code",
+      "description": "Generate code in a specified programming language based on instructions."
+    },
+    {
+      "name": "create_email",
+      "display_name": "Create Email",
+      "description": "Compose an email using context, recipient (\"To\"), and sender (\"From\") metadata."
+    },
+    {
+      "name": "create_paraphrase",
+      "display_name": "Create Paraphrase",
+      "description": "Rewrite text while preserving its meaning."
+    },
+    {
+      "name": "create_product_description",
+      "display_name": "Create Product Description",
+      "description": "Create a product description using details like name, brand, category, features, keywords."
+    },
+    {
+      "name": "create_social_media_caption",
+      "display_name": "Create Social Media Caption",
+      "description": "Generate a caption tailored for a specific social media channel (requires channel and keywords)."
+    },
+    {
+      "name": "create_summary",
+      "display_name": "Create Summary",
+      "description": "Summarize input text to concise form."
+    },
+    {
+      "name": "create_translation",
+      "display_name": "Create Translation",
+      "description": "Translate input text into a target language."
+    },
+    {
+      "name": "send_prompt",
+      "display_name": "Send Prompt",
+      "description": "Send a custom prompt to TextCortex AI and generate a completion."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "pinecone",
+  "package": "@activepieces/piece-pinecone",
+  "display_name": "Pinecone",
+  "display_name_ar": "Pinecone",
+  "description": "Manage vector databases, store embeddings, and perform similarity searches",
+  "category": "D_ai",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_index",
+      "display_name": "Create Index",
+      "description": "Creates a new Pinecone index with custom settings."
+    },
+    {
+      "name": "delete_vector",
+      "display_name": "Delete a Vector",
+      "description": "Delete vectors by ID from a namespace."
+    },
+    {
+      "name": "get_vector",
+      "display_name": "Get a Vector",
+      "description": "Look up and return vectors by ID from a namespace."
+    },
+    {
+      "name": "search_index",
+      "display_name": "Search Index",
+      "description": "Search indexes by name or list all indexes in your project."
+    },
+    {
+      "name": "search_vector",
+      "display_name": "Search Vectors",
+      "description": "Search a namespace using a query vector to find similar records."
+    },
+    {
+      "name": "update_vector",
+      "display_name": "Update a Vector",
+      "description": "Updates a vector in a namespace. Overwrites existing values and metadata."
+    },
+    {
+      "name": "upsert_vector",
+      "display_name": "Upsert Vector",
+      "description": "Upsert vectors into a namespace. Overwrites existing vectors with the same ID."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pinecone"
+}

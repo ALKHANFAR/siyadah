@@ -1,0 +1,35 @@
+{
+  "id": "detecting-ai",
+  "package": "@activepieces/piece-detecting-ai",
+  "display_name": "DETECTING-AI.COM",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "check_plagiarism",
+      "display_name": "Check Plagiarism",
+      "description": "Check text for plagiarism"
+    },
+    {
+      "name": "detect_ai_content",
+      "display_name": "Detect AI Content",
+      "description": "Detect AI-generated content in text"
+    },
+    {
+      "name": "humanize_text",
+      "display_name": "Humanize Text",
+      "description": "Humanize text to make it sound more natural"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

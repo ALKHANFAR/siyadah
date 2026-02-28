@@ -1,0 +1,102 @@
+{
+  "id": "podio",
+  "package": "@activepieces/piece-podio",
+  "display_name": "Podio",
+  "display_name_ar": "Podio",
+  "description": "Podio integration",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "attach_file",
+      "display_name": "Attach File",
+      "description": "Upload and attach a file to an item/task/comment."
+    },
+    {
+      "name": "create_comment",
+      "display_name": "Create Comment",
+      "description": "Post a comment on an item or task."
+    },
+    {
+      "name": "create_item",
+      "display_name": "Create Item",
+      "description": "Create a new record in a Podio app with specified field values."
+    },
+    {
+      "name": "create_status",
+      "display_name": "Create Status Update",
+      "description": "Add a status to an item or workspace stream."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Add a new task to an item or workspace with due dates, assignees, and attachments."
+    },
+    {
+      "name": "find_item",
+      "display_name": "Find Item",
+      "description": "Retrieve a single item by ID or field value."
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Retrieve a task by ID for further updates."
+    },
+    {
+      "name": "update_item",
+      "display_name": "Update Item",
+      "description": "Update an existing record in a Podio app with specified field values. Only provided fields will be updated."
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Modify an existing task\\"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "item_updated",
+      "display_name": "Item Updated",
+      "description": "Fires when an existing item is updated (excluding comments)",
+      "type": "instant"
+    },
+    {
+      "name": "new_activity",
+      "display_name": "New Status",
+      "description": "Fires when a new status is created in a workspace stream",
+      "type": "instant"
+    },
+    {
+      "name": "new_item",
+      "display_name": "New Item",
+      "description": "Fires when a new item (record/entry) is created in an app",
+      "type": "instant"
+    },
+    {
+      "name": "new_app",
+      "display_name": "New App",
+      "description": "Fires when a new app is created in a workspace",
+      "type": "instant"
+    },
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Fires when a new task is added to any workspace",
+      "type": "instant"
+    },
+    {
+      "name": "member_added",
+      "display_name": "Member Added",
+      "description": "Fires when a new member is added to a workspace",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/podio"
+}

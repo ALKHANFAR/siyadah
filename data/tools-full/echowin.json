@@ -1,0 +1,84 @@
+{
+  "id": "echowin",
+  "displayName": "Echowin",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createContact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact with optional tags, custom fields, notes, and board assignments",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact's first name"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact's last name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact's email address"
+        },
+        {
+          "name": "number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Contact phone number (will be automatically cleaned)"
+        },
+        {
+          "name": "carrier",
+          "displayName": "Phone Carrier",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone carrier name"
+        }
+      ]
+    },
+    "deleteContact": {
+      "displayName": "Delete Contact",
+      "description": "Delete a contact by ID",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the contact to delete"
+        }
+      ]
+    },
+    "findContactByName": {
+      "displayName": "Find Contact ",
+      "description": "Get a paginated list of contacts and search by name, email, or phone number",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search contacts by name, email, or phone number"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newContact": {
+      "displayName": "New Contact",
+      "description": "Trigger when a new contact is created in Echowin",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

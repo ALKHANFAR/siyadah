@@ -1,0 +1,346 @@
+{
+  "id": "spotify",
+  "displayName": "Spotify",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_library_items": {
+      "displayName": "Add items to library",
+      "description": "Add tracks, episodes, albums, shows, audiobooks, users or playlists to your library",
+      "props": [
+        {
+          "name": "items",
+          "displayName": "Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "URI's of the items to add"
+        }
+      ]
+    },
+    "add_playlist_items": {
+      "displayName": "Add items to playlist",
+      "description": "Adds tracks or episodes to the playlist",
+      "props": [
+        {
+          "name": "items",
+          "displayName": "Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "URI's of the items to add"
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_playlist": {
+      "displayName": "Create Playlist",
+      "description": "Creates a new playlist for the current user",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "public",
+          "displayName": "Public",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "collaborative",
+          "displayName": "Collaborative",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_playback_state": {
+      "displayName": "Get Playback State",
+      "description": "Retrieves the current playback state of the player",
+      "props": []
+    },
+    "get_playlist_info": {
+      "displayName": "Get Playlist Info",
+      "description": "Retrieves details of a playlist",
+      "props": []
+    },
+    "get_playlist_items": {
+      "displayName": "Get Playlist Items",
+      "description": "Retrieves the list of items in the playlist",
+      "props": [
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "all",
+          "displayName": "All",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Fetches all items in a single request"
+        }
+      ]
+    },
+    "get_playlists": {
+      "displayName": "Get Playlists",
+      "description": "Retrieves the list of playlists that you created or followed",
+      "props": [
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "all",
+          "displayName": "All",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Fetches all playlists in a single request"
+        }
+      ]
+    },
+    "get_saved_tracks": {
+      "displayName": "Get Saved Tracks",
+      "description": "Retrieves the list of saved tracks for the current user",
+      "props": [
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "all",
+          "displayName": "All",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Fetches all items in a single request"
+        }
+      ]
+    },
+    "pause": {
+      "displayName": "Pause",
+      "description": "Pauses the playback",
+      "props": []
+    },
+    "play": {
+      "displayName": "Play / Resume",
+      "description": "Resumes or starts playback",
+      "props": [
+        {
+          "name": "context_uri",
+          "displayName": "Context URI",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Spotify URI of the context to play (album, artist, playlist)"
+        },
+        {
+          "name": "tracks",
+          "displayName": "Tracks",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of spotify track uris to play"
+        },
+        {
+          "name": "position_ms",
+          "displayName": "Position",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Position in milliseconds"
+        }
+      ]
+    },
+    "remove_library_items": {
+      "displayName": "Remove items from your library",
+      "description": "Remove tracks, episodes, albums, shows, audiobooks, users or playlists from your library",
+      "props": [
+        {
+          "name": "items",
+          "displayName": "Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "URI's of the items to add"
+        }
+      ]
+    },
+    "remove_playlist_items": {
+      "displayName": "Remove items from playlist",
+      "description": "Removes tracks or episodes from the playlist",
+      "props": [
+        {
+          "name": "items",
+          "displayName": "Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "URI's of the items to remove"
+        }
+      ]
+    },
+    "reorder_playlist": {
+      "displayName": "Reorder playlist",
+      "description": "Reorders items in the playlist",
+      "props": [
+        {
+          "name": "from_position",
+          "displayName": "From Position",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "to_position",
+          "displayName": "To Position",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount of Items",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "search": {
+      "displayName": "Search",
+      "description": "Searches for tracks, artists, albums, etc.",
+      "props": [
+        {
+          "name": "search_text",
+          "displayName": "Search Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The word or phrase you are searching for"
+        },
+        {
+          "name": "types",
+          "displayName": "Object Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "set_volume": {
+      "displayName": "Set Volume",
+      "description": "Sets the volume of the player",
+      "props": [
+        {
+          "name": "volume",
+          "displayName": "Volume",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Volume from 0 to 100"
+        }
+      ]
+    },
+    "update_playlist": {
+      "displayName": "Update Playlist",
+      "description": "Updates details of the playlist",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "public",
+          "displayName": "Public",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "collaborative",
+          "displayName": "Collaborative",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "playlist_items_changed": {
+      "displayName": "Playlist Items Changed",
+      "description": "Triggers when the items of a playlist change",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

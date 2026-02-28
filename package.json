@@ -1,0 +1,17 @@
+{
+  "name": "siyadah",
+  "version": "0.2.0",
+  "description": "سيادة — منصة الأتمتة الذكية للمدراء التنفيذيين",
+  "scripts": {
+    "test": "node tests/run-all.js",
+    "test:registry": "node tests/test-registry.js",
+    "test:details": "node tests/test-tool-details.js",
+    "test:flows": "node tests/test-flows.js",
+    "test:complex": "node tests/test-50-flows.js",
+    "build:registry": "python3 build-registry.py",
+    "add:piece": "python3 add-piece.py"
+  },
+  "keywords": ["automation", "arabic", "activepieces", "ceo", "ai"],
+  "license": "UNLICENSED",
+  "private": true
+}

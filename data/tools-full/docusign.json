@@ -1,0 +1,110 @@
+{
+  "id": "docusign",
+  "displayName": "Docusign",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "getDocument": {
+      "displayName": "Get document",
+      "description": "Get document from a specific envelope",
+      "props": [
+        {
+          "name": "accountId",
+          "displayName": "Account ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "envelopeId",
+          "displayName": "Envelope ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "documentId",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the document to retrieve. Alternatively, you can use one of the following special keywords:\\n"
+        }
+      ]
+    },
+    "getEnvelope": {
+      "displayName": "Get envelope",
+      "description": "Get Docusign envelope",
+      "props": [
+        {
+          "name": "accountId",
+          "displayName": "Account ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "envelopeId",
+          "displayName": "Envelope ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "listEnvelopes": {
+      "displayName": "List envelopes",
+      "description": "List / search envelopes",
+      "props": [
+        {
+          "name": "accountId",
+          "displayName": "Account ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fromDate",
+          "displayName": "From date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "toDate",
+          "displayName": "To date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "searchText",
+          "displayName": "Search text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "include",
+          "displayName": "Include (e.g. recipients)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

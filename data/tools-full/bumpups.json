@@ -1,0 +1,212 @@
+{
+  "id": "bumpups",
+  "displayName": "Bumpups",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generateCreatorDescription": {
+      "displayName": "Generate Creator Description",
+      "description": "Generates a compelling description for a YouTube video based on its content.",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The YouTube video URL."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "generateCreatorHashtags": {
+      "displayName": "Generate Creator Hashtags",
+      "description": "Generates relevant hashtags for a YouTube video based on its content.",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The YouTube video URL."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "output_format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "generateCreatorTakeaways": {
+      "displayName": "Generate Creator Takeaways",
+      "description": "Generates key takeaways for a YouTube video based on its content.",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The YouTube video URL."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "emojis_enabled",
+          "displayName": "Include Emojis",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include emojis in the generated takeaways."
+        }
+      ]
+    },
+    "generateCreatorTitles": {
+      "displayName": "Generate Creator Titles",
+      "description": "Generates engaging titles for a YouTube video based on its content.",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The YouTube video URL."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "generateTimestamps": {
+      "displayName": "Generate Timestamps",
+      "description": "Generates detailed timestamps for a YouTube video based on its content.",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The YouTube video URL."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "timestamps_style",
+          "displayName": "Timestamps Style",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Preferred length of each timestamp."
+        }
+      ]
+    },
+    "send_chat": {
+      "displayName": "Send Chat",
+      "description": "Creates an interactive chat response for a given YouTube video using the bump-1.0 model. Provide the video URL and an optional prompt.",
+      "props": [
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The YouTube video URL."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Message or query about the video (max 500 chars). If empty, defaults to \"summary\"."
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "output_format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

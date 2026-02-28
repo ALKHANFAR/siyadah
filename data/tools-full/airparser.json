@@ -1,0 +1,49 @@
+{
+  "id": "airparser",
+  "displayName": "Airparser",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "extract_data_from_document": {
+      "displayName": "Get Data from Document",
+      "description": "Retrieves parsed JSON data from a specific document.",
+      "props": []
+    },
+    "upload_document": {
+      "displayName": "Upload Document",
+      "description": "Upload a document to an Airparser inbox for parsing.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The document file to upload for parsing."
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "meta",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional metadata to associate with the document."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "document_parsed": {
+      "displayName": "Document Parsed",
+      "description": "Triggers when a new document is parsed in a specific inbox.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

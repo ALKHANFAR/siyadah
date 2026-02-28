@@ -1,0 +1,120 @@
+{
+  "id": "qwilr",
+  "displayName": "Qwilr",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_page": {
+      "displayName": "Create Page",
+      "description": "Creates a new Qwilr page from saved blocks or template.",
+      "props": [
+        {
+          "name": "templateId",
+          "displayName": "Template ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the template to use for the page"
+        },
+        {
+          "name": "name",
+          "displayName": "Page Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title of the page, visible as the browser page title"
+        },
+        {
+          "name": "published",
+          "displayName": "Publish Page",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the page is publicly available; false means the page will be in Draft status"
+        },
+        {
+          "name": "ownerId",
+          "displayName": "Owner ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the user that should own the page. If not specified, the owner of the access token will be the owner of the page."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The tags for your page. Tags are case-sensitive."
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false,
+          "description": "Data you provide, that will be returned as part of all Webhooks."
+        },
+        {
+          "name": "substitutions",
+          "displayName": "Substitutions",
+          "type": "JSON",
+          "required": false,
+          "description": "Mapping of token API reference keys to substitution values used throughout the page."
+        },
+        {
+          "name": "acceptSettings",
+          "displayName": "Accept Settings",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Configures settings for the accept block in the template being used. Only relevant if you have an accept block."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "page_accepted": {
+      "displayName": "Page Accepted",
+      "description": "Triggers when a Qwilr page is accepted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "page_first_viewed": {
+      "displayName": "Page First Viewed",
+      "description": "Triggers when a Qwilr page is viewed for the first time",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "page_partially_accepted": {
+      "displayName": "Page Partially Accepted",
+      "description": "Triggers when a Qwilr page is partially accepted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "page_preview_accepted": {
+      "displayName": "Page Preview Accepted",
+      "description": "Triggers when a Qwilr page preview is accepted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "page_revived_live": {
+      "displayName": "Page Revived Live",
+      "description": "Triggers when a Qwilr page is revived to live status",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "page_set_live": {
+      "displayName": "Page Set Live",
+      "description": "Triggers when a Qwilr page is set to live",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "page_viewed": {
+      "displayName": "Page Viewed",
+      "description": "Triggers when a Qwilr page is viewed",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "kudosity",
+  "package": "@activepieces/piece-kudosity",
+  "display_name": "Kudosity",
+  "display_name_ar": "Kudosity",
+  "description": "Kudosity is a cloud-based SMS platform that enables businesses to send and receive text messages globally.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "addUpdateContact",
+      "display_name": "Add / Update Contact",
+      "description": "Create or update a list member in Kudosity"
+    },
+    {
+      "name": "cancelSms",
+      "display_name": "Cancel SMS",
+      "description": "Cancel a scheduled SMS message in Kudosity"
+    },
+    {
+      "name": "deleteContact",
+      "display_name": "Delete Contact",
+      "description": "Remove a list member from a Kudosity recipient list"
+    },
+    {
+      "name": "formatNumber",
+      "display_name": "Format Number",
+      "description": "Format a phone number to international E.164 format"
+    },
+    {
+      "name": "getSmsInfo",
+      "display_name": "Get SMS info",
+      "description": "Retrieve details for a sent SMS by ID"
+    },
+    {
+      "name": "sendSms",
+      "display_name": "Send SMS",
+      "description": "Send an SMS message via Kudosity"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "linkHit",
+      "display_name": "Link Hit",
+      "description": "Triggered when a tracked link in a message is clicked",
+      "type": "instant"
+    },
+    {
+      "name": "smsReceived",
+      "display_name": "SMS received",
+      "description": "Triggered when an inbound SMS is received",
+      "type": "instant"
+    },
+    {
+      "name": "smsSent",
+      "display_name": "SMS Sent",
+      "description": "Triggered when an SMS sent",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/kudosity"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "beehiiv",
+  "package": "@activepieces/piece-beehiiv",
+  "display_name": "Beehiiv",
+  "display_name_ar": "Beehiiv",
+  "description": "Beehiiv integration",
+  "category": "H_marketing",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "add_subscription_to_automation",
+      "display_name": "Add Subscription to Automation",
+      "description": "Adds an existing subscription to a specific automation flow."
+    },
+    {
+      "name": "create_subscription",
+      "display_name": "Create Subscription",
+      "description": "Creates a new subscription."
+    },
+    {
+      "name": "list_automations",
+      "display_name": "List Automations",
+      "description": "Retrieves a list of automations for a publication."
+    },
+    {
+      "name": "list_posts",
+      "display_name": "List Posts",
+      "description": "Retrieves all posts belonging to a specific publication."
+    },
+    {
+      "name": "update_subscription",
+      "display_name": "Update Subscription",
+      "description": "Update an existing subscription."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "beehiiv_new_post_sent",
+      "display_name": "New Post Sent",
+      "description": "Triggers when a new post is sent.",
+      "type": "instant"
+    },
+    {
+      "name": "beehiiv_new_subscription_confirmed",
+      "display_name": "New Subscription Confirmation",
+      "description": "Triggers when a new subscriber confirms their subscription.",
+      "type": "instant"
+    },
+    {
+      "name": "beehiiv_user_unsubscribes",
+      "display_name": "User Unsubscribes",
+      "description": "Triggers when a user unsubscribes.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/beehiiv"
+}

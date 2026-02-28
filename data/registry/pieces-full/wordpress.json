@@ -1,0 +1,40 @@
+{
+  "id": "wordpress",
+  "package": "@activepieces/piece-wordpress",
+  "display_name": "Username",
+  "display_name_ar": "",
+  "description": "URL of the wordpress url i.e https://www.example-website.com",
+  "category": "I_content",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_page",
+      "display_name": "Create Page",
+      "description": "Create new page on WordPress"
+    },
+    {
+      "name": "create_post",
+      "display_name": "Create Post",
+      "description": "Create new post on WordPress"
+    },
+    {
+      "name": "get_post",
+      "display_name": "Get Post Details",
+      "description": "Get a post from WordPress"
+    },
+    {
+      "name": "update_post",
+      "display_name": "Update Post",
+      "description": "Update an existing post on WordPress."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

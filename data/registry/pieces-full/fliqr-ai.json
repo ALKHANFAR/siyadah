@@ -1,0 +1,30 @@
+{
+  "id": "fliqr-ai",
+  "package": "@activepieces/piece-fliqr-ai",
+  "display_name": "Fliqr AI",
+  "display_name_ar": "",
+  "description": "Omnichannel AI chatbot enhancing customer interactions across WhatsApp, Facebook, Instagram, Telegram, and 6 other platforms.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_fliqr_account_details",
+      "display_name": "Get Business Account details",
+      "description": "Get basic account details of business"
+    },
+    {
+      "name": "get_fliqr_account_flows",
+      "display_name": "Get Account Flows",
+      "description": "Get all flows from the account"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

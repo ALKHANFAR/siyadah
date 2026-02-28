@@ -1,0 +1,140 @@
+{
+  "id": "documentpro",
+  "displayName": "DocumentPro",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "runExtract": {
+      "displayName": "Run Extract",
+      "description": "Run an extract/workflow on an uploaded document",
+      "props": [
+        {
+          "name": "document_id",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the document to parse"
+        },
+        {
+          "name": "template_id",
+          "displayName": "Template ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the Workflow/template to use"
+        },
+        {
+          "name": "use_ocr",
+          "displayName": "Use OCR",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable OCR processing (required for gpt-3.5-turbo or OCR-related parameters)"
+        },
+        {
+          "name": "query_model",
+          "displayName": "Query Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The AI model to use for parsing"
+        },
+        {
+          "name": "detect_layout",
+          "displayName": "Detect Layout",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Detect document layout (requires use_ocr=true)"
+        },
+        {
+          "name": "detect_tables",
+          "displayName": "Detect Tables",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Detect tables in the document (requires use_ocr=true)"
+        },
+        {
+          "name": "page_ranges",
+          "displayName": "Page Ranges",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specify which pages to parse (e.g., \"1-3,5,7-9\")"
+        },
+        {
+          "name": "chunk_by_pages",
+          "displayName": "Chunk by Pages",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of pages per segment for method 1 segmentation"
+        },
+        {
+          "name": "rolling_window",
+          "displayName": "Rolling Window",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Window size for method 2 segmentation"
+        },
+        {
+          "name": "start_regex",
+          "displayName": "Start Regex",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Regex pattern for where parsing should begin (requires use_ocr=true)"
+        },
+        {
+          "name": "end_regex",
+          "displayName": "End Regex",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Regex pattern for where parsing should end (requires use_ocr=true)"
+        },
+        {
+          "name": "split_regex",
+          "displayName": "Split Regex",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Regex pattern to split the document into sections (requires use_ocr=true)"
+        },
+        {
+          "name": "use_all_matches",
+          "displayName": "Use All Matches",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use all regex matches instead of just the first (requires use_ocr=true)"
+        }
+      ]
+    },
+    "uploadDocument": {
+      "displayName": "Upload document",
+      "description": "Uploads a document to a DocumentPro parser",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The document file to upload (PDF, JPEG, PNG, or TIFF, max 6MB)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newDocument": {
+      "displayName": "New Document",
+      "description": "Triggers when a new document is uploaded to DocumentPro",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhook_info",
+          "displayName": "webhook_info",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

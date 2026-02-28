@@ -1,0 +1,37 @@
+{
+  "id": "bamboohr",
+  "displayName": "BambooHR",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "reportFieldChanged": {
+      "displayName": "Report Field Changed",
+      "description": "Triggers when a specific field in a BambooHR report changes for any employee.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "reportId",
+          "displayName": "Report ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the BambooHR report to monitor (e.g., \"1\", \"2\", etc.)"
+        },
+        {
+          "name": "fieldToMonitor",
+          "displayName": "Field to Monitor",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The name of the field to watch for changes (e.g., \"department\", \"jobTitle\", \"status\")"
+        }
+      ]
+    }
+  }
+}

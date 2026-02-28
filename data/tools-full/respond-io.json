@@ -1,0 +1,362 @@
+{
+  "id": "respond-io",
+  "displayName": "Respond.io",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_comment_to_conversation": {
+      "displayName": "Add Comment to Conversation",
+      "description": "Add an internal comment/note to a conversation in Respond.io.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Comment Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The internal comment to add (max 1000 characters). You can mention users with {{@user.ID}} format where ID is the user ID."
+        }
+      ]
+    },
+    "add_tag_to_contact": {
+      "displayName": "Add Tag to Contact",
+      "description": "Add one or multiple tags to a contact in Respond.io.",
+      "props": [
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Tags to add to the contact (minimum 1, maximum 10 tags)."
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the tag to add."
+        }
+      ]
+    },
+    "assign_or_unassign_conversation": {
+      "displayName": "Assign or Unassign Conversation",
+      "description": "Assign or unassign a conversation to/from a team member in Respond.io.",
+      "props": []
+    },
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact record in Respond.io.",
+      "props": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Must be a unique identifier for the new contact. Use format: `email:user@example.com` or `phone:+60123456789`."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email address of the contact."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the contact (in E.164 format)."
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code (e.g., \"en\", \"es\") following ISO 639-1."
+        },
+        {
+          "name": "profilePic",
+          "displayName": "Profile Picture URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A direct URL to the contact's profile picture."
+        },
+        {
+          "name": "countryCode",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country code (e.g., \"US\", \"MY\") following ISO 3166-1 alpha-2."
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields for the contact."
+        },
+        {
+          "name": "name",
+          "displayName": "Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the custom field (e.g., \"Company Website\", \"Department\")."
+        },
+        {
+          "name": "value",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Value of the custom field. Format based on field type:\\n- Text: \"string\" (use quotation marks)\\n- Number: 123 (without quotation marks)\\n- Email: \"user@domain.com\"\\n- URL: \"https://example.com\"\\n- Date: \"yyyy-mm-dd\"\\n- Time: \"HH:MM\" (24H format)\\n- Checkbox: \"true\" or \"false\""
+        }
+      ]
+    },
+    "create_or_update_contact": {
+      "displayName": "Create or Update Contact",
+      "description": "Create a new contact or update an existing one by email, phone, or ID.",
+      "props": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Identifier for the contact. Use format: `id:123`, `email:user@example.com`, or `phone:+60123456789`. If contact exists, it will be updated; if not, a new one will be created."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email address of the contact."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the contact (in E.164 format)."
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code (e.g., \"en\", \"es\") following ISO 639-1."
+        },
+        {
+          "name": "profilePic",
+          "displayName": "Profile Picture URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A direct URL to the contact's profile picture."
+        },
+        {
+          "name": "countryCode",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country code (e.g., \"US\", \"MY\") following ISO 3166-1 alpha-2."
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields for the contact."
+        },
+        {
+          "name": "name",
+          "displayName": "Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the custom field (e.g., \"Company Website\", \"Department\")."
+        },
+        {
+          "name": "value",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Value of the custom field. Format based on field type:\\n- Text: \"string\" (use quotation marks)\\n- Number: 123 (without quotation marks)\\n- Email: \"user@domain.com\"\\n- URL: \"https://example.com\"\\n- Date: \"yyyy-mm-dd\"\\n- Time: \"HH:MM\" (24H format)\\n- Checkbox: \"true\" or \"false\""
+        }
+      ]
+    },
+    "delete_contact": {
+      "displayName": "Delete Contact",
+      "description": "Permanently delete a contact from Respond.io.",
+      "props": []
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Search for contacts by name, email, or phone number in Respond.io.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to search for (e.g., email address, phone number, or name)."
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Timezone for the search (e.g., \"Asia/Kuala_Lumpur\"). Optional."
+        },
+        {
+          "name": "limit",
+          "displayName": "Result Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of contacts to return (1-99). Default is 10."
+        },
+        {
+          "name": "cursorId",
+          "displayName": "Cursor ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Contact ID to start from for pagination. Optional."
+        }
+      ]
+    },
+    "open_conversation": {
+      "displayName": "Open Conversation",
+      "description": "Mark a conversation as open in Respond.io.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "contact_tag_updated": {
+      "displayName": "Contact Tag Updated",
+      "description": "Triggers when a tag is added or removed from a contact in Respond.io.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "contact_updated": {
+      "displayName": "Contact Updated",
+      "description": "Triggers when an existing contact is updated in Respond.io.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "conversation_closed": {
+      "displayName": "Conversation Closed",
+      "description": "Triggers when a conversation is closed.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "conversation_opened": {
+      "displayName": "Conversation Opened",
+      "description": "Triggers when a new conversation is opened.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Triggers when a new contact is created in Respond.io.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_incoming_message": {
+      "displayName": "New Incoming Message",
+      "description": "Triggers when a new message is received from a contact.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_outgoing_message": {
+      "displayName": "New Outgoing Message",
+      "description": "Triggers when a message is sent from Respond.io.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

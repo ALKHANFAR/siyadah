@@ -1,0 +1,93 @@
+{
+  "id": "freshdesk",
+  "displayName": "Base URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "get_all_tickets_by_status": {
+      "displayName": "Get All Tickets By Status",
+      "description": "Get All Tickets by selected status from Freshdesk.",
+      "props": [
+        {
+          "name": "status_filter",
+          "displayName": "Choose Status(es)",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select one or status values"
+        }
+      ]
+    },
+    "get_contact_from_id": {
+      "displayName": "Get Contact from ID",
+      "description": "Get contacts details from Freshdesk using ID number.",
+      "props": [
+        {
+          "name": "contactid",
+          "displayName": "Contact ID number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID number of the contact"
+        }
+      ]
+    },
+    "get_contacts": {
+      "displayName": "Get Freshdesk Contacts",
+      "description": "Get contact details from Freshdesk for all (optional filtered) contacts.",
+      "props": [
+        {
+          "name": "filter_type",
+          "displayName": "Optional Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select one and provide the value."
+        },
+        {
+          "name": "filter_value",
+          "displayName": "Filter value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide value if previous option selected!"
+        },
+        {
+          "name": "filter_status",
+          "displayName": "Optional Filter Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Can filter by state: blocked, deleted, unverified or verified."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Results to return",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Freshdesk calls this per_page - set to 0 for all, if specified maximum is 100"
+        }
+      ]
+    },
+    "get_ticket_status": {
+      "displayName": "Get Ticket Status",
+      "description": "Get Ticket status from Freshdesk. Returns ticket_status, assigned_status, assigned_id",
+      "props": [
+        {
+          "name": "ticketid",
+          "displayName": "Ticket ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Ticket ID to return status"
+        }
+      ]
+    },
+    "get_tickets": {
+      "displayName": "Get Tickets",
+      "description": "Get Ticket instances from Freshdesk.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

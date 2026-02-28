@@ -1,0 +1,348 @@
+{
+  "id": "greip",
+  "displayName": "Greip",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "asn_lookup": {
+      "displayName": "ASN Lookup",
+      "description": "Look up details of an Autonomous System Number (ASN)",
+      "props": [
+        {
+          "name": "asn",
+          "displayName": "AS Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The AS Number to lookup (e.g., AS6167 or 6167)"
+        },
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the response"
+        },
+        {
+          "name": "mode",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Environment mode for testing or production"
+        },
+        {
+          "name": "callback",
+          "displayName": "JSONP Callback",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Function name for JSONP response format"
+        }
+      ]
+    },
+    "bin_lookup": {
+      "displayName": "BIN Lookup",
+      "description": "Look up details of a Bank Identification Number (BIN) or Issuer Identification Number (IIN)",
+      "props": [
+        {
+          "name": "bin",
+          "displayName": "BIN/IIN",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The BIN/IIN of the card (minimum 6 digits). Can be partial like \"456789\" or full card number"
+        },
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the response"
+        },
+        {
+          "name": "mode",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Environment mode for testing or production"
+        },
+        {
+          "name": "userID",
+          "displayName": "User Identifier",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Identify requests from specific users for monitoring (e.g., email, phone, user ID)"
+        },
+        {
+          "name": "callback",
+          "displayName": "JSONP Callback",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Function name for JSONP response format"
+        }
+      ]
+    },
+    "email_validation": {
+      "displayName": "Email Validation",
+      "description": "Validate email addresses by checking domain validity, detecting disposable emails, and assessing risk factors",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address to validate"
+        },
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the response"
+        },
+        {
+          "name": "mode",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Environment mode for testing or production"
+        },
+        {
+          "name": "userID",
+          "displayName": "User Identifier",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Identify requests from specific users for monitoring (e.g., email, phone, user ID)"
+        },
+        {
+          "name": "callback",
+          "displayName": "JSONP Callback",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Function name for JSONP response format"
+        }
+      ]
+    },
+    "ip_lookup": {
+      "displayName": "IP Lookup",
+      "description": "Look up comprehensive information about an IP address including location, ISP, security, and risk factors",
+      "props": [
+        {
+          "name": "ip",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The IP address to lookup (IPv4 or IPv6)"
+        },
+        {
+          "name": "params",
+          "displayName": "Modules",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of modules to include: security, currency, timezone, location (e.g., \"security,timezone,currency\")"
+        },
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the response"
+        },
+        {
+          "name": "lang",
+          "displayName": "Response Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language for the response"
+        },
+        {
+          "name": "mode",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Environment mode for testing or production"
+        },
+        {
+          "name": "userID",
+          "displayName": "User Identifier",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Identify requests from specific users for monitoring (e.g., email, phone, user ID)"
+        },
+        {
+          "name": "callback",
+          "displayName": "JSONP Callback",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Function name for JSONP response format"
+        }
+      ]
+    },
+    "phone_validation": {
+      "displayName": "Phone Validation",
+      "description": "Validate phone numbers by checking syntax and assessing validity and operational status",
+      "props": [
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to validate (e.g., +12121234567, 0012121234567, 12121234567, or 2121234567)"
+        },
+        {
+          "name": "countryCode",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ISO 3166-1 alpha-2 country code (e.g., US, GB, FR)"
+        },
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the response"
+        },
+        {
+          "name": "mode",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Environment mode for testing or production"
+        },
+        {
+          "name": "userID",
+          "displayName": "User Identifier",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Identify requests from specific users for monitoring (e.g., email, phone, user ID)"
+        },
+        {
+          "name": "callback",
+          "displayName": "JSONP Callback",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Function name for JSONP response format"
+        }
+      ]
+    },
+    "profanity_detection": {
+      "displayName": "Detect Profanity",
+      "description": "Detect offensive or inappropriate language in text using machine learning",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to check for profanity"
+        },
+        {
+          "name": "scoreOnly",
+          "displayName": "Score Only",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Return only the score and safety status"
+        },
+        {
+          "name": "listBadWords",
+          "displayName": "List Bad Words",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Include a list of bad words found in the text"
+        },
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the response"
+        },
+        {
+          "name": "mode",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Environment mode for testing or production"
+        },
+        {
+          "name": "callback",
+          "displayName": "JSONP Callback",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Function name for JSONP response format"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "fraudulent_payment_detected": {
+      "displayName": "Fraudulent Payment Detected",
+      "description": "Triggers when a new fraudulent payment is detected by Greip",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "profanity_text_detected": {
+      "displayName": "Profanity Text Detected",
+      "description": "Triggers when Greip detects profanity in a specific text",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "proxy_connection_detected": {
+      "displayName": "Proxy Connection Detected",
+      "description": "Triggers when a new proxy connection is detected",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "spam_email_detected": {
+      "displayName": "Spam Email Detected",
+      "description": "Triggers when a new email is marked as SPAM by Greip",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "spam_phone_detected": {
+      "displayName": "Spam Phone Number Detected",
+      "description": "Triggers when a new phone number is marked as SPAM by Greip",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

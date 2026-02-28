@@ -1,0 +1,35 @@
+{
+  "id": "prompthub",
+  "package": "@activepieces/piece-prompthub",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "PromptHub API token",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_project_head",
+      "display_name": "Get Project Head",
+      "description": "Get the production-ready version of a PromptHub project (typically the last commit on master/main branch). Useful for integrating prompts into your application."
+    },
+    {
+      "name": "list_projects",
+      "display_name": "List Projects",
+      "description": "List PromptHub projects for a team. Returns information about each project\\"
+    },
+    {
+      "name": "run_prompt",
+      "display_name": "Run Prompt",
+      "description": "Run a PromptHub project with optional variables, branch/hash, and chat payload"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/prompthub"
+}

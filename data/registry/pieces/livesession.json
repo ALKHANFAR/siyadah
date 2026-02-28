@@ -1,0 +1,27 @@
+{
+  "id": "livesession",
+  "package": "@activepieces/piece-livesession",
+  "display_name": "LiveSession",
+  "display_name_ar": "LiveSession",
+  "description": "LiveSession is the analytics platform that helps businesses scale up based on data.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "sessionEvent",
+      "display_name": "Session Event",
+      "description": "Triggered when a session event occurs in LiveSession",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/livesession"
+}

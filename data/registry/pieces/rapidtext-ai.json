@@ -1,0 +1,25 @@
+{
+  "id": "rapidtext-ai",
+  "package": "@activepieces/piece-rapidtext-ai",
+  "display_name": "RapidText AI",
+  "display_name_ar": "RapidText AI",
+  "description": "RapidText AI integration",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "generate-article",
+      "display_name": "Generate Article",
+      "description": "Generates an article."
+    },
+    {
+      "name": "create-prompt",
+      "display_name": "Send Prompt",
+      "description": "Send prompt to RapidTextAI."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/rapidtext-ai"
+}

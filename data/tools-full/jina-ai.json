@@ -1,0 +1,369 @@
+{
+  "id": "jina-ai",
+  "displayName": "Jina AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "classify_content": {
+      "displayName": "Classify Text or Image",
+      "description": "Assign categories to text or images using the Classifier API (zero-shot/few-shot).",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The model to use for classification."
+        },
+        {
+          "name": "input",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text or image URL to classify. URLs will be treated as images, other strings as text."
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The labels to classify the content into."
+        }
+      ]
+    },
+    "deepsearch_query": {
+      "displayName": "DeepSearch Query",
+      "description": "Answer complex questions through iterative search, reading, and reasoning with the DeepSearch API.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "reasoning_effort",
+          "displayName": "Reasoning Effort",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Constrains effort on reasoning for reasoning models. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response."
+        },
+        {
+          "name": "budget_tokens",
+          "displayName": "Budget Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "This determines the maximum number of tokens allowed for DeepSearch process. Larger budgets can improve response quality by enabling more exhaustive search for complex queries."
+        },
+        {
+          "name": "max_attempts",
+          "displayName": "Max Attempts",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of retries for solving a problem in DeepSearch process. A larger value allows DeepSearch to retry solving the problem by using different reasoning approaches and strategies."
+        },
+        {
+          "name": "no_direct_answer",
+          "displayName": "No Direct Answer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Forces the model to take further thinking/search steps even when the query seems trivial. Useful if you're using DeepSearch in scenarios where you're certain the query always needs DeepSearch, rather than for trivial questions."
+        },
+        {
+          "name": "max_returned_urls",
+          "displayName": "Max Returned URLs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of URLs to include in the final answer/chunk. URLs are sorted by relevance and other important factors."
+        },
+        {
+          "name": "response_format",
+          "displayName": "Structured Output",
+          "type": "JSON",
+          "required": false,
+          "description": "JSON schema for structured output format. Example: { \"type\": \"json_schema\", \"json_schema\": { \"type\": \"object\", \"properties\": { \"numerical_answer_only\": { \"type\": \"number\" } } } }"
+        },
+        {
+          "name": "boost_hostnames",
+          "displayName": "Good Domains",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A list of domains that are given a higher priority for content retrieval. Useful for domain-specific, high-quality sources that provide valuable content."
+        },
+        {
+          "name": "bad_hostnames",
+          "displayName": "Bad Domains",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A list of domains to be strictly excluded from content retrieval. Typically used to filter out known spam, low-quality, or irrelevant websites."
+        },
+        {
+          "name": "only_hostnames",
+          "displayName": "Only Domains",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A list of domains to be exclusively included in content retrieval. All other domains will be ignored. Useful for domain-specific searches."
+        }
+      ]
+    },
+    "extract_webpage_content": {
+      "displayName": "Extract Webpage Content",
+      "description": "Convert a URL into clean, LLM-friendly Markdown using the Reader API.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the webpage to extract content from."
+        },
+        {
+          "name": "format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Format of the extracted content - how the webpage should be returned."
+        },
+        {
+          "name": "remove_all_images",
+          "displayName": "Remove All Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Remove all images from the response."
+        },
+        {
+          "name": "links_summary",
+          "displayName": "Gather Links",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Create a \"Buttons & Links\" section at the end to help downstream LLMs or web agents navigate the page."
+        },
+        {
+          "name": "images_summary",
+          "displayName": "Gather Images",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Create an \"Images\" section at the end, giving downstream LLMs an overview of all visuals on the page."
+        },
+        {
+          "name": "do_not_track",
+          "displayName": "Do Not Cache & Track!",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "When enabled, the requested URL won't be cached and tracked on our server."
+        },
+        {
+          "name": "iframe_extraction",
+          "displayName": "iframe Extraction",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Processes content from all embedded iframes in the DOM tree."
+        },
+        {
+          "name": "shadow_dom_extraction",
+          "displayName": "Shadow DOM Extraction",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Extracts content from all Shadow DOM roots in the document."
+        },
+        {
+          "name": "follow_redirect",
+          "displayName": "Follow Redirect",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Choose whether to resolve to the final destination URL after following all redirects. Enable to follow the full redirect chain."
+        },
+        {
+          "name": "eu_compliance",
+          "displayName": "EU Compliance",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "All infrastructure and data processing operations reside entirely within EU jurisdiction."
+        },
+        {
+          "name": "json_response",
+          "displayName": "JSON Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return response in JSON format containing URL, title, content, and timestamp (if available)."
+        },
+        {
+          "name": "timeout_seconds",
+          "displayName": "Timeout Seconds",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum page load wait time in seconds (0 means use default timeout, set a value if the default browser engine is too slow on simple webpages)."
+        },
+        {
+          "name": "css_selector",
+          "displayName": "CSS Selector: Only",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "List of CSS selectors to target specific page elements (e.g., \"body, .main-content, #article\")."
+        },
+        {
+          "name": "wait_for_selector",
+          "displayName": "CSS Selector: Wait-For",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "CSS selectors to wait for before returning results (e.g., \"#dynamic-content, .lazy-loaded\")."
+        },
+        {
+          "name": "exclude_selector",
+          "displayName": "CSS Selector: Excluding",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "CSS selectors for elements to remove from the results (e.g., \"header, footer, .ads, #sidebar\")."
+        }
+      ]
+    },
+    "train_custom_classifier": {
+      "displayName": "Train Custom Classifier",
+      "description": "Fine-tune a classifier with labeled examples for domain-specific tasks.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The base model to use for training."
+        },
+        {
+          "name": "access",
+          "displayName": "Access Level",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Visibility of the trained model."
+        },
+        {
+          "name": "num_iters",
+          "displayName": "Number of Iterations",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of training iterations to perform."
+        },
+        {
+          "name": "training_data",
+          "displayName": "Training Data",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Type of input either text or image URL."
+        },
+        {
+          "name": "type",
+          "displayName": "Input Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of input either text or image URL."
+        },
+        {
+          "name": "input",
+          "displayName": "Input",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Label to associate with input."
+        }
+      ]
+    },
+    "web_search_summarization": {
+      "displayName": "Web Search Summarization",
+      "description": "Perform a web search and retrieve summarized results using the Reader API.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The search query to perform."
+        },
+        {
+          "name": "read_full_content",
+          "displayName": "Read Full Content of SERP",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Visit every URL in the search result and return the full content using Reader. Toggle on to enable more Reader-specific options."
+        },
+        {
+          "name": "json_response",
+          "displayName": "JSON Response",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "The response will be in JSON format, containing the URL, title, content, and timestamp (if available). In Search mode, it returns a list of five entries, each following the described JSON structure."
+        },
+        {
+          "name": "fetch_favicons",
+          "displayName": "Fetch Favicons",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "This will fetch the favicon of each URL in the SERP and include them in the response as image URI, useful for UI rendering."
+        },
+        {
+          "name": "preferred_country",
+          "displayName": "Preferred Country",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The country to use for the search. It's a two-letter country code."
+        },
+        {
+          "name": "preferred_location",
+          "displayName": "Preferred Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "From where you want the search query to originate. It is recommended to specify location at the city level in order to simulate a real user's search."
+        },
+        {
+          "name": "preferred_language",
+          "displayName": "Preferred Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language to use for the search. It's a two-letter language code."
+        },
+        {
+          "name": "pagination",
+          "displayName": "Pagination",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The result offset. It skips the given number of results. It's used for pagination."
+        },
+        {
+          "name": "in_site_search",
+          "displayName": "In-site Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Returns the search results only from the specified website or domain. By default it searches the entire web."
+        },
+        {
+          "name": "bypass_cached_content",
+          "displayName": "Bypass Cached Content",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Our API caches URL contents for a certain amount of time. Set it to true to ignore the cached result and fetch the content from the URL directly."
+        },
+        {
+          "name": "eu_compliance",
+          "displayName": "EU Compliance",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "All infrastructure and data processing operations reside entirely within EU jurisdiction."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

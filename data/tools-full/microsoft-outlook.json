@@ -1,0 +1,387 @@
+{
+  "id": "microsoft-outlook",
+  "displayName": "Microsoft Outlook",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "addLabelToEmail": {
+      "displayName": "Add Label to Email",
+      "description": "Adds a category (label) to an email message.",
+      "props": [
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Categories to add to the email."
+        }
+      ]
+    },
+    "createDraftEmail": {
+      "displayName": "Create Draft Email",
+      "description": "Creates a draft email message.",
+      "props": [
+        {
+          "name": "recipients",
+          "displayName": "To Email(s)",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ccRecipients",
+          "displayName": "CC Email(s)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bccRecipients",
+          "displayName": "BCC Email(s)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "bodyFormat",
+          "displayName": "Body Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "attachments",
+          "displayName": "Attachments",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "downloadAttachment": {
+      "displayName": "Download Attachment",
+      "description": "Download attachments from a specific email message.",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the email message containing the attachment."
+        }
+      ]
+    },
+    "findEmail": {
+      "displayName": "Find Email",
+      "description": "Searches for emails using full-text search.",
+      "props": [
+        {
+          "name": "searchQuery",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search terms to find emails (e.g., \"from:john@example.com\", \"subject:urgent\", \"hasAttachments:true\")"
+        },
+        {
+          "name": "top",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (1-1000)."
+        }
+      ]
+    },
+    "forwardEmail": {
+      "displayName": "Forward Email",
+      "description": "Forwards an email message.",
+      "props": [
+        {
+          "name": "recipients",
+          "displayName": "To Email(s)",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional comment to include with the forwarded message."
+        }
+      ]
+    },
+    "moveEmailToFolder": {
+      "displayName": "Move Email to Folder",
+      "description": "Moves an email message to a specific folder.",
+      "props": []
+    },
+    "removeLabelFromEmail": {
+      "displayName": "Remove Label from Email",
+      "description": "Removes a category (label) from an email message.",
+      "props": [
+        {
+          "name": "categories",
+          "displayName": "Categories to Remove",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Categories to remove from the email."
+        }
+      ]
+    },
+    "reply-email": {
+      "displayName": "Reply to Email",
+      "description": "Reply to an outlook email.",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Email",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the email message to reply to."
+        },
+        {
+          "name": "bodyFormat",
+          "displayName": "Body Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "replyBody",
+          "displayName": "Reply Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ccRecipients",
+          "displayName": "CC Recipients",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bccRecipients",
+          "displayName": "BCC Recipients",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "attachments",
+          "displayName": "Attachments",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "draft",
+          "displayName": "Create Draft",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "If enabled, creates draft without sending."
+        }
+      ]
+    },
+    "request_approval_in_mail": {
+      "displayName": "Request Approval in Email",
+      "description": "Send approval request email and then wait until the email is approved or disapproved",
+      "props": [
+        {
+          "name": "recipients",
+          "displayName": "To Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the recipient who will receive the approval request."
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The subject of the approval request email."
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The main content of the email. You can include details about the approval request here in the html format or plain text."
+        }
+      ]
+    },
+    "sendDraftEmail": {
+      "displayName": "Send Draft Email",
+      "description": "Sends a draft email message.",
+      "props": []
+    },
+    "send-email": {
+      "displayName": "Send Email",
+      "description": "Sends an email using Microsoft Outlook.",
+      "props": [
+        {
+          "name": "recipients",
+          "displayName": "To Email(s)",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ccRecipients",
+          "displayName": "CC Email(s)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bccRecipients",
+          "displayName": "BCC Email(s)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "bodyFormat",
+          "displayName": "Body Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "attachments",
+          "displayName": "Attachments",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newAttachment": {
+      "displayName": "New Attachment",
+      "description": "Triggers when a new email containing one or more attachments arrives.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "sender",
+          "displayName": "From (Sender Email)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter emails from a specific sender (optional). Leave empty to for all senders."
+        },
+        {
+          "name": "attachmentNameFilter",
+          "displayName": "Attachment Name Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter attachments by name (contains). Leave empty to include all attachments."
+        }
+      ]
+    },
+    "newEmailInFolder": {
+      "displayName": "New Email in Folder",
+      "description": "Triggers when a new email is delivered into the specified folder.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newEmail": {
+      "displayName": "New Email",
+      "description": "Triggers when a new email is received in the inbox.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "sender",
+          "displayName": "From (Sender Email)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter emails from a specific sender (optional). Leave empty to for all senders."
+        },
+        {
+          "name": "recipient",
+          "displayName": "To (Recipient Email)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter emails to a specific recipient (optional). Leave empty to for all recipients."
+        }
+      ]
+    }
+  }
+}

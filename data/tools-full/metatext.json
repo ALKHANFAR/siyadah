@@ -1,0 +1,140 @@
+{
+  "id": "metatext",
+  "displayName": "Metatext",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "classify_text": {
+      "displayName": "Classify Text",
+      "description": "Classify text into categories (sentiment, intent, topic, custom models)",
+      "props": [
+        {
+          "name": "project_id",
+          "displayName": "Project ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of your classification project"
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to classify"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The model to use for classification"
+        },
+        {
+          "name": "threshold",
+          "displayName": "Threshold",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum confidence score for predictions"
+        },
+        {
+          "name": "top_labels",
+          "displayName": "Top Labels",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of labels to return"
+        },
+        {
+          "name": "refresh",
+          "displayName": "Refresh",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Force refresh the classification"
+        },
+        {
+          "name": "version",
+          "displayName": "Version",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Model version to use"
+        }
+      ]
+    },
+    "extract_text": {
+      "displayName": "Extract Text",
+      "description": "Extract information from text (entities, keywords, custom models)",
+      "props": [
+        {
+          "name": "project_id",
+          "displayName": "Project ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of your extraction project"
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to extract information from"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The model to use for extraction"
+        },
+        {
+          "name": "refresh",
+          "displayName": "Refresh",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Force refresh the extraction"
+        },
+        {
+          "name": "version",
+          "displayName": "Version",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Model version to use"
+        }
+      ]
+    },
+    "finetune_model": {
+      "displayName": "Fine-tune Model",
+      "description": "Initiate a fine-tuning job for your model",
+      "props": [
+        {
+          "name": "project_id",
+          "displayName": "Project ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of your project"
+        },
+        {
+          "name": "taskType",
+          "displayName": "Task Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of task for fine-tuning"
+        },
+        {
+          "name": "modelBase",
+          "displayName": "Base Model",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The base model to fine-tune (e.g., BERT)"
+        },
+        {
+          "name": "hyperparameters",
+          "displayName": "Hyperparameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Custom hyperparameters for fine-tuning"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

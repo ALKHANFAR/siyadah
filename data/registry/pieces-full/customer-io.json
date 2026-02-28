@@ -1,0 +1,25 @@
+{
+  "id": "customer-io",
+  "package": "@activepieces/piece-customer-io",
+  "display_name": "customer.io",
+  "display_name_ar": "",
+  "description": "Create personalized journeys across all channels with our customer engagement platform.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_event",
+      "display_name": "Create Event",
+      "description": "Create an event in Customer.io"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

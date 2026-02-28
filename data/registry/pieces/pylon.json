@@ -1,0 +1,20 @@
+{
+  "id": "pylon",
+  "package": "@activepieces/piece-pylon",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "API Key integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pylon"
+}

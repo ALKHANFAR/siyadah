@@ -1,0 +1,86 @@
+{
+  "id": "bika",
+  "displayName": "Bika.ai",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "bika_create_record": {
+      "displayName": "Create Record",
+      "description": "Creates a new record in database.",
+      "props": []
+    },
+    "bika_delete_record": {
+      "displayName": "Delete Record",
+      "description": "Deletes a record in database by ID.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the record to delete."
+        }
+      ]
+    },
+    "bika_find_record": {
+      "displayName": "Get Record",
+      "description": "Retrieves a record in database by ID.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "bika_find_records": {
+      "displayName": "Find Records",
+      "description": "Finds records in database.",
+      "props": [
+        {
+          "name": "maxRecords",
+          "displayName": "Max Records",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many records are returned in total."
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many records are returned per page (max 1000)."
+        },
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The filter to apply to the records (see https://bika.ai/help/guide/developer/filter-query-language)."
+        }
+      ]
+    },
+    "bika_update_record": {
+      "displayName": "Update Record",
+      "description": "Updates an existing record in database.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the record to update."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

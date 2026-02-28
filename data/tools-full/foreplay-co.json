@@ -1,0 +1,54 @@
+{
+  "id": "foreplay-co",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "findAds": {
+      "displayName": "Find Ads",
+      "description": "Search and filter ads by text, dates, platforms, and categories.",
+      "props": []
+    },
+    "findBoards": {
+      "displayName": "Find Boards",
+      "description": "Get all boards for the authenticated user with pagination.",
+      "props": []
+    },
+    "findBrands": {
+      "displayName": "Find Brands",
+      "description": "Search for brands by name with fuzzy matching.",
+      "props": []
+    },
+    "getAdById": {
+      "displayName": "Get Ad by ID",
+      "description": "Get detailed information about a specific ad by its ID.",
+      "props": []
+    },
+    "getAdsByPage": {
+      "displayName": "Get Ads by Page",
+      "description": "Get all ads for a Facebook Page ID with filtering and pagination.",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newAdInBoard": {
+      "displayName": "New Ad in Board",
+      "description": "Triggers when a new ad is added to the selected board.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newAdInSpyder": {
+      "displayName": "New Ad in Spyder",
+      "description": "Triggers when new ads are added for a brand in Spyder.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newSwipefileAd": {
+      "displayName": "New Swipefile Ad",
+      "description": "Triggers when a new ad is added to your swipefile collection.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

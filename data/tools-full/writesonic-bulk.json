@@ -1,0 +1,299 @@
+{
+  "id": "writesonic-bulk",
+  "displayName": "Writesonic",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "blogIdeas": {
+      "displayName": "Blog Ideas",
+      "description": "Generate blog article ideas based on a topic or keyword",
+      "props": [
+        {
+          "name": "topic",
+          "displayName": "Topic",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The topic or keyword to generate blog ideas for"
+        },
+        {
+          "name": "keyword",
+          "displayName": "Keyword",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A keyword to include in the blog introduction"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "blogIntros": {
+      "displayName": "Blog Intros",
+      "description": "Generate enticing blog article introductions",
+      "props": [
+        {
+          "name": "blog_title",
+          "displayName": "Blog title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The blog topic or title to generate an introduction for"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "blogOutlines": {
+      "displayName": "Blog Outlines",
+      "description": "Generate detailed article outlines for better content writing",
+      "props": [
+        {
+          "name": "blog_title",
+          "displayName": "Blog Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The blog topic or title to generate an outline for"
+        },
+        {
+          "name": "blog_intro",
+          "displayName": "Blog Introduction",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The introduction of the blog to base the outline on"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "contentRephraser": {
+      "displayName": "Content Rephraser",
+      "description": "Rephrase content in a different voice and style to appeal to different readers",
+      "props": [
+        {
+          "name": "content_to_rephrase",
+          "displayName": "Original Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content you want to rephrase"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "contentShorten": {
+      "displayName": "Content Shorten",
+      "description": "Shorten your content in a different voice and style to appeal to different readers",
+      "props": [
+        {
+          "name": "content_to_shorten",
+          "displayName": "Original Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content you want to shorten"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "facebookAds": {
+      "displayName": "Facebook Ads",
+      "description": "Generate Facebook ad copies that make your ads truly stand out",
+      "props": [
+        {
+          "name": "product_name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the product or service to advertise"
+        },
+        {
+          "name": "product_description",
+          "displayName": "Product Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A brief description of the product or service"
+        },
+        {
+          "name": "occasion",
+          "displayName": "Occasion",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The occasion for the ad (e.g.,\"Black Friday\", holiday, sale event)"
+        },
+        {
+          "name": "promotion",
+          "displayName": "Promotion",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Details about any promotion or discount"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "generateProductDescriptions": {
+      "displayName": "Generate Product Descriptions",
+      "description": "Generate authentic product descriptions that compel, inspire, and influence",
+      "props": [
+        {
+          "name": "product_name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the product"
+        },
+        {
+          "name": "product_characteristics",
+          "displayName": "Product Characteristics",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Key characteristics and specifications of the product"
+        },
+        {
+          "name": "primary_keyword",
+          "displayName": "Primary Keyword",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The main keyword to include in the product description"
+        },
+        {
+          "name": "secondary_keywords",
+          "displayName": "Secondary Keywords",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional keywords to include in the product description, separated by commas"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "googleAds": {
+      "displayName": "Google Ads",
+      "description": "Generate quality ads that rank in search results and drive more traffic",
+      "props": [
+        {
+          "name": "product_name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the product or service to advertise"
+        },
+        {
+          "name": "product_description",
+          "displayName": "Product Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A brief description of the product or service"
+        },
+        {
+          "name": "search_term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The search term or query to target in the Google Ads campaign"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "landingPageHeadlines": {
+      "displayName": "Landing Page Headlines",
+      "description": "Generate unique and catchy headlines perfect for your product or service",
+      "props": [
+        {
+          "name": "product_name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the product or service"
+        },
+        {
+          "name": "product_description",
+          "displayName": "Product Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A brief description of the product or service"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "sentenceExpander": {
+      "displayName": "Sentence Expander",
+      "description": "Expand short sentences into more descriptive and interesting ones",
+      "props": [
+        {
+          "name": "content_to_expand",
+          "displayName": "Sentence",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The sentence you want to expand"
+        },
+        {
+          "name": "keyword",
+          "displayName": "Keyword",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A keyword to include in the expanded sentence"
+        },
+        {
+          "name": "num_copies",
+          "displayName": "Number of Copies",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number of blog ideas to generate (1-5)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

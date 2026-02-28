@@ -1,0 +1,137 @@
+{
+  "id": "todoist",
+  "displayName": "Todoist",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create task",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The task's content. It may contain some markdown-formatted text and hyperlinks"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the task. This value may contain some markdown-formatted text and hyperlinks."
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The task's labels (a list of names that may represent either personal or shared labels)"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Task priority from 1 (normal) to 4 (urgent)"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Can be either a specific date in YYYY-MM-DD format relative to user's timezone, a specific date and time in RFC3339 format, or a human defined date (e.g. 'next Monday') using local time"
+        }
+      ]
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Finds a task by name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the task to search for."
+        }
+      ]
+    },
+    "mark_task_completed": {
+      "displayName": "Mark Task as Completed",
+      "description": "Marks a task as being completed.",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Updates an existing task.",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The task's content. It may contain some markdown-formatted text and hyperlinks"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the task. This value may contain some markdown-formatted text and hyperlinks."
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The task's labels (a list of names that may represent either personal or shared labels)"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Task priority from 1 (normal) to 4 (urgent)"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Can be either a specific date in YYYY-MM-DD format relative to user's timezone, a specific date and time in RFC3339 format, or a human defined date (e.g. 'next Monday') using local time"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "task_completed": {
+      "displayName": "Task Completed",
+      "description": "Triggers when a new task is completed",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

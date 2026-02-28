@@ -1,0 +1,174 @@
+{
+  "id": "runway",
+  "displayName": "Runway",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "cancel_or_delete_task": {
+      "displayName": "Cancel or Delete Task",
+      "description": "Cancel or delete a task. Running/pending tasks are cancelled, completed tasks are deleted.",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the task to cancel or delete (UUID format)"
+        }
+      ]
+    },
+    "generate_image_from_text": {
+      "displayName": "Generate Image From Text",
+      "description": "Generates an image using a text prompt via Runway\\",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "AI model to use for image generation"
+        },
+        {
+          "name": "promptText",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Describe what you want to see in the image (max 1000 characters)"
+        },
+        {
+          "name": "ratio",
+          "displayName": "Image Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Resolution of the output image"
+        },
+        {
+          "name": "seed",
+          "displayName": "Seed (Optional)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Random seed for reproducible results (0-4294967295)"
+        },
+        {
+          "name": "referenceImages",
+          "displayName": "Reference Images (Optional)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Up to 3 reference images (required for gen4_image_turbo)"
+        },
+        {
+          "name": "uri",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "HTTPS URL or data URI of the reference image"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name to reference this image in your prompt using @tag (3-16 characters, alphanumeric + underscore)"
+        },
+        {
+          "name": "publicFigureThreshold",
+          "displayName": "Public Figure Detection",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How strict content moderation should be for recognizable public figures"
+        }
+      ]
+    },
+    "generate_video_from_image": {
+      "displayName": "Generate Video From Image",
+      "description": "Generates a video based on image(s) and text prompt using Runway\\",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "AI model to use for video generation"
+        },
+        {
+          "name": "promptImageFile",
+          "displayName": "Prompt Image File",
+          "type": "FILE",
+          "required": false,
+          "description": "Upload an image file to use as the video\\"
+        },
+        {
+          "name": "promptImageUrl",
+          "displayName": "Prompt Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "HTTPS URL of an image to use as the video\\"
+        },
+        {
+          "name": "imagePosition",
+          "displayName": "Image Position",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Position of the image in the video (last frame only supported by gen3a_turbo)"
+        },
+        {
+          "name": "promptText",
+          "displayName": "Prompt Text (Optional)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Describe what should happen in the video (max 1000 characters)"
+        },
+        {
+          "name": "ratio",
+          "displayName": "Video Resolution",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Available resolutions depend on the selected model"
+        },
+        {
+          "name": "duration",
+          "displayName": "Video Duration",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Available durations depend on the selected model"
+        },
+        {
+          "name": "seed",
+          "displayName": "Seed (Optional)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Random seed for reproducible results (0-4294967295)"
+        },
+        {
+          "name": "contentModeration",
+          "displayName": "Content Moderation",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Content moderation settings (not available for veo3)"
+        }
+      ]
+    },
+    "get_task_details": {
+      "displayName": "Get Task Details",
+      "description": "Retrieve details of an existing Runway task by its ID",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique ID of the task to retrieve (UUID format)"
+        },
+        {
+          "name": "downloadOutput",
+          "displayName": "Download Output Files",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Download and return the generated files as attachments (if task succeeded)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

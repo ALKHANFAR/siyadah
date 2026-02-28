@@ -1,0 +1,35 @@
+{
+  "id": "microsoft-dynamics-crm",
+  "displayName": "Microsoft Dynamics CRM",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "dynamics_crm_create_record": {
+      "displayName": "Create Record",
+      "description": "Creates a new record.",
+      "props": []
+    },
+    "dynamics_crm_delete_record": {
+      "displayName": "Delete Record",
+      "description": "Deletes an existing record.",
+      "props": []
+    },
+    "dynamics_crm_get_record": {
+      "displayName": "Get Record",
+      "description": "Retrieves an existing record.",
+      "props": []
+    },
+    "dynamics_crm_update_record": {
+      "displayName": "Update Record",
+      "description": "Updates an existing record.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

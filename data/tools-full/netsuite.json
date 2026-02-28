@@ -1,0 +1,74 @@
+{
+  "id": "netsuite",
+  "displayName": "Account ID",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "executeDataset": {
+      "displayName": "Execute Dataset",
+      "description": "Execute Dataset on NetSuite.",
+      "props": [
+        {
+          "name": "datasetId",
+          "displayName": "Dataset",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "getCustomer": {
+      "displayName": "Get Customer",
+      "description": "Gets customer details from NetSuite.",
+      "props": [
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer to retrieve."
+        }
+      ]
+    },
+    "getVendor": {
+      "displayName": "Get Vendor",
+      "description": "Gets vendor details from NetSuite.",
+      "props": [
+        {
+          "name": "vendorId",
+          "displayName": "Vendor ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the vendor to retrieve."
+        }
+      ]
+    },
+    "runSuiteQL": {
+      "displayName": "Run SuiteQL Query",
+      "description": "Run SuiteQL Query on NetSuite.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Please use :1, :2, :3 etc. for parameterized queries"
+        },
+        {
+          "name": "args",
+          "displayName": "Arguments",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Arguments to be used in the query"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

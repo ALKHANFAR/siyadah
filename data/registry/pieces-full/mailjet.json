@@ -1,0 +1,20 @@
+{
+  "id": "mailjet",
+  "package": "@activepieces/piece-mailjet",
+  "display_name": "Mailjet",
+  "display_name_ar": "",
+  "description": "Email delivery service for sending transactional and marketing emails",
+  "category": "G_productivity",
+  "auth_type": "basic_auth",
+  "actions": [
+    {
+      "name": "send_email",
+      "display_name": "Send Email",
+      "description": "Send a text, HTML or template email through Mailjet"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

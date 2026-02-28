@@ -1,0 +1,28 @@
+{
+  "id": "twitter",
+  "displayName": "Api Key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create-reply": {
+      "displayName": "Create Reply",
+      "description": "Reply to a tweet.",
+      "props": [
+        {
+          "name": "tweet_id",
+          "displayName": "Tweet ID",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The ID of the tweet to reply too."
+        }
+      ]
+    },
+    "create-tweet": {
+      "displayName": "Create Tweet",
+      "description": "Create a tweet",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

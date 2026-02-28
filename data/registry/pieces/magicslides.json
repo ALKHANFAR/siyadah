@@ -1,0 +1,30 @@
+{
+  "id": "magicslides",
+  "package": "@activepieces/piece-magicslides",
+  "display_name": "MagicSlides",
+  "display_name_ar": "MagicSlides",
+  "description": "Create PowerPoint presentations from topics, summaries, or YouTube videos using AI.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createPptFromText",
+      "display_name": "Create PPT from Text/Summary",
+      "description": "Generates a PPT presentation from provided text or summary."
+    },
+    {
+      "name": "createPptFromTopic",
+      "display_name": "Create PPT from Topic",
+      "description": "Generates a PPT presentation from a given topic."
+    },
+    {
+      "name": "createPptFromYoutube",
+      "display_name": "Create PPT from YouTube Video",
+      "description": "Generates a PPT presentation from a YouTube video link."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/magicslides"
+}

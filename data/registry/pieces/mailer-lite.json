@@ -1,0 +1,40 @@
+{
+  "id": "mailer-lite",
+  "package": "@activepieces/piece-mailer-lite",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Email marketing software",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_subscriber_to_group",
+      "display_name": "Add Subscriber to a Group",
+      "description": "Adds existing subscriber to a specific group."
+    },
+    {
+      "name": "add_or_update_subscriber",
+      "display_name": "Add or Update subscriber",
+      "description": "Create a new subscriber or updates an existing one if the email already exists."
+    },
+    {
+      "name": "find_subscriber",
+      "display_name": "Find a Subscriber",
+      "description": "Search for subscriber by email or name."
+    },
+    {
+      "name": "remove_subscriber_from_group",
+      "display_name": "Remove Subscriber from a Group",
+      "description": "Removes subscriber from a specific group."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mailer-lite"
+}

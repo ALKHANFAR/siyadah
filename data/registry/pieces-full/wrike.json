@@ -1,0 +1,79 @@
+{
+  "id": "wrike",
+  "package": "@activepieces/piece-wrike",
+  "display_name": "Wrike",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_comment",
+      "display_name": "Add Comment",
+      "description": "Add a comment or internal note to a task or folder"
+    },
+    {
+      "name": "create_folder",
+      "display_name": "Create Folder",
+      "description": "Create a new folder in Wrike"
+    },
+    {
+      "name": "create_project",
+      "display_name": "Create Project",
+      "description": "Create a new project in Wrike"
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a new task in Wrike"
+    },
+    {
+      "name": "find_folder",
+      "display_name": "Find Folder / Project",
+      "description": "Retrieve folder / project metadata by ID or name"
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Retrieve a task by its ID or lookup fields"
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Update fields of an existing task in Wrike"
+    },
+    {
+      "name": "upload_attachment",
+      "display_name": "Upload Attachment",
+      "description": "Upload a file and attach it to a task or folder"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_folder",
+      "display_name": "New Folder",
+      "description": "Fires when a new folder (or project) is created in Wrike.",
+      "type": "instant"
+    },
+    {
+      "name": "new_subtask_created",
+      "display_name": "New Subtask Created",
+      "description": "Triggers when a subtask is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Fires when a new task is created in Wrike (optionally within a folder).",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

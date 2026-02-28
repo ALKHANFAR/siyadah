@@ -1,0 +1,41 @@
+{
+  "id": "raia-ai",
+  "displayName": "raia",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "prompt-agent": {
+      "displayName": "Prompt Agent",
+      "description": "Sends a prompt to a Raia Agent.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "upload-agent-file": {
+      "displayName": "Upload Agent File",
+      "description": "Upload file to a Raia Agent.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

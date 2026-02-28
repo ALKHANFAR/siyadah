@@ -1,0 +1,84 @@
+{
+  "id": "devin",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_session": {
+      "displayName": "Create Session",
+      "description": "Creates a new Devin session",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "snapshotId",
+          "displayName": "Snapshot ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "playbookId",
+          "displayName": "Playbook ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "unlisted",
+          "displayName": "Unlisted",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "idempotent",
+          "displayName": "Idempotent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_session_details": {
+      "displayName": "Get Session Details",
+      "description": "Retrieves details of a specific Devin session",
+      "props": [
+        {
+          "name": "sessionId",
+          "displayName": "Session ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the session to retrieve details for"
+        }
+      ]
+    },
+    "send_message": {
+      "displayName": "Send Message",
+      "description": "Sends a message to a Devin session",
+      "props": [
+        {
+          "name": "sessionId",
+          "displayName": "Session ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the session to send the message to"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send to the session"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

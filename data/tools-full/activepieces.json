@@ -1,0 +1,67 @@
+{
+  "id": "activepieces",
+  "displayName": "Activepieces Platform",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Create a new project",
+      "props": [
+        {
+          "name": "display_name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "list_project": {
+      "displayName": "List Projects",
+      "description": "List all projects",
+      "props": []
+    },
+    "update_project": {
+      "displayName": "Update Project",
+      "description": "Update a project",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Id of the project"
+        },
+        {
+          "name": "display_name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "notify_status",
+          "displayName": "Notify Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "team_members",
+          "displayName": "Team Members",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,9 @@
+{
+  "id": "gcloud-pubsub",
+  "displayName": "Service Key (JSON)",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {},
+  "triggers": {}
+}

@@ -1,0 +1,35 @@
+{
+  "id": "retune",
+  "displayName": "re:tune",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "ask_chatbot": {
+      "displayName": "Ask Chatbot",
+      "description": "Sends a message to an existing thread with a chatbot.",
+      "props": [
+        {
+          "name": "thread",
+          "displayName": "Thread",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The thread you want to send the message to."
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The message you want to send."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

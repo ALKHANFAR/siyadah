@@ -1,0 +1,134 @@
+{
+  "id": "linkup",
+  "displayName": "Linkup",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "fetch": {
+      "displayName": "Fetch Webpage",
+      "description": "Fetch a webpage and convert it to markdown format. Optionally render JavaScript, include raw HTML, or extract images.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the webpage to fetch"
+        },
+        {
+          "name": "renderJs",
+          "displayName": "Render JavaScript",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Render JavaScript on the webpage before fetching"
+        },
+        {
+          "name": "includeRawHtml",
+          "displayName": "Include Raw HTML",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include the raw HTML in the response"
+        },
+        {
+          "name": "extractImages",
+          "displayName": "Extract Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Extract images from the webpage"
+        }
+      ]
+    },
+    "search": {
+      "displayName": "Search the Web",
+      "description": "Search the web for relevant content based on a natural language query. Perfect for grounding LLM responses with factual data.",
+      "props": [
+        {
+          "name": "q",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The natural language question or query to search for"
+        },
+        {
+          "name": "depth",
+          "displayName": "Search Depth",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Standard returns results faster; deep takes longer but yields more comprehensive results"
+        },
+        {
+          "name": "outputType",
+          "displayName": "Output Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Format of the response. Use structured for custom JSON format."
+        },
+        {
+          "name": "structuredOutputSchema",
+          "displayName": "Structured Output Schema",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON schema (as a string) for the desired response format. Required only when Output Type is \"structured\"."
+        },
+        {
+          "name": "includeSources",
+          "displayName": "Include Sources",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include sources in the response. Only relevant when Output Type is \"structured\"."
+        },
+        {
+          "name": "includeImages",
+          "displayName": "Include Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include images in search results"
+        },
+        {
+          "name": "fromDate",
+          "displayName": "From Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Start date for search results in ISO 8601 format (YYYY-MM-DD), e.g., 2025-01-01"
+        },
+        {
+          "name": "toDate",
+          "displayName": "To Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "End date for search results in ISO 8601 format (YYYY-MM-DD), e.g., 2025-01-01"
+        },
+        {
+          "name": "includeDomains",
+          "displayName": "Include Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Domains to search within (up to 100 domains). Leave empty to search all domains."
+        },
+        {
+          "name": "excludeDomains",
+          "displayName": "Exclude Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Domains to exclude from search results"
+        },
+        {
+          "name": "includeInlineCitations",
+          "displayName": "Include Inline Citations",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include inline citations in the answer. Only relevant when Output Type is \"sourcedAnswer\"."
+        },
+        {
+          "name": "maxResults",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

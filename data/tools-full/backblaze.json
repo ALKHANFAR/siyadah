@@ -1,0 +1,72 @@
+{
+  "id": "backblaze",
+  "displayName": "Access Key ID",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "read-backblaze-file": {
+      "displayName": "Read File",
+      "description": "Read a file from Backblaze bucket to use it in other steps.",
+      "props": [
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key of the file to read. include extension if file has any extension."
+        }
+      ]
+    },
+    "upload-backblaze-file": {
+      "displayName": "Upload File",
+      "description": "Upload an File to bucket.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "my-file-name (no extension). write full path if you want to store in the directories or sub-directories."
+        },
+        {
+          "name": "acl",
+          "displayName": "ACL",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_backblaze_file": {
+      "displayName": "New File",
+      "description": "Trigger when a new file is uploaded.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "folderPath",
+          "displayName": "Folder Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "manus",
+  "package": "@activepieces/piece-manus",
+  "display_name": "Manus",
+  "display_name_ar": "Manus",
+  "description": "AI-powered automation and task execution platform",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a new task for Manus AI to execute"
+    },
+    {
+      "name": "delete_task",
+      "display_name": "Delete Task",
+      "description": "Permanently delete a task by its ID. This action cannot be undone."
+    },
+    {
+      "name": "get_task",
+      "display_name": "Get Task",
+      "description": "Retrieve detailed information about a specific task by its ID"
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Update a task\\"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_task_created",
+      "display_name": "New Task Created",
+      "description": "Triggers when a new task is successfully created in Manus",
+      "type": "instant"
+    },
+    {
+      "name": "task_stopped",
+      "display_name": "Task Stopped",
+      "description": "Triggers when a task reaches a stopping point - either completion or requiring user input",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/manus"
+}

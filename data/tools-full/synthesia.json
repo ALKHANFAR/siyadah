@@ -1,0 +1,148 @@
+{
+  "id": "synthesia",
+  "displayName": "Synthesia",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAVideoFromATemplate": {
+      "displayName": "Create a video from a template",
+      "description": "Create a video based on a template created in Synthesia",
+      "props": [
+        {
+          "name": "templateData",
+          "displayName": "Template Data",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Key-value pairs for template variables. Keys must match variable names in the template (case-sensitive)"
+        },
+        {
+          "name": "test",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, creates a test video with a watermark"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom title for the video"
+        },
+        {
+          "name": "visibility",
+          "displayName": "Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The visibility setting for the video"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom description for the video"
+        },
+        {
+          "name": "brandKitId",
+          "displayName": "Brand Kit ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the brand kit to use (use \"workspace_default\" for default)"
+        }
+      ]
+    },
+    "createVideo": {
+      "displayName": "Create video",
+      "description": "Create a video within your Synthesia account with one or more scenes",
+      "props": [
+        {
+          "name": "input_scriptText",
+          "displayName": "Input Script Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "An array of scenes to be included in the video"
+        },
+        {
+          "name": "input_scriptAudioUrl",
+          "displayName": "Input Script Audio URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the audio file to be used for the video script (optional)"
+        },
+        {
+          "name": "input_avatar",
+          "displayName": "Input Avatar",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The avatar to be used in the video https://docs.synthesia.io/reference/avatars) "
+        },
+        {
+          "name": "input_background",
+          "displayName": "Background",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Background for the video. Can be a stock background, custom asset ID, or URL"
+        },
+        {
+          "name": "test",
+          "displayName": "Test Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, creates a test video with a watermark"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom title for the video (displayed on the share page)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom description for the video (displayed on the share page)"
+        },
+        {
+          "name": "visibility",
+          "displayName": "Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Video visibility setting"
+        },
+        {
+          "name": "brandKitId",
+          "displayName": "Brand Kit ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the brand kit to use (use \"workspace_default\" for default)"
+        },
+        {
+          "name": "callbackId",
+          "displayName": "Callback ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Arbitrary metadata/identifier for the video"
+        },
+        {
+          "name": "pushServiceUrl",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Webhook URL for push notifications when video completes"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newVideoReady": {
+      "displayName": "New Video Ready",
+      "description": "Trigger when a new video is completed in Synthesia",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

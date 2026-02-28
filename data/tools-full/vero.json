@@ -1,0 +1,347 @@
+{
+  "id": "vero",
+  "displayName": "Vero",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "aliasAUser": {
+      "displayName": "Alias a User",
+      "description": "The old unique identifier of the user",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Old User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The old unique identifier of the user"
+        },
+        {
+          "name": "new_id",
+          "displayName": "New User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new unique identifier of the user"
+        }
+      ]
+    },
+    "createOrUpdateUser": {
+      "displayName": "Create or Update User",
+      "description": "Create a new user profile or update an existing user profile with custom properties",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the user"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the user"
+        },
+        {
+          "name": "data",
+          "displayName": "User Data",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Custom user properties (e.g., first_name, last_name, timezone). Reserved properties: language, timezone, userAgent"
+        },
+        {
+          "name": "channels",
+          "displayName": "Channels",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Device tokens for push notifications and other communication channels"
+        },
+        {
+          "name": "type",
+          "displayName": "Channel",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The channel identifier (e.g., push)"
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The address for the channel (e.g., UNIQUE_DEVICE_TOKEN)"
+        },
+        {
+          "name": "platform",
+          "displayName": "Platform",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The platform for push notifications (e.g., iOS, Android)"
+        }
+      ]
+    },
+    "deleteUser": {
+      "displayName": "Delete User",
+      "description": "Delete a user and all their properties and activities permanently. This action is irreversible.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the user to delete"
+        }
+      ]
+    },
+    "resubscribeUser": {
+      "displayName": "Resubscribe User",
+      "description": "Globally resubscribe a user to all communications",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the user"
+        }
+      ]
+    },
+    "trackEvent": {
+      "displayName": "Track Event",
+      "description": "Track a custom event for a user",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique database identifier for the user"
+        },
+        {
+          "name": "userEmail",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the user"
+        },
+        {
+          "name": "eventName",
+          "displayName": "Event Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the event being tracked"
+        },
+        {
+          "name": "eventData",
+          "displayName": "Event Data",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Event-specific data and properties"
+        },
+        {
+          "name": "extras",
+          "displayName": "Extras",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional metadata for the event (e.g., source, createdAt)"
+        }
+      ]
+    },
+    "unsubscribe": {
+      "displayName": "Unsubscribe",
+      "description": "Globally unsubscribe a user from all communications",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the user"
+        }
+      ]
+    },
+    "updateUsersTags": {
+      "displayName": "Update User Tags",
+      "description": "Add or remove tags from a user profile",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the user"
+        },
+        {
+          "name": "add",
+          "displayName": "Tags to Add",
+          "type": "ARRAY",
+          "required": false,
+          "description": "An array of tags to add to the user"
+        },
+        {
+          "name": "remove",
+          "displayName": "Tags to Remove",
+          "type": "ARRAY",
+          "required": false,
+          "description": "An array of tags to remove from the user"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "emailBounced": {
+      "displayName": "Email Bounced",
+      "description": "Triggered when an email bounces",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "emailClicked": {
+      "displayName": "Email Clicked",
+      "description": "Triggered when an email is clicked",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "emailComplained": {
+      "displayName": "Email Complained",
+      "description": "Triggered when an email is marked as complained",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "emailConverted": {
+      "displayName": "Email Converted",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "emailDelivered": {
+      "displayName": "Email Delivered",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "emailOpened": {
+      "displayName": "Email Opened",
+      "description": "Triggered when an email is opened",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "emailSent": {
+      "displayName": "Email Sent",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "newUser": {
+      "displayName": "New User",
+      "description": "Triggered when a new user is created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "resubscribeUser": {
+      "displayName": "Resubscribe User",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "unsubscribeUser": {
+      "displayName": "Unsubscribe User",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "updateUser": {
+      "displayName": "Update User",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

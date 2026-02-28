@@ -1,0 +1,57 @@
+{
+  "id": "convertkit",
+  "displayName": "API Secret",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "broadcasts_list_broadcasts": {
+      "displayName": "List Broadcasts",
+      "description": "List all broadcasts",
+      "props": []
+    },
+    "custom_fields_list_fields": {
+      "displayName": "List Custom Fields",
+      "description": "Returns a list of all custom fields",
+      "props": []
+    },
+    "forms_list_forms": {
+      "displayName": "List Forms",
+      "description": "Returns a list of all forms",
+      "props": []
+    },
+    "purchases_list_purchases": {
+      "displayName": "List Purchases",
+      "description": "Returns a list of all purchases",
+      "props": []
+    },
+    "sequences_list_sequences": {
+      "displayName": "List Sequences",
+      "description": "Returns a list of all sequences",
+      "props": []
+    },
+    "subscribers_get_subscriber_by_id": {
+      "displayName": "Get Subscriber By Id",
+      "description": "Returns data for a single subscriber",
+      "props": []
+    },
+    "tags_list_tags": {
+      "displayName": "List Tags",
+      "description": "Returns a list of all tags",
+      "props": []
+    },
+    "create_webhook": {
+      "displayName": "Add Webhook",
+      "description": "Create a webhook automation",
+      "props": []
+    }
+  },
+  "triggers": {
+    "course_complete": {
+      "displayName": "Tag added to subscriber",
+      "description": "Trigger when a tag is added to a subscriber",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

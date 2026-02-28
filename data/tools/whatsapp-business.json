@@ -1,0 +1,86 @@
+{
+  "id": "whatsapp-business",
+  "package": "@activepieces/piece-whatsapp",
+  "version": "0.1.6",
+  "source": "https://www.activepieces.com/pieces/whatsapp",
+  "npm": "https://www.npmjs.com/package/@activepieces/piece-whatsapp",
+  "github": "packages/pieces/community/whatsapp/src/index.ts",
+  "displayName": "WhatsApp Business",
+  "description": "WhatsApp Business messaging platform",
+  "logoUrl": "https://cdn.activepieces.com/pieces/whatsapp.png",
+  "category": "A_essential",
+  "auth": {
+    "required": true,
+    "type": "custom",
+    "description": "WhatsApp Business API access token"
+  },
+  "triggers": {},
+  "actions": {
+    "send-template-message": {
+      "displayName": "Send Template Message",
+      "description": "Sends a template message.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "sendMedia": {
+      "displayName": "Send Media",
+      "description": "Send a media message through WhatsApp",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "media",
+          "displayName": "Media URL",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "caption",
+          "displayName": "Caption",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "LONG_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "sendMessage": {
+      "displayName": "Send Message",
+      "description": "Send a text message through WhatsApp",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "text",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "simplepdf",
+  "package": "@activepieces/piece-simplepdf",
+  "display_name": "SimplePDF",
+  "display_name_ar": "SimplePDF",
+  "description": "PDF editing and generation tool",
+  "category": "I_content",
+  "auth_type": "none",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "new-submission",
+      "display_name": "New Submission",
+      "description": "Triggers when a form receives a new submission",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/simplepdf"
+}

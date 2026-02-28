@@ -1,0 +1,136 @@
+{
+  "id": "magical-api",
+  "displayName": "Magical API",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_company_data": {
+      "displayName": "Get Company Data",
+      "description": "Given a company name, LinkedIn username, or website, fetch comprehensive company info.",
+      "props": [
+        {
+          "name": "company_name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide the company's legal name (e.g., 'Microsoft')."
+        },
+        {
+          "name": "company_username",
+          "displayName": "Company LinkedIn Username",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide the username from the company's LinkedIn URL (e.g., 'microsoft')."
+        },
+        {
+          "name": "company_website",
+          "displayName": "Company Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide the company's official website URL."
+        },
+        {
+          "name": "request_id",
+          "displayName": "Request ID (for retries)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If a previous run timed out, paste the Request ID here to get the result."
+        }
+      ]
+    },
+    "get_profile_data": {
+      "displayName": "Get Profile Data",
+      "description": "Given a LinkedIn profile username, retrieve comprehensive profile data.",
+      "props": [
+        {
+          "name": "profile_name",
+          "displayName": "LinkedIn Profile Username",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide the username from the LinkedIn profile URL (e.g., 'williamhgates')."
+        },
+        {
+          "name": "request_id",
+          "displayName": "Request ID (for retries)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If a previous run timed out, paste the Request ID here to get the result."
+        }
+      ]
+    },
+    "parse_resume": {
+      "displayName": "Parse Resume",
+      "description": "Extract structured data (name, email, experience, skills, etc.) from a resume file.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Resume URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide the direct link to a publicly accessible resume file (PDF, DOC, or DOCX)"
+        },
+        {
+          "name": "request_id",
+          "displayName": "Request ID (for retries)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If a previous run timed out, paste the Request ID here to get the result."
+        }
+      ]
+    },
+    "review_resume": {
+      "displayName": "Review Resume",
+      "description": "Analyze parsed resume using predefined criteria.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Resume URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide a direct URL to a publicly accessible resume file (PDF, DOC, or DOCX)."
+        },
+        {
+          "name": "request_id",
+          "displayName": "Request ID (for retries)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If a previous run timed out, paste the Request ID here to get the result."
+        }
+      ]
+    },
+    "score_resume": {
+      "displayName": "Score Resume",
+      "description": "Scores a resume against a job description and provides a reason.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Resume URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide a direct URL to a publicly accessible resume file (PDF, DOC, or DOCX)."
+        },
+        {
+          "name": "job_description",
+          "displayName": "Job Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Provide the job description to score the resume against."
+        },
+        {
+          "name": "request_id",
+          "displayName": "Request ID (for retries)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "If a previous run timed out, paste the Request ID here to get the result."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,76 @@
+{
+  "id": "datadog",
+  "displayName": "Datadog",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "sendMultipleLogs": {
+      "displayName": "Send Multiple logs",
+      "description": "Send your logs to your Datadog platform over HTTP.",
+      "props": [
+        {
+          "name": "body",
+          "displayName": "Logs",
+          "type": "JSON",
+          "required": true,
+          "description": "Logs to send to Datadog, must contain a \\"
+        }
+      ]
+    },
+    "sendOneLog": {
+      "displayName": "Send One log",
+      "description": "Send one log to your Datadog platform over HTTP.",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The message to send to Datadog"
+        },
+        {
+          "name": "ddsource",
+          "displayName": "DD Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The DD source to send to Datadog"
+        },
+        {
+          "name": "ddtags",
+          "displayName": "DD Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The DD tags to send to Datadog, comma separated"
+        },
+        {
+          "name": "hostname",
+          "displayName": "Hostname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The hostname to send to Datadog"
+        },
+        {
+          "name": "service",
+          "displayName": "Service",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The service to send to Datadog"
+        },
+        {
+          "name": "additionalProperties",
+          "displayName": "Additional Properties",
+          "type": "JSON",
+          "required": false,
+          "description": "Additional properties to send to Datadog, in key-value pairs like status, level, etc."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

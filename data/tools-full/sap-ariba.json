@@ -1,0 +1,892 @@
+{
+  "id": "sap-ariba",
+  "displayName": "SAP Ariba",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_contract_workspace": {
+      "displayName": "Create Contract Workspace",
+      "description": "Create a new contract workspace in SAP Ariba Contracts.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the realm."
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User ID to perform the action on behalf of."
+        },
+        {
+          "name": "passwordAdapter",
+          "displayName": "Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password adapter to authenticate the user."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Contract workspace title."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Contract workspace description."
+        },
+        {
+          "name": "templateId",
+          "displayName": "Template ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Template ID for the contract workspace."
+        },
+        {
+          "name": "effectiveDate",
+          "displayName": "Effective Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Contract effective date."
+        },
+        {
+          "name": "expirationDate",
+          "displayName": "Expiration Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Contract expiration date."
+        },
+        {
+          "name": "contractAmount",
+          "displayName": "Contract Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Contract amount value."
+        },
+        {
+          "name": "contractCurrency",
+          "displayName": "Contract Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code (e.g., USD)."
+        },
+        {
+          "name": "ownerUniqueName",
+          "displayName": "Owner Unique Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Owner user unique name."
+        },
+        {
+          "name": "ownerPasswordAdapter",
+          "displayName": "Owner Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Owner password adapter."
+        },
+        {
+          "name": "supplierName",
+          "displayName": "Supplier Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Supplier organization name."
+        },
+        {
+          "name": "supplierSystemId",
+          "displayName": "Supplier System ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Supplier system ID."
+        },
+        {
+          "name": "isTestProject",
+          "displayName": "Is Test Project",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark as test project."
+        },
+        {
+          "name": "additionalFields",
+          "displayName": "Additional Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "Additional fields as JSON object to merge with the request body."
+        }
+      ]
+    },
+    "delete_contract_workspace": {
+      "displayName": "Delete Contract Workspace",
+      "description": "Delete a contract workspace in SAP Ariba Contracts.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the SAP Ariba Contract site (e.g., testrealm)."
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User ID to perform the action on behalf of (e.g., testUser)."
+        },
+        {
+          "name": "passwordAdapter",
+          "displayName": "Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password adapter to authenticate the user (e.g., PasswordAdapter1)."
+        },
+        {
+          "name": "contractId",
+          "displayName": "Contract ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the contract workspace to delete (e.g., CW0001)."
+        }
+      ]
+    },
+    "get_active_catalogs": {
+      "displayName": "Get Active Catalogs",
+      "description": "Get list of active catalog data & supplier values from the specified date.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Realm name."
+        },
+        {
+          "name": "date",
+          "displayName": "Activated From Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Get catalogs activated from this date (ISO format)."
+        },
+        {
+          "name": "supplierdomain",
+          "displayName": "Supplier Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by Supplier Domain ID (e.g., buyersystemid:Supplier16)."
+        },
+        {
+          "name": "subscriptionName",
+          "displayName": "Subscription Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by Subscription Name."
+        },
+        {
+          "name": "showAll",
+          "displayName": "Show All",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show all records."
+        },
+        {
+          "name": "showAdditionalFields",
+          "displayName": "Show Additional Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include additional fields in response."
+        }
+      ]
+    },
+    "get_catalog_items": {
+      "displayName": "Get Catalog Items",
+      "description": "Get list of filtered catalog items for a specific supplier.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Realm name."
+        },
+        {
+          "name": "catalogName",
+          "displayName": "Catalog Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the catalog."
+        },
+        {
+          "name": "supplierId",
+          "displayName": "Supplier ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Supplier ID domain value pair (e.g., buyersystemid:Supplier16)."
+        },
+        {
+          "name": "select",
+          "displayName": "Select Fields",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Output fields to return, comma-separated (e.g., SupplierPartId,SupplierId,LeadTime)."
+        },
+        {
+          "name": "rsqlfilter",
+          "displayName": "RSQL Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional RSQL filter expression (e.g., CatalogName==JCNTechnologies)."
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Starting position for results."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of items to return (default 1000)."
+        }
+      ]
+    },
+    "get_contract_workspace": {
+      "displayName": "Get Contract Workspace",
+      "description": "Search for a contract workspace using a unique identifier.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the realm."
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User ID to perform the action on behalf of."
+        },
+        {
+          "name": "passwordAdapter",
+          "displayName": "Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password adapter to authenticate the user."
+        },
+        {
+          "name": "contractId",
+          "displayName": "Contract ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Contract ID (e.g., CW0001)."
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional information to fetch (e.g., relatedFactories)."
+        }
+      ]
+    },
+    "get_document_changes": {
+      "displayName": "Get Document Changes",
+      "description": "Returns the list of changes to approvable documents.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the realm."
+        },
+        {
+          "name": "changeSequenceId",
+          "displayName": "Change Sequence ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only return changes after this sequence ID. Leave empty to get all changes."
+        },
+        {
+          "name": "count",
+          "displayName": "Include Count",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include total count in response."
+        },
+        {
+          "name": "top",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to return (max 1000, default 10)."
+        },
+        {
+          "name": "skip",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to skip."
+        }
+      ]
+    },
+    "get_facet_data": {
+      "displayName": "Get Facet Data",
+      "description": "Get list of Facet data against realm.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Realm name."
+        },
+        {
+          "name": "select",
+          "displayName": "Select Field",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Facet field to select (e.g., ClassificationCode)."
+        },
+        {
+          "name": "rsqlfilter",
+          "displayName": "RSQL Filter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "RSQL Filter expression (e.g., CatalogName==JCNTechnologies)."
+        }
+      ]
+    },
+    "get_pending_approvables": {
+      "displayName": "Get Pending Approvables",
+      "description": "List all documents/tasks that are pending approval.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the realm."
+        },
+        {
+          "name": "approvableType",
+          "displayName": "Approvable Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by document type."
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by username."
+        },
+        {
+          "name": "passwordAdapter",
+          "displayName": "Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by password adapter."
+        },
+        {
+          "name": "count",
+          "displayName": "Include Count",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include total count in response."
+        },
+        {
+          "name": "top",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to return (max 100, default 100)."
+        },
+        {
+          "name": "skip",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to skip."
+        }
+      ]
+    },
+    "list_invoices": {
+      "displayName": "List Invoices",
+      "description": "Retrieves header information of one or more invoices in Ariba Network.",
+      "props": [
+        {
+          "name": "anId",
+          "displayName": "Ariba Network ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Buyer/Supplier Ariba Network ID (ANID)."
+        },
+        {
+          "name": "buyerANID",
+          "displayName": "Filter: Buyer ANID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by Buyer's ANID."
+        },
+        {
+          "name": "supplierANID",
+          "displayName": "Filter: Supplier ANID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by Supplier's ANID."
+        },
+        {
+          "name": "documentNumber",
+          "displayName": "Filter: Document Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by Invoice Document Number."
+        },
+        {
+          "name": "documentStatus",
+          "displayName": "Filter: Document Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by processing status."
+        },
+        {
+          "name": "routingStatus",
+          "displayName": "Filter: Routing Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by routing status."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Filter: Created Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter by creation date (start)."
+        },
+        {
+          "name": "endDate",
+          "displayName": "Filter: Created End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter by creation date (end)."
+        },
+        {
+          "name": "documentStatusUpdatedStartDate",
+          "displayName": "Filter: Updated Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter by status updated date (start)."
+        },
+        {
+          "name": "documentStatusUpdatedEndDate",
+          "displayName": "Filter: Updated End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter by status updated date (end)."
+        },
+        {
+          "name": "documentPurpose",
+          "displayName": "Filter: Document Purpose",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by document purpose."
+        },
+        {
+          "name": "includeInvoiceProfile",
+          "displayName": "Include Invoice Profile",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Display Invoice Profile related fields (e.g., Address, Tax Id)."
+        },
+        {
+          "name": "top",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items to return (max 100)."
+        },
+        {
+          "name": "skip",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items to skip."
+        }
+      ]
+    },
+    "list_purchase_order_items": {
+      "displayName": "List Purchase Order Line Items",
+      "description": "Retrieves line item information from purchase orders for a specified buyer.",
+      "props": [
+        {
+          "name": "buyerANID",
+          "displayName": "Buyer ANID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The buyer's Ariba Network ID."
+        },
+        {
+          "name": "documentNumber",
+          "displayName": "Document Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by order ID / purchase order number."
+        },
+        {
+          "name": "orderStatus",
+          "displayName": "Order Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by order processing state."
+        },
+        {
+          "name": "routingStatus",
+          "displayName": "Routing Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by routing status."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter orders received on or after this date. Max range: 31 days."
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter orders received on or before this date. Max range: 31 days."
+        },
+        {
+          "name": "top",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items to return."
+        },
+        {
+          "name": "skip",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items to skip."
+        }
+      ]
+    },
+    "list_purchase_orders": {
+      "displayName": "List Purchase Orders",
+      "description": "Retrieves purchase order header information for a specified buyer.",
+      "props": [
+        {
+          "name": "buyerANID",
+          "displayName": "Buyer ANID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The buyer's Ariba Network ID."
+        },
+        {
+          "name": "supplierANID",
+          "displayName": "Supplier ANID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by supplier's Ariba Network ID."
+        },
+        {
+          "name": "documentNumber",
+          "displayName": "Document Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by order ID / purchase order number."
+        },
+        {
+          "name": "orderStatus",
+          "displayName": "Order Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by order processing state."
+        },
+        {
+          "name": "routingStatus",
+          "displayName": "Routing Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by routing status."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter orders received on or after this date. Max range: 31 days."
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter orders received on or before this date. Max range: 31 days."
+        },
+        {
+          "name": "top",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items to return."
+        },
+        {
+          "name": "skip",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items to skip."
+        }
+      ]
+    },
+    "search_contract_workspaces": {
+      "displayName": "Search Contract Workspaces",
+      "description": "Search contract workspaces based on attributes such as title, contract ID, region, etc.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the realm."
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User ID to perform the action on behalf of."
+        },
+        {
+          "name": "passwordAdapter",
+          "displayName": "Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password adapter to authenticate the user."
+        },
+        {
+          "name": "select",
+          "displayName": "Select Fields",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated metadata fields to retrieve (e.g., title,contractid,region)."
+        },
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter criteria (e.g., LastModified ge \\"
+        },
+        {
+          "name": "top",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to return (default 500, max 500)."
+        },
+        {
+          "name": "skip",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to skip."
+        },
+        {
+          "name": "count",
+          "displayName": "Include Count",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include total number of records in response."
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional information to fetch (e.g., relatedFactories)."
+        }
+      ]
+    },
+    "update_contract_status": {
+      "displayName": "Update Contract Status",
+      "description": "Change the status of a contract workspace (e.g., amend, putOnHold, resume, close).",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the realm."
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User ID to perform the action on behalf of."
+        },
+        {
+          "name": "passwordAdapter",
+          "displayName": "Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password adapter to authenticate the user."
+        },
+        {
+          "name": "contractId",
+          "displayName": "Contract ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the contract workspace."
+        },
+        {
+          "name": "action",
+          "displayName": "Action",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The status change action to perform."
+        },
+        {
+          "name": "amendmentType",
+          "displayName": "Amendment Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Required if action is Amend."
+        },
+        {
+          "name": "amendmentReason",
+          "displayName": "Amendment Reason",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Reason for the amendment."
+        },
+        {
+          "name": "isTemplateUpgradeRequired",
+          "displayName": "Is Template Upgrade Required",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether template upgrade is required (for Amend action)."
+        }
+      ]
+    },
+    "update_contract_workspace": {
+      "displayName": "Update Contract Workspace",
+      "description": "Update an existing contract workspace in SAP Ariba Contracts.",
+      "props": [
+        {
+          "name": "realm",
+          "displayName": "Realm",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier of the realm."
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User ID to perform the action on behalf of."
+        },
+        {
+          "name": "passwordAdapter",
+          "displayName": "Password Adapter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password adapter to authenticate the user."
+        },
+        {
+          "name": "contractId",
+          "displayName": "Contract ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the contract workspace to update."
+        },
+        {
+          "name": "silentUpdate",
+          "displayName": "Silent Update",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Update without changing the last modified date."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New title."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New description."
+        },
+        {
+          "name": "effectiveDate",
+          "displayName": "Effective Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "New effective date."
+        },
+        {
+          "name": "expirationDate",
+          "displayName": "Expiration Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "New expiration date."
+        },
+        {
+          "name": "contractAmount",
+          "displayName": "Contract Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "New contract amount value."
+        },
+        {
+          "name": "contractCurrency",
+          "displayName": "Contract Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code (e.g., USD)."
+        },
+        {
+          "name": "amendmentReason",
+          "displayName": "Amendment Reason",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Reason for amendment."
+        },
+        {
+          "name": "additionalFields",
+          "displayName": "Additional Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "Additional fields as JSON object to merge with the request body."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

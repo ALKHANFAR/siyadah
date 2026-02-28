@@ -1,0 +1,216 @@
+{
+  "id": "tidely",
+  "displayName": "Tidely",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAPlan": {
+      "displayName": "Create a Plan",
+      "description": "Create a new financial plan in Tidely",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Plan Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the plan"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Plan amount"
+        },
+        {
+          "name": "period",
+          "displayName": "Period",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Frequency of the plan"
+        },
+        {
+          "name": "type",
+          "displayName": "Plan Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of plan"
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Plan date (format: dd/MM/yy, M/dd/yy, or yyyy-MM-dd)"
+        },
+        {
+          "name": "categoryId",
+          "displayName": "Category ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of the plan category"
+        },
+        {
+          "name": "categoryName",
+          "displayName": "Category Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the plan category"
+        },
+        {
+          "name": "scenarioId",
+          "displayName": "Scenario ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of the scenario"
+        },
+        {
+          "name": "scenarioName",
+          "displayName": "Scenario Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the scenario"
+        },
+        {
+          "name": "replaceCurrentValuesForThePeriod",
+          "displayName": "Replace Current Values for the Period",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to replace current values for the period"
+        }
+      ]
+    },
+    "importInvoice": {
+      "displayName": "Import Invoice",
+      "description": "Create, update, or delete an invoice in Tidely",
+      "props": [
+        {
+          "name": "invoiceId",
+          "displayName": "Invoice ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique identifier for the invoice"
+        },
+        {
+          "name": "invoiceNumber",
+          "displayName": "Invoice Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Invoice number or reference"
+        },
+        {
+          "name": "contactName",
+          "displayName": "Contact Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the contact/customer"
+        },
+        {
+          "name": "invoiceDate",
+          "displayName": "Invoice Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Date the invoice was issued (format: dd/MM/yy, M/dd/yy, or yyyy-MM-dd)"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the invoice is due (format: dd/MM/yy, M/dd/yy, or yyyy-MM-dd)"
+        },
+        {
+          "name": "paidDate",
+          "displayName": "Paid Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the invoice was paid (format: yyyy-MM-dd HH:mm:ss or yyyy-MM-dd'T'HH:mm:ss)"
+        },
+        {
+          "name": "createdDate",
+          "displayName": "Created Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the invoice was created (format: dd/MM/yy, M/dd/yy, or yyyy-MM-dd)"
+        },
+        {
+          "name": "updatedDate",
+          "displayName": "Updated Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the invoice was last updated (format: dd/MM/yy, M/dd/yy, or yyyy-MM-dd)"
+        },
+        {
+          "name": "invoiceType",
+          "displayName": "Invoice Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of invoice"
+        },
+        {
+          "name": "invoiceStatus",
+          "displayName": "Invoice Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Current status of the invoice"
+        },
+        {
+          "name": "totalNetAmount",
+          "displayName": "Total Net Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Total amount before tax"
+        },
+        {
+          "name": "totalTaxAmount",
+          "displayName": "Total Tax Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total tax amount"
+        },
+        {
+          "name": "totalGrossAmount",
+          "displayName": "Total Gross Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Total amount including tax"
+        },
+        {
+          "name": "openAmount",
+          "displayName": "Open Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Amount still outstanding"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency code (e.g., USD, EUR, GBP)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Invoice description or notes"
+        },
+        {
+          "name": "categoryId",
+          "displayName": "Category ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of the invoice category"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

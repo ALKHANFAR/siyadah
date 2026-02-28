@@ -1,0 +1,105 @@
+{
+  "id": "notion",
+  "package": "@activepieces/piece-notion",
+  "display_name": "Notion",
+  "display_name_ar": "",
+  "description": "The all-in-one workspace",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_comment",
+      "display_name": "Add Comment",
+      "description": "Add a comment to any Notion page to start discussions, provide feedback, or leave notes for team collaboration."
+    },
+    {
+      "name": "append_to_page",
+      "display_name": "Append to Page",
+      "description": "Appends content to the end of a page."
+    },
+    {
+      "name": "archive_database_item",
+      "display_name": "Archive Database Item",
+      "description": "Archive (soft-delete) a database item without permanently removing it. Archived items can be restored later if needed."
+    },
+    {
+      "name": "create_database_item",
+      "display_name": "Create Database Item",
+      "description": "Add a new item to a Notion database with custom field values and optional content. Ideal for creating tasks, records, or entries in structured databases."
+    },
+    {
+      "name": "createPage",
+      "display_name": "Create Page",
+      "description": "Create a new Notion page as a sub-page with custom title and content. Perfect for organizing documentation, notes, or creating structured page hierarchies."
+    },
+    {
+      "name": "notion-find-database-item",
+      "display_name": "Find Database Item",
+      "description": "Searches for an item in database by field."
+    },
+    {
+      "name": "find_page",
+      "display_name": "Find Page",
+      "description": "Search for Notion pages by title with flexible matching options. Perfect for finding specific pages, building page references, or creating automated workflows based on page discovery."
+    },
+    {
+      "name": "get_page_comments",
+      "display_name": "Get Page Comments",
+      "description": "Retrieve all comments from a Notion page, organized by discussion threads. Perfect for tracking feedback, managing reviews, or monitoring page discussions."
+    },
+    {
+      "name": "getPageOrBlockChildren",
+      "display_name": "Get block content",
+      "description": "Retrieve the actual content of a page (represented by blocks)."
+    },
+    {
+      "name": "restore_database_item",
+      "display_name": "Restore Database Item",
+      "description": "Restore an archived database item back to active status. Perfect for recovering accidentally archived tasks, projects, or records."
+    },
+    {
+      "name": "retrieve_database",
+      "display_name": "Retrieve Database Structure",
+      "description": "Get detailed information about a Notion database including all its properties, field types, and configuration. Perfect for building dynamic forms, validation rules, or understanding database schemas."
+    },
+    {
+      "name": "update_database_item",
+      "display_name": "Update Database Item",
+      "description": "Update specific fields in a Notion database item. Perfect for maintaining data, tracking changes, or syncing information across systems."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_comment",
+      "display_name": "New Comment",
+      "description": "Triggers whenever someone adds a new comment to a specific Notion page. Perfect for notifications, review workflows, or automated responses to team feedback.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_database_item",
+      "display_name": "New Database Item",
+      "description": "Triggers when an item is added to a database.",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_database_item",
+      "display_name": "Updated Database Item",
+      "description": "Triggers when an item is updated in a database.",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_page",
+      "display_name": "Updated Page",
+      "description": "Triggers whenever any page in your Notion workspace is modified or updated. Ideal for syncing content changes, backup processes, or notifying teams about documentation updates.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

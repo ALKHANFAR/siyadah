@@ -1,0 +1,98 @@
+{
+  "id": "paperform",
+  "package": "@activepieces/piece-paperform",
+  "display_name": "Paperform",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createFormCoupon",
+      "display_name": "Create Form Coupon",
+      "description": "Creates a new discount coupon to a specified form."
+    },
+    {
+      "name": "createFormProduct",
+      "display_name": "Create Form Product",
+      "description": "Creates a form product."
+    },
+    {
+      "name": "createSpace",
+      "display_name": "Create Space",
+      "description": "Creates a new space."
+    },
+    {
+      "name": "deleteFormCoupon",
+      "display_name": "Delete Form Coupon",
+      "description": "Deletes a coupon from a form."
+    },
+    {
+      "name": "deleteFormProduct",
+      "display_name": "Delete Form Product",
+      "description": "Deletes an existing form product."
+    },
+    {
+      "name": "deleteFormSubmission",
+      "display_name": "Delete Form Submission",
+      "description": "Deletes a completed submission by its ID."
+    },
+    {
+      "name": "deletePartialFormSubmission",
+      "display_name": "Delete Partial Form Submission",
+      "description": "Deletes a partial/in-progress submission by its ID."
+    },
+    {
+      "name": "findFormProduct",
+      "display_name": "Find Form Product",
+      "description": "Finds a form product by name."
+    },
+    {
+      "name": "findForm",
+      "display_name": "Find Form",
+      "description": "Finds a form by title."
+    },
+    {
+      "name": "findSpace",
+      "display_name": "Find Space",
+      "description": "Finds a space by name."
+    },
+    {
+      "name": "updateFormCoupon",
+      "display_name": "Update Form Coupon",
+      "description": "Updates an existing form coupon."
+    },
+    {
+      "name": "updateFormProduct",
+      "display_name": "Update Form Product",
+      "description": "Updates an existing form product."
+    },
+    {
+      "name": "updateSpace",
+      "display_name": "Update Space",
+      "description": "Updates an existing space."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_form_submission",
+      "display_name": "New Form Submission",
+      "description": "Triggers when a completed form submission is received.",
+      "type": "instant"
+    },
+    {
+      "name": "new_partial_form_submission",
+      "display_name": "New Partial Form Submission",
+      "description": "Triggers when a partial/in-progress submission is received.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

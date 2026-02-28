@@ -1,0 +1,27 @@
+{
+  "id": "hystruct",
+  "package": "@activepieces/piece-hystruct",
+  "display_name": "Hystruct",
+  "display_name_ar": "",
+  "description": "AI-powered document structuring and data extraction",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_job",
+      "display_name": "Create Job",
+      "description": "Create and queue a new job to run for a workflow"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "workflow_event",
+      "display_name": "Workflow Event",
+      "description": "Triggers when a workflow event occurs (e.g., job completed, data updated)",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,72 @@
+{
+  "id": "okta",
+  "package": "@activepieces/piece-okta",
+  "display_name": "Okta",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "activate_user",
+      "display_name": "Activate User",
+      "description": "Activate a previously deactivated or pending user"
+    },
+    {
+      "name": "add_user_to_group",
+      "display_name": "Add User to Group",
+      "description": "Add a user to a specific Okta group"
+    },
+    {
+      "name": "create_user",
+      "display_name": "Create User",
+      "description": "Creates a user without credentials and sends account creation prompt via email"
+    },
+    {
+      "name": "deactivate_user",
+      "display_name": "Deactivate User",
+      "description": "Deactivate (disable) a user in Okta"
+    },
+    {
+      "name": "find_group_by_name",
+      "display_name": "Find Group by Name",
+      "description": "Search for an Okta group by name"
+    },
+    {
+      "name": "find_user_by_email",
+      "display_name": "Find User by Email",
+      "description": "Look up an Okta user by their email address"
+    },
+    {
+      "name": "remove_user_from_group",
+      "display_name": "Remove User from Group",
+      "description": "Remove a user from an Okta group"
+    },
+    {
+      "name": "suspend_user",
+      "display_name": "Suspend User",
+      "description": "Temporarily suspend a user in Okta"
+    },
+    {
+      "name": "update_user",
+      "display_name": "Update User",
+      "description": "Update user profile information"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_event",
+      "display_name": "New Event",
+      "description": "Fires when a new Okta event is generated",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

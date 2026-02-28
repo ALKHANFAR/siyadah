@@ -1,0 +1,160 @@
+{
+  "id": "instabase",
+  "displayName": "Instabase",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "converse_with_document": {
+      "displayName": "Converse with Document",
+      "description": "Ask a question about a document in a conversation",
+      "props": [
+        {
+          "name": "conversation_id",
+          "displayName": "Conversation",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the conversation"
+        },
+        {
+          "name": "question",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question to ask the document"
+        },
+        {
+          "name": "document_ids",
+          "displayName": "Documents",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select the documents to query"
+        },
+        {
+          "name": "mode",
+          "displayName": "Model Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The model to use to answer the question"
+        },
+        {
+          "name": "fast_mode",
+          "displayName": "Fast Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable fast mode for quicker responses"
+        }
+      ]
+    },
+    "create_conversation": {
+      "displayName": "Create Conversation and Upload Files",
+      "description": "Create a new conversation and upload files to it",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Conversation Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the conversation"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the conversation"
+        },
+        {
+          "name": "files",
+          "displayName": "Files",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Files to upload to the conversation"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "File to upload"
+        },
+        {
+          "name": "org",
+          "displayName": "Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization ID (for organization accounts)"
+        },
+        {
+          "name": "workspace",
+          "displayName": "Workspace",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Workspace name where the conversation is created"
+        },
+        {
+          "name": "enable_object_detection",
+          "displayName": "Enable Object Detection",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable object detection for extracting tables and checkboxes"
+        },
+        {
+          "name": "enable_entity_detection",
+          "displayName": "Enable Entity Detection",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable entity detection for signatures and barcodes"
+        },
+        {
+          "name": "write_converted_image",
+          "displayName": "Write Converted Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Save image files generated when processing documents"
+        },
+        {
+          "name": "write_thumbnail",
+          "displayName": "Write Thumbnails",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Generate and save thumbnails of processed documents"
+        },
+        {
+          "name": "fast_mode",
+          "displayName": "Fast Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Skip preprocessing steps for faster processing"
+        },
+        {
+          "name": "enable_multilanguage_support",
+          "displayName": "Enable Multilanguage Support",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable support for non-Latin languages"
+        },
+        {
+          "name": "enable_multilanguage_advanced_mode",
+          "displayName": "Enable Advanced Multilanguage Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable advanced support for complex non-Latin languages"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_conversation": {
+      "displayName": "New Conversation",
+      "description": "Triggers when a new conversation is created",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

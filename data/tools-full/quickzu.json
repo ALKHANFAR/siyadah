@@ -1,0 +1,424 @@
+{
+  "id": "quickzu",
+  "displayName": "Quickzu",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "quickzu_update_business_time": {
+      "displayName": "Update Business Time",
+      "description": "Updates business hours.",
+      "props": [
+        {
+          "name": "items",
+          "displayName": "Business Hours",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "weekday",
+          "displayName": "Day",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "start",
+          "displayName": "Start Time",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "end",
+          "displayName": "Start Time",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_create_category": {
+      "displayName": "Create Category",
+      "description": "Creates a new category in store.",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Category Status",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_delete_category": {
+      "displayName": "Delete Category",
+      "description": "Deletes an existing category from store.",
+      "props": []
+    },
+    "quickzu_list_categories": {
+      "displayName": "List Categories",
+      "description": "Retrieves all categories from store.",
+      "props": [
+        {
+          "name": "term",
+          "displayName": "Search Term",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_update_category": {
+      "displayName": "Update Category",
+      "description": "Updates an existing category in store.",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Category Status",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_create_product_discount": {
+      "displayName": "Create Product Discount",
+      "description": "Creates a new discount for category or product level.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Promotion / Discount Title",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "start_date",
+          "displayName": "Valid From",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "end_date",
+          "displayName": "Valid To",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "filter_type",
+          "displayName": "Filter",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "selectedFilterValues",
+          "displayName": "Select Option",
+          "type": "DynamicProperties",
+          "required": true
+        },
+        {
+          "name": "type",
+          "displayName": "Discount",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "value",
+          "displayName": "Discount Value",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "is_enabled",
+          "displayName": "Enabled ?",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "is_visible",
+          "displayName": "Visibility",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_create_promo_code": {
+      "displayName": "Create Promo/Coupon Code",
+      "description": "Creates a new promo code for category or product level.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Promotion / Discount Title",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "start_date",
+          "displayName": "Valid From",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "end_date",
+          "displayName": "Valid To",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "filter_type",
+          "displayName": "Filter",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "selectedFilterValues",
+          "displayName": "Select Option",
+          "type": "DynamicProperties",
+          "required": true
+        },
+        {
+          "name": "promo_code",
+          "displayName": "Promo Code",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "minimum_cart_value",
+          "displayName": "Minimum Order Amount",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "max_users_limit",
+          "displayName": "Maximum Promo Code Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "type",
+          "displayName": "Discount",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "value",
+          "displayName": "Discount Value",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "is_enabled",
+          "displayName": "Enabled ?",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "is_visible",
+          "displayName": "Visibility",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_get_order_details": {
+      "displayName": "Get Order Details",
+      "description": "Retrieves order details from store.",
+      "props": []
+    },
+    "quickzu_list_live_orders": {
+      "displayName": "List Live Orders",
+      "description": "Retrieves live orders of store.",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Number of live orders that need to be fetched per order status",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_list_orders": {
+      "displayName": "List Orders",
+      "description": "Retrieves orders of store.",
+      "props": [
+        {
+          "name": "page",
+          "displayName": "Current page number",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "displayName": "Number of orders per page",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_update_order_status": {
+      "displayName": "Update Order Status",
+      "description": "Updates status of order in store.",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Order Status",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_add_product": {
+      "displayName": "Add Product",
+      "description": "Adds new product to store.",
+      "props": [
+        {
+          "name": "desc",
+          "displayName": "Description",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "mrp",
+          "displayName": "MRP Price",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "price",
+          "displayName": "Selling Price",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "value_per_unit",
+          "displayName": "Unit Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "availability",
+          "displayName": "Availability",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "exclude_tax",
+          "displayName": "Exclude Tax",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "enable_variants",
+          "displayName": "Enable Variants",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_delete_product": {
+      "displayName": "Delete Product",
+      "description": "Deletes an existing product from store.",
+      "props": []
+    },
+    "quickzu_list_products": {
+      "displayName": "List Products",
+      "description": "Retrieves all or single product details from store.",
+      "props": [
+        {
+          "name": "term",
+          "displayName": "Product name that need to be search.",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "quickzu_update_product": {
+      "displayName": "Update Product",
+      "description": "Updates an existing product in store.",
+      "props": [
+        {
+          "name": "desc",
+          "displayName": "Description",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "mrp",
+          "displayName": "MRP Price",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "price",
+          "displayName": "Selling Price",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "displayName": "Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "value_per_unit",
+          "displayName": "Unit Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "availability",
+          "displayName": "Availability",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "exclude_tax",
+          "displayName": "Exclude Tax",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "enable_variants",
+          "displayName": "Enable Variants",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "Mohit": {
+      "displayName": "Order Created/Updated",
+      "description": "Triggers when a new order is created or a order status is changed in store.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "md",
+          "displayName": "md",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

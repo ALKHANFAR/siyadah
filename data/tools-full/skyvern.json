@@ -1,0 +1,136 @@
+{
+  "id": "skyvern",
+  "displayName": "Skyvern",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "cancel-run": {
+      "displayName": "Cancel Run",
+      "description": "Cancels a workflow or or task run by ID.",
+      "props": [
+        {
+          "name": "runId",
+          "displayName": "Workflow/Task Run ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find-workflow": {
+      "displayName": "Find Workflow",
+      "description": "Finds workflow based on title.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Workflow Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-run": {
+      "displayName": "Get Workflow/Task Run",
+      "description": "Retrieves a workflow or task run by ID.",
+      "props": [
+        {
+          "name": "runId",
+          "displayName": "Workflow/Task Run ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "run-agent-task": {
+      "displayName": "Run Agent Task",
+      "description": "Runs task with specified prompt.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The goal or task description for Skyvern to accomplish."
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The starting URL for the task."
+        },
+        {
+          "name": "engine",
+          "displayName": "Engine",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to send task status updates to after a run is finished."
+        },
+        {
+          "name": "proxyLocation",
+          "displayName": "Proxy Location",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "maxSteps",
+          "displayName": "Max Steps",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of steps the task can take. Task will fail if it exceeds this number."
+        },
+        {
+          "name": "dataExtractionSchema",
+          "displayName": "Data Extraction Schema",
+          "type": "JSON",
+          "required": false,
+          "description": "The schema for data to be extracted from the webpage."
+        }
+      ]
+    },
+    "run-workflow": {
+      "displayName": "Run Workflow",
+      "description": "Runs the workflow.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Workflow Run Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title for this workflow run."
+        },
+        {
+          "name": "proxyLocation",
+          "displayName": "Proxy Location",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

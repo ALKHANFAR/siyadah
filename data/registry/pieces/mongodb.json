@@ -1,0 +1,50 @@
+{
+  "id": "mongodb",
+  "package": "@activepieces/piece-mongodb",
+  "display_name": "Host",
+  "display_name_ar": "Host",
+  "description": "The hostname or address of the MongoDB server (e.g., localhost:27017 or cluster.example.mongodb.net)",
+  "category": "K_dev",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "aggregate_documents",
+      "display_name": "Aggregate Documents",
+      "description": "Perform aggregation operations on documents in a collection"
+    },
+    {
+      "name": "delete_documents",
+      "display_name": "Delete Documents",
+      "description": "Delete documents from a collection"
+    },
+    {
+      "name": "find_and_replace_documents",
+      "display_name": "Find and Replace Documents",
+      "description": "Replace documents that match a filter with a new document"
+    },
+    {
+      "name": "find_and_update_documents",
+      "display_name": "Find and Update Documents",
+      "description": "Find documents and update them, returning the updated documents"
+    },
+    {
+      "name": "find_documents",
+      "display_name": "Find Documents",
+      "description": "Find documents in a collection"
+    },
+    {
+      "name": "insert_documents",
+      "display_name": "Insert Documents",
+      "description": "Insert one or more documents into a collection"
+    },
+    {
+      "name": "update_documents",
+      "display_name": "Update Documents",
+      "description": "Update multiple documents in a collection"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mongodb"
+}

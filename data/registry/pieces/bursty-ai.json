@@ -1,0 +1,20 @@
+{
+  "id": "bursty-ai",
+  "package": "@activepieces/piece-bursty-ai",
+  "display_name": "BurstyAI",
+  "display_name_ar": "BurstyAI",
+  "description": "Automate content creation, SEO optimization, email outreach, and influencer partnerships with BurstyAI's no-code AI workflows.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "runWorkflow",
+      "display_name": "Run Workflow",
+      "description": "Run a Bursty AI workflow and optionally wait for and return the results"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bursty-ai"
+}

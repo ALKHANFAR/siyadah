@@ -1,0 +1,35 @@
+{
+  "id": "scrapegrapghai",
+  "package": "@activepieces/piece-scrapegrapghai",
+  "display_name": "ScrapeGraphAI",
+  "display_name_ar": "",
+  "description": "AI-powered web scraping and content extraction.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "local_scraper",
+      "display_name": "Local Scraper",
+      "description": "Extract content from HTML content using AI by providing a natural language prompt."
+    },
+    {
+      "name": "markdownify",
+      "display_name": "Convert to Markdown",
+      "description": "Convert any webpage into clean, readable Markdown format."
+    },
+    {
+      "name": "smart_scraper",
+      "display_name": "Smart Scraper",
+      "description": "Extract content from a webpage using AI by providing a natural language prompt."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "mailchain",
+  "package": "@activepieces/piece-mailchain",
+  "display_name": "Mailchain",
+  "display_name_ar": "Mailchain",
+  "description": "Mailchain is a simple, secure, and decentralized communications protocol that enables blockchain-based email.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "getAuthenticatedUser",
+      "display_name": "Get Authenticated User",
+      "description": "Get the authenticated user to the Mailchain Protocol"
+    },
+    {
+      "name": "sendEmail",
+      "display_name": "Send Email",
+      "description": "Send an email to blockchain or mailchain addresses"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mailchain"
+}

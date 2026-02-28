@@ -1,0 +1,134 @@
+{
+  "id": "placid",
+  "displayName": "Placid",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "convert_file_to_url": {
+      "displayName": "Convert File to URL",
+      "description": "Convert uploaded file(s) into media URL(s) consumable by Placid templates.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to convert to a URL."
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional custom filename for the uploaded file."
+        }
+      ]
+    },
+    "create_image": {
+      "displayName": "Create Image",
+      "description": "Generates a dynamic image from a specified template using input data.",
+      "props": [
+        {
+          "name": "outputDpi",
+          "displayName": "Output DPI",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "outputFilename",
+          "displayName": "Output File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_pdf": {
+      "displayName": "Create PDF",
+      "description": "Generates a PDF document from a specified template.",
+      "props": [
+        {
+          "name": "outputDpi",
+          "displayName": "Output DPI",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "outputFilename",
+          "displayName": "Output File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_video": {
+      "displayName": "Create Video",
+      "description": "Produces a video based on a template.",
+      "props": [
+        {
+          "name": "outputFps",
+          "displayName": "Output FPS",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "outputFilename",
+          "displayName": "Output File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_image": {
+      "displayName": "Get Image",
+      "description": "Retrieves a generated image by its ID.",
+      "props": [
+        {
+          "name": "imageId",
+          "displayName": "Image ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the image to retrieve."
+        }
+      ]
+    },
+    "get_pdf": {
+      "displayName": "Get PDF",
+      "description": "Retrieves the generated PDF by its ID.",
+      "props": [
+        {
+          "name": "pdfId",
+          "displayName": "PDF ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the PDF to retrieve"
+        }
+      ]
+    },
+    "get_video": {
+      "displayName": "Get Video",
+      "description": "Retrieves the generated video by its ID.",
+      "props": [
+        {
+          "name": "videoId",
+          "displayName": "Video ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the video to retrieve."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

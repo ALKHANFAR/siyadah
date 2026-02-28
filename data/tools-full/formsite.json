@@ -1,0 +1,24 @@
+{
+  "id": "formsite",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {
+    "newFormResult": {
+      "displayName": "New Form Result",
+      "description": "Trigger when a new form result is submitted",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

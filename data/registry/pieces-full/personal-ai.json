@@ -1,0 +1,65 @@
+{
+  "id": "personal-ai",
+  "package": "@activepieces/piece-personal-ai",
+  "display_name": "Personal AI",
+  "display_name_ar": "",
+  "description": "Manage memory storage, messaging, and documents through AI integration.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_chatgpt_instruction",
+      "display_name": "Send ChatGPT Instruction",
+      "description": "Send an instruction to AI assistant using ChatGPT integration."
+    },
+    {
+      "name": "create_custom_training",
+      "display_name": "Send Custom Training",
+      "description": "Send a custom training instruction to AI assistant."
+    },
+    {
+      "name": "get_document",
+      "display_name": "Get Document",
+      "description": "Retrieve a document from AI assistant."
+    },
+    {
+      "name": "update_document",
+      "display_name": "Update Document",
+      "description": "Update an existing document in AI assistant."
+    },
+    {
+      "name": "upload_document",
+      "display_name": "Upload Document",
+      "description": "Upload a text document to AI assistant."
+    },
+    {
+      "name": "upload_file",
+      "display_name": "Upload File",
+      "description": "Upload a file to AI assistant."
+    },
+    {
+      "name": "upload_url",
+      "display_name": "Upload URL Content",
+      "description": "Upload content from a URL to AI assistant."
+    },
+    {
+      "name": "create_memory",
+      "display_name": "Create Memory",
+      "description": "Upload memories to your AI assistant stack."
+    },
+    {
+      "name": "create_message",
+      "display_name": "Send Message",
+      "description": "Send a message to the AI assistant for a response."
+    },
+    {
+      "name": "get_conversation",
+      "display_name": "Get Conversation History",
+      "description": "Retrieve conversation history from AI assistant."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,785 @@
+{
+  "id": "cashfree-payments",
+  "displayName": "Cashfree Payments",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "cancel-payment-link": {
+      "displayName": "Cancel Payment Link",
+      "description": "Cancel a payment link in Cashfree Payment Gateway. Only links in ACTIVE status can be cancelled.",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "linkId",
+          "displayName": "Payment Link ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The payment link ID that you want to cancel. Only ACTIVE links can be cancelled."
+        },
+        {
+          "name": "requestId",
+          "displayName": "Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Request ID for the API call. Can be used to resolve tech issues"
+        },
+        {
+          "name": "idempotencyKey",
+          "displayName": "Idempotency Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "UUID format idempotency key to avoid duplicate actions if request fails or times out"
+        }
+      ]
+    },
+    "create-cashgram": {
+      "displayName": "Create Cashgram",
+      "description": "Create a Cashgram for instant money transfers using Cashfree",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "cashgramId",
+          "displayName": "Cashgram ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique ID of the Cashgram. Alphanumeric, underscore (_), and hyphen (-) allowed (35 character limit)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Amount to be transferred (minimum 1.00)"
+        },
+        {
+          "name": "name",
+          "displayName": "Contact Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the contact"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number of the contact"
+        },
+        {
+          "name": "linkExpiry",
+          "displayName": "Link Expiry Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Date to expire the cashgram link. Format: YYYY/MM/DD (maximum 30 days from creation)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email of the contact"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specify remarks, if any"
+        },
+        {
+          "name": "notifyCustomer",
+          "displayName": "Notify Customer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, a link is sent to customer phone and email"
+        }
+      ]
+    },
+    "create-order": {
+      "displayName": "Create Order",
+      "description": "Creates an order in Cashfree Payment Gateway",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "orderAmount",
+          "displayName": "Order Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Bill amount for the order. Provide up to two decimals (e.g., 10.15 means Rs 10 and 15 paisa)"
+        },
+        {
+          "name": "orderCurrency",
+          "displayName": "Order Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Currency for the order"
+        },
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A unique identifier for the customer. Use alphanumeric values only (3-50 characters)"
+        },
+        {
+          "name": "customerPhone",
+          "displayName": "Customer Phone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer phone number (minimum 10 digits). For international numbers, prefix with +"
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer email address (3-100 characters)"
+        },
+        {
+          "name": "customerName",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the customer (3-100 characters)"
+        },
+        {
+          "name": "customerBankAccountNumber",
+          "displayName": "Customer Bank Account Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer bank account. Required for TPV (Third Party Verification) (3-20 characters)"
+        },
+        {
+          "name": "customerBankIfsc",
+          "displayName": "Customer Bank IFSC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer bank IFSC. Required for TPV (Third Party Verification)"
+        },
+        {
+          "name": "customerBankCode",
+          "displayName": "Customer Bank Code",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Customer bank code. Required for net banking payments with TPV"
+        },
+        {
+          "name": "orderId",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Order identifier in your system. Alphanumeric, \"_\" and \"-\" only (3-45 characters). Will be auto-generated if not provided"
+        },
+        {
+          "name": "orderNote",
+          "displayName": "Order Note",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Order note for reference (3-200 characters)"
+        },
+        {
+          "name": "orderExpiryTime",
+          "displayName": "Order Expiry Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 8601 format. Example: 2021-07-02T10:20:12+05:30"
+        },
+        {
+          "name": "returnUrl",
+          "displayName": "Return URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to redirect customer after payment completion (max 250 characters)"
+        },
+        {
+          "name": "notifyUrl",
+          "displayName": "Notify URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "HTTPS URL for server-to-server notifications (max 250 characters)"
+        },
+        {
+          "name": "paymentMethods",
+          "displayName": "Payment Methods",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated values: cc,dc,ccc,ppc,nb,upi,paypal,app,paylater,cardlessemi,dcemi,ccemi,banktransfer"
+        },
+        {
+          "name": "cartName",
+          "displayName": "Cart Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the cart"
+        },
+        {
+          "name": "customerNote",
+          "displayName": "Customer Note",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Note from customer"
+        },
+        {
+          "name": "shippingCharge",
+          "displayName": "Shipping Charge",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Shipping charges for the order"
+        },
+        {
+          "name": "shippingFullName",
+          "displayName": "Shipping - Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name for shipping address"
+        },
+        {
+          "name": "shippingCountry",
+          "displayName": "Shipping - Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country for shipping address"
+        },
+        {
+          "name": "shippingCity",
+          "displayName": "Shipping - City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City for shipping address"
+        },
+        {
+          "name": "shippingState",
+          "displayName": "Shipping - State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State for shipping address"
+        },
+        {
+          "name": "shippingPincode",
+          "displayName": "Shipping - Pincode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pincode for shipping address"
+        },
+        {
+          "name": "shippingAddress1",
+          "displayName": "Shipping - Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary address line for shipping"
+        },
+        {
+          "name": "shippingAddress2",
+          "displayName": "Shipping - Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary address line for shipping"
+        },
+        {
+          "name": "billingFullName",
+          "displayName": "Billing - Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name for billing address"
+        },
+        {
+          "name": "billingCountry",
+          "displayName": "Billing - Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country for billing address"
+        },
+        {
+          "name": "billingCity",
+          "displayName": "Billing - City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City for billing address"
+        },
+        {
+          "name": "billingState",
+          "displayName": "Billing - State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State for billing address"
+        },
+        {
+          "name": "billingPincode",
+          "displayName": "Billing - Pincode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Pincode for billing address"
+        },
+        {
+          "name": "billingAddress1",
+          "displayName": "Billing - Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary address line for billing"
+        },
+        {
+          "name": "billingAddress2",
+          "displayName": "Billing - Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary address line for billing"
+        },
+        {
+          "name": "terminalType",
+          "displayName": "Terminal Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Type of terminal (e.g., SPOS) for SoftPOS orders (4-10 characters)"
+        },
+        {
+          "name": "terminalId",
+          "displayName": "Terminal ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Terminal ID for merchant reference (3-100 characters)"
+        },
+        {
+          "name": "terminalPhoneNo",
+          "displayName": "Terminal Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile number of the terminal/agent/storefront"
+        },
+        {
+          "name": "terminalName",
+          "displayName": "Terminal Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of terminal/agent/storefront"
+        },
+        {
+          "name": "terminalAddress",
+          "displayName": "Terminal Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Location of terminal"
+        },
+        {
+          "name": "terminalNote",
+          "displayName": "Terminal Note",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Note given by merchant while creating the terminal"
+        },
+        {
+          "name": "oneClickCheckoutEnabled",
+          "displayName": "Enable One Click Checkout",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable One Click Checkout feature"
+        },
+        {
+          "name": "verifyPayEnabled",
+          "displayName": "Enable Verify and Pay",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable Verify and Pay feature"
+        },
+        {
+          "name": "orderTags",
+          "displayName": "Order Tags",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom tags as JSON object. Example: {\"product\":\"Laptop\",\"city\":\"Bangalore\"}. Maximum 10 tags"
+        }
+      ]
+    },
+    "create-payment-link": {
+      "displayName": "Create Payment Link",
+      "description": "Creates a payment link in Cashfree Payment Gateway",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "linkAmount",
+          "displayName": "Link Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Amount to be collected using this link. Provide up to two decimals for paise"
+        },
+        {
+          "name": "linkCurrency",
+          "displayName": "Link Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Currency for the payment link"
+        },
+        {
+          "name": "linkPurpose",
+          "displayName": "Link Purpose",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A brief description for which payment must be collected (max 500 characters)"
+        },
+        {
+          "name": "customerPhone",
+          "displayName": "Customer Phone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer phone number (required)"
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer email address"
+        },
+        {
+          "name": "customerName",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer name"
+        },
+        {
+          "name": "customerBankAccountNumber",
+          "displayName": "Customer Bank Account Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer bank account number"
+        },
+        {
+          "name": "customerBankIfsc",
+          "displayName": "Customer Bank IFSC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer bank IFSC code"
+        },
+        {
+          "name": "customerBankCode",
+          "displayName": "Customer Bank Code",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Customer bank code for net banking"
+        },
+        {
+          "name": "linkId",
+          "displayName": "Link ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique identifier for the link. Alphanumeric, \"-\" and \"_\" only (max 50 characters). Auto-generated if not provided"
+        },
+        {
+          "name": "linkPartialPayments",
+          "displayName": "Enable Partial Payments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow customers to make partial payments for the link"
+        },
+        {
+          "name": "linkMinimumPartialAmount",
+          "displayName": "Minimum Partial Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum amount in first installment (required if partial payments enabled)"
+        },
+        {
+          "name": "linkExpiryTime",
+          "displayName": "Link Expiry Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ISO 8601 format. Example: 2021-07-02T10:20:12+05:30. Default is 30 days"
+        },
+        {
+          "name": "sendSms",
+          "displayName": "Send SMS Notification",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send SMS notification to customer phone"
+        },
+        {
+          "name": "sendEmail",
+          "displayName": "Send Email Notification",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send email notification to customer email"
+        },
+        {
+          "name": "linkAutoReminders",
+          "displayName": "Auto Reminders",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send automatic reminders to customers for payment collection"
+        },
+        {
+          "name": "notifyUrl",
+          "displayName": "Notify URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "HTTPS URL for server-to-server notifications"
+        },
+        {
+          "name": "returnUrl",
+          "displayName": "Return URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to redirect user after payment completion (max 250 characters)"
+        },
+        {
+          "name": "upiIntent",
+          "displayName": "UPI Intent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Directly open UPI Intent flow on mobile devices"
+        },
+        {
+          "name": "paymentMethods",
+          "displayName": "Payment Methods",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated values: cc,dc,ccc,ppc,nb,upi,paypal,app. Leave blank for all methods"
+        },
+        {
+          "name": "linkNotes",
+          "displayName": "Link Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Key-value pairs as JSON. Maximum 5 key-value pairs. Example: {\"key_1\":\"value_1\",\"key_2\":\"value_2\"}"
+        },
+        {
+          "name": "orderSplits",
+          "displayName": "Order Splits",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON array for Easy Split. Example: [{\"vendor_id\":\"vendor1\",\"amount\":100}]"
+        }
+      ]
+    },
+    "create-refund": {
+      "displayName": "Create Refund",
+      "description": "Initiate a refund for a Cashfree order. Refunds can only be initiated within six months of the original transaction.",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "orderId",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID which uniquely identifies your order"
+        },
+        {
+          "name": "refundAmount",
+          "displayName": "Refund Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Amount to be refunded. Should be lesser than or equal to the transaction amount. (Decimals allowed)"
+        },
+        {
+          "name": "refundId",
+          "displayName": "Refund ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "An unique ID to associate the refund with. Provide alphanumeric values (3-40 characters)"
+        },
+        {
+          "name": "refundNote",
+          "displayName": "Refund Note",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A refund note for your reference (3-100 characters)"
+        },
+        {
+          "name": "refundSpeed",
+          "displayName": "Refund Speed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Speed at which the refund is processed"
+        },
+        {
+          "name": "refundSplits",
+          "displayName": "Refund Splits",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON array for vendor splits. Example: [{\"vendor_id\":\"vendor1\",\"amount\":100},{\"vendor_id\":\"vendor2\",\"percentage\":25}]"
+        },
+        {
+          "name": "tags",
+          "displayName": "Custom Tags",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom Tags in JSON format {\"key\":\"value\"}. Maximum 10 tags allowed. Example: {\"refund_reason\":\"customer_request\",\"processed_by\":\"admin\"}"
+        },
+        {
+          "name": "requestId",
+          "displayName": "Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Request ID for the API call. Can be used to resolve tech issues"
+        },
+        {
+          "name": "idempotencyKey",
+          "displayName": "Idempotency Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "UUID format idempotency key to avoid duplicate actions if request fails or times out"
+        }
+      ]
+    },
+    "deactivate-cashgram": {
+      "displayName": "Deactivate Cashgram",
+      "description": "Deactivate a Cashgram to prevent further redemptions using Cashfree",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "cashgramId",
+          "displayName": "Cashgram ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the Cashgram to be deactivated. Alphanumeric and underscore (_) allowed (35 character limit)"
+        }
+      ]
+    },
+    "fetch-payment-link-details": {
+      "displayName": "Fetch Payment Link Details",
+      "description": "View all details and status of a payment link in Cashfree Payment Gateway",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "linkId",
+          "displayName": "Payment Link ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The payment link ID for which you want to view the details"
+        },
+        {
+          "name": "requestId",
+          "displayName": "Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Request ID for the API call. Can be used to resolve tech issues"
+        },
+        {
+          "name": "idempotencyKey",
+          "displayName": "Idempotency Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "UUID format idempotency key for request deduplication"
+        }
+      ]
+    },
+    "get-all-refunds-for-order": {
+      "displayName": "Get All Refunds for Order",
+      "description": "Fetch all refunds processed against an order in Cashfree Payment Gateway",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "orderId",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID which uniquely identifies your order"
+        },
+        {
+          "name": "requestId",
+          "displayName": "Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Request ID for the API call. Can be used to resolve tech issues"
+        },
+        {
+          "name": "idempotencyKey",
+          "displayName": "Idempotency Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "UUID format idempotency key for request deduplication"
+        }
+      ]
+    },
+    "get-orders-for-payment-link": {
+      "displayName": "Get Orders for Payment Link",
+      "description": "View all order details for a payment link in Cashfree Payment Gateway",
+      "props": [
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the environment for API calls"
+        },
+        {
+          "name": "linkId",
+          "displayName": "Payment Link ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The payment link ID for which you want to view the order details"
+        },
+        {
+          "name": "status",
+          "displayName": "Order Status Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter orders by status (default is PAID)"
+        },
+        {
+          "name": "requestId",
+          "displayName": "Request ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Request ID for the API call. Can be used to resolve tech issues"
+        },
+        {
+          "name": "idempotencyKey",
+          "displayName": "Idempotency Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "UUID format idempotency key for request deduplication"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

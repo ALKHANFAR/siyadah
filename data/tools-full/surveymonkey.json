@@ -1,0 +1,22 @@
+{
+  "id": "surveymonkey",
+  "displayName": "SurveyMonkey",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_response": {
+      "displayName": "New Response",
+      "description": "Triggers when a new response is submitted",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

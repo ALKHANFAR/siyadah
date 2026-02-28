@@ -1,0 +1,407 @@
+{
+  "id": "fountain",
+  "displayName": "Fountain",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_applicant": {
+      "displayName": "Create Applicant",
+      "description": "Add a new applicant to your hiring pipeline",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Applicant\\"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Applicant\\"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Applicant\\"
+        },
+        {
+          "name": "check_if_applicant_is_duplicate",
+          "displayName": "Check for Duplicates",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Apply additional duplicate applicant blocking rules specified in company duplicate settings"
+        }
+      ]
+    },
+    "delete_applicant": {
+      "displayName": "Delete Applicant",
+      "description": "Delete an applicant by their ID",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Applicant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The applicant to delete (shows 50 most recent applicants)"
+        }
+      ]
+    },
+    "get_applicant_details": {
+      "displayName": "Get Applicant Details",
+      "description": "Get complete applicant information",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Applicant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The applicant to delete (shows 50 most recent applicants)"
+        }
+      ]
+    },
+    "get_interview_sessions": {
+      "displayName": "Get Interview Sessions",
+      "description": "Returns the applicant\\",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Applicant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The applicant to get interview sessions for (shows 50 most recent applicants)"
+        }
+      ]
+    },
+    "get_opening": {
+      "displayName": "Get Opening",
+      "description": "Get details for a specific job opening",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Opening",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The opening to retrieve details for"
+        }
+      ]
+    },
+    "get_stage": {
+      "displayName": "Get Stage",
+      "description": "Retrieves a specific Stage",
+      "props": [
+        {
+          "name": "funnel_id",
+          "displayName": "Opening",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The opening that contains the stage"
+        },
+        {
+          "name": "id",
+          "displayName": "Stage",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The stage to retrieve details for"
+        }
+      ]
+    },
+    "list_applicants": {
+      "displayName": "List All Applicant Details",
+      "description": "List applicants with optional filters",
+      "props": [
+        {
+          "name": "funnel_id",
+          "displayName": "Opening",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter applicants by opening"
+        },
+        {
+          "name": "location_id",
+          "displayName": "Location",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter applicants by location"
+        },
+        {
+          "name": "stage_id",
+          "displayName": "Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter applicants by stage"
+        },
+        {
+          "name": "stage",
+          "displayName": "Stage",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter applicants by stage name"
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter applicants by labels"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter applicants by phone number"
+        },
+        {
+          "name": "exclude_temporary",
+          "displayName": "Exclude Temporary",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to exclude temporary/test applicants"
+        },
+        {
+          "name": "per_page",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default: 25)"
+        },
+        {
+          "name": "cursor",
+          "displayName": "Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination"
+        },
+        {
+          "name": "include_subaccounts",
+          "displayName": "Include Sub-accounts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include applicants from sub-accounts"
+        }
+      ]
+    },
+    "list_openings": {
+      "displayName": "List All Opening Details",
+      "description": "List job openings with optional filters",
+      "props": [
+        {
+          "name": "active",
+          "displayName": "Active Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter to only active openings"
+        },
+        {
+          "name": "location_id",
+          "displayName": "Location",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter openings by location"
+        },
+        {
+          "name": "is_hiring_funnel",
+          "displayName": "Hiring Funnels Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter to only hiring funnels"
+        },
+        {
+          "name": "is_sourcing_funnel",
+          "displayName": "Sourcing Funnels Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter to only sourcing funnels"
+        },
+        {
+          "name": "is_private",
+          "displayName": "Private Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Filter to only private openings"
+        },
+        {
+          "name": "owner_id",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter openings by owner"
+        },
+        {
+          "name": "per_page",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default: 25)"
+        },
+        {
+          "name": "cursor",
+          "displayName": "Cursor",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cursor for pagination"
+        }
+      ]
+    },
+    "list_stages": {
+      "displayName": "List All Stages",
+      "description": "Retrieves an Opening\\",
+      "props": [
+        {
+          "name": "funnel_id",
+          "displayName": "Opening",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The opening to get stages for"
+        }
+      ]
+    },
+    "update_applicant": {
+      "displayName": "Update Applicant Info",
+      "description": "Update an applicant\\",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Applicant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The applicant to update (shows 50 most recent applicants)"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Applicant\\"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Applicant\\"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Applicant\\"
+        },
+        {
+          "name": "data",
+          "displayName": "Custom Data",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Custom data fields to update (key-value pairs)"
+        },
+        {
+          "name": "secure_data",
+          "displayName": "Secure Data",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Secure data fields to update (key-value pairs like SSN, etc.)"
+        },
+        {
+          "name": "rejection_reason",
+          "displayName": "Rejection Reason",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Manually set reason for rejection"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "applicant_webhook": {
+      "displayName": "Applicant Webhook",
+      "description": "Triggers when Fountain sends applicant webhook events",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setup",
+          "displayName": "setup",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "verify_auth",
+          "displayName": "Verify Authentication",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Verify the Authorization header matches the expected key"
+        },
+        {
+          "name": "auth_key",
+          "displayName": "Authentication Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The authentication key set in Fountain webhook configuration"
+        }
+      ]
+    },
+    "custom_attribute_webhook": {
+      "displayName": "Custom Attribute Webhook",
+      "description": "Triggers when Fountain worker custom attribute values change",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setup",
+          "displayName": "setup",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "universal_tasks_webhook": {
+      "displayName": "Universal Tasks Webhook",
+      "description": "Triggers when workers complete tasks or reach flow endpoints in Fountain Onboard",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setup",
+          "displayName": "setup",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "worker_webhook": {
+      "displayName": "Worker Webhook",
+      "description": "Triggers when Fountain sends worker webhook events",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setup",
+          "displayName": "setup",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "verify_auth",
+          "displayName": "Verify Authentication",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Verify the Authorization header matches the expected key"
+        },
+        {
+          "name": "auth_key",
+          "displayName": "Authentication Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The authentication key set in Fountain webhook configuration"
+        }
+      ]
+    }
+  }
+}

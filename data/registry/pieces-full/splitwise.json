@@ -1,0 +1,27 @@
+{
+  "id": "splitwise",
+  "package": "@activepieces/piece-splitwise",
+  "display_name": "Splitwise",
+  "display_name_ar": "",
+  "description": "Splitwise is a expense splitting app that helps you track and settle bills with friends, family, and roommates.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_expense",
+      "display_name": "Create Expense",
+      "description": "Creates a new expense, optionally in a group or with specific friends"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_expense",
+      "display_name": "Group",
+      "description": "Filter expenses from a specific group (optional)",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

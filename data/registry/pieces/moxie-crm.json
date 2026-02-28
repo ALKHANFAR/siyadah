@@ -1,0 +1,42 @@
+{
+  "id": "moxie-crm",
+  "package": "@activepieces/piece-moxie-crm",
+  "display_name": "Moxie",
+  "display_name_ar": "Moxie",
+  "description": "CRM build for the freelancers.",
+  "category": "E_crm",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "moxie_create_client",
+      "display_name": "Create a Client",
+      "description": "Create a new client record in moxie CRM."
+    },
+    {
+      "name": "moxie_create_project",
+      "display_name": "Create a Project",
+      "description": "Creates a new project in moxie CRM."
+    },
+    {
+      "name": "moxie_create_task",
+      "display_name": "Create a Task",
+      "description": "Create a task in project."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "moxie_trigger_${name}",
+      "display_name": "moxie_trigger_${name}",
+      "description": "",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/moxie-crm"
+}

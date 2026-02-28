@@ -1,0 +1,72 @@
+{
+  "id": "short-io",
+  "package": "@activepieces/piece-short-io",
+  "display_name": "Short.io",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create-country-targeting-rule",
+      "display_name": "Create Country Targeting Rule",
+      "description": "Set geographic targeting rules for a link with specific destination per country."
+    },
+    {
+      "name": "create-short-link",
+      "display_name": "Create Short Link",
+      "description": "Create a new short link with optional parameters (title, UTM tags, expiration, cloaking, etc.)"
+    },
+    {
+      "name": "delete-short-link",
+      "display_name": "Delete Short Link",
+      "description": "Permanently delete a short link by its unique link ID."
+    },
+    {
+      "name": "get-domain-statistics",
+      "display_name": "Domain Statistics",
+      "description": "Retrieve usage stats (clicks, conversions) for a domain within a time period."
+    },
+    {
+      "name": "expire-short-link",
+      "display_name": "Expire Short Link",
+      "description": "Set an expiration date or click limit to deactivate a short link."
+    },
+    {
+      "name": "get-short-link-info-by-path",
+      "display_name": "Get Link by Path",
+      "description": "Retrieve detailed information about a short link using its domain and path."
+    },
+    {
+      "name": "get-link-clicks",
+      "display_name": "Get Link Clicks",
+      "description": "Retrieve click statistics for specific short links by their IDs."
+    },
+    {
+      "name": "list-short-links",
+      "display_name": "List Links",
+      "description": "Retrieve all links on a domain, with pagination and date-range filters."
+    },
+    {
+      "name": "update-short-link",
+      "display_name": "Update Short Link",
+      "description": "The HTTP status code for the redirect. The default is 302 (Found)."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_link_created",
+      "display_name": "New Link Created",
+      "description": "Fires when a new short link is created on a domain. Useful to sync newly created links to other systems.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

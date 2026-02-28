@@ -1,0 +1,28 @@
+{
+  "id": "clickup",
+  "displayName": "ClickUp",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "clickup_trigger_${name}": {
+      "displayName": "clickup_trigger_${name}",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_tag_updated": {
+      "displayName": "Task Tag Updated",
+      "description": "Triggered when a tag is added or removed or renamed on a task.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

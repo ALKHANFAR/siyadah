@@ -1,0 +1,35 @@
+{
+  "id": "runware",
+  "package": "@activepieces/piece-runware",
+  "display_name": "Runware",
+  "display_name_ar": "",
+  "description": "Runware.AI is a high-performance, cost-effective AI media generation API specializing in images and videos. Through this integration, workflows can automatically generate visuals via text or image prompts and interact with Runware’s full-featured API.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "generateImagesFromExistingImage",
+      "display_name": "Generate Images from Existing Image",
+      "description": "Generate new images based on a provided image (image-to-image)."
+    },
+    {
+      "name": "generateImagesFromText",
+      "display_name": "Generate Images from Text",
+      "description": "Produce images from a text description."
+    },
+    {
+      "name": "generateVideoFromText",
+      "display_name": "Generate Video from Text",
+      "description": "Generate video from text prompt."
+    },
+    {
+      "name": "imageBackgroundRemoval",
+      "display_name": "Image Background Removal",
+      "description": "Request image background removal."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "confluence",
+  "displayName": "Confluence",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create-page-from-template": {
+      "displayName": "Create Page from Template",
+      "description": "Creates a new page from a template with the given title and variables.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "getPageContent": {
+      "displayName": "Get Page Content",
+      "description": "Get page content and optionally all its descendants",
+      "props": [
+        {
+          "name": "pageId",
+          "displayName": "Page ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Get this from the page URL of your Confluence Cloud"
+        },
+        {
+          "name": "includeDescendants",
+          "displayName": "Include Descendants ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If checked, will fetch all child pages recursively."
+        },
+        {
+          "name": "dynamic",
+          "displayName": "Dynamic Properties",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Maximum depth of child pages to fetch."
+        },
+        {
+          "name": "maxDepth",
+          "displayName": "Maximum Depth",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Maximum depth of child pages to fetch."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-page": {
+      "displayName": "New Page",
+      "description": "Triggers when a new page is created.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

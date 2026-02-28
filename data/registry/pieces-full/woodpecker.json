@@ -1,0 +1,166 @@
+{
+  "id": "woodpecker",
+  "package": "@activepieces/piece-woodpecker",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Cold email automation tool for sales teams to send personalized outreach campaigns",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_prospect_to_campaign",
+      "display_name": "Create/Update Prospect in Campaign",
+      "description": "Adds a new prospect or updates existing prospect data in a campaign"
+    },
+    {
+      "name": "add_prospect_to_list",
+      "display_name": "Create/Update Prospect",
+      "description": "Adds a new prospect or updates existing prospect in the global prospect list"
+    },
+    {
+      "name": "blacklist_domain",
+      "display_name": "Blacklist Domain",
+      "description": "Add a domain to the blacklist to block sending to all prospects within that domain"
+    },
+    {
+      "name": "find_prospect_by_email",
+      "display_name": "Find Prospect by Email",
+      "description": "Search for a prospect by their email address"
+    },
+    {
+      "name": "get_prospect_responses",
+      "display_name": "Get Prospect Responses",
+      "description": "Fetch all responses from a specified prospect"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "campaign_completed",
+      "display_name": "Campaign Completed",
+      "description": "Triggers when a campaign is completed",
+      "type": "instant"
+    },
+    {
+      "name": "email_opened",
+      "display_name": "Prospect Opened an Email",
+      "description": "Triggers when a prospect opens an email",
+      "type": "instant"
+    },
+    {
+      "name": "email_sent",
+      "display_name": "Campaign Email Sent",
+      "description": "Triggers when a campaign email is sent to a prospect",
+      "type": "instant"
+    },
+    {
+      "name": "followup_after_autoreply",
+      "display_name": "Follow-up After Autoreply",
+      "description": "Triggers when a follow-up is scheduled after an autoreply",
+      "type": "instant"
+    },
+    {
+      "name": "link_clicked",
+      "display_name": "Prospect Clicked a Link",
+      "description": "Triggers when a prospect clicks a link in an email",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_autoreplied",
+      "display_name": "Prospect Autoreplied",
+      "description": "Triggers when an autoreply is detected from a prospect",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_blacklisted",
+      "display_name": "Prospect Blacklisted",
+      "description": "Triggers when a prospect is added to the blacklist",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_bounced",
+      "display_name": "Prospect Bounced",
+      "description": "Triggers when an email to a prospect bounces",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_interested",
+      "display_name": "Prospect Interested",
+      "description": "Triggers when a prospect is marked as interested",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_invalid",
+      "display_name": "Prospect Invalid",
+      "description": "Triggers when a prospect email is marked as invalid",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_maybe_later",
+      "display_name": "Prospect Maybe Later",
+      "description": "Triggers when a prospect is marked as maybe later",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_nonresponsive",
+      "display_name": "Prospect Nonresponsive",
+      "description": "Triggers when a prospect is marked as nonresponsive",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_not_interested",
+      "display_name": "Prospect Not Interested",
+      "description": "Triggers when a prospect is marked as not interested",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_optout",
+      "display_name": "Prospect Opt-out",
+      "description": "Triggers when a prospect opts out from receiving emails",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_replied",
+      "display_name": "Prospect Replied",
+      "description": "Triggers when a prospect replies to an email or their status is manually set to RESPONDED",
+      "type": "instant"
+    },
+    {
+      "name": "prospect_saved",
+      "display_name": "Prospect Saved",
+      "description": "Triggers when a prospect is saved",
+      "type": "instant"
+    },
+    {
+      "name": "secondary_replied",
+      "display_name": "Secondary Replied",
+      "description": "Triggers when a secondary email address replies",
+      "type": "instant"
+    },
+    {
+      "name": "task_created",
+      "display_name": "Task Created",
+      "description": "Triggers when a task is created",
+      "type": "instant"
+    },
+    {
+      "name": "task_done",
+      "display_name": "Task Done",
+      "description": "Triggers when a task is marked as done",
+      "type": "instant"
+    },
+    {
+      "name": "task_ignored",
+      "display_name": "Task Ignored",
+      "description": "Triggers when a task is ignored",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

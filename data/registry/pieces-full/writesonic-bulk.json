@@ -1,0 +1,70 @@
+{
+  "id": "writesonic-bulk",
+  "package": "@activepieces/piece-writesonic-bulk",
+  "display_name": "Writesonic",
+  "display_name_ar": "",
+  "description": "Writesonic AI-powered writing assistant",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "blogIdeas",
+      "display_name": "Blog Ideas",
+      "description": "Generate blog article ideas based on a topic or keyword"
+    },
+    {
+      "name": "blogIntros",
+      "display_name": "Blog Intros",
+      "description": "Generate enticing blog article introductions"
+    },
+    {
+      "name": "blogOutlines",
+      "display_name": "Blog Outlines",
+      "description": "Generate detailed article outlines for better content writing"
+    },
+    {
+      "name": "contentRephraser",
+      "display_name": "Content Rephraser",
+      "description": "Rephrase content in a different voice and style to appeal to different readers"
+    },
+    {
+      "name": "contentShorten",
+      "display_name": "Content Shorten",
+      "description": "Shorten your content in a different voice and style to appeal to different readers"
+    },
+    {
+      "name": "facebookAds",
+      "display_name": "Facebook Ads",
+      "description": "Generate Facebook ad copies that make your ads truly stand out"
+    },
+    {
+      "name": "generateProductDescriptions",
+      "display_name": "Generate Product Descriptions",
+      "description": "Generate authentic product descriptions that compel, inspire, and influence"
+    },
+    {
+      "name": "googleAds",
+      "display_name": "Google Ads",
+      "description": "Generate quality ads that rank in search results and drive more traffic"
+    },
+    {
+      "name": "landingPageHeadlines",
+      "display_name": "Landing Page Headlines",
+      "description": "Generate unique and catchy headlines perfect for your product or service"
+    },
+    {
+      "name": "sentenceExpander",
+      "display_name": "Sentence Expander",
+      "description": "Expand short sentences into more descriptive and interesting ones"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

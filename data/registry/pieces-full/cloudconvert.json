@@ -1,0 +1,69 @@
+{
+  "id": "cloudconvert",
+  "package": "@activepieces/piece-cloudconvert",
+  "display_name": "CloudConvert",
+  "display_name_ar": "",
+  "description": "File conversion and processing platform supporting 200+ formats",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "archive_file",
+      "display_name": "Import Method",
+      "description": "How to import the files for archiving"
+    },
+    {
+      "name": "capture_website",
+      "display_name": "Website URL",
+      "description": "The URL of the website to capture"
+    },
+    {
+      "name": "convert_file",
+      "display_name": "Convert File",
+      "description": "Create a basic file conversion task for a single file with desired output format"
+    },
+    {
+      "name": "download_file",
+      "display_name": "Task ID",
+      "description": "ID of the CloudConvert task to retrieve"
+    },
+    {
+      "name": "merge_pdf",
+      "display_name": "Import Method",
+      "description": "How to import the files for merging"
+    },
+    {
+      "name": "optimize_file",
+      "display_name": "Import Method",
+      "description": "How to import the file for optimization"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "job_failed",
+      "display_name": "Job Failed",
+      "description": "Triggers when a CloudConvert job has failed",
+      "type": "instant"
+    },
+    {
+      "name": "job_finished",
+      "display_name": "Job Finished",
+      "description": "Triggers when a CloudConvert job has been completed",
+      "type": "instant"
+    },
+    {
+      "name": "new_job",
+      "display_name": "New Job Event",
+      "description": "Triggers when a new job has been created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

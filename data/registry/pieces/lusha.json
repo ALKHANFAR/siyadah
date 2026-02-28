@@ -1,0 +1,30 @@
+{
+  "id": "lusha",
+  "package": "@activepieces/piece-lusha",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Please enter the API Key obtained from Lusha.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "search_companies",
+      "display_name": "Search Companies",
+      "description": "Search for companies with filters and pagination"
+    },
+    {
+      "name": "enrich_companies",
+      "display_name": "Enrich Companies",
+      "description": "Enrich companies details using requestId and company IDs from search results"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/lusha"
+}

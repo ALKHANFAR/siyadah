@@ -1,0 +1,33 @@
+{
+  "id": "webling",
+  "package": "@activepieces/piece-webling",
+  "display_name": "Webling",
+  "display_name_ar": "Webling",
+  "description": "Webling integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "EventsById",
+      "display_name": "Get Events by ID",
+      "description": "Gets event data by a list of event IDs and optional calendar ID to filter."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "onEventChanged",
+      "display_name": "New or Updated Event",
+      "description": "Triggers when an event is added or updated.",
+      "type": "scheduled"
+    },
+    {
+      "name": "onChangedData",
+      "display_name": "On Changed Data",
+      "description": "Triggers when anything was added, updated or deleted since last request.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/webling"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "vtiger",
+  "package": "@activepieces/piece-vtiger",
+  "display_name": "VTiger Instance URL",
+  "display_name_ar": "",
+  "description": "For the instance URL, add the url without the endpoint. For example enter https://<instance>.od2.vtiger.com instead of https://<instance>.od2.vtiger.com/restapi/v1/vtiger/default",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_record",
+      "display_name": "Create Record",
+      "description": "Create a Record"
+    },
+    {
+      "name": "delete_record",
+      "display_name": "Delete Record",
+      "description": "Delete a Record"
+    },
+    {
+      "name": "get_record",
+      "display_name": "Get Record",
+      "description": "Get a Record by value"
+    },
+    {
+      "name": "make_api_call",
+      "display_name": "Custom API Call (Deprecated)",
+      "description": "Performs an arbitrary authorized API call. (Deprecated)"
+    },
+    {
+      "name": "query_records",
+      "display_name": "Query Records",
+      "description": "Query records by SQL statement."
+    },
+    {
+      "name": "search_records",
+      "display_name": "Search Records",
+      "description": "Search for a record."
+    },
+    {
+      "name": "update_record",
+      "display_name": "Update Record",
+      "description": "Update a Record"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_or_updated_record",
+      "display_name": "New or Updated Record",
+      "description": "Triggers when a new record is introduced or a record is updated.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

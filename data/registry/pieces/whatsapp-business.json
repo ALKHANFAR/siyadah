@@ -1,0 +1,30 @@
+{
+  "id": "whatsapp-business",
+  "package": "@activepieces/piece-whatsapp",
+  "display_name": "WhatsApp Business",
+  "display_name_ar": "واتساب أعمال",
+  "description": "Manage your WhatsApp business account",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "send-template-message",
+      "display_name": "Send Template Message",
+      "description": "Sends a template message."
+    },
+    {
+      "name": "sendMedia",
+      "display_name": "Send Media",
+      "description": "Send a media message through WhatsApp"
+    },
+    {
+      "name": "sendMessage",
+      "display_name": "Send Message",
+      "description": "Send a text message through WhatsApp"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/whatsapp"
+}

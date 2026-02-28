@@ -1,0 +1,34 @@
+{
+  "id": "schedule",
+  "displayName": "Schedule",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {},
+  "triggers": {
+    "every_hour": {
+      "displayName": "Every Hour",
+      "description": "Triggers every hour",
+      "type": "POLLING",
+      "props": []
+    },
+    "every_day": {
+      "displayName": "Every Day",
+      "description": "Triggers every day",
+      "type": "POLLING",
+      "props": []
+    },
+    "every_week": {
+      "displayName": "Every Week",
+      "description": "Triggers every week",
+      "type": "POLLING",
+      "props": []
+    },
+    "cron_expression": {
+      "displayName": "Cron Expression",
+      "description": "Custom cron schedule",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

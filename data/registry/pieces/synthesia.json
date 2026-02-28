@@ -1,0 +1,32 @@
+{
+  "id": "synthesia",
+  "package": "@activepieces/piece-synthesia",
+  "display_name": "Synthesia",
+  "display_name_ar": "Synthesia",
+  "description": "Create AI videos from text in minutes using Synthesia",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createAVideoFromATemplate",
+      "display_name": "Create a video from a template",
+      "description": "Create a video based on a template created in Synthesia"
+    },
+    {
+      "name": "createVideo",
+      "display_name": "Create video",
+      "description": "Create a video within your Synthesia account with one or more scenes"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newVideoReady",
+      "display_name": "New Video Ready",
+      "description": "Trigger when a new video is completed in Synthesia",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/synthesia"
+}

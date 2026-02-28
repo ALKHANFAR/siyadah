@@ -1,0 +1,21 @@
+{
+  "id": "facebook-leads",
+  "package": "@activepieces/piece-facebook-leads",
+  "display_name": "Facebook Leads",
+  "display_name_ar": "Facebook Leads",
+  "description": "Capture leads from Facebook",
+  "category": "H_marketing",
+  "auth_type": "oauth2",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "new_lead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead is created.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/facebook-leads"
+}

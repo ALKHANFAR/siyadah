@@ -1,0 +1,40 @@
+{
+  "id": "vlm-run",
+  "displayName": "VLM Run",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "analyzeAudio": {
+      "displayName": "Analyze Audio",
+      "description": "Process an audio file, extracting features or transcription",
+      "props": []
+    },
+    "analyzeDocument": {
+      "displayName": "Analyze Document",
+      "description": "Process a document (PDF, DOCX, etc.), extracting structured data or text.",
+      "props": []
+    },
+    "analyzeImage": {
+      "displayName": "Analyze Image",
+      "description": "Process an image (file or URL), extracting descriptions, detecting objects, etc.",
+      "props": []
+    },
+    "analyzeVideo": {
+      "displayName": "Analyze Video",
+      "description": "Analyze a video file or URL, e.g. extract frames, detect content, etc.",
+      "props": []
+    },
+    "getFile": {
+      "displayName": "Get File",
+      "description": "Gets file's metadata by ID.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

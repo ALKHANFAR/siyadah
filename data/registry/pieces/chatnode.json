@@ -1,0 +1,25 @@
+{
+  "id": "chatnode",
+  "package": "@activepieces/piece-chatnode",
+  "display_name": "ChatNode",
+  "display_name_ar": "ChatNode",
+  "description": "ChatNode integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "ask-chatbot",
+      "display_name": "Ask Chatbot",
+      "description": "Sends a message to your bot and get back an answer."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/chatnode"
+}

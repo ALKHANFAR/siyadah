@@ -1,0 +1,45 @@
+{
+  "id": "lever",
+  "package": "@activepieces/piece-lever",
+  "display_name": "API key",
+  "display_name_ar": "API key",
+  "description": "Lever is a modern, collaborative recruiting platform that powers a more human approach to hiring.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addFeedbackToOpportunity",
+      "display_name": "Add feedback to opportunity",
+      "description": "Provide feedback to a candidate after an interview"
+    },
+    {
+      "name": "getOpportunity",
+      "display_name": "Get opportunity",
+      "description": "Retrieve a single opportunity, i.e. an individual's unique candidacy or journey for a given job position"
+    },
+    {
+      "name": "listOpportunityFeedback",
+      "display_name": "List opportunity feedback",
+      "description": "Get all feedback for a given opportunity, optionally for a given template"
+    },
+    {
+      "name": "listOpportunityForms",
+      "display_name": "List opportunity forms",
+      "description": "Get all forms for a given opportunity, optionally for a given form template"
+    },
+    {
+      "name": "updateOpportunityStage",
+      "display_name": "Update opportunity stage",
+      "description": "Change an Opportunity's current stage"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/lever"
+}

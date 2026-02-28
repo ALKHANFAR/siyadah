@@ -1,0 +1,42 @@
+{
+  "id": "fillout-forms",
+  "package": "@activepieces/piece-fillout-forms",
+  "display_name": "Fillout Forms",
+  "display_name_ar": "",
+  "description": "Create interactive forms and automate workflows with Fillout",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "findFormByTitle",
+      "display_name": "Find Form by Title",
+      "description": "Finds an existing forms by title."
+    },
+    {
+      "name": "getFormResponses",
+      "display_name": "Get Form Responses",
+      "description": "Fetch all responses for a Fillout form, with optional filters."
+    },
+    {
+      "name": "getSingleResponse",
+      "display_name": "Get Single Response",
+      "description": "Retrieves a specific submission from a form."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-form-response",
+      "display_name": "New Form Response",
+      "description": "Triggers when a new submission is received for a selected Fillout form.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

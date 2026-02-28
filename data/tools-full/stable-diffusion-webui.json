@@ -1,0 +1,37 @@
+{
+  "id": "stable-diffusion-webui",
+  "displayName": "Stable Dffusion web UI",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "textToImage": {
+      "displayName": "Text to Image",
+      "description": "Refer to API documentation",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "advancedParameters",
+          "displayName": "Advanced parameters (key/value)",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Refer to API documentation"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

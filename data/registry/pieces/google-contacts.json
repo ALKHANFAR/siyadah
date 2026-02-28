@@ -1,0 +1,20 @@
+{
+  "id": "google-contacts",
+  "package": "@activepieces/piece-google-contacts",
+  "display_name": "Google Contacts",
+  "display_name_ar": "Google Contacts",
+  "description": "Stay connected and organized",
+  "category": "E_crm",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-contacts"
+}

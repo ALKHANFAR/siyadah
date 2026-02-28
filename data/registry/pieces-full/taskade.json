@@ -1,0 +1,35 @@
+{
+  "id": "taskade",
+  "package": "@activepieces/piece-taskade",
+  "display_name": "Taskade",
+  "display_name_ar": "",
+  "description": "collaboration platform for remote teams to organize and manage projects",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "taskade-complete-task",
+      "display_name": "Complete Task",
+      "description": "Complete a task in a project."
+    },
+    {
+      "name": "taskade-create-task",
+      "display_name": "Create Task",
+      "description": "Creates a new task."
+    },
+    {
+      "name": "taskade-delete-task",
+      "display_name": "Delete Task",
+      "description": "Delete an existing task in a project."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

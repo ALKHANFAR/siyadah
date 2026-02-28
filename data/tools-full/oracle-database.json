@@ -1,0 +1,117 @@
+{
+  "id": "oracle-database",
+  "displayName": "Oracle Database",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "delete_row": {
+      "displayName": "Delete Row",
+      "description": "Delete rows from an Oracle table",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter (WHERE)",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Conditions to match rows for deletion"
+        }
+      ]
+    },
+    "find_row": {
+      "displayName": "Find Row",
+      "description": "Find rows in an Oracle table",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter (WHERE)",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Conditions to match rows"
+        }
+      ]
+    },
+    "insert_row": {
+      "displayName": "Insert Row",
+      "description": "Insert a row into an Oracle table",
+      "props": [
+        {
+          "name": "row",
+          "displayName": "Row",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Column names and values to insert"
+        }
+      ]
+    },
+    "insert_rows": {
+      "displayName": "Insert Rows",
+      "description": "Insert multiple rows into an Oracle table",
+      "props": [
+        {
+          "name": "rows",
+          "displayName": "Rows",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of objects with column names and values"
+        }
+      ]
+    },
+    "run_custom_sql": {
+      "displayName": "Run Custom SQL",
+      "description": "Execute custom SQL or PL/SQL in Oracle",
+      "props": [
+        {
+          "name": "sql",
+          "displayName": "SQL Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "SQL or PL/SQL to execute. Use :param for bind parameters."
+        },
+        {
+          "name": "binds",
+          "displayName": "Bind Parameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Key-value pairs for bind variables"
+        }
+      ]
+    },
+    "update_row": {
+      "displayName": "Update Row",
+      "description": "Update rows in an Oracle table",
+      "props": [
+        {
+          "name": "values",
+          "displayName": "Values",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Column names and new values to set"
+        },
+        {
+          "name": "filter",
+          "displayName": "Filter (WHERE)",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Conditions to match rows. Empty object updates ALL rows."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_row": {
+      "displayName": "New Row",
+      "description": "Triggers when a new row is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "description",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

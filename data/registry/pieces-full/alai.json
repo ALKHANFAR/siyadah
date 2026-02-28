@@ -1,0 +1,45 @@
+{
+  "id": "alai",
+  "package": "@activepieces/piece-alai",
+  "display_name": "Alai",
+  "display_name_ar": "",
+  "description": "AI-powered presentation generation API. Create, export, and manage professional presentations from text.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addSlide",
+      "display_name": "Add Slide",
+      "description": "Add a new slide to an existing presentation."
+    },
+    {
+      "name": "deletePresentation",
+      "display_name": "Delete Presentation",
+      "description": "Delete a presentation by its ID."
+    },
+    {
+      "name": "exportPresentation",
+      "display_name": "Export Presentation",
+      "description": "Export a presentation in the specified formats."
+    },
+    {
+      "name": "generatePresentation",
+      "display_name": "Generate Presentation",
+      "description": "Create a new AI-generated presentation from text."
+    },
+    {
+      "name": "getGeneration",
+      "display_name": "Get Generation",
+      "description": "Fetch the status and result of a generation job."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

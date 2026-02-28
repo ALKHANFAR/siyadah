@@ -1,0 +1,221 @@
+{
+  "id": "insighto-ai",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_text_blob": {
+      "displayName": "Add Text Blob Into Data Source",
+      "description": "Inserts a large text blob into an existing data source",
+      "props": [
+        {
+          "name": "datasource_id",
+          "displayName": "Data Source",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the data source to add the text blob to"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional name for this text blob entry"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional description of what this text blob contains"
+        },
+        {
+          "name": "org_id",
+          "displayName": "Organization ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The UUID of the organization"
+        },
+        {
+          "name": "text_content",
+          "displayName": "Text Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content to add to the data source"
+        }
+      ]
+    },
+    "create_campaign": {
+      "displayName": "Create Campaign",
+      "description": "Create a new outbound call campaign",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Campaign Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Campaign Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_time",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When the campaign should start"
+        },
+        {
+          "name": "interval",
+          "displayName": "Interval (minutes)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Time between executions (e.g., 60 for hourly, 1440 for daily)"
+        },
+        {
+          "name": "widget_id",
+          "displayName": "Widget",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Widget to associate with this campaign"
+        },
+        {
+          "name": "attributes",
+          "displayName": "Attributes",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional campaign attributes as key-value pairs"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "execution_weekdays",
+          "displayName": "Execution Weekdays",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Weekdays as numbers (e.g., [1, 2, 3] for Mon, Tue, Wed)"
+        },
+        {
+          "name": "time_window_start",
+          "displayName": "Time Window Start",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Start time in HH:MM format"
+        },
+        {
+          "name": "time_window_end",
+          "displayName": "Time Window End",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "End time in HH:MM format"
+        },
+        {
+          "name": "time_zone",
+          "displayName": "Time Zone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Time zone (defaults to UTC)"
+        },
+        {
+          "name": "enabled",
+          "displayName": "Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "make_outbound_call": {
+      "displayName": "Make Outbound Call",
+      "description": "Initiate an outbound call to a phone number using a configured widget",
+      "props": [
+        {
+          "name": "widget_id",
+          "displayName": "Widget",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Widget connected to Twilio, Plivo, or Telnyx for making calls"
+        },
+        {
+          "name": "to",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number in E.164 format (e.g., 16501234567)"
+        },
+        {
+          "name": "prompt_dynamic_variables",
+          "displayName": "Dynamic Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Variables for call prompts (e.g., {\"name\": \"Bob\", \"appointment\": \"tomorrow\"})"
+        }
+      ]
+    },
+    "upsert_contact": {
+      "displayName": "Upsert Contact",
+      "description": "Create or update a contact using email or phone number",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the contact"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number including country code (e.g., 16501111234)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_captured_form": {
+      "displayName": "New Captured Form",
+      "description": "Fires when a new form submission is captured in Insighto.ai",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Triggers when a new contact is created",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_conversation": {
+      "displayName": "New Conversation",
+      "description": "Fires when an existing conversation is updated with a new message",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

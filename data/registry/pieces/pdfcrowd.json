@@ -1,0 +1,30 @@
+{
+  "id": "pdfcrowd",
+  "package": "@activepieces/piece-pdfcrowd",
+  "display_name": "Pdfcrowd",
+  "display_name_ar": "Pdfcrowd",
+  "description": "Convert web pages and HTML to PDF with advanced formatting options",
+  "category": "I_content",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "html_to_pdf",
+      "display_name": "Convert HTML to PDF",
+      "description": "Convert HTML content (string) to PDF document"
+    },
+    {
+      "name": "url_to_pdf",
+      "display_name": "Convert URL to PDF",
+      "description": "Convert a web page URL to PDF document"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pdfcrowd"
+}

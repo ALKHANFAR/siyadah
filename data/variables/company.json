@@ -1,0 +1,172 @@
+{
+  "_meta": {
+    "category": "company",
+    "source": "onboarding_settings",
+    "description": "Variables set during company onboarding - static per tenant",
+    "version": "1.0.0"
+  },
+  "variables": {
+    "company_name": {
+      "key": "company.company_name",
+      "type": "string",
+      "required": true,
+      "source": "onboarding.step3",
+      "example": "عيادة النور",
+      "description_ar": "اسم الشركة",
+      "used_in_flows": ["lead-capture", "invoice-collection", "customer-journey", "weekly-report", "appointment-booking", "complaint-handling"],
+      "validation": "min:2,max:100"
+    },
+    "phone": {
+      "key": "company.phone",
+      "type": "phone",
+      "required": true,
+      "source": "onboarding.step3",
+      "example": "+966501234567",
+      "description_ar": "رقم الشركة الرسمي",
+      "used_in_flows": ["lead-capture", "complaint-handling"],
+      "validation": "saudi_phone",
+      "auto_format": "05XXXXXXXX → +9665XXXXXXXX"
+    },
+    "owner_phone": {
+      "key": "company.owner_phone",
+      "type": "phone",
+      "required": true,
+      "source": "onboarding.step3",
+      "example": "+966551234567",
+      "description_ar": "جوال صاحب الشركة",
+      "used_in_flows": ["weekly-report", "invoice-collection"],
+      "validation": "saudi_phone"
+    },
+    "owner_email": {
+      "key": "company.owner_email",
+      "type": "email",
+      "required": true,
+      "source": "onboarding.step3",
+      "example": "owner@clinic.sa",
+      "description_ar": "إيميل صاحب الشركة",
+      "used_in_flows": ["weekly-report", "invoice-collection"],
+      "validation": "email"
+    },
+    "email": {
+      "key": "company.email",
+      "type": "email",
+      "required": false,
+      "source": "onboarding.step3",
+      "example": "info@clinic.sa",
+      "description_ar": "إيميل الشركة الرسمي",
+      "used_in_flows": [],
+      "validation": "email"
+    },
+    "website": {
+      "key": "company.website",
+      "type": "url",
+      "required": false,
+      "source": "onboarding.step3",
+      "example": "https://alnoor-clinic.sa",
+      "description_ar": "موقع الشركة",
+      "used_in_flows": [],
+      "validation": "url"
+    },
+    "address": {
+      "key": "company.address",
+      "type": "string",
+      "required": false,
+      "source": "onboarding.step3",
+      "example": "الرياض - حي الملقا - شارع أنس بن مالك",
+      "description_ar": "عنوان الشركة",
+      "used_in_flows": ["appointment-booking"],
+      "validation": "max:200"
+    },
+    "industry": {
+      "key": "company.industry",
+      "type": "enum",
+      "required": true,
+      "source": "onboarding.step2",
+      "example": "clinic",
+      "description_ar": "نوع النشاط",
+      "used_in_flows": ["weekly-report", "lead-capture"],
+      "validation": "enum:clinic|ecommerce|construction|restaurant|consulting|training|general_services"
+    },
+    "working_hours": {
+      "key": "company.working_hours",
+      "type": "string",
+      "required": false,
+      "source": "onboarding.step3",
+      "example": "السبت-الخميس 9ص-9م",
+      "description_ar": "أوقات العمل",
+      "used_in_flows": [],
+      "validation": "max:100"
+    },
+    "signature": {
+      "key": "company.signature",
+      "type": "string",
+      "required": true,
+      "source": "onboarding.step4",
+      "example": "مع تحيات فريق عيادة النور",
+      "description_ar": "توقيع الرسائل",
+      "default": "مع تحيات فريق {{company.company_name}}",
+      "used_in_flows": ["lead-capture", "customer-journey", "complaint-handling", "appointment-booking"],
+      "validation": "max:100"
+    },
+    "notification_channel": {
+      "key": "company.notification_channel",
+      "type": "enum",
+      "required": true,
+      "source": "onboarding.step5",
+      "example": "slack",
+      "description_ar": "قناة التنبيهات الداخلية",
+      "used_in_flows": ["lead-capture", "invoice-collection", "complaint-handling"],
+      "validation": "enum:slack|telegram|email"
+    },
+    "leads_spreadsheet_id": {
+      "key": "company.leads_spreadsheet_id",
+      "type": "string",
+      "required": true,
+      "source": "auto_created",
+      "example": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms",
+      "description_ar": "معرّف شيت العملاء",
+      "used_in_flows": ["lead-capture", "weekly-report", "customer-journey"],
+      "validation": "google_sheet_id"
+    },
+    "invoices_spreadsheet_id": {
+      "key": "company.invoices_spreadsheet_id",
+      "type": "string",
+      "required": true,
+      "source": "auto_created",
+      "example": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms",
+      "description_ar": "معرّف شيت الفواتير",
+      "used_in_flows": ["invoice-collection", "weekly-report"],
+      "validation": "google_sheet_id"
+    },
+    "complaints_spreadsheet_id": {
+      "key": "company.complaints_spreadsheet_id",
+      "type": "string",
+      "required": true,
+      "source": "auto_created",
+      "example": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms",
+      "description_ar": "معرّف شيت الشكاوى",
+      "used_in_flows": ["complaint-handling"],
+      "validation": "google_sheet_id"
+    },
+    "appointments_spreadsheet_id": {
+      "key": "company.appointments_spreadsheet_id",
+      "type": "string",
+      "required": true,
+      "source": "auto_created",
+      "example": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms",
+      "description_ar": "معرّف شيت المواعيد",
+      "used_in_flows": ["appointment-booking"],
+      "validation": "google_sheet_id"
+    },
+    "payment_link": {
+      "key": "company.payment_link",
+      "type": "url",
+      "required": false,
+      "source": "settings",
+      "example": "https://checkout.moyasar.com/xxx",
+      "description_ar": "رابط الدفع",
+      "used_in_flows": ["invoice-collection"],
+      "validation": "url"
+    }
+  }
+}

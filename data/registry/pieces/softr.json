@@ -1,0 +1,57 @@
+{
+  "id": "softr",
+  "package": "@activepieces/piece-softr",
+  "display_name": "Softr",
+  "display_name_ar": "Softr",
+  "description": "Softr integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createAppUser",
+      "display_name": "Create App User",
+      "description": "Creates a new user inside a Softr app."
+    },
+    {
+      "name": "createDatabaseRecord",
+      "display_name": "Create Database Record",
+      "description": "Creates a new record."
+    },
+    {
+      "name": "deleteAppUser",
+      "display_name": "Delete App User",
+      "description": "Deletes a user from a Softr app."
+    },
+    {
+      "name": "deleteDatabaseRecord",
+      "display_name": "Delete Database Record",
+      "description": "Deletes a existing database record."
+    },
+    {
+      "name": "findDatabaseRecord",
+      "display_name": "Find Database Record",
+      "description": "Finds a record in table."
+    },
+    {
+      "name": "updateDatabaseRecord",
+      "display_name": "Update Database Record",
+      "description": "Updates an existing database record."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newDatabaseRecord",
+      "display_name": "New Database Record",
+      "description": "Triggers when a new record is added.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/softr"
+}

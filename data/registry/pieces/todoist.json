@@ -1,0 +1,47 @@
+{
+  "id": "todoist",
+  "package": "@activepieces/piece-todoist",
+  "display_name": "Todoist",
+  "display_name_ar": "Todoist",
+  "description": "To-do list and task manager",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create task"
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Finds a task by name."
+    },
+    {
+      "name": "mark_task_completed",
+      "display_name": "Mark Task as Completed",
+      "description": "Marks a task as being completed."
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Updates an existing task."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "task_completed",
+      "display_name": "Task Completed",
+      "description": "Triggers when a new task is completed",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/todoist"
+}

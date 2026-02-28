@@ -1,0 +1,16 @@
+{
+  "id": "youform",
+  "displayName": "Youform",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {
+    "new-submission": {
+      "displayName": "New Submission",
+      "description": "Triggers When a new submission is recieved.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

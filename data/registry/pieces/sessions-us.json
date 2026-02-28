@@ -1,0 +1,35 @@
+{
+  "id": "sessions-us",
+  "package": "@activepieces/piece-sessions-us",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Video conferencing platform for businesses and professionals",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_event",
+      "display_name": "Create Event",
+      "description": "Quickly create an event."
+    },
+    {
+      "name": "create_session",
+      "display_name": "Create Session",
+      "description": "Quickly create a session."
+    },
+    {
+      "name": "publish_event",
+      "display_name": "Publish Event",
+      "description": "Quickly publish an event."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/sessions-us"
+}

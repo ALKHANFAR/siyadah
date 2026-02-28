@@ -1,0 +1,2804 @@
+{
+  "id": "bexio",
+  "displayName": "Bexio",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_company": {
+      "displayName": "Create Company",
+      "description": "Create a new company contact",
+      "props": [
+        {
+          "name": "name_1",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the company"
+        },
+        {
+          "name": "name_2",
+          "displayName": "Company Addition",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional company name (e.g., \"Ltd.\", \"Inc.\")"
+        },
+        {
+          "name": "nr",
+          "displayName": "Contact Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact number (leave empty to auto-assign)"
+        },
+        {
+          "name": "salutation_id",
+          "displayName": "Salutation",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Salutation for the company"
+        },
+        {
+          "name": "title_id",
+          "displayName": "Title",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Title for the company"
+        },
+        {
+          "name": "street_name",
+          "displayName": "Street Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street name"
+        },
+        {
+          "name": "house_number",
+          "displayName": "House Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "House number"
+        },
+        {
+          "name": "address_addition",
+          "displayName": "Address Addition",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address information (e.g., \"Building C\")"
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "country_id",
+          "displayName": "Country",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "mail",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary email address"
+        },
+        {
+          "name": "mail_second",
+          "displayName": "Secondary Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary email address"
+        },
+        {
+          "name": "phone_fixed",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fixed phone number"
+        },
+        {
+          "name": "phone_fixed_second",
+          "displayName": "Secondary Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary fixed phone number"
+        },
+        {
+          "name": "phone_mobile",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile phone number"
+        },
+        {
+          "name": "fax",
+          "displayName": "Fax",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax number"
+        },
+        {
+          "name": "url",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company website URL"
+        },
+        {
+          "name": "skype_name",
+          "displayName": "Skype Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Skype username"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the company"
+        },
+        {
+          "name": "language_id",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Preferred language"
+        },
+        {
+          "name": "contact_group_ids",
+          "displayName": "Contact Groups",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact groups"
+        },
+        {
+          "name": "contact_branch_ids",
+          "displayName": "Contact Sectors",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact sectors"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User assigned to this contact"
+        },
+        {
+          "name": "owner_id",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Owner of this contact"
+        }
+      ]
+    },
+    "create_file": {
+      "displayName": "Create File",
+      "description": "Upload a new file to Bexio",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload"
+        }
+      ]
+    },
+    "create_manual_entry": {
+      "displayName": "Create Manual Entry",
+      "description": "Create a manual accounting entry (single, compound, or group)",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Entry Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the type of manual entry"
+        },
+        {
+          "name": "date",
+          "displayName": "Booking Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Date of the booking (YYYY-MM-DD)"
+        },
+        {
+          "name": "reference_nr",
+          "displayName": "Reference Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference number for the booking"
+        },
+        {
+          "name": "entryFields",
+          "displayName": "Entry Details",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Configure the entry details based on selected type"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The transaction amount"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Description of the transaction"
+        },
+        {
+          "name": "currency_factor",
+          "displayName": "Currency Factor",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Exchange rate factor (defaults to 1)"
+        },
+        {
+          "name": "helper_info",
+          "displayName": "helper_info",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "entries",
+          "displayName": "Entries",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Not used for single entries"
+        },
+        {
+          "name": "debit_account",
+          "displayName": "Debit Account",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "credit_account",
+          "displayName": "Credit Account",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "tax_id",
+          "displayName": "Tax ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "tax_account",
+          "displayName": "Tax Account",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "currency_id",
+          "displayName": "Currency ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "currency_factor",
+          "displayName": "Currency Factor",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Not used for compound/group entries"
+        },
+        {
+          "name": "helper_info",
+          "displayName": "helper_info",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "entries",
+          "displayName": "Entries",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The transaction amount"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The transaction amount"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Description for this entry"
+        },
+        {
+          "name": "currency_factor",
+          "displayName": "Currency Factor",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Exchange rate factor (defaults to 1)"
+        }
+      ]
+    },
+    "create_person": {
+      "displayName": "Create Person",
+      "description": "Create a new person contact",
+      "props": [
+        {
+          "name": "name_1",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The last name of the person"
+        },
+        {
+          "name": "name_2",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the person"
+        },
+        {
+          "name": "nr",
+          "displayName": "Contact Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact number (leave empty to auto-assign)"
+        },
+        {
+          "name": "salutation_id",
+          "displayName": "Salutation",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Salutation for the person"
+        },
+        {
+          "name": "salutation_form",
+          "displayName": "Salutation Form",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Salutation form (optional)"
+        },
+        {
+          "name": "title_id",
+          "displayName": "Title",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Title for the person (e.g., Dr., Prof.)"
+        },
+        {
+          "name": "birthday",
+          "displayName": "Birthday",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Birthday date (YYYY-MM-DD)"
+        },
+        {
+          "name": "street_name",
+          "displayName": "Street Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street name"
+        },
+        {
+          "name": "house_number",
+          "displayName": "House Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "House number"
+        },
+        {
+          "name": "address_addition",
+          "displayName": "Address Addition",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address information (e.g., \"Building C\")"
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "country_id",
+          "displayName": "Country",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "mail",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary email address"
+        },
+        {
+          "name": "mail_second",
+          "displayName": "Secondary Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary email address"
+        },
+        {
+          "name": "phone_fixed",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fixed phone number"
+        },
+        {
+          "name": "phone_fixed_second",
+          "displayName": "Secondary Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary fixed phone number"
+        },
+        {
+          "name": "phone_mobile",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile phone number"
+        },
+        {
+          "name": "fax",
+          "displayName": "Fax",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax number"
+        },
+        {
+          "name": "url",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Personal website URL"
+        },
+        {
+          "name": "skype_name",
+          "displayName": "Skype Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Skype username"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the person"
+        },
+        {
+          "name": "language_id",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Preferred language"
+        },
+        {
+          "name": "contact_group_ids",
+          "displayName": "Contact Groups",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact groups"
+        },
+        {
+          "name": "contact_branch_ids",
+          "displayName": "Contact Sectors",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact sectors"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User assigned to this contact"
+        },
+        {
+          "name": "owner_id",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Owner of this contact"
+        }
+      ]
+    },
+    "create_product": {
+      "displayName": "Create Product",
+      "description": "Create a new product or service",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User associated with this product"
+        },
+        {
+          "name": "article_type_id",
+          "displayName": "Product Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of product"
+        },
+        {
+          "name": "intern_code",
+          "displayName": "Internal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Internal product code"
+        },
+        {
+          "name": "intern_name",
+          "displayName": "Internal Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Internal product name"
+        },
+        {
+          "name": "intern_description",
+          "displayName": "Internal Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal product description"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact associated with this product"
+        },
+        {
+          "name": "deliverer_code",
+          "displayName": "Supplier Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Supplier product code"
+        },
+        {
+          "name": "deliverer_name",
+          "displayName": "Supplier Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Supplier product name"
+        },
+        {
+          "name": "deliverer_description",
+          "displayName": "Supplier Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Supplier product description"
+        },
+        {
+          "name": "purchase_price",
+          "displayName": "Purchase Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Purchase price"
+        },
+        {
+          "name": "sale_price",
+          "displayName": "Sale Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sale price"
+        },
+        {
+          "name": "purchase_total",
+          "displayName": "Purchase Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total purchase amount"
+        },
+        {
+          "name": "sale_total",
+          "displayName": "Sale Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total sale amount"
+        },
+        {
+          "name": "tax_income_id",
+          "displayName": "Income Tax",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Tax for income/sales"
+        },
+        {
+          "name": "tax_expense_id",
+          "displayName": "Expense Tax",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Tax for expenses/purchases"
+        },
+        {
+          "name": "unit_id",
+          "displayName": "Unit",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Unit of measurement"
+        },
+        {
+          "name": "is_stock",
+          "displayName": "Is Stock Item",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this is a stock item (requires stock_edit scope)"
+        },
+        {
+          "name": "stock_id",
+          "displayName": "Stock Location",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Stock location"
+        },
+        {
+          "name": "stock_place_id",
+          "displayName": "Stock Area",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Stock area/place"
+        },
+        {
+          "name": "stock_nr",
+          "displayName": "Stock Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Current stock quantity"
+        },
+        {
+          "name": "stock_min_nr",
+          "displayName": "Minimum Stock",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Minimum stock quantity"
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product width"
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product height"
+        },
+        {
+          "name": "weight",
+          "displayName": "Weight",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product weight"
+        },
+        {
+          "name": "volume",
+          "displayName": "Volume",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product volume"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional remarks"
+        },
+        {
+          "name": "delivery_price",
+          "displayName": "Delivery Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delivery price"
+        },
+        {
+          "name": "article_group_id",
+          "displayName": "Article Group",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Product group/category"
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Create a new project",
+      "props": [
+        {
+          "name": "document_nr",
+          "displayName": "Document Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Project number (required if automatic numbering is disabled)"
+        },
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the project"
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Project start date"
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Project end date"
+        },
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Project comment/description"
+        },
+        {
+          "name": "pr_state_id",
+          "displayName": "Project Status",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Status of the project"
+        },
+        {
+          "name": "pr_project_type_id",
+          "displayName": "Project Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Type of project"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Contact associated with this project"
+        },
+        {
+          "name": "contact_sub_id",
+          "displayName": "Contact Sub",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact sub-address (optional)"
+        },
+        {
+          "name": "pr_invoice_type_id",
+          "displayName": "Invoice Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of invoicing for this project"
+        },
+        {
+          "name": "pr_invoice_type_amount",
+          "displayName": "Invoice Type Amount",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Amount for invoice type (only for hourly rate project or fix price)"
+        },
+        {
+          "name": "pr_budget_type_id",
+          "displayName": "Budget Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of budget for this project"
+        },
+        {
+          "name": "pr_budget_type_amount",
+          "displayName": "Budget Type Amount",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Amount for budget type (only for total budget costs or total budget hours)"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User responsible for this project"
+        }
+      ]
+    },
+    "create_sales_invoice": {
+      "displayName": "Create Sales Invoice",
+      "description": "Create a new product-based sales invoice",
+      "props": [
+        {
+          "name": "document_nr",
+          "displayName": "Document Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Invoice number (required if automatic numbering is disabled)"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Invoice title"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The contact for this invoice"
+        },
+        {
+          "name": "contact_sub_id",
+          "displayName": "Contact Sub",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact sub-address (optional)"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User assigned to this invoice"
+        },
+        {
+          "name": "pr_project_id",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Project associated with this invoice"
+        },
+        {
+          "name": "language_id",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Language for the invoice"
+        },
+        {
+          "name": "bank_account_id",
+          "displayName": "Bank Account",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Bank account for payment"
+        },
+        {
+          "name": "payment_type_id",
+          "displayName": "Payment Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Payment type for this invoice"
+        },
+        {
+          "name": "header",
+          "displayName": "Header",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Header text for the invoice"
+        },
+        {
+          "name": "footer",
+          "displayName": "Footer",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Footer text for the invoice"
+        },
+        {
+          "name": "mwst_type",
+          "displayName": "Tax Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How taxes are handled"
+        },
+        {
+          "name": "mwst_is_net",
+          "displayName": "Tax is Net",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If taxes are included, set to true to add taxes to total, false to include in total"
+        },
+        {
+          "name": "show_position_taxes",
+          "displayName": "Show Position Taxes",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show taxes for each position"
+        },
+        {
+          "name": "is_valid_from",
+          "displayName": "Valid From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Invoice valid from date (YYYY-MM-DD)"
+        },
+        {
+          "name": "is_valid_to",
+          "displayName": "Valid To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Invoice valid to date (YYYY-MM-DD)"
+        },
+        {
+          "name": "contact_address_manual",
+          "displayName": "Manual Contact Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Override contact address (leave empty to use contact address)"
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference number"
+        },
+        {
+          "name": "api_reference",
+          "displayName": "API Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference for API use (can only be edited via API)"
+        },
+        {
+          "name": "template_slug",
+          "displayName": "Document Template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Document template for the invoice"
+        },
+        {
+          "name": "positionFields",
+          "displayName": "Invoice Positions",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Configure invoice line items"
+        },
+        {
+          "name": "positions",
+          "displayName": "Positions",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Invoice line items"
+        },
+        {
+          "name": "type",
+          "displayName": "Position Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of invoice position"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Quantity/amount"
+        },
+        {
+          "name": "text",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Position description/text"
+        },
+        {
+          "name": "unit_price",
+          "displayName": "Unit Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Price per unit (max 6 decimals)"
+        },
+        {
+          "name": "discount_in_percent",
+          "displayName": "Discount (%)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Discount percentage (max 6 decimals)"
+        },
+        {
+          "name": "parent_id",
+          "displayName": "Parent ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Parent position ID (for grouped positions)"
+        }
+      ]
+    },
+    "create_sales_order": {
+      "displayName": "Create Sales Order",
+      "description": "Create a new product-based sales order",
+      "props": [
+        {
+          "name": "document_nr",
+          "displayName": "Document Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Order number (required if automatic numbering is disabled)"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Order title"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The contact for this order"
+        },
+        {
+          "name": "contact_sub_id",
+          "displayName": "Contact Sub",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact sub-address (optional)"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User responsible for this order"
+        },
+        {
+          "name": "pr_project_id",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Project associated with this order"
+        },
+        {
+          "name": "language_id",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Language for the order"
+        },
+        {
+          "name": "bank_account_id",
+          "displayName": "Bank Account",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Bank account for payment"
+        },
+        {
+          "name": "currency_id",
+          "displayName": "Currency",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Currency for this order"
+        },
+        {
+          "name": "payment_type_id",
+          "displayName": "Payment Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Payment type for this order"
+        },
+        {
+          "name": "header",
+          "displayName": "Header",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Header text for the order"
+        },
+        {
+          "name": "footer",
+          "displayName": "Footer",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Footer text for the order"
+        },
+        {
+          "name": "mwst_type",
+          "displayName": "Tax Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How taxes are handled"
+        },
+        {
+          "name": "mwst_is_net",
+          "displayName": "Tax is Net",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If taxes are included, set to true to add taxes to total, false to include in total"
+        },
+        {
+          "name": "show_position_taxes",
+          "displayName": "Show Position Taxes",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show taxes for each position"
+        },
+        {
+          "name": "is_valid_from",
+          "displayName": "Valid From",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Order valid from date (YYYY-MM-DD)"
+        },
+        {
+          "name": "contact_address_manual",
+          "displayName": "Manual Contact Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Override contact address (leave empty to use contact address)"
+        },
+        {
+          "name": "delivery_address_type",
+          "displayName": "Delivery Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of delivery address"
+        },
+        {
+          "name": "delivery_address_manual_text",
+          "displayName": "Manual Delivery Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom delivery address (only used if delivery address type is set to custom)"
+        },
+        {
+          "name": "api_reference",
+          "displayName": "API Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference for API use (can only be edited via API)"
+        },
+        {
+          "name": "template_slug",
+          "displayName": "Document Template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Document template for the order"
+        },
+        {
+          "name": "positionFields",
+          "displayName": "Order Positions",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Configure order line items"
+        },
+        {
+          "name": "positions",
+          "displayName": "Positions",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Order line items"
+        },
+        {
+          "name": "type",
+          "displayName": "Position Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of order position"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Quantity/amount"
+        },
+        {
+          "name": "text",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Position description/text"
+        },
+        {
+          "name": "unit_price",
+          "displayName": "Unit Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Price per unit (max 6 decimals)"
+        },
+        {
+          "name": "discount_in_percent",
+          "displayName": "Discount (%)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Discount percentage (max 6 decimals)"
+        },
+        {
+          "name": "parent_id",
+          "displayName": "Parent ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Parent position ID (for grouped positions)"
+        }
+      ]
+    },
+    "create_sales_quote": {
+      "displayName": "Create Sales Quote",
+      "description": "Create a new product-based sales quote",
+      "props": [
+        {
+          "name": "document_nr",
+          "displayName": "Document Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Quote number (required if automatic numbering is disabled)"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Quote title"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The contact for this quote"
+        },
+        {
+          "name": "contact_sub_id",
+          "displayName": "Contact Sub",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact sub-address (optional)"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User responsible for this quote"
+        },
+        {
+          "name": "pr_project_id",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Project associated with this quote"
+        },
+        {
+          "name": "language_id",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Language for the quote"
+        },
+        {
+          "name": "bank_account_id",
+          "displayName": "Bank Account",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Bank account for payment"
+        },
+        {
+          "name": "currency_id",
+          "displayName": "Currency",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Currency for this quote"
+        },
+        {
+          "name": "payment_type_id",
+          "displayName": "Payment Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Payment type for this quote"
+        },
+        {
+          "name": "header",
+          "displayName": "Header",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Header text for the quote"
+        },
+        {
+          "name": "footer",
+          "displayName": "Footer",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Footer text for the quote"
+        },
+        {
+          "name": "mwst_type",
+          "displayName": "Tax Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How taxes are handled"
+        },
+        {
+          "name": "mwst_is_net",
+          "displayName": "Tax is Net",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If taxes are included, set to true to add taxes to total, false to include in total"
+        },
+        {
+          "name": "show_position_taxes",
+          "displayName": "Show Position Taxes",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show taxes for each position"
+        },
+        {
+          "name": "is_valid_from",
+          "displayName": "Valid From",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Quote valid from date (YYYY-MM-DD)"
+        },
+        {
+          "name": "is_valid_until",
+          "displayName": "Valid Until",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Quote valid until date (YYYY-MM-DD)"
+        },
+        {
+          "name": "contact_address_manual",
+          "displayName": "Manual Contact Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Override contact address (leave empty to use contact address)"
+        },
+        {
+          "name": "delivery_address_type",
+          "displayName": "Delivery Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of delivery address"
+        },
+        {
+          "name": "delivery_address_manual_text",
+          "displayName": "Manual Delivery Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom delivery address (only used if delivery address type is set to custom)"
+        },
+        {
+          "name": "api_reference",
+          "displayName": "API Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference for API use (can only be edited via API)"
+        },
+        {
+          "name": "viewed_by_client_at",
+          "displayName": "Viewed By Client At",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date when the quote was viewed by the client"
+        },
+        {
+          "name": "kb_terms_of_payment_template_id",
+          "displayName": "Terms of Payment Template ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Terms of payment template ID"
+        },
+        {
+          "name": "template_slug",
+          "displayName": "Document Template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Document template for the quote"
+        },
+        {
+          "name": "positionFields",
+          "displayName": "Quote Positions",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Configure quote line items"
+        },
+        {
+          "name": "positions",
+          "displayName": "Positions",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Quote line items"
+        },
+        {
+          "name": "type",
+          "displayName": "Position Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of quote position"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Quantity/amount"
+        },
+        {
+          "name": "text",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Position description/text"
+        },
+        {
+          "name": "unit_price",
+          "displayName": "Unit Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Price per unit (max 6 decimals)"
+        },
+        {
+          "name": "discount_in_percent",
+          "displayName": "Discount (%)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Discount percentage (max 6 decimals)"
+        },
+        {
+          "name": "parent_id",
+          "displayName": "Parent ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Parent position ID (for grouped positions)"
+        }
+      ]
+    },
+    "create_time_tracking": {
+      "displayName": "Create Time Tracking",
+      "description": "Create a new timesheet entry",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "User for this timesheet entry"
+        },
+        {
+          "name": "status_id",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Timesheet status"
+        },
+        {
+          "name": "client_service_id",
+          "displayName": "Client Service",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Business activity/client service"
+        },
+        {
+          "name": "text",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the work performed"
+        },
+        {
+          "name": "allowable_bill",
+          "displayName": "Allowable Bill",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Whether this time is billable"
+        },
+        {
+          "name": "charge",
+          "displayName": "Charge",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Charge amount"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact associated with this timesheet"
+        },
+        {
+          "name": "sub_contact_id",
+          "displayName": "Sub Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Sub contact (optional)"
+        },
+        {
+          "name": "pr_project_id",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Project associated with this timesheet"
+        },
+        {
+          "name": "pr_package_id",
+          "displayName": "Package ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Project package ID"
+        },
+        {
+          "name": "pr_milestone_id",
+          "displayName": "Milestone ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Project milestone ID"
+        },
+        {
+          "name": "estimated_time",
+          "displayName": "Estimated Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Estimated time (format: HH:MM)"
+        },
+        {
+          "name": "tracking_type",
+          "displayName": "Tracking Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of time tracking"
+        },
+        {
+          "name": "tracking_details",
+          "displayName": "Tracking Details",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Time tracking details"
+        }
+      ]
+    },
+    "export_invoice_pdf": {
+      "displayName": "Export Invoice to PDF",
+      "description": "Export an existing sales invoice as a PDF document",
+      "props": [
+        {
+          "name": "invoice_id",
+          "displayName": "Invoice",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the invoice to export"
+        },
+        {
+          "name": "logopaper",
+          "displayName": "Letterhead",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Whether to include letterhead in the PDF"
+        }
+      ]
+    },
+    "find_account": {
+      "displayName": "Find Account",
+      "description": "Search for accounts using various criteria",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding accounts"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        }
+      ]
+    },
+    "find_company": {
+      "displayName": "Find Company",
+      "description": "Search for company contacts using various criteria",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding companies"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to order results by"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        },
+        {
+          "name": "show_archived",
+          "displayName": "Show Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show archived contacts only"
+        }
+      ]
+    },
+    "find_country": {
+      "displayName": "Find Country",
+      "description": "Search for countries using various criteria",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding countries"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to order results by"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        }
+      ]
+    },
+    "find_person": {
+      "displayName": "Find Person",
+      "description": "Search for person contacts using various criteria",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding persons"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to sort the results by"
+        },
+        {
+          "name": "order_direction",
+          "displayName": "Order Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort order"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        },
+        {
+          "name": "show_archived",
+          "displayName": "Show Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include archived contacts in the search results"
+        }
+      ]
+    },
+    "find_product": {
+      "displayName": "Find Product",
+      "description": "Search for products by name or code",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding products"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to order results by"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        }
+      ]
+    },
+    "search_invoice": {
+      "displayName": "Search Invoice",
+      "description": "Search for invoices using various criteria",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding invoices"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to order results by"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        }
+      ]
+    },
+    "search_order": {
+      "displayName": "Search Order",
+      "description": "Search for orders using various criteria",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding orders"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to order results by"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        }
+      ]
+    },
+    "search_quote": {
+      "displayName": "Search Quote",
+      "description": "Search for quotes using various criteria",
+      "props": [
+        {
+          "name": "search_criteria",
+          "displayName": "Search Criteria",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Search criteria for finding quotes"
+        },
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Field to search in"
+        },
+        {
+          "name": "value",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to search for"
+        },
+        {
+          "name": "criteria",
+          "displayName": "Criteria",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search criteria type"
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to order results by"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (max 2000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to skip"
+        }
+      ]
+    },
+    "send_sales_invoice": {
+      "displayName": "Send Sales Invoice",
+      "description": "Send a sales invoice to an email address",
+      "props": [
+        {
+          "name": "invoice_id",
+          "displayName": "Invoice",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the invoice to send"
+        },
+        {
+          "name": "recipient_email",
+          "displayName": "Recipient Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address to send the invoice to"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email subject line"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Email message body. Must include \"[Network Link]\" placeholder"
+        },
+        {
+          "name": "mark_as_open",
+          "displayName": "Mark as Open",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark the invoice as open"
+        },
+        {
+          "name": "attach_pdf",
+          "displayName": "Attach PDF",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Attach PDF directly to the email"
+        }
+      ]
+    },
+    "update_company": {
+      "displayName": "Update Company",
+      "description": "Update an existing company contact",
+      "props": [
+        {
+          "name": "contact_id",
+          "displayName": "Company",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the company to update"
+        },
+        {
+          "name": "name_1",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the company"
+        },
+        {
+          "name": "name_2",
+          "displayName": "Company Addition",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional company name (e.g., \"Ltd.\", \"Inc.\")"
+        },
+        {
+          "name": "nr",
+          "displayName": "Contact Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact number (leave empty to keep current or auto-assign)"
+        },
+        {
+          "name": "salutation_id",
+          "displayName": "Salutation",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Salutation for the company"
+        },
+        {
+          "name": "title_id",
+          "displayName": "Title",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Title for the company"
+        },
+        {
+          "name": "street_name",
+          "displayName": "Street Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street name"
+        },
+        {
+          "name": "house_number",
+          "displayName": "House Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "House number"
+        },
+        {
+          "name": "address_addition",
+          "displayName": "Address Addition",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address information"
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "country_id",
+          "displayName": "Country",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "mail",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary email address"
+        },
+        {
+          "name": "mail_second",
+          "displayName": "Secondary Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary email address"
+        },
+        {
+          "name": "phone_fixed",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fixed phone number"
+        },
+        {
+          "name": "phone_fixed_second",
+          "displayName": "Secondary Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary fixed phone number"
+        },
+        {
+          "name": "phone_mobile",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile phone number"
+        },
+        {
+          "name": "fax",
+          "displayName": "Fax",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax number"
+        },
+        {
+          "name": "url",
+          "displayName": "Website URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company website URL"
+        },
+        {
+          "name": "skype_name",
+          "displayName": "Skype Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Skype username"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the company"
+        },
+        {
+          "name": "language_id",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Preferred language"
+        },
+        {
+          "name": "contact_group_ids",
+          "displayName": "Contact Groups",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact groups"
+        },
+        {
+          "name": "contact_branch_ids",
+          "displayName": "Contact Sectors",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact sectors"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "User assigned to this contact"
+        },
+        {
+          "name": "owner_id",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Owner of this contact"
+        }
+      ]
+    },
+    "update_person": {
+      "displayName": "Update Person",
+      "description": "Update an existing person contact",
+      "props": [
+        {
+          "name": "contact_id",
+          "displayName": "Person",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the person to update"
+        },
+        {
+          "name": "name_1",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the person"
+        },
+        {
+          "name": "name_2",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the person"
+        },
+        {
+          "name": "nr",
+          "displayName": "Contact Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact number (leave empty to keep current or auto-assign)"
+        },
+        {
+          "name": "salutation_id",
+          "displayName": "Salutation",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Salutation for the person"
+        },
+        {
+          "name": "salutation_form",
+          "displayName": "Salutation Form",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Salutation form (optional)"
+        },
+        {
+          "name": "title_id",
+          "displayName": "Title",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Title for the person (e.g., Dr., Prof.)"
+        },
+        {
+          "name": "birthday",
+          "displayName": "Birthday",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Birthday date (YYYY-MM-DD)"
+        },
+        {
+          "name": "street_name",
+          "displayName": "Street Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street name"
+        },
+        {
+          "name": "house_number",
+          "displayName": "House Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "House number"
+        },
+        {
+          "name": "address_addition",
+          "displayName": "Address Addition",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address information"
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "country_id",
+          "displayName": "Country",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "mail",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary email address"
+        },
+        {
+          "name": "mail_second",
+          "displayName": "Secondary Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary email address"
+        },
+        {
+          "name": "phone_fixed",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fixed phone number"
+        },
+        {
+          "name": "phone_fixed_second",
+          "displayName": "Secondary Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary fixed phone number"
+        },
+        {
+          "name": "phone_mobile",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile phone number"
+        },
+        {
+          "name": "fax",
+          "displayName": "Fax",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fax number"
+        },
+        {
+          "name": "url",
+          "displayName": "Website URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Personal website URL"
+        },
+        {
+          "name": "skype_name",
+          "displayName": "Skype Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Skype username"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the person"
+        },
+        {
+          "name": "language_id",
+          "displayName": "Language",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Preferred language"
+        },
+        {
+          "name": "contact_group_ids",
+          "displayName": "Contact Groups",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact groups"
+        },
+        {
+          "name": "contact_branch_ids",
+          "displayName": "Contact Sectors",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select contact sectors"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "User assigned to this contact"
+        },
+        {
+          "name": "owner_id",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Owner of this contact"
+        }
+      ]
+    },
+    "update_product": {
+      "displayName": "Update Product",
+      "description": "Update an existing product or service",
+      "props": [
+        {
+          "name": "article_id",
+          "displayName": "Product",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the product to update"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "User associated with this product"
+        },
+        {
+          "name": "intern_code",
+          "displayName": "Internal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Internal product code"
+        },
+        {
+          "name": "intern_name",
+          "displayName": "Internal Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Internal product name"
+        },
+        {
+          "name": "intern_description",
+          "displayName": "Internal Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal product description"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact associated with this product"
+        },
+        {
+          "name": "deliverer_code",
+          "displayName": "Supplier Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Supplier product code"
+        },
+        {
+          "name": "deliverer_name",
+          "displayName": "Supplier Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Supplier product name"
+        },
+        {
+          "name": "deliverer_description",
+          "displayName": "Supplier Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Supplier product description"
+        },
+        {
+          "name": "purchase_price",
+          "displayName": "Purchase Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Purchase price"
+        },
+        {
+          "name": "sale_price",
+          "displayName": "Sale Price",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sale price"
+        },
+        {
+          "name": "purchase_total",
+          "displayName": "Purchase Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total purchase amount"
+        },
+        {
+          "name": "sale_total",
+          "displayName": "Sale Total",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total sale amount"
+        },
+        {
+          "name": "tax_income_id",
+          "displayName": "Income Tax",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Tax for income/sales"
+        },
+        {
+          "name": "tax_expense_id",
+          "displayName": "Expense Tax",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Tax for expenses/purchases"
+        },
+        {
+          "name": "unit_id",
+          "displayName": "Unit",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Unit of measurement"
+        },
+        {
+          "name": "is_stock",
+          "displayName": "Is Stock Item",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this is a stock item (requires stock_edit scope)"
+        },
+        {
+          "name": "stock_id",
+          "displayName": "Stock Location",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Stock location"
+        },
+        {
+          "name": "stock_place_id",
+          "displayName": "Stock Area",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Stock area/place"
+        },
+        {
+          "name": "stock_nr",
+          "displayName": "Stock Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Current stock quantity (can only be set if no bookings exist)"
+        },
+        {
+          "name": "stock_min_nr",
+          "displayName": "Minimum Stock",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum stock quantity"
+        },
+        {
+          "name": "width",
+          "displayName": "Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product width"
+        },
+        {
+          "name": "height",
+          "displayName": "Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product height"
+        },
+        {
+          "name": "weight",
+          "displayName": "Weight",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product weight"
+        },
+        {
+          "name": "volume",
+          "displayName": "Volume",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Product volume"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional remarks"
+        },
+        {
+          "name": "delivery_price",
+          "displayName": "Delivery Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Delivery price"
+        },
+        {
+          "name": "article_group_id",
+          "displayName": "Article Group",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Product group/category"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_order": {
+      "displayName": "New Order",
+      "description": "Triggers when an Order is created or updated with the chosen status",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status_id",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter orders by status (leave empty to trigger for all statuses)"
+        }
+      ]
+    },
+    "new_product": {
+      "displayName": "New Product",
+      "description": "Triggers when a new product is created",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_project": {
+      "displayName": "New Project",
+      "description": "Triggers when a Project is created or updated with the chosen status",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status_id",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter projects by status (leave empty to trigger for all statuses)"
+        }
+      ]
+    },
+    "new_quote": {
+      "displayName": "New Quotes",
+      "description": "Triggers when a quote is created or updated with the chosen status",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status_id",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter quotes by status (leave empty to trigger for all statuses)"
+        }
+      ]
+    },
+    "new_sales_invoice": {
+      "displayName": "New Sales-Invoice",
+      "description": "Triggers when a Sales-Invoice is created or updated with the chosen status",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status_id",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter invoices by status (leave empty to trigger for all statuses)"
+        }
+      ]
+    },
+    "new_updated_company": {
+      "displayName": "New/Updated Company",
+      "description": "Triggers when a company is added or updated",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_updated_person": {
+      "displayName": "New/Updated Person",
+      "description": "Triggers when a person is added or updated",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

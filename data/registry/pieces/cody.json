@@ -1,0 +1,50 @@
+{
+  "id": "cody",
+  "package": "@activepieces/piece-cody",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Visit your Cody AI API Keys page to retrieve the API key.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_conversation",
+      "display_name": "Create Conversation",
+      "description": "Creates a new conversation with a bot."
+    },
+    {
+      "name": "create_document_from_text",
+      "display_name": "Create Document From Text",
+      "description": "Upload text content to create a new document within the Cody knowledge base."
+    },
+    {
+      "name": "find_bot",
+      "display_name": "Find Bot",
+      "description": "Finds a bot based on its name."
+    },
+    {
+      "name": "find_conversation",
+      "display_name": "Find Conversation",
+      "description": "Finds a conversation based on its name and/or the bot it belongs to."
+    },
+    {
+      "name": "send_message",
+      "display_name": "Send Message",
+      "description": "Send your message and receive the AI-generated response."
+    },
+    {
+      "name": "upload_file",
+      "display_name": "Upload File to Knowledge Base",
+      "description": "Add a file directly into a specific folder in the knowledge base."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/cody"
+}

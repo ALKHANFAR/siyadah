@@ -1,0 +1,159 @@
+{
+  "id": "monday",
+  "displayName": "monday.com",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "monday_create_column": {
+      "displayName": "Create Column",
+      "description": "Creates a new column in board.",
+      "props": [
+        {
+          "name": "column_title",
+          "displayName": "Column Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "column_type",
+          "displayName": "Column Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "monday_create_group": {
+      "displayName": "Create Group",
+      "description": "Creates a new group in board.",
+      "props": [
+        {
+          "name": "group_name",
+          "displayName": "Group Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "monday_create_item": {
+      "displayName": "Create Item",
+      "description": "Creates a new item inside a board.",
+      "props": [
+        {
+          "name": "item_name",
+          "displayName": "Item Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Item Name"
+        },
+        {
+          "name": "create_labels_if_missing",
+          "displayName": "Create Labels if Missing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Creates status/dropdown labels if they are missing. This requires permission to change the board structure."
+        }
+      ]
+    },
+    "monday_create_update": {
+      "displayName": "Create Update",
+      "description": "Creates a new update.",
+      "props": [
+        {
+          "name": "item_id",
+          "displayName": "Item ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "monday_get_board_values": {
+      "displayName": "Get Board Values",
+      "description": "Gets a list of board's items.",
+      "props": []
+    },
+    "monday_get_item_column_values": {
+      "displayName": "Get an Item's Column Values",
+      "description": "Gets column values of an item.",
+      "props": []
+    },
+    "monday_update_column_values_of_item": {
+      "displayName": "Update Column Values of Specific Item",
+      "description": "Updates multiple columns values of specific item.",
+      "props": []
+    },
+    "monday_update_item_name": {
+      "displayName": "Update Item Name",
+      "description": "Updates an item name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "New Item name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "monday_upload_file_to_column": {
+      "displayName": "Upload File to Column",
+      "description": "Upload a file to a column in Monday.",
+      "props": [
+        {
+          "name": "file_column_id",
+          "displayName": "File Column ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file URL or base64 to upload."
+        },
+        {
+          "name": "file_name",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "monday_new_item_in_board": {
+      "displayName": "New Item in Board",
+      "description": "Triggers when a new item is created in board.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "monday_specific_column_updated": {
+      "displayName": "Specific Column Value Updated in Board",
+      "description": "Triggers when a specific column value is updated in board.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "column_id",
+          "displayName": "Column ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

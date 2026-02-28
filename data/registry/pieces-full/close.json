@@ -1,0 +1,64 @@
+{
+  "id": "close",
+  "package": "@activepieces/piece-close",
+  "display_name": "Close",
+  "display_name_ar": "",
+  "description": "Sales automation and CRM integration for Close",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Creates a new contact."
+    },
+    {
+      "name": "create_lead",
+      "display_name": "Create Lead",
+      "description": "Creates a new lead."
+    },
+    {
+      "name": "create_opportunity",
+      "display_name": "Create Opportunity",
+      "description": "Create a new opportunity."
+    },
+    {
+      "name": "find_contact",
+      "display_name": "Find Contact",
+      "description": "Search for contacts by name, email, or other criteria with advanced filtering"
+    },
+    {
+      "name": "find_lead",
+      "display_name": "Find Lead",
+      "description": "Search for leads with advanced filtering options"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_contact_added",
+      "display_name": "New Contact Added",
+      "description": "Triggers when a new contact is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new_lead_created",
+      "display_name": "New Lead Created",
+      "description": "Triggers when a new lead is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new_opportunity_added",
+      "display_name": "New Opportunity Added",
+      "description": "Triggers when a new opportunity is created.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

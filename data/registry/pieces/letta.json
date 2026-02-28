@@ -1,0 +1,48 @@
+{
+  "id": "letta",
+  "package": "@activepieces/piece-letta",
+  "display_name": "Letta",
+  "display_name_ar": "Letta",
+  "description": "Letta is the platform for building stateful agents: open AI with advanced memory that can learn and self-improve over time.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createAgentFromTemplate",
+      "display_name": "Create Agent From Template",
+      "description": "Creates an agent from a template"
+    },
+    {
+      "name": "createIdentity",
+      "display_name": "Create Identity",
+      "description": "Creates a Letta identity"
+    },
+    {
+      "name": "getIdentities",
+      "display_name": "Get Identities",
+      "description": "Searches for identities in your Letta Project"
+    },
+    {
+      "name": "sendMessageToAgent",
+      "display_name": "Send Message to Agent",
+      "description": "Send message to an agent"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newAgent",
+      "display_name": "New Agent",
+      "description": "Triggers when a new agent is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "newMessage",
+      "display_name": "New Message",
+      "description": "Triggers when an agent uses send_message",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/letta"
+}

@@ -1,0 +1,245 @@
+{
+  "id": "housecall-pro",
+  "package": "@activepieces/piece-housecall-pro",
+  "display_name": "Housecall Pro",
+  "display_name_ar": "Housecall Pro",
+  "description": "Manage your home service business with Housecall Pro CRM integration",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "add_job_attachment",
+      "display_name": "Add an attachment to a job",
+      "description": "Upload an attachment to a job"
+    },
+    {
+      "name": "add_job_line_item",
+      "display_name": "Add a line item to a job",
+      "description": "Add a line item to a job. This is a rate limited request."
+    },
+    {
+      "name": "add_job_note",
+      "display_name": "Add job note",
+      "description": "Add a note to a job"
+    },
+    {
+      "name": "add_job_tag",
+      "display_name": "Add job tag",
+      "description": "Add a tag to a job"
+    },
+    {
+      "name": "bulk_update_job_input_materials",
+      "display_name": "Bulk update a job's input materials",
+      "description": "Bulk update job input materials. If upsert not define for a job input material it will be consider as a new entry."
+    },
+    {
+      "name": "bulk_update_job_line_items",
+      "display_name": "Bulk update a job's line items",
+      "description": "Bulk update job line items. If upsert not define for a line item it will be considered as a new line item for the job."
+    },
+    {
+      "name": "convert_lead_to_estimate_or_job",
+      "display_name": "Convert Lead to Estimate or Job",
+      "description": "Converts a lead into an estimate or job."
+    },
+    {
+      "name": "create_customer_address",
+      "display_name": "Create an Address on a Customer",
+      "description": "Creates an address on a customer."
+    },
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Creates a new customer in Housecall Pro."
+    },
+    {
+      "name": "create_estimate_option_attachment",
+      "display_name": "Create estimate option attachment",
+      "description": "Upload an attachment to an estimate option"
+    },
+    {
+      "name": "create_estimate_option_link",
+      "display_name": "Create estimate option link",
+      "description": "Create a new estimate option link"
+    },
+    {
+      "name": "create_estimate_option_note",
+      "display_name": "Create estimate option note",
+      "description": "Create a new estimate option note"
+    },
+    {
+      "name": "create_estimate",
+      "display_name": "Create estimate",
+      "description": "Create an estimate"
+    },
+    {
+      "name": "create_job_appointment",
+      "display_name": "Create appointment",
+      "description": "Add an appointment to a job"
+    },
+    {
+      "name": "create_job_link",
+      "display_name": "Create Job Link",
+      "description": "Create a new job link"
+    },
+    {
+      "name": "create_job",
+      "display_name": "Create Job",
+      "description": "Creates a job with the ID for an already existing address and customer."
+    },
+    {
+      "name": "create_lead",
+      "display_name": "Create Lead",
+      "description": "Create a lead with the ID for an already existing customer."
+    },
+    {
+      "name": "delete_estimate_option_note",
+      "display_name": "Delete estimate option note",
+      "description": "Delete a specific estimate option note"
+    },
+    {
+      "name": "delete_job_appointment",
+      "display_name": "Delete appointment",
+      "description": "Delete a job appointment"
+    },
+    {
+      "name": "delete_job_line_item",
+      "display_name": "Delete a single line item for a job",
+      "description": "Delete a specific line item from a job"
+    },
+    {
+      "name": "delete_job_note",
+      "display_name": "Delete job note",
+      "description": "Delete a specific job note"
+    },
+    {
+      "name": "delete_job_schedule",
+      "display_name": "Delete Job Schedule",
+      "description": "Deletes schedule on a job."
+    },
+    {
+      "name": "dispatch_job_to_employees",
+      "display_name": "Dispatch job to employees",
+      "description": "Dispatch a job to employees"
+    },
+    {
+      "name": "get_customer_address",
+      "display_name": "Get a Customer's Address",
+      "description": "Retrieves a customer's address by customer ID and address ID."
+    },
+    {
+      "name": "get_customer_addresses",
+      "display_name": "Get All of a Customer's Addresses",
+      "description": "Retrieves all of a customer's addresses."
+    },
+    {
+      "name": "get_customer",
+      "display_name": "Get Customer",
+      "description": "Retrieves the customer by ID."
+    },
+    {
+      "name": "get_customers",
+      "display_name": "Get Customers",
+      "description": "Retrieves a list of customers from Housecall Pro."
+    },
+    {
+      "name": "get_estimate",
+      "display_name": "Get estimate by ID",
+      "description": "Retrieve a single estimate by ID"
+    },
+    {
+      "name": "get_estimates",
+      "display_name": "Get estimates",
+      "description": "Get a list of estimates with filtering and pagination"
+    },
+    {
+      "name": "get_job_appointments",
+      "display_name": "Get Appointments",
+      "description": "Get all of the appointments for a job"
+    },
+    {
+      "name": "get_job_input_materials",
+      "display_name": "Lists all job input materials for a job",
+      "description": "Retrieve all job input materials for a specific job"
+    },
+    {
+      "name": "get_job_invoices",
+      "display_name": "Get Job Invoices",
+      "description": "Lists all invoices for a job"
+    },
+    {
+      "name": "get_job_line_items",
+      "display_name": "Lists all line items for a job",
+      "description": "Retrieve all line items for a specific job"
+    },
+    {
+      "name": "get_job",
+      "display_name": "Get a Job",
+      "description": "Retrieves a single job by ID from Housecall Pro."
+    },
+    {
+      "name": "get_jobs",
+      "display_name": "Get Jobs",
+      "description": "Retrieve a list of jobs from Housecall Pro."
+    },
+    {
+      "name": "get_lead",
+      "display_name": "Get Lead",
+      "description": "Get the lead via ID."
+    },
+    {
+      "name": "get_leads",
+      "display_name": "Get Leads",
+      "description": "Get a list of leads"
+    },
+    {
+      "name": "lock_job",
+      "display_name": "Lock Job",
+      "description": "Lock the job identified by the given job_id"
+    },
+    {
+      "name": "lock_jobs",
+      "display_name": "Lock Jobs",
+      "description": "Lock completed or scheduled jobs by the given time range"
+    },
+    {
+      "name": "remove_job_tag",
+      "display_name": "Remove job tag",
+      "description": "Remove a tag from a job"
+    },
+    {
+      "name": "update_customer",
+      "display_name": "Update Customer",
+      "description": "Updates an existing customer in Housecall Pro."
+    },
+    {
+      "name": "update_estimate_option_schedule",
+      "display_name": "Update estimate option schedule",
+      "description": "Update an estimate option's schedule."
+    },
+    {
+      "name": "update_job_appointment",
+      "display_name": "Update Appointment",
+      "description": "Update job appointment"
+    },
+    {
+      "name": "update_job_line_item",
+      "display_name": "Update a single line item for a job",
+      "description": "Update a specific line item for a job"
+    },
+    {
+      "name": "update_job_schedule",
+      "display_name": "Update Job Schedule",
+      "description": "Updates a job's schedule. Jobs with multi days feature containing more than 1 appointment can't be updated through this action."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/housecall-pro"
+}

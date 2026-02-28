@@ -1,0 +1,92 @@
+{
+  "id": "totalcms",
+  "package": "@activepieces/piece-totalcms",
+  "display_name": "Total CMS",
+  "display_name_ar": "",
+  "description": "Content management system for modern websites",
+  "category": "I_content",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "get_blog_post",
+      "display_name": "Get Blog Post",
+      "description": "Get a blog post from Total CMS"
+    },
+    {
+      "name": "get_content",
+      "display_name": "Get Content",
+      "description": "Get content from your Total CMS website"
+    },
+    {
+      "name": "save_blog_gallery",
+      "display_name": "Save Blog Post Gallery Image",
+      "description": "Save image to Total CMS blog post gallery"
+    },
+    {
+      "name": "save_blog_image",
+      "display_name": "Save Blog Post Image",
+      "description": "Save image to Total CMS blog post"
+    },
+    {
+      "name": "save_blog_post",
+      "display_name": "Save Blog Post",
+      "description": "Save blog content to Total CMS"
+    },
+    {
+      "name": "save_date",
+      "display_name": "Save Date Content",
+      "description": "Save date content to Total CMS"
+    },
+    {
+      "name": "save_depot",
+      "display_name": "Save Depot",
+      "description": "Save file to Total CMS depot"
+    },
+    {
+      "name": "save_file",
+      "display_name": "Save File",
+      "description": "Save file to Total CMS"
+    },
+    {
+      "name": "save_gallery",
+      "display_name": "Save Gallery Image",
+      "description": "Save image to Total CMS gallery"
+    },
+    {
+      "name": "save_image",
+      "display_name": "Save Image",
+      "description": "Save image to Total CMS"
+    },
+    {
+      "name": "save_text",
+      "display_name": "Save Text Content",
+      "description": "Save text content to Total CMS"
+    },
+    {
+      "name": "save_toggle",
+      "display_name": "Save Toggle",
+      "description": "Save toggle content to Total CMS"
+    },
+    {
+      "name": "save_video",
+      "display_name": "Save Video Content",
+      "description": "Save video content to Total CMS"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_blog_post",
+      "display_name": "New Blog Post",
+      "description": "Triggers when a new blog post is published",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

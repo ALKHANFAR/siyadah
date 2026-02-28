@@ -1,0 +1,185 @@
+{
+  "id": "mongodb",
+  "displayName": "Host",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "aggregate_documents": {
+      "displayName": "Aggregate Documents",
+      "description": "Perform aggregation operations on documents in a collection",
+      "props": [
+        {
+          "name": "pipeline",
+          "displayName": "Aggregation Pipeline",
+          "type": "JSON",
+          "required": true,
+          "description": "Array of aggregation stages (e.g., [{\"$match\": {\"status\": \"active\"}}, {\"$group\": {\"_id\": \"$category\", \"count\": {\"$sum\": 1}}}])"
+        }
+      ]
+    },
+    "delete_documents": {
+      "displayName": "Delete Documents",
+      "description": "Delete documents from a collection",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "JSON",
+          "required": true,
+          "description": "MongoDB query to select documents to delete (e.g., {\"status\": \"archived\"})"
+        }
+      ]
+    },
+    "find_and_replace_documents": {
+      "displayName": "Find and Replace Documents",
+      "description": "Replace documents that match a filter with a new document",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "JSON",
+          "required": true,
+          "description": "MongoDB query to select documents to replace (e.g., {\"_id\": \"123\"})"
+        },
+        {
+          "name": "replacement",
+          "displayName": "Replacement Document",
+          "type": "JSON",
+          "required": true,
+          "description": "New document that will replace the matched documents"
+        },
+        {
+          "name": "upsert",
+          "displayName": "Upsert",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Insert the document if no documents match the filter"
+        },
+        {
+          "name": "returnDocument",
+          "displayName": "Return Document",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Which version of the document to return"
+        }
+      ]
+    },
+    "find_and_update_documents": {
+      "displayName": "Find and Update Documents",
+      "description": "Find documents and update them, returning the updated documents",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "JSON",
+          "required": true,
+          "description": "MongoDB query to select documents to update (e.g., {\"status\": \"pending\"})"
+        },
+        {
+          "name": "update",
+          "displayName": "Update",
+          "type": "JSON",
+          "required": true,
+          "description": "MongoDB update operations (e.g., {\"$set\": {\"status\": \"completed\"}})"
+        },
+        {
+          "name": "upsert",
+          "displayName": "Upsert",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Insert a document if no documents match the filter"
+        },
+        {
+          "name": "returnUpdated",
+          "displayName": "Return Updated Documents",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return the documents after updates are applied"
+        }
+      ]
+    },
+    "find_documents": {
+      "displayName": "Find Documents",
+      "description": "Find documents in a collection",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "JSON",
+          "required": false,
+          "description": "MongoDB query to filter documents (e.g., {\"status\": \"active\"})"
+        },
+        {
+          "name": "projection",
+          "displayName": "Projection",
+          "type": "JSON",
+          "required": false,
+          "description": "Fields to include or exclude (e.g., {\"name\": 1, \"_id\": 0})"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort",
+          "type": "JSON",
+          "required": false,
+          "description": "Sort criteria (e.g., {\"createdAt\": -1})"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of documents to return"
+        },
+        {
+          "name": "skip",
+          "displayName": "Skip",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of documents to skip"
+        }
+      ]
+    },
+    "insert_documents": {
+      "displayName": "Insert Documents",
+      "description": "Insert one or more documents into a collection",
+      "props": [
+        {
+          "name": "documents",
+          "displayName": "Documents",
+          "type": "JSON",
+          "required": true,
+          "description": "Document(s) to insert. Can be a single document object or an array of documents."
+        }
+      ]
+    },
+    "update_documents": {
+      "displayName": "Update Documents",
+      "description": "Update multiple documents in a collection",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "JSON",
+          "required": true,
+          "description": "MongoDB query to select documents to update (e.g., {\"status\": \"pending\"})"
+        },
+        {
+          "name": "update",
+          "displayName": "Update",
+          "type": "JSON",
+          "required": true,
+          "description": "MongoDB update operations (e.g., {\"$set\": {\"status\": \"completed\"}})"
+        },
+        {
+          "name": "upsert",
+          "displayName": "Upsert",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Insert a document if no documents match the filter"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

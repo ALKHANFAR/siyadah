@@ -1,0 +1,61 @@
+{
+  "id": "apify",
+  "displayName": "API Key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "getActors": {
+      "displayName": "Get user's Actors",
+      "description": "Gets the list of Actors available to the user.",
+      "props": []
+    },
+    "getDatasetItems": {
+      "displayName": "Get Dataset Items",
+      "description": "Gets the data from an Actors run.",
+      "props": [
+        {
+          "name": "runid",
+          "displayName": "The runid of the Actor (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The runid of the completed Actors run [defaultDatasetId] (compulsory)"
+        }
+      ]
+    },
+    "getLastRun": {
+      "displayName": "Get last run details",
+      "description": "Gets last run details for a given Actor.",
+      "props": [
+        {
+          "name": "actorid",
+          "displayName": "The id of the Actor (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The id [defaultDatasetId] of the Actor to get run information [you can also use the username then ~ then the name] (compulsory)"
+        }
+      ]
+    },
+    "startActor": {
+      "displayName": "Start an Apify Actor",
+      "description": "Starts an Apify Actor web scraper",
+      "props": [
+        {
+          "name": "actorid",
+          "displayName": "The id or name of the Actor (alphanumeric)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The id of the Actor to run [Use either id, or the username then ~ then the name] (compulsory)"
+        },
+        {
+          "name": "jsonbody",
+          "displayName": "JSON input",
+          "type": "JSON",
+          "required": true,
+          "description": "The JSON input to pass to the Actor [you can get the JSON from a run in your Apify account]. If left blank will use defaults. (optional)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

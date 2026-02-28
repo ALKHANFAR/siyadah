@@ -1,0 +1,76 @@
+{
+  "id": "parseur",
+  "package": "@activepieces/piece-parseur",
+  "display_name": "Parseur",
+  "display_name_ar": "Parseur",
+  "description": "Parseur is a document/email parsing tool that extracts structured data from emails, attachments, PDFs, invoices, forms, etc. It supports dynamic templates and table fields, and delivers parsed output to integrations (e.g. via webhook or API). This integration enables reactive workflows based on new processed documents, failed processing, mailbox changes, and more.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createDocumentFromFile",
+      "display_name": "Create Document from File",
+      "description": "Creates new document in mailbox from file."
+    },
+    {
+      "name": "createDocument",
+      "display_name": "Create Document",
+      "description": "Creates a new document."
+    },
+    {
+      "name": "findDocument",
+      "display_name": "Find Document",
+      "description": "Finds a document based on search param."
+    },
+    {
+      "name": "getParsedDocumentById",
+      "display_name": "Get Parsed Document by ID",
+      "description": "Fetch parsed JSON / structured output for a given document ID"
+    },
+    {
+      "name": "reprocessDocument",
+      "display_name": "Reprocess Document",
+      "description": "Send an existing document back through parsing (e.g. after updating template)."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newDocumentExportFailed",
+      "display_name": "New Document Export Failed",
+      "description": "Fires when an automated export endpoint (webhook / integration) fails for a processed document.",
+      "type": "instant"
+    },
+    {
+      "name": "newDocumentNotProcessed",
+      "display_name": "New Document Not Processed",
+      "description": "Fires when Parseur fails to parse a document (e.g. no matching template).",
+      "type": "instant"
+    },
+    {
+      "name": "newDocumentProcessed",
+      "display_name": "New Document Processed",
+      "description": "Fires when a new document is successfully processed and parsed by Parseur.",
+      "type": "instant"
+    },
+    {
+      "name": "newMailbox",
+      "display_name": "New Mailbox",
+      "description": "Fires when a new mailbox is created in the Parseur account.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newTableFieldProcessed",
+      "display_name": "New Table Field Processed",
+      "description": "Fires when a document with table fields is processed, and triggers for each row (table field) separately.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/parseur"
+}

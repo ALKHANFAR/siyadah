@@ -1,0 +1,65 @@
+{
+  "id": "sendy",
+  "package": "@activepieces/piece-sendy",
+  "display_name": "Sendy",
+  "display_name_ar": "Sendy",
+  "description": "Self-hosted email marketing software",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "count_subscribers",
+      "display_name": "Count Active Subscribers",
+      "description": "Get the active subscriber count for a list"
+    },
+    {
+      "name": "create_campaign",
+      "display_name": "Create Campaign",
+      "description": "Create a new campaign"
+    },
+    {
+      "name": "delete_subscriber",
+      "display_name": "Delete Subscriber",
+      "description": "Delete a subscriber from a list"
+    },
+    {
+      "name": "get_brand_lists",
+      "display_name": "Get Lists for a Brand",
+      "description": "Get the Lists for a Brand"
+    },
+    {
+      "name": "get_brands",
+      "display_name": "Get Brands",
+      "description": "Get a list of brands from Sendy"
+    },
+    {
+      "name": "get_subscription_status",
+      "display_name": "Get Subscription Status",
+      "description": "Get the subscription status of a user"
+    },
+    {
+      "name": "subscribe_multiple_lists",
+      "display_name": "Subscribe Multiple Lists",
+      "description": "Add a new subscriber to a multiple lists"
+    },
+    {
+      "name": "subscribe",
+      "display_name": "Subscribe Updated",
+      "description": "Add a new subscriber to a list"
+    },
+    {
+      "name": "unsubscribe_multiple",
+      "display_name": "Unsubscribe Multiple Lists",
+      "description": "Unsubscribe a subscriber from multiple lists"
+    },
+    {
+      "name": "unsubscribe",
+      "display_name": "Unsubscribe",
+      "description": "Unsubscribe a subscriber from a list"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/sendy"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "service-now",
+  "package": "@activepieces/piece-service-now",
+  "display_name": "ServiceNow",
+  "display_name_ar": "",
+  "description": "Enterprise IT service management platform for incident, change, and service request management",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "attach_file_to_record",
+      "display_name": "Attach File to Record",
+      "description": "Upload and attach a file to a record"
+    },
+    {
+      "name": "create_record",
+      "display_name": "Create Record",
+      "description": "Create a new record in a specified table"
+    },
+    {
+      "name": "find_file",
+      "display_name": "Find File",
+      "description": "List or download file attachments from a record"
+    },
+    {
+      "name": "find_record",
+      "display_name": "Find Records",
+      "description": "Search for records in a table using a query"
+    },
+    {
+      "name": "get_record",
+      "display_name": "Get Record",
+      "description": "Retrieve a specific record by its ID"
+    },
+    {
+      "name": "update_record",
+      "display_name": "Update Record",
+      "description": "Update an existing record in a specified table"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_record",
+      "display_name": "New Record",
+      "description": "Triggers when a new record is created in a table",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_record",
+      "display_name": "Updated Record",
+      "description": "Triggers when a record is updated in a table",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

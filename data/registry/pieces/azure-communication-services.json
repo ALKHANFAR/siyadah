@@ -1,0 +1,20 @@
+{
+  "id": "azure-communication-services",
+  "package": "@activepieces/piece-azure-communication-services",
+  "display_name": "Connection string",
+  "display_name_ar": "Connection string",
+  "description": "Communication services from Microsoft Azure",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "send_email",
+      "display_name": "Send Email",
+      "description": "Send a text or HTML email"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/azure-communication-services"
+}

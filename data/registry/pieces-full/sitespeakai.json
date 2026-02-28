@@ -1,0 +1,37 @@
+{
+  "id": "sitespeakai",
+  "package": "@activepieces/piece-sitespeakai",
+  "display_name": "SiteSpeakAI",
+  "display_name_ar": "",
+  "description": "Integrate with Sitespeakai to leverage AI-powered chatbots and enhance user interactions on your website.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_finetune",
+      "display_name": "Create Finetune",
+      "description": "Adds a new fine-tune (question + suggested answer) for the specified chatbot in SiteSpeakAI."
+    },
+    {
+      "name": "delete_finetune",
+      "display_name": "Delete Finetune",
+      "description": "Deletes a fine-tune entry from the selected chatbot."
+    },
+    {
+      "name": "sendQuery",
+      "display_name": "Send Query",
+      "description": "Sends a query to the specified chatbot and retrieves a response."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newLead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead with an email address is created in SiteSpeakAI.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

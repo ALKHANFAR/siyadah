@@ -1,0 +1,83 @@
+{
+  "id": "messagebird",
+  "displayName": "Bird",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "listMessages": {
+      "displayName": "List Messages",
+      "description": "Lists an Messages via Bird Channels API",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The status of the messages to filter by (select \"All\" for all statuses)"
+        },
+        {
+          "name": "startAt",
+          "displayName": "Start Date and Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The start date and time (in UTC) to filter messages"
+        },
+        {
+          "name": "endAt",
+          "displayName": "End Date and Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The end date and time (in UTC) to filter messages, should not exceed 7 days from start date"
+        },
+        {
+          "name": "pageToken",
+          "displayName": "Next Page Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Token for pagination to fetch next set of results after 1000 messages"
+        }
+      ]
+    },
+    "send-sms": {
+      "displayName": "Send SMS",
+      "description": "Sends an SMS message via Bird Channels API.",
+      "props": [
+        {
+          "name": "recipient",
+          "displayName": "Recipient",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The phone number to send the message to (with country code)"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The body of the SMS message"
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Your own identifier for the message (optional)"
+        },
+        {
+          "name": "scheduledFor",
+          "displayName": "Scheduled For (UTC timestamp)",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Message to be sent at a specific datetime eg. 2025-04-27T15:08:18.613Z. If not set, the message will be sent immediately."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,20 @@
+{
+  "id": "mailchain",
+  "displayName": "Mailchain",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "getAuthenticatedUser": {
+      "displayName": "Get Authenticated User",
+      "description": "Get the authenticated user to the Mailchain Protocol",
+      "props": []
+    },
+    "sendEmail": {
+      "displayName": "Send Email",
+      "description": "Send an email to blockchain or mailchain addresses",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

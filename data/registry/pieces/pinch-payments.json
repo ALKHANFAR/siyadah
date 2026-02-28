@@ -1,0 +1,140 @@
+{
+  "id": "pinch-payments",
+  "package": "@activepieces/piece-pinch-payments",
+  "display_name": "Pinch Payments",
+  "display_name_ar": "Pinch Payments",
+  "description": "Australian payment processing platform for direct debits, credit cards, and recurring payments. Create payers, process payments, manage subscriptions, and handle payment sources with comprehensive webhook support.",
+  "category": "M_finance",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "add_source_to_payer",
+      "display_name": "Add Source to Payer",
+      "description": "Add a payment source (bank account or credit card) to an existing payer"
+    },
+    {
+      "name": "add_subscription",
+      "display_name": "Add Subscription",
+      "description": "Create a subscription between a payer and a plan"
+    },
+    {
+      "name": "create_or_update_payer",
+      "display_name": "Create or Update Payer",
+      "description": "Create a new payer or update an existing one"
+    },
+    {
+      "name": "create_or_update_scheduled_payment",
+      "display_name": "Create or Update Scheduled Payment",
+      "description": "Create a new scheduled payment or update an existing one"
+    },
+    {
+      "name": "create_realtime_payment",
+      "display_name": "Create Realtime Payment",
+      "description": "Create a real-time payment against a credit card or bank account"
+    },
+    {
+      "name": "find_event",
+      "display_name": "Find Event",
+      "description": "Find an event using the Event ID"
+    },
+    {
+      "name": "find_payer",
+      "display_name": "Find Payer",
+      "description": "Find a payer by their Payer ID"
+    },
+    {
+      "name": "find_subscription",
+      "display_name": "Find Subscription",
+      "description": "Find a subscription using the Subscription ID"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "bank_results",
+      "display_name": "Bank Results Event",
+      "description": "Triggers when a bank account transaction returns (may result in dishonour status)",
+      "type": "instant"
+    },
+    {
+      "name": "dispute_created",
+      "display_name": "Dispute Created",
+      "description": "Triggers when a dispute is created",
+      "type": "instant"
+    },
+    {
+      "name": "dispute_updated",
+      "display_name": "Dispute Updated",
+      "description": "Triggers when a dispute is updated",
+      "type": "instant"
+    },
+    {
+      "name": "payer_created",
+      "display_name": "Payer Created",
+      "description": "Triggers when a new payer record is created",
+      "type": "instant"
+    },
+    {
+      "name": "payer_updated",
+      "display_name": "Payer Updated",
+      "description": "Triggers when a payer record is updated",
+      "type": "instant"
+    },
+    {
+      "name": "payment_created",
+      "display_name": "Payment Created",
+      "description": "Triggers when a payment is created (via Save Payment endpoint or Subscription)",
+      "type": "instant"
+    },
+    {
+      "name": "realtime_payment",
+      "display_name": "Realtime Payment",
+      "description": "Triggers when a realtime payment is executed",
+      "type": "instant"
+    },
+    {
+      "name": "refund_created",
+      "display_name": "Refund Created",
+      "description": "Triggers when a refund is created",
+      "type": "instant"
+    },
+    {
+      "name": "refund_updated",
+      "display_name": "Refund Updated",
+      "description": "Triggers when a refund is updated (e.g., status change)",
+      "type": "instant"
+    },
+    {
+      "name": "scheduled_process",
+      "display_name": "Scheduled Process",
+      "description": "Triggers when scheduled payments are processed (daily on business days)",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_cancelled",
+      "display_name": "Subscription Cancelled",
+      "description": "Triggers when a subscription is cancelled",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_complete",
+      "display_name": "Subscription Complete",
+      "description": "Triggers when a subscription is run to completion",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_created",
+      "display_name": "Subscription Created",
+      "description": "Triggers when a subscription is created for a payer",
+      "type": "instant"
+    },
+    {
+      "name": "transfer",
+      "display_name": "Transfer Created",
+      "description": "Triggers when a transfer is created to settle funds to a merchant",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pinch-payments"
+}

@@ -1,0 +1,105 @@
+{
+  "id": "deepl",
+  "displayName": "Api key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "translate_text": {
+      "displayName": "Translate text",
+      "description": "Translate a text to the target language",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text to be translated. Only UTF-8-encoded plain text is supported."
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target language",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The language into which the text should be translated."
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language of the text to be translated"
+        },
+        {
+          "name": "split_sentences",
+          "displayName": "Split sentences",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sets whether the translation engine should first split the input into sentences. For text translations where tag_handling is not set to html, the default value is 1, meaning the engine splits on punctuation and on newlines."
+        },
+        {
+          "name": "preserve_formatting",
+          "displayName": "Preserve formatting",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sets whether the translation engine should respect the original formatting, even if it would usually correct some aspects."
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sets whether the translated text should lean towards formal or informal language."
+        },
+        {
+          "name": "glossary_id",
+          "displayName": "Glossary id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specify the glossary to use for the translation."
+        },
+        {
+          "name": "tag_handling",
+          "displayName": "Tag handling",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sets which kind of tags should be handled."
+        },
+        {
+          "name": "outline_detection",
+          "displayName": "Outline detection",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The automatic detection of the XML structure won't yield best results in all XML files."
+        },
+        {
+          "name": "non_splitting_tags",
+          "displayName": "Non splitting tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of XML or HTML tags."
+        },
+        {
+          "name": "splitting_tags",
+          "displayName": "Splitting tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of XML or HTML tags."
+        },
+        {
+          "name": "ignore_tags",
+          "displayName": "Ignore tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of XML or HTML tags."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

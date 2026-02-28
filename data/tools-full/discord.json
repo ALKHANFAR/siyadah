@@ -1,0 +1,329 @@
+{
+  "id": "discord",
+  "displayName": "Discord",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_role_to_member": {
+      "displayName": "Add role to member",
+      "description": "Add Guild Member Role",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user id of the member"
+        }
+      ]
+    },
+    "ban_guild_member": {
+      "displayName": "Ban guild member",
+      "description": "Bans a guild member",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user id of the member"
+        },
+        {
+          "name": "ban_reason",
+          "displayName": "Ban Reason",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The reason for banning the member"
+        }
+      ]
+    },
+    "create_channel": {
+      "displayName": "Create channel",
+      "description": "create a channel",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the new channel"
+        }
+      ]
+    },
+    "createGuildRole": {
+      "displayName": "Create guild role",
+      "description": "Creates a new role on the specified guild",
+      "props": [
+        {
+          "name": "role_name",
+          "displayName": "Role Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the role"
+        },
+        {
+          "name": "role_color",
+          "displayName": "Role Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The RGB color of the role (may be better to set manually on the server)"
+        },
+        {
+          "name": "display_separated",
+          "displayName": "Display Separated",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the role should be displayed separately in the sidebar"
+        },
+        {
+          "name": "role_mentionable",
+          "displayName": "Mentionable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the role can be mentioned by other users"
+        },
+        {
+          "name": "creation_reason",
+          "displayName": "Creation Reason",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The reason for creating the role"
+        }
+      ]
+    },
+    "delete_channel": {
+      "displayName": "Delete channel",
+      "description": "delete a channel",
+      "props": []
+    },
+    "deleteGuildRole": {
+      "displayName": "Delete guild role",
+      "description": "Deletes the specified role from the specified guild",
+      "props": [
+        {
+          "name": "deletion_reason",
+          "displayName": "Deletion reason",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The reason for deleting the role"
+        }
+      ]
+    },
+    "find_channel": {
+      "displayName": "Find channel",
+      "description": "find a channel by name",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the channel"
+        }
+      ]
+    },
+    "list_guild_members": {
+      "displayName": "List guild members",
+      "description": "List Guild Members",
+      "props": [
+        {
+          "name": "shortText",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search for a member"
+        }
+      ]
+    },
+    "remove_ban_from_user": {
+      "displayName": "Remove ban from user",
+      "description": "Removes the guild ban from a user",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the user"
+        },
+        {
+          "name": "unban_reason",
+          "displayName": "Unban Reason",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The reason for unbanning the user"
+        }
+      ]
+    },
+    "remove_member_from_guild": {
+      "displayName": "Remove member from guild",
+      "description": "Remove Guild Member",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user id of the member"
+        }
+      ]
+    },
+    "remove_role_from_member": {
+      "displayName": "Remove role from member",
+      "description": "Remove Guild Member Role",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user id of the member"
+        }
+      ]
+    },
+    "rename_channel": {
+      "displayName": "Rename channel",
+      "description": "rename a channel",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new name of the channel"
+        }
+      ]
+    },
+    "request_approval_message": {
+      "displayName": "Request Approval in a Channel",
+      "description": "send a message to a channel asking for approval and wait for a response",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message you want to send"
+        }
+      ]
+    },
+    "send_message_webhook": {
+      "displayName": "Send Message Webhook",
+      "description": "Send a discord message via webhook",
+      "props": [
+        {
+          "name": "webhook_url",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "username",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "avatar_url",
+          "displayName": "Avatar URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The avatar url for webhook"
+        },
+        {
+          "name": "embeds",
+          "displayName": "embeds",
+          "type": "JSON",
+          "required": false,
+          "description": "Embeds to send along with the message"
+        },
+        {
+          "name": "tts",
+          "displayName": "Text to speech",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Robot reads the message"
+        }
+      ]
+    },
+    "sendMessageWithBot": {
+      "displayName": "Send Message with Bot",
+      "description": "Send messages via bot to any channel or thread you want, with an optional file attachment.",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Message content to send."
+        },
+        {
+          "name": "files",
+          "displayName": "Attachments",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Optional file to send with the message."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "Optional file to send with the message."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_member": {
+      "displayName": "New Member",
+      "description": "Triggers when a new member joins a guild",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of members to fetch (max 1000)"
+        },
+        {
+          "name": "guildId",
+          "displayName": "Guild ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the Discord guild (server)"
+        }
+      ]
+    },
+    "new_message": {
+      "displayName": "New message",
+      "description": "Triggers when a message is sent in a channel",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of messages to fetch"
+        }
+      ]
+    }
+  }
+}

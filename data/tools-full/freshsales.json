@@ -1,0 +1,182 @@
+{
+  "id": "freshsales",
+  "displayName": "Freshsales",
+  "auth": {
+    "type": "basic_auth"
+  },
+  "actions": {
+    "freshsales_create_contact": {
+      "displayName": "Create Contact",
+      "description": "Add new contact in Freshsales CRM",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "job_title",
+          "displayName": "Job title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Designation of the contact in the account they belong to"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Primary email address of the contact"
+        },
+        {
+          "name": "work_number",
+          "displayName": "Work number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Work phone number of the contact"
+        },
+        {
+          "name": "mobile_number",
+          "displayName": "Mobile number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile phone number of the contact"
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Address of the contact"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City that the contact belongs to"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State that the contact belongs to"
+        },
+        {
+          "name": "zipcode",
+          "displayName": "Zip code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Zipcode of the region that the contact belongs to"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country that the contact belongs to"
+        },
+        {
+          "name": "territory_id",
+          "displayName": "Territory id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the territory that the contact belongs to"
+        },
+        {
+          "name": "owner_id",
+          "displayName": "Owner id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the user to whom the contact has been assigned"
+        },
+        {
+          "name": "subscription_status",
+          "displayName": "Subscription status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Status of subscription that the contact is in."
+        },
+        {
+          "name": "medium",
+          "displayName": "Medium",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The medium that led your contact to your website/web app"
+        },
+        {
+          "name": "campaign_id",
+          "displayName": "Campaign id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The campaign that led your contact to your web app."
+        },
+        {
+          "name": "keyword",
+          "displayName": "Keyword",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The keywords that the contact used to reach your website/web app"
+        },
+        {
+          "name": "time_zone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Timezone that the contact belongs to"
+        },
+        {
+          "name": "facebook",
+          "displayName": "Facebook",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Facebook username of the contact"
+        },
+        {
+          "name": "twitter",
+          "displayName": "Twitter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Twitter username of the contact"
+        },
+        {
+          "name": "linkedin",
+          "displayName": "Linkedin",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "LinkedIn account of the contact"
+        },
+        {
+          "name": "contact_status_id",
+          "displayName": "Contact status id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the contact status that the contact belongs to"
+        },
+        {
+          "name": "sales_account_id",
+          "displayName": "Sales account id",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the primary account that the contact belongs to"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

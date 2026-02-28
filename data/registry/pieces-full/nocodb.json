@@ -1,0 +1,40 @@
+{
+  "id": "nocodb",
+  "package": "@activepieces/piece-nocodb",
+  "display_name": "NocoDB",
+  "display_name_ar": "",
+  "description": null,
+  "category": "J_database",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "nocodb-create-record",
+      "display_name": "Create a Record",
+      "description": "Creates a new record in the given table."
+    },
+    {
+      "name": "nocodb-delete-record",
+      "display_name": "Delete a Record",
+      "description": "Deletes a record with the given Record ID."
+    },
+    {
+      "name": "nocodb-get-record",
+      "display_name": "Get a Record",
+      "description": "Gets a record by the Record ID."
+    },
+    {
+      "name": "nocodb-search-records",
+      "display_name": "Search Records",
+      "description": "Returns a list of records matching the where condition."
+    },
+    {
+      "name": "nocodb-update-record",
+      "display_name": "Update a Record",
+      "description": "Updates an existing record with the given Record ID."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,1715 @@
+{
+  "id": "xero",
+  "displayName": "Xero",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "xero_add_items_to_sales_invoice": {
+      "displayName": "Add Items to Existing Sales Invoice",
+      "description": "Adds line items to an existing sales invoice (ACCREC).",
+      "props": [
+        {
+          "name": "allow_authorised",
+          "displayName": "Allow AUTHORISED invoices",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable adding items to AUTHORISED invoices (Xero allows limited updates for paid/part-paid ACCREC)."
+        },
+        {
+          "name": "new_line_items",
+          "displayName": "New Line Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "Description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "Quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "UnitAmount",
+          "displayName": "Unit Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "AccountCode",
+          "displayName": "Account Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ItemCode",
+          "displayName": "Item Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "TaxType",
+          "displayName": "Tax Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "DiscountRate",
+          "displayName": "Discount %",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_allocate_credit_note_to_invoice": {
+      "displayName": "Allocate Credit Note to Invoice",
+      "description": "Allocates a credit note to a specific invoice.",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The amount of the credit to allocate."
+        },
+        {
+          "name": "date",
+          "displayName": "Allocation Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date of allocation. Format: YYYY-MM-DD. Optional."
+        }
+      ]
+    },
+    "xero_create_bank_transfer": {
+      "displayName": "Create Bank Transfer",
+      "description": "Transfers money between two bank accounts in Xero.",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Amount to transfer. Currencies must match between accounts."
+        },
+        {
+          "name": "date",
+          "displayName": "Transfer Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "YYYY-MM-DD. Defaults to today if not provided."
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference for the transfer."
+        },
+        {
+          "name": "from_is_reconciled",
+          "displayName": "From Is Reconciled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark source account transaction as reconciled."
+        },
+        {
+          "name": "to_is_reconciled",
+          "displayName": "To Is Reconciled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark destination account transaction as reconciled."
+        }
+      ]
+    },
+    "xero_create_bill": {
+      "displayName": "Create Bill",
+      "description": "Creates a new bill (Accounts Payable).",
+      "props": [
+        {
+          "name": "line_item",
+          "displayName": "Line Item",
+          "type": "OBJECT",
+          "required": true,
+          "description": "At minimum, provide a Description."
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the bill was issued (YYYY-MM-DD). Optional."
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the bill is due (YYYY-MM-DD). Optional."
+        },
+        {
+          "name": "line_amount_types",
+          "displayName": "Line Amount Types",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "invoice_number",
+          "displayName": "Bill Number (Reference)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_create_contact": {
+      "displayName": "Create or Update Contact",
+      "description": "Create Xero Contact",
+      "props": []
+    },
+    "xero_create_credit_note": {
+      "displayName": "Create Credit Note",
+      "description": "Creates a new credit note for a contact.",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "YYYY-MM-DD. Defaults to today if not provided."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_amount_types",
+          "displayName": "Line Amount Types",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "credit_note_number",
+          "displayName": "Credit Note Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference (ACCRECCREDIT only)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currency_code",
+          "displayName": "Currency Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_items",
+          "displayName": "Line Items",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add one or more line items. At minimum, each line needs a Description."
+        },
+        {
+          "name": "Description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "Quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "UnitAmount",
+          "displayName": "Unit Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "AccountCode",
+          "displayName": "Account Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ItemCode",
+          "displayName": "Item Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "TaxType",
+          "displayName": "Tax Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_create_inventory_item": {
+      "displayName": "Create Inventory Item",
+      "description": "Creates a new inventory item in Xero.",
+      "props": [
+        {
+          "name": "code",
+          "displayName": "Item Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Sales Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "purchase_description",
+          "displayName": "Purchase Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "is_sold",
+          "displayName": "Is Sold",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "is_purchased",
+          "displayName": "Is Purchased",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sales_details",
+          "displayName": "Sales Details",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "purchase_details",
+          "displayName": "Purchase Details",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_create_invoice": {
+      "displayName": "Create or Update Invoice",
+      "description": "Create Xero Invoice",
+      "props": [
+        {
+          "name": "line_item",
+          "displayName": "Line Item",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Invoice line items"
+        },
+        {
+          "name": "date",
+          "displayName": "Date Prepared",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the invoice was created. Format example: 2019-03-11"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Due date of the invoice. Format example: 2019-03-11"
+        },
+        {
+          "name": "reference",
+          "displayName": "Invoice Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference number of the Invoice"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Invoice Status"
+        }
+      ]
+    },
+    "xero_create_payment": {
+      "displayName": "Create Payment",
+      "description": "Applies a payment to an invoice.",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Payment amount (must be <= amount due)."
+        },
+        {
+          "name": "date",
+          "displayName": "Payment Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "YYYY-MM-DD."
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "is_reconciled",
+          "displayName": "Is Reconciled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark payment as reconciled (optional)."
+        }
+      ]
+    },
+    "xero_create_project": {
+      "displayName": "Create Project",
+      "description": "Creates a new project for a contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "deadline_utc",
+          "displayName": "Deadline (UTC ISO-8601)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Example: 2017-04-23T18:25:43.511Z"
+        },
+        {
+          "name": "estimate_amount",
+          "displayName": "Estimate Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_create_purchase_order": {
+      "displayName": "Create Purchase Order",
+      "description": "Creates a new purchase order for a contact.",
+      "props": [
+        {
+          "name": "line_item",
+          "displayName": "Line Item",
+          "type": "OBJECT",
+          "required": true,
+          "description": "At minimum, provide a Description."
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the purchase order was issued (YYYY-MM-DD). Optional."
+        },
+        {
+          "name": "delivery_date",
+          "displayName": "Delivery Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date goods are to be delivered (YYYY-MM-DD). Optional."
+        },
+        {
+          "name": "line_amount_types",
+          "displayName": "Line Amount Types",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "purchase_order_number",
+          "displayName": "Purchase Order Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delivery_address",
+          "displayName": "Delivery Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "attention_to",
+          "displayName": "Attention To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "telephone",
+          "displayName": "Telephone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delivery_instructions",
+          "displayName": "Delivery Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expected_arrival_date",
+          "displayName": "Expected Arrival Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "YYYY-MM-DD. Optional."
+        }
+      ]
+    },
+    "xero_create_quote_draft": {
+      "displayName": "Create New Quote Draft",
+      "description": "Creates a new draft quote.",
+      "props": [
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Date the quote was issued (YYYY-MM-DD)."
+        },
+        {
+          "name": "expiry_date",
+          "displayName": "Expiry Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Date the quote expires (YYYY-MM-DD)."
+        },
+        {
+          "name": "line_item",
+          "displayName": "Line Item",
+          "type": "OBJECT",
+          "required": true,
+          "description": "At minimum, provide a Description."
+        },
+        {
+          "name": "line_amount_types",
+          "displayName": "Line Amount Types",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "quote_number",
+          "displayName": "Quote Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "summary",
+          "displayName": "Summary",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "terms",
+          "displayName": "Terms",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_create_repeating_sales_invoice": {
+      "displayName": "Create Repeating Sales Invoice",
+      "description": "Creates a repeating sales invoice (Accounts Receivable).",
+      "props": [
+        {
+          "name": "schedule_period",
+          "displayName": "Schedule Period",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Integer period (e.g., 1 every week, 2 every month)."
+        },
+        {
+          "name": "schedule_unit",
+          "displayName": "Schedule Unit",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date (number)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Day number used with due date type (e.g., 20, 31)."
+        },
+        {
+          "name": "due_date_type",
+          "displayName": "Due Date Type",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_amount_types",
+          "displayName": "Line Amount Types",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "approved_for_sending",
+          "displayName": "Approved For Sending",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "send_copy",
+          "displayName": "Send Copy",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "mark_as_sent",
+          "displayName": "Mark As Sent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "include_pdf",
+          "displayName": "Include PDF",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_items",
+          "displayName": "Line Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "Description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "Quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "UnitAmount",
+          "displayName": "Unit Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "AccountCode",
+          "displayName": "Account Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ItemCode",
+          "displayName": "Item Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "TaxType",
+          "displayName": "Tax Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "DiscountRate",
+          "displayName": "Discount %",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_find_contact": {
+      "displayName": "Find Contact",
+      "description": "Finds a contact by name or account number (or SearchTerm).",
+      "props": [
+        {
+          "name": "search_by",
+          "displayName": "Search By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name, Account Number, or Search Term depending on Search By."
+        },
+        {
+          "name": "include_archived",
+          "displayName": "Include Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "summary_only",
+          "displayName": "Summary Only (faster, lighter)",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Recommended for broad searches (Search Term). Excludes heavy fields."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Pagination page (optional)."
+        }
+      ]
+    },
+    "xero_find_invoice": {
+      "displayName": "Find Invoice",
+      "description": "Finds an invoice by number or reference.",
+      "props": [
+        {
+          "name": "search_by",
+          "displayName": "Search By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Invoice Number, Reference, or Search Term."
+        },
+        {
+          "name": "type_filter",
+          "displayName": "Type Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "summary_only",
+          "displayName": "Summary Only (faster, lighter)",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_find_item": {
+      "displayName": "Find Item",
+      "description": "Finds an item by name or code.",
+      "props": [
+        {
+          "name": "search_by",
+          "displayName": "Search By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Item Code or Name (exact match)."
+        },
+        {
+          "name": "order",
+          "displayName": "Order (optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "e.g. Name or Name DESC"
+        }
+      ]
+    },
+    "xero_find_purchase_order": {
+      "displayName": "Find Purchase Order",
+      "description": "Finds a purchase order by given parameters.",
+      "props": [
+        {
+          "name": "search_by",
+          "displayName": "Search By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Number, Reference or ID depending on Search By."
+        },
+        {
+          "name": "statuses",
+          "displayName": "Statuses",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "order",
+          "displayName": "Order (e.g., Date DESC)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_send_invoice_email": {
+      "displayName": "Send Sales Invoice by Email",
+      "description": "Sends a sales invoice via email to a contact.",
+      "props": []
+    },
+    "xero_update_purchase_order": {
+      "displayName": "Update Purchase Order",
+      "description": "Updates details of an existing purchase order.",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sent_to_contact",
+          "displayName": "Mark as Sent to Contact",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delivery_address",
+          "displayName": "Delivery Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "attention_to",
+          "displayName": "Attention To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "telephone",
+          "displayName": "Telephone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delivery_instructions",
+          "displayName": "Delivery Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expected_arrival_date",
+          "displayName": "Expected Arrival Date (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_update_sales_invoice": {
+      "displayName": "Update Sales Invoice",
+      "description": "Updates details of an existing sales invoice (ACCREC).",
+      "props": [
+        {
+          "name": "allow_authorised",
+          "displayName": "Allow AUTHORISED invoices",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable updates for AUTHORISED invoices (Xero allows limited updates for paid/part-paid ACCREC)."
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "invoice_number",
+          "displayName": "Invoice Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "url",
+          "displayName": "Source URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sent_to_contact",
+          "displayName": "Mark as Sent to Contact",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "replace_all_line_items",
+          "displayName": "Replace All Line Items",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, only the provided line_items will remain. If disabled, we will merge with current lines by updating matching LineItemID and appending new items."
+        },
+        {
+          "name": "line_items",
+          "displayName": "Line Items (updates/additions)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "LineItemID",
+          "displayName": "LineItemID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "Description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "Quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "UnitAmount",
+          "displayName": "Unit Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "AccountCode",
+          "displayName": "Account Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ItemCode",
+          "displayName": "Item Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "TaxType",
+          "displayName": "Tax Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "DiscountRate",
+          "displayName": "Discount %",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_upload_attachment": {
+      "displayName": "Upload Attachment",
+      "description": "Uploads an attachment to a specific Xero resource.",
+      "props": [
+        {
+          "name": "resource_type",
+          "displayName": "Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The Xero resource to attach the file to."
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the specific resource to attach the file to."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload. Max 10MB per Xero limits."
+        },
+        {
+          "name": "file_name",
+          "displayName": "File Name (override)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional file name to use in Xero. Avoid characters: < > : \" / \\\\ | ? *"
+        },
+        {
+          "name": "content_type",
+          "displayName": "Content Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "MIME type of the file (e.g., image/png). If not set, will be inferred or default to application/octet-stream."
+        },
+        {
+          "name": "include_online",
+          "displayName": "Include with Online Invoice",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only applicable to ACCREC invoices and ACCREC credit notes. Adds IncludeOnline=true query parameter."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "xero_new_bank_transaction": {
+      "displayName": "New Bank Transaction",
+      "description": "Fires when a new bank transaction is created.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "types",
+          "displayName": "Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "statuses",
+          "displayName": "Statuses",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bank_account_code",
+          "displayName": "Bank Account Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_bill": {
+      "displayName": "New Bill",
+      "description": "Fires when a new bill (Accounts Payable) is added.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "statuses",
+          "displayName": "Statuses (optional)",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "summary_only",
+          "displayName": "Summary Only (lighter, faster)",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_contact": {
+      "displayName": "New Contact",
+      "description": "Fires when a new contact is added to Xero (via Xero webhooks). Configure the webhook in Xero Developer portal to point to this URL.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "webhook_key",
+          "displayName": "Webhook Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "From Xero Developer portal > Your App > Webhooks. Used to verify x-xero-signature."
+        },
+        {
+          "name": "fetch_full_contact",
+          "displayName": "Fetch Full Contact",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, fetches the full contact from Xero using the Resource URL."
+        }
+      ]
+    },
+    "xero_new_credit_note": {
+      "displayName": "New Credit Note",
+      "description": "Fires when a new credit note is created.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "types",
+          "displayName": "Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "statuses",
+          "displayName": "Statuses (optional)",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_or_updated_contact": {
+      "displayName": "New or Updated Contact",
+      "description": "Fires when a contact is created or updated (via Xero webhooks).",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "webhook_key",
+          "displayName": "Webhook Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "From Xero Developer portal > Your App > Webhooks. Used to verify x-xero-signature."
+        },
+        {
+          "name": "fetch_full_contact",
+          "displayName": "Fetch Full Contact",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, fetches the full contact from Xero using the Resource URL."
+        }
+      ]
+    },
+    "xero_new_payment": {
+      "displayName": "New Payment",
+      "description": "Fires when a payment is received.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "payment_types",
+          "displayName": "Payment Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "statuses",
+          "displayName": "Statuses",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_project": {
+      "displayName": "New Project",
+      "description": "Fires when a new project is created.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "states",
+          "displayName": "States (optional)",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-500)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_purchase_order": {
+      "displayName": "New Purchase Order",
+      "description": "Fires when a new purchase order is created or enters a specific status for the first time.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "statuses",
+          "displayName": "Filter by Status (optional)",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "first_time_status",
+          "displayName": "First-time Status (optional)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Also fire when a purchase order enters this status for the first time (since enabling)."
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_quote": {
+      "displayName": "New Quote",
+      "description": "Fires when a new quote is created.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "statuses",
+          "displayName": "Filter by Status (optional)",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "quote_number",
+          "displayName": "Quote Number (partial match)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expiry_date_from",
+          "displayName": "Expiry Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expiry_date_to",
+          "displayName": "Expiry Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_reconciled_payment": {
+      "displayName": "New Reconciled Payment",
+      "description": "Fires when a payment is reconciled for the first time.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "payment_types",
+          "displayName": "Payment Types",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "statuses",
+          "displayName": "Statuses",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_new_sales_invoice": {
+      "displayName": "New Sales Invoice",
+      "description": "Fires when a new sales invoice (Accounts Receivable) is created.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "webhook_key",
+          "displayName": "Webhook Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "From Xero Developer portal > Your App > Webhooks. Used to verify x-xero-signature."
+        },
+        {
+          "name": "fetch_full_invoice",
+          "displayName": "Fetch Full Invoice",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Fetch the full invoice and ensure Type is ACCREC (recommended)."
+        }
+      ]
+    },
+    "xero_updated_quote": {
+      "displayName": "Updated Quote",
+      "description": "Fires when a quote is created or updated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "statuses",
+          "displayName": "Filter by Status (optional)",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "quote_number",
+          "displayName": "Quote Number (partial match)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_from",
+          "displayName": "Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date_to",
+          "displayName": "Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expiry_date_from",
+          "displayName": "Expiry Date From (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expiry_date_to",
+          "displayName": "Expiry Date To (YYYY-MM-DD)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size (1-1000)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "xero_updated_sales_invoice": {
+      "displayName": "Updated Sales Invoice",
+      "description": "Fires when an existing sales invoice (Accounts Receivable) is updated.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "webhook_key",
+          "displayName": "Webhook Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "From Xero Developer portal > Your App > Webhooks. Used to verify x-xero-signature."
+        },
+        {
+          "name": "fetch_full_invoice",
+          "displayName": "Fetch Full Invoice",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Fetch the full invoice and ensure Type is ACCREC (recommended)."
+        }
+      ]
+    }
+  }
+}

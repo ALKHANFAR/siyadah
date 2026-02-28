@@ -1,0 +1,30 @@
+{
+  "id": "saastic",
+  "package": "@activepieces/piece-saastic",
+  "display_name": "Api Key",
+  "display_name_ar": "",
+  "description": " You can find your project’s API key here: https://saastic.com/settings/developers",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_charge",
+      "display_name": "Create a Customer Charge",
+      "description": "Creates a customer charge."
+    },
+    {
+      "name": "create_customer",
+      "display_name": "Create or Update a Customer",
+      "description": "Create or update a customer."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

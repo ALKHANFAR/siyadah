@@ -1,0 +1,725 @@
+{
+  "id": "clockodo",
+  "displayName": "Clockodo",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_absence": {
+      "displayName": "Create Absence",
+      "description": "Creates a absence in clockodo",
+      "props": [
+        {
+          "name": "date_since",
+          "displayName": "Start Date",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "date_until",
+          "displayName": "End Date",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "half_days",
+          "displayName": "Half Days",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "approved",
+          "displayName": "Approved",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "sick_note",
+          "displayName": "Sick Note",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "delete_absence": {
+      "displayName": "Delete Absence",
+      "description": "Deletes an absence in clockodo",
+      "props": [
+        {
+          "name": "absence_id",
+          "displayName": "Absence ID",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "get_absence": {
+      "displayName": "Get Absence",
+      "description": "Retrieves a single absence from clockodo",
+      "props": [
+        {
+          "name": "absence_id",
+          "displayName": "Absence ID",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "list_absences": {
+      "displayName": "Get Absences",
+      "description": "Fetches absences from clockodo",
+      "props": [
+        {
+          "name": "year",
+          "displayName": "Year",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "update_absence": {
+      "displayName": "Update Absence",
+      "description": "Updates an absence in clockodo",
+      "props": [
+        {
+          "name": "absence_id",
+          "displayName": "Absence ID",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "date_since",
+          "displayName": "Start Date",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "date_until",
+          "displayName": "End Date",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "half_days",
+          "displayName": "Half Days",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "sick_note",
+          "displayName": "Sick Note",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Creates a customer in clockodo",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        }
+      ]
+    },
+    "delete_customer": {
+      "displayName": "Delete Customer",
+      "description": "Deletes a customer in clockodo",
+      "props": []
+    },
+    "get_customer": {
+      "displayName": "Get Customer",
+      "description": "Retrieves a single customer from clockodo",
+      "props": []
+    },
+    "list_customers": {
+      "displayName": "Get Customers",
+      "description": "Fetches customers from clockodo",
+      "props": [
+        {
+          "name": "active_filter",
+          "displayName": "Active Filter",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "update_customer": {
+      "displayName": "Update Customer",
+      "description": "Updates a customer in clockodo",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        }
+      ]
+    },
+    "create_entry": {
+      "displayName": "Create Entry",
+      "description": "Creates an entry in clockodo",
+      "props": [
+        {
+          "name": "time_since",
+          "displayName": "Start Time",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "time_until",
+          "displayName": "End Time",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "text",
+          "displayName": "Description",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "hourly_rate",
+          "displayName": "Hourly Rate",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "delete_entry": {
+      "displayName": "Delete Entry",
+      "description": "Deletes an entry in clockodo",
+      "props": [
+        {
+          "name": "entry_id",
+          "displayName": "Entry ID",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "get_entry": {
+      "displayName": "Get Entry",
+      "description": "Retrieves a single entry from clockodo",
+      "props": [
+        {
+          "name": "entry_id",
+          "displayName": "Entry ID",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "list_entries": {
+      "displayName": "Get Entries",
+      "description": "Fetches entries from clockodo",
+      "props": [
+        {
+          "name": "time_since",
+          "displayName": "Start Date",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "time_until",
+          "displayName": "End Date",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "user_id_filter",
+          "displayName": "Customer ID Filter",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "customer_id_filter",
+          "displayName": "Customer ID Filter",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "project_id_filter",
+          "displayName": "Project ID Filter",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "service_id_filter",
+          "displayName": "Service ID Filter",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "billable_filter",
+          "displayName": "Billable",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "billed_filter",
+          "displayName": "Billed",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "enhanced_list",
+          "displayName": "Enhanced List",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "update_entry": {
+      "displayName": "Update Entry",
+      "description": "Updates an entry in clockodo",
+      "props": [
+        {
+          "name": "entry_id",
+          "displayName": "Entry ID",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "time_since",
+          "displayName": "Start Time",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "time_until",
+          "displayName": "End Time",
+          "type": "DateTime",
+          "required": true
+        },
+        {
+          "name": "text",
+          "displayName": "Description",
+          "type": "LongText",
+          "required": true
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Creates a project in clockodo",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "budget",
+          "displayName": "Budget",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "budget_is_hours",
+          "displayName": "Budget in hours?",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "budget_is_not_strict",
+          "displayName": "Soft Budget",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        }
+      ]
+    },
+    "delete_project": {
+      "displayName": "Delete Project",
+      "description": "Deletes a project in clockodo",
+      "props": []
+    },
+    "get_project": {
+      "displayName": "Get Project",
+      "description": "Retrieves a single project from clockodo",
+      "props": []
+    },
+    "list_projects": {
+      "displayName": "Get Projects",
+      "description": "Fetches projects from clockodo",
+      "props": [
+        {
+          "name": "customer_id_filter",
+          "displayName": "Customer ID Filter",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "active_filter",
+          "displayName": "Active Filter",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "update_project": {
+      "displayName": "Update Project",
+      "description": "Updates a project in clockodo",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "billable",
+          "displayName": "Billable",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "budget",
+          "displayName": "Budget",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "budget_is_hours",
+          "displayName": "Budget in hours?",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "budget_is_not_strict",
+          "displayName": "Soft Budget",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "completed",
+          "displayName": "Completed",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "billed_amount",
+          "displayName": "Billed Amount",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "billing_complete",
+          "displayName": "Billing Complete",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "create_service": {
+      "displayName": "Create Service",
+      "description": "Creates a service in clockodo",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        }
+      ]
+    },
+    "delete_service": {
+      "displayName": "Delete Service",
+      "description": "Deletes a service in clockodo",
+      "props": []
+    },
+    "get_service": {
+      "displayName": "Get Service",
+      "description": "Retrieves a single service from clockodo",
+      "props": []
+    },
+    "list_services": {
+      "displayName": "Get Services",
+      "description": "Fetches services from clockodo",
+      "props": []
+    },
+    "update_service": {
+      "displayName": "Update Service",
+      "description": "Updates a service in clockodo",
+      "props": [
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LongText",
+          "required": true
+        }
+      ]
+    },
+    "get_team": {
+      "displayName": "Get Team",
+      "description": "Retrieves a single team from clockodo",
+      "props": []
+    },
+    "list_teams": {
+      "displayName": "Get Teams",
+      "description": "Fetches teams from clockodo",
+      "props": []
+    },
+    "create_user": {
+      "displayName": "Create User",
+      "description": "Creates a user in clockodo",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "E-Mail",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "wage_type",
+          "displayName": "Wage Type",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "can_generally_see_absences",
+          "displayName": "Can see absences",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "can_generally_manage_absences",
+          "displayName": "Can manage absences",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "can_add_customers",
+          "displayName": "Can add customers",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    },
+    "delete_user": {
+      "displayName": "Delete User",
+      "description": "Deletes a user in clockodo",
+      "props": []
+    },
+    "get_user": {
+      "displayName": "Get User",
+      "description": "Retrieves a single user from clockodo",
+      "props": []
+    },
+    "list_users": {
+      "displayName": "Get Users",
+      "description": "Fetches users from clockodo",
+      "props": []
+    },
+    "update_user": {
+      "displayName": "Update User",
+      "description": "Updates a user in clockodo",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "E-Mail",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "wage_type",
+          "displayName": "Wage Type",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "can_generally_see_absences",
+          "displayName": "Can see absences",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "can_generally_manage_absences",
+          "displayName": "Can manage absences",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "can_add_customers",
+          "displayName": "Can add customers",
+          "type": "Checkbox",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_absence_enquiry": {
+      "displayName": "New Absence Enquiry",
+      "description": "Triggers when a new absence enquiry is created",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_entry": {
+      "displayName": "New Entry",
+      "description": "Triggers when a new time entry is created",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "id": "kommo",
+  "displayName": "Kommo",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_contact": {
+      "displayName": "Create New Contact",
+      "description": "Add a new contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags_to_add",
+          "displayName": "Tags to Add",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_lead": {
+      "displayName": "Create New Lead",
+      "description": "Creates a new lead.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Lead Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags_to_add",
+          "displayName": "Tags to Add",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of tags to add."
+        }
+      ]
+    },
+    "find_company": {
+      "displayName": "Find Company",
+      "description": "Find an existing company.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search query (Searches through the filled fields of the company)."
+        }
+      ]
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Finds an existing contact.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search query (Searches through the filled fields of the contact)."
+        }
+      ]
+    },
+    "find_lead": {
+      "displayName": "Find Lead",
+      "description": "Search query (Searches through the filled fields of the lead).",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search query (Searches through the filled fields of the lead)."
+        }
+      ]
+    },
+    "update_contact": {
+      "displayName": "Update Contact",
+      "description": "Updates an existing contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags_to_add",
+          "displayName": "Tags to Add",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of tag names or IDs to add."
+        },
+        {
+          "name": "tags_to_delete",
+          "displayName": "Tags to Delete",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of tag names or IDs to remove."
+        }
+      ]
+    },
+    "update_lead": {
+      "displayName": "Update Lead",
+      "description": "Update existing lead info.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags_to_add",
+          "displayName": "Tags to Add",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags_to_delete",
+          "displayName": "Tags to Delete",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "lead_status_changed": {
+      "displayName": "Lead Status Changed",
+      "description": "Triggers when a lead status is changed.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_contact_added": {
+      "displayName": "New Contact Added",
+      "description": "Triggers when a new contact is added.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_lead_created": {
+      "displayName": "New Lead Created",
+      "description": "Triggers when a new lead is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_task_created": {
+      "displayName": "New Task Created",
+      "description": "Triggered when a new task is created.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

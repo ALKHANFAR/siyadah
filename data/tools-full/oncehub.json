@@ -1,0 +1,201 @@
+{
+  "id": "oncehub",
+  "displayName": "Oncehub",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createContact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact in Oncehub. Either email or mobile_phone is required.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the contact (at least email or mobile_phone required)"
+        },
+        {
+          "name": "mobile_phone",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile phone number in E.164 format (at least email or mobile_phone required)"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number in E.164 format"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company name"
+        },
+        {
+          "name": "job_title",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Job title of the contact"
+        },
+        {
+          "name": "street_address",
+          "displayName": "Street Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City of the contact"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or province"
+        },
+        {
+          "name": "post_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country of the contact"
+        },
+        {
+          "name": "company_size",
+          "displayName": "Company Size",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Size of the contact's company"
+        },
+        {
+          "name": "employees",
+          "displayName": "Employees",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of employees"
+        },
+        {
+          "name": "salutation",
+          "displayName": "Salutation",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Salutation (e.g., Mr., Ms., Dr.)"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Status of the contact"
+        }
+      ]
+    },
+    "findContact": {
+      "displayName": "Find Contact",
+      "description": "Search for contacts in Oncehub by various criteria",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Filter contacts by email address"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "bookingCanceledThenRescheduled": {
+      "displayName": "Booking Canceled Then Rescheduled",
+      "description": "Triggered when Customer cancels a booking and then reschedules on a different booking page.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "bookingCanceled": {
+      "displayName": "Booking Canceled",
+      "description": "Triggered when User or Customer cancels a booking",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "bookingCompleted": {
+      "displayName": "Booking Completed",
+      "description": "Triggered when booking end time has passed.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "bookingNoshow": {
+      "displayName": "Booking No-Show",
+      "description": "Triggered when User sets the completed booking to No-show",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "bookingRescheduled": {
+      "displayName": "Booking Rescheduled",
+      "description": "Triggered when Customer reschedules a booking on the same booking page and Customer reschedules a booking following a request from the User to reschedule",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "bookingScheduled": {
+      "displayName": "Booking Scheduled",
+      "description": "Triggered when Customer schedules a booking and when User approves a booking requested by a Customer",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationAbandoned": {
+      "displayName": "Conversation Abandoned",
+      "description": "Triggered when website visitor stops interacting with a bot for more than 10 minutes.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationClosed": {
+      "displayName": "Conversation Closed",
+      "description": "Triggered when: Website visitor reaches the end of the conversation flow and when Website visitor starts a new conversation with a different chatbot",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationStarted": {
+      "displayName": "Conversation Started",
+      "description": "Triggered when website visitor starts interacting with a chatbot.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "amazon-sqs",
+  "displayName": "Access Key ID",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "sendMessage": {
+      "displayName": "Send Message",
+      "description": "The URL of the SQS queue",
+      "props": [
+        {
+          "name": "queueUrl",
+          "displayName": "Queue URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the SQS queue"
+        },
+        {
+          "name": "messageBody",
+          "displayName": "Message Body",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The body of the message"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

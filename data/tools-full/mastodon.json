@@ -1,0 +1,35 @@
+{
+  "id": "mastodon",
+  "displayName": "Base URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "post_status": {
+      "displayName": "Post Status",
+      "description": "Post a status to Mastodon",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text of your status"
+        },
+        {
+          "name": "media",
+          "displayName": "Media URL or File",
+          "type": "FILE",
+          "required": false,
+          "description": "The media attachment for your status"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

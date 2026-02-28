@@ -1,0 +1,65 @@
+{
+  "id": "reddit",
+  "package": "@activepieces/piece-reddit",
+  "display_name": "Reddit",
+  "display_name_ar": "",
+  "description": "Interact with Reddit - fetch and submit posts.",
+  "category": "H_marketing",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "createRedditComment",
+      "display_name": "Create Comment",
+      "description": "Comment on a Reddit post or reply to a comment."
+    },
+    {
+      "name": "createRedditPost",
+      "display_name": "Create Post",
+      "description": "Submit a new self (text) post to a subreddit."
+    },
+    {
+      "name": "deleteRedditComment",
+      "display_name": "Delete Comment",
+      "description": "Delete a specific Reddit comment by ID."
+    },
+    {
+      "name": "deleteRedditPost",
+      "display_name": "Delete Post",
+      "description": "Delete a specific Reddit post by ID."
+    },
+    {
+      "name": "editRedditComment",
+      "display_name": "Edit Comment",
+      "description": "Edits the content of an existing Reddit comment."
+    },
+    {
+      "name": "editRedditPost",
+      "display_name": "Edit Post",
+      "description": "Edits the content of an existing Reddit post."
+    },
+    {
+      "name": "fetchPostComments",
+      "display_name": "Fetch Post Comments",
+      "description": "Fetch comments from a specific Reddit post."
+    },
+    {
+      "name": "getRedditPostDetails",
+      "display_name": "Get Post Details",
+      "description": "Fetch detailed information about a specific Reddit post using its ID."
+    },
+    {
+      "name": "retrieveRedditPost",
+      "display_name": "Retrieve Post",
+      "description": "Fetch top posts in a subreddit with optional size limit."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

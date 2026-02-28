@@ -1,0 +1,110 @@
+{
+  "id": "flowlu",
+  "displayName": "Flowlu",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "flowlu_create_contact": {
+      "displayName": "Create CRM Account(Contact)",
+      "description": "Creates a new contact in CRM.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "flowlu_create_organization": {
+      "displayName": "Create CRM Account(Organization)",
+      "description": "Creates a new organization in CRM.",
+      "props": [
+        {
+          "name": "name_legal_full",
+          "displayName": "Full legal name for Organization",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "flowlu_delete_contact": {
+      "displayName": "Delete CRM Account(Contact)",
+      "description": "Deletes an existing contact in CRM.",
+      "props": []
+    },
+    "flowlu_update_contact": {
+      "displayName": "Update CRM Account(Contact)",
+      "description": "Updates an existing contact in CRM.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "flowlu_create_opportunity": {
+      "displayName": "Create Opportunity",
+      "description": "Creates a new opportunity.",
+      "props": []
+    },
+    "flowlu_delete_opportunity": {
+      "displayName": "Delete Opportunity",
+      "description": "Deletes an existing opportunity.",
+      "props": []
+    },
+    "flowlu_update_opportunity": {
+      "displayName": "Update Opportunity",
+      "description": "Updates an existing opportunity.",
+      "props": []
+    },
+    "flowlu_create_task": {
+      "displayName": "Create Task",
+      "description": "Creates a new task.",
+      "props": []
+    },
+    "flowlu_delete_task": {
+      "displayName": "Delete Task",
+      "description": "Deletes an existing task.",
+      "props": []
+    },
+    "flowlu_get_task": {
+      "displayName": "Get Task",
+      "description": "Retrieves an existing task.",
+      "props": []
+    },
+    "flowlu_update_task": {
+      "displayName": "Update Task",
+      "description": "Updates an existing task.",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

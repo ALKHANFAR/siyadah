@@ -1,0 +1,25 @@
+{
+  "id": "facebook-pages",
+  "displayName": "Facebook Pages",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_photo_post": {
+      "displayName": "Create Page Photo",
+      "description": "Create a photo on a Facebook Page you manage",
+      "props": []
+    },
+    "create_post": {
+      "displayName": "Create Page Post",
+      "description": "Create a post on a Facebook Page you manage",
+      "props": []
+    },
+    "create_video_post": {
+      "displayName": "Create Page Video",
+      "description": "Create a video on a Facebook Page you manage",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

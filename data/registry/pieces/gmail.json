@@ -1,0 +1,86 @@
+{
+  "id": "gmail",
+  "package": "@activepieces/piece-gmail",
+  "display_name": "Gmail",
+  "display_name_ar": "جيميل",
+  "description": "Email service by Google",
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_draft_reply",
+      "display_name": "Create Draft Reply",
+      "description": "Creates a draft reply to an existing email."
+    },
+    {
+      "name": "gmail_get_mail",
+      "display_name": "Get Email",
+      "description": "Get an email via Id."
+    },
+    {
+      "name": "gmail_get_thread",
+      "display_name": "Get Thread",
+      "description": "Get a thread from your Gmail account via Id"
+    },
+    {
+      "name": "reply_to_email",
+      "display_name": "Reply to Email",
+      "description": "Reply to an existing email."
+    },
+    {
+      "name": "request_approval_in_mail",
+      "display_name": "Request Approval in Email",
+      "description": "Send approval request email and then wait until the email is approved or disapproved"
+    },
+    {
+      "name": "gmail_search_mail",
+      "display_name": "Find Email",
+      "description": "Find emails using advanced search criteria."
+    },
+    {
+      "name": "send_email",
+      "display_name": "Send Email",
+      "description": "Send an email through a Gmail account"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_attachment",
+      "display_name": "New Attachment",
+      "description": "Triggers when an email with an attachment arrives.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_conversation",
+      "display_name": "New Conversation",
+      "description": "Triggers when a new email conversation (thread) begins",
+      "type": "scheduled"
+    },
+    {
+      "name": "gmail_new_email_received",
+      "display_name": "New Email",
+      "description": "Triggers when new mail is found in your Gmail inbox",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_label",
+      "display_name": "New Label",
+      "description": "Triggers when a new label is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_labeled_email",
+      "display_name": "New Labeled Email",
+      "description": "Triggers when a label is added to an email",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/gmail"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "youcanbookme",
+  "package": "@activepieces/piece-youcanbookme",
+  "display_name": "YouCanBookMe",
+  "display_name_ar": "",
+  "description": "YouCanBookMe is an online scheduling tool that helps you manage appointments and bookings efficiently.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create-profile",
+      "display_name": "Create Profile",
+      "description": "Create a new profile in YouCanBookMe"
+    },
+    {
+      "name": "retrieveBookingById",
+      "display_name": "Retrieve Booking by ID",
+      "description": "Retrieve a booking by its ID from YouCanBookMe"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newBooking",
+      "display_name": "New Booking",
+      "description": "Trigger when a new booking is made",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

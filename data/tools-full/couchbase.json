@@ -1,0 +1,43 @@
+{
+  "id": "couchbase",
+  "displayName": "Connection String",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "delete_document": {
+      "displayName": "Delete Document",
+      "description": "Remove a document by its ID",
+      "props": []
+    },
+    "get_document": {
+      "displayName": "Get Document",
+      "description": "Retrieve a document by its ID",
+      "props": []
+    },
+    "insert_document": {
+      "displayName": "Insert Document",
+      "description": "Create a new document. Fails if document already exists.",
+      "props": []
+    },
+    "query": {
+      "displayName": "Execute SQL++ Query",
+      "description": "Run a SQL++ (N1QL) query with optional vector search filters",
+      "props": [
+        {
+          "name": "scanConsistency",
+          "displayName": "Scan Consistency",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Query consistency level"
+        }
+      ]
+    },
+    "upsert_document": {
+      "displayName": "Upsert Document",
+      "description": "Create or update a document. Creates if it doesn\\",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

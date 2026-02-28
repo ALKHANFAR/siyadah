@@ -1,0 +1,40 @@
+{
+  "id": "browserless",
+  "package": "@activepieces/piece-browserless",
+  "display_name": "Browserless",
+  "display_name_ar": "Browserless",
+  "description": "Browserless is a headless browser automation tool that allows you to scrape websites, take screenshots, and more.",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "capture_screenshot",
+      "display_name": "Capture Screenshot",
+      "description": "Take a screenshot of a web page"
+    },
+    {
+      "name": "generate_pdf",
+      "display_name": "Generate PDF",
+      "description": "Convert a web page to PDF"
+    },
+    {
+      "name": "get_website_performance",
+      "display_name": "Get Website Performance",
+      "description": "Analyze website performance metrics using Lighthouse"
+    },
+    {
+      "name": "run_bql_query",
+      "display_name": "Run BQL Query",
+      "description": "Execute Browser Query Language (BQL) GraphQL-based queries for advanced browser automation"
+    },
+    {
+      "name": "scrape_url",
+      "display_name": "Scrape URL",
+      "description": "Extract content from a web page"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/browserless"
+}

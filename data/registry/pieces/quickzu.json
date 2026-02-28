@@ -1,0 +1,97 @@
+{
+  "id": "quickzu",
+  "package": "@activepieces/piece-quickzu",
+  "display_name": "Quickzu",
+  "display_name_ar": "Quickzu",
+  "description": "Streamline ordering from whatsapp",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "quickzu_create_category",
+      "display_name": "Create Category",
+      "description": "Creates a new category in store."
+    },
+    {
+      "name": "quickzu_list_categories",
+      "display_name": "List Categories",
+      "description": "Retrieves all categories from store."
+    },
+    {
+      "name": "quickzu_delete_category",
+      "display_name": "Delete Category",
+      "description": "Deletes an existing category from store."
+    },
+    {
+      "name": "quickzu_update_category",
+      "display_name": "Update Category",
+      "description": "Updates an existing category in store."
+    },
+    {
+      "name": "quickzu_get_order_details",
+      "display_name": "Get Order Details",
+      "description": "Retrieves order details from store."
+    },
+    {
+      "name": "quickzu_update_order_status",
+      "display_name": "Update Order Status",
+      "description": "Updates status of order in store."
+    },
+    {
+      "name": "quickzu_list_orders",
+      "display_name": "List Orders",
+      "description": "Retrieves orders of store."
+    },
+    {
+      "name": "quickzu_list_live_orders",
+      "display_name": "List Live Orders",
+      "description": "Retrieves live orders of store."
+    },
+    {
+      "name": "quickzu_create_promo_code",
+      "display_name": "Create Promo/Coupon Code",
+      "description": "Creates a new promo code for category or product level."
+    },
+    {
+      "name": "quickzu_create_product_discount",
+      "display_name": "Create Product Discount",
+      "description": "Creates a new discount for category or product level."
+    },
+    {
+      "name": "quickzu_update_business_time",
+      "display_name": "Update Business Time",
+      "description": "Updates business hours."
+    },
+    {
+      "name": "quickzu_update_product",
+      "display_name": "Update Product",
+      "description": "Updates an existing product in store."
+    },
+    {
+      "name": "quickzu_delete_product",
+      "display_name": "Delete Product",
+      "description": "Deletes an existing product from store."
+    },
+    {
+      "name": "quickzu_add_product",
+      "display_name": "Add Product",
+      "description": "Adds new product to store."
+    },
+    {
+      "name": "quickzu_list_products",
+      "display_name": "List Products",
+      "description": "Retrieves all or single product details from store."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "quickzu_order_created_trigger",
+      "display_name": "Order Created/Updated",
+      "description": "Triggers when a new order is created or a order status is changed in store.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/quickzu"
+}

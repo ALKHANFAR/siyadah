@@ -1,0 +1,55 @@
+{
+  "id": "hugging-face",
+  "package": "@activepieces/piece-hugging-face",
+  "display_name": "Hugging Face",
+  "display_name_ar": "Hugging Face",
+  "description": "Run inference on 100,000+ open ML models for NLP, vision, and audio tasks",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "chat_completion",
+      "display_name": "Chat Completion",
+      "description": "Generate assistant replies using chat-style LLMs - perfect for FAQ bots, support agents, and content generation"
+    },
+    {
+      "name": "create_image",
+      "display_name": "Create Image",
+      "description": "Generate stunning images from text prompts using state-of-the-art diffusion models - perfect for marketing, product design, and creative content"
+    },
+    {
+      "name": "document_question_answering",
+      "display_name": "Document Question Answering",
+      "description": "Answer questions from document images using Hugging Face models"
+    },
+    {
+      "name": "image_classification",
+      "display_name": "Image Classification",
+      "description": "Classify images with pre-trained models or custom categories - perfect for content moderation, automated tagging, and smart asset management"
+    },
+    {
+      "name": "language_translation",
+      "display_name": "Language Translation",
+      "description": "Translate text between languages using specialized Hugging Face translation models"
+    },
+    {
+      "name": "object_detection",
+      "display_name": "Object Detection",
+      "description": "Detect and locate objects in images with precise bounding boxes - perfect for inventory management, content moderation, and automated tagging"
+    },
+    {
+      "name": "text_classification",
+      "display_name": "Text Classification",
+      "description": "Classify text into categories using Hugging Face models - includes zero-shot classification for custom categories"
+    },
+    {
+      "name": "text_summarization",
+      "display_name": "Text Summarization",
+      "description": "Generate abstractive summaries of long text using Hugging Face models - optimized for business content"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/hugging-face"
+}

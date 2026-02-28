@@ -1,0 +1,75 @@
+{
+  "id": "airtop",
+  "package": "@activepieces/piece-airtop",
+  "display_name": "Airtop",
+  "display_name_ar": "Airtop",
+  "description": "Airtop integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "click",
+      "display_name": "Click",
+      "description": "Execute a click interaction in a specific browser window."
+    },
+    {
+      "name": "create-browser-window",
+      "display_name": "Create New Browser Window",
+      "description": "Opens a new window within a session, optionally navigating to a URL."
+    },
+    {
+      "name": "create-session",
+      "display_name": "Create Session",
+      "description": "Starts a new browser session in Airtop."
+    },
+    {
+      "name": "hover-element",
+      "display_name": "Hover on an Element",
+      "description": "Moves mouse pointer over an element in the browser window."
+    },
+    {
+      "name": "page-query",
+      "display_name": "Page Query",
+      "description": "Query a page to extract data or ask a question given the data on the page."
+    },
+    {
+      "name": "paginated-extraction",
+      "display_name": "Paginated Extraction",
+      "description": "Extract content from paginated or dynamically loaded pages."
+    },
+    {
+      "name": "smart-scrape",
+      "display_name": "Smart Scrape",
+      "description": "Scrape a page and return the data as Markdown."
+    },
+    {
+      "name": "take-screenshot",
+      "display_name": "Take Screenshot",
+      "description": "Captures a screenshot of the current window."
+    },
+    {
+      "name": "terminate-session",
+      "display_name": "Terminate Session",
+      "description": "Ends an existing browser session in Airtop."
+    },
+    {
+      "name": "type",
+      "display_name": "Type",
+      "description": "Type into a browser window at the specified field."
+    },
+    {
+      "name": "upload-file-to-session",
+      "display_name": "Upload File to Sessions",
+      "description": "Push an existing file to one or more sessions, making it available for use in file inputs or downloads."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/airtop"
+}

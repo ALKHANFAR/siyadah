@@ -1,0 +1,36 @@
+{
+  "id": "clicdata",
+  "displayName": "Clicdata",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "insert_row": {
+      "displayName": "Insert Row",
+      "description": "Insert rows into a ClicData table (maximum 500 rows)",
+      "props": [
+        {
+          "name": "data",
+          "displayName": "Row Data",
+          "type": "JSON",
+          "required": true,
+          "description": "Array of objects representing rows to insert. Each object should have column names as keys. Maximum 500 rows."
+        }
+      ]
+    },
+    "refresh_table": {
+      "displayName": "Refresh Table",
+      "description": "Refresh the selected table depending on the refresh mode",
+      "props": [
+        {
+          "name": "mode",
+          "displayName": "Refresh Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the refresh mode for the table"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

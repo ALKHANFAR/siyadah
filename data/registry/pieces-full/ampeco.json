@@ -1,0 +1,27 @@
+{
+  "id": "ampeco",
+  "package": "@activepieces/piece-ampeco",
+  "display_name": "AMPECO",
+  "display_name_ar": "",
+  "description": "AMPECO piece provides integrations of APIs and webhook notifications of the AMPECO platform for managing EV charging infrastructure and operations.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_notification",
+      "display_name": "New notification",
+      "description": "Triggers when a webhook notification event is received from Ampeco",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

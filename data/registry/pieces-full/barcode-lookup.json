@@ -1,0 +1,20 @@
+{
+  "id": "barcode-lookup",
+  "package": "@activepieces/piece-barcode-lookup",
+  "display_name": "Barcode Lookup",
+  "display_name_ar": "",
+  "description": "Lookup product information by barcode number",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "searchByBarcode",
+      "display_name": "Search By Barcode",
+      "description": "Search for product information by barcode"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

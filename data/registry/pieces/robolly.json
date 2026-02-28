@@ -1,0 +1,25 @@
+{
+  "id": "robolly",
+  "package": "@activepieces/piece-robolly",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Robolly is the all‑in‑one service for personalized image, video & PDF generation with API",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "generate_image",
+      "display_name": "Generate Image",
+      "description": "Generate an image using Robolly"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/robolly"
+}

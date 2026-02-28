@@ -1,0 +1,90 @@
+{
+  "id": "appfollow",
+  "displayName": "AppFollow",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addUser": {
+      "displayName": "Add user",
+      "description": "Adds a new user to the Appfollow account",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the user to be added"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email of the user to be added"
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Role of the user to be added"
+        }
+      ]
+    },
+    "replyToReview": {
+      "displayName": "Reply to Review",
+      "description": "Reply to a specific review within a date range for a selected application and collection",
+      "props": [
+        {
+          "name": "fromDate",
+          "displayName": "From Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Start date for the reviews to reply to (eg. YYYY-MM-DD)"
+        },
+        {
+          "name": "toDate",
+          "displayName": "To Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "End date for the reviews to reply to (eg. YYYY-MM-DD)"
+        },
+        {
+          "name": "answer_text",
+          "displayName": "Answer Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text of the reply to the review"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newReview": {
+      "displayName": "New Review",
+      "description": "Triggered when a new review is added",
+      "type": "POLLING",
+      "props": []
+    },
+    "newTag": {
+      "displayName": "Collection ID",
+      "description": "ID of the collection",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "collection_id",
+          "displayName": "Collection ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the collection"
+        }
+      ]
+    }
+  }
+}

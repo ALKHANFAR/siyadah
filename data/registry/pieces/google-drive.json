@@ -1,0 +1,33 @@
+{
+  "id": "google-drive",
+  "package": "@activepieces/piece-google-drive",
+  "display_name": "Google Drive",
+  "display_name_ar": "جوجل درايف",
+  "description": "Cloud storage and file backup",
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_file",
+      "display_name": "New File",
+      "description": "Trigger when a new file is uploaded.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_folder",
+      "display_name": "New Folder",
+      "description": "Trigger when a new folder is created or uploaded.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-drive"
+}

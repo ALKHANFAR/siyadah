@@ -1,0 +1,481 @@
+{
+  "id": "katana",
+  "displayName": "Katana",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Creates a new customer in Katana.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer display name."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code (ISO 4217), e.g. USD, EUR, GBP."
+        },
+        {
+          "name": "reference_id",
+          "displayName": "Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External reference ID (max 100 characters)."
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer category (max 100 characters)."
+        },
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the customer."
+        },
+        {
+          "name": "discount_rate",
+          "displayName": "Discount Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default discount rate for this customer."
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "entity_type",
+          "displayName": "Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "default",
+          "displayName": "Set as Default",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip/Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_sales_order": {
+      "displayName": "Create Sales Order",
+      "description": "Creates a new sales order in Katana.",
+      "props": [
+        {
+          "name": "order_no",
+          "displayName": "Order Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique order number."
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Quantity for the product variant."
+        },
+        {
+          "name": "price_per_unit",
+          "displayName": "Price Per Unit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Override price per unit."
+        },
+        {
+          "name": "total_discount",
+          "displayName": "Total Discount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Discount amount for this line."
+        },
+        {
+          "name": "additional_order_rows",
+          "displayName": "Additional Order Lines (JSON)",
+          "type": "JSON",
+          "required": false,
+          "description": "Add more line items as JSON array. Each object needs: variant_id, quantity. Optional: price_per_unit, total_discount, tax_rate_id, location_id."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Order status. Use PENDING for quotes."
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Currency code (ISO 4217), e.g. USD, EUR."
+        },
+        {
+          "name": "order_created_date",
+          "displayName": "Order Created Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delivery_date",
+          "displayName": "Delivery Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customer_ref",
+          "displayName": "Customer Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer reference number (max 255 characters)."
+        },
+        {
+          "name": "additional_info",
+          "displayName": "Additional Info",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes for this order."
+        },
+        {
+          "name": "tracking_number",
+          "displayName": "Tracking Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shipping tracking number (max 256 characters)."
+        },
+        {
+          "name": "tracking_number_url",
+          "displayName": "Tracking URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to track the shipment."
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "entity_type",
+          "displayName": "Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip/Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ecommerce_order_type",
+          "displayName": "E-commerce Order Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Source platform (e.g. shopify)."
+        },
+        {
+          "name": "ecommerce_store_name",
+          "displayName": "E-commerce Store Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Store identifier."
+        },
+        {
+          "name": "ecommerce_order_id",
+          "displayName": "E-commerce Order ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External order ID from the e-commerce platform."
+        }
+      ]
+    },
+    "find_customer": {
+      "displayName": "Find Customer",
+      "description": "Find a customer by name, email, or phone number.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by name."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by first name."
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by last name."
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by company."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by email."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by phone number."
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by currency."
+        },
+        {
+          "name": "reference_id",
+          "displayName": "Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by reference ID."
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters customers by category."
+        },
+        {
+          "name": "include_deleted",
+          "displayName": "Include Deleted",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include soft-deleted customers in results."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (default is 50)."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination (default is 1)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

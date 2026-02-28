@@ -1,0 +1,24 @@
+{
+  "id": "lucidya",
+  "displayName": "Lucidya",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {
+    "new_alert": {
+      "displayName": "New Alert Notification",
+      "description": "Triggers when a new alert notification is generated (hourly or instant).",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "md",
+          "displayName": "md",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

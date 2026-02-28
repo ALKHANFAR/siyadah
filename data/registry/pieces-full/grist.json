@@ -1,0 +1,53 @@
+{
+  "id": "grist",
+  "package": "@activepieces/piece-grist",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "open source spreadsheet",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "grist-create-record",
+      "display_name": "Create Record",
+      "description": "Creates a new record in specific table."
+    },
+    {
+      "name": "grist-search-record",
+      "display_name": "Search Record",
+      "description": "Search record by matching criteria."
+    },
+    {
+      "name": "grist-update-record",
+      "display_name": "Update Record",
+      "description": "Updates an existing record in specific table."
+    },
+    {
+      "name": "grist-upload-attachments-to-document",
+      "display_name": "Upload Attachment to Document",
+      "description": "Uploads attachments to specific document."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "grist-new-record",
+      "display_name": "New Record",
+      "description": "Triggers when a new record is added to the table.",
+      "type": "instant"
+    },
+    {
+      "name": "grist-updated-record",
+      "display_name": "Updated Record",
+      "description": "Triggers when a record is updated in the table.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "beamer",
+  "package": "@activepieces/piece-beamer",
+  "display_name": "Beamer",
+  "display_name_ar": "Beamer",
+  "description": "Engage users with targeted announcements",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_new_comment",
+      "display_name": "Create a new comment",
+      "description": "Create a new comment for a Feature request"
+    },
+    {
+      "name": "create_new_feature_request",
+      "display_name": "Create New Feature Request ",
+      "description": "Create New Feature Request"
+    },
+    {
+      "name": "create_beamer_post",
+      "display_name": "Create Beamer Post ",
+      "description": "Create a new post in Beamer"
+    },
+    {
+      "name": "create_vote",
+      "display_name": "Create a new vote ",
+      "description": "Create a new vote on a feature request"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/beamer"
+}

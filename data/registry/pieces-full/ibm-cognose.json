@@ -1,0 +1,60 @@
+{
+  "id": "ibm-cognose",
+  "package": "@activepieces/piece-ibm-cognose",
+  "display_name": "IBM Cognos Analytics",
+  "display_name_ar": "",
+  "description": "Business intelligence and performance management suite for data analysis and reporting",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "copy_content_object",
+      "display_name": "Copy Content Object",
+      "description": "Copy an object optionally with all its descendants"
+    },
+    {
+      "name": "create_data_source",
+      "display_name": "Create Data Source",
+      "description": "Create a new data source"
+    },
+    {
+      "name": "delete_data_source",
+      "display_name": "Delete Data Source",
+      "description": "Delete a data source"
+    },
+    {
+      "name": "get_content_object",
+      "display_name": "Get Content Object",
+      "description": "Get content object details"
+    },
+    {
+      "name": "get_data_source",
+      "display_name": "Get Data Source",
+      "description": "Retrieve data source details"
+    },
+    {
+      "name": "move_content_object",
+      "display_name": "Move Content Object",
+      "description": "Move an object with all its descendants"
+    },
+    {
+      "name": "update_content_object",
+      "display_name": "Update Content Object",
+      "description": "Update an existing content object"
+    },
+    {
+      "name": "update_data_source",
+      "display_name": "Update Data Source",
+      "description": "Update an existing data source"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

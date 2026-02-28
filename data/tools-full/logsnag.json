@@ -1,0 +1,78 @@
+{
+  "id": "logsnag",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createEvent": {
+      "displayName": "Create Event",
+      "description": "Creates a new event in LogSnag with the specified channel and details.",
+      "props": [
+        {
+          "name": "project",
+          "displayName": "Project",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "channel",
+          "displayName": "Channel",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "event",
+          "displayName": "Event",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newEventCreated": {
+      "displayName": "New event created",
+      "description": "triggers when a new event ic created and logged",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "project",
+          "displayName": "Project",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "channel",
+          "displayName": "Channel",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "event",
+          "displayName": "Event",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

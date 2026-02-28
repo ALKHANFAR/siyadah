@@ -1,0 +1,49 @@
+{
+  "id": "digital-pilot",
+  "displayName": "DigitalPilot",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_target_account": {
+      "displayName": "Add Target Account",
+      "description": "Add a target account to a list",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Account domain name (e.g., example.com)"
+        }
+      ]
+    },
+    "remove_target_account": {
+      "displayName": "Remove Target Account",
+      "description": "Remove a target account from a list",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Account domain name (e.g., example.com)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_high_intent_visit": {
+      "displayName": "New High Intent Visit",
+      "description": "Triggers when a business exhibits high intent behavior on your website",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_target_account_visit": {
+      "displayName": "New Target Account Visit",
+      "description": "Triggers when a business you\\",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "frame",
+  "displayName": "Token",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "frame_trigger_${name}": {
+      "displayName": "Account",
+      "description": "Accounts accessible via a given User",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "account_id",
+          "displayName": "Account",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Accounts accessible via a given User"
+        },
+        {
+          "name": "team_id",
+          "displayName": "Team",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Teams accessible via a given Account"
+        }
+      ]
+    }
+  }
+}

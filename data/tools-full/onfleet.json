@@ -1,0 +1,775 @@
+{
+  "id": "onfleet",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "clone_task": {
+      "displayName": "Clone Task",
+      "description": "Clones a task",
+      "props": [
+        {
+          "name": "task",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the task you want to clone"
+        }
+      ]
+    },
+    "complete_task": {
+      "displayName": "Force Complete Task",
+      "description": "Force completes a task",
+      "props": [
+        {
+          "name": "task",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the task you want to complete"
+        },
+        {
+          "name": "success",
+          "displayName": "Complete as Success",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Whether to complete the task as a success or not"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_admin": {
+      "displayName": "Create Administrator",
+      "description": "Create a new administrator",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Full name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "isReadOnly",
+          "displayName": "Read Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this administrator can perform write operations."
+        }
+      ]
+    },
+    "create_destination": {
+      "displayName": "Create Destination",
+      "description": "Create a new destination",
+      "props": [
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_hub": {
+      "displayName": "Create Hub",
+      "description": "Create a new hub",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the hub"
+        }
+      ]
+    },
+    "create_recipient": {
+      "displayName": "Create Recipient",
+      "description": "Creates a recipient",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient's full name"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A unique, valid phone number as per the organization's country if there's no leading + sign. If a phone number has a leading + sign, it will disregard the organization's country setting."
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "skipSMSNotifications",
+          "displayName": "Skip SMS Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "skipPhoneNumberValidation",
+          "displayName": "Skip Phone Number Validation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "useLongCodeForText",
+          "displayName": "Use Long Code for Text - Canadian Organizations Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Checking this option will default the Onfleet system to use a toll-free long code number for SMS communication."
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Creates a task",
+      "props": [
+        {
+          "name": "merchant",
+          "displayName": "Merchant ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the organization that will be displayed on the task"
+        },
+        {
+          "name": "executor",
+          "displayName": "Executor ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the organization that will be executing the task"
+        },
+        {
+          "name": "recipient",
+          "displayName": "Destination",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "The task destination"
+        },
+        {
+          "name": "id",
+          "displayName": "Recipient ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient's full name"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A unique, valid phone number as per the organization's country if there's no leading + sign. If a phone number has a leading + sign, it will disregard the organization's country setting."
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "skipSMSNotifications",
+          "displayName": "Skip SMS Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "useRecipientID",
+          "displayName": "Use Recipient ID",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Check this box if you want to use an ID for the recipient"
+        },
+        {
+          "name": "completeAfter",
+          "displayName": "Complete After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The earliest time the task should be completed"
+        },
+        {
+          "name": "completeBefore",
+          "displayName": "Complete Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The latest time the task should be completed"
+        },
+        {
+          "name": "pickupTask",
+          "displayName": "Pickup",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the task is pickup"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of units to be dropped off"
+        },
+        {
+          "name": "recipientName",
+          "displayName": "Recipient Name Override",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Override the recipient name for this task only"
+        },
+        {
+          "name": "recipientNotes",
+          "displayName": "Recipient Notes Override",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Override the recipient notes for this task only"
+        },
+        {
+          "name": "recipientSkipSMSNotifications",
+          "displayName": "Recipient Skip SMS Override",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Override the recipient skip SMS option for this task only"
+        },
+        {
+          "name": "serviceTime",
+          "displayName": "Service Time",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of minutes to be spent by the worker on arrival at this task's destination"
+        }
+      ]
+    },
+    "create_team": {
+      "displayName": "Create Team",
+      "description": "Create a new team",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the team"
+        },
+        {
+          "name": "enableSelfAssignment",
+          "displayName": "Enable Self Assignment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allows Drivers to Self Assign Tasks that are in the Team unassigned container."
+        }
+      ]
+    },
+    "create_worker": {
+      "displayName": "Create Worker",
+      "description": "Create a new worker",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the worker"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "capacity",
+          "displayName": "Capacity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of units this worker can carry"
+        },
+        {
+          "name": "displayName",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete_admin": {
+      "displayName": "Delete Administrator",
+      "description": "Delete an existing administrator",
+      "props": []
+    },
+    "delete_task": {
+      "displayName": "Delete Task",
+      "description": "Deletes a task",
+      "props": [
+        {
+          "name": "task",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the task you want to delete"
+        }
+      ]
+    },
+    "delete_team": {
+      "displayName": "Delete Team",
+      "description": "Delete an existing team",
+      "props": []
+    },
+    "delete_worker": {
+      "displayName": "Delete Worker",
+      "description": "Delete an existing worker",
+      "props": []
+    },
+    "get_admins": {
+      "displayName": "Get Administrators",
+      "description": "Get many administrators",
+      "props": []
+    },
+    "get_container": {
+      "displayName": "Get Container",
+      "description": "Get a specific container",
+      "props": [
+        {
+          "name": "containerId",
+          "displayName": "Container ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get_delegatee_details": {
+      "displayName": "Get Delegatee Details",
+      "description": "Get details of a connected organization",
+      "props": [
+        {
+          "name": "organization",
+          "displayName": "Organization ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the connected organization"
+        }
+      ]
+    },
+    "get_destination": {
+      "displayName": "Get Destination",
+      "description": "Get a specific destination",
+      "props": [
+        {
+          "name": "destination",
+          "displayName": "Destination ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the destination you want to delete"
+        }
+      ]
+    },
+    "get_hubs": {
+      "displayName": "Get Hubs",
+      "description": "Get many hubs",
+      "props": []
+    },
+    "get_organization": {
+      "displayName": "Get Organization",
+      "description": "Get your organization details",
+      "props": []
+    },
+    "get_recipient": {
+      "displayName": "Get Recipient",
+      "description": "Gets a single recipient",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Recipient ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient's ID"
+        }
+      ]
+    },
+    "get_task": {
+      "displayName": "Get Task",
+      "description": "Get a specific task",
+      "props": [
+        {
+          "name": "task",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the task you want to delete"
+        }
+      ]
+    },
+    "get_tasks": {
+      "displayName": "Get Tasks",
+      "description": "Get many task",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_team": {
+      "displayName": "Get Team",
+      "description": "Gets an existing team",
+      "props": []
+    },
+    "get_teams": {
+      "displayName": "Get Teams",
+      "description": "Gets many existing team",
+      "props": []
+    },
+    "get_worker_schedule": {
+      "displayName": "Get Worker Schedule",
+      "description": "Get an existing worker's schedule",
+      "props": []
+    },
+    "get_worker": {
+      "displayName": "Get Worker",
+      "description": "Get an existing worker's details",
+      "props": []
+    },
+    "update_admin": {
+      "displayName": "Update Administrator",
+      "description": "Update an existing administrator",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Full name"
+        }
+      ]
+    },
+    "update_hub": {
+      "displayName": "Update Hub",
+      "description": "Update an existing hub",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the hub"
+        }
+      ]
+    },
+    "update_recipient": {
+      "displayName": "Update Recipient",
+      "description": "Updates a recipient",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Recipient ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the recipient you want to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The recipient's full name"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "skipSMSNotifications",
+          "displayName": "Skip SMS Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Updates a task",
+      "props": [
+        {
+          "name": "task",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the task you want to update"
+        },
+        {
+          "name": "merchant",
+          "displayName": "Merchant ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the organization that will be displayed on the task"
+        },
+        {
+          "name": "executor",
+          "displayName": "Executor ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the organization that will be executing the task"
+        },
+        {
+          "name": "completeAfter",
+          "displayName": "Complete After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The earliest time the task should be completed"
+        },
+        {
+          "name": "completeBefore",
+          "displayName": "Complete Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The latest time the task should be completed"
+        },
+        {
+          "name": "pickupTask",
+          "displayName": "Pickup",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the task is pickup"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of units to be dropped off"
+        },
+        {
+          "name": "serviceTime",
+          "displayName": "Service Time",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of minutes to be spent by the worker on arrival at this task's destination"
+        }
+      ]
+    },
+    "update_team": {
+      "displayName": "Update Team",
+      "description": "Update an existing team",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the team"
+        },
+        {
+          "name": "enableSelfAssignment",
+          "displayName": "Enable Self Assignment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allows Drivers to Self Assign Tasks that are in the Team unassigned container."
+        }
+      ]
+    },
+    "update_worker": {
+      "displayName": "Update Worker",
+      "description": "Update an existing worker",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the worker"
+        },
+        {
+          "name": "capacity",
+          "displayName": "Capacity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of units this worker can carry"
+        },
+        {
+          "name": "displayName",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "auto_dispatch_completed": {
+      "displayName": "Auto Dispatch Completed",
+      "description": "Triggers when team auto-dispatch calculation is completed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "sms_recipient_opt_out": {
+      "displayName": "SMS Recipient Opt Out",
+      "description": "Triggers when a recipient opts out of SMS notifications",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "sms_recipient_response_missed": {
+      "displayName": "SMS Recipient Response Missed",
+      "description": "Triggers when a recipient responds to a notification via SMS, but the organization is unable to handle it at that time",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_arrival": {
+      "displayName": "Task Arrival",
+      "description": "Triggers when a task worker arriving at or closer than threshold value provided, in meters",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_assigned": {
+      "displayName": "Task Assigned",
+      "description": "Triggers when a task is assigned",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_cloned": {
+      "displayName": "Task Cloned",
+      "description": "Triggers when a task is cloned",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_completed": {
+      "displayName": "Task Completed",
+      "description": "Triggers when a task is completed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_created": {
+      "displayName": "Task Created",
+      "description": "Triggers when a task is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_delayed": {
+      "displayName": "Task Delayed",
+      "description": "Triggers when a task is delayed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_deleted": {
+      "displayName": "Task Deleted",
+      "description": "Triggers when a task is deleted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_eta": {
+      "displayName": "Task ETA",
+      "description": "Triggers when a task worker ETA less than or equal to threshold value provided, in seconds",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_failed": {
+      "displayName": "Task Failed",
+      "description": "Triggers when a task has failed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_started": {
+      "displayName": "Task Started",
+      "description": "Triggers when a task is started",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_unassigned": {
+      "displayName": "Task Unassigned",
+      "description": "Triggers when a task is unassigned",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_updated": {
+      "displayName": "Task Updated",
+      "description": "Triggers when a task is updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "worker_created": {
+      "displayName": "Worker Created",
+      "description": "Triggers when a worker is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "worker_deleted": {
+      "displayName": "Worker Deleted",
+      "description": "Triggers when a worker is deleted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "worker_duty_change": {
+      "displayName": "Worker Duty Change",
+      "description": "Triggers when a worker status changes",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "id": "straico",
+  "package": "@activepieces/piece-straico",
+  "display_name": "Straico",
+  "display_name_ar": "",
+  "description": "All-in-one generative AI platform",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "agent-add-rag",
+      "display_name": "Add RAG to Agent",
+      "description": "Adds a new RAG to an agent in the database for the user."
+    },
+    {
+      "name": "agent-create",
+      "display_name": "Create Agent",
+      "description": "Creates a new agent in the database for the user."
+    },
+    {
+      "name": "agent_delete",
+      "display_name": "Delete Agent",
+      "description": "Delete a specific agent by its ID"
+    },
+    {
+      "name": "agent_get",
+      "display_name": "Get Agent Details",
+      "description": "Retrieve details of a specific agent"
+    },
+    {
+      "name": "agent-list",
+      "display_name": "List Agents",
+      "description": "Retrieves the list of agents created by and available to the user."
+    },
+    {
+      "name": "agent_prompt_completion",
+      "display_name": "Agent Prompt Completion",
+      "description": "Prompt an agent with a message and get a response"
+    },
+    {
+      "name": "agent_update",
+      "display_name": "Update Agent",
+      "description": "Update the details of a specific agent"
+    },
+    {
+      "name": "file_upload",
+      "display_name": "Upload File",
+      "description": "Upload a file to Straico API for processing."
+    },
+    {
+      "name": "image_generation",
+      "display_name": "Image Generation",
+      "description": "Enables users to generate high-quality images based on textual descriptions."
+    },
+    {
+      "name": "prompt_completion",
+      "display_name": "Ask AI",
+      "description": "Enables users to generate prompt completion based on a specified model."
+    },
+    {
+      "name": "create_rag",
+      "display_name": "Create RAG",
+      "description": "Create a new RAG (Retrieval-Augmented Generation) base in the database."
+    },
+    {
+      "name": "delete_rag",
+      "display_name": "Delete RAG",
+      "description": "Delete a specific RAG (Retrieval-Augmented Generation) base by its ID."
+    },
+    {
+      "name": "get_rag_by_id",
+      "display_name": "Get RAG by ID",
+      "description": "Retrieve a specific RAG (Retrieval-Augmented Generation) base by its ID."
+    },
+    {
+      "name": "list_rags",
+      "display_name": "List RAGs",
+      "description": "List all RAG (Retrieval-Augmented Generation) bases for a user."
+    },
+    {
+      "name": "rag_prompt_completion",
+      "display_name": "RAG Prompt Completion",
+      "description": "Send a prompt to a specific RAG (Retrieval-Augmented Generation) model."
+    },
+    {
+      "name": "update_rag",
+      "display_name": "Update RAG",
+      "description": "Update an existing RAG (Retrieval-Augmented Generation) base with additional files."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,252 @@
+{
+  "id": "assembled",
+  "displayName": "Assembled",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_shift": {
+      "displayName": "Add Shift on Assembled",
+      "description": "Add a new shift to a user\\",
+      "props": [
+        {
+          "name": "agent_id",
+          "displayName": "Agent ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Agent ID of the person to assign the shift to (use the agent_id field from /people endpoint, not the person id)"
+        },
+        {
+          "name": "start_time",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Start time of the shift"
+        },
+        {
+          "name": "end_time",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "End time of the shift"
+        },
+        {
+          "name": "shift_type",
+          "displayName": "Shift Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of shift"
+        },
+        {
+          "name": "activity_type_id",
+          "displayName": "Activity Type ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "UUID of the activity type for this shift (get from /activity_types endpoint)"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes for the shift"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    },
+    "custom_graphql": {
+      "displayName": "Custom GraphQL",
+      "description": "Perform a custom GraphQL query",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "variables",
+          "displayName": "Parameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete_OOO": {
+      "displayName": "Delete OOO Request",
+      "description": "Cancel/delete a OOO request.",
+      "props": [
+        {
+          "name": "OOO_id",
+          "displayName": "OOO ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get_user_schedule": {
+      "displayName": "Get User Schedule",
+      "description": "Retrieves user\\",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "OOO": {
+      "displayName": "Create OOO Request",
+      "description": "Create an Out of Office request in Assembled.",
+      "props": [
+        {
+          "name": "mock_mode",
+          "displayName": "Mock Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use mock data for testing"
+        },
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the user requesting time off"
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Start date of the OOO period"
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "End date of the OOO period"
+        },
+        {
+          "name": "activity_type_id",
+          "displayName": "Activity Type ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "UUID of the activity type for time off (can be retrieved from activity types endpoints)"
+        },
+        {
+          "name": "all_day",
+          "displayName": "All Day Event",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this is an all-day OOO event"
+        },
+        {
+          "name": "reason",
+          "displayName": "Reason",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Reason for the OOO request"
+        }
+      ]
+    },
+    "update_OOO": {
+      "displayName": "Update OOO Request",
+      "description": "Updates an existing OOO request.",
+      "props": [
+        {
+          "name": "OOO_id",
+          "displayName": "OOO ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reason",
+          "displayName": "Reason",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the user for the time off request (required for creating new request)"
+        },
+        {
+          "name": "activity_type_id",
+          "displayName": "Activity Type ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "UUID of the activity type for time off (required for creating new request)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "OOO_status_changed": {
+      "displayName": "OOO Status Changed",
+      "description": "Triggers on approval/rejection of OOO.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_OOO_request": {
+      "displayName": "New OOO Request",
+      "description": "Triggers when a new OOO request is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "schedule_updated": {
+      "displayName": "Schedule Updated",
+      "description": "Triggers when user schedule is modified.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

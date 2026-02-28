@@ -1,0 +1,53 @@
+{
+  "id": "agentx",
+  "package": "@activepieces/piece-agentx",
+  "display_name": "AgentX",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createConversationWithSingleAgent",
+      "display_name": "Create Conversation With Single Agent",
+      "description": "Create a new conversation with a specific Agent by ID."
+    },
+    {
+      "name": "find_conversation",
+      "display_name": "Find Conversation",
+      "description": "Looks up an existing conversation by Agent ID (optionally by conversation ID or Name)."
+    },
+    {
+      "name": "find_message",
+      "display_name": "Find Message",
+      "description": "Searches for a specific message by ID (or searches text within messages) inside a conversation."
+    },
+    {
+      "name": "search_agents",
+      "display_name": "Search Agents",
+      "description": "Find agents by name or ID using search filters."
+    },
+    {
+      "name": "sendMessageToExistingConversation",
+      "display_name": "Send Message to Existing Conversation",
+      "description": "Send a message to an existing conversation with an agent."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_agent",
+      "display_name": "New Agent",
+      "description": "Triggers when a new AgentX agent is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_conversation",
+      "display_name": "New Conversation",
+      "description": "Triggers when a new conversation begins with a specific Agent. Only detects conversations created after the trigger is enabled.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

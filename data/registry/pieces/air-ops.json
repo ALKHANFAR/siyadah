@@ -1,0 +1,35 @@
+{
+  "id": "air-ops",
+  "package": "@activepieces/piece-air-ops",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Your API key can be found in the **Workspace Settings** section of your AirOps account.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_execution",
+      "display_name": "Get Execution",
+      "description": "Get an execution by UUID."
+    },
+    {
+      "name": "run_workflow_async",
+      "display_name": "Run Workflow (Async)",
+      "description": "Queue an AirOps workflow for asynchronous execution."
+    },
+    {
+      "name": "run_workflow",
+      "display_name": "Run Workflow",
+      "description": "Execute an AirOps workflow synchronously."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/air-ops"
+}

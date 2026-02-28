@@ -1,0 +1,30 @@
+{
+  "id": "facebook-pages",
+  "package": "@activepieces/piece-facebook-pages",
+  "display_name": "Facebook Pages",
+  "display_name_ar": "صفحات فيسبوك",
+  "description": "Manage your Facebook pages to grow your business",
+  "category": "H_marketing",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_photo_post",
+      "display_name": "Create Page Photo",
+      "description": "Create a photo on a Facebook Page you manage"
+    },
+    {
+      "name": "create_post",
+      "display_name": "Create Page Post",
+      "description": "Create a post on a Facebook Page you manage"
+    },
+    {
+      "name": "create_video_post",
+      "display_name": "Create Page Video",
+      "description": "Create a video on a Facebook Page you manage"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/facebook-pages"
+}

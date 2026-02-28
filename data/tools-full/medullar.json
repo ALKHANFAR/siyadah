@@ -1,0 +1,100 @@
+{
+  "id": "medullar",
+  "displayName": "Medullar",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addSpaceRecord": {
+      "displayName": "Add Space Record",
+      "description": "Adds a Record into a Space",
+      "props": [
+        {
+          "name": "sourceType",
+          "displayName": "Source Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select source type"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional. Content of the record"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional. URL of the record"
+        }
+      ]
+    },
+    "askSpace": {
+      "displayName": "Ask Space",
+      "description": "Ask anything to a Space",
+      "props": [
+        {
+          "name": "selectedMode",
+          "displayName": "Chat Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select chat mode."
+        },
+        {
+          "name": "isReasoning",
+          "displayName": "Deep Analysis",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Optional. Enable Deep Analysis to get more accurate results but slower response time"
+        },
+        {
+          "name": "text",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Message to send to the Space"
+        }
+      ]
+    },
+    "createSpace": {
+      "displayName": "Create new Space",
+      "description": "Create a new Space.",
+      "props": [
+        {
+          "name": "space_name",
+          "displayName": "Space Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "deleteSpace": {
+      "displayName": "Delete Space",
+      "description": "Delete an existing Space.",
+      "props": []
+    },
+    "listSpaces": {
+      "displayName": "List Spaces",
+      "description": "List all user Spaces",
+      "props": []
+    },
+    "renameSpace": {
+      "displayName": "Rename Space",
+      "description": "Rename an existing Space.",
+      "props": [
+        {
+          "name": "space_name",
+          "displayName": "Space Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

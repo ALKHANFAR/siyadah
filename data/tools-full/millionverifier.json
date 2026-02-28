@@ -1,0 +1,30 @@
+{
+  "id": "millionverifier",
+  "displayName": "MillionVerifier",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "verifyEmail": {
+      "displayName": "Verify Email",
+      "description": "Verify email address using Million Verifier API",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address to verify"
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in seconds (default: 10)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

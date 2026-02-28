@@ -1,0 +1,54 @@
+{
+  "id": "insighto-ai",
+  "package": "@activepieces/piece-insighto-ai",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Your Insighto.ai API key",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_text_blob",
+      "display_name": "Add Text Blob Into Data Source",
+      "description": "Inserts a large text blob into an existing data source"
+    },
+    {
+      "name": "create_campaign",
+      "display_name": "Create Campaign",
+      "description": "Create a new outbound call campaign"
+    },
+    {
+      "name": "make_outbound_call",
+      "display_name": "Make Outbound Call",
+      "description": "Initiate an outbound call to a phone number using a configured widget"
+    },
+    {
+      "name": "upsert_contact",
+      "display_name": "Upsert Contact",
+      "description": "Create or update a contact using email or phone number"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_captured_form",
+      "display_name": "New Captured Form",
+      "description": "Fires when a new form submission is captured in Insighto.ai",
+      "type": "instant"
+    },
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Triggers when a new contact is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_conversation",
+      "display_name": "New Conversation",
+      "description": "Fires when an existing conversation is updated with a new message",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/insighto-ai"
+}

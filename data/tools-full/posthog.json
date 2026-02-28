@@ -1,0 +1,104 @@
+{
+  "id": "posthog",
+  "displayName": "Personal API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_event": {
+      "displayName": "Create Event",
+      "description": "Create an event inside a project",
+      "props": [
+        {
+          "name": "event",
+          "displayName": "Event name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The event name"
+        },
+        {
+          "name": "event_type",
+          "displayName": "Event type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "distinct_id",
+          "displayName": "Distinct Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User's Distinct Id"
+        },
+        {
+          "name": "properties",
+          "displayName": "Properties",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The event properties"
+        },
+        {
+          "name": "context",
+          "displayName": "Context",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The event context,"
+        },
+        {
+          "name": "message_id",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The message id,"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The event category."
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Create a posthog project",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Project Name"
+        },
+        {
+          "name": "slack_incoming_webhook",
+          "displayName": "Slack Incoming Webhook",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Slack incoming webhook"
+        },
+        {
+          "name": "anonymize_ips",
+          "displayName": "Anonymize IPs",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to anonymize incoming IP addresses."
+        },
+        {
+          "name": "is_demo",
+          "displayName": "Is demo project",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If this is a demo project"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

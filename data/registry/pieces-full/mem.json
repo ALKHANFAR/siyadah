@@ -1,0 +1,35 @@
+{
+  "id": "mem",
+  "package": "@activepieces/piece-mem",
+  "display_name": "Mem",
+  "display_name_ar": "",
+  "description": "Capture and organize your thoughts using Mem.ai",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_mem",
+      "display_name": "Create Mem",
+      "description": "Save any content to Mem.ai for intelligent processing and future reference."
+    },
+    {
+      "name": "create_note",
+      "display_name": "Create Note",
+      "description": "Log a plain-text Markdown note into Mem, optionally with formatting, templates, collections, and timestamps."
+    },
+    {
+      "name": "delete_note",
+      "display_name": "Delete Note",
+      "description": "Delete a note in Mem by its ID."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,77 @@
+{
+  "id": "bonjoro",
+  "displayName": "Bonjoro",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_greet": {
+      "displayName": "Create a Greet",
+      "description": "Create a new Greet in Bonjoro",
+      "props": [
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Note to send with the greet"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email to send the greet to"
+        },
+        {
+          "name": "first",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the person to greet"
+        },
+        {
+          "name": "last",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the person to greet"
+        },
+        {
+          "name": "assignee",
+          "displayName": "Assignee",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Who to assign the greet to"
+        },
+        {
+          "name": "campaign",
+          "displayName": "Campaign",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The campaign to add the greet to"
+        },
+        {
+          "name": "template",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The template to use for the greet"
+        },
+        {
+          "name": "custom",
+          "displayName": "Custom Attributes",
+          "type": "JSON",
+          "required": false,
+          "description": "Enter custom attributes to send with the greet"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

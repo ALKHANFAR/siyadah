@@ -1,0 +1,123 @@
+{
+  "id": "esignatures",
+  "displayName": "eSignatures",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createContract": {
+      "displayName": "Create Contract",
+      "description": "Create a new contract from a template in eSignatures",
+      "props": [
+        {
+          "name": "templateId",
+          "displayName": "Template ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the template to use for the contract"
+        },
+        {
+          "name": "title",
+          "displayName": "Contract Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique title for the contract (defaults to template title if not specified)"
+        },
+        {
+          "name": "locale",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language setting for the signer page and emails"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom data to attach to the contract"
+        },
+        {
+          "name": "expiresInHours",
+          "displayName": "Expires In Hours",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sets the expiry time (in hours) for the contract"
+        },
+        {
+          "name": "customWebhookUrl",
+          "displayName": "Custom Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom URL for webhook notifications"
+        },
+        {
+          "name": "assignedUserEmail",
+          "displayName": "Assigned User Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email to assign management of the contract"
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Labels to assign to the contract (for grouping)"
+        },
+        {
+          "name": "test",
+          "displayName": "Test Contract",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark as test/demo contract with no fees charged"
+        },
+        {
+          "name": "saveAsDraft",
+          "displayName": "Save as Draft",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Save as draft instead of sending to signers"
+        },
+        {
+          "name": "signers",
+          "displayName": "Signers",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of individuals required to sign (name, email, and/or mobile)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "contractSentToASigner": {
+      "displayName": "Contract Sent to a Signer",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "contractSigned": {
+      "displayName": "Contract Signed",
+      "description": "Triggers when a contract is signed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "signatureReceived": {
+      "displayName": "Signature Received",
+      "description": "Trigger when a singer has signed the contract",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "signerDeclined": {
+      "displayName": "Signer declined",
+      "description": "Trigger when a signer has declined to sign the contract",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

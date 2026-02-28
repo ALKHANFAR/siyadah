@@ -1,0 +1,173 @@
+{
+  "id": "pastefy",
+  "displayName": "Pastefy Instance URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_folder": {
+      "displayName": "Create Folder",
+      "description": "Creates a new folder",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_paste": {
+      "displayName": "Create Paste",
+      "description": "Creates a new paste",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "password",
+          "displayName": "Encryption Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Encrypts the paste with this password"
+        },
+        {
+          "name": "expiry",
+          "displayName": "Expiry Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete_folder": {
+      "displayName": "Delete Folder",
+      "description": "Deletes a folder",
+      "props": []
+    },
+    "delete_paste": {
+      "displayName": "Delete Paste",
+      "description": "Deletes a paste",
+      "props": [
+        {
+          "name": "paste_id",
+          "displayName": "Paste ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "edit_paste": {
+      "displayName": "Edit Paste",
+      "description": "Edits an existing private paste",
+      "props": [
+        {
+          "name": "paste_id",
+          "displayName": "Paste ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "password",
+          "displayName": "Encryption Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Encrypts the paste with this password"
+        },
+        {
+          "name": "expiry",
+          "displayName": "Expiry Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_folder_hierarchy": {
+      "displayName": "Get Folder Hierarchy",
+      "description": "Retrieves a hierarchy of all folders",
+      "props": []
+    },
+    "get_folder": {
+      "displayName": "Get Folder",
+      "description": "Retrieves information about a folder",
+      "props": []
+    },
+    "get_paste": {
+      "displayName": "Get Paste",
+      "description": "Retrieves a paste",
+      "props": [
+        {
+          "name": "paste_id",
+          "displayName": "Paste ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "password",
+          "displayName": "Encryption Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Decrypts the paste with this password"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "paste_changed": {
+      "displayName": "Paste Changed",
+      "description": "Triggers when the content (or title) of the paste changes",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "paste_id",
+          "displayName": "Paste ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "include_title",
+          "displayName": "Include Title",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

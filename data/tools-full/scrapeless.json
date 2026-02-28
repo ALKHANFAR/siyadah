@@ -1,0 +1,164 @@
+{
+  "id": "scrapeless",
+  "displayName": "Scrapeless",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "crawl_crawl": {
+      "displayName": "Crawl Data from All Pages",
+      "description": "Crawls a website and its linked pages to extract comprehensive data.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL to Crawl",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the webpage to crawl."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Number Of Subpages"
+        }
+      ]
+    },
+    "crawl_scrape": {
+      "displayName": "Scrape Webpage Data",
+      "description": "Extracts data from a single webpage.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL to Crawl",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the webpage to scrape."
+        }
+      ]
+    },
+    "google_search_api": {
+      "displayName": "Google Search",
+      "description": "Retrieves search result data for any query.",
+      "props": [
+        {
+          "name": "q",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Parameter defines the query you want to search. You can use anything that you would use in a regular Google search. e.g. inurl:, site:, intitle:. We also support advanced search query parameters such as as_dt and as_eq."
+        },
+        {
+          "name": "hl",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Parameter defines the language to use for the Google search. It's a two-letter language code. (e.g., en for English, es for Spanish, or fr for French)."
+        },
+        {
+          "name": "gl",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Parameter defines the country to use for the Google search. It's a two-letter country code. (e.g., us for the United States, uk for United Kingdom, or fr for France)."
+        }
+      ]
+    },
+    "google_trends_api": {
+      "displayName": "Google Trends",
+      "description": "Access popular keyword and interest data from Google Trends.",
+      "props": [
+        {
+          "name": "q",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Parameter defines the query or queries you want to search. You can use anything that you would use in a regular Google Trends search. The maximum number of queries per search is 5 (this only applies to `interest_over_time` and `compared_breakdown_by_region` data_type, other types of data will only accept 1 query per search)."
+        },
+        {
+          "name": "data_type",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Parameter defines the type of data you want to search. You can use anything that you would use in a regular Google Trends search. The maximum number of queries per search is 5 (this only applies to `interest_over_time` and `compared_breakdown_by_region` data_type, other types of data will only accept 1 query per search)."
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The supported dates are: `now 1-H`, `now 4-H`, `now 1-d`, `now 7-d`, `today 1-m`, `today 3-m`, `today 12-m`, `today 5-y`, `all`.You can also pass custom values:Dates from 2004 to present: `yyyy-mm-dd yyyy-mm-dd` (e.g. `2021-10-15 2022-05-25`)\\nDates with hours within a week range: `yyyy-mm-ddThh yyyy-mm-ddThh` (e.g. `2022-05-19T10 2022-05-24T22`). Hours will be calculated depending on the tz (time zone) parameter."
+        },
+        {
+          "name": "hl",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Parameter defines the language to use for the Google Trends search. It's a two-letter language code. (e.g., `en` for English, `es` for Spanish, or `fr` for French)."
+        },
+        {
+          "name": "tz",
+          "displayName": "Time zone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "time zone offset. default is `420`."
+        }
+      ]
+    },
+    "universal_scraping_api": {
+      "displayName": "Universal Scraping",
+      "description": "Seamlessly accesses protected or dynamic pages by handling anti-scraping systems automatically.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Target URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "js_render",
+          "displayName": "Js Render",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "headless",
+          "displayName": "Headless",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "js_instructions",
+          "displayName": "Js Instructions",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "block",
+          "displayName": "Block",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

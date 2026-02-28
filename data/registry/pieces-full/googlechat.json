@@ -1,0 +1,58 @@
+{
+  "id": "googlechat",
+  "package": "@activepieces/piece-googlechat",
+  "display_name": "Google Chat",
+  "display_name_ar": "",
+  "description": "Google Chat is a messaging app that allows you to send and receive messages, create spaces, and more.",
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "addASpaceMember",
+      "display_name": "Add a Space Member",
+      "description": "Add a user to a Google Chat space."
+    },
+    {
+      "name": "findMember",
+      "display_name": "Find Member",
+      "description": "Search space member by email"
+    },
+    {
+      "name": "getDirectMessageDetails",
+      "display_name": "Get Direct Message Details",
+      "description": "Retrieve details of a specific direct message by ID."
+    },
+    {
+      "name": "getMessageDetails",
+      "display_name": "Get Message Details",
+      "description": "Retrieve details of a specific message by ID. Supports both system-generated and custom message IDs."
+    },
+    {
+      "name": "searchMessages",
+      "display_name": "Search Messages",
+      "description": "Search within Chat for messages matching keywords or filters."
+    },
+    {
+      "name": "sendAMessage",
+      "display_name": "Send a Message",
+      "description": "Send a message to a space or direct conversation."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newMention",
+      "display_name": "New Mention",
+      "description": "Triggers when a new mention is received in Google Chat.",
+      "type": "instant"
+    },
+    {
+      "name": "newMessage",
+      "display_name": "New Message",
+      "description": "Triggers when a new message is received in Google Chat.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

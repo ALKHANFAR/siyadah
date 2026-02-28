@@ -1,0 +1,30 @@
+{
+  "id": "roe-ai",
+  "package": "@activepieces/piece-roe-ai",
+  "display_name": "Roe AI",
+  "display_name_ar": "Roe AI",
+  "description": "Roe AI integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "runAgent",
+      "display_name": "Run Agent",
+      "description": "Execute an agent with provided inputs and return results immediately"
+    },
+    {
+      "name": "runQuery",
+      "display_name": "Run Query",
+      "description": "Execute a query synchronously and return results"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/roe-ai"
+}

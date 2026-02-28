@@ -1,0 +1,88 @@
+{
+  "id": "apitable",
+  "displayName": "AITable",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "apitable_create_record": {
+      "displayName": "Create Record",
+      "description": "Creates a new record in datasheet.",
+      "props": []
+    },
+    "apitable_find_record": {
+      "displayName": "Find Records",
+      "description": "Finds records in datasheet.",
+      "props": [
+        {
+          "name": "recordIds",
+          "displayName": "Record IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The IDs of the records to find."
+        },
+        {
+          "name": "fieldNames",
+          "displayName": "Field Names",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The returned record results are limited to the specified fields"
+        },
+        {
+          "name": "maxRecords",
+          "displayName": "Max Records",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many records are returned in total"
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many records are returned per page (max 1000)"
+        },
+        {
+          "name": "pageNum",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Specifies the page number of the page"
+        },
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The filter to apply to the records (see https://help.aitable.ai/docs/guide/manual-formula-field-overview/)"
+        }
+      ]
+    },
+    "apitable_update_record": {
+      "displayName": "Update Record",
+      "description": "Updates an existing record in datasheet.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the record to update."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_record": {
+      "displayName": "New Record",
+      "description": "Triggers when a new record is added to a datasheet.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

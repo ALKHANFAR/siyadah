@@ -1,0 +1,583 @@
+{
+  "id": "bigcommerce",
+  "displayName": "Bigcommerce",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createAProduct": {
+      "displayName": "Create a Product",
+      "description": "Creates a Product",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the product"
+        },
+        {
+          "name": "type",
+          "displayName": "Product Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of product"
+        },
+        {
+          "name": "sku",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product SKU"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Product description"
+        },
+        {
+          "name": "weight",
+          "displayName": "Weight",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Product weight"
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Product price"
+        },
+        {
+          "name": "brand_id",
+          "displayName": "Brand ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Brand ID"
+        }
+      ]
+    },
+    "createBlogPost": {
+      "displayName": "Create Blog Post",
+      "description": "Creates a blog post",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Blog post title"
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Blog post content (HTML supported)"
+        },
+        {
+          "name": "author",
+          "displayName": "Author",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Author name"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL for the public blog post. Example - /blog/welcome-bigcommerce/"
+        },
+        {
+          "name": "published_date",
+          "displayName": "Published Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Published Date for the blog post. Example - Wed, 10 Aug 2022 15:39:15 -0500"
+        },
+        {
+          "name": "meta_description",
+          "displayName": "Meta Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description text for this blog post’s <meta/> element."
+        },
+        {
+          "name": "meta_keywords",
+          "displayName": "Meta Keywords",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma seperated (,) Keywords for this blog post’s <meta/> element. Eg welcome, bigcommerce"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags"
+        },
+        {
+          "name": "is_published",
+          "displayName": "Is Published",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the post is published"
+        }
+      ]
+    },
+    "createCustomerAddress": {
+      "displayName": "Create Customer Address",
+      "description": "ISO 3166-1 alpha-2 country code",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "state_or_province",
+          "displayName": "State/Province",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "country_code",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "createCustomer": {
+      "displayName": "Create Customer",
+      "description": "Creates a customer",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer email address"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer first name"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer last name"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer company name"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer phone number"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Customer notes"
+        }
+      ]
+    },
+    "findOrCreateCustomer": {
+      "displayName": "Find or Create Customer",
+      "description": "Finds or creates a customer",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer email address"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer first name"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Customer last name"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer company name"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer phone number"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Customer notes"
+        }
+      ]
+    },
+    "findOrCreateCustomersAddress": {
+      "displayName": "Find or Create Customer’s Address",
+      "description": "Finds or creates a customer’s address",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "state_or_province",
+          "displayName": "State/Province",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "country_code",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ISO 3166-1 alpha-2 country code"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "findOrCreateProduct": {
+      "displayName": "Find or Create Product",
+      "description": "Finds or creates a product",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "sku",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Product Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "weight",
+          "displayName": "Weight",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "brand_id",
+          "displayName": "Brand ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Brand ID"
+        }
+      ]
+    },
+    "searchCustomerAddress": {
+      "displayName": "Search Customer Address",
+      "description": "Searches for a customer’s address",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer name to search for"
+        }
+      ]
+    },
+    "searchCustomer": {
+      "displayName": "Search Customer",
+      "description": "Searches for a registered customer",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer email to search for"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone Number to search for"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer name to search for"
+        }
+      ]
+    },
+    "searchProduct": {
+      "displayName": "Search Product",
+      "description": "Searches for a product in the catalog",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product name to search for"
+        },
+        {
+          "name": "sku",
+          "displayName": "SKU",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product SKU to search for"
+        },
+        {
+          "name": "type",
+          "displayName": "Product Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "brand_id",
+          "displayName": "Brand ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Brand ID to search for"
+        },
+        {
+          "name": "weight",
+          "displayName": "Weight",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "abandonedCart": {
+      "displayName": "Abandoned Cart",
+      "description": "Triggers when a cart is abandoned",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "cartCreated": {
+      "displayName": "Cart Created",
+      "description": "Triggers when a new cart is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "customerAddressCreated": {
+      "displayName": "Customer Address Created",
+      "description": "Triggers when a new customer address is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "customerAddressUpdated": {
+      "displayName": "Customer Address Updated",
+      "description": "Triggers when a new customer address is updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "customerCreated": {
+      "displayName": "Customer Created",
+      "description": "Triggers when a new customer is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "customerUpdated": {
+      "displayName": "Customer Updated",
+      "description": "Triggers when a customer is updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "orderCreated": {
+      "displayName": "Order Created",
+      "description": "Triggers when a new order is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "orderStatusUpdated": {
+      "displayName": "Order Status Updated",
+      "description": "Triggers when an order status has changed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "orderUpdated": {
+      "displayName": "Order Updated",
+      "description": "Triggers when an order is updated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "productCreated": {
+      "displayName": "Product Created",
+      "description": "Triggers when a new product is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "shipmentCreated": {
+      "displayName": "Shipment Created",
+      "description": "Triggers when a new shipment is created",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

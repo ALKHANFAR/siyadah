@@ -1,0 +1,1159 @@
+{
+  "id": "checkout",
+  "displayName": "Checkout.com",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Store a customer\\",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The customer\\"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "phone_country_code",
+          "displayName": "Phone Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The international country calling code (e.g., +1, +44). Required if phone number is provided."
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number (6-25 characters). Required if country code is provided."
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional information about the customer. Maximum 10 key-value pairs, each up to 100 characters."
+        },
+        {
+          "name": "default",
+          "displayName": "Default Instrument ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the payment instrument to set as this customer\\"
+        }
+      ]
+    },
+    "create_payment_link": {
+      "displayName": "Create Payment Link",
+      "description": "Create a Payment Link to accept and process payment details.",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The payment amount in minor units (e.g., cents for USD)"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The three-letter ISO currency code (e.g., USD, EUR)"
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A reference to identify the payment (e.g., order number)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description of the payment"
+        },
+        {
+          "name": "billing_country",
+          "displayName": "Billing Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The two-letter ISO country code (e.g., US, GB)"
+        },
+        {
+          "name": "billing_address_line1",
+          "displayName": "Billing Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first line of the billing address"
+        },
+        {
+          "name": "billing_address_line2",
+          "displayName": "Billing Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The second line of the billing address"
+        },
+        {
+          "name": "billing_city",
+          "displayName": "Billing City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The billing address city"
+        },
+        {
+          "name": "billing_state",
+          "displayName": "Billing State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The state or province (ISO 3166-2 code)"
+        },
+        {
+          "name": "billing_zip",
+          "displayName": "Billing ZIP",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The billing address zip or postal code"
+        },
+        {
+          "name": "billing_phone_country_code",
+          "displayName": "Billing Phone Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The international country calling code (e.g., +1)"
+        },
+        {
+          "name": "billing_phone_number",
+          "displayName": "Billing Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number (6-25 characters)"
+        },
+        {
+          "name": "customer_email",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "customer_name",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "customer_phone_country_code",
+          "displayName": "Customer Phone Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The international country calling code (e.g., +1)"
+        },
+        {
+          "name": "customer_phone_number",
+          "displayName": "Customer Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "expires_in",
+          "displayName": "Expires In (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Time for which the link remains valid (default: 86400)"
+        },
+        {
+          "name": "display_name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The merchant name to display to customers on the checkout page"
+        },
+        {
+          "name": "return_url",
+          "displayName": "Return URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to redirect customer after successful payment"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language and region for the payment page"
+        },
+        {
+          "name": "allow_payment_methods",
+          "displayName": "Allow Payment Methods",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Specific payment methods to present to customers"
+        },
+        {
+          "name": "disabled_payment_methods",
+          "displayName": "Disabled Payment Methods",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Payment methods to NOT present to customers"
+        },
+        {
+          "name": "products",
+          "displayName": "Products",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Details about the products in the order"
+        },
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The descriptive name of the product"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of items"
+        },
+        {
+          "name": "price",
+          "displayName": "Price",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The price per item in minor units"
+        },
+        {
+          "name": "reference",
+          "displayName": "Product Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Product SKU or reference"
+        },
+        {
+          "name": "shipping_country",
+          "displayName": "Shipping Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The two-letter ISO country code for shipping"
+        },
+        {
+          "name": "shipping_address_line1",
+          "displayName": "Shipping Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first line of the shipping address"
+        },
+        {
+          "name": "shipping_address_line2",
+          "displayName": "Shipping Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The second line of the shipping address"
+        },
+        {
+          "name": "shipping_city",
+          "displayName": "Shipping City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The shipping address city"
+        },
+        {
+          "name": "shipping_state",
+          "displayName": "Shipping State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The state or province for shipping"
+        },
+        {
+          "name": "shipping_zip",
+          "displayName": "Shipping ZIP",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The shipping address zip or postal code"
+        },
+        {
+          "name": "payment_type",
+          "displayName": "Payment Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of payment for card transactions"
+        },
+        {
+          "name": "processing_channel_id",
+          "displayName": "Processing Channel ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The processing channel to be used for the payment. Find this in your Checkout.com dashboard under Settings > Processing Channels. Format: pc_xxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "capture",
+          "displayName": "Capture Payment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to capture the payment immediately"
+        },
+        {
+          "name": "enable_3ds",
+          "displayName": "Enable 3D Secure",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to process as 3D Secure payment"
+        },
+        {
+          "name": "challenge_3ds",
+          "displayName": "3DS Challenge Preference",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Preference for 3DS challenge"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional key-value pairs for transaction information"
+        }
+      ]
+    },
+    "create_payment": {
+      "displayName": "Create Payment",
+      "description": "Process and manage payments from various sources including card payments and payouts.",
+      "props": [
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The three-letter ISO currency code (e.g., USD, EUR)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The payment amount in minor units (e.g., cents for USD). Use 0 for card verification."
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Your reference for the payment (e.g., order number)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description of the payment"
+        },
+        {
+          "name": "source_type",
+          "displayName": "Payment Source Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of payment source"
+        },
+        {
+          "name": "card_number",
+          "displayName": "Card Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The card number (without separators). Required for card payments."
+        },
+        {
+          "name": "expiry_month",
+          "displayName": "Expiry Month",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The expiry month of the card (1-12)"
+        },
+        {
+          "name": "expiry_year",
+          "displayName": "Expiry Year",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The expiry year of the card (4 digits)"
+        },
+        {
+          "name": "cvv",
+          "displayName": "CVV",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The card verification code (3-4 digits)"
+        },
+        {
+          "name": "cardholder_name",
+          "displayName": "Cardholder Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the cardholder"
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer ID (for customer source type, e.g., cus_y3oqhf46pyzuxjocn2giaqnb44)"
+        },
+        {
+          "name": "token_id",
+          "displayName": "Token ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The token ID (for token source type)"
+        },
+        {
+          "name": "instrument_id",
+          "displayName": "Instrument ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The instrument ID (for instrument source type)"
+        },
+        {
+          "name": "billing_address_line1",
+          "displayName": "Billing Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first line of the billing address"
+        },
+        {
+          "name": "billing_address_line2",
+          "displayName": "Billing Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The second line of the billing address"
+        },
+        {
+          "name": "billing_city",
+          "displayName": "Billing City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The billing city"
+        },
+        {
+          "name": "billing_state",
+          "displayName": "Billing State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The billing state or province"
+        },
+        {
+          "name": "billing_zip",
+          "displayName": "Billing ZIP",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The billing ZIP or postal code"
+        },
+        {
+          "name": "billing_country",
+          "displayName": "Billing Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The two-letter ISO country code"
+        },
+        {
+          "name": "billing_phone_country_code",
+          "displayName": "Billing Phone Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The international country calling code (e.g., +1)"
+        },
+        {
+          "name": "billing_phone_number",
+          "displayName": "Billing Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number (6-25 characters)"
+        },
+        {
+          "name": "account_holder_first_name",
+          "displayName": "Account Holder First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the account holder"
+        },
+        {
+          "name": "account_holder_last_name",
+          "displayName": "Account Holder Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the account holder"
+        },
+        {
+          "name": "account_holder_middle_name",
+          "displayName": "Account Holder Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The middle name of the account holder"
+        },
+        {
+          "name": "customer_email",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "customer_name",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "customer_phone_country_code",
+          "displayName": "Customer Phone Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The international country calling code"
+        },
+        {
+          "name": "customer_phone_number",
+          "displayName": "Customer Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "shipping_first_name",
+          "displayName": "Shipping First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name for shipping"
+        },
+        {
+          "name": "shipping_last_name",
+          "displayName": "Shipping Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name for shipping"
+        },
+        {
+          "name": "shipping_email",
+          "displayName": "Shipping Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email for shipping notifications"
+        },
+        {
+          "name": "shipping_address_line1",
+          "displayName": "Shipping Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first line of the shipping address"
+        },
+        {
+          "name": "shipping_address_line2",
+          "displayName": "Shipping Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The second line of the shipping address"
+        },
+        {
+          "name": "shipping_city",
+          "displayName": "Shipping City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The shipping city"
+        },
+        {
+          "name": "shipping_state",
+          "displayName": "Shipping State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The shipping state or province"
+        },
+        {
+          "name": "shipping_zip",
+          "displayName": "Shipping ZIP",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The shipping ZIP or postal code"
+        },
+        {
+          "name": "shipping_country",
+          "displayName": "Shipping Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The two-letter ISO country code for shipping"
+        },
+        {
+          "name": "payment_type",
+          "displayName": "Payment Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of payment"
+        },
+        {
+          "name": "capture",
+          "displayName": "Capture Payment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to capture the payment immediately"
+        },
+        {
+          "name": "authorization_type",
+          "displayName": "Authorization Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of authorization"
+        },
+        {
+          "name": "enable_3ds",
+          "displayName": "Enable 3D Secure",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to process as 3D Secure payment"
+        },
+        {
+          "name": "challenge_3ds",
+          "displayName": "3DS Challenge Preference",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Preference for 3DS challenge"
+        },
+        {
+          "name": "allow_3ds_upgrade",
+          "displayName": "Allow 3DS Upgrade",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Process as 3DS if soft declined due to 3DS authentication required"
+        },
+        {
+          "name": "enable_risk_assessment",
+          "displayName": "Enable Risk Assessment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to perform risk assessment"
+        },
+        {
+          "name": "customer_ip",
+          "displayName": "Customer IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "processing_channel_id",
+          "displayName": "Processing Channel ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The processing channel to use for the payment"
+        },
+        {
+          "name": "previous_payment_id",
+          "displayName": "Previous Payment ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Link to existing payment series (for recurring payments)"
+        },
+        {
+          "name": "success_url",
+          "displayName": "Success URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Success redirect URL for redirect payment methods"
+        },
+        {
+          "name": "failure_url",
+          "displayName": "Failure URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Failure redirect URL for redirect payment methods"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional key-value pairs for transaction information"
+        }
+      ]
+    },
+    "get_payment_actions": {
+      "displayName": "Get Payment Actions",
+      "description": "Build full transaction lifecycles for audit logs.",
+      "props": [
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A reference, such as an order ID, that can be used to identify the payment"
+        },
+        {
+          "name": "paymentId",
+          "displayName": "Payment ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the payment to get actions for"
+        }
+      ]
+    },
+    "get_payment_details": {
+      "displayName": "Get Payment Details",
+      "description": "Check transaction amount and status before refunding.",
+      "props": [
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A reference, such as an order ID, that can be used to identify the payment"
+        },
+        {
+          "name": "paymentId",
+          "displayName": "Payment ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the payment to get details for"
+        }
+      ]
+    },
+    "refund_payment": {
+      "displayName": "Refund a Payment",
+      "description": "Issue a refund (full or partial) for a captured payment. Supports split refunds, line items, and bank account destinations.",
+      "props": [
+        {
+          "name": "reference",
+          "displayName": "Reference",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A reference, such as an order ID, that can be used to identify the payment"
+        },
+        {
+          "name": "payment_id",
+          "displayName": "Payment ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the payment to refund"
+        },
+        {
+          "name": "amount",
+          "displayName": "Refund Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The amount to refund in minor units. If not specified, full payment amount will be refunded."
+        },
+        {
+          "name": "refund_reference",
+          "displayName": "Refund Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Your reference for the refund (max 80 chars, 30 for Amex, 50 for TWINT)"
+        },
+        {
+          "name": "capture_action_id",
+          "displayName": "Capture Action ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The action ID of the capture to refund (only for PayPal and Riverty)"
+        },
+        {
+          "name": "amount_allocations",
+          "displayName": "Amount Allocations",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Split refund allocations for sub-entities"
+        },
+        {
+          "name": "id",
+          "displayName": "Sub-entity ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the sub-entity"
+        },
+        {
+          "name": "amount",
+          "displayName": "Split Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The amount to refund to this sub-entity in minor units"
+        },
+        {
+          "name": "reference",
+          "displayName": "Split Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Reference for this split (e.g., order number)"
+        },
+        {
+          "name": "commission_amount",
+          "displayName": "Commission Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Fixed commission amount in minor units"
+        },
+        {
+          "name": "commission_percentage",
+          "displayName": "Commission Percentage",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Commission percentage (0-100, supports up to 8 decimal places)"
+        },
+        {
+          "name": "items",
+          "displayName": "Line Items",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Order line items for the refund"
+        },
+        {
+          "name": "type",
+          "displayName": "Item Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The item type (e.g., physical, digital)"
+        },
+        {
+          "name": "name",
+          "displayName": "Item Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The descriptive name of the line item"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of line items"
+        },
+        {
+          "name": "unit_price",
+          "displayName": "Unit Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The unit price in minor currency units"
+        },
+        {
+          "name": "reference",
+          "displayName": "Item Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The item reference or product SKU"
+        },
+        {
+          "name": "total_amount",
+          "displayName": "Total Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The total cost including tax and discount in minor units"
+        },
+        {
+          "name": "tax_rate",
+          "displayName": "Tax Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Tax rate in minor units (e.g., 2000 = 20%)"
+        },
+        {
+          "name": "tax_amount",
+          "displayName": "Tax Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Total tax amount in minor units"
+        },
+        {
+          "name": "discount_amount",
+          "displayName": "Discount Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Discount applied to the line item"
+        },
+        {
+          "name": "url",
+          "displayName": "Product URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Link to the product page"
+        },
+        {
+          "name": "image_url",
+          "displayName": "Product Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Link to the product image"
+        },
+        {
+          "name": "destination_country",
+          "displayName": "Destination Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Two-letter ISO country code for bank account (required for giropay/EPS)"
+        },
+        {
+          "name": "destination_account_number",
+          "displayName": "Account Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The bank account number"
+        },
+        {
+          "name": "destination_bank_code",
+          "displayName": "Bank Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The code that identifies the bank"
+        },
+        {
+          "name": "destination_iban",
+          "displayName": "IBAN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "International Bank Account Number"
+        },
+        {
+          "name": "destination_swift_bic",
+          "displayName": "SWIFT BIC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "8 or 11-digit code identifying the bank"
+        },
+        {
+          "name": "account_holder_first_name",
+          "displayName": "Account Holder First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The account holder\\"
+        },
+        {
+          "name": "account_holder_last_name",
+          "displayName": "Account Holder Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The account holder\\"
+        },
+        {
+          "name": "account_holder_type",
+          "displayName": "Account Holder Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of account holder"
+        },
+        {
+          "name": "account_holder_company_name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company name for corporate account holders"
+        },
+        {
+          "name": "account_holder_email",
+          "displayName": "Account Holder Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The account holder\\"
+        },
+        {
+          "name": "account_holder_phone_country_code",
+          "displayName": "Phone Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "International country calling code"
+        },
+        {
+          "name": "account_holder_phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The account holder\\"
+        },
+        {
+          "name": "account_holder_address_line1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First line of the account holder\\"
+        },
+        {
+          "name": "account_holder_address_line2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Second line of the account holder\\"
+        },
+        {
+          "name": "account_holder_city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Account holder\\"
+        },
+        {
+          "name": "account_holder_state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Account holder\\"
+        },
+        {
+          "name": "account_holder_zip",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Account holder\\"
+        },
+        {
+          "name": "account_holder_country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Two-letter ISO country code"
+        },
+        {
+          "name": "bank_name",
+          "displayName": "Bank Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the bank"
+        },
+        {
+          "name": "bank_branch",
+          "displayName": "Bank Branch",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the bank branch"
+        },
+        {
+          "name": "bank_address_line1",
+          "displayName": "Bank Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First line of the bank\\"
+        },
+        {
+          "name": "bank_address_line2",
+          "displayName": "Bank Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Second line of the bank\\"
+        },
+        {
+          "name": "bank_city",
+          "displayName": "Bank City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The bank\\"
+        },
+        {
+          "name": "bank_country",
+          "displayName": "Bank Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Two-letter ISO country code for the bank"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional key-value pairs for the refund request"
+        }
+      ]
+    },
+    "update_customer": {
+      "displayName": "Update Customer",
+      "description": "Update existing customer or their metadata.",
+      "props": [
+        {
+          "name": "customerId",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer to update (e.g., cus_y3oqhf46pyzuxjocn2giaqnb44)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The customer\\"
+        },
+        {
+          "name": "phone_country_code",
+          "displayName": "Phone Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The international country calling code (e.g., +1, +44). Required if phone number is provided."
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number (6-25 characters). Required if country code is provided."
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional information about the customer. Will replace any existing metadata."
+        },
+        {
+          "name": "default",
+          "displayName": "Default Instrument ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of this customer\\"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "dispute_events": {
+      "displayName": "Dispute Events",
+      "description": "Notify operations upon dispute opening or resolution.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventTypes",
+          "displayName": "Event Types",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select the dispute events you want to listen for"
+        }
+      ]
+    },
+    "payment_events": {
+      "displayName": "Payment Events",
+      "description": "Trigger order fulfillment when payment is approved.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "eventTypes",
+          "displayName": "Event Types",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select the payment events you want to listen for"
+        }
+      ]
+    }
+  }
+}

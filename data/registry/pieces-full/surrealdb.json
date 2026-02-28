@@ -1,0 +1,27 @@
+{
+  "id": "surrealdb",
+  "package": "@activepieces/piece-surrealdb",
+  "display_name": "Connection URL",
+  "display_name_ar": "",
+  "description": "Connection string, e.g. http://1.2.3.5:8000.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "run-query",
+      "display_name": "Run Query",
+      "description": "Run a query in SurrealDB."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-row",
+      "display_name": "New Row",
+      "description": "Triggers when a new row is added to the defined table.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

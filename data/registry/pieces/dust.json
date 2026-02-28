@@ -1,0 +1,50 @@
+{
+  "id": "dust",
+  "package": "@activepieces/piece-dust",
+  "display_name": "API key",
+  "display_name_ar": "API key",
+  "description": "Dust authentication requires an API key.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addFragmentToConversation",
+      "display_name": "Add fragment to conversation",
+      "description": "Create a new content fragment in a conversation. Content fragments are pieces of information that can be inserted in conversations and are passed as context to assistants to when they generate an answer."
+    },
+    {
+      "name": "createConversation",
+      "display_name": "Create conversation",
+      "description": "Create a new conversation with a specific Dust assistant"
+    },
+    {
+      "name": "getConversation",
+      "display_name": "Get existing conversation",
+      "description": "Get an existing conversation"
+    },
+    {
+      "name": "replyToConversation",
+      "display_name": "Reply to conversation",
+      "description": "Send reply to existing conversation"
+    },
+    {
+      "name": "uploadFile",
+      "display_name": "Upload file",
+      "description": "Upload file to be used in conversation"
+    },
+    {
+      "name": "addDocument",
+      "display_name": "Add or update document",
+      "description": "Insert a new document to a Data Source (or update an existing one)"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/dust"
+}

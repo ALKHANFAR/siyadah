@@ -1,0 +1,20 @@
+{
+  "id": "thankster",
+  "package": "@activepieces/piece-thankster",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Go My Profile page to find your API Key at the bottom.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "send_handwritten_cards",
+      "display_name": "Send Cards",
+      "description": "Automatically send handwritten cards."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/thankster"
+}

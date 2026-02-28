@@ -1,0 +1,762 @@
+{
+  "id": "feathery",
+  "displayName": "Feathery",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_form": {
+      "displayName": "Create Form",
+      "description": "Create a form based on an existing template form.",
+      "props": [
+        {
+          "name": "form_name",
+          "displayName": "Form Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the new form (must be unique)."
+        },
+        {
+          "name": "template_form_id",
+          "displayName": "Template Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the template form to copy from."
+        },
+        {
+          "name": "enabled",
+          "displayName": "Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the created form should be enabled. If not set, inherits from template."
+        },
+        {
+          "name": "steps",
+          "displayName": "Steps",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Define the steps for your form."
+        },
+        {
+          "name": "step_id",
+          "displayName": "Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique ID for this step."
+        },
+        {
+          "name": "template_step_id",
+          "displayName": "Template Step ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the step to copy from the template. Leave empty to auto-create."
+        },
+        {
+          "name": "origin",
+          "displayName": "Is First Step",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true if this is the first step of the form."
+        },
+        {
+          "name": "step_images",
+          "displayName": "Step Images",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Edit image elements on steps."
+        },
+        {
+          "name": "step_id",
+          "displayName": "Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step containing this image."
+        },
+        {
+          "name": "id",
+          "displayName": "Image Element ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the image element to edit."
+        },
+        {
+          "name": "source_url",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New image URL."
+        },
+        {
+          "name": "asset",
+          "displayName": "Asset Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the image asset from the template theme."
+        },
+        {
+          "name": "step_videos",
+          "displayName": "Step Videos",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Edit video elements on steps."
+        },
+        {
+          "name": "step_id",
+          "displayName": "Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step containing this video."
+        },
+        {
+          "name": "id",
+          "displayName": "Video Element ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the video element to edit."
+        },
+        {
+          "name": "source_url",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New video URL."
+        },
+        {
+          "name": "asset",
+          "displayName": "Asset Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the video asset from the template theme."
+        },
+        {
+          "name": "step_texts",
+          "displayName": "Step Texts",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Edit text elements on steps."
+        },
+        {
+          "name": "step_id",
+          "displayName": "Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step containing this text element."
+        },
+        {
+          "name": "id",
+          "displayName": "Text Element ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the text element to edit."
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New text to display."
+        },
+        {
+          "name": "asset",
+          "displayName": "Asset Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the text asset from the template theme."
+        },
+        {
+          "name": "step_buttons",
+          "displayName": "Step Buttons",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Edit button elements on steps."
+        },
+        {
+          "name": "step_id",
+          "displayName": "Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step containing this button."
+        },
+        {
+          "name": "id",
+          "displayName": "Button Element ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the button to edit."
+        },
+        {
+          "name": "text",
+          "displayName": "Button Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Text to display on the button."
+        },
+        {
+          "name": "asset",
+          "displayName": "Asset Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the button asset from the template theme."
+        },
+        {
+          "name": "step_progress_bars",
+          "displayName": "Step Progress Bars",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Edit progress bar elements on steps."
+        },
+        {
+          "name": "step_id",
+          "displayName": "Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step containing this progress bar."
+        },
+        {
+          "name": "id",
+          "displayName": "Progress Bar ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the progress bar to edit."
+        },
+        {
+          "name": "progress",
+          "displayName": "Progress",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Progress percentage (0-100)."
+        },
+        {
+          "name": "asset",
+          "displayName": "Asset Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the progress bar asset from the template theme."
+        },
+        {
+          "name": "step_fields",
+          "displayName": "Step Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Edit field elements on steps."
+        },
+        {
+          "name": "step_id",
+          "displayName": "Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step containing this field."
+        },
+        {
+          "name": "id",
+          "displayName": "Field Element ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the field to copy."
+        },
+        {
+          "name": "field_id",
+          "displayName": "New Field ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID to set for the field. Links to existing field data if ID exists."
+        },
+        {
+          "name": "type",
+          "displayName": "Field Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of the field."
+        },
+        {
+          "name": "description",
+          "displayName": "Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Label/description of the field."
+        },
+        {
+          "name": "required",
+          "displayName": "Required",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the field is required."
+        },
+        {
+          "name": "placeholder",
+          "displayName": "Placeholder",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Placeholder text for the field."
+        },
+        {
+          "name": "tooltipText",
+          "displayName": "Tooltip Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Tooltip text for the field."
+        },
+        {
+          "name": "max_length",
+          "displayName": "Max Length",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of the field value."
+        },
+        {
+          "name": "min_length",
+          "displayName": "Min Length",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum length of the field value."
+        },
+        {
+          "name": "submit_trigger",
+          "displayName": "Submit Trigger",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Does filling out this field trigger step submission?"
+        },
+        {
+          "name": "asset",
+          "displayName": "Asset Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the field asset from the template theme."
+        },
+        {
+          "name": "navigation_rules",
+          "displayName": "Navigation Rules",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Define how users navigate between steps."
+        },
+        {
+          "name": "previous_step_id",
+          "displayName": "From Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step the user is coming from."
+        },
+        {
+          "name": "next_step_id",
+          "displayName": "To Step ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The step the user is going to."
+        },
+        {
+          "name": "trigger",
+          "displayName": "Trigger",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How navigation is triggered."
+        },
+        {
+          "name": "element_type",
+          "displayName": "Element Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of element that triggers navigation."
+        },
+        {
+          "name": "element_id",
+          "displayName": "Element ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the element that triggers navigation."
+        },
+        {
+          "name": "navigation_conditions",
+          "displayName": "Navigation Conditions",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Conditions for navigation rules. Reference the navigation rule by its index (0-based)."
+        },
+        {
+          "name": "rule_index",
+          "displayName": "Rule Index",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Index of the navigation rule (0 for first rule, 1 for second, etc.)."
+        },
+        {
+          "name": "comparison",
+          "displayName": "Comparison",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of comparison."
+        },
+        {
+          "name": "field_key",
+          "displayName": "Field Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the field to compare."
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to compare against."
+        },
+        {
+          "name": "logic_rules",
+          "displayName": "Logic Rules",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Advanced logic rules for the form."
+        },
+        {
+          "name": "name",
+          "displayName": "Rule Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the logic rule."
+        },
+        {
+          "name": "code",
+          "displayName": "JavaScript Code",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "JavaScript code to run."
+        },
+        {
+          "name": "trigger_event",
+          "displayName": "Trigger Event",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Event that triggers the rule."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Description of the logic rule."
+        },
+        {
+          "name": "index",
+          "displayName": "Execution Order",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Order in which this rule executes."
+        },
+        {
+          "name": "steps_csv",
+          "displayName": "Steps (comma-separated)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Step IDs that trigger the rule (for submit/load events). Separate with commas."
+        },
+        {
+          "name": "elements_csv",
+          "displayName": "Elements (comma-separated)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Element IDs that trigger the rule (for change/error/view/action events). Separate with commas."
+        }
+      ]
+    },
+    "delete_form": {
+      "displayName": "Delete Form",
+      "description": "Delete a specific form.",
+      "props": [
+        {
+          "name": "form_id",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the form to delete."
+        },
+        {
+          "name": "confirm_delete",
+          "displayName": "Confirm Delete",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Check to confirm deletion. This action cannot be undone."
+        }
+      ]
+    },
+    "export_submission_pdf": {
+      "displayName": "Export Form Submission PDF",
+      "description": "Create a PDF export for a specific form submission.",
+      "props": [
+        {
+          "name": "form_id",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the form to export submission from."
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the user whose submission to export."
+        }
+      ]
+    },
+    "list_form_submissions": {
+      "displayName": "List Form Submissions",
+      "description": "List submission data for a particular form.",
+      "props": [
+        {
+          "name": "form_id",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the form to get submissions for."
+        },
+        {
+          "name": "start_time",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Limit submissions to after this update time."
+        },
+        {
+          "name": "end_time",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Limit submissions to before this update time."
+        },
+        {
+          "name": "created_after",
+          "displayName": "Created After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Limit submissions to after this creation time."
+        },
+        {
+          "name": "created_before",
+          "displayName": "Created Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Limit submissions to before this creation time."
+        },
+        {
+          "name": "count",
+          "displayName": "Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Limit the number of returned submissions."
+        },
+        {
+          "name": "completed",
+          "displayName": "Completion Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by completion status."
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of field IDs to return."
+        },
+        {
+          "name": "no_field_values",
+          "displayName": "Exclude Field Values",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Don\\"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort the returned field values."
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default 500, max 1000)."
+        },
+        {
+          "name": "use_cache",
+          "displayName": "Use Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use cached data for faster response (may be a few minutes old)."
+        },
+        {
+          "name": "field_search",
+          "displayName": "Field Search",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Search for submissions with specific field values."
+        },
+        {
+          "name": "field_id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The field ID to search."
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to match."
+        },
+        {
+          "name": "fuzzy_search_threshold",
+          "displayName": "Fuzzy Search Threshold",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Score threshold between 0 and 1 for fuzzy search."
+        },
+        {
+          "name": "fuzzy_search_parameters",
+          "displayName": "Fuzzy Search Parameters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Fields and terms for fuzzy search. Weights must sum to 1."
+        },
+        {
+          "name": "field_id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The field to compare."
+        },
+        {
+          "name": "term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The term to search for."
+        },
+        {
+          "name": "weight",
+          "displayName": "Weight",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Importance of this field (0-1). All weights must sum to 1."
+        }
+      ]
+    },
+    "update_form": {
+      "displayName": "Update Form",
+      "description": "Update a form\\",
+      "props": [
+        {
+          "name": "form_id",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the form to update."
+        },
+        {
+          "name": "form_name",
+          "displayName": "Form Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New name for the form."
+        },
+        {
+          "name": "enabled",
+          "displayName": "Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the form should be enabled or disabled."
+        },
+        {
+          "name": "translations",
+          "displayName": "Translations",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add translations for form text. Note: This will override existing translations."
+        },
+        {
+          "name": "default_text",
+          "displayName": "Default Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The original text to translate."
+        },
+        {
+          "name": "language_code",
+          "displayName": "Language Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Language code (e.g., \"es\" for Spanish, \"fr\" for French)."
+        },
+        {
+          "name": "translation",
+          "displayName": "Translation",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The translated text."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "file_submitted": {
+      "displayName": "File Submitted",
+      "description": "Triggers when a file is submitted in your form, or when a document is signed/generated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "lookup_type",
+          "displayName": "Lookup By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to find document envelopes."
+        },
+        {
+          "name": "document_id",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the document template to monitor."
+        },
+        {
+          "name": "user_id",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the user to monitor for file submissions."
+        }
+      ]
+    },
+    "form_completed": {
+      "displayName": "Form Completed",
+      "description": "Triggers when a form is completed by an end user.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "form_id",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the form to monitor for completions."
+        }
+      ]
+    },
+    "new_submission": {
+      "displayName": "New Form Submission",
+      "description": "Triggers when a user submits data through your form.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "form_id",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the form to monitor for submissions."
+        }
+      ]
+    }
+  }
+}

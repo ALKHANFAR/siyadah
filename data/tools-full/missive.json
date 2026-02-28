@@ -1,0 +1,1152 @@
+{
+  "id": "missive",
+  "displayName": "Missive",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Add a new contact within a specified contact book",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Middle name of the contact"
+        },
+        {
+          "name": "phonetic_first_name",
+          "displayName": "Phonetic First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phonetic spelling of the first name"
+        },
+        {
+          "name": "phonetic_last_name",
+          "displayName": "Phonetic Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phonetic spelling of the last name"
+        },
+        {
+          "name": "phonetic_middle_name",
+          "displayName": "Phonetic Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phonetic spelling of the middle name"
+        },
+        {
+          "name": "prefix",
+          "displayName": "Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name prefix (e.g., Mr., Mrs., Dr.)"
+        },
+        {
+          "name": "suffix",
+          "displayName": "Suffix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name suffix (e.g., Jr., Sr., III)"
+        },
+        {
+          "name": "nickname",
+          "displayName": "Nickname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Nickname for the contact"
+        },
+        {
+          "name": "file_as",
+          "displayName": "File As",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "How the contact should be filed/sorted"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the contact"
+        },
+        {
+          "name": "starred",
+          "displayName": "Starred",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the contact should be starred"
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Gender of the contact"
+        },
+        {
+          "name": "infos",
+          "displayName": "Contact Information",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses, phone numbers, and other contact information"
+        },
+        {
+          "name": "kind",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of contact information"
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Label for contact info. Choose based on Type: Email(home,work,personal,other) | Phone(main,mobile,home,work,fax,pager,other) | Address(work,home,other) | Social(work,personal,other) | URL(homepage,profile,blog,work,personal,other)"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The actual contact information value (email, phone, URL, etc.)"
+        },
+        {
+          "name": "custom_label",
+          "displayName": "Custom Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom label value (only used when label is \"other\")"
+        },
+        {
+          "name": "name",
+          "displayName": "Facebook Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Facebook user name (only for facebook type)"
+        },
+        {
+          "name": "street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address (only for physical address type)"
+        },
+        {
+          "name": "extended_address",
+          "displayName": "Extended Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Extended address like apartment, suite (only for physical address type)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City (only for physical address type)"
+        },
+        {
+          "name": "region",
+          "displayName": "Region/State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Region or state (only for physical address type)"
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code (only for physical address type)"
+        },
+        {
+          "name": "po_box",
+          "displayName": "PO Box",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "PO Box (only for physical address type)"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country (only for physical address type)"
+        },
+        {
+          "name": "memberships",
+          "displayName": "Memberships",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Organizations and groups the contact belongs to"
+        },
+        {
+          "name": "memberships_array",
+          "displayName": "Memberships",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "placeholder",
+          "displayName": "Authenticate First",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please authenticate to access memberships"
+        },
+        {
+          "name": "memberships_array",
+          "displayName": "Memberships",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add, remove, and manage contact memberships"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of membership"
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select organization (only for Organization type)"
+        },
+        {
+          "name": "contact_group",
+          "displayName": "Contact Group",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Job title or role"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Location or office"
+        },
+        {
+          "name": "department",
+          "displayName": "Department",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Department"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Description of role or membership"
+        }
+      ]
+    },
+    "create_draft_post": {
+      "displayName": "Create Draft/Post",
+      "description": "Create a draft message or post in Missive, with option to send",
+      "props": [
+        {
+          "name": "message_type",
+          "displayName": "Message Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of message to create"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subject line (primarily for email)"
+        },
+        {
+          "name": "body",
+          "displayName": "Message Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of your message (supports HTML for email)"
+        },
+        {
+          "name": "message_fields",
+          "displayName": "Message Configuration",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Configure sender, recipients, and message-specific options"
+        },
+        {
+          "name": "placeholder",
+          "displayName": "Select Message Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please select a message type first"
+        },
+        {
+          "name": "address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "id",
+          "displayName": "Recipient ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "username",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "conversation_options",
+          "displayName": "Conversation Options",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Advanced conversation management options"
+        },
+        {
+          "name": "existing_conversation_id",
+          "displayName": "Authenticate First",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please authenticate to access conversation options"
+        },
+        {
+          "name": "references",
+          "displayName": "Message References",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Please authenticate to access conversation options"
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "team",
+          "displayName": "Team",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "force_team",
+          "displayName": "Force Team Assignment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "add_shared_labels",
+          "displayName": "Add Shared Labels",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "remove_shared_labels",
+          "displayName": "Remove Shared Labels",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "conversation_subject",
+          "displayName": "Conversation Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "conversation_color",
+          "displayName": "Conversation Color",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "add_to_inbox",
+          "displayName": "Add to Inbox",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "add_to_team_inbox",
+          "displayName": "Add to Team Inbox",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "close_conversation",
+          "displayName": "Close Conversation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "existing_conversation_id",
+          "displayName": "Existing Conversation ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Add to existing conversation (optional)"
+        },
+        {
+          "name": "references",
+          "displayName": "Message References",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Reference IDs to append to existing conversation"
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Message reference (e.g., <message-id@domain.com>)"
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Link conversation to organization"
+        },
+        {
+          "name": "team",
+          "displayName": "Team",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Link conversation to team"
+        },
+        {
+          "name": "force_team",
+          "displayName": "Force Team Assignment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Force new team even if conversation is in another team"
+        },
+        {
+          "name": "add_shared_labels",
+          "displayName": "Add Shared Labels",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Shared labels to add to conversation"
+        },
+        {
+          "name": "remove_shared_labels",
+          "displayName": "Remove Shared Labels",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Shared labels to remove from conversation"
+        },
+        {
+          "name": "conversation_subject",
+          "displayName": "Conversation Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subject for the conversation (if creating new)"
+        },
+        {
+          "name": "conversation_color",
+          "displayName": "Conversation Color",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Color for the conversation"
+        },
+        {
+          "name": "add_to_inbox",
+          "displayName": "Add to Inbox",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Move conversation to Inbox for everyone"
+        },
+        {
+          "name": "add_to_team_inbox",
+          "displayName": "Add to Team Inbox",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Move conversation to team inbox (requires team selection)"
+        },
+        {
+          "name": "close_conversation",
+          "displayName": "Close Conversation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Close the conversation for everyone"
+        },
+        {
+          "name": "send_immediately",
+          "displayName": "Send Immediately",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send the draft immediately instead of saving as draft"
+        },
+        {
+          "name": "schedule_send",
+          "displayName": "Schedule Send",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Schedule the message to be sent later"
+        },
+        {
+          "name": "send_at_timestamp",
+          "displayName": "Send At (Unix Timestamp)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Unix timestamp when to send the message (required if scheduling)"
+        },
+        {
+          "name": "auto_followup",
+          "displayName": "Auto Follow-up",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Cancel scheduled send if there is a reply (requires scheduling)"
+        },
+        {
+          "name": "attachments",
+          "displayName": "Attachments",
+          "type": "ARRAY",
+          "required": false,
+          "description": "File attachments (up to 25 files, max 10MB total)"
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the file (e.g., document.pdf)"
+        },
+        {
+          "name": "base64_data",
+          "displayName": "Base64 Data",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Base64-encoded file content"
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a task that can be standalone or associated with a conversation",
+      "props": [
+        {
+          "name": "task_type",
+          "displayName": "Task Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of task to create"
+        },
+        {
+          "name": "title",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the task (max 1000 characters)"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the task (max 10000 characters)"
+        },
+        {
+          "name": "state",
+          "displayName": "Task State",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Current state of the task"
+        },
+        {
+          "name": "due_at",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Due date for the task"
+        },
+        {
+          "name": "task_configuration",
+          "displayName": "Task Configuration",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Configure task assignment and organization based on task type"
+        },
+        {
+          "name": "placeholder",
+          "displayName": "Select Task Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please select a task type first"
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select user to assign"
+        },
+        {
+          "name": "reference",
+          "displayName": "Reference ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Message reference (e.g., <message-id@domain.com>)"
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select user to assign"
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select user to add to conversation"
+        }
+      ]
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Search for contacts by text, email, name, or any contact information",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search across all contact information including name, email, phone, organization, custom fields, notes, etc. Leave empty to get all contacts."
+        },
+        {
+          "name": "search_options",
+          "displayName": "Search & Filter Options",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Configure how to search and filter contacts"
+        },
+        {
+          "name": "order",
+          "displayName": "Please Authenticate",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Please authenticate to access search options"
+        },
+        {
+          "name": "limit",
+          "displayName": "Results Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "modified_since",
+          "displayName": "Modified Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "include_deleted",
+          "displayName": "Include Deleted Contacts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to order the contact results"
+        },
+        {
+          "name": "limit",
+          "displayName": "Results Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of contacts to return (1-200)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of contacts to skip (for pagination)"
+        },
+        {
+          "name": "modified_since",
+          "displayName": "Modified Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return contacts modified or created after this date/time"
+        },
+        {
+          "name": "include_deleted",
+          "displayName": "Include Deleted Contacts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include deleted contacts when using \"Modified Since\" filter (only shows ID and deleted status)"
+        },
+        {
+          "name": "result_format",
+          "displayName": "Result Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to format the returned contact data"
+        }
+      ]
+    },
+    "update_contact": {
+      "displayName": "Update Contact",
+      "description": "Modify fields for an existing contact",
+      "props": [
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact to update"
+        },
+        {
+          "name": "move_to_contact_book",
+          "displayName": "Move to Contact Book",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Move contact to a different contact book (optional)"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Middle name of the contact"
+        },
+        {
+          "name": "phonetic_first_name",
+          "displayName": "Phonetic First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phonetic spelling of the first name"
+        },
+        {
+          "name": "phonetic_last_name",
+          "displayName": "Phonetic Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phonetic spelling of the last name"
+        },
+        {
+          "name": "phonetic_middle_name",
+          "displayName": "Phonetic Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phonetic spelling of the middle name"
+        },
+        {
+          "name": "prefix",
+          "displayName": "Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name prefix (e.g., Mr., Mrs., Dr.)"
+        },
+        {
+          "name": "suffix",
+          "displayName": "Suffix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name suffix (e.g., Jr., Sr., III)"
+        },
+        {
+          "name": "nickname",
+          "displayName": "Nickname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Nickname for the contact"
+        },
+        {
+          "name": "file_as",
+          "displayName": "File As",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "How the contact should be filed/sorted"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the contact"
+        },
+        {
+          "name": "starred",
+          "displayName": "Starred",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the contact should be starred"
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Gender of the contact"
+        },
+        {
+          "name": "infos",
+          "displayName": "Contact Information",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses, phone numbers, and other contact information. Note: When updating infos, all existing infos will be replaced with the ones provided here."
+        },
+        {
+          "name": "kind",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of contact information"
+        },
+        {
+          "name": "label",
+          "displayName": "Label",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Label for this contact information"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The actual contact information value"
+        },
+        {
+          "name": "custom_label",
+          "displayName": "Custom Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom label value (use only if label is \"other\")"
+        },
+        {
+          "name": "street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Street address (for physical address)"
+        },
+        {
+          "name": "extended_address",
+          "displayName": "Extended Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Extended address (e.g., apartment, suite)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City (for physical address)"
+        },
+        {
+          "name": "region",
+          "displayName": "Region/State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Region or state (for physical address)"
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Postal code (for physical address)"
+        },
+        {
+          "name": "po_box",
+          "displayName": "PO Box",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "PO Box (for physical address)"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country (for physical address)"
+        },
+        {
+          "name": "name",
+          "displayName": "Facebook Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Facebook user name (for facebook type)"
+        },
+        {
+          "name": "memberships",
+          "displayName": "Memberships",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Organizations and groups the contact belongs to. Note: When updating memberships, all existing memberships will be replaced with the ones provided here."
+        },
+        {
+          "name": "memberships_array",
+          "displayName": "Memberships",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Please authenticate first"
+        },
+        {
+          "name": "placeholder",
+          "displayName": "Authenticate First",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Please authenticate to access memberships"
+        },
+        {
+          "name": "memberships_array",
+          "displayName": "Memberships",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add, remove, and manage contact memberships. All existing memberships will be replaced."
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of membership"
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select organization (only for Organization type)"
+        },
+        {
+          "name": "contact_group",
+          "displayName": "Contact Group",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Job title or role"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Location or office"
+        },
+        {
+          "name": "department",
+          "displayName": "Department",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Department"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Description of role or membership"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_comment": {
+      "displayName": "New Comment",
+      "description": "Triggers when new comments are added to conversations",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_contact_book": {
+      "displayName": "New Contact Book",
+      "description": "Triggers when new contact books are created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_contact_group": {
+      "displayName": "New Contact Group",
+      "description": "Triggers when new contact groups are created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Triggers when new contacts are added to contact books",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_message": {
+      "displayName": "New Message",
+      "description": "Triggers when new messages are received (email, SMS, WhatsApp, Facebook, etc.)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setupInstructions",
+          "displayName": "setupInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "anyhook-graphql",
+  "displayName": "AnyHook GraphQL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {},
+  "triggers": {
+    "graphql_subscription_trigger": {
+      "displayName": "New GraphQL Subscription Event",
+      "description": "Triggers on a new GraphQL subscription event",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "websocketUrl",
+          "displayName": "Endpoint URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The GraphQL websocket to connect to."
+        },
+        {
+          "name": "headers",
+          "displayName": "Headers",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Custom headers for the GraphQL connection, such as authentication tokens."
+        },
+        {
+          "name": "query",
+          "displayName": "GraphQL Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "GraphQL subscription query to listen to events"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "help-scout",
+  "package": "@activepieces/piece-help-scout",
+  "display_name": "Help Scout",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_note",
+      "display_name": "Add Note",
+      "description": "Adds a note to a conversation."
+    },
+    {
+      "name": "create_conversation",
+      "display_name": "Create Conversation",
+      "description": "Start a new conversation."
+    },
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Adds a new customer to Help Scout."
+    },
+    {
+      "name": "find_conversation",
+      "display_name": "Find Conversation",
+      "description": "Finds an existing conversation using provided filter."
+    },
+    {
+      "name": "find_customer",
+      "display_name": "Find Customer",
+      "description": "Finds a customer by email."
+    },
+    {
+      "name": "find_user",
+      "display_name": "Find User",
+      "description": "Finds a user by email."
+    },
+    {
+      "name": "send_reply",
+      "display_name": "Send Reply",
+      "description": "Sends a reply in an existing conversation."
+    },
+    {
+      "name": "update_customer_properties",
+      "display_name": "Update Customer Properties",
+      "description": "Updates customer's properties."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "conversation_assigned",
+      "display_name": "Conversation Assigned",
+      "description": "Triggers when a conversation is assigned to a user.",
+      "type": "instant"
+    },
+    {
+      "name": "conversation_created",
+      "display_name": "Conversation Created",
+      "description": "Triggers when a new conversation is started in a mailbox.",
+      "type": "instant"
+    },
+    {
+      "name": "new_customer",
+      "display_name": "New Customer",
+      "description": "Triggers when a new customer is added.",
+      "type": "instant"
+    },
+    {
+      "name": "tags_updated",
+      "display_name": "Tags Updated",
+      "description": "Triggers when tags on a conversation are modified.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

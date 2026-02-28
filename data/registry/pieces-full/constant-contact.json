@@ -1,0 +1,25 @@
+{
+  "id": "constant-contact",
+  "package": "@activepieces/piece-constant-contact",
+  "display_name": "Constant Contact",
+  "display_name_ar": "",
+  "description": "Email marketing for small businesses",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_or_update_contact",
+      "display_name": "Create or Update Contact",
+      "description": "Create or Update a contact in Constant Contact"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

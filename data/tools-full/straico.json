@@ -1,0 +1,485 @@
+{
+  "id": "straico",
+  "displayName": "Straico",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "agent-add-rag": {
+      "displayName": "Add RAG to Agent",
+      "description": "Adds a new RAG to an agent in the database for the user.",
+      "props": [
+        {
+          "name": "rag_id",
+          "displayName": "RAG ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The ID of the RAG to add to the agent"
+        }
+      ]
+    },
+    "agent-create": {
+      "displayName": "Create Agent",
+      "description": "Creates a new agent in the database for the user.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A name for the agent"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A brief description of what the model does"
+        },
+        {
+          "name": "custom_prompt",
+          "displayName": "Custom Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A model that the agent will use for processing prompts"
+        },
+        {
+          "name": "default_llm",
+          "displayName": "Default LLM",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The language model which the agent will use for processing prompts"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "An array of tags for the agent. Example: [\"assistant\",\"tag\"]"
+        }
+      ]
+    },
+    "agent_delete": {
+      "displayName": "Delete Agent",
+      "description": "Delete a specific agent by its ID",
+      "props": []
+    },
+    "agent_get": {
+      "displayName": "Get Agent Details",
+      "description": "Retrieve details of a specific agent",
+      "props": []
+    },
+    "agent-list": {
+      "displayName": "List Agents",
+      "description": "Retrieves the list of agents created by and available to the user.",
+      "props": []
+    },
+    "agent_prompt_completion": {
+      "displayName": "Agent Prompt Completion",
+      "description": "Prompt an agent with a message and get a response",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text prompt for the agent"
+        },
+        {
+          "name": "searchType",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The search type to use for RAG model"
+        },
+        {
+          "name": "k",
+          "displayName": "Number of Documents",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of documents to return"
+        },
+        {
+          "name": "fetchK",
+          "displayName": "Fetch K",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Amount of documents to pass to MMR algorithm"
+        },
+        {
+          "name": "lambdaMult",
+          "displayName": "Lambda Mult",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Diversity of results returned by MMR (0 for minimum, 1 for maximum)"
+        },
+        {
+          "name": "scoreThreshold",
+          "displayName": "Score Threshold",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum relevance threshold for similarity_score_threshold"
+        }
+      ]
+    },
+    "agent_update": {
+      "displayName": "Update Agent",
+      "description": "Update the details of a specific agent",
+      "props": [
+        {
+          "name": "agentId",
+          "displayName": "Agent",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the agent to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New name for the agent"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New description for the agent"
+        },
+        {
+          "name": "customPrompt",
+          "displayName": "Custom Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New custom prompt for the agent"
+        },
+        {
+          "name": "defaultLlm",
+          "displayName": "Default LLM",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "New default LLM for the agent"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "New status for the agent"
+        },
+        {
+          "name": "visibility",
+          "displayName": "Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "New visibility setting for the agent"
+        }
+      ]
+    },
+    "file_upload": {
+      "displayName": "Upload File",
+      "description": "Upload a file to Straico API for processing.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload. Supported file types: pdf, docx, pptx, txt, xlsx, mp3, mp4, html, csv, json, py, php, js, css, cs, swift, kt, xml, ts, png, jpg, jpeg, webp, gif"
+        }
+      ]
+    },
+    "image_generation": {
+      "displayName": "Image Generation",
+      "description": "Enables users to generate high-quality images based on textual descriptions.",
+      "props": [
+        {
+          "name": "variations",
+          "displayName": "Number of Images",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Number of images to generate."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the image generation model."
+        },
+        {
+          "name": "size",
+          "displayName": "Image Dimensions",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The desired image dimensions."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A detailed textual description of the image to be generated."
+        }
+      ]
+    },
+    "prompt_completion": {
+      "displayName": "Ask AI",
+      "description": "Enables users to generate prompt completion based on a specified model.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The prompt text for which completions are requested"
+        },
+        {
+          "name": "fileUrls",
+          "displayName": "File URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "URLs of files to be processed by the model (maximum 4 URLs), previously uploaded via the File Upload endpoint"
+        },
+        {
+          "name": "youtubeUrls",
+          "displayName": "YouTube URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "URLs of YouTube videos to be processed by the model (maximum 4 URLs)"
+        },
+        {
+          "name": "imageUrls",
+          "displayName": "Image URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "URLs of images to be processed by the model, previously uploaded via the File Upload endpoint"
+        },
+        {
+          "name": "displayTranscripts",
+          "displayName": "Display Transcripts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, returns transcripts of the files. Note: Either File URLs or YouTube URLs are required when this is enabled"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "This setting influences the variety in the model\\"
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Set the limit for the number of tokens the model can generate in response"
+        }
+      ]
+    },
+    "create_rag": {
+      "displayName": "Create RAG",
+      "description": "Create a new RAG (Retrieval-Augmented Generation) base in the database.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Represents the name of the RAG base"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Represents the description of the agent"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "Represents the file to be attached. Accepted file extensions are: pdf, docx, csv, txt, xlsx, py"
+        },
+        {
+          "name": "chunkingMethod",
+          "displayName": "Chunking Method",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Represents the chunking method to be used for generating the RAG base. The default value is fixed_size"
+        },
+        {
+          "name": "chunkSize",
+          "displayName": "Chunk Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The size of each chunk (default: 1000)"
+        },
+        {
+          "name": "chunkOverlap",
+          "displayName": "Chunk Overlap",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The overlap between chunks (default: 50)"
+        },
+        {
+          "name": "separator",
+          "displayName": "Separator",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The separator to use for fixed_size chunking method"
+        },
+        {
+          "name": "separators",
+          "displayName": "Separators",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The separators to use for recursive chunking method"
+        },
+        {
+          "name": "breakpointThresholdType",
+          "displayName": "Breakpoint Threshold Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The breakpoint threshold type for semantic chunking method"
+        },
+        {
+          "name": "bufferSize",
+          "displayName": "Buffer Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The buffer size for semantic chunking method"
+        }
+      ]
+    },
+    "delete_rag": {
+      "displayName": "Delete RAG",
+      "description": "Delete a specific RAG (Retrieval-Augmented Generation) base by its ID.",
+      "props": [
+        {
+          "name": "ragId",
+          "displayName": "RAG ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the RAG base to delete"
+        }
+      ]
+    },
+    "get_rag_by_id": {
+      "displayName": "Get RAG by ID",
+      "description": "Retrieve a specific RAG (Retrieval-Augmented Generation) base by its ID.",
+      "props": [
+        {
+          "name": "ragId",
+          "displayName": "RAG ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the RAG base to retrieve."
+        }
+      ]
+    },
+    "list_rags": {
+      "displayName": "List RAGs",
+      "description": "List all RAG (Retrieval-Augmented Generation) bases for a user.",
+      "props": []
+    },
+    "rag_prompt_completion": {
+      "displayName": "RAG Prompt Completion",
+      "description": "Send a prompt to a specific RAG (Retrieval-Augmented Generation) model.",
+      "props": [
+        {
+          "name": "ragId",
+          "displayName": "RAG ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the RAG base to query"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A text prompt for the RAG model"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The specific LLM to be used"
+        },
+        {
+          "name": "searchType",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of search to perform"
+        },
+        {
+          "name": "k",
+          "displayName": "Number of Documents",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of documents to return"
+        },
+        {
+          "name": "fetchK",
+          "displayName": "Fetch K",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Amount of documents to pass to MMR algorithm"
+        },
+        {
+          "name": "lambdaMult",
+          "displayName": "Lambda Mult",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Diversity of results return by MMR (1 for minimum and 0 for maximum)"
+        },
+        {
+          "name": "scoreThreshold",
+          "displayName": "Score Threshold",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum relevance threshold for similarity_score_threshold"
+        }
+      ]
+    },
+    "update_rag": {
+      "displayName": "Update RAG",
+      "description": "Update an existing RAG (Retrieval-Augmented Generation) base with additional files.",
+      "props": [
+        {
+          "name": "ragId",
+          "displayName": "RAG ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the RAG base to update."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "Represents the file to be attached. Accepted file extensions are: pdf, docx, csv, txt, xlsx, py."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

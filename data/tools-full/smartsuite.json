@@ -1,0 +1,88 @@
+{
+  "id": "smartsuite",
+  "displayName": "SmartSuite",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_record": {
+      "displayName": "Create a Record",
+      "description": "Creates a new record in the specified table.",
+      "props": []
+    },
+    "delete_record": {
+      "displayName": "Delete a Record",
+      "description": "Deletes a record from the specified table",
+      "props": []
+    },
+    "find_records": {
+      "displayName": "Find Records",
+      "description": "Searches for records in the specified table based on criteria.",
+      "props": [
+        {
+          "name": "searchField",
+          "displayName": "Search Field",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get_record": {
+      "displayName": "Get a Record",
+      "description": "Retrieves a specific record by ID",
+      "props": []
+    },
+    "update_record": {
+      "displayName": "Update a Record",
+      "description": "Updates an existing record in the specified table",
+      "props": []
+    },
+    "upload_file": {
+      "displayName": "Upload File",
+      "description": "Uploads a file and attaches it to a record.",
+      "props": [
+        {
+          "name": "field",
+          "displayName": "Search Field",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_record": {
+      "displayName": "New Record",
+      "description": "Triggers when a new record is created in the specified table",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updated_record": {
+      "displayName": "Updated Record",
+      "description": "Triggers when a record is updated in the specified table.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

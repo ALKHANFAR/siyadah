@@ -1,0 +1,60 @@
+{
+  "id": "hedy",
+  "package": "@activepieces/piece-hedy",
+  "display_name": "Hedy",
+  "display_name_ar": "Hedy",
+  "description": "AI-powered meeting intelligence – be the brightest person in the room.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "get-session",
+      "display_name": "Get Session",
+      "description": "Retrieve a specific session by ID."
+    },
+    {
+      "name": "list-sessions",
+      "display_name": "List Sessions",
+      "description": "Retrieve multiple sessions with optional topic filtering and pagination."
+    },
+    {
+      "name": "list-todos",
+      "display_name": "List Todos",
+      "description": "Retrieve todos assigned to you in Hedy."
+    },
+    {
+      "name": "list-session-todos",
+      "display_name": "List Session Todos",
+      "description": "Retrieve todos generated for a specific session."
+    },
+    {
+      "name": "get-highlight",
+      "display_name": "Get Highlight",
+      "description": "Retrieve a specific highlight by ID."
+    },
+    {
+      "name": "list-highlights",
+      "display_name": "List Highlights",
+      "description": "Retrieve highlights with optional topic filtering and pagination."
+    },
+    {
+      "name": "get-topic",
+      "display_name": "Get Topic",
+      "description": "Retrieve details for a specific topic."
+    },
+    {
+      "name": "list-topics",
+      "display_name": "List Topics",
+      "description": "Retrieve all topics from your Hedy workspace."
+    },
+    {
+      "name": "list-topic-sessions",
+      "display_name": "List Topic Sessions",
+      "description": "Retrieve sessions associated with a specific topic."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/hedy"
+}

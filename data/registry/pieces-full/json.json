@@ -1,0 +1,25 @@
+{
+  "id": "json",
+  "package": "@activepieces/piece-json",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Please use **test-key** as value for API Key",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "convert_json_to_text",
+      "display_name": "Convert Json to Text",
+      "description": "Stringifies JSON."
+    },
+    {
+      "name": "convert_text_to_json",
+      "display_name": "Convert Text to Json",
+      "description": "Parses text into JSON."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

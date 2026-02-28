@@ -1,0 +1,62 @@
+{
+  "id": "sitespeakai",
+  "displayName": "SiteSpeakAI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_finetune": {
+      "displayName": "Create Finetune",
+      "description": "Adds a new fine-tune (question + suggested answer) for the specified chatbot in SiteSpeakAI.",
+      "props": [
+        {
+          "name": "question",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question text you want the chatbot to be able to answer."
+        },
+        {
+          "name": "suggestedAnswer",
+          "displayName": "Suggested Answer",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The answer you suggest the chatbot use for that question."
+        }
+      ]
+    },
+    "delete_finetune": {
+      "displayName": "Delete Finetune",
+      "description": "Deletes a fine-tune entry from the selected chatbot.",
+      "props": []
+    },
+    "sendQuery": {
+      "displayName": "Send Query",
+      "description": "Sends a query to the specified chatbot and retrieves a response.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question or query text you want the chatbot to answer."
+        },
+        {
+          "name": "format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the returned response; markdown or html."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newLead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead with an email address is created in SiteSpeakAI.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "google-slides",
+  "displayName": "Google Slides",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "generate_from_template": {
+      "displayName": "Generate from template",
+      "description": "Generate a new slide from a template",
+      "props": [
+        {
+          "name": "template_presentation_id",
+          "displayName": "Template presentation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the templated presentation"
+        },
+        {
+          "name": "placeholder_format",
+          "displayName": "Placeholder Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the format of placeholders in your template"
+        },
+        {
+          "name": "table_data",
+          "displayName": "Table Data",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Title of the new presentation"
+        },
+        {
+          "name": "title",
+          "displayName": "Presentation Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the new presentation"
+        }
+      ]
+    },
+    "get_presentation": {
+      "displayName": "Get Presentation",
+      "description": "Get all slides from a presentation",
+      "props": [
+        {
+          "name": "presentation_id",
+          "displayName": "Presentation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the presentation"
+        }
+      ]
+    },
+    "refresh_sheets_charts": {
+      "displayName": "Refresh Sheets Charts",
+      "description": "Refresh all Google Sheets charts in the presentation",
+      "props": [
+        {
+          "name": "presentation_id",
+          "displayName": "Presentation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the presentation, between /d and /edit"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

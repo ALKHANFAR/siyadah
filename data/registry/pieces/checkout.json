@@ -1,0 +1,63 @@
+{
+  "id": "checkout",
+  "package": "@activepieces/piece-checkout",
+  "display_name": "Checkout.com",
+  "display_name_ar": "Checkout.com",
+  "description": "Checkout.com integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Store a customer\\"
+    },
+    {
+      "name": "create_payment_link",
+      "display_name": "Create Payment Link",
+      "description": "Create a Payment Link to accept and process payment details."
+    },
+    {
+      "name": "create_payment",
+      "display_name": "Create Payment",
+      "description": "Process and manage payments from various sources including card payments and payouts."
+    },
+    {
+      "name": "get_payment_actions",
+      "display_name": "Get Payment Actions",
+      "description": "Build full transaction lifecycles for audit logs."
+    },
+    {
+      "name": "get_payment_details",
+      "display_name": "Get Payment Details",
+      "description": "Check transaction amount and status before refunding."
+    },
+    {
+      "name": "refund_payment",
+      "display_name": "Refund a Payment",
+      "description": "Issue a refund (full or partial) for a captured payment. Supports split refunds, line items, and bank account destinations."
+    },
+    {
+      "name": "update_customer",
+      "display_name": "Update Customer",
+      "description": "Update existing customer or their metadata."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "dispute_events",
+      "display_name": "Dispute Events",
+      "description": "Notify operations upon dispute opening or resolution.",
+      "type": "instant"
+    },
+    {
+      "name": "payment_events",
+      "display_name": "Payment Events",
+      "description": "Trigger order fulfillment when payment is approved.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/checkout"
+}

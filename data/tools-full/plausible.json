@@ -1,0 +1,243 @@
+{
+  "id": "plausible",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_custom_property": {
+      "displayName": "Create Custom Property",
+      "description": "Create a custom property for a site",
+      "props": [
+        {
+          "name": "property",
+          "displayName": "Property Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the custom property"
+        }
+      ]
+    },
+    "create_goal": {
+      "displayName": "Create Goal",
+      "description": "Find or create a goal for a site",
+      "props": [
+        {
+          "name": "goal_type",
+          "displayName": "Goal Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of goal to create"
+        },
+        {
+          "name": "event_name",
+          "displayName": "Event Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the event (required if goal type is Event)"
+        },
+        {
+          "name": "page_path",
+          "displayName": "Page Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Page path to track (required if goal type is Page). Supports wildcards."
+        },
+        {
+          "name": "display_name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom display name for the goal in the dashboard"
+        }
+      ]
+    },
+    "create_shared_link": {
+      "displayName": "Create Shared Link",
+      "description": "Find or create a shared link for a site",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Link Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the shared link (e.g., Wordpress)"
+        }
+      ]
+    },
+    "create_site": {
+      "displayName": "Create Site",
+      "description": "Create a new site in your Plausible account",
+      "props": [
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Domain of the site (must be globally unique)"
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Timezone name according to IANA database (e.g., Europe/London). Defaults to Etc/UTC"
+        },
+        {
+          "name": "track_404_pages",
+          "displayName": "Track 404 Pages",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable tracking of 404 error pages"
+        },
+        {
+          "name": "hash_based_routing",
+          "displayName": "Hash-Based Routing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable hash-based routing for single-page applications"
+        },
+        {
+          "name": "outbound_links",
+          "displayName": "Outbound Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Track clicks on outbound links"
+        },
+        {
+          "name": "file_downloads",
+          "displayName": "File Downloads",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Track file downloads"
+        },
+        {
+          "name": "form_submissions",
+          "displayName": "Form Submissions",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Track form submissions"
+        }
+      ]
+    },
+    "delete_custom_property": {
+      "displayName": "Delete Custom Property",
+      "description": "Delete a custom property from a site",
+      "props": []
+    },
+    "delete_goal": {
+      "displayName": "Delete Goal",
+      "description": "Delete a goal from a site",
+      "props": []
+    },
+    "delete_site": {
+      "displayName": "Delete Site",
+      "description": "Delete a site and all its data from your Plausible account. This action is permanent and may take up to 48 hours to complete.",
+      "props": []
+    },
+    "get_site": {
+      "displayName": "Get Site",
+      "description": "Get details of a site including tracker script configuration",
+      "props": []
+    },
+    "invite_guest": {
+      "displayName": "Invite Guest",
+      "description": "Invite a guest to access a site or find an existing invitation",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Guest's email address"
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Role to assign to the guest"
+        }
+      ]
+    },
+    "list_custom_properties": {
+      "displayName": "List Custom Properties",
+      "description": "Get a list of custom properties for a site",
+      "props": []
+    },
+    "list_goals": {
+      "displayName": "List Goals",
+      "description": "Get a list of goals for a site",
+      "props": []
+    },
+    "list_guests": {
+      "displayName": "List Guests",
+      "description": "Get a list of guests for a site",
+      "props": []
+    },
+    "list_sites": {
+      "displayName": "List Sites",
+      "description": "Get a list of sites your Plausible account can access",
+      "props": []
+    },
+    "list_teams": {
+      "displayName": "List Teams",
+      "description": "Get a list of teams your Plausible account can access",
+      "props": []
+    },
+    "remove_guest": {
+      "displayName": "Remove Guest",
+      "description": "Remove a guest or invitation from a site",
+      "props": []
+    },
+    "update_site": {
+      "displayName": "Update Site",
+      "description": "Update an existing site in your Plausible account",
+      "props": [
+        {
+          "name": "new_domain",
+          "displayName": "New Domain",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New domain name for the site (leave empty to keep current)"
+        },
+        {
+          "name": "track_404_pages",
+          "displayName": "Track 404 Pages",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable tracking of 404 error pages"
+        },
+        {
+          "name": "hash_based_routing",
+          "displayName": "Hash-Based Routing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable hash-based routing for single-page applications"
+        },
+        {
+          "name": "outbound_links",
+          "displayName": "Outbound Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Track clicks on outbound links"
+        },
+        {
+          "name": "file_downloads",
+          "displayName": "File Downloads",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Track file downloads"
+        },
+        {
+          "name": "form_submissions",
+          "displayName": "Form Submissions",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Track form submissions"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

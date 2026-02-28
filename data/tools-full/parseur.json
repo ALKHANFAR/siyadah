@@ -1,0 +1,151 @@
+{
+  "id": "parseur",
+  "displayName": "Parseur",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createDocumentFromFile": {
+      "displayName": "Create Document from File",
+      "description": "Creates new document in mailbox from file.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "Select the file to upload"
+        }
+      ]
+    },
+    "createDocument": {
+      "displayName": "Create Document",
+      "description": "Creates a new document.",
+      "props": [
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The subject of the document/email."
+        },
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The sender email address."
+        },
+        {
+          "name": "recipient",
+          "displayName": "Recipient",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient email address."
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The \"To\" email address."
+        },
+        {
+          "name": "cc",
+          "displayName": "CC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The \"CC\" email address."
+        },
+        {
+          "name": "bcc",
+          "displayName": "BCC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The \"BCC\" email address."
+        },
+        {
+          "name": "body_html",
+          "displayName": "Body HTML",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The HTML content of the document/email."
+        },
+        {
+          "name": "body_plain",
+          "displayName": "Body Plain",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The plain text content of the document/email."
+        },
+        {
+          "name": "message_headers",
+          "displayName": "Message Headers",
+          "type": "OBJECT",
+          "required": false,
+          "description": "A JSON object representing the email headers (key-value pairs)."
+        }
+      ]
+    },
+    "findDocument": {
+      "displayName": "Find Document",
+      "description": "Finds a document based on search param.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The search term to filter documents by name. Case insensitive. If empty, all documents are returned."
+        }
+      ]
+    },
+    "getParsedDocumentById": {
+      "displayName": "Get Parsed Document by ID",
+      "description": "Fetch parsed JSON / structured output for a given document ID",
+      "props": []
+    },
+    "reprocessDocument": {
+      "displayName": "Reprocess Document",
+      "description": "Send an existing document back through parsing (e.g. after updating template).",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newDocumentExportFailed": {
+      "displayName": "New Document Export Failed",
+      "description": "Fires when an automated export endpoint (webhook / integration) fails for a processed document.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newDocumentNotProcessed": {
+      "displayName": "New Document Not Processed",
+      "description": "Fires when Parseur fails to parse a document (e.g. no matching template).",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newDocumentProcessed": {
+      "displayName": "New Document Processed",
+      "description": "Fires when a new document is successfully processed and parsed by Parseur.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newMailbox": {
+      "displayName": "New Mailbox",
+      "description": "Fires when a new mailbox is created in the Parseur account.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newTableFieldProcessed": {
+      "displayName": "New Table Field Processed",
+      "description": "Fires when a document with table fields is processed, and triggers for each row (table field) separately.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

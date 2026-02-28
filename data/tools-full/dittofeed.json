@@ -1,0 +1,84 @@
+{
+  "id": "dittofeed",
+  "displayName": "API Key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "identify": {
+      "displayName": "Identify User",
+      "description": "Identify a user in Dittofeed.",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "traits",
+          "displayName": "User Traits",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "screen": {
+      "displayName": "Screen Event",
+      "description": "Track a screen view event.",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Screen Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "properties",
+          "displayName": "Screen Properties",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "track": {
+      "displayName": "Track Event",
+      "description": "Track an event for a user.",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "event",
+          "displayName": "Event Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "properties",
+          "displayName": "Event Properties",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

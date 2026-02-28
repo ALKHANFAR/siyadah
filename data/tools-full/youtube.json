@@ -1,0 +1,22 @@
+{
+  "id": "youtube",
+  "displayName": "YouTube",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-video": {
+      "displayName": "New Video In Channel",
+      "description": "Runs when a new video is added to a YouTube channel",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

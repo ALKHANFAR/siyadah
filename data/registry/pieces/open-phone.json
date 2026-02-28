@@ -1,0 +1,66 @@
+{
+  "id": "open-phone",
+  "package": "@activepieces/piece-open-phone",
+  "display_name": "OpenPhone",
+  "display_name_ar": "OpenPhone",
+  "description": "OpenPhone integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact in your OpenPhone workspace"
+    },
+    {
+      "name": "get_call_summary",
+      "display_name": "Get Call Summary",
+      "description": "Retrieve an AI-generated summary of a specific call by ID. Call summaries are only available on OpenPhone Business plan."
+    },
+    {
+      "name": "send_message",
+      "display_name": "Send Message",
+      "description": "Send SMS/MMS from your OpenPhone number to a recipient"
+    },
+    {
+      "name": "update_contact",
+      "display_name": "Update Contact",
+      "description": "Update an existing contact in your OpenPhone workspace"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "call_recording_completed",
+      "display_name": "Call Recording Completed",
+      "description": "Fires when a call recording finishes. Useful for post-transcription or archival workflows.",
+      "type": "instant"
+    },
+    {
+      "name": "incoming_call_completed",
+      "display_name": "Incoming Call Completed",
+      "description": "Fires when an incoming call is completed. Includes voicemail data if available.",
+      "type": "instant"
+    },
+    {
+      "name": "incoming_message_received",
+      "display_name": "Incoming Message Received",
+      "description": "Fires when a new SMS/MMS message is received.",
+      "type": "instant"
+    },
+    {
+      "name": "outgoing_call_completed",
+      "display_name": "Outgoing Call Completed",
+      "description": "Fires when an outbound call ends. Useful for call logging.",
+      "type": "instant"
+    },
+    {
+      "name": "outgoing_message_delivered",
+      "display_name": "Outgoing Message Delivered",
+      "description": "Fires when an outbound message is delivered successfully. Useful for message confirmation workflows.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/open-phone"
+}

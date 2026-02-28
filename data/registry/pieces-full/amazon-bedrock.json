@@ -1,0 +1,40 @@
+{
+  "id": "amazon-bedrock",
+  "package": "@activepieces/piece-amazon-bedrock",
+  "display_name": "AWS Bedrock",
+  "display_name_ar": "",
+  "description": "Build generative AI applications with foundation models",
+  "category": "D_ai",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call to any AWS Bedrock endpoint. Requests are automatically signed with AWS Signature V4."
+    },
+    {
+      "name": "generate_content_from_image",
+      "display_name": "Generate Content from Image",
+      "description": "Ask a Bedrock model a question about an image."
+    },
+    {
+      "name": "generate_embeddings",
+      "display_name": "Generate Embeddings",
+      "description": "Generate vector embeddings from text using Amazon Titan Embed, Cohere Embed, or Amazon Nova Multimodal Embeddings models."
+    },
+    {
+      "name": "generate_image",
+      "display_name": "Generate Image",
+      "description": "Generate an image from a text prompt using Amazon Titan Image Generator or Stability AI models."
+    },
+    {
+      "name": "send_prompt",
+      "display_name": "Ask Bedrock",
+      "description": "Send a text prompt to an Amazon Bedrock model."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

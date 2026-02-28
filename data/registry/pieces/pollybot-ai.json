@@ -1,0 +1,47 @@
+{
+  "id": "pollybot-ai",
+  "package": "@activepieces/piece-pollybot-ai",
+  "display_name": "PollyBot AI",
+  "display_name_ar": "PollyBot AI",
+  "description": "Automate lead management with PollyBot AI chatbot integration.",
+  "category": "D_ai",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_lead",
+      "display_name": "Create Lead",
+      "description": "Creates a new lead in your PollyBot chatbot."
+    },
+    {
+      "name": "delete_lead",
+      "display_name": "Delete Lead",
+      "description": "Permanently deletes a lead from your PollyBot chatbot."
+    },
+    {
+      "name": "get_Lead",
+      "display_name": "Get Lead",
+      "description": "Retrieves a specific lead by ID."
+    },
+    {
+      "name": "list_leads",
+      "display_name": "List Leads",
+      "description": "Retrieves a list of leads with filtering."
+    },
+    {
+      "name": "update_lead",
+      "display_name": "Update Lead",
+      "description": "Updates an existing lead. Supports partial updates."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newLead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead is created in PollyBot AI chatbot.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/pollybot-ai"
+}

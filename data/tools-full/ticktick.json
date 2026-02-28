@@ -1,0 +1,166 @@
+{
+  "id": "ticktick",
+  "displayName": "TickTick",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "complete_task": {
+      "displayName": "Complete Task",
+      "description": "Marks an existing task as completed.",
+      "props": []
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Creates a new in a specific list.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Task Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "desc",
+          "displayName": "Description (Checklist)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description of the checklist, often used with subtasks (items)."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete_task": {
+      "displayName": "Delete Task",
+      "description": "Deletes an existing task.",
+      "props": []
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Finds tasks in a specific project by their title.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "matchType",
+          "displayName": "Match Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select how the title should be matched."
+        }
+      ]
+    },
+    "get_project": {
+      "displayName": "Get Task List",
+      "description": "Retrieves the details of a specific task list by ID.",
+      "props": [
+        {
+          "name": "projectId",
+          "displayName": "List ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Select the list to retrieve details for."
+        }
+      ]
+    },
+    "get_task": {
+      "displayName": "Get Task",
+      "description": "Retrieves the details of a specific task.",
+      "props": []
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Update an existing task.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "desc",
+          "displayName": "Description (Checklist)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New description of the checklist items. Replaces existing."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_task_created": {
+      "displayName": "New Task Created",
+      "description": "Triggers when a new task is created in a selected project.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

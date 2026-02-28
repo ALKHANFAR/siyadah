@@ -1,0 +1,80 @@
+{
+  "id": "hedy",
+  "displayName": "Hedy",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get-highlight": {
+      "displayName": "Get Highlight",
+      "description": "Retrieve a specific highlight by ID.",
+      "props": []
+    },
+    "list-highlights": {
+      "displayName": "List Highlights",
+      "description": "Retrieve highlights with optional topic filtering and pagination.",
+      "props": []
+    },
+    "get-session": {
+      "displayName": "Get Session",
+      "description": "Retrieve a specific session by ID.",
+      "props": []
+    },
+    "list-sessions": {
+      "displayName": "List Sessions",
+      "description": "Retrieve multiple sessions with optional topic filtering and pagination.",
+      "props": []
+    },
+    "list-session-todos": {
+      "displayName": "List Session Todos",
+      "description": "Retrieve todos generated for a specific session.",
+      "props": []
+    },
+    "list-todos": {
+      "displayName": "List Todos",
+      "description": "Retrieve todos assigned to you in Hedy.",
+      "props": []
+    },
+    "get-topic": {
+      "displayName": "Get Topic",
+      "description": "Retrieve details for a specific topic.",
+      "props": []
+    },
+    "list-topic-sessions": {
+      "displayName": "List Topic Sessions",
+      "description": "Retrieve sessions associated with a specific topic.",
+      "props": []
+    },
+    "list-topics": {
+      "displayName": "List Topics",
+      "description": "Retrieve all topics from your Hedy workspace.",
+      "props": []
+    }
+  },
+  "triggers": {
+    "highlight-created": {
+      "displayName": "Highlight Created",
+      "description": "Triggers when a highlight is created during a session.",
+      "type": "POLLING",
+      "props": []
+    },
+    "session-created": {
+      "displayName": "Session Created",
+      "description": "Triggers when a new session is created in Hedy.",
+      "type": "POLLING",
+      "props": []
+    },
+    "session-ended": {
+      "displayName": "Session Ended",
+      "description": "Triggers when a session is completed in Hedy.",
+      "type": "POLLING",
+      "props": []
+    },
+    "todo-exported": {
+      "displayName": "Todo Exported",
+      "description": "Triggers when a todo item is exported from Hedy.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

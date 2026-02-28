@@ -1,0 +1,25 @@
+{
+  "id": "mixpanel",
+  "package": "@activepieces/piece-mixpanel",
+  "display_name": "Mixpanel",
+  "display_name_ar": "",
+  "description": "Simple and powerful product analytics that helps everyone make better decisions",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "track_event",
+      "display_name": "Track Event",
+      "description": "Send an Event to Mixpanel."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

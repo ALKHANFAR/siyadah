@@ -1,0 +1,82 @@
+{
+  "id": "retable",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "retable_create_project": {
+      "displayName": "Create a Project",
+      "description": "Creates a project in the given workspace",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "desc",
+          "displayName": "Project Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "color",
+          "displayName": "Project Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "retable_create_workspace": {
+      "displayName": "Create a Workspace",
+      "description": "Creates a workspace",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Workspace Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "desc",
+          "displayName": "Workspace Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "retable_get_projects": {
+      "displayName": "Get Projects",
+      "description": "Gets all projects in given workspace",
+      "props": []
+    },
+    "retable_get_retables": {
+      "displayName": "Get Retables",
+      "description": "Gets all retables in given project",
+      "props": []
+    },
+    "retable_get_workspaces": {
+      "displayName": "Get Workspaces",
+      "description": "Gets all workspaces",
+      "props": []
+    },
+    "retable_create_record": {
+      "displayName": "Create Retable Record",
+      "description": "Adds a record into a retable",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

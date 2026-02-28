@@ -1,0 +1,50 @@
+{
+  "id": "manychat",
+  "package": "@activepieces/piece-manychat",
+  "display_name": "Manychat",
+  "display_name_ar": "",
+  "description": "Automations for Instagram, WhatsApp, TikTok, and Messenger marketing.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addTagToUser",
+      "display_name": "Add Tag to User",
+      "description": "Adds a tag to a user."
+    },
+    {
+      "name": "createSubscriber",
+      "display_name": "Create Subscriber",
+      "description": "Creates a Unified or a Whatsapp subscriber."
+    },
+    {
+      "name": "findUserByCustomField",
+      "display_name": "Find User by Custom Field",
+      "description": "Finds a user by custom field."
+    },
+    {
+      "name": "findUserByName",
+      "display_name": "Find User by Name",
+      "description": "Finds a user by name."
+    },
+    {
+      "name": "removeTagFromUser",
+      "display_name": "Remove Tag from User",
+      "description": "Remove a tag from a user."
+    },
+    {
+      "name": "sendContentToUser",
+      "display_name": "Send Content to User",
+      "description": "Sends a content to a user."
+    },
+    {
+      "name": "setCustomField",
+      "display_name": "Set Custom Field",
+      "description": "Ass or Updates a custom field value for a user."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

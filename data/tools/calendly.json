@@ -1,0 +1,32 @@
+{
+  "id": "calendly",
+  "package": "@activepieces/piece-calendly",
+  "version": "0.3.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "personal_access_token"
+    ]
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "TOKEN_INVALID",
+      "cause": "Personal access token expired",
+      "auto_fix": "Alert user to generate new token",
+      "severity": "high"
+    }
+  ],
+  "limits": null,
+  "notes": "Scheduling trigger. Popular with consultants and clinics. Alternative: Google Calendar direct.",
+  "displayName": "Calendly"
+}

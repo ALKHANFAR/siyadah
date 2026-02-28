@@ -1,0 +1,20 @@
+{
+  "id": "loop",
+  "package": "@activepieces/piece-loop",
+  "display_name": "Loop",
+  "display_name_ar": "تكرار",
+  "description": "Loop through items",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "loop",
+      "display_name": "Loop",
+      "description": "Loop through list items"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-builtin"
+}

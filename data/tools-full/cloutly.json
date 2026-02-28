@@ -1,0 +1,84 @@
+{
+  "id": "cloutly",
+  "displayName": "Cloutly",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "sendReviewInvite": {
+      "displayName": "Send Review Invite",
+      "description": "Sends a review invite to your customer.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the customer to send the invite to (required if Phone Number is empty)"
+        },
+        {
+          "name": "phoneNumber",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the customer to send the invite to (required if Email is empty)"
+        },
+        {
+          "name": "sourceCustomerId",
+          "displayName": "Source Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "businessId",
+          "displayName": "Business ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "campaignId",
+          "displayName": "Campaign ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "inviteDelayDays",
+          "displayName": "Invite Delay Days",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of days to delay the invite (i.e send after X days)"
+        },
+        {
+          "name": "salesRepEmail",
+          "displayName": "Sales Rep Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the sales rep to associate the review and customer"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,153 @@
+{
+  "id": "circle",
+  "displayName": "Circle",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_member_to_space": {
+      "displayName": "Add Member to Space",
+      "description": "Add an existing member to a specific space by their email.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Member Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the member to add to the space."
+        }
+      ]
+    },
+    "create_comment": {
+      "displayName": "Create Comment",
+      "description": "Creates a new comment on a post.",
+      "props": [
+        {
+          "name": "body",
+          "displayName": "Comment Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the comment."
+        },
+        {
+          "name": "parent_comment_id",
+          "displayName": "Parent Comment ID (Optional)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of the comment to reply to. Leave empty if not a reply."
+        },
+        {
+          "name": "skip_notifications",
+          "displayName": "Skip Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Skip sending notifications for this comment?"
+        }
+      ]
+    },
+    "create_post": {
+      "displayName": "Create Post",
+      "description": "Creates a new post in a specific space.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Post Name/Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the post."
+        },
+        {
+          "name": "text_body",
+          "displayName": "Post Body (Plain Text)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Simple plain text content for the post. Used if 'Tiptap Body JSON' is not provided."
+        },
+        {
+          "name": "tiptap_body_json",
+          "displayName": "Tiptap Body JSON",
+          "type": "JSON",
+          "required": false,
+          "description": "Full TipTap JSON object for the post body. If provided, 'Post Body (Plain Text)' is ignored."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the post."
+        },
+        {
+          "name": "published_at",
+          "displayName": "Published At (for Scheduled)",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "If status is 'scheduled', provide the future date and time for publishing."
+        },
+        {
+          "name": "is_comments_enabled",
+          "displayName": "Enable Comments",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow comments on this post?"
+        },
+        {
+          "name": "skip_notifications",
+          "displayName": "Skip Notifications",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Prevent notifications from being sent for this post?"
+        },
+        {
+          "name": "user_email",
+          "displayName": "Post As User Email (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email of an existing community member to create this post as. If empty, posts as the authenticated admin."
+        }
+      ]
+    },
+    "find_member_by_email": {
+      "displayName": "Find Member by Email",
+      "description": "Finds a community member by their email address.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the member to find."
+        }
+      ]
+    },
+    "get_member_details": {
+      "displayName": "Get Member Details",
+      "description": "Fetches the full profile details for a specific community member.",
+      "props": []
+    },
+    "get_post_details": {
+      "displayName": "Get Post Details",
+      "description": "Retrieves the complete details of a specific post.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_member_added": {
+      "displayName": "New Member Added",
+      "description": "Triggers when a new member is added to the community.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_post_created": {
+      "displayName": "New Post Created",
+      "description": "Triggers when a new post is created in a specific space.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

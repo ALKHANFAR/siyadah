@@ -1,0 +1,195 @@
+{
+  "id": "reddit",
+  "displayName": "Reddit",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "createRedditComment": {
+      "displayName": "Create Comment",
+      "description": "Comment on a Reddit post or reply to a comment.",
+      "props": [
+        {
+          "name": "parent_id",
+          "displayName": "Parent ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the post (t3_*) or comment (t1_*) to reply to."
+        },
+        {
+          "name": "content",
+          "displayName": "Comment Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text of the comment."
+        }
+      ]
+    },
+    "createRedditPost": {
+      "displayName": "Create Post",
+      "description": "Submit a new self (text) post to a subreddit.",
+      "props": [
+        {
+          "name": "subreddit",
+          "displayName": "Subreddit",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The subreddit to post in (without r/)."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the Reddit post."
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text content of the post."
+        }
+      ]
+    },
+    "deleteRedditComment": {
+      "displayName": "Delete Comment",
+      "description": "Delete a specific Reddit comment by ID.",
+      "props": [
+        {
+          "name": "comment_id",
+          "displayName": "Comment ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the Reddit comment to delete (e.g., \"def456\" or \"t1_def456\")."
+        }
+      ]
+    },
+    "deleteRedditPost": {
+      "displayName": "Delete Post",
+      "description": "Delete a specific Reddit post by ID.",
+      "props": [
+        {
+          "name": "post_id",
+          "displayName": "Post ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the Reddit post to delete (e.g., \"abc123\" or \"t3_abc123\")."
+        }
+      ]
+    },
+    "editRedditComment": {
+      "displayName": "Edit Comment",
+      "description": "Edits the content of an existing Reddit comment.",
+      "props": [
+        {
+          "name": "comment_id",
+          "displayName": "Comment ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the Reddit comment to edit (e.g., \"def456\" or \"t1_def456\")."
+        },
+        {
+          "name": "content",
+          "displayName": "New Comment Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Updated text content for the comment."
+        }
+      ]
+    },
+    "editRedditPost": {
+      "displayName": "Edit Post",
+      "description": "Edits the content of an existing Reddit post.",
+      "props": [
+        {
+          "name": "post_id",
+          "displayName": "Post ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the Reddit post to edit (e.g., \"abc123\" or \"t3_abc123\")."
+        },
+        {
+          "name": "content",
+          "displayName": "New Post Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Updated text content for the post."
+        }
+      ]
+    },
+    "fetchPostComments": {
+      "displayName": "Fetch Post Comments",
+      "description": "Fetch comments from a specific Reddit post.",
+      "props": [
+        {
+          "name": "post_id",
+          "displayName": "Post ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the Reddit post (e.g. \"abc123\" or \"t3_abc123\")."
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sorting method for comments"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of top-level comments to fetch"
+        }
+      ]
+    },
+    "getRedditPostDetails": {
+      "displayName": "Get Post Details",
+      "description": "Fetch detailed information about a specific Reddit post using its ID.",
+      "props": [
+        {
+          "name": "post_id",
+          "displayName": "Post ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the Reddit post (e.g. \"t3_abc123\" or \"abc123\")"
+        }
+      ]
+    },
+    "retrieveRedditPost": {
+      "displayName": "Retrieve Post",
+      "description": "Fetch top posts in a subreddit with optional size limit.",
+      "props": [
+        {
+          "name": "post_category",
+          "displayName": "Post Category",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the category of posts to retrieve"
+        },
+        {
+          "name": "subreddit",
+          "displayName": "Subreddit",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The subreddit to fetch posts from"
+        },
+        {
+          "name": "size",
+          "displayName": "Number of Posts",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of posts to fetch (max 100)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

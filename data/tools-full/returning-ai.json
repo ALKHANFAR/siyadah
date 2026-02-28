@@ -1,0 +1,119 @@
+{
+  "id": "returning-ai",
+  "displayName": "Returning AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "reactMessage": {
+      "displayName": "React to Message",
+      "description": "Add an emoji reaction to a specific message as a chosen user.",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "description",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "user",
+          "displayName": "Sender (Username or email)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user account that will add the reaction"
+        },
+        {
+          "name": "messageId",
+          "displayName": "React to (Message ID)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the message to react to"
+        },
+        {
+          "name": "emoji",
+          "displayName": "Reaction emoji",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The emoji to react with (e.g. :sparkling_heart:)"
+        }
+      ]
+    },
+    "replyMessage": {
+      "displayName": "Reply Message",
+      "description": "Reply to a specific message as a chosen user in a channel.",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "description",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "user",
+          "displayName": "Sender (Username or email)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user account that will send the message"
+        },
+        {
+          "name": "messageId",
+          "displayName": "Reply to (Message ID)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the message to reply to. "
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the reply to be posted."
+        }
+      ]
+    },
+    "sendMessage": {
+      "displayName": "Send Channel Message",
+      "description": "Posts a message to a specified channel as a chosen user",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "description",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "user",
+          "displayName": "Sender (Username or email)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The user account that will send the message"
+        },
+        {
+          "name": "channel",
+          "displayName": "Channel",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The channel where the message will be posted"
+        },
+        {
+          "name": "dynamicFields",
+          "displayName": "Channel Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Additional fields based on channel type"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to be posted"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

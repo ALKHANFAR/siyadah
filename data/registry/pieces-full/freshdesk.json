@@ -1,0 +1,45 @@
+{
+  "id": "freshdesk",
+  "package": "@activepieces/piece-freshdesk",
+  "display_name": "Base URL",
+  "display_name_ar": "",
+  "description": "Enter the base URL",
+  "category": "C_communication",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "get_all_tickets_by_status",
+      "display_name": "Get All Tickets By Status",
+      "description": "Get All Tickets by selected status from Freshdesk."
+    },
+    {
+      "name": "get_contact_from_id",
+      "display_name": "Get Contact from ID",
+      "description": "Get contacts details from Freshdesk using ID number."
+    },
+    {
+      "name": "get_contacts",
+      "display_name": "Get Freshdesk Contacts",
+      "description": "Get contact details from Freshdesk for all (optional filtered) contacts."
+    },
+    {
+      "name": "get_ticket_status",
+      "display_name": "Get Ticket Status",
+      "description": "Get Ticket status from Freshdesk. Returns ticket_status, assigned_status, assigned_id"
+    },
+    {
+      "name": "get_tickets",
+      "display_name": "Get Tickets",
+      "description": "Get Ticket instances from Freshdesk."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "azure-blob-storage",
+  "package": "@activepieces/piece-azure-blob-storage",
+  "display_name": "Azure Blob Storage",
+  "display_name_ar": "",
+  "description": null,
+  "category": "K_dev",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addTagsToBlob",
+      "display_name": "Add Tags to Blob",
+      "description": "Adds Tags to the Blob at the specified location"
+    },
+    {
+      "name": "createBlob",
+      "display_name": "Create Blob",
+      "description": "Creates a new Blob in the specified location"
+    },
+    {
+      "name": "createContainer",
+      "display_name": "Create Container",
+      "description": "Creates a new container"
+    },
+    {
+      "name": "deleteBlob",
+      "display_name": "Delete Blob",
+      "description": "Deletes the Blob at the specified location"
+    },
+    {
+      "name": "deleteContainer",
+      "display_name": "Delete Container",
+      "description": "Deletes an existing container"
+    },
+    {
+      "name": "findBlobs",
+      "display_name": "Find Blobs",
+      "description": "Finds Blobs based on their tags"
+    },
+    {
+      "name": "listBlobs",
+      "display_name": "List Blobs",
+      "description": "List Blobs in the specified Azure Blob Storage container"
+    },
+    {
+      "name": "listContainers",
+      "display_name": "List Containers",
+      "description": "List Containers in the Azure Blob Storage account"
+    },
+    {
+      "name": "readBlob",
+      "display_name": "Read Blob",
+      "description": "Read the Blob at the specified lcoation"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

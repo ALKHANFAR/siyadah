@@ -1,0 +1,272 @@
+{
+  "id": "microsoft-teams",
+  "displayName": "Microsoft Teams",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "microsoft_teams_create_channel": {
+      "displayName": "Create Channel",
+      "description": "Create a new channel in Microsoft Teams.",
+      "props": [
+        {
+          "name": "channelDisplayName",
+          "displayName": "Channel Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "channelDescription",
+          "displayName": "Channel Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_teams_create_chat_and_send_message": {
+      "displayName": "Create Chat & Send Message",
+      "description": "Start a new chat and send an initial message.",
+      "props": [
+        {
+          "name": "contentType",
+          "displayName": "Message Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Initial Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_teams_create_private_channel": {
+      "displayName": "Create Private Channel",
+      "description": "Create a new private channel in a team.",
+      "props": [
+        {
+          "name": "channelDisplayName",
+          "displayName": "Channel Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "channelDescription",
+          "displayName": "Channel Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_teams_delete_chat_message": {
+      "displayName": "Delete Chat Message",
+      "description": "Soft-Deletes a message in chat.You can only delete messages you sent.",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the message to delete."
+        }
+      ]
+    },
+    "microsoft_teams_find_channel": {
+      "displayName": "Find Channel",
+      "description": "Finds channels by name.",
+      "props": [
+        {
+          "name": "channelName",
+          "displayName": "Channel Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_teams_find_team_member": {
+      "displayName": "Find Team Member",
+      "description": "Finds a team member by email or display name.",
+      "props": [
+        {
+          "name": "searchBy",
+          "displayName": "Search By",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "searchValue",
+          "displayName": "searchValue",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address or name to search for."
+        }
+      ]
+    },
+    "microsoft_teams_get_channel_message": {
+      "displayName": "Get Channel Message",
+      "description": "Fetch a specific channel message by team, channel, and message ID (optionally a reply).",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the channel message to retrieve."
+        },
+        {
+          "name": "replyId",
+          "displayName": "Reply ID (optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide to fetch a specific reply under the message."
+        }
+      ]
+    },
+    "microsoft_teams_get_chat_message": {
+      "displayName": "Get Chat Message",
+      "description": "Fetch a specific chat message by chat and message ID.",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the message to retrieve."
+        }
+      ]
+    },
+    "microsoft_teams_reply_to_channel_message": {
+      "displayName": "Reply to Channel Message",
+      "description": "Post a reply to an existing channel message.",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the parent message to reply to."
+        },
+        {
+          "name": "contentType",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "request_approval_in_channel": {
+      "displayName": "Request Approval in Channel",
+      "description": "Send approval message to a channel and then wait until the message is approved or disapproved",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "request_approval_direct_message": {
+      "displayName": "Request Approval from a User",
+      "description": "Send approval message to a user and then wait until the message is approved or disapproved",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_teams_send_channel_message": {
+      "displayName": "Send Channel Message",
+      "description": "Sends a message to a teams's channel.",
+      "props": [
+        {
+          "name": "contentType",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_teams_send_chat_message": {
+      "displayName": "Send Chat Message",
+      "description": "Sends a message in an existing chat.",
+      "props": [
+        {
+          "name": "contentType",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-channel-message": {
+      "displayName": "New Channel Message",
+      "description": "Triggers when a new message is posted in a channel.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-channel": {
+      "displayName": "New Channel",
+      "description": "Triggers when a new channel is created in a team.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-chat-message": {
+      "displayName": "New Chat Message",
+      "description": "Triggers when a new message is received in a chat.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-chat": {
+      "displayName": "New Chat",
+      "description": "Triggers when a new chat is created.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

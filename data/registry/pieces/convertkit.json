@@ -1,0 +1,62 @@
+{
+  "id": "convertkit",
+  "package": "@activepieces/piece-convertkit",
+  "display_name": "API Secret",
+  "display_name_ar": "API Secret",
+  "description": "Enter your API Secret key",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "broadcasts_list_broadcasts",
+      "display_name": "List Broadcasts",
+      "description": "List all broadcasts"
+    },
+    {
+      "name": "custom_fields_list_fields",
+      "display_name": "List Custom Fields",
+      "description": "Returns a list of all custom fields"
+    },
+    {
+      "name": "forms_list_forms",
+      "display_name": "List Forms",
+      "description": "Returns a list of all forms"
+    },
+    {
+      "name": "purchases_list_purchases",
+      "display_name": "List Purchases",
+      "description": "Returns a list of all purchases"
+    },
+    {
+      "name": "sequences_list_sequences",
+      "display_name": "List Sequences",
+      "description": "Returns a list of all sequences"
+    },
+    {
+      "name": "subscribers_get_subscriber_by_id",
+      "display_name": "Get Subscriber By Id",
+      "description": "Returns data for a single subscriber"
+    },
+    {
+      "name": "tags_list_tags",
+      "display_name": "List Tags",
+      "description": "Returns a list of all tags"
+    },
+    {
+      "name": "create_webhook",
+      "display_name": "Add Webhook",
+      "description": "Create a webhook automation"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "webhook_subscriber_tag_add",
+      "display_name": "Tag added to subscriber",
+      "description": "Trigger when a tag is added to a subscriber",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/convertkit"
+}

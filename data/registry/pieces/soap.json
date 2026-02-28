@@ -1,0 +1,20 @@
+{
+  "id": "soap",
+  "package": "@activepieces/piece-soap",
+  "display_name": "SOAP",
+  "display_name_ar": "SOAP",
+  "description": "Simple Object Access Protocol for communication between applications",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "call_method",
+      "display_name": "Call SOAP Method",
+      "description": "Call a SOAP from a given wsdl specification"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/soap"
+}

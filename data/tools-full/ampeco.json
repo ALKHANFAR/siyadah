@@ -1,0 +1,37 @@
+{
+  "id": "ampeco",
+  "displayName": "AMPECO",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_notification": {
+      "displayName": "New notification",
+      "description": "Triggers when a webhook notification event is received from Ampeco",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "liveMarkdown",
+          "displayName": "liveMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notifications",
+          "displayName": "Notification events",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "Select the notification events to listen for"
+        }
+      ]
+    }
+  }
+}

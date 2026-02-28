@@ -1,0 +1,276 @@
+{
+  "id": "paywhirl",
+  "displayName": "Paywhirl",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "cancelSubscription": {
+      "displayName": "Cancel Subscription",
+      "description": "Subscription ID",
+      "props": [
+        {
+          "name": "subscription_id",
+          "displayName": "Subscription ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Subscription ID"
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer ID (can be used instead of subscription_id)"
+        }
+      ]
+    },
+    "createCustomer": {
+      "displayName": "Create Customer",
+      "description": "Create a new customer. This is required before binding a customer to a plan via a subscription.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "First name"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Last name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Currency code (ex. USD, GBP, AUD, CAD, EUR, etc)"
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Password (leave blank to let customer assign via secure link in welcome email)"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Phone number"
+        },
+        {
+          "name": "address",
+          "displayName": "Street Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Street address"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State / Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State / Region"
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip / Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Zip / Postal Code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country Code (ex. US, GB, CA, AU, etc)"
+        },
+        {
+          "name": "gateway_id",
+          "displayName": "Payment Gateway ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "PayWhirl ID of payment gateway to attach to customer. If left blank, first loaded gateway will be used."
+        },
+        {
+          "name": "utm_source",
+          "displayName": "UTM Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Acquisition source (ex. google, bing, email, fall_campaign, etc)"
+        },
+        {
+          "name": "utm_medium",
+          "displayName": "UTM Medium",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Acquisition medium (ex. CPC, banner, text_ad, etc)"
+        },
+        {
+          "name": "utm_term",
+          "displayName": "UTM Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Acquisition keyword"
+        },
+        {
+          "name": "utm_content",
+          "displayName": "UTM Content",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Acquisition Ad Content"
+        },
+        {
+          "name": "utm_campaign",
+          "displayName": "UTM Campaign",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Acquisition Ad Campaign"
+        },
+        {
+          "name": "utm_group",
+          "displayName": "UTM Group",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Acquisition Ad Group"
+        }
+      ]
+    },
+    "getCustomer": {
+      "displayName": "Get Customers",
+      "description": "Retrieve a selection of customers. Useful for keeping track of customers in a local database.",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of entries to return. Limit 100."
+        },
+        {
+          "name": "order_key",
+          "displayName": "Order Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Field to sort by. Default: id"
+        },
+        {
+          "name": "order_direction",
+          "displayName": "Order Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Direction to order results"
+        },
+        {
+          "name": "before_id",
+          "displayName": "Before ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "All customers returned will have an ID less than this value"
+        },
+        {
+          "name": "after_id",
+          "displayName": "After ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "All customers returned will have an ID greater than this value"
+        },
+        {
+          "name": "keyword",
+          "displayName": "Keyword",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by keyword"
+        }
+      ]
+    },
+    "searchCustomersSubscription": {
+      "displayName": "Get Customer Subscriptions",
+      "description": "Get a list of subscriptions associated with a given customer. Useful for determining which services a customer is currently expecting.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Customer ID"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by subscription status. Active (default) excludes canceled; Canceled shows only canceled; All shows all subscriptions."
+        }
+      ]
+    },
+    "subscribeCustomer": {
+      "displayName": "Subscribe Customer",
+      "description": "Enroll a customer in an existing plan. The customer must have a valid payment method on file.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Customer ID"
+        },
+        {
+          "name": "plan_id",
+          "displayName": "Plan ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Plan ID"
+        },
+        {
+          "name": "trial_end",
+          "displayName": "Trial End",
+          "type": "NUMBER",
+          "required": false,
+          "description": "UNIX timestamp in the future (UTC timezone)"
+        },
+        {
+          "name": "promo_id",
+          "displayName": "Promo ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of promo code to apply"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Quantity (Default: 1)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

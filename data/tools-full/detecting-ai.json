@@ -1,0 +1,68 @@
+{
+  "id": "detecting-ai",
+  "displayName": "DETECTING-AI.COM",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "check_plagiarism": {
+      "displayName": "Check Plagiarism",
+      "description": "Check text for plagiarism",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "detect_ai_content": {
+      "displayName": "Detect AI Content",
+      "description": "Detect AI-generated content in text",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "version",
+          "displayName": "Version",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "humanize_text": {
+      "displayName": "Humanize Text",
+      "description": "Humanize text to make it sound more natural",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

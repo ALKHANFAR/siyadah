@@ -1,0 +1,25 @@
+{
+  "id": "gptzero-detect-ai",
+  "package": "@activepieces/piece-gptzero-detect-ai",
+  "display_name": "GPTZero",
+  "display_name_ar": "GPTZero",
+  "description": "Detect AI-generated text with GPTZero API",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "scanFile",
+      "display_name": "Scan File",
+      "description": "Scan a file for AI-generated content detection"
+    },
+    {
+      "name": "scanText",
+      "display_name": "Scan Text",
+      "description": "Scan text content for AI-generated content detection"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/gptzero-detect-ai"
+}

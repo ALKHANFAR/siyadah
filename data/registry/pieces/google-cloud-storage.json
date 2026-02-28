@@ -1,0 +1,88 @@
+{
+  "id": "google-cloud-storage",
+  "package": "@activepieces/piece-google-cloud-storage",
+  "display_name": "Google Cloud Storage",
+  "display_name_ar": "Google Cloud Storage",
+  "description": "Automate file storage operations with Google Cloud Storage. Upload, download, manage buckets, set permissions, and monitor changes with real-time triggers.",
+  "category": "I_content",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "clone_object",
+      "display_name": "Clone Object",
+      "description": "Copy / clone an object (file) to a new location (same or different bucket), optionally overriding metadata. Perfect for duplicating files as backup or version."
+    },
+    {
+      "name": "create_bucket_acl",
+      "display_name": "Create Bucket ACL",
+      "description": "Add an ACL entry at bucket level. Perfect for granting permission to manage the bucket."
+    },
+    {
+      "name": "create_bucket_default_object_acl",
+      "display_name": "Create Bucket Default Object ACL",
+      "description": "Set default ACLs for new objects added to a bucket. Perfect for automatically assigning permissions to new uploads."
+    },
+    {
+      "name": "create_bucket",
+      "display_name": "Create Bucket",
+      "description": "Create a new bucket in a specified location/configuration. Perfect for automating storage provisioning for new projects."
+    },
+    {
+      "name": "create_object_acl",
+      "display_name": "Create Object ACL",
+      "description": "Add an ACL entry to an object (grant a permission). Perfect for granting read/write access to a user or group."
+    },
+    {
+      "name": "delete_bucket_acl",
+      "display_name": "Delete Bucket ACL",
+      "description": "Remove an ACL entry from a bucket. Perfect for revoking access for a user or group."
+    },
+    {
+      "name": "delete_bucket_default_object_acl",
+      "display_name": "Delete Bucket Default Object ACL",
+      "description": "Remove default ACL settings from a bucket. Perfect for reverting to default behavior."
+    },
+    {
+      "name": "delete_empty_bucket",
+      "display_name": "Delete Empty Bucket",
+      "description": "Clean up unused buckets by deleting them if they contain no live objects."
+    },
+    {
+      "name": "delete_object_acl",
+      "display_name": "Delete Object ACL",
+      "description": "Remove an ACL entry from an object. Perfect for revoking access for a user."
+    },
+    {
+      "name": "delete_object",
+      "display_name": "Delete Object",
+      "description": "Permanently delete a specific object. Perfect for removing obsolete files."
+    },
+    {
+      "name": "search_buckets",
+      "display_name": "Search Buckets",
+      "description": "Search buckets by name. Perfect for finding buckets in your project."
+    },
+    {
+      "name": "search_objects",
+      "display_name": "Search Objects",
+      "description": "Search objects by criteria. Perfect for finding files in your bucket."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_object_created",
+      "display_name": "New Object Created",
+      "description": "Triggers when a new object is created in a bucket",
+      "type": "instant"
+    },
+    {
+      "name": "object_updated",
+      "display_name": "Object Updated",
+      "description": "Triggers when an existing object is updated in a bucket",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-cloud-storage"
+}

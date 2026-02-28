@@ -1,0 +1,30 @@
+{
+  "id": "gladia",
+  "package": "@activepieces/piece-gladia",
+  "display_name": "Gladia",
+  "display_name_ar": "Gladia",
+  "description": "Gladia integration",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createTranscription",
+      "display_name": "Create Transcription",
+      "description": "Initiate a pre-recorded transcription job from an audio or video URL"
+    },
+    {
+      "name": "uploadAFile",
+      "display_name": "Upload Audio File",
+      "description": "Upload an audio or video file for use in a pre-recorded transcription job"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/gladia"
+}

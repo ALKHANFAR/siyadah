@@ -1,0 +1,1918 @@
+{
+  "id": "wealthbox",
+  "displayName": "API Access Token",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_household_member": {
+      "displayName": "Add Member to Household",
+      "description": "Adds a member to an existing household. Link multiple contacts under one family unit.",
+      "props": [
+        {
+          "name": "household_id",
+          "displayName": "Household",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the household that will receive the new member"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact to add to the household"
+        },
+        {
+          "name": "title",
+          "displayName": "Household Title",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The household title to assign to the added contact"
+        }
+      ]
+    },
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Adds a new contact with rich details (name, address, email, tags, etc.)",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The first name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The last name of the contact"
+        },
+        {
+          "name": "prefix",
+          "displayName": "Prefix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The preferred prefix for the contact (e.g., Mr., Ms., Dr.)"
+        },
+        {
+          "name": "middle_name",
+          "displayName": "Middle Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The middle name of the contact"
+        },
+        {
+          "name": "suffix",
+          "displayName": "Suffix",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The suffix associated with the contact (e.g., Jr., Sr., M.D.)"
+        },
+        {
+          "name": "nickname",
+          "displayName": "Nickname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A preferred shortname for the contact"
+        },
+        {
+          "name": "job_title",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title the contact holds at their present company"
+        },
+        {
+          "name": "company_name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the contact\\"
+        },
+        {
+          "name": "type",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of the contact being created"
+        },
+        {
+          "name": "contact_type",
+          "displayName": "Contact Classification",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "A string further classifying the contact"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Whether the contact is currently active"
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The gender of the contact"
+        },
+        {
+          "name": "birth_date",
+          "displayName": "Birth Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The birthdate of the contact (YYYY-MM-DD format)"
+        },
+        {
+          "name": "marital_status",
+          "displayName": "Marital Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The marital status of the contact"
+        },
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary email address for the contact"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary phone number for the contact (e.g., (555) 123-4567)"
+        },
+        {
+          "name": "street_line_1",
+          "displayName": "Street Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First line of street address"
+        },
+        {
+          "name": "street_line_2",
+          "displayName": "Street Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Second line of street address (apt, suite, etc.)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City for the address"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or province for the address"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP or postal code for the address"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country for the address"
+        },
+        {
+          "name": "twitter_name",
+          "displayName": "Twitter Handle",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The twitter handle of the contact"
+        },
+        {
+          "name": "linkedin_url",
+          "displayName": "LinkedIn URL",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The LinkedIn URL for the contact"
+        },
+        {
+          "name": "background_information",
+          "displayName": "Background Information",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A brief description of the contact"
+        },
+        {
+          "name": "important_information",
+          "displayName": "Important Information",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Any other important info for the contact"
+        },
+        {
+          "name": "personal_interests",
+          "displayName": "Personal Interests",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Personal interests for the contact"
+        },
+        {
+          "name": "contact_source",
+          "displayName": "Contact Source",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The method in which this contact was acquired"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags to associate with the contact (e.g., \"Client\", \"VIP\", \"Referral\")"
+        },
+        {
+          "name": "external_unique_id",
+          "displayName": "External Unique ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A unique identifier for this contact in an external system"
+        }
+      ]
+    },
+    "create_event": {
+      "displayName": "Create Event",
+      "description": "Creates a calendar event linked to contact. Schedule advisory meetings on behalf of clients.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Event Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the event (e.g., \"Client Meeting\", \"Portfolio Review\")"
+        },
+        {
+          "name": "starts_at",
+          "displayName": "Start Date & Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When the event starts (yyyy-mm-dd hh:mm format)"
+        },
+        {
+          "name": "ends_at",
+          "displayName": "End Date & Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When the event ends (yyyy-mm-dd hh:mm format)"
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Where the event takes place (e.g., \"Conference Room\", \"Client Office\", \"Zoom Meeting\")"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A detailed explanation of the event purpose and agenda"
+        },
+        {
+          "name": "all_day",
+          "displayName": "All Day Event",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check if this is an all-day event"
+        },
+        {
+          "name": "repeats",
+          "displayName": "Repeating Event",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check if this event repeats"
+        },
+        {
+          "name": "state",
+          "displayName": "Event Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The current state of the event"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Linked Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the contact to link this event to"
+        },
+        {
+          "name": "invitees",
+          "displayName": "Invitees",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add people to invite to this event"
+        },
+        {
+          "name": "invitees_array",
+          "displayName": "Invitees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add invitees to this event"
+        },
+        {
+          "name": "invitee",
+          "displayName": "Invitee",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Invitee name"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of invitee"
+        },
+        {
+          "name": "invitees_array",
+          "displayName": "Invitees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add invitees to this event"
+        },
+        {
+          "name": "invitee",
+          "displayName": "Invitee",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a contact or user to invite"
+        },
+        {
+          "name": "invitees_array",
+          "displayName": "Invitees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add invitees to this event (API unavailable)"
+        },
+        {
+          "name": "invitee",
+          "displayName": "Invitee Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the invitee name"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of invitee"
+        },
+        {
+          "name": "event_category",
+          "displayName": "Event Category",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the category for this event"
+        },
+        {
+          "name": "email_invitees",
+          "displayName": "Email Invitees",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send email invitations to invitees"
+        },
+        {
+          "name": "visible_to",
+          "displayName": "Visible To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select who can view this event"
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add custom fields to this event"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this event"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field name"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this event"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a custom field for this event"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this event (API unavailable)"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the custom field name exactly"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        }
+      ]
+    },
+    "create_household": {
+      "displayName": "Create Household",
+      "description": "Creates a household record with emails, tags. Group family member contacts into one household.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Household Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the household (e.g., \"The Anderson Family\", \"Smith Household\")"
+        },
+        {
+          "name": "head_contact_id",
+          "displayName": "Head of Household",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the contact who will be the head of this household"
+        },
+        {
+          "name": "spouse_contact_id",
+          "displayName": "Spouse/Partner (Optional)",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the spouse or partner to automatically add to this household"
+        },
+        {
+          "name": "email_address",
+          "displayName": "Primary Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary email address for the household"
+        },
+        {
+          "name": "street_line_1",
+          "displayName": "Street Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First line of street address"
+        },
+        {
+          "name": "street_line_2",
+          "displayName": "Street Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Second line of street address (apt, suite, etc.)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "City for the household address"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or province for the household address"
+        },
+        {
+          "name": "zip_code",
+          "displayName": "ZIP Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP or postal code for the household address"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country for the household address"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Primary Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary phone number for the household"
+        },
+        {
+          "name": "type",
+          "displayName": "Household Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of household being created"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Whether the household is currently active"
+        },
+        {
+          "name": "background_information",
+          "displayName": "Background Information",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Background information about the household"
+        },
+        {
+          "name": "important_information",
+          "displayName": "Important Information",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Any important information about the household"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select tags to associate with this household"
+        },
+        {
+          "name": "tags_array",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add tags to this household"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Tag name"
+        },
+        {
+          "name": "tags_array",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add tags to this household"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a tag for this household"
+        },
+        {
+          "name": "tags_array",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add tags to this household (API unavailable)"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the tag name exactly"
+        },
+        {
+          "name": "visible_to",
+          "displayName": "Visible To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select who can view this household"
+        },
+        {
+          "name": "external_unique_id",
+          "displayName": "External Unique ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A unique identifier for this household in an external system"
+        }
+      ]
+    },
+    "create_note": {
+      "displayName": "Create Note",
+      "description": "Adds a note linked to a contact. Log call summaries against client records.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Note Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The main body of the note (e.g., call summary, meeting notes, client interaction details)"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact to link this note to"
+        },
+        {
+          "name": "visible_to",
+          "displayName": "Visible To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select who can view this note"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select tags to associate with this note"
+        },
+        {
+          "name": "tags_array",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add tags to this note"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Tag name"
+        },
+        {
+          "name": "tags_array",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add tags to this note"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a tag for this note"
+        },
+        {
+          "name": "tags_array",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add tags to this note (API unavailable)"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the tag name exactly"
+        }
+      ]
+    },
+    "create_opportunity": {
+      "displayName": "Create Opportunity",
+      "description": "Logs an opportunity including stage, close date, amount. Automate opportunity tracking after meetings.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Opportunity Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the opportunity (e.g., \"Financial Plan\", \"Investment Advisory\", \"Estate Planning\")"
+        },
+        {
+          "name": "target_close",
+          "displayName": "Target Close Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When the opportunity should close"
+        },
+        {
+          "name": "probability",
+          "displayName": "Probability (%)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The chance the opportunity will close, as a percentage (0-100)"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The monetary value of the opportunity"
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The currency for the opportunity amount"
+        },
+        {
+          "name": "amount_kind",
+          "displayName": "Amount Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of amount this represents"
+        },
+        {
+          "name": "stage",
+          "displayName": "Stage",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the current stage of this opportunity"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Linked Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact linked to this opportunity"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A detailed explanation of the opportunity"
+        },
+        {
+          "name": "manager",
+          "displayName": "Opportunity Manager",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the user designated as manager of this opportunity"
+        },
+        {
+          "name": "visible_to",
+          "displayName": "Visible To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select who can view this opportunity"
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add custom fields to this opportunity"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this opportunity"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field name"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this opportunity"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a custom field for this opportunity"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this opportunity (API unavailable)"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the custom field name exactly"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Starts a new project with description and organizer. Launch project-based onboarding when new clients sign up.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the project (e.g., \"Client Onboarding\", \"Q1 Review Process\")"
+        },
+        {
+          "name": "description",
+          "displayName": "Project Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "A detailed explanation of the project goals and scope"
+        },
+        {
+          "name": "organizer",
+          "displayName": "Organizer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the user who will be responsible for organizing this project"
+        },
+        {
+          "name": "visible_to",
+          "displayName": "Visible To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select who can view this project"
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add custom fields to this project"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this project"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field name"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this project"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a custom field for this project"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this project (API unavailable)"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the custom field name exactly"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Creates tasks tied to contacts with due dates and assignment types. Assign follow-up actions when opportunities are created.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the task (e.g., \"Return Bill\\"
+        },
+        {
+          "name": "due_date",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "When the task is due"
+        },
+        {
+          "name": "assigned_to",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the user who the task is assigned to"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A detailed explanation of the task"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The priority level of the task"
+        },
+        {
+          "name": "complete",
+          "displayName": "Mark as Complete",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check if the task should be created as already completed"
+        },
+        {
+          "name": "link_type",
+          "displayName": "Link To",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "What type of record to link this task to"
+        },
+        {
+          "name": "linked_record",
+          "displayName": "Linked Record",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select the record to link this task to"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Linked Record ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the record ID to link to"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Contact",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the contact to link this task to"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Project",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the project to link this task to"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Opportunity",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the opportunity to link this task to"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Linked Record ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the record ID to link to (API unavailable)"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Linked Record ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the record ID to link to"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the category this task belongs to"
+        },
+        {
+          "name": "visible_to",
+          "displayName": "Visible To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select who can view this task"
+        },
+        {
+          "name": "due_later",
+          "displayName": "Due Later",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Interval for when this task is due after start (e.g., \"2 days later at 5:00 PM\")"
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add custom fields to this task"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this task"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field name"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this task"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a custom field for this task"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        },
+        {
+          "name": "custom_fields_array",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add custom fields to this task (API unavailable)"
+        },
+        {
+          "name": "custom_field",
+          "displayName": "Custom Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the custom field name exactly"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value for this custom field"
+        }
+      ]
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Locate a contact by name, email, phone, or advanced filters. Comprehensive contact search with dynamic filtering options.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by name (supports partial matches across prefix, first, middle, last, suffix, nickname, and full name for households/companies)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by email address"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by phone number (delimiters like -, (), will be stripped automatically)"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Search by specific contact ID (most precise search)"
+        },
+        {
+          "name": "external_unique_id",
+          "displayName": "External Unique ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by external unique identifier"
+        },
+        {
+          "name": "contact_type",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by contact type"
+        },
+        {
+          "name": "type",
+          "displayName": "Contact Entity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by entity type"
+        },
+        {
+          "name": "household_title",
+          "displayName": "Household Title",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by household title (only applies to household members)"
+        },
+        {
+          "name": "tags_filter",
+          "displayName": "Tags Filter",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter contacts by tags"
+        },
+        {
+          "name": "active",
+          "displayName": "Active Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by active status"
+        },
+        {
+          "name": "include_deleted",
+          "displayName": "Include Deleted Contacts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include contacts that have been deleted"
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return contacts updated on or after this date/time"
+        },
+        {
+          "name": "updated_before",
+          "displayName": "Updated Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return contacts updated on or before this date/time"
+        },
+        {
+          "name": "order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to order the results"
+        },
+        {
+          "name": "limit",
+          "displayName": "Result Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of contacts to return (default: 50, max: 1000)"
+        },
+        {
+          "name": "return_single_result",
+          "displayName": "Return Single Result Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If checked, returns only the first matching contact. If unchecked, returns all matching contacts."
+        }
+      ]
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Finds existing tasks using comprehensive search filters. Search by assignment, resource, completion status, and date ranges.",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID (Optional)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Search for a specific task by its unique ID. Leave empty to search using filters."
+        },
+        {
+          "name": "resource_type",
+          "displayName": "Linked Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter tasks by the type of resource they are linked to"
+        },
+        {
+          "name": "resource_record",
+          "displayName": "Linked Resource",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select the specific resource to filter tasks by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "${recordType} Record",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the ${recordType.toLowerCase()} to filter tasks by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually (API unavailable)"
+        },
+        {
+          "name": "assigned_to",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter tasks by the user they are assigned to"
+        },
+        {
+          "name": "assigned_to_team",
+          "displayName": "Assigned to Team ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Filter tasks by the team they are assigned to"
+        },
+        {
+          "name": "created_by",
+          "displayName": "Created By",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter tasks by the user who created them"
+        },
+        {
+          "name": "completed",
+          "displayName": "Completion Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by task completion status"
+        },
+        {
+          "name": "task_type",
+          "displayName": "Task Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by task type"
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return tasks updated on or after this date/time"
+        },
+        {
+          "name": "updated_before",
+          "displayName": "Updated Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return tasks updated on or before this date/time"
+        },
+        {
+          "name": "limit",
+          "displayName": "Result Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of tasks to return (default: 50, max: 1000)"
+        },
+        {
+          "name": "return_single_result",
+          "displayName": "Return Single Result Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If checked, returns only the first matching task. If unchecked, returns all matching tasks."
+        }
+      ]
+    },
+    "start_workflow": {
+      "displayName": "Start Workflow",
+      "description": "Triggers a workflow template on a contact/project/opportunity. Automate multi-step sequences based on CRM events.",
+      "props": [
+        {
+          "name": "workflow_template",
+          "displayName": "Workflow Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the workflow template to trigger"
+        },
+        {
+          "name": "linked_type",
+          "displayName": "Link To",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "What type of record to link this workflow to"
+        },
+        {
+          "name": "linked_record",
+          "displayName": "Linked Record",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Select the record to link this workflow to"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Record ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the record ID manually"
+        },
+        {
+          "name": "linked_name",
+          "displayName": "Record Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the record name for reference"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Record ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the record ID manually"
+        },
+        {
+          "name": "linked_name",
+          "displayName": "Record Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the record name for reference"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "${recordType} Record",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the ${recordType.toLowerCase()} to link this workflow to"
+        },
+        {
+          "name": "linked_name",
+          "displayName": "Record Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name will be automatically populated from the selected record"
+        },
+        {
+          "name": "linked_id",
+          "displayName": "Record ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the record ID manually (API unavailable)"
+        },
+        {
+          "name": "linked_name",
+          "displayName": "Record Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the record name for reference"
+        },
+        {
+          "name": "label",
+          "displayName": "Workflow Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A short name for the workflow (e.g., \"Onboard a new client to the firm\")"
+        },
+        {
+          "name": "starts_at",
+          "displayName": "Start Date & Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "When you want the workflow to start (optional, defaults to now)"
+        },
+        {
+          "name": "visible_to",
+          "displayName": "Visible To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select who can view this workflow"
+        },
+        {
+          "name": "workflow_milestones",
+          "displayName": "Workflow Milestones",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add milestones to this workflow"
+        },
+        {
+          "name": "milestones_array",
+          "displayName": "Milestones",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add workflow milestones"
+        },
+        {
+          "name": "milestone_id",
+          "displayName": "Milestone ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the milestone"
+        },
+        {
+          "name": "milestone_name",
+          "displayName": "Milestone Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the milestone"
+        },
+        {
+          "name": "milestone_date",
+          "displayName": "Milestone Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "When this milestone should occur"
+        },
+        {
+          "name": "milestones_array",
+          "displayName": "Milestones",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add workflow milestones for this template"
+        },
+        {
+          "name": "milestone_id",
+          "displayName": "Milestone ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the milestone (from template)"
+        },
+        {
+          "name": "milestone_name",
+          "displayName": "Milestone Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the milestone"
+        },
+        {
+          "name": "milestone_date",
+          "displayName": "Milestone Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "When this milestone should occur"
+        },
+        {
+          "name": "milestones_array",
+          "displayName": "Milestones",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Add workflow milestones (API unavailable)"
+        },
+        {
+          "name": "milestone_id",
+          "displayName": "Milestone ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the milestone"
+        },
+        {
+          "name": "milestone_name",
+          "displayName": "Milestone Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the milestone"
+        },
+        {
+          "name": "milestone_date",
+          "displayName": "Milestone Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "When this milestone should occur"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Fires when a new contact is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "contact_type",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for contacts of this type (optional)"
+        },
+        {
+          "name": "type",
+          "displayName": "Entity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for contacts of this entity type (optional)"
+        },
+        {
+          "name": "household_title",
+          "displayName": "Household Title",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for contacts with this household title (optional)"
+        },
+        {
+          "name": "assigned_to",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Only trigger for contacts assigned to this user (optional)"
+        },
+        {
+          "name": "tags_filter",
+          "displayName": "Tags Filter",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for contacts with one of these tags (optional)"
+        },
+        {
+          "name": "active",
+          "displayName": "Active Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by active status"
+        },
+        {
+          "name": "include_deleted",
+          "displayName": "Include Deleted Contacts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include contacts that have been deleted"
+        }
+      ]
+    },
+    "new_event": {
+      "displayName": "New Event",
+      "description": "Fires when a new event is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "resource_type",
+          "displayName": "Linked Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for events linked to this type of resource (optional)"
+        },
+        {
+          "name": "resource_record",
+          "displayName": "Linked Resource",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select the specific resource to filter events by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "${recordType} Record",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the ${recordType.toLowerCase()} to filter events by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually (API unavailable)"
+        },
+        {
+          "name": "event_category",
+          "displayName": "Event Category",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Only trigger for events of this category (optional)"
+        },
+        {
+          "name": "start_date_min",
+          "displayName": "Start Date Minimum",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only trigger for events starting on or after this date/time"
+        },
+        {
+          "name": "start_date_max",
+          "displayName": "Start Date Maximum",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only trigger for events starting on or before this date/time"
+        },
+        {
+          "name": "order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to order the events"
+        }
+      ]
+    },
+    "new_opportunity": {
+      "displayName": "New Opportunity",
+      "description": "Fires when a new opportunity is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "resource_type",
+          "displayName": "Linked Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for opportunities linked to this type of resource (optional)"
+        },
+        {
+          "name": "resource_record",
+          "displayName": "Linked Resource",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select the specific resource to filter opportunities by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "${recordType} Record",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the ${recordType.toLowerCase()} to filter opportunities by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually (API unavailable)"
+        },
+        {
+          "name": "stage",
+          "displayName": "Opportunity Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Only trigger for opportunities in this stage (optional)"
+        },
+        {
+          "name": "manager",
+          "displayName": "Opportunity Manager",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Only trigger for opportunities managed by this user (optional)"
+        },
+        {
+          "name": "include_closed",
+          "displayName": "Include Closed Opportunities",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include won and lost opportunities in results"
+        },
+        {
+          "name": "min_probability",
+          "displayName": "Minimum Probability (%)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only trigger for opportunities with probability at or above this percentage (0-100)"
+        },
+        {
+          "name": "max_probability",
+          "displayName": "Maximum Probability (%)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only trigger for opportunities with probability at or below this percentage (0-100)"
+        },
+        {
+          "name": "target_close_after",
+          "displayName": "Target Close After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only trigger for opportunities with target close date on or after this date/time"
+        },
+        {
+          "name": "target_close_before",
+          "displayName": "Target Close Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only trigger for opportunities with target close date on or before this date/time"
+        }
+      ]
+    },
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Fires when a new task is created",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "assigned_to",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Only trigger for tasks assigned to this user (optional)"
+        },
+        {
+          "name": "assigned_to_team",
+          "displayName": "Assigned To Team ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only trigger for tasks assigned to this team (optional)"
+        },
+        {
+          "name": "created_by",
+          "displayName": "Created By",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Only trigger for tasks created by this user (optional)"
+        },
+        {
+          "name": "task_type",
+          "displayName": "Task Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of tasks to monitor"
+        },
+        {
+          "name": "resource_type",
+          "displayName": "Linked Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for tasks linked to this type of resource (optional)"
+        },
+        {
+          "name": "resource_record",
+          "displayName": "Linked Resource",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Select the specific resource to filter tasks by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "${recordType} Record",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select the ${recordType.toLowerCase()} to filter tasks by"
+        },
+        {
+          "name": "resource_id",
+          "displayName": "Resource ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Enter the resource ID manually (API unavailable)"
+        }
+      ]
+    }
+  }
+}

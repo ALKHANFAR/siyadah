@@ -1,0 +1,262 @@
+{
+  "id": "supabase",
+  "displayName": "Supabase",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_row": {
+      "displayName": "Create Row",
+      "description": "Create a new row in a table",
+      "props": [
+        {
+          "name": "return_row",
+          "displayName": "Return Created Row",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to return the created row"
+        }
+      ]
+    },
+    "delete_rows": {
+      "displayName": "Delete Rows",
+      "description": "Remove rows matching filter criteria from a table",
+      "props": [
+        {
+          "name": "filter_type",
+          "displayName": "Filter Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to filter rows for deletion"
+        },
+        {
+          "name": "filter_column",
+          "displayName": "Filter Column",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the column to filter on"
+        },
+        {
+          "name": "filter_value",
+          "displayName": "Filter Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The value to match against (not used for null checks)"
+        },
+        {
+          "name": "filter_values",
+          "displayName": "Filter Values",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of values for \"in\" filter type"
+        },
+        {
+          "name": "count_deleted",
+          "displayName": "Count Deleted Rows",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to count the number of deleted rows"
+        },
+        {
+          "name": "return_deleted",
+          "displayName": "Return Deleted Rows",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to return the deleted rows data"
+        }
+      ]
+    },
+    "search_rows": {
+      "displayName": "Search Rows",
+      "description": "Search for rows in a table with filters and pagination",
+      "props": [
+        {
+          "name": "columns",
+          "displayName": "Columns",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Columns to return (comma-separated). Leave empty to return all columns."
+        },
+        {
+          "name": "filters",
+          "displayName": "Filters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of filters to apply"
+        },
+        {
+          "name": "field",
+          "displayName": "Field",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field name to filter on (use -> for JSON fields, e.g. address->postcode)"
+        },
+        {
+          "name": "operator",
+          "displayName": "Operator",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Comparison operator"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to compare against"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination (starts from 1)"
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records per page (max 1000)"
+        },
+        {
+          "name": "countOption",
+          "displayName": "Count Algorithm",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Algorithm to use for counting rows"
+        }
+      ]
+    },
+    "update_row": {
+      "displayName": "Update Row",
+      "description": "Update rows in a table based on filter criteria",
+      "props": [
+        {
+          "name": "filter_type",
+          "displayName": "Filter Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to identify rows to update"
+        },
+        {
+          "name": "filter_column",
+          "displayName": "Filter Column",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the column to filter on"
+        },
+        {
+          "name": "filter_value",
+          "displayName": "Filter Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The value to match against (not used for \"in list\" filter)"
+        },
+        {
+          "name": "filter_values",
+          "displayName": "Filter Values",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of values for \"in list\" filter type"
+        },
+        {
+          "name": "count_updated",
+          "displayName": "Count Updated Rows",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to count the number of updated rows"
+        },
+        {
+          "name": "return_updated",
+          "displayName": "Return Updated Rows",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to return the updated rows data"
+        }
+      ]
+    },
+    "upload-file": {
+      "displayName": "Upload File",
+      "description": "Upload a file to Supabase Storage",
+      "props": [
+        {
+          "name": "filePath",
+          "displayName": "File path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "bucket",
+          "displayName": "Bucket",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "Base64 or URL",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "upsert_row": {
+      "displayName": "Upsert Row",
+      "description": "Insert or update a row in a table",
+      "props": [
+        {
+          "name": "on_conflict",
+          "displayName": "Conflict Column",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the unique column to determine duplicates (required for upsert to work)"
+        },
+        {
+          "name": "count_upserted",
+          "displayName": "Count Upserted Rows",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to count the number of upserted rows"
+        },
+        {
+          "name": "return_upserted",
+          "displayName": "Return Upserted Rows",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to return the upserted rows data"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_row": {
+      "displayName": "New Row",
+      "description": "Fires when a new row is created in a table",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "instructions",
+          "displayName": "instructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "schema",
+          "displayName": "Schema",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Database schema (default: public)"
+        }
+      ]
+    }
+  }
+}

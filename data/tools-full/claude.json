@@ -1,0 +1,174 @@
+{
+  "id": "claude",
+  "displayName": "Anthropic Claude",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "extract-structured-data": {
+      "displayName": "Extract Structured Data",
+      "description": "Extract structured data from provided text,image or PDF.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code."
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Text to extract structured data from."
+        },
+        {
+          "name": "image",
+          "displayName": "Image/PDF",
+          "type": "FILE",
+          "required": false,
+          "description": "Image or PDF to extract structured data from."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Guide Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Prompt to guide the AI."
+        },
+        {
+          "name": "schema",
+          "displayName": "Data Definition",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "JSON Schema",
+          "type": "JSON",
+          "required": true,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "Data Definition",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Brief description of the data, this hints for the AI on what to look for"
+        },
+        {
+          "name": "type",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of parameter."
+        },
+        {
+          "name": "isRequired",
+          "displayName": "Fail if Not present?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of tokens to generate. Requests can use up to 2,048 or 4,096 tokens shared between prompt and completion, don't set the value to maximum and leave some tokens for the input. The exact limit varies by model. (One token is roughly 4 characters for normal English text)"
+        }
+      ]
+    },
+    "ask_claude": {
+      "displayName": "Ask Claude",
+      "description": "Ask Claude anything you want!",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code."
+        },
+        {
+          "name": "systemPrompt",
+          "displayName": "System Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of tokens to generate. Requests can use up to 2,048 or 4,096 tokens shared between prompt and completion, don't set the value to maximum and leave some tokens for the input. The exact limit varies by model. (One token is roughly 4 characters for normal English text)"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "image",
+          "displayName": "Image (URL)",
+          "type": "FILE",
+          "required": false,
+          "description": "URL of image to be used as input for the model."
+        },
+        {
+          "name": "roles",
+          "displayName": "Roles",
+          "type": "JSON",
+          "required": false,
+          "description": "Array of roles to specify more accurate response.Please check [guide to Input Messages](https://docs.anthropic.com/en/api/messages-examples#vision)."
+        },
+        {
+          "name": "thinkingMode",
+          "displayName": "Extended Thinking Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Uses claude 3.7 sonnet enhanced reasoning capabilities for complex tasks."
+        },
+        {
+          "name": "thinkingModeParams",
+          "displayName": "Budget Tokens",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "This parameter determines the maximum number of tokens Claude is allowed to use for its internal reasoning process.Your budget tokens must always be less than the max tokens specified."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

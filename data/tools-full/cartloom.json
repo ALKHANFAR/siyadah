@@ -1,0 +1,223 @@
+{
+  "id": "cartloom",
+  "displayName": "Cartloom",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_discount": {
+      "displayName": "Create Discount",
+      "description": "Create a discount in Cartloom",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the title of the discount"
+        },
+        {
+          "name": "enabled",
+          "displayName": "Enabled",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Is this discount enabled?"
+        },
+        {
+          "name": "auto",
+          "displayName": "Auto",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Is this discount automatically applied?"
+        },
+        {
+          "name": "unlimited",
+          "displayName": "Unlimited",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Is this discount unlimited?"
+        },
+        {
+          "name": "selfDestruct",
+          "displayName": "Self Destruct",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Remove the discount after use"
+        },
+        {
+          "name": "applyOnce",
+          "displayName": "Apply Once",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Apply the discount once per order"
+        },
+        {
+          "name": "type",
+          "displayName": "Type of Discount",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the type of discount"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the amount of the discount"
+        },
+        {
+          "name": "target",
+          "displayName": "Discount Target",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the target of the discount"
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The start date of the discount. YYYY-MM-DD HH:MM:SS"
+        },
+        {
+          "name": "stopDate",
+          "displayName": "Stop Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The stop date of the discount. YYYY-MM-DD HH:MM:SS"
+        },
+        {
+          "name": "optional",
+          "displayName": "optional",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "code",
+          "displayName": "Discount Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the discount code. Leave blank for no code."
+        },
+        {
+          "name": "targetPids",
+          "displayName": "Target Products",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select the products to apply the discount to"
+        },
+        {
+          "name": "targetAmount",
+          "displayName": "Target Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The target amount for the discount when the target is set to Total"
+        },
+        {
+          "name": "targetQuantity",
+          "displayName": "Target Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The target quantity for the discount when the target is set to All or Products"
+        },
+        {
+          "name": "allowance",
+          "displayName": "Allowance",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of times the discount can be used"
+        }
+      ]
+    },
+    "get_discount": {
+      "displayName": "Get Discount",
+      "description": "Get discount info from Cartloom",
+      "props": [
+        {
+          "name": "discountId",
+          "displayName": "Discount ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the ID of the discount you want to retrieve"
+        }
+      ]
+    },
+    "get_all_discounts": {
+      "displayName": "Get All Discounts",
+      "description": "Get a list of discounts from Cartloom",
+      "props": []
+    },
+    "get_order": {
+      "displayName": "Get Order",
+      "description": "Get an order from Cartloom",
+      "props": [
+        {
+          "name": "invoice",
+          "displayName": "Invoice ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The invoice ID for the order you want to retrieve"
+        }
+      ]
+    },
+    "get_orders_by_email": {
+      "displayName": "Get Order by Email",
+      "description": "Get a list of orders for an email within a date range",
+      "props": [
+        {
+          "name": "start",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Select a date to start the search"
+        },
+        {
+          "name": "end",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Select a date to end the search. Defaults to today."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address to search for."
+        }
+      ]
+    },
+    "get_orders_by_date": {
+      "displayName": "Get Order by Date",
+      "description": "Get a list of orders from Cartloom within a date range",
+      "props": [
+        {
+          "name": "start",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Select a date to start the search"
+        },
+        {
+          "name": "end",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Select a date to end the search. Defaults to today."
+        }
+      ]
+    },
+    "get_products": {
+      "displayName": "Get Products",
+      "description": "Get a list of products from Cartloom",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,62 @@
+{
+  "id": "captain-data",
+  "displayName": "API key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "getJobResults": {
+      "displayName": "Get job results",
+      "description": "Get all results for a specific job",
+      "props": [
+        {
+          "name": "job",
+          "displayName": "Job",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "launchWorkflow": {
+      "displayName": "Launch a workflow",
+      "description": "Inputs are the starting point of your workflow.",
+      "props": [
+        {
+          "name": "jobName",
+          "displayName": "Job name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "inputs",
+          "displayName": "Inputs",
+          "type": "JSON",
+          "required": false,
+          "description": "Inputs are the starting point of your workflow."
+        },
+        {
+          "name": "steps",
+          "displayName": "Steps",
+          "type": "JSON",
+          "required": false,
+          "description": "You need to configure each steps with:\\n"
+        },
+        {
+          "name": "delay",
+          "displayName": "Delay (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

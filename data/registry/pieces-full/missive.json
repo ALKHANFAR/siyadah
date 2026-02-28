@@ -1,0 +1,76 @@
+{
+  "id": "missive",
+  "package": "@activepieces/piece-missive",
+  "display_name": "Missive",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Add a new contact within a specified contact book"
+    },
+    {
+      "name": "create_draft_post",
+      "display_name": "Create Draft/Post",
+      "description": "Create a draft message or post in Missive, with option to send"
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a task that can be standalone or associated with a conversation"
+    },
+    {
+      "name": "find_contact",
+      "display_name": "Find Contact",
+      "description": "Search for contacts by text, email, name, or any contact information"
+    },
+    {
+      "name": "update_contact",
+      "display_name": "Update Contact",
+      "description": "Modify fields for an existing contact"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_comment",
+      "display_name": "New Comment",
+      "description": "Triggers when new comments are added to conversations",
+      "type": "instant"
+    },
+    {
+      "name": "new_contact_book",
+      "display_name": "New Contact Book",
+      "description": "Triggers when new contact books are created",
+      "type": "instant"
+    },
+    {
+      "name": "new_contact_group",
+      "display_name": "New Contact Group",
+      "description": "Triggers when new contact groups are created",
+      "type": "instant"
+    },
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Triggers when new contacts are added to contact books",
+      "type": "instant"
+    },
+    {
+      "name": "new_message",
+      "display_name": "New Message",
+      "description": "Triggers when new messages are received (email, SMS, WhatsApp, Facebook, etc.)",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "zeplin",
+  "package": "@activepieces/piece-zeplin",
+  "display_name": "Zeplin",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createNote",
+      "display_name": "Create Note",
+      "description": "Create a note on a screen in Zeplin"
+    },
+    {
+      "name": "findProject",
+      "display_name": "Find Project",
+      "description": "Find a project by name or retrieve all projects"
+    },
+    {
+      "name": "findScreen",
+      "display_name": "Find Screen",
+      "description": "Find a screen by name or retrieve all screens in a project"
+    },
+    {
+      "name": "updateProject",
+      "display_name": "Update Project",
+      "description": "The new name for the project"
+    },
+    {
+      "name": "updateScreen",
+      "display_name": "Update Screen",
+      "description": "The new description for the screen"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newNote",
+      "display_name": "New Note",
+      "description": "Triggered when a new note is created on a screen",
+      "type": "instant"
+    },
+    {
+      "name": "newScreen",
+      "display_name": "New Screen",
+      "description": "Triggered when a new screen is created in a project",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "gotify",
+  "package": "@activepieces/piece-gotify",
+  "display_name": "Gotify",
+  "display_name_ar": "",
+  "description": "Self-hosted push notification service",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "send_notification",
+      "display_name": "Send Notification",
+      "description": "Send a notification to gotify"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

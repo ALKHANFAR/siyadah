@@ -1,0 +1,60 @@
+{
+  "id": "netlify",
+  "package": "@activepieces/piece-netlify",
+  "display_name": "Netlify",
+  "display_name_ar": "",
+  "description": "Netlify is a platform for building and deploying websites and apps.",
+  "category": "K_dev",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "get_site",
+      "display_name": "Get Site",
+      "description": "Get a specified site. Note: Environment variable keys and values have moved from build_settings.env and repo.env to a new endpoint. Please use getEnvVars to retrieve site environment variables."
+    },
+    {
+      "name": "list_files",
+      "display_name": "List Files",
+      "description": "Returns a list of all the files in the current deploy."
+    },
+    {
+      "name": "list_site_deploys",
+      "display_name": "List Site Deploys",
+      "description": "Returns a list of all deploys for a specific site."
+    },
+    {
+      "name": "start_deploy",
+      "display_name": "Start Deploy",
+      "description": "Triggers a new build for a site on Netlify. Supports clearing build cache."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_deploy_failed",
+      "display_name": "New Deploy Failed",
+      "description": "Fires when a site deploy fails.",
+      "type": "instant"
+    },
+    {
+      "name": "new_deploy_started",
+      "display_name": "New Deploy Started",
+      "description": "Fires immediately when a deploy job starts on your Netlify site.",
+      "type": "instant"
+    },
+    {
+      "name": "new_deploy_succeeded",
+      "display_name": "New Deploy Succeeded",
+      "description": "Fires when a new site version has successfully deployed.",
+      "type": "instant"
+    },
+    {
+      "name": "new_form_submission",
+      "display_name": "New Form Submission",
+      "description": "Fires when a Netlify form submission is received.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

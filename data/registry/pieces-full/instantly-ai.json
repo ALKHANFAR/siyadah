@@ -1,0 +1,58 @@
+{
+  "id": "instantly-ai",
+  "package": "@activepieces/piece-instantly-ai",
+  "display_name": "Instantly.ai",
+  "display_name_ar": "",
+  "description": "Powerful cold email outreach and lead engagement platform.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_lead_to_campaign",
+      "display_name": "Add Lead to Campaign",
+      "description": "Adds a lead to a campaign."
+    },
+    {
+      "name": "create_campaign",
+      "display_name": "Create Campaign",
+      "description": "Create a new cold email campaign in Instantly"
+    },
+    {
+      "name": "create_lead_list",
+      "display_name": "Create Lead List",
+      "description": "Creates a new lead list."
+    },
+    {
+      "name": "search_campaigns",
+      "display_name": "Search Campaigns",
+      "description": "Searchs for campaigns using various filters."
+    },
+    {
+      "name": "search_leads",
+      "display_name": "Search Leads",
+      "description": "Search for leads in Instantly by name or email."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "campaign_status_changed",
+      "display_name": "Campaign Status Changed",
+      "description": "Triggers when a campaign status changes (completed, paused, etc.).",
+      "type": "instant"
+    },
+    {
+      "name": "new_lead_added",
+      "display_name": "New Lead Added",
+      "description": "Triggers when a new lead is added to a campaign",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,68 @@
+{
+  "id": "sendfox",
+  "displayName": "SendFox",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create-contact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "firstname",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastname",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-list": {
+      "displayName": "Create List",
+      "description": "Create a new list",
+      "props": [
+        {
+          "name": "task_name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "unsubscribe": {
+      "displayName": "Unsubscribe Contact",
+      "description": "Unsubscribe a contact",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

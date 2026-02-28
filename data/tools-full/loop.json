@@ -1,0 +1,15 @@
+{
+  "id": "loop",
+  "displayName": "Loop",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "loop_on_items": {
+      "displayName": "Loop on Items",
+      "description": "Iterate over a list of items",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

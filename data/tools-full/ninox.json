@@ -1,0 +1,73 @@
+{
+  "id": "ninox",
+  "displayName": "Ninox",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createRecord": {
+      "displayName": "Create Record",
+      "description": "Creates a new record into a specified table.",
+      "props": []
+    },
+    "deleteRecord": {
+      "displayName": "Delete Record",
+      "description": "Deletes a record from a table.",
+      "props": []
+    },
+    "downloadFileFromRecord": {
+      "displayName": "Download File from Record",
+      "description": "Downloads a file attached to a record.",
+      "props": []
+    },
+    "findRecord": {
+      "displayName": "Find Record",
+      "description": "Finds records by field values.",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to search for in the specified field."
+        }
+      ]
+    },
+    "listFilesFromRecord": {
+      "displayName": "List Files from Record",
+      "description": "List files attached to a specific record (without downloading) for management.",
+      "props": []
+    },
+    "updateRecord": {
+      "displayName": "Update Record",
+      "description": "Updates fields on an existing record.",
+      "props": []
+    },
+    "uploadFile": {
+      "displayName": "Upload File",
+      "description": "Attach a file to a record.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload to the record."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newRecord": {
+      "displayName": "New Record",
+      "description": "Triggers when a new record is created in a table.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "alt-text-ai",
+  "displayName": "AltText.ai",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate-alt-text": {
+      "displayName": "Generate Alt Text",
+      "description": "Generates a descriptive alt text for a given image.",
+      "props": [
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "keywords",
+          "displayName": "Keywords",
+          "type": "ARRAY",
+          "required": false,
+          "description": "keywords / phrases to be considered when generating the alt text."
+        },
+        {
+          "name": "negativeKeywords",
+          "displayName": "Negative Keywords",
+          "type": "ARRAY",
+          "required": false,
+          "description": "negative keywords / phrases to be removed from any generated alt text."
+        },
+        {
+          "name": "keywordSource",
+          "displayName": "Keyword Source",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Text to use as the source of keywords for the alt text."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

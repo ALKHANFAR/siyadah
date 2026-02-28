@@ -1,0 +1,20 @@
+{
+  "id": "segment",
+  "package": "@activepieces/piece-segment",
+  "display_name": "Analytics Key",
+  "display_name_ar": "Analytics Key",
+  "description": "Copy and paste your analytics write key here",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "identifyUser",
+      "display_name": "Identify User",
+      "description": ""
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/segment"
+}

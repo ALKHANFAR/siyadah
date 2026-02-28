@@ -1,0 +1,107 @@
+{
+  "id": "insta-charts",
+  "displayName": "InstaCharts",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "generate_chart_image": {
+      "displayName": "Generate Chart Image",
+      "description": "Generates a temporary chart image using customizable templates and data parameters",
+      "props": [
+        {
+          "name": "templateId",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a chart template to use"
+        },
+        {
+          "name": "chartType",
+          "displayName": "Chart Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of chart to generate"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Main chart title"
+        },
+        {
+          "name": "subtitle",
+          "displayName": "Subtitle",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Secondary chart title"
+        },
+        {
+          "name": "xTitle",
+          "displayName": "X-Axis Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title for the X-axis"
+        },
+        {
+          "name": "yTitle",
+          "displayName": "Y-Axis Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title for the Y-axis"
+        },
+        {
+          "name": "zTitle",
+          "displayName": "Legend Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title for the legend"
+        },
+        {
+          "name": "x",
+          "displayName": "X-Axis Data",
+          "type": "ARRAY",
+          "required": true,
+          "description": "X-axis data values (e.g., [\"Mobile\", \"Desktop\", \"Tablet\"])"
+        },
+        {
+          "name": "y",
+          "displayName": "Y-Axis Data",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Y-axis data values (e.g., [100, 200, 400])"
+        },
+        {
+          "name": "z",
+          "displayName": "Breakdown Data",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Breakdown axis data for unaggregated charts (e.g., [\"Site A\", \"Site A\", \"Site B\"])"
+        },
+        {
+          "name": "series",
+          "displayName": "Series Data",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Series data as objects with label and data (e.g., [{\"label\":\"Site A\",\"data\":[1,2,3]}])"
+        },
+        {
+          "name": "dLabel",
+          "displayName": "Show Data Labels",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show data labels near the chart pieces"
+        },
+        {
+          "name": "overrides",
+          "displayName": "Override Parameters",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional query parameters (e.g., color=cccccc&width=500)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

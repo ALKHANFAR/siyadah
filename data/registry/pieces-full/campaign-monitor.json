@@ -1,0 +1,54 @@
+{
+  "id": "campaign-monitor",
+  "package": "@activepieces/piece-campaign-monitor",
+  "display_name": "Campaign Monitor",
+  "display_name_ar": "",
+  "description": "Email marketing platform for delivering exceptional email campaigns.",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_subscriber_to_list",
+      "display_name": "Add Subscriber",
+      "description": "Adds a new subscriber to a list."
+    },
+    {
+      "name": "find_subscriber",
+      "display_name": "Find Subscriber",
+      "description": "Find a subscriber by email in a specific list."
+    },
+    {
+      "name": "unsubscribe_subscriber",
+      "display_name": "Unsubscribe Subscriber",
+      "description": "Remove a subscriber from a list."
+    },
+    {
+      "name": "update_subscriber_details",
+      "display_name": "Update Subscriber",
+      "description": "Update an existing subscriber in a list."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_client",
+      "display_name": "New Client",
+      "description": "Triggered when a new client is added to Campaign Monitor.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_subscriber_added",
+      "display_name": "New Subscriber Added",
+      "description": "Triggered when a new subscriber is added to a list.",
+      "type": "instant"
+    },
+    {
+      "name": "subscriber_unsubscribed",
+      "display_name": "Subscriber Unsubscribed",
+      "description": "Triggered when a subscriber unsubscribes from a list",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

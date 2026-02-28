@@ -1,0 +1,16 @@
+{
+  "id": "webhook",
+  "displayName": "Webhook",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {},
+  "triggers": {
+    "catch_webhook": {
+      "displayName": "Catch Webhook",
+      "description": "Triggers when a webhook is received",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

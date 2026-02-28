@@ -1,0 +1,145 @@
+{
+  "id": "google-search-console",
+  "displayName": "Google Search Console",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_site": {
+      "displayName": "Add a Site",
+      "description": "Adds a site to the set of the user's sites in Search Console.",
+      "props": [
+        {
+          "name": "siteUrl",
+          "displayName": "Site URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "delete_site": {
+      "displayName": "Delete a Site",
+      "description": "Removes a site from the set of the user's Search Console sites.",
+      "props": []
+    },
+    "list_sitemaps": {
+      "displayName": "List Sitemaps",
+      "description": "List all your sitemaps for a given site",
+      "props": []
+    },
+    "list_sites": {
+      "displayName": "List Sites",
+      "description": "Lists the user's Search Console sites.",
+      "props": []
+    },
+    "search_analytics": {
+      "displayName": "Search Analytics",
+      "description": "Query traffic data for your site using the Google Search Console API.",
+      "props": [
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The start date of the date range to query (in YYYY-MM-DD format)."
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The end date of the date range to query (in YYYY-MM-DD format)."
+        },
+        {
+          "name": "dimensions",
+          "displayName": "Dimensions",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The dimensions to group results by. For example: [\"query\", \"page\", \"country\", \"device\", \"searchAppearance\", \"date\"]."
+        },
+        {
+          "name": "filters",
+          "displayName": "Filters",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Optional filters to apply to the data. Filters can be used to restrict the results to a specific subset."
+        },
+        {
+          "name": "dimension",
+          "displayName": "Dimension",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The dimension to filter by (e.g., query, page, country, device)."
+        },
+        {
+          "name": "operator",
+          "displayName": "Operator",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The filter operator to apply (e.g., equals, contains)."
+        },
+        {
+          "name": "expression",
+          "displayName": "Expression",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The expression to compare the dimension against."
+        },
+        {
+          "name": "aggregationType",
+          "displayName": "Aggregation Type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "How data is aggregated. Options include \"auto\", \"byPage\", \"byProperty\"."
+        },
+        {
+          "name": "rowLimit",
+          "displayName": "Row Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of rows to return."
+        },
+        {
+          "name": "startRow",
+          "displayName": "Start Row",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The first row to return. Use this parameter to paginate results."
+        }
+      ]
+    },
+    "submit_sitemap": {
+      "displayName": "Submit a Sitemap",
+      "description": "Submits a sitemap for a site.",
+      "props": [
+        {
+          "name": "feedpath",
+          "displayName": "Sitemap Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "urlInspection": {
+      "displayName": "URL Inspection",
+      "description": "Use the URL Inspection action to check the status and presence of a specific page within Google's index.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL to Inspect",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

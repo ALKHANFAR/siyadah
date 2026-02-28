@@ -1,0 +1,48 @@
+{
+  "id": "what-converts",
+  "package": "@activepieces/piece-what-converts",
+  "display_name": "WhatConverts",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "export_leads",
+      "display_name": "Export Leads",
+      "description": "Retrieves all leads from an account, handling pagination automatically."
+    },
+    {
+      "name": "create_lead",
+      "display_name": "Create Lead",
+      "description": "Create a new lead in WhatConverts."
+    },
+    {
+      "name": "find_lead",
+      "display_name": "Find Lead",
+      "description": "Find a lead by various criteria."
+    },
+    {
+      "name": "update_lead",
+      "display_name": "Update Lead",
+      "description": "The type of the lead."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_lead",
+      "display_name": "New Lead",
+      "description": "Fires when a new lead is received.",
+      "type": "instant"
+    },
+    {
+      "name": "updated_lead",
+      "display_name": "Updated Lead",
+      "description": "Fires when an existing lead is updated in WhatConverts.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,85 @@
+{
+  "id": "oncehub",
+  "package": "@activepieces/piece-oncehub",
+  "display_name": "Oncehub",
+  "display_name_ar": "Oncehub",
+  "description": "Build meaningful on-brand scheduling experiences with OnceHubs online appointment booking software",
+  "category": "E_crm",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createContact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact in Oncehub. Either email or mobile_phone is required."
+    },
+    {
+      "name": "findContact",
+      "display_name": "Find Contact",
+      "description": "Search for contacts in Oncehub by various criteria"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "bookingCanceledThenRescheduled",
+      "display_name": "Booking Canceled Then Rescheduled",
+      "description": "Triggered when Customer cancels a booking and then reschedules on a different booking page.",
+      "type": "instant"
+    },
+    {
+      "name": "bookingCanceled",
+      "display_name": "Booking Canceled",
+      "description": "Triggered when User or Customer cancels a booking",
+      "type": "instant"
+    },
+    {
+      "name": "bookingCompleted",
+      "display_name": "Booking Completed",
+      "description": "Triggered when booking end time has passed.",
+      "type": "instant"
+    },
+    {
+      "name": "bookingNoshow",
+      "display_name": "Booking No-Show",
+      "description": "Triggered when User sets the completed booking to No-show",
+      "type": "instant"
+    },
+    {
+      "name": "bookingRescheduled",
+      "display_name": "Booking Rescheduled",
+      "description": "Triggered when Customer reschedules a booking on the same booking page and Customer reschedules a booking following a request from the User to reschedule",
+      "type": "instant"
+    },
+    {
+      "name": "bookingScheduled",
+      "display_name": "Booking Scheduled",
+      "description": "Triggered when Customer schedules a booking and when User approves a booking requested by a Customer",
+      "type": "instant"
+    },
+    {
+      "name": "conversationAbandoned",
+      "display_name": "Conversation Abandoned",
+      "description": "Triggered when website visitor stops interacting with a bot for more than 10 minutes.",
+      "type": "instant"
+    },
+    {
+      "name": "conversationClosed",
+      "display_name": "Conversation Closed",
+      "description": "Triggered when: Website visitor reaches the end of the conversation flow and when Website visitor starts a new conversation with a different chatbot",
+      "type": "instant"
+    },
+    {
+      "name": "conversationStarted",
+      "display_name": "Conversation Started",
+      "description": "Triggered when website visitor starts interacting with a chatbot.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/oncehub"
+}

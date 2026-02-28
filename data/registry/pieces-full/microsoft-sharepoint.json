@@ -1,0 +1,139 @@
+{
+  "id": "microsoft-sharepoint",
+  "package": "@activepieces/piece-microsoft-sharepoint",
+  "display_name": "Microsoft SharePoint",
+  "display_name_ar": "",
+  "description": null,
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "microsoft_sharepoint_copy_item_within_site",
+      "display_name": "Copy File or Folder (Within Site)",
+      "description": "Copy a file or folder to another folder within the same site."
+    },
+    {
+      "name": "microsoft_sharepoint_copy_item",
+      "display_name": "Copy File or Folder (Across Sites)",
+      "description": "Copy a file or folder from one site to another within the same tenant, with overwrite option."
+    },
+    {
+      "name": "microsoft_sharepoint_create_folder",
+      "display_name": "Create Folder",
+      "description": "Creates a new folder at path you specify."
+    },
+    {
+      "name": "microsoft_sharepoint_create_list_item",
+      "display_name": "Create List Item",
+      "description": "Creates a new item in a list."
+    },
+    {
+      "name": "microsoft_sharepoint_create_list",
+      "display_name": "Create List",
+      "description": "Creates a new list."
+    },
+    {
+      "name": "microsoft_sharepoint_delete_list_item",
+      "display_name": "Delete List Item",
+      "description": "Deletes an existing item from a list."
+    },
+    {
+      "name": "microsoft_sharepoint_find_file",
+      "display_name": "Find File",
+      "description": "Look up a file by its name or path."
+    },
+    {
+      "name": "microsoft_sharepoint_get_folder_contents",
+      "display_name": "Get Folder Contents",
+      "description": "List all files and subfolders in a specified folder, optionally with detailed metadata."
+    },
+    {
+      "name": "microsoft_sharepoint_get_site_information",
+      "display_name": "Get Site Information",
+      "description": "Fetch metadata of a SharePoint site (site ID, title, URL, description, etc.)."
+    },
+    {
+      "name": "microsoft_sharepoint_move_file",
+      "display_name": "Move File",
+      "description": "Move a file from one folder to another within the same drive."
+    },
+    {
+      "name": "microsoft_sharepoint_publish_page",
+      "display_name": "Publish Page",
+      "description": "Publishes a SharePoint page, making it available to all users. If the page is checked out, it will be automatically checked in. Note: Pages with active approval flows will not publish until approval is complete."
+    },
+    {
+      "name": "microsoft_sharepoint_search_list_item",
+      "display_name": "Find List Item",
+      "description": "Finds a item in a list based on name."
+    },
+    {
+      "name": "microsoft_sharepoint_update_list_item",
+      "display_name": "Update List Item",
+      "description": "Updates an existing item in a list."
+    },
+    {
+      "name": "microsoft_sharepoint_upload_file",
+      "display_name": "Upload File",
+      "description": "Uploads a new file at path you specify."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_file_in_folder",
+      "display_name": "New File in Folder",
+      "description": "Fires when a new file is created or added in a specific folder.",
+      "type": "instant"
+    },
+    {
+      "name": "new_file_in_subfolders",
+      "display_name": "New File in Subfolders",
+      "description": "Fires when a new file is added anywhere in the first-level subfolders of a folder. Note: This trigger will not monitor subfolders created after the flow is activated.",
+      "type": "instant"
+    },
+    {
+      "name": "new_list_item",
+      "display_name": "New List Item",
+      "description": "Triggers when a new item is created in a SharePoint list.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_list",
+      "display_name": "New List",
+      "description": "Triggers when a new list is created in a site.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_or_updated_file",
+      "display_name": "New or Updated File",
+      "description": "Triggers when a file is created or updated in a given folder.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_or_updated_folder",
+      "display_name": "New or Updated Folder",
+      "description": "Triggers when a folder is created or updated (e.g., name change).",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_or_updated_list",
+      "display_name": "New or Updated List",
+      "description": "Triggers when a list is created or updated in a site.",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_list_item",
+      "display_name": "Updated List Item",
+      "description": "Fires when an existing item in a SharePoint list is updated.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

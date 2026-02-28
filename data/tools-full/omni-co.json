@@ -1,0 +1,320 @@
+{
+  "id": "omni-co",
+  "displayName": "Omni",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createADocument": {
+      "displayName": "Create a document",
+      "description": "Creates a new document",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Document Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the document"
+        },
+        {
+          "name": "queryPresentations",
+          "displayName": "Query Presentations",
+          "type": "ARRAY",
+          "required": false,
+          "description": "An array of queryPresentation objects, each representing a query in the document's workbook"
+        }
+      ]
+    },
+    "createASchedule": {
+      "displayName": "Create a schedule",
+      "description": "Creates a scheduled task for a dashboard with support for email, SFTP, and webhook destinations",
+      "props": [
+        {
+          "name": "identifier",
+          "displayName": "Dashboard Identifier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": " The string after /dashboards is the dashboards ID; for example: https://blobsrus.omniapp.co/dashboards/12db1a0a"
+        },
+        {
+          "name": "name",
+          "displayName": "Schedule Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the schedule/task"
+        },
+        {
+          "name": "schedule",
+          "displayName": "Schedule (Cron Expression)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Cron expression for the schedule (e.g., \"0 9 ? * * *\" for 9 AM UTC daily) https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html"
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Timezone for the schedule (e.g., \"UTC\", \"America/New_York\") Refer : https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab"
+        },
+        {
+          "name": "format",
+          "displayName": "Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Output format for the schedule"
+        },
+        {
+          "name": "destinationType",
+          "displayName": "Destination Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of destination for the schedule"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Webhook URL (required when destinationType is webhook)"
+        },
+        {
+          "name": "recipients",
+          "displayName": "Recipients",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email recipients (required when destinationType is email)"
+        },
+        {
+          "name": "subject",
+          "displayName": "Email Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subject line for email delivery"
+        },
+        {
+          "name": "paperFormat",
+          "displayName": "Paper Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Paper format for PDF output"
+        },
+        {
+          "name": "paperOrientation",
+          "displayName": "Paper Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Paper orientation for PDF output"
+        }
+      ]
+    },
+    "deleteADocument": {
+      "displayName": "Delete a document",
+      "description": "Deletes the specified document and places it in the Trash",
+      "props": []
+    },
+    "deleteASchedule": {
+      "displayName": "Delete a schedule",
+      "description": "Deletes a schedule using its UUID",
+      "props": []
+    },
+    "editSchedule": {
+      "displayName": "Edit schedule",
+      "description": "Updates a scheduled task. Only properties included will be updated",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Schedule Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the schedule/task"
+        },
+        {
+          "name": "schedule",
+          "displayName": "Schedule (Cron Expression)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Cron expression for the schedule (e.g., \"0 9 ? * * *\" for 9 AM UTC daily) https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html"
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Timezone for the schedule (e.g., \"UTC\", \"America/New_York\") Refer : https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab"
+        },
+        {
+          "name": "format",
+          "displayName": "Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Output format for the schedule"
+        },
+        {
+          "name": "destinationType",
+          "displayName": "Destination Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of destination for the schedule"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Webhook URL (required when destinationType is webhook)"
+        },
+        {
+          "name": "recipients",
+          "displayName": "Recipients",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email recipients (required when destinationType is email)"
+        },
+        {
+          "name": "subject",
+          "displayName": "Email Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subject line for email delivery"
+        },
+        {
+          "name": "paperFormat",
+          "displayName": "Paper Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Paper format for PDF output"
+        },
+        {
+          "name": "paperOrientation",
+          "displayName": "Paper Orientation",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Paper orientation for PDF output"
+        }
+      ]
+    },
+    "generateQuery": {
+      "displayName": "Generate query",
+      "description": "Transforms a natural language description into a structured Omni query",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The natural language description of the query you want to generate (e.g., \"Show me all users who signed up in the last month\")"
+        },
+        {
+          "name": "currentTopicName",
+          "displayName": "Current Topic Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the topic to use as context for the query generation"
+        },
+        {
+          "name": "branchId",
+          "displayName": "Branch ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the model branch to use for query generation. If not provided, the main branch will be used"
+        },
+        {
+          "name": "contextQuery",
+          "displayName": "Context Query",
+          "type": "JSON",
+          "required": false,
+          "description": "The query object to provide as context. This can be used to reference previous queries or provide additional context for the generation"
+        },
+        {
+          "name": "structured",
+          "displayName": "Structured Output",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "When enabled, the API will return a more strictly structured query format"
+        }
+      ]
+    },
+    "moveDocument": {
+      "displayName": "Move document",
+      "description": "Moves a document to a new folder or to the root level",
+      "props": [
+        {
+          "name": "folderPath",
+          "displayName": "Folder Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the destination folder. Use null to move the document to the root level (no folder)"
+        },
+        {
+          "name": "scope",
+          "displayName": "Scope",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Optional sharing scope for the document. If not provided, the scope will be computed"
+        }
+      ]
+    },
+    "runQuery": {
+      "displayName": "Run query",
+      "description": "Runs a query and returns the results as base64 encoded Apache Arrow table or in specified format",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "JSON",
+          "required": true,
+          "description": "A JSON object representing the query to be run. You can retrieve a query's JSON object from an Omni workbook by opening the Inspector panel (Option + 9 on Mac, Alt + 9 on Windows) and copying the Query structure"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of rows to be returned (defaults to 1000). Set to null for unlimited results"
+        },
+        {
+          "name": "cache",
+          "displayName": "Cache Policy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Optional cache policy to control how query caching behaves"
+        },
+        {
+          "name": "formatResults",
+          "displayName": "Format Results",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Apply formatting to numeric and currency values (currency symbols and thousand separators)"
+        },
+        {
+          "name": "resultType",
+          "displayName": "Result Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Specifies the format of query results. If omitted, returns base64 encoded Apache Arrow format"
+        },
+        {
+          "name": "planOnly",
+          "displayName": "Plan Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If enabled, returns the query execution plan without running the query"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional UUID to run the query as a specific user"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

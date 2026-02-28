@@ -1,0 +1,62 @@
+{
+  "id": "ticktick",
+  "package": "@activepieces/piece-ticktick",
+  "display_name": "TickTick",
+  "display_name_ar": "TickTick",
+  "description": "TickTick integration",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "complete_task",
+      "display_name": "Complete Task",
+      "description": "Marks an existing task as completed."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Creates a new in a specific list."
+    },
+    {
+      "name": "delete_task",
+      "display_name": "Delete Task",
+      "description": "Deletes an existing task."
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Finds tasks in a specific project by their title."
+    },
+    {
+      "name": "get_project",
+      "display_name": "Get Task List",
+      "description": "Retrieves the details of a specific task list by ID."
+    },
+    {
+      "name": "get_task",
+      "display_name": "Get Task",
+      "description": "Retrieves the details of a specific task."
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Update an existing task."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_task_created",
+      "display_name": "New Task Created",
+      "description": "Triggers when a new task is created in a selected project.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/ticktick"
+}

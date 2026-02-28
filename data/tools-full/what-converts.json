@@ -1,0 +1,285 @@
+{
+  "id": "what-converts",
+  "displayName": "WhatConverts",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "export_leads": {
+      "displayName": "Export Leads",
+      "description": "Retrieves all leads from an account, handling pagination automatically.",
+      "props": [
+        {
+          "name": "from_date",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The start date for the export range in YYYY-MM-DD format."
+        },
+        {
+          "name": "to_date",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The end date for the export range in YYYY-MM-DD format."
+        },
+        {
+          "name": "lead_type",
+          "displayName": "Lead Type (Optional)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter leads by their type."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Leads Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of leads to fetch per page (max 1000)."
+        },
+        {
+          "name": "no_of_pages",
+          "displayName": "Number of Pages",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of pages to retrieve (max 100)."
+        }
+      ]
+    },
+    "create_lead": {
+      "displayName": "Create Lead",
+      "description": "Create a new lead in WhatConverts.",
+      "props": [
+        {
+          "name": "lead_type",
+          "displayName": "Lead Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of the lead."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company_name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "referring_source",
+          "displayName": "Referring Source",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The source of the lead (e.g., \"google\")."
+        },
+        {
+          "name": "referring_medium",
+          "displayName": "Referring Medium",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The medium of the lead (e.g., \"cpc\")."
+        },
+        {
+          "name": "send_notification",
+          "displayName": "Send Notification",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Set to true to send a new lead notification email."
+        },
+        {
+          "name": "date_created",
+          "displayName": "Creation Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the lead was created."
+        },
+        {
+          "name": "quotable",
+          "displayName": "Quotable",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Indicates if the lead is quotable."
+        },
+        {
+          "name": "quote_value",
+          "displayName": "Quote Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The monetary value of the quote associated with the lead."
+        },
+        {
+          "name": "sales_value",
+          "displayName": "Sales Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The monetary value of the sale associated with the lead."
+        }
+      ]
+    },
+    "find_lead": {
+      "displayName": "Find Lead",
+      "description": "Find a lead by various criteria.",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a lead by their email address."
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a lead by their E.164 formatted phone number."
+        },
+        {
+          "name": "lead_type",
+          "displayName": "Lead Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter leads by their type."
+        },
+        {
+          "name": "per_page",
+          "displayName": "Leads Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of leads to return (default 25, max 2500)."
+        }
+      ]
+    },
+    "update_lead": {
+      "displayName": "Update Lead",
+      "description": "The type of the lead.",
+      "props": [
+        {
+          "name": "lead_type",
+          "displayName": "Lead Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of the lead."
+        },
+        {
+          "name": "quotable",
+          "displayName": "Quotable",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Mark the lead as quotable."
+        },
+        {
+          "name": "sales_value",
+          "displayName": "Sales Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The monetary value of the lead (e.g., \"150.00\")."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "referring_source",
+          "displayName": "Referring Source",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The source of the lead (e.g., \"google\")."
+        },
+        {
+          "name": "referring_medium",
+          "displayName": "Referring Medium",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The medium of the lead (e.g., \"cpc\")."
+        },
+        {
+          "name": "referring_campaign",
+          "displayName": "Referring Campaign",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The campaign that generated the lead."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_lead": {
+      "displayName": "New Lead",
+      "description": "Fires when a new lead is received.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updated_lead": {
+      "displayName": "Updated Lead",
+      "description": "Fires when an existing lead is updated in WhatConverts.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

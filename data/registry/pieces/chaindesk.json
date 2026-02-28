@@ -1,0 +1,35 @@
+{
+  "id": "chaindesk",
+  "package": "@activepieces/piece-chaindesk",
+  "display_name": "Chaindesk",
+  "display_name_ar": "Chaindesk",
+  "description": "Chaindesk integration",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "query-agent",
+      "display_name": "Query Agent",
+      "description": "Asks question to your Agent."
+    },
+    {
+      "name": "query-datastore",
+      "display_name": "Query Datastore",
+      "description": "Asks question to your Datastore."
+    },
+    {
+      "name": "upload-file",
+      "display_name": "Upload File",
+      "description": "Uploads a new file to provided Datastore."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/chaindesk"
+}

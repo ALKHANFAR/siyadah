@@ -1,0 +1,52 @@
+{
+  "id": "taskade",
+  "displayName": "Taskade",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "taskade-complete-task": {
+      "displayName": "Complete Task",
+      "description": "Complete a task in a project.",
+      "props": []
+    },
+    "taskade-create-task": {
+      "displayName": "Create Task",
+      "description": "Creates a new task.",
+      "props": [
+        {
+          "name": "content_type",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Task Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "placement",
+          "displayName": "Placement",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Placement of task in block"
+        }
+      ]
+    },
+    "taskade-delete-task": {
+      "displayName": "Delete Task",
+      "description": "Delete an existing task in a project.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,21 @@
+{
+  "id": "tally",
+  "package": "@activepieces/piece-tally",
+  "display_name": "Tally",
+  "display_name_ar": "",
+  "description": "Receive form submissions from Tally forms",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "new-submission",
+      "display_name": "New Submission",
+      "description": "Triggers when form receives a new submission",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

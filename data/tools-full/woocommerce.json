@@ -1,0 +1,233 @@
+{
+  "id": "woocommerce",
+  "displayName": "WooCommerce",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "Create Coupon": {
+      "displayName": "Create Coupon",
+      "description": "Create a coupon",
+      "props": [
+        {
+          "name": "code",
+          "displayName": "Coupon code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the coupon code"
+        },
+        {
+          "name": "discount_type",
+          "displayName": "Discount type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the discount type"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the amount"
+        },
+        {
+          "name": "minimum_amount",
+          "displayName": "Minimum amount",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the minimum amount"
+        }
+      ]
+    },
+    "Create Customer": {
+      "displayName": "Create Customer",
+      "description": "Create a Customer",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the email"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the first name"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the last name"
+        },
+        {
+          "name": "username",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the username"
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the password"
+        },
+        {
+          "name": "street_address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the street address"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the city"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the state"
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the postcode"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the country"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the phone"
+        }
+      ]
+    },
+    "Create Product": {
+      "displayName": "Create Product",
+      "description": "Create a Product",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the name"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the type"
+        },
+        {
+          "name": "regular_price",
+          "displayName": "Regular price",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the regular price"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the description"
+        },
+        {
+          "name": "short_description",
+          "displayName": "Short description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the short description"
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the category IDs (comma separated)"
+        },
+        {
+          "name": "images",
+          "displayName": "Images",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the URLs of images you want to upload (comma separated)"
+        }
+      ]
+    },
+    "Find Coupon": {
+      "displayName": "Find Coupon",
+      "description": "Find a Coupon",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Coupon ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the coupon ID"
+        }
+      ]
+    },
+    "Find Customer": {
+      "displayName": "Find Customer",
+      "description": "Find a Customer",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the email"
+        }
+      ]
+    },
+    "Find Product": {
+      "displayName": "Find Product",
+      "description": "Find a Product",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the product ID"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "$woocommerce_trigger_${name}": {
+      "displayName": "$woocommerce_trigger_${name}",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

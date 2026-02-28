@@ -1,0 +1,45 @@
+{
+  "id": "medullar",
+  "package": "@activepieces/piece-medullar",
+  "display_name": "Medullar",
+  "display_name_ar": "Medullar",
+  "description": "AI-powered discovery & insight platform that acts as your extended digital mind",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addSpaceRecord",
+      "display_name": "Add Space Record",
+      "description": "Adds a Record into a Space"
+    },
+    {
+      "name": "askSpace",
+      "display_name": "Ask Space",
+      "description": "Ask anything to a Space"
+    },
+    {
+      "name": "createSpace",
+      "display_name": "Create new Space",
+      "description": "Create a new Space."
+    },
+    {
+      "name": "deleteSpace",
+      "display_name": "Delete Space",
+      "description": "Delete an existing Space."
+    },
+    {
+      "name": "listSpaces",
+      "display_name": "List Spaces",
+      "description": "List all user Spaces"
+    },
+    {
+      "name": "renameSpace",
+      "display_name": "Rename Space",
+      "description": "Rename an existing Space."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/medullar"
+}

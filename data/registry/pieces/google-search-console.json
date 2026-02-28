@@ -1,0 +1,55 @@
+{
+  "id": "google-search-console",
+  "package": "@activepieces/piece-google-search-console",
+  "display_name": "Google Search Console",
+  "display_name_ar": "Google Search Console",
+  "description": "Google Search Console integration",
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_site",
+      "display_name": "Add a Site",
+      "description": "Adds a site to the set of the user's sites in Search Console."
+    },
+    {
+      "name": "delete_site",
+      "display_name": "Delete a Site",
+      "description": "Removes a site from the set of the user's Search Console sites."
+    },
+    {
+      "name": "list_sitemaps",
+      "display_name": "List Sitemaps",
+      "description": "List all your sitemaps for a given site"
+    },
+    {
+      "name": "list_sites",
+      "display_name": "List Sites",
+      "description": "Lists the user's Search Console sites."
+    },
+    {
+      "name": "search_analytics",
+      "display_name": "Search Analytics",
+      "description": "Query traffic data for your site using the Google Search Console API."
+    },
+    {
+      "name": "submit_sitemap",
+      "display_name": "Submit a Sitemap",
+      "description": "Submits a sitemap for a site."
+    },
+    {
+      "name": "urlInspection",
+      "display_name": "URL Inspection",
+      "description": "Use the URL Inspection action to check the status and presence of a specific page within Google's index."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-search-console"
+}

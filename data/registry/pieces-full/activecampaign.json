@@ -1,0 +1,117 @@
+{
+  "id": "activecampaign",
+  "package": "@activepieces/piece-activecampaign",
+  "display_name": "ActiveCampaign",
+  "display_name_ar": "",
+  "description": "Email marketing, marketing automation, and CRM tools you need to create incredible customer experiences.",
+  "category": "H_marketing",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "activecampaign_create_account",
+      "display_name": "Create Account",
+      "description": "Creates a new account."
+    },
+    {
+      "name": "activecampaign_update_account",
+      "display_name": "Update Account",
+      "description": "Updates an account."
+    },
+    {
+      "name": "activecampaign_add_contact_to_account",
+      "display_name": "Add Contact to Account",
+      "description": "Adds a contact to an ActiveCampaign account."
+    },
+    {
+      "name": "activecampaign_add_tag_to_contact",
+      "display_name": "Add Tag to Contact",
+      "description": "Adds a tag to contact."
+    },
+    {
+      "name": "activecampaign_create_contact",
+      "display_name": "Create Contact",
+      "description": "Creates a new contact."
+    },
+    {
+      "name": "activecampaign_subscribe_or_unsubscribe_contact_from_list",
+      "display_name": "Subscribe or Unsubscribe Contact From List",
+      "description": "Subscribes a Contact to a List it is not currently associated with, or Unsubscribes a Contact from a list is currently associated with."
+    },
+    {
+      "name": "activecampaign_update_contact",
+      "display_name": "Update Contact",
+      "description": "Updates an existing contact."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "activecampaign_campaign_link_clicked",
+      "display_name": "New Campaign Link Click",
+      "description": "Triggers when a contact clicks a link in a campaign message (will only run once for each unique link).",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_deal_task_completed",
+      "display_name": "Deal Task Completed",
+      "description": "Triggers when a deal task has been completed.",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_campaign_bounce",
+      "display_name": "New Campaign Bounce",
+      "description": "Triggers when a contact email address bounces from a sent campaign.",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_contact_note",
+      "display_name": "New Contact Note",
+      "description": "Triggers when a new contact note is added.",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_contact_task",
+      "display_name": "New Contact Task",
+      "description": "Triggers when a new contact task is added.",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_deal_added_or_updated",
+      "display_name": "New Deal Added or Updated",
+      "description": "Triggers when a new deal is created or existing deal is updated.",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_deal_note",
+      "display_name": "New Deal Note",
+      "description": "Triggers when a new deal note is created.",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_deal_task",
+      "display_name": "New Deal Task",
+      "description": "Triggers when a new deal task is created.",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_or_updated_account",
+      "display_name": "New or Updated Account",
+      "description": "Triggers when a new account is added or an existing account’s details are updated",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_new_tag_added_or_removed_from_contact",
+      "display_name": "Tag Added or Removed From Contact",
+      "description": "Triggers when a a Tag is added or removed from a Contact",
+      "type": "instant"
+    },
+    {
+      "name": "activecampaign_updated_contact",
+      "display_name": "Updated Contact",
+      "description": "Triggers when an existing contact details are updated.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

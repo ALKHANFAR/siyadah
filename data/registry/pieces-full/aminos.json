@@ -1,0 +1,20 @@
+{
+  "id": "aminos",
+  "package": "@activepieces/piece-aminos",
+  "display_name": "Base URL",
+  "display_name_ar": "",
+  "description": "Enter Aminos One authentication details",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "createUser",
+      "display_name": "Create User on Aminos One",
+      "description": "Create a user and plan in Aminos One Panel"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

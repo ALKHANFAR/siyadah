@@ -1,0 +1,65 @@
+{
+  "id": "invoiceninja",
+  "package": "@activepieces/piece-invoiceninja",
+  "display_name": "Base URL",
+  "display_name_ar": "Base URL",
+  "description": "Enter the base URL",
+  "category": "M_finance",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "action_recurring_invoice",
+      "display_name": "Perform Action on Recurring Invoice",
+      "description": "Actions include: start, stop, send_now, restore, archive, delete."
+    },
+    {
+      "name": "create_client",
+      "display_name": "Create Client",
+      "description": "Creates a new client in InvoiceNinja."
+    },
+    {
+      "name": "create_invoice",
+      "display_name": "Create Invoice",
+      "description": "Creates an invoice in Invoice Ninja for billing purposes."
+    },
+    {
+      "name": "create_recurring_invoice",
+      "display_name": "Create Recurring Invoice",
+      "description": "Creates a recurring invoice in Invoice Ninja for billing purposes."
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Creates a task instance in Invoice Ninja for billing purposes."
+    },
+    {
+      "name": "getclient_task",
+      "display_name": "Get Client Details from e-mail",
+      "description": "Gets the client details if they exist by e-mail."
+    },
+    {
+      "name": "getinvoices_task",
+      "display_name": "Get Invoices",
+      "description": "Gets data for invoices."
+    },
+    {
+      "name": "getreport_task",
+      "display_name": "Get Report",
+      "description": "Gets report data from InvoiceNinja."
+    },
+    {
+      "name": "exists_task",
+      "display_name": "Check Task Existence",
+      "description": "Verify if a Task Already Exists"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/invoiceninja"
+}

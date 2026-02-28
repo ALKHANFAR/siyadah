@@ -1,0 +1,82 @@
+{
+  "id": "chat-aid",
+  "displayName": "Chat Aid",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addCustomSources": {
+      "displayName": "Add Custom Sources",
+      "description": "Upload one or more files as custom sources for training",
+      "props": [
+        {
+          "name": "files",
+          "displayName": "Files",
+          "type": "ARRAY",
+          "required": true,
+          "description": "One or more files to upload (PDF, Word, Text, Markdown, HTML, Excel, CSV, PowerPoint, PNG, JPEG, GIF)"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "File to upload"
+        },
+        {
+          "name": "teamId",
+          "displayName": "Team ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional team ID (defaults to org-wide)"
+        }
+      ]
+    },
+    "askQuestions": {
+      "displayName": "Ask Questions",
+      "description": "Query your Chat Aid knowledge base and receive AI-generated answers with source citations",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The question to ask the knowledge base"
+        },
+        {
+          "name": "parentTs",
+          "displayName": "Parent Timestamp",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional Unix timestamp for conversation threading. Use the same value for related questions in a conversation."
+        },
+        {
+          "name": "messageTs",
+          "displayName": "Message Timestamp",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional Unix timestamp of current message. Use with parentTs for follow-up questions in a conversation."
+        }
+      ]
+    },
+    "getCustomSourceById": {
+      "displayName": "Get Custom Source by ID",
+      "description": "Retrieve single source details by ID",
+      "props": [
+        {
+          "name": "sourceId",
+          "displayName": "Source ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the custom source to retrieve"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

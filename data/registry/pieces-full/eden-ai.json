@@ -1,0 +1,80 @@
+{
+  "id": "eden-ai",
+  "package": "@activepieces/piece-eden-ai",
+  "display_name": "Eden AI API Key",
+  "display_name_ar": "",
+  "description": "Eden AI is a platform that provides a range of AI services, including text generation, summarization, translation, and more.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "detect_language",
+      "display_name": "Detect Language of Text",
+      "description": "Detect the language used in a text using Eden AI. Supports multiple providers and models."
+    },
+    {
+      "name": "extract_entities",
+      "display_name": "Extract Named Entities in Text",
+      "description": "Identify entities (names, places) in text using Eden AI. Supports multiple providers, languages, and models."
+    },
+    {
+      "name": "extract_keywords",
+      "display_name": "Extract Keywords in Text",
+      "description": "Identify important terms in a text using Eden AI. Supports multiple providers, languages, and models."
+    },
+    {
+      "name": "generate_text",
+      "display_name": "Generate Text",
+      "description": "Generate text completions using various AI providers through Eden AI chat endpoint."
+    },
+    {
+      "name": "image_generation",
+      "display_name": "Image Generation",
+      "description": "Create images from text prompts using Eden AI. Supports multiple providers, models, and resolutions."
+    },
+    {
+      "name": "invoice_parser",
+      "display_name": "Invoice Parser",
+      "description": "Extract structured invoice data from files using Eden AI. Supports multiple providers, languages, and document types."
+    },
+    {
+      "name": "moderate_text",
+      "display_name": "Moderate Text",
+      "description": "Detect explicit or policy-violating text using Eden AI. Supports multiple providers, languages, and models."
+    },
+    {
+      "name": "ocr_image",
+      "display_name": "Extract Text in Image (OCR)",
+      "description": "Extract text from images (OCR) using Eden AI. Supports multiple providers, languages, and bounding box coordinates."
+    },
+    {
+      "name": "receipt_parser",
+      "display_name": "Receipt Parser",
+      "description": "Extract structured data from receipts and documents using Eden AI. Supports general data extraction with bounding boxes."
+    },
+    {
+      "name": "spell_check",
+      "display_name": "Spell Check",
+      "description": "Identify and correct spelling or grammar errors using Eden AI. Supports multiple providers, languages, and models."
+    },
+    {
+      "name": "summarize_text",
+      "display_name": "Summarize Text",
+      "description": "Extract key sentences and create summaries from long text passages using various AI providers."
+    },
+    {
+      "name": "text_to_speech",
+      "display_name": "Generate Audio From Text",
+      "description": "Convert text to spoken audio using Eden AI. Supports multiple providers, languages, and voice customization."
+    },
+    {
+      "name": "translate_text",
+      "display_name": "Translate Text",
+      "description": "Translate text into different languages using Eden AI. Supports multiple providers, languages, and models."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

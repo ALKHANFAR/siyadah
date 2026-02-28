@@ -1,0 +1,67 @@
+{
+  "id": "customgpt",
+  "package": "@activepieces/piece-customgpt",
+  "display_name": "CustomGPT",
+  "display_name_ar": "",
+  "description": "CustomGPT allows you to create and deploy custom AI chatbots tailored to your specific needs.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createAgent",
+      "display_name": "Create Agent",
+      "description": "Create a new CustomGPT agent by importing data from a sitemap or file"
+    },
+    {
+      "name": "createConversation",
+      "display_name": "Create Conversation",
+      "description": "Create a new conversation in a CustomGPT project"
+    },
+    {
+      "name": "deleteAgent",
+      "display_name": "Delete Agent",
+      "description": "Delete a CustomGPT agent"
+    },
+    {
+      "name": "export_conversation",
+      "display_name": "Export Conversation",
+      "description": "Export a conversation with all messages, authors, feedbacks and metadata"
+    },
+    {
+      "name": "findAgent",
+      "display_name": "Find Agent",
+      "description": "Find Agent by name "
+    },
+    {
+      "name": "findConversation",
+      "display_name": "Find Conversation",
+      "description": "List and search conversations for an agent with optional filtering"
+    },
+    {
+      "name": "sendMessage",
+      "display_name": "Send Message",
+      "description": "Send a message to a conversation within an agent"
+    },
+    {
+      "name": "update_agent",
+      "display_name": "Update Agent",
+      "description": "Update an existing agent with specific details"
+    },
+    {
+      "name": "update_settings",
+      "display_name": "Update Agent Settings",
+      "description": "Update agent configuration and behavior settings"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_conversation",
+      "display_name": "New Conversation",
+      "description": "Triggers when a new conversation is created in an agent",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

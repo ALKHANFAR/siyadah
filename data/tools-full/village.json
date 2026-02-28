@@ -1,0 +1,238 @@
+{
+  "id": "village",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "enrichCompanyBasicBulk": {
+      "displayName": "Enrich Company - Bulk",
+      "description": "Enrich multiple company profiles (max 10) with basic information including employee size, industry, and founding details.",
+      "props": [
+        {
+          "name": "identifiers",
+          "displayName": "Identifiers",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "identifierType",
+          "displayName": "Identifier Type",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "identifierValue",
+          "displayName": "Identifier Value",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "enrichCompanyBasic": {
+      "displayName": "Enrich Company",
+      "description": "Enrich a single company profile with basic information including employee size, industry, and founding details",
+      "props": [
+        {
+          "name": "village_id",
+          "displayName": "Village ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "displayName": "Domain",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "linkedin_url",
+          "displayName": "LinkedIn URL",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "getCompanyPaths": {
+      "displayName": "Get Company Paths",
+      "description": "Returns connection paths to a company using either its LinkedIn URL or domain URL",
+      "props": [
+        {
+          "name": "company_url",
+          "displayName": "Company URL",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "sortCompanies": {
+      "displayName": "Sort Companies",
+      "description": "Sort a list of companies by relationship strength with the user",
+      "props": [
+        {
+          "name": "companies",
+          "displayName": "Company URLs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "enrichEmail": {
+      "displayName": "Enrich Email",
+      "description": "Enrich a single LinkedIn profile or Village ID with an email address",
+      "props": [
+        {
+          "name": "identifier",
+          "displayName": "Identifier",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "enrichEmailsBulk": {
+      "displayName": "Enrich Emails (Bulk)",
+      "description": "Enrich multiple LinkedIn profiles or Village IDs with email addresses",
+      "props": [
+        {
+          "name": "identifiers",
+          "displayName": "Identifiers",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "enrichPersonBasicBulk": {
+      "displayName": "Enrich Profile - Bulk",
+      "description": "Enrich multiple person profiles (max 10) with basic professional information and work history.",
+      "props": [
+        {
+          "name": "identifiers",
+          "displayName": "Identifiers",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "identifierType",
+          "displayName": "Identifier Type",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "identifierValue",
+          "displayName": "Identifier Value",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "enrichPersonBasic": {
+      "displayName": "Enrich Profile",
+      "description": "Enrich a single person profile with basic professional information and work history",
+      "props": [
+        {
+          "name": "village_id",
+          "displayName": "Village ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "linkedin_url",
+          "displayName": "LinkedIn URL",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "getPersonPaths": {
+      "displayName": "Get Person Paths",
+      "description": "Returns connection paths and warmth score to a LinkedIn profile",
+      "props": [
+        {
+          "name": "linkedin_url",
+          "displayName": "LinkedIn URL",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "sortPeople": {
+      "displayName": "Sort People",
+      "description": "Sort a list of LinkedIn profiles by relationship strength with the user",
+      "props": [
+        {
+          "name": "people",
+          "displayName": "People URLs",
+          "type": "Array",
+          "required": true
+        },
+        {
+          "name": "user_identifier",
+          "displayName": "User Identifier",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

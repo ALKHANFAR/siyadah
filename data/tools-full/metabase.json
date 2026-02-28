@@ -1,0 +1,117 @@
+{
+  "id": "metabase",
+  "displayName": "Metabase API base URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "embedQuestion": {
+      "displayName": "Embed question",
+      "description": "Enable embedding for a Metabase question and configure parameters",
+      "props": [
+        {
+          "name": "questionId",
+          "displayName": "Metabase question ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "enableEmbedding",
+          "displayName": "Enable embedding",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Whether to enable embedding for this question"
+        }
+      ]
+    },
+    "getDashboardQuestions": {
+      "displayName": "Get Dashboard Questions",
+      "description": "Execute all questions across all tabs in a Metabase dashboard and return their consolidated results in a single response",
+      "props": [
+        {
+          "name": "dashboardId",
+          "displayName": "Metabase Dashboard ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "parameters",
+          "displayName": "Parameters (slug name -> value)",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Dashboard parameters to apply to all questions"
+        }
+      ]
+    },
+    "getGraphQuestion": {
+      "displayName": "Get the graph of the question",
+      "description": "Get the graph of a Metabase question and save it as a png",
+      "props": [
+        {
+          "name": "questionId",
+          "displayName": "Metabase question ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "parameters",
+          "displayName": "Parameters (slug name -> value)",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "graphName",
+          "displayName": "The name of the graph (without the extension)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "waitTime",
+          "displayName": "Wait Time (seconds)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "How long to wait for the graph to render completely in seconds"
+        }
+      ]
+    },
+    "getQuestionPngPreview": {
+      "displayName": "Get Question PNG Preview",
+      "description": "Get PNG preview rendering (low resolution) of a Metabase card/question.",
+      "props": [
+        {
+          "name": "questionId",
+          "displayName": "Metabase question ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "getQuestion": {
+      "displayName": "Get question",
+      "description": "Fetch the results of a Metabase question",
+      "props": [
+        {
+          "name": "questionId",
+          "displayName": "Metabase question ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "parameters",
+          "displayName": "Parameters (slug name -> value)",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

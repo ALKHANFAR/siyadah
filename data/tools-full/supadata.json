@@ -1,0 +1,37 @@
+{
+  "id": "supadata",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_transcript": {
+      "displayName": "Get Transcript",
+      "description": "Fetches transcript of a YouTube video.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "YouTube URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of a single YouTube video."
+        },
+        {
+          "name": "lang",
+          "displayName": "Language Preference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Preferred language of the transcript. If not available, the first available language will be returned."
+        },
+        {
+          "name": "text",
+          "displayName": "Merge Text",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, the transcript will be merged into a single text instead of timestamped chunks."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,62 @@
+{
+  "id": "hunter",
+  "displayName": "Hunter",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add-recipients": {
+      "displayName": "Add Recipients",
+      "description": "Add one or multiple recipients to a campaign.",
+      "props": []
+    },
+    "count-emails": {
+      "displayName": "Count Emails",
+      "description": "Returns the number of email addresses found for a domain or company.",
+      "props": []
+    },
+    "create-lead": {
+      "displayName": "Create Lead",
+      "description": "Create and store a lead record.",
+      "props": []
+    },
+    "delete-lead": {
+      "displayName": "Delete Lead",
+      "description": "Delete a specific lead record by ID.",
+      "props": []
+    },
+    "find-email": {
+      "displayName": "Find Email",
+      "description": "Retrieve/propose the most likely email for a person at a domain.",
+      "props": []
+    },
+    "get-lead": {
+      "displayName": "Get Lead",
+      "description": "Retrieve details of a specific lead.",
+      "props": []
+    },
+    "search-leads": {
+      "displayName": "Search Leads",
+      "description": "List and filter leads in the account.",
+      "props": []
+    },
+    "update-lead": {
+      "displayName": "Update Lead",
+      "description": "Modify existing lead data.",
+      "props": []
+    },
+    "verify-email": {
+      "displayName": "Verify Email",
+      "description": "Check email deliverability and validation status.",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-lead": {
+      "displayName": "New Lead",
+      "description": "Fires when a new lead is created.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

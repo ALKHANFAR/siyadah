@@ -1,0 +1,35 @@
+{
+  "id": "datafuel",
+  "package": "@activepieces/piece-datafuel",
+  "display_name": "DataFuel",
+  "display_name_ar": "DataFuel",
+  "description": "DataFuel integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "crawl-website",
+      "display_name": "Crawl Website",
+      "description": "Crawl a website into a markdown format."
+    },
+    {
+      "name": "get-scrape",
+      "display_name": "Get Scrape Result",
+      "description": "Retrieves the deatils about scrape."
+    },
+    {
+      "name": "scrape-website",
+      "display_name": "Crawl Website",
+      "description": "Crawl a website into a markdown format."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/datafuel"
+}

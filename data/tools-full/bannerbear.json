@@ -1,0 +1,252 @@
+{
+  "id": "bannerbear",
+  "displayName": "Bannerbear",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "bannerbear_create_image": {
+      "displayName": "Create Image",
+      "description": "Create image from Bannerbear template",
+      "props": [
+        {
+          "name": "template",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The template to use in image creation."
+        },
+        {
+          "name": "template_version",
+          "displayName": "Template version",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Create image based on a specific version of the template."
+        },
+        {
+          "name": "modifications",
+          "displayName": "Template modifications",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "A list of modifications you want to make on the template."
+        },
+        {
+          "name": "transparent",
+          "displayName": "Transparent background",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Render a PNG with a transparent background. Default is false."
+        },
+        {
+          "name": "render_pdf",
+          "displayName": "Render a PDF",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Render a PDF instead of a PNG. Default is false."
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Any metadata that you need to store e.g. ID of a record in your DB."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the layer you want to change."
+        },
+        {
+          "name": "color",
+          "displayName": "Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Color in hex format e.g. \"#FF0000\"."
+        },
+        {
+          "name": "gradient",
+          "displayName": "Gradient",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Fill with gradient e.g. [\"#000\", \"#FFF\"]"
+        },
+        {
+          "name": "border_width",
+          "displayName": "Border width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width of the object border."
+        },
+        {
+          "name": "border_color",
+          "displayName": "Border color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Border color in hex format e.g. \"#FF0000\"."
+        },
+        {
+          "name": "shift_x",
+          "displayName": "Shift x",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Shift layer along the x axis."
+        },
+        {
+          "name": "shift_y",
+          "displayName": "Shift y",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Shift layer along the y axis."
+        },
+        {
+          "name": "target",
+          "displayName": "Target",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Add a clickable link to a URL on this object when rendering a PDF."
+        },
+        {
+          "name": "hide",
+          "displayName": "Hide",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to hide a layer."
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Replacement text you want to use."
+        },
+        {
+          "name": "background",
+          "displayName": "Background",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Background color in hex format e.g. \"#FF0000\"."
+        },
+        {
+          "name": "font_family",
+          "displayName": "Font family",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the font."
+        },
+        {
+          "name": "text_align_h",
+          "displayName": "Text align H",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Horizontal alignment (left, center, right)"
+        },
+        {
+          "name": "text_align_v",
+          "displayName": "Text align V",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Vertical alignment (top, center, bottom)"
+        },
+        {
+          "name": "font_family_2",
+          "displayName": "Font family 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the secondary font."
+        },
+        {
+          "name": "color_2",
+          "displayName": "Color 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the secondary font color."
+        },
+        {
+          "name": "image_url",
+          "displayName": "Image url",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the image."
+        },
+        {
+          "name": "effect",
+          "displayName": "Effect",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the effect."
+        },
+        {
+          "name": "anchor_x",
+          "displayName": "Anchor x",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the anchor point (left, center, right)"
+        },
+        {
+          "name": "anchor_y",
+          "displayName": "Anchor y",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the anchor point (top, center, bottom)."
+        },
+        {
+          "name": "fill_type",
+          "displayName": "Fill type",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Change the fill type (fill, fit)."
+        },
+        {
+          "name": "disable_face_detect",
+          "displayName": "Disable face detect",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to disable face detect for this request (if the image container is using face detect)."
+        },
+        {
+          "name": "disable_smart_crop",
+          "displayName": "Disable smart crop",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to disable smart crop for this request (if the image container is using smart crop)"
+        },
+        {
+          "name": "chart_data",
+          "displayName": "Chart data",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-delimited list of numbers to use as data."
+        },
+        {
+          "name": "rating",
+          "displayName": "Rating",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number from 0 to 100 to use as the rating."
+        },
+        {
+          "name": "target",
+          "displayName": "Target",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL or text to use as the code target."
+        },
+        {
+          "name": "bar_code_data",
+          "displayName": "Barcode data",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Text to encode as a bar code."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

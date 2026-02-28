@@ -1,0 +1,40 @@
+{
+  "id": "chatbase",
+  "package": "@activepieces/piece-chatbase",
+  "display_name": "Chatbase",
+  "display_name_ar": "",
+  "description": "Build and manage AI chatbots with custom sources.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_chatbot",
+      "display_name": "Create Chatbot",
+      "description": "Creates a new chatbot."
+    },
+    {
+      "name": "list_chatbots",
+      "display_name": "List All Chatbots",
+      "description": "Retrieves a list of all chatbots."
+    },
+    {
+      "name": "search_conversations",
+      "display_name": "Search Conversations by Query",
+      "description": "Searches for conversations from a specific chatbot."
+    },
+    {
+      "name": "message_chatbot",
+      "display_name": "Send Prompt to Chatbot",
+      "description": "Sends a prompt to the chatbot to generate a response."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

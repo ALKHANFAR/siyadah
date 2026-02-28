@@ -1,0 +1,27 @@
+{
+  "id": "surveymonkey",
+  "package": "@activepieces/piece-surveymonkey",
+  "display_name": "SurveyMonkey",
+  "display_name_ar": "SurveyMonkey",
+  "description": "Receive survey responses from SurveyMonkey",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_response",
+      "display_name": "New Response",
+      "description": "Triggers when a new response is submitted",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/surveymonkey"
+}

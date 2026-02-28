@@ -1,0 +1,63 @@
+{
+  "id": "smartsuite",
+  "package": "@activepieces/piece-smartsuite",
+  "display_name": "SmartSuite",
+  "display_name_ar": "SmartSuite",
+  "description": "Collaborative work management platform combining databases with spreadsheets.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_record",
+      "display_name": "Create a Record",
+      "description": "Creates a new record in the specified table."
+    },
+    {
+      "name": "delete_record",
+      "display_name": "Delete a Record",
+      "description": "Deletes a record from the specified table"
+    },
+    {
+      "name": "find_records",
+      "display_name": "Find Records",
+      "description": "Searches for records in the specified table based on criteria."
+    },
+    {
+      "name": "get_record",
+      "display_name": "Get a Record",
+      "description": "Retrieves a specific record by ID"
+    },
+    {
+      "name": "update_record",
+      "display_name": "Update a Record",
+      "description": "Updates an existing record in the specified table"
+    },
+    {
+      "name": "upload_file",
+      "display_name": "Upload File",
+      "description": "Uploads a file and attaches it to a record."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_record",
+      "display_name": "New Record",
+      "description": "Triggers when a new record is created in the specified table",
+      "type": "instant"
+    },
+    {
+      "name": "updated_record",
+      "display_name": "Updated Record",
+      "description": "Triggers when a record is updated in the specified table.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/smartsuite"
+}

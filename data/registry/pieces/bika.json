@@ -1,0 +1,45 @@
+{
+  "id": "bika",
+  "package": "@activepieces/piece-bika",
+  "display_name": "Bika.ai",
+  "display_name_ar": "Bika.ai",
+  "description": "Interactive spreadsheets with collaboration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "bika_create_record",
+      "display_name": "Create Record",
+      "description": "Creates a new record in database."
+    },
+    {
+      "name": "bika_delete_record",
+      "display_name": "Delete Record",
+      "description": "Deletes a record in database by ID."
+    },
+    {
+      "name": "bika_find_record",
+      "display_name": "Get Record",
+      "description": "Retrieves a record in database by ID."
+    },
+    {
+      "name": "bika_find_records",
+      "display_name": "Find Records",
+      "description": "Finds records in database."
+    },
+    {
+      "name": "bika_update_record",
+      "display_name": "Update Record",
+      "description": "Updates an existing record in database."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bika"
+}

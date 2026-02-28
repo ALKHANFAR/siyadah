@@ -1,0 +1,50 @@
+{
+  "id": "leap-ai",
+  "displayName": "Leap AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "getAWorkflowRun": {
+      "displayName": "Get a Workflow Run",
+      "description": "Retrieve the status and results of a workflow run",
+      "props": [
+        {
+          "name": "workflow_run_id",
+          "displayName": "Workflow Run ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the workflow run to retrieve"
+        }
+      ]
+    },
+    "runAWorkflow": {
+      "displayName": "Run a Workflow",
+      "description": "Execute a Leap AI workflow and return the run ID",
+      "props": [
+        {
+          "name": "workflow_id",
+          "displayName": "Workflow ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the workflow to run"
+        },
+        {
+          "name": "webhook_url",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL to which workflow results should be sent on completion (optional)"
+        },
+        {
+          "name": "input",
+          "displayName": "Input Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Variables that the workflow can use globally and their values (optional)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

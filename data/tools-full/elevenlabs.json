@@ -1,0 +1,42 @@
+{
+  "id": "elevenlabs",
+  "displayName": "Region",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "elevenlabs-text-to-speech": {
+      "displayName": "Text to Speech",
+      "description": "Convert text to speech using Elevenlabs",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "voice",
+          "displayName": "Voice",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the voice for the text to speech"
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to convert to speech"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

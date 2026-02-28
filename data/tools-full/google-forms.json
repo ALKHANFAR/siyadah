@@ -1,0 +1,22 @@
+{
+  "id": "google-forms",
+  "displayName": "Google Forms",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_response": {
+      "displayName": "New Response",
+      "description": "Triggers when there is new response",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

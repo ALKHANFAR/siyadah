@@ -1,0 +1,25 @@
+{
+  "id": "dashworks",
+  "package": "@activepieces/piece-dashworks",
+  "display_name": "Dashworks",
+  "display_name_ar": "Dashworks",
+  "description": "Dashworks integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "generate-answer",
+      "display_name": "Generate Answer",
+      "description": "Generates an answer from a Dashworks bot."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/dashworks"
+}

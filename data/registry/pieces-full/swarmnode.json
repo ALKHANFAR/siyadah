@@ -1,0 +1,30 @@
+{
+  "id": "swarmnode",
+  "package": "@activepieces/piece-swarmnode",
+  "display_name": "SwarmNode",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "execute-agent",
+      "display_name": "Execute Agent",
+      "description": "Executes an existing AI agent."
+    },
+    {
+      "name": "get-execution",
+      "display_name": "Get Execution",
+      "description": "Gets AI Agent's execution details."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

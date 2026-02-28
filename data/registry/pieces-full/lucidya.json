@@ -1,0 +1,21 @@
+{
+  "id": "lucidya",
+  "package": "@activepieces/piece-lucidya",
+  "display_name": "Lucidya",
+  "display_name_ar": "",
+  "description": "AI-powered social media analytics and customer experience management",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "new_alert",
+      "display_name": "New Alert Notification",
+      "description": "Triggers when a new alert notification is generated (hourly or instant).",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

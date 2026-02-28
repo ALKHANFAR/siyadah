@@ -1,0 +1,100 @@
+{
+  "id": "dimo",
+  "package": "@activepieces/piece-dimo",
+  "display_name": "DIMO",
+  "display_name_ar": "",
+  "description": "DIMO is an open protocol using blockchain to establish universal digital vehicle identity, permissions, data transmission, vehicle control, and payments. Developers use DIMO to build apps based on connected vehicles around the world while the vehicle owners benefit from monetizing their vehicle data.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "attestation-create-vin-vc",
+      "display_name": "Attestation : Create VIN VC",
+      "description": "Generates the VIN VC for a given vehicle."
+    },
+    {
+      "name": "device-definitions-decode-vin",
+      "display_name": "Device Definitions : Decode VIN",
+      "description": "Submits a decoding request for vehicle identification number, returns the device definition ID corresponding to the VIN."
+    },
+    {
+      "name": "identity-custom-query",
+      "display_name": "Identity : Custom Query",
+      "description": "Custom Identity Query."
+    },
+    {
+      "name": "telemetry-custom-query",
+      "display_name": "Start Date",
+      "description": "Start date for the query in UTC, formatted as 2025-07-07T12:00:00Z"
+    },
+    {
+      "name": "token-exchange-get-vehicle-jwt",
+      "display_name": "Token Exchange : Get Vehicle JWT",
+      "description": "Creates a token exchange to obtain a Vehicle JWT."
+    },
+    {
+      "name": "vehicle-events-list-webhooks-action",
+      "display_name": "Vehicle Events: List Webhooks",
+      "description": "List all webhooks."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "battery-is-charging-trigger",
+      "display_name": "Battery is Charging Trigger",
+      "description": "Triggers when vehicle battery charging status changes (True/False).",
+      "type": "scheduled"
+    },
+    {
+      "name": "battery-power-trigger",
+      "display_name": "Battery Current Power Trigger",
+      "description": "Triggers when vehicle battery current power meets the specified condition.",
+      "type": "scheduled"
+    },
+    {
+      "name": "charge-level-trigger",
+      "display_name": "Charge Level Trigger",
+      "description": "Triggers when vehicle battery charge level meets the specified condition.",
+      "type": "scheduled"
+    },
+    {
+      "name": "fuel-absolute-level-trigger",
+      "display_name": "Fuel System Absolute Level Trigger",
+      "description": "Triggers when vehicle fuel system absolute level meets the specified condition.",
+      "type": "scheduled"
+    },
+    {
+      "name": "fuel-relative-level-trigger",
+      "display_name": "Fuel System Relative Level Trigger",
+      "description": "Triggers when vehicle fuel system relative level meets the specified condition.",
+      "type": "scheduled"
+    },
+    {
+      "name": "ignition-trigger",
+      "display_name": "Ignition Status Trigger",
+      "description": "Triggers when vehicle ignition status changes (ON/OFF).",
+      "type": "scheduled"
+    },
+    {
+      "name": "odometer-trigger",
+      "display_name": "Odometer Trigger",
+      "description": "Triggers when vehicle odometer meets the specified condition.",
+      "type": "scheduled"
+    },
+    {
+      "name": "speed-trigger",
+      "display_name": "Speed Trigger",
+      "description": "Triggers when vehicle speed meets specified conditions.",
+      "type": "scheduled"
+    },
+    {
+      "name": "tire-pressure-trigger",
+      "display_name": "Tire Pressure Trigger",
+      "description": "Triggers when vehicle tire pressure meets the specified condition.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

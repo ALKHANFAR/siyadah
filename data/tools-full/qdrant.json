@@ -1,0 +1,103 @@
+{
+  "id": "qdrant",
+  "displayName": "Server Address",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add_points_to_collection": {
+      "displayName": "Add points to collection",
+      "description": "Insert a point (= embedding or vector + other infos) to a specific collection, if the collection does not exist it will be created",
+      "props": [
+        {
+          "name": "embeddings",
+          "displayName": "Embeddings",
+          "type": "FILE",
+          "required": true,
+          "description": "Embeddings (= vectors) for the points"
+        },
+        {
+          "name": "embeddingsIds",
+          "displayName": "Embeddings Ids",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The ids of the embeddings for the points. If not provided, the ids will be generated automatically"
+        },
+        {
+          "name": "distance",
+          "displayName": "Calculation Method of distance",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The calculation method helps to rank vectors when you want to find the closest points, the method to use depends on the model who's created the embeddings, see the documentation of your model"
+        },
+        {
+          "name": "payload",
+          "displayName": "Additional Payload",
+          "type": "JSON",
+          "required": false,
+          "description": "Please follow [payload documentation](https://qdrant.tech/documentation/concepts/payload/) to add additional information to the points."
+        },
+        {
+          "name": "storage",
+          "displayName": "Storage",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Define where points will be stored"
+        }
+      ]
+    },
+    "delete_collection": {
+      "displayName": "Delete Collection",
+      "description": "Delete a collection of your database",
+      "props": []
+    },
+    "delete_points": {
+      "displayName": "Delete Points",
+      "description": "Delete points of a specific collection",
+      "props": []
+    },
+    "collection_infos": {
+      "displayName": "Get Collection Infos",
+      "description": "Get the all the infos of a specific collection",
+      "props": []
+    },
+    "collection_list": {
+      "displayName": "Get Collection List",
+      "description": "Get the list of all the collections of your database",
+      "props": []
+    },
+    "get_points": {
+      "displayName": "Get Points",
+      "description": "Get the points of a specific collection",
+      "props": []
+    },
+    "search_points": {
+      "displayName": "Search Points",
+      "description": "Search for points closest to your given vector (= embedding)",
+      "props": [
+        {
+          "name": "vector",
+          "displayName": "Embedding",
+          "type": "FILE",
+          "required": true,
+          "description": "The vector (= embedding) you want to search for."
+        },
+        {
+          "name": "negativeVector",
+          "displayName": "Negative Vector",
+          "type": "FILE",
+          "required": false,
+          "description": "The vector (= embedding) you want to be the farthest."
+        },
+        {
+          "name": "limitResult",
+          "displayName": "Limit Result",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The max number of results you want to get."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

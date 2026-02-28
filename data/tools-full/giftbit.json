@@ -1,0 +1,114 @@
+{
+  "id": "giftbit",
+  "displayName": "Giftbit",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "send_reward": {
+      "displayName": "Send Reward",
+      "description": "Sends a gift card reward by email",
+      "props": [
+        {
+          "name": "use_testbed",
+          "displayName": "Use Testbed Environment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable for testing. Disable for production."
+        },
+        {
+          "name": "gift_template",
+          "displayName": "Gift Template ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Template ID from your Giftbit account (optional if subject/message provided)"
+        },
+        {
+          "name": "order_id",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier for this order"
+        },
+        {
+          "name": "price_in_cents",
+          "displayName": "Reward Value (cents)",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Value in cents (e.g., 2500 = $25.00)"
+        },
+        {
+          "name": "use_full_catalog",
+          "displayName": "Use Full Catalog",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Let recipients choose from all brands in their region"
+        },
+        {
+          "name": "brand_codes",
+          "displayName": "Brand Codes",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select one or more brands for the reward"
+        },
+        {
+          "name": "region",
+          "displayName": "Region",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Required for Full Catalog rewards"
+        },
+        {
+          "name": "expiry_date",
+          "displayName": "Expiry Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Claim deadline (defaults to 1 year if not set)"
+        },
+        {
+          "name": "subject",
+          "displayName": "Email Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Required if no template is used"
+        },
+        {
+          "name": "message",
+          "displayName": "Email Message",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Required if no template is used"
+        },
+        {
+          "name": "contacts",
+          "displayName": "Recipients",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of recipients"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "firstname",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastname",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,571 @@
+{
+  "id": "lead-connector",
+  "displayName": "LeadConnector",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_contact_to_campaign": {
+      "displayName": "Add Contact to Campaign",
+      "description": "Add an existing contact to a campaign.",
+      "props": [
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The contact to use."
+        },
+        {
+          "name": "campaign",
+          "displayName": "Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "add_contact_to_workflow": {
+      "displayName": "Add Contact to Workflow",
+      "description": "Add an existing contact to a workflow.",
+      "props": [
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The contact to use."
+        },
+        {
+          "name": "workflow",
+          "displayName": "Workflow",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "add_note_to_contact": {
+      "displayName": "Add Note to Contact",
+      "description": "Add a new note to a contact.",
+      "props": [
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The contact to use."
+        },
+        {
+          "name": "note",
+          "displayName": "Note",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "user",
+          "displayName": "User",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyName",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "source",
+          "displayName": "Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "When using a dynamic value, make sure to use the ISO-2 country code, and not the country name."
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "postalCode",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "timezone",
+          "displayName": "Time Zone",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_opportunity": {
+      "displayName": "Create Opportunity",
+      "description": "Create a new opportunity.",
+      "props": [
+        {
+          "name": "pipeline",
+          "displayName": "Pipeline",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The ID of the pipeline to use."
+        },
+        {
+          "name": "stage",
+          "displayName": "Stage",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The stage of the pipeline to use."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The contact to use."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "assignedTo",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "monetaryValue",
+          "displayName": "Monetary Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a new task.",
+      "props": [
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The contact to use."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "assignedTo",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "completed",
+          "displayName": "Completed",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "search_contacts": {
+      "displayName": "Search Contacts",
+      "description": "Search for contacts with a search query.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value you want to search for."
+        }
+      ]
+    },
+    "update_contact": {
+      "displayName": "Update Contact",
+      "description": "Update an existing contact.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the contact."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "companyName",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "source",
+          "displayName": "Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "When using a dynamic value, make sure to use the ISO-2 country code, and not the country name."
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "postalCode",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "timezone",
+          "displayName": "Time Zone",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update_opportunity": {
+      "displayName": "Update Opportunity",
+      "description": "Updates an existing opportunity.",
+      "props": [
+        {
+          "name": "pipeline",
+          "displayName": "Pipeline",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The ID of the pipeline to use."
+        },
+        {
+          "name": "opportunity",
+          "displayName": "Opportunity",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "stage",
+          "displayName": "Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The stage of the pipeline to use."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The contact to use."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "assignedTo",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "monetaryValue",
+          "displayName": "Monetary Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Update a task.",
+      "props": [
+        {
+          "name": "contact",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The contact to use."
+        },
+        {
+          "name": "task",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "assignedTo",
+          "displayName": "Assigned To",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "completed",
+          "displayName": "Completed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "contact_updated": {
+      "displayName": "Contact Created or Updated",
+      "description": "Trigger when a contact is created or updated.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Trigger when a new contact is added.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_form_submission": {
+      "displayName": "New Form Submission",
+      "description": "Trigger when a form is submitted.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "form",
+          "displayName": "Form",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The form you want to use."
+        }
+      ]
+    },
+    "new_opportunity": {
+      "displayName": "New Opportunity",
+      "description": "Trigger when a new opportunity is added.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "pipeline",
+          "displayName": "Pipeline",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The ID of the pipeline to use."
+        }
+      ]
+    }
+  }
+}

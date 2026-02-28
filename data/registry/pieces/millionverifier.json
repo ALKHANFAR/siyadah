@@ -1,0 +1,20 @@
+{
+  "id": "millionverifier",
+  "package": "@activepieces/piece-millionverifier",
+  "display_name": "MillionVerifier",
+  "display_name_ar": "MillionVerifier",
+  "description": "MillionVerifier is an email verifier service and API",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "verifyEmail",
+      "display_name": "Verify Email",
+      "description": "Verify email address using Million Verifier API"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/millionverifier"
+}

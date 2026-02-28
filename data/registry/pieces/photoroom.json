@@ -1,0 +1,20 @@
+{
+  "id": "photoroom",
+  "package": "@activepieces/piece-photoroom",
+  "display_name": "API key",
+  "display_name_ar": "API key",
+  "description": "API key integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "removeBackground",
+      "display_name": "Remove background",
+      "description": "Remove the background of the image given as input"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/photoroom"
+}

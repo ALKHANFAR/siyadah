@@ -1,0 +1,150 @@
+{
+  "id": "bigin-by-zoho",
+  "package": "@activepieces/piece-bigin-by-zoho",
+  "display_name": "Bigin by Zoho CRM",
+  "display_name_ar": "Bigin by Zoho CRM",
+  "description": "Bigin by Zoho CRM is a lightweight CRM designed for small businesses to manage contacts, companies, deals (pipeline records), tasks, calls, and events.",
+  "category": "E_crm",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "createCall",
+      "display_name": "Create Call",
+      "description": "Creates a Call Log Entry Record"
+    },
+    {
+      "name": "createCompany",
+      "display_name": "Create Company",
+      "description": "Creates a Company Record"
+    },
+    {
+      "name": "createContact",
+      "display_name": "Create Contact",
+      "description": "Creates a Contact Record"
+    },
+    {
+      "name": "createEvent",
+      "display_name": "Create Event",
+      "description": "Creates a new event in Bigin"
+    },
+    {
+      "name": "createPipeline",
+      "display_name": "Create Pipeline",
+      "description": "Creates a new pipeline record in Bigin"
+    },
+    {
+      "name": "createTask",
+      "display_name": "Create Task",
+      "description": "Creates a new Task"
+    },
+    {
+      "name": "searchCompanyRecord",
+      "display_name": "Search Company Record",
+      "description": "Searches companies by full name (criteria) or word"
+    },
+    {
+      "name": "searchContactRecord",
+      "display_name": "Search Contact Record",
+      "description": "Searches contacts by criteria, email, phone, or word"
+    },
+    {
+      "name": "searchPipelineRecord",
+      "display_name": "Search Pipeline Record",
+      "description": "Searches deals by name via criteria or word"
+    },
+    {
+      "name": "searchProductRecord",
+      "display_name": "Search Product Record",
+      "description": "Searches products by name/code via criteria or word"
+    },
+    {
+      "name": "searchUser",
+      "display_name": "Search User",
+      "description": "Locate users by email."
+    },
+    {
+      "name": "updateCompany",
+      "display_name": "Update Company",
+      "description": "Updates an existing Company and prepopulates its fields for editing."
+    },
+    {
+      "name": "updateContact",
+      "display_name": "Update Contact",
+      "description": "Select and update an existing Contact record."
+    },
+    {
+      "name": "updateEvent",
+      "display_name": "Update Event",
+      "description": "Updates an existing event in Bigin"
+    },
+    {
+      "name": "updatePipeline",
+      "display_name": "Update Pipeline",
+      "description": "updates a pipeline record in Bigin"
+    },
+    {
+      "name": "updateTask",
+      "display_name": "Update Task",
+      "description": "updates a Task"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "companyUpdated",
+      "display_name": "Company Updated",
+      "description": "Triggers when a company record is updated",
+      "type": "instant"
+    },
+    {
+      "name": "contactUpdated",
+      "display_name": "Contact Updated",
+      "description": "Triggers when a contact is updated",
+      "type": "instant"
+    },
+    {
+      "name": "newCallCreated",
+      "display_name": "New Call Created",
+      "description": "Triggers when a new call log is created",
+      "type": "instant"
+    },
+    {
+      "name": "newCompanyCreated",
+      "display_name": "New Company Created",
+      "description": "Triggers when a new company record is created",
+      "type": "instant"
+    },
+    {
+      "name": "newContactCreated",
+      "display_name": "New Contact Created",
+      "description": "Triggers when a new contact is created",
+      "type": "instant"
+    },
+    {
+      "name": "newEventCreated",
+      "display_name": "New Event Created",
+      "description": "Triggers when a new event is created",
+      "type": "instant"
+    },
+    {
+      "name": "newPipelineRecordCreated",
+      "display_name": "New Pipeline Record Created",
+      "description": "Triggers when a new pipeline record is created",
+      "type": "instant"
+    },
+    {
+      "name": "newTaskCreated",
+      "display_name": "New Task Created",
+      "description": "Triggers when a new task is created",
+      "type": "instant"
+    },
+    {
+      "name": "pipelineRecordUpdated",
+      "display_name": "Pipeline Record Updated",
+      "description": "Triggers when a pipeline record is updated",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bigin-by-zoho"
+}

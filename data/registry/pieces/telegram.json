@@ -1,0 +1,20 @@
+{
+  "id": "telegram",
+  "package": "@activepieces/piece-telegram-bot",
+  "display_name": "Bot Token",
+  "display_name_ar": "بوت تيليجرام",
+  "description": "Build chatbots for Telegram",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/telegram-bot"
+}

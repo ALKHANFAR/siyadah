@@ -1,0 +1,208 @@
+{
+  "id": "tarvent",
+  "package": "@activepieces/piece-tarvent",
+  "display_name": "Tarvent",
+  "display_name_ar": "Tarvent",
+  "description": "Tarvent is an email marketing, automation, and email API platform that allows to you to send campaigns, manage contacts, automate your marketing, and more.",
+  "category": "H_marketing",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "tarvent_create_audience_group",
+      "display_name": "Create An Audience Group",
+      "description": "Creates an audience group in the selected audience."
+    },
+    {
+      "name": "tarvent_create_contact_note",
+      "display_name": "Add Note To Contact",
+      "description": "Adds a note to a contact."
+    },
+    {
+      "name": "tarvent_create_contact",
+      "display_name": "Create/Update Contact",
+      "description": "This action is used to create or update a contact in an audience."
+    },
+    {
+      "name": "tarvent_create_suppression_filter",
+      "display_name": "Add Contact To Suppression List",
+      "description": "Creates a suppression filter in your account to suppress a contact."
+    },
+    {
+      "name": "tarvent_create_transaction",
+      "display_name": "Send A Transactional Email",
+      "description": "Sends a transactional email. NOTE: This will use your email API credits."
+    },
+    {
+      "name": "tarvent_generate_custom_event",
+      "display_name": "Generate A Custom Event",
+      "description": "Generate a custom event in your Tarvent account."
+    },
+    {
+      "name": "tarvent_get_audience_groups",
+      "display_name": "Find Audience Group",
+      "description": "Finds an audience group by name."
+    },
+    {
+      "name": "tarvent_get_audiences",
+      "display_name": "Find Audience",
+      "description": "Finds an audience by name or tags."
+    },
+    {
+      "name": "tarvent_get_campaigns",
+      "display_name": "Find Campaign",
+      "description": "Finds a campaign by name, status or tags."
+    },
+    {
+      "name": "tarvent_get_contact",
+      "display_name": "Find Contact",
+      "description": "Finds a contact by your custom key data field (typically this is by email)."
+    },
+    {
+      "name": "tarvent_get_custom_event",
+      "display_name": "Find Custom Event",
+      "description": "Finds a custom event by name."
+    },
+    {
+      "name": "tarvent_get_journey",
+      "display_name": "Find Journey",
+      "description": "Finds a journey by name, status or tags."
+    },
+    {
+      "name": "tarvent_send_campaign",
+      "display_name": "Send Campaign",
+      "description": "Sends a copy of a campaign."
+    },
+    {
+      "name": "tarvent_update_contact_group",
+      "display_name": "Add/Remove Contact From Audience Group",
+      "description": "Adds or removes a contact from an audience group."
+    },
+    {
+      "name": "tarvent_update_contact_journey",
+      "display_name": "Add/Remove A Contact From A Journey",
+      "description": "Adds or removes the contact from a journey."
+    },
+    {
+      "name": "tarvent_update_contact_status",
+      "display_name": "Subscribe/Unsubscribe Contact From Audience",
+      "description": "Subscribes or unsubscribe a contact in an audience."
+    },
+    {
+      "name": "tarvent_update_contact_tag",
+      "display_name": "Add/Remove Contact Tag",
+      "description": "Adds or removes a tag from contact."
+    },
+    {
+      "name": "tarvent_update_journey_status",
+      "display_name": "Start/Stop Journey",
+      "description": "Starts or stops a journey."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "tarvent_campaign_send_finished",
+      "display_name": "Campaign Sent",
+      "description": "Triggers when a campaign has been sent to a contact. WARNING: This will fire for every contact the campaign is sent to, please be careful using this trigger.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_added",
+      "display_name": "Contact Added",
+      "description": "Triggers when a contact is added to the selected audience.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_bounced",
+      "display_name": "Campaign Or Transactional Email Bounced",
+      "description": "Triggers when a campaign or transactional email bounces (is rejected) for a contact.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_clicked",
+      "display_name": "Campaign Or Transactional Link Clicked",
+      "description": "Triggers when a link within a campaign or transactional email is clicked by a recipient.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_group_updated",
+      "display_name": "Contact Added Or Removed From A Group",
+      "description": "Triggers when a contact is added or removed from a group.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_note_added",
+      "display_name": "Contact Note Added",
+      "description": "Triggers when a note is added to a contact.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_opened",
+      "display_name": "Campaign Or Transactional Email Opened",
+      "description": "Triggers when a campaign or transactional email is opened by a recipient.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_replied",
+      "display_name": "Contact Replied",
+      "description": "Triggers when a contact replies.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_status_updated",
+      "display_name": "Contact Status Changed",
+      "description": "Triggers when a contact\\",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_tag_updated",
+      "display_name": "Contact Tag Added Or Removed",
+      "description": "Triggers when a tag is added or removed from a contact.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_unsubscribed",
+      "display_name": "Contact Unsubscribed",
+      "description": "Triggers when a contact unsubscribes from an audience.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_contact_updated",
+      "display_name": "Contact Profile Updated",
+      "description": "Triggers when a contact\\",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_form_submitted",
+      "display_name": "Form Submission Received",
+      "description": "Triggers when a known or unknown contact submits a sign up, profile update, or other form.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_page_performed",
+      "display_name": "Landing Page CTA Performed",
+      "description": "Triggers when a known or unknown contact performs a Call-To-Action within a landing page.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_survey_submitted",
+      "display_name": "Survey Submission Received",
+      "description": "Triggers when a known or unknown contact submits a survey.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_transaction_created",
+      "display_name": "Transaction Created",
+      "description": "Triggers when a transactional email is created for a known or unknown contact.",
+      "type": "instant"
+    },
+    {
+      "name": "tarvent_transaction_sent",
+      "display_name": "Transaction Sent",
+      "description": "Triggers when a transactional email is processed and sent to one or more recipients.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/tarvent"
+}

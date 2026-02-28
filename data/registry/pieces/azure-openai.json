@@ -1,0 +1,20 @@
+{
+  "id": "azure-openai",
+  "package": "@activepieces/piece-azure-openai",
+  "display_name": "Azure OpenAI",
+  "display_name_ar": "Azure OpenAI",
+  "description": "Powerful AI tools from Microsoft",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask_gpt",
+      "display_name": "Ask GPT",
+      "description": "Ask ChatGPT anything you want!"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/azure-openai"
+}

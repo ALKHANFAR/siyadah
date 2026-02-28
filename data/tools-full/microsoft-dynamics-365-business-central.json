@@ -1,0 +1,95 @@
+{
+  "id": "microsoft-dynamics-365-business-central",
+  "displayName": "Microsoft Dynamics 365 Business Central",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create-record": {
+      "displayName": "Create Record",
+      "description": "Creates a new record.",
+      "props": [
+        {
+          "name": "record_type",
+          "displayName": "Record Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "delete-record": {
+      "displayName": "Delete Record",
+      "description": "Deletes an existing record.",
+      "props": [
+        {
+          "name": "record_type",
+          "displayName": "Record Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-record": {
+      "displayName": "Get Record",
+      "description": "Retrieves the details of a record by it's ID.",
+      "props": [
+        {
+          "name": "record_type",
+          "displayName": "Record Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "search-records": {
+      "displayName": "Search Records",
+      "description": "Retrieves a list of records.",
+      "props": [
+        {
+          "name": "record_type",
+          "displayName": "Record Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "update-record": {
+      "displayName": "Update Record",
+      "description": "Updates an existing record.",
+      "props": [
+        {
+          "name": "record_type",
+          "displayName": "Record Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-or-updated-record": {
+      "displayName": "New or Updated Record",
+      "description": "Triggers when a new record is added or modified.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "record_type",
+          "displayName": "Record Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

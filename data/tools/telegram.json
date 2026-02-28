@@ -1,0 +1,25 @@
+{
+  "id": "telegram",
+  "package": "@activepieces/piece-telegram-bot",
+  "version": "0.3.14",
+  "source": "https://www.activepieces.com/pieces/telegram-bot",
+  "npm": "https://www.npmjs.com/package/@activepieces/piece-telegram-bot",
+  "github": "packages/pieces/community/telegram-bot/src/index.ts",
+  "displayName": "Bot Token",
+  "description": "Interact with Telegram through bots",
+  "logoUrl": "https://cdn.activepieces.com/pieces/telegram_bot.png",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "SECRET_TEXT",
+    "displayName": "Bot Token"
+  },
+  "triggers": {},
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  }
+}

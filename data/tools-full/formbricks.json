@@ -1,0 +1,30 @@
+{
+  "id": "formbricks",
+  "displayName": "APP URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "formbricks_trigger_${name}": {
+      "displayName": "Survey",
+      "description": "A selection of surveys that will trigger. Else, all surveys will trigger.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "survey_id",
+          "displayName": "Survey",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": true,
+          "description": "A selection of surveys that will trigger. Else, all surveys will trigger."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "echowin",
+  "package": "@activepieces/piece-echowin",
+  "display_name": "Echowin",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createContact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact with optional tags, custom fields, notes, and board assignments"
+    },
+    {
+      "name": "deleteContact",
+      "display_name": "Delete Contact",
+      "description": "Delete a contact by ID"
+    },
+    {
+      "name": "findContactByName",
+      "display_name": "Find Contact ",
+      "description": "Get a paginated list of contacts and search by name, email, or phone number"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newContact",
+      "display_name": "New Contact",
+      "description": "Trigger when a new contact is created in Echowin",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

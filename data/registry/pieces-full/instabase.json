@@ -1,0 +1,37 @@
+{
+  "id": "instabase",
+  "package": "@activepieces/piece-instabase",
+  "display_name": "Instabase",
+  "display_name_ar": "",
+  "description": "Integrate with Instabase AI Hub to automate document processing and AI workflows",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "converse_with_document",
+      "display_name": "Converse with Document",
+      "description": "Ask a question about a document in a conversation"
+    },
+    {
+      "name": "create_conversation",
+      "display_name": "Create Conversation and Upload Files",
+      "description": "Create a new conversation and upload files to it"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_conversation",
+      "display_name": "New Conversation",
+      "description": "Triggers when a new conversation is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

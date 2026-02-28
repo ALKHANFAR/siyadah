@@ -1,0 +1,35 @@
+{
+  "id": "brave-search",
+  "displayName": "Brave Search",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "web_search": {
+      "displayName": "Web Search",
+      "description": "Search the web using Brave Search",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The search query"
+        },
+        {
+          "name": "count",
+          "displayName": "Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results (1-20)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

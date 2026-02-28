@@ -1,0 +1,50 @@
+{
+  "id": "webhook",
+  "package": "@activepieces/piece-webhook",
+  "version": "0.4.0",
+  "category": "A_essential",
+  "auth": {
+    "required": false
+  },
+  "actions": {
+    "return_response": {
+      "displayName": "Return Response",
+      "description": "Return a response to the webhook caller",
+      "props": []
+    }
+  },
+  "triggers": {
+    "catch_hook": {
+      "displayName": "Catch Hook",
+      "description": "Triggers when a webhook is received",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  },
+  "common_errors": [
+    {
+      "code": "WEBHOOK_TIMEOUT",
+      "cause": "No response sent within 30 seconds",
+      "auto_fix": "Add immediate response before processing",
+      "severity": "medium"
+    },
+    {
+      "code": "INVALID_JSON",
+      "cause": "Body is not valid JSON",
+      "auto_fix": "Try form-data parsing as fallback",
+      "severity": "low"
+    },
+    {
+      "code": "WEBHOOK_NOT_FOUND",
+      "cause": "Webhook URL was changed or flow disabled",
+      "auto_fix": "Re-enable flow and update URL in source",
+      "severity": "high"
+    }
+  ],
+  "limits": {
+    "timeout_seconds": 30
+  },
+  "notes": "Primary trigger for forms, websites, and external systems. Always receives POST data.",
+  "displayName": "Webhook",
+  "description": "Receive HTTP requests"
+}

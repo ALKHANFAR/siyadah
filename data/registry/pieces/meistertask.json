@@ -1,0 +1,135 @@
+{
+  "id": "meistertask",
+  "package": "@activepieces/piece-meistertask",
+  "display_name": "MeisterTask",
+  "display_name_ar": "MeisterTask",
+  "description": "Intuitive online task manager for teams, personal productivity, and everything in between.",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_attachment",
+      "display_name": "Create Attachment",
+      "description": "Creates a new attachment"
+    },
+    {
+      "name": "create_label",
+      "display_name": "Create Label",
+      "description": "Creates a new label"
+    },
+    {
+      "name": "create_task_label",
+      "display_name": "Create Task Label",
+      "description": "Creates a new task label"
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Creates a new task"
+    },
+    {
+      "name": "find_attachment",
+      "display_name": "Find Attachment",
+      "description": "Finds an attachment by searching"
+    },
+    {
+      "name": "find_label",
+      "display_name": "Find Label",
+      "description": "Finds a label by searching"
+    },
+    {
+      "name": "find_or_create_attachment",
+      "display_name": "Find or Create Attachment",
+      "description": "Finds an attachment by searching, or creates one if it doesn\\"
+    },
+    {
+      "name": "find_or_create_label",
+      "display_name": "Find or Create Label",
+      "description": "Finds a label by searching, or creates one if it doesn\\"
+    },
+    {
+      "name": "find_or_create_task",
+      "display_name": "Find or Create Task",
+      "description": "Finds a task by searching, or creates one if it doesn\\"
+    },
+    {
+      "name": "find_person",
+      "display_name": "Find Person",
+      "description": "Finds a person based on person_id"
+    },
+    {
+      "name": "find_task",
+      "display_name": "Find Task",
+      "description": "Finds a task by searching"
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Updates an existing task"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_attachment",
+      "display_name": "New Attachment",
+      "description": "Triggers when an attachment is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_checklist_item",
+      "display_name": "New Checklist Item",
+      "description": "Triggers when a new checklist item is added to a task.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_comment",
+      "display_name": "New Comment",
+      "description": "Triggers when a new comment is created on a task.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_label",
+      "display_name": "New Label",
+      "description": "Triggers when a label is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_person",
+      "display_name": "New Person",
+      "description": "Triggers when a new person is added to a project.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_project",
+      "display_name": "New Project",
+      "description": "Triggers when a new project is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_section",
+      "display_name": "New Section",
+      "description": "Triggers when a new section is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_task_label",
+      "display_name": "New Task Label",
+      "description": "Triggers when a task label is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Triggers when a task is created or changed.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/meistertask"
+}

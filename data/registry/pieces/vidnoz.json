@@ -1,0 +1,32 @@
+{
+  "id": "vidnoz",
+  "package": "@activepieces/piece-vidnoz",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Enter your Vidnoz API Key. You can get this from your Vidnoz account under API Credentials.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "generate_video_with_avatar",
+      "display_name": "Generate Video with Avatar",
+      "description": "Generate a video from an avatar."
+    },
+    {
+      "name": "generate_video_with_template",
+      "display_name": "Generate Video with Template",
+      "description": "Generate a video using a template."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_generated_video",
+      "display_name": "New Generated Video",
+      "description": "Triggers when a new generated video appears in your Vidnoz account.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/vidnoz"
+}

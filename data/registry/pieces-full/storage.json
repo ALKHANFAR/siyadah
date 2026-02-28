@@ -1,0 +1,35 @@
+{
+  "id": "storage",
+  "package": "@activepieces/piece-storage",
+  "display_name": "Storage",
+  "display_name_ar": "تخزين",
+  "description": "Store and retrieve key-value data",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "storage_put",
+      "display_name": "Put",
+      "description": "Store a value"
+    },
+    {
+      "name": "storage_get",
+      "display_name": "Get",
+      "description": "Retrieve a value"
+    },
+    {
+      "name": "storage_delete",
+      "display_name": "Delete",
+      "description": "Delete a value"
+    },
+    {
+      "name": "storage_append",
+      "display_name": "Append",
+      "description": "Append to a value"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-core"
+}

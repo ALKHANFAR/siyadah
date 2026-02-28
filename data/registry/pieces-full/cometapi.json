@@ -1,0 +1,25 @@
+{
+  "id": "cometapi",
+  "package": "@activepieces/piece-cometapi",
+  "display_name": "CometAPI",
+  "display_name_ar": "",
+  "description": "Access multiple AI models through CometAPI - unified interface for GPT, Claude, Gemini, and more.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask-cometapi",
+      "display_name": "Ask CometAPI",
+      "description": "Sends a prompt to any AI model supported by CometAPI."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

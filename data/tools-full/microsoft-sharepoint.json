@@ -1,0 +1,358 @@
+{
+  "id": "microsoft-sharepoint",
+  "displayName": "Microsoft SharePoint",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "microsoft_sharepoint_copy_item_within_site": {
+      "displayName": "Copy File or Folder (Within Site)",
+      "description": "Copy a file or folder to another folder within the same site.",
+      "props": [
+        {
+          "name": "destinationFolderId",
+          "displayName": "Destination Folder",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The folder to copy the item into. Select \"Root\" to copy to the top level of the drive."
+        },
+        {
+          "name": "newName",
+          "displayName": "New Name (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A new name for the copied item. If not provided, the original name is used."
+        },
+        {
+          "name": "conflictBehavior",
+          "displayName": "Conflict Behavior",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Action to take if a file with the same name already exists in the destination."
+        }
+      ]
+    },
+    "microsoft_sharepoint_copy_item": {
+      "displayName": "Copy File or Folder (Across Sites)",
+      "description": "Copy a file or folder from one site to another within the same tenant, with overwrite option.",
+      "props": [
+        {
+          "name": "new_name",
+          "displayName": "New Name (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A new name for the copied item. If not provided, the original name is used."
+        },
+        {
+          "name": "conflict_behavior",
+          "displayName": "Conflict Behavior",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Action to take if a file with the same name already exists."
+        }
+      ]
+    },
+    "microsoft_sharepoint_create_folder": {
+      "displayName": "Create Folder",
+      "description": "Creates a new folder at path you specify.",
+      "props": [
+        {
+          "name": "parentFolder",
+          "displayName": "Parent Folder",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Parent folder,like \"/demo/\" or \"/docs/assignment/\".Leave it default if you want to create folder at the root (**/**) level."
+        },
+        {
+          "name": "folderName",
+          "displayName": "Folder Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_sharepoint_create_list_item": {
+      "displayName": "Create List Item",
+      "description": "Creates a new item in a list.",
+      "props": []
+    },
+    "microsoft_sharepoint_create_list": {
+      "displayName": "Create List",
+      "description": "Creates a new list.",
+      "props": [
+        {
+          "name": "displayName",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "List Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "microsoft_sharepoint_delete_list_item": {
+      "displayName": "Delete List Item",
+      "description": "Deletes an existing item from a list.",
+      "props": []
+    },
+    "microsoft_sharepoint_find_file": {
+      "displayName": "Find File",
+      "description": "Look up a file by its name or path.",
+      "props": [
+        {
+          "name": "findMethod",
+          "displayName": "Find Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to find the file."
+        },
+        {
+          "name": "filePath",
+          "displayName": "File Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The exact path to the file from the drive's root. **Required if finding by path.** Example: `Documents/Reports/Q1-Report.docx`"
+        },
+        {
+          "name": "searchQuery",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The file name or keyword to search for. **Required if searching by name.** Example: `Q1-Report.docx`"
+        },
+        {
+          "name": "searchFolderId",
+          "displayName": "Folder to Search In (Optional)",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The folder to search within. If not specified, the entire drive will be searched. **Only applies when searching by name.**"
+        }
+      ]
+    },
+    "microsoft_sharepoint_get_folder_contents": {
+      "displayName": "Get Folder Contents",
+      "description": "List all files and subfolders in a specified folder, optionally with detailed metadata.",
+      "props": [
+        {
+          "name": "folderId",
+          "displayName": "Folder",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The folder whose contents you want to list. Select \"Root Folder\" for the top-level folder."
+        },
+        {
+          "name": "includeCustomFields",
+          "displayName": "Include Custom Metadata",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this to include SharePoint-specific metadata (custom columns). This may slow down the request."
+        },
+        {
+          "name": "top",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of items to return. The API default is 200. If more items exist, the output will contain a field `@odata.nextLink` that you can use in a custom API call to get the next page."
+        },
+        {
+          "name": "select",
+          "displayName": "Select Fields (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A comma-separated list of properties to return. Example: `id,name,size,webUrl`"
+        },
+        {
+          "name": "orderby",
+          "displayName": "Order By (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specifies how to sort the returned items. Example: `name asc` or `lastModifiedDateTime desc`"
+        }
+      ]
+    },
+    "microsoft_sharepoint_get_site_information": {
+      "displayName": "Get Site Information",
+      "description": "Fetch metadata of a SharePoint site (site ID, title, URL, description, etc.).",
+      "props": [
+        {
+          "name": "select",
+          "displayName": "Select Fields (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A comma-separated list of properties to return. If left blank, all default properties are returned. Example: `id,displayName,webUrl,description`"
+        }
+      ]
+    },
+    "microsoft_sharepoint_move_file": {
+      "displayName": "Move File",
+      "description": "Move a file from one folder to another within the same drive.",
+      "props": [
+        {
+          "name": "fileId",
+          "displayName": "File to Move",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The file you want to move."
+        },
+        {
+          "name": "destinationFolderId",
+          "displayName": "Destination Folder",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The folder to move the file into. Select \"Root\" to move to the top level of the drive."
+        },
+        {
+          "name": "newName",
+          "displayName": "New Name (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide a new name to rename the file during the move."
+        }
+      ]
+    },
+    "microsoft_sharepoint_publish_page": {
+      "displayName": "Publish Page",
+      "description": "Publishes a SharePoint page, making it available to all users. If the page is checked out, it will be automatically checked in. Note: Pages with active approval flows will not publish until approval is complete.",
+      "props": []
+    },
+    "microsoft_sharepoint_search_list_item": {
+      "displayName": "Find List Item",
+      "description": "Finds a item in a list based on name.",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Item title to search"
+        }
+      ]
+    },
+    "microsoft_sharepoint_update_list_item": {
+      "displayName": "Update List Item",
+      "description": "Updates an existing item in a list.",
+      "props": []
+    },
+    "microsoft_sharepoint_upload_file": {
+      "displayName": "Upload File",
+      "description": "Uploads a new file at path you specify.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file or url you want to upload"
+        },
+        {
+          "name": "parentFolder",
+          "displayName": "Parent Folder",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Parent folder, like \"/demo/\" or \"/docs/assignment/\".Leave it default if you want to create folder at the root (**CHANGE THIS BACK//**) level."
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_file_in_folder": {
+      "displayName": "New File in Folder",
+      "description": "Fires when a new file is created or added in a specific folder.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "folderId",
+          "displayName": "Folder to Monitor",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The folder to watch for new files. Select \"Root Folder\" for the top-level folder of the drive."
+        }
+      ]
+    },
+    "new_file_in_subfolders": {
+      "displayName": "New File in Subfolders",
+      "description": "Fires when a new file is added anywhere in the first-level subfolders of a folder. Note: This trigger will not monitor subfolders created after the flow is activated.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "parentFolderId",
+          "displayName": "Parent Folder",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The parent folder whose subfolders you want to monitor."
+        }
+      ]
+    },
+    "new_list_item": {
+      "displayName": "New List Item",
+      "description": "Triggers when a new item is created in a SharePoint list.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_list": {
+      "displayName": "New List",
+      "description": "Triggers when a new list is created in a site.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_or_updated_file": {
+      "displayName": "New or Updated File",
+      "description": "Triggers when a file is created or updated in a given folder.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "folderId",
+          "displayName": "Folder to Monitor",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The folder to watch for new or updated files. Select \"Root Folder\" for the top-level folder of the drive."
+        }
+      ]
+    },
+    "new_or_updated_folder": {
+      "displayName": "New or Updated Folder",
+      "description": "Triggers when a folder is created or updated (e.g., name change).",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "parentFolderId",
+          "displayName": "Parent Folder to Monitor",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The folder to watch for new or updated subfolders. Select \"Root Folder\" to monitor the top-level of the drive."
+        }
+      ]
+    },
+    "new_or_updated_list": {
+      "displayName": "New or Updated List",
+      "description": "Triggers when a list is created or updated in a site.",
+      "type": "POLLING",
+      "props": []
+    },
+    "updated_list_item": {
+      "displayName": "Updated List Item",
+      "description": "Fires when an existing item in a SharePoint list is updated.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

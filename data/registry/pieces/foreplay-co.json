@@ -1,0 +1,59 @@
+{
+  "id": "foreplay-co",
+  "package": "@activepieces/piece-foreplay-co",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Your Foreplay.co API key",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "findAds",
+      "display_name": "Find Ads",
+      "description": "Search and filter ads by text, dates, platforms, and categories."
+    },
+    {
+      "name": "findBoards",
+      "display_name": "Find Boards",
+      "description": "Get all boards for the authenticated user with pagination."
+    },
+    {
+      "name": "findBrands",
+      "display_name": "Find Brands",
+      "description": "Search for brands by name with fuzzy matching."
+    },
+    {
+      "name": "getAdById",
+      "display_name": "Get Ad by ID",
+      "description": "Get detailed information about a specific ad by its ID."
+    },
+    {
+      "name": "getAdsByPage",
+      "display_name": "Get Ads by Page",
+      "description": "Get all ads for a Facebook Page ID with filtering and pagination."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newAdInBoard",
+      "display_name": "New Ad in Board",
+      "description": "Triggers when a new ad is added to the selected board.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newAdInSpyder",
+      "display_name": "New Ad in Spyder",
+      "description": "Triggers when new ads are added for a brand in Spyder.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newSwipefileAd",
+      "display_name": "New Swipefile Ad",
+      "description": "Triggers when a new ad is added to your swipefile collection.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/foreplay-co"
+}

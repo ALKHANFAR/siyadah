@@ -1,0 +1,30 @@
+{
+  "id": "tiny-talk-ai",
+  "displayName": "Tiny Talk AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask-bot": {
+      "displayName": "Ask Bot",
+      "description": "Sends message to selected bot.",
+      "props": [
+        {
+          "name": "botId",
+          "displayName": "Bot ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "You can find this in your Bot Details page in the dashboard."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

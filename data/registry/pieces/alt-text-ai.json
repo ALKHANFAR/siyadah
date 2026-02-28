@@ -1,0 +1,25 @@
+{
+  "id": "alt-text-ai",
+  "package": "@activepieces/piece-alt-text-ai",
+  "display_name": "AltText.ai",
+  "display_name_ar": "AltText.ai",
+  "description": "AltText.ai integration",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "generate-alt-text",
+      "display_name": "Generate Alt Text",
+      "description": "Generates a descriptive alt text for a given image."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/alt-text-ai"
+}

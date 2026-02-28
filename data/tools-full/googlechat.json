@@ -1,0 +1,120 @@
+{
+  "id": "googlechat",
+  "displayName": "Google Chat",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "addASpaceMember": {
+      "displayName": "Add a Space Member",
+      "description": "Add a user to a Google Chat space.",
+      "props": []
+    },
+    "findMember": {
+      "displayName": "Find Member",
+      "description": "Search space member by email",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Member Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the member to find"
+        }
+      ]
+    },
+    "getDirectMessageDetails": {
+      "displayName": "Get Direct Message Details",
+      "description": "Retrieve details of a specific direct message by ID.",
+      "props": []
+    },
+    "getMessageDetails": {
+      "displayName": "Get Message Details",
+      "description": "Retrieve details of a specific message by ID. Supports both system-generated and custom message IDs.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Message Resource Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The full resource name of the message. Format: spaces/{space}/messages/{message}"
+        }
+      ]
+    },
+    "searchMessages": {
+      "displayName": "Search Messages",
+      "description": "Search within Chat for messages matching keywords or filters.",
+      "props": [
+        {
+          "name": "keyword",
+          "displayName": "Keyword",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search for messages containing this text"
+        },
+        {
+          "name": "limit",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of messages to return"
+        }
+      ]
+    },
+    "sendAMessage": {
+      "displayName": "Send a Message",
+      "description": "Send a message to a space or direct conversation.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message content to send. Supports basic formatting like *bold*, _italic_, and @mentions."
+        },
+        {
+          "name": "messageReplyOption",
+          "displayName": "Reply Behavior",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle replies when thread ID is provided."
+        },
+        {
+          "name": "customMessageId",
+          "displayName": "Custom Message ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional unique ID for this message (auto-generated if empty). Useful for deduplication."
+        },
+        {
+          "name": "isPrivate",
+          "displayName": "Send as Private Message",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send this message privately to a specific user. Requires app authentication."
+        },
+        {
+          "name": "privateMessageViewer",
+          "displayName": "Private Message Recipient",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the user who can view this private message."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newMention": {
+      "displayName": "New Mention",
+      "description": "Triggers when a new mention is received in Google Chat.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newMessage": {
+      "displayName": "New Message",
+      "description": "Triggers when a new message is received in Google Chat.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

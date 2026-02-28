@@ -1,0 +1,63 @@
+{
+  "id": "circle",
+  "package": "@activepieces/piece-circle",
+  "display_name": "Circle",
+  "display_name_ar": "Circle",
+  "description": "Circle.so is a platform for creating and managing communities.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "add_member_to_space",
+      "display_name": "Add Member to Space",
+      "description": "Add an existing member to a specific space by their email."
+    },
+    {
+      "name": "create_comment",
+      "display_name": "Create Comment",
+      "description": "Creates a new comment on a post."
+    },
+    {
+      "name": "create_post",
+      "display_name": "Create Post",
+      "description": "Creates a new post in a specific space."
+    },
+    {
+      "name": "find_member_by_email",
+      "display_name": "Find Member by Email",
+      "description": "Finds a community member by their email address."
+    },
+    {
+      "name": "get_member_details",
+      "display_name": "Get Member Details",
+      "description": "Fetches the full profile details for a specific community member."
+    },
+    {
+      "name": "get_post_details",
+      "display_name": "Get Post Details",
+      "description": "Retrieves the complete details of a specific post."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_member_added",
+      "display_name": "New Member Added",
+      "description": "Triggers when a new member is added to the community.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_post_created",
+      "display_name": "New Post Created",
+      "description": "Triggers when a new post is created in a specific space.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/circle"
+}

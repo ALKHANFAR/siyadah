@@ -1,0 +1,83 @@
+{
+  "id": "griptape",
+  "displayName": "Griptape Cloud",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAssistantRun": {
+      "displayName": "Create Assistant Run",
+      "description": "Create a run for an assistant with optional additional resources",
+      "props": [
+        {
+          "name": "input",
+          "displayName": "Input",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Input to provide to the assistant"
+        },
+        {
+          "name": "create_new_thread",
+          "displayName": "Create New Thread",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Create a new thread for this run"
+        }
+      ]
+    },
+    "createStructureRun": {
+      "displayName": "Create Structure Run",
+      "description": "Create a run for a structure and wait for completion",
+      "props": [
+        {
+          "name": "input_args",
+          "displayName": "Input Arguments",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Input arguments for the structure run"
+        }
+      ]
+    },
+    "getAssistantRun": {
+      "displayName": "Get Assistant Run",
+      "description": "Get details of a specific assistant run",
+      "props": []
+    },
+    "getStructureRun": {
+      "displayName": "Get Structure Run",
+      "description": "Get details of a specific structure run",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "assistantRunCompletes": {
+      "displayName": "Assistant Run Completes",
+      "description": "Trigger when an assistant run is completed (succeeded, failed, or cancelled)",
+      "type": "POLLING",
+      "props": []
+    },
+    "assistantRunSucceedes": {
+      "displayName": "Assistant Run Succeeds",
+      "description": "Trigger when an assistant run succeeds",
+      "type": "POLLING",
+      "props": []
+    },
+    "structureRunCompletes": {
+      "displayName": "Structure Run Completes",
+      "description": "",
+      "type": "POLLING",
+      "props": []
+    },
+    "structureRunSucceeds": {
+      "displayName": "Structure Run Succeeds",
+      "description": "",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

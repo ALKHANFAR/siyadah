@@ -1,0 +1,47 @@
+{
+  "id": "microsoft-onedrive",
+  "package": "@activepieces/piece-microsoft-onedrive",
+  "display_name": "Microsoft OneDrive",
+  "display_name_ar": "",
+  "description": "Cloud storage by Microsoft",
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "download_file",
+      "display_name": "Download file",
+      "description": "Download a file from your Microsoft OneDrive"
+    },
+    {
+      "name": "list_files",
+      "display_name": "List Files",
+      "description": "List files in a OneDrive folder"
+    },
+    {
+      "name": "list_folders",
+      "display_name": "List Folders",
+      "description": "List folders in a OneDrive folder"
+    },
+    {
+      "name": "upload_onedrive_file",
+      "display_name": "Upload file",
+      "description": "Upload a file to your Microsoft OneDrive with chunked upload if the file is larger than 4MiB"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_file",
+      "display_name": "New File",
+      "description": "Trigger when a new file is uploaded.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

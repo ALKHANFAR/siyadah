@@ -1,0 +1,108 @@
+{
+  "id": "uscreen",
+  "displayName": "Uscreen",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "assign_user_access": {
+      "displayName": "Assign User Access",
+      "description": "Schedule a time for the action to be performed (ISO 8601 format, e.g., 2024-07-05T13:47:52Z). Leave blank to assign immediately.",
+      "props": [
+        {
+          "name": "perform_action_at",
+          "displayName": "Schedule Access (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Schedule a time for the action to be performed (ISO 8601 format, e.g., 2024-07-05T13:47:52Z). Leave blank to assign immediately."
+        },
+        {
+          "name": "with_manual_billing",
+          "displayName": "Manual Billing (for Offers)",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only check this if the Product Type is \"Offer\" and this is a manual billing scenario."
+        }
+      ]
+    },
+    "create_user": {
+      "displayName": "Create User",
+      "description": "If set to true, the new user will receive news and updates.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new user's email address."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new user's first name."
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new user's last name."
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new user's password. Leave blank if sending an invite email."
+        },
+        {
+          "name": "opted_in_for_news_and_updates",
+          "displayName": "Opted in for News and Updates",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If set to true, the new user will receive news and updates."
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add custom user fields defined in your storefront (e.g., \"favorite_genre\")."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "John Doe": {
+      "displayName": "Began to Play Video",
+      "description": "Triggers when a user plays a video for the first time.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "canceled_subscription": {
+      "displayName": "Canceled Subscription",
+      "description": "Triggers when a subscription is canceled for a user.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "John": {
+      "displayName": "New User",
+      "description": "Triggers when a new user is added to your storefront.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "Jane Smith": {
+      "displayName": "Paid Order",
+      "description": "Triggers when a payment is processed for subscriptions, bundles, or content.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

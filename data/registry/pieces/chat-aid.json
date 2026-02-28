@@ -1,0 +1,35 @@
+{
+  "id": "chat-aid",
+  "package": "@activepieces/piece-chat-aid",
+  "display_name": "Chat Aid",
+  "display_name_ar": "Chat Aid",
+  "description": "AI-powered assistant for your knowledge base.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "addCustomSources",
+      "display_name": "Add Custom Sources",
+      "description": "Upload one or more files as custom sources for training"
+    },
+    {
+      "name": "askQuestions",
+      "display_name": "Ask Questions",
+      "description": "Query your Chat Aid knowledge base and receive AI-generated answers with source citations"
+    },
+    {
+      "name": "getCustomSourceById",
+      "display_name": "Get Custom Source by ID",
+      "description": "Retrieve single source details by ID"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/chat-aid"
+}

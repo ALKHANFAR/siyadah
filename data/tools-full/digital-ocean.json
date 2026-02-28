@@ -1,0 +1,278 @@
+{
+  "id": "digital-ocean",
+  "displayName": "DigitalOcean",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_domain": {
+      "displayName": "Create Domain",
+      "description": "Add a new domain to your DigitalOcean account.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Domain Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain name (e.g., example.com)."
+        },
+        {
+          "name": "ip_address",
+          "displayName": "IP Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional IP address to create an A record pointing to the apex domain."
+        }
+      ]
+    },
+    "create_droplet": {
+      "displayName": "Create Droplet",
+      "description": "Create a new Droplet or multiple Droplets.",
+      "props": [
+        {
+          "name": "creation_mode",
+          "displayName": "Creation Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Create a single Droplet or multiple Droplets at once."
+        },
+        {
+          "name": "name",
+          "displayName": "Droplet Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name for the Droplet (e.g., example.com)."
+        },
+        {
+          "name": "names",
+          "displayName": "Droplet Names",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Names for multiple Droplets (up to 10)."
+        },
+        {
+          "name": "region",
+          "displayName": "Region",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Region to deploy the Droplet."
+        },
+        {
+          "name": "size",
+          "displayName": "Size",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Droplet size (CPU, RAM, disk)."
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Base image for the Droplet."
+        },
+        {
+          "name": "ssh_keys",
+          "displayName": "SSH Keys",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "SSH keys to embed in the Droplet."
+        },
+        {
+          "name": "vpc_uuid",
+          "displayName": "VPC",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "VPC network for the Droplet."
+        },
+        {
+          "name": "backups",
+          "displayName": "Enable Backups",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable automated backups."
+        },
+        {
+          "name": "ipv6",
+          "displayName": "Enable IPv6",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable IPv6 networking."
+        },
+        {
+          "name": "monitoring",
+          "displayName": "Enable Monitoring",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Install the DigitalOcean monitoring agent."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags to apply to the Droplet."
+        },
+        {
+          "name": "user_data",
+          "displayName": "User Data",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Cloud-init script or user data (max 64 KiB)."
+        },
+        {
+          "name": "with_droplet_agent",
+          "displayName": "Install Droplet Agent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Install agent for web console access."
+        }
+      ]
+    },
+    "delete_domain": {
+      "displayName": "Delete Domain",
+      "description": "Remove a domain from your DigitalOcean account.",
+      "props": [
+        {
+          "name": "domain_name",
+          "displayName": "Domain Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain name to delete (e.g., example.com)."
+        }
+      ]
+    },
+    "delete_droplet": {
+      "displayName": "Delete Droplet",
+      "description": "Delete an existing Droplet.",
+      "props": [
+        {
+          "name": "droplet_id",
+          "displayName": "Droplet",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the Droplet to delete."
+        }
+      ]
+    },
+    "get_domain": {
+      "displayName": "Get Domain",
+      "description": "Retrieve details about a specific domain.",
+      "props": [
+        {
+          "name": "domain_name",
+          "displayName": "Domain Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The domain name to retrieve (e.g., example.com)."
+        }
+      ]
+    },
+    "get_droplet": {
+      "displayName": "Get Droplet",
+      "description": "Retrieve details about a specific Droplet.",
+      "props": [
+        {
+          "name": "droplet_id",
+          "displayName": "Droplet",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the Droplet to retrieve."
+        }
+      ]
+    },
+    "list_database_clusters": {
+      "displayName": "List Database Clusters",
+      "description": "Retrieve a list of all database clusters in your account.",
+      "props": [
+        {
+          "name": "tag_name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter database clusters by a specific tag."
+        }
+      ]
+    },
+    "list_database_events": {
+      "displayName": "List Database Events",
+      "description": "Retrieve all event logs for a database cluster.",
+      "props": [
+        {
+          "name": "database_cluster_uuid",
+          "displayName": "Database Cluster",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the database cluster."
+        }
+      ]
+    },
+    "list_domains": {
+      "displayName": "List All Domains",
+      "description": "Retrieve a list of all domains in your account.",
+      "props": [
+        {
+          "name": "per_page",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of domains to return per page (1-200)."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Which page of results to return."
+        }
+      ]
+    },
+    "list_droplets": {
+      "displayName": "List All Droplets",
+      "description": "Retrieve a list of all Droplets in your account.",
+      "props": [
+        {
+          "name": "per_page",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of Droplets to return per page (1-200)."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Which page of results to return."
+        },
+        {
+          "name": "tag_name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter Droplets by a specific tag. Cannot be combined with Name or Type."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by exact Droplet name (case-insensitive). Cannot be combined with Tag Name."
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by Droplet type. Cannot be combined with Tag Name."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

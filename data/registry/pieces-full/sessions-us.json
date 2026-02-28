@@ -1,0 +1,114 @@
+{
+  "id": "sessions-us",
+  "package": "@activepieces/piece-sessions-us",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Video conferencing platform for businesses and professionals",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_event",
+      "display_name": "Create Event",
+      "description": "Quickly create an event."
+    },
+    {
+      "name": "create_session",
+      "display_name": "Create Session",
+      "description": "Quickly create a session."
+    },
+    {
+      "name": "publish_event",
+      "display_name": "Publish Event",
+      "description": "Quickly publish an event."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "booking_created",
+      "display_name": "Booking Created",
+      "description": "Triggered when a new booking is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "booking_ended",
+      "display_name": "Booking Ended",
+      "description": "Triggered when a booking ends.",
+      "type": "scheduled"
+    },
+    {
+      "name": "booking_started",
+      "display_name": "Booking Started",
+      "description": "Triggered when a booking starts.",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_created",
+      "display_name": "Event Created",
+      "description": "Triggered when a new event is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_ended",
+      "display_name": "Event Ended",
+      "description": "Triggered when an event ends.",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_new_registration",
+      "display_name": "Event New Registration",
+      "description": "Triggered when a new registration for an event occurs.",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_published",
+      "display_name": "Event Published",
+      "description": "Triggered when an event is published.",
+      "type": "scheduled"
+    },
+    {
+      "name": "event_started",
+      "display_name": "Event Started",
+      "description": "Triggered when an event starts.",
+      "type": "scheduled"
+    },
+    {
+      "name": "session_created",
+      "display_name": "Session Created",
+      "description": "Triggered when a new session is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "session_ended",
+      "display_name": "Session Ended",
+      "description": "Triggered when a session has ended.",
+      "type": "scheduled"
+    },
+    {
+      "name": "session_started",
+      "display_name": "Session Started",
+      "description": "Triggered when a session starts.",
+      "type": "scheduled"
+    },
+    {
+      "name": "takeaway_ready",
+      "display_name": "Takeaway Ready",
+      "description": "Triggered when a takeaway becomes available.",
+      "type": "scheduled"
+    },
+    {
+      "name": "transcript_ready",
+      "display_name": "Transcript Ready",
+      "description": "Triggered when a session has ended.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

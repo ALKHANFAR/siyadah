@@ -1,0 +1,244 @@
+{
+  "_meta": {
+    "id": "weekly-report",
+    "version": "1.0.0",
+    "display_name": "التقرير الأسبوعي",
+    "display_name_en": "Weekly Report",
+    "description": "كل أحد الساعة 9 → اجمع البيانات → AI يلخّص → أرسل للمدير",
+    "category": "reports",
+    "industries": [
+      "all"
+    ],
+    "estimated_setup_time": "3 min",
+    "user_request_examples": [
+      "أبي تقرير أسبوعي عن الأداء",
+      "أرسل لي ملخص كل أسبوع",
+      "أبي أعرف كم عميل جاني هالأسبوع",
+      "سو لي تقرير تلقائي"
+    ],
+    "intent_keywords": [
+      "تقرير",
+      "أسبوعي",
+      "ملخص",
+      "أداء",
+      "report",
+      "weekly",
+      "إحصائيات"
+    ]
+  },
+  "trigger": {
+    "tool_id": "schedule",
+    "action": "every_week",
+    "description": "كل يوم أحد الساعة 9 صباحاً",
+    "config": {
+      "day_of_week": 0,
+      "hour": 9,
+      "timezone": "Asia/Riyadh"
+    },
+    "alternative_triggers": [
+      "schedule.every_day"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "id": "fetch_leads_data",
+      "tool_id": "google-sheets",
+      "action": "find_rows",
+      "description": "جلب بيانات العملاء لهذا الأسبوع",
+      "config": {
+        "spreadsheet_id": "{{company.leads_spreadsheet_id}}",
+        "sheet_name": "العملاء"
+      },
+      "input_mapping": {
+        "column_name": "التاريخ",
+        "value": "{{context.this_week}}"
+      },
+      "on_error": {
+        "action": "retry_then_alert",
+        "retry_count": 3
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 2,
+      "id": "fetch_invoices_data",
+      "tool_id": "google-sheets",
+      "action": "find_rows",
+      "description": "جلب بيانات الفواتير لهذا الأسبوع",
+      "config": {
+        "spreadsheet_id": "{{company.invoices_spreadsheet_id}}",
+        "sheet_name": "الفواتير"
+      },
+      "input_mapping": {
+        "column_name": "التاريخ",
+        "value": "{{context.this_week}}"
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "rows": [],
+          "count": 0
+        }
+      }
+    },
+    {
+      "order": 3,
+      "id": "calculate_stats",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "حساب الإحصائيات",
+      "config": {
+        "code": "const leads = inputs.leads || []; const invoices = inputs.invoices || []; const hot = leads.filter(l => l['النوع'] === 'hot').length; const warm = leads.filter(l => l['النوع'] === 'warm').length; const cold = leads.filter(l => l['النوع'] === 'cold').length; const total_revenue = invoices.filter(i => i['الحالة'] === 'مدفوعة').reduce((s,i) => s + parseFloat(i['المبلغ'] || 0), 0); const unpaid = invoices.filter(i => i['الحالة'] === 'غير مدفوعة').length; return { total_leads: leads.length, hot, warm, cold, total_revenue, unpaid_invoices: unpaid };"
+      },
+      "input_mapping": {
+        "leads": "{{step.fetch_leads_data.rows}}",
+        "invoices": "{{step.fetch_invoices_data.rows}}"
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "total_leads": 0,
+          "total_revenue": 0
+        }
+      }
+    },
+    {
+      "order": 4,
+      "id": "format_phone",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "تنسيق رقم المدير",
+      "config": {
+        "code": "const phone = (inputs.phone || \"\").replace(/^0/, \"+966\").replace(/^966/, \"+966\"); return { formatted_phone: phone };"
+      },
+      "input_mapping": {
+        "phone": "{{company.owner_phone}}"
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "formatted_phone": "{{company.owner_phone}}"
+        }
+      }
+    },
+    {
+      "order": 5,
+      "id": "ai_summary",
+      "tool_id": "openai",
+      "action": "ask_chatgpt",
+      "description": "ملخص ذكي بالعربي",
+      "config": {
+        "model": "gpt-4o",
+        "temperature": 0.4,
+        "prompt": "اكتب تقرير أسبوعي مختصر لصاحب شركة {{company.industry}}:\n\nالعملاء: {{step.calculate_stats.total_leads}} (🔥 جاد: {{step.calculate_stats.hot}} | 🟡 مهتم: {{step.calculate_stats.warm}} | 🔵 بارد: {{step.calculate_stats.cold}})\nالإيرادات: {{step.calculate_stats.total_revenue}} ريال\nفواتير غير مدفوعة: {{step.calculate_stats.unpaid_invoices}}\n\nاكتب التقرير بشكل مختصر مع توصيات عملية. باللغة العربية. لا تزيد عن 200 كلمة."
+      },
+      "on_error": {
+        "action": "fallback_rules",
+        "fallback": {
+          "template": "📊 تقرير الأسبوع:\n👥 العملاء: {{step.calculate_stats.total_leads}}\n💰 الإيرادات: {{step.calculate_stats.total_revenue}} ريال\n📄 فواتير معلقة: {{step.calculate_stats.unpaid_invoices}}"
+        }
+      }
+    },
+    {
+      "order": 6,
+      "id": "send_report",
+      "tool_id": "whatsapp-business",
+      "action": "send_message",
+      "description": "إرسال التقرير للمدير",
+      "input_mapping": {
+        "phone_number": "{{company.owner_phone}}",
+        "message": "📊 تقرير {{company.company_name}} الأسبوعي\n\n{{step.ai_summary.response}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "to": "{{company.owner_email}}",
+            "condition": "always"
+          },
+          {
+            "tool_id": "slack",
+            "action": "send_message",
+            "condition": "slack_connected"
+          }
+        ]
+      },
+      "critical": true,
+      "never_skip": true
+    }
+  ],
+  "branches": [],
+  "delays": [],
+  "required_connections": [
+    "google-sheets",
+    "schedule"
+  ],
+  "recommended_connections": [
+    "openai",
+    "whatsapp-business",
+    "gmail"
+  ],
+  "minimum_connections": [
+    "google-sheets",
+    "gmail",
+    "schedule"
+  ],
+  "required_variables": {
+    "company": [
+      "company_name",
+      "leads_spreadsheet_id",
+      "owner_phone"
+    ],
+    "trigger": []
+  },
+  "sheets_template": {
+    "name": "العملاء",
+    "columns": [
+      "الاسم",
+      "الجوال",
+      "النوع",
+      "التاريخ"
+    ]
+  },
+  "industry_variants": {
+    "clinic": {
+      "extra_metrics": [
+        "عدد المواعيد",
+        "نسبة الحضور"
+      ]
+    },
+    "ecommerce": {
+      "extra_metrics": [
+        "عدد الطلبات",
+        "متوسط قيمة الطلب",
+        "معدل الإرجاع"
+      ]
+    },
+    "restaurant": {
+      "extra_metrics": [
+        "عدد الطلبات اليومي",
+        "أكثر الأصناف طلباً"
+      ]
+    }
+  },
+  "protection": {
+    "idempotency": "hash(week_number + year) — one report per week",
+    "degradation": "If AI fails → send raw stats. If sheets fail → send 'no data' alert"
+  },
+  "expected_execution_time": "15-30 seconds",
+  "success_criteria": {
+    "must": [
+      "Report delivered to owner"
+    ],
+    "should": [
+      "AI-generated summary with insights"
+    ],
+    "nice": [
+      "Stats accurately calculated from live data"
+    ]
+  }
+}

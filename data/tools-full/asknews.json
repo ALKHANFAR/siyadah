@@ -1,0 +1,534 @@
+{
+  "id": "asknews",
+  "displayName": "AskNews",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "asknewsChatCompletion": {
+      "displayName": "Chat Completion",
+      "description": "Get chat completions from a news-infused AI assistant powered by OpenAI API",
+      "props": [
+        {
+          "name": "userMessage",
+          "displayName": "User Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The user message to send to the chat model"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The model to use for chat completion"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sampling temperature (0-2, higher = more creative)"
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of tokens in response"
+        },
+        {
+          "name": "journalistMode",
+          "displayName": "Journalist Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Activate AP styling, citations, and fair reporting prompting"
+        },
+        {
+          "name": "inlineCitations",
+          "displayName": "Inline Citations",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to format citations in results"
+        },
+        {
+          "name": "appendReferences",
+          "displayName": "Append References",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Append full references at the end"
+        },
+        {
+          "name": "asknewsWatermark",
+          "displayName": "Include AskNews Watermark",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include AskNews branding in response"
+        },
+        {
+          "name": "conversationalAwareness",
+          "displayName": "Conversational Awareness",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable context awareness for conversational flow"
+        },
+        {
+          "name": "systemPrompt",
+          "displayName": "System Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional custom system prompt for the model"
+        }
+      ]
+    },
+    "createANewsletter": {
+      "displayName": "Create a Newsletter",
+      "description": "Create an automated newsletter powered by news and AI",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Newsletter Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the newsletter"
+        },
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Natural language query to define newsletter content"
+        },
+        {
+          "name": "cron",
+          "displayName": "Cron Schedule",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Cron expression for newsletter schedule (e.g., \"0 0 * * *\" for daily at midnight UTC)"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "AI model to use for newsletter generation"
+        },
+        {
+          "name": "sender",
+          "displayName": "Sender Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the newsletter sender"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Newsletter email subject (auto-generated if not provided)"
+        },
+        {
+          "name": "logoUrl",
+          "displayName": "Logo URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the newsletter logo"
+        },
+        {
+          "name": "replyTo",
+          "displayName": "Reply-To Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address for replies (defaults to sender if not provided)"
+        },
+        {
+          "name": "audienceId",
+          "displayName": "Audience ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Existing audience ID (creates new audience if not provided)"
+        },
+        {
+          "name": "resendApiKey",
+          "displayName": "Resend API Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "API key for Resend email service (required to send newsletter)"
+        },
+        {
+          "name": "isPublic",
+          "displayName": "Is Public",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Make newsletter publicly discoverable"
+        },
+        {
+          "name": "isActive",
+          "displayName": "Is Active",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Activate the newsletter immediately"
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expiration Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Newsletter expiration date (ISO format: YYYY-MM-DDTHH:MM:SS)"
+        }
+      ]
+    },
+    "generateNewsKnowledgeGraph": {
+      "displayName": "Generate News Knowledge Graph",
+      "description": "Build a custom mega-news-knowledge graph with fully disambiguated entities and relationships",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Natural language query for building the graph"
+        },
+        {
+          "name": "returnArticles",
+          "displayName": "Return Articles",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include articles in the response"
+        },
+        {
+          "name": "minClusterProbability",
+          "displayName": "Min Cluster Probability",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum cluster probability for disambiguation (0-1)"
+        },
+        {
+          "name": "geoDiambiguation",
+          "displayName": "Geo Disambiguation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use geographic disambiguation for entities"
+        },
+        {
+          "name": "queryMethod",
+          "displayName": "Query Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search method for the query"
+        },
+        {
+          "name": "nArticles",
+          "displayName": "Number of Articles",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of articles to use for building the graph"
+        },
+        {
+          "name": "historical",
+          "displayName": "Search Historical",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Search historical archive instead of recent news"
+        },
+        {
+          "name": "hoursBack",
+          "displayName": "Hours Back",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of hours back to search"
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter by news categories"
+        },
+        {
+          "name": "visualizeWith",
+          "displayName": "Visualize With",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Request a visualization format (e.g., mermaid, svg)"
+        }
+      ]
+    },
+    "getArticleById": {
+      "displayName": "Get Article by ID",
+      "description": "Retrieve a single article or multiple articles by their UUID(s)",
+      "props": [
+        {
+          "name": "articleIds",
+          "displayName": "Article ID(s)",
+          "type": "ARRAY",
+          "required": true,
+          "description": "One or more article UUIDs to fetch."
+        }
+      ]
+    },
+    "searchNews": {
+      "displayName": "Search News",
+      "description": "Search for enriched real-time news articles from the past 48 hours or historical archive",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search query - can be a phrase, keyword, question, or paragraph. Leave empty to search by filters only."
+        },
+        {
+          "name": "nArticles",
+          "displayName": "Number of Articles",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of articles to return"
+        },
+        {
+          "name": "method",
+          "displayName": "Search Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Search method to use. \"kw\" for keyword matching, \"nl\" for semantic/natural language search, \"both\" for hybrid"
+        },
+        {
+          "name": "returnType",
+          "displayName": "Return Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of returned articles. \"string\" is prompt-optimized, \"dicts\" is structured data, \"both\" returns both"
+        },
+        {
+          "name": "historical",
+          "displayName": "Search Historical Archive",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Search in historical archive (60+ days back) instead of just recent news (48 hours)"
+        },
+        {
+          "name": "hoursBack",
+          "displayName": "Hours Back",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of hours back to search from current time. Defaults to 24."
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter articles by news categories"
+        },
+        {
+          "name": "similarityScoreThreshold",
+          "displayName": "Similarity Score Threshold",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum similarity score (0-1) for results. Lower = more lenient matches."
+        }
+      ]
+    },
+    "searchStories": {
+      "displayName": "Search Stories (Narrative Clusters)",
+      "description": "Filter and search for top news narratives and story clusters",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Natural language or keyword query for search"
+        },
+        {
+          "name": "method",
+          "displayName": "Search Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "nl: semantic search, kw: keyword search, both: combined"
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter stories by categories"
+        },
+        {
+          "name": "expand_updates",
+          "displayName": "Expand Updates",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include story updates in results"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort results by field"
+        }
+      ]
+    },
+    "updateANewsletter": {
+      "displayName": "Update a Newsletter",
+      "description": "Update an existing automated newsletter",
+      "props": [
+        {
+          "name": "newsletterId",
+          "displayName": "Newsletter ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "UUID of the newsletter to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Newsletter Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the newsletter"
+        },
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Natural language query to define newsletter content"
+        },
+        {
+          "name": "cron",
+          "displayName": "Cron Schedule",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Cron expression for newsletter schedule (e.g., \"0 0 * * *\" for daily at midnight UTC)"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "AI model to use for newsletter generation"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Newsletter email subject"
+        },
+        {
+          "name": "sender",
+          "displayName": "Sender Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the newsletter sender"
+        },
+        {
+          "name": "logoUrl",
+          "displayName": "Logo URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the newsletter logo"
+        },
+        {
+          "name": "replyTo",
+          "displayName": "Reply-To Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address for replies"
+        },
+        {
+          "name": "audienceId",
+          "displayName": "Audience ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Audience ID for the newsletter"
+        },
+        {
+          "name": "resendApiKey",
+          "displayName": "Resend API Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "API key for Resend email service"
+        },
+        {
+          "name": "isPublic",
+          "displayName": "Is Public",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Make newsletter publicly discoverable"
+        },
+        {
+          "name": "isActive",
+          "displayName": "Is Active",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Activate or deactivate the newsletter"
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expiration Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Newsletter expiration date (ISO format: YYYY-MM-DDTHH:MM:SS)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "alertForQuery": {
+      "displayName": "Alert for Query",
+      "description": "Trigger when a new alert is created for a specific news query",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Alert Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Query to monitor (e.g., \"I want to be alerted if there is a protest in paris\")"
+        },
+        {
+          "name": "cron",
+          "displayName": "Cron Schedule",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Cron schedule for alert checks (5-7 fields, e.g., \"0 * * * *\" for every hour, or \"0 0 * * * America/New_York\")"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "AI model to use for alert checking"
+        },
+        {
+          "name": "alwaysTrigger",
+          "displayName": "Always Trigger",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Skip alert check and trigger immediately on schedule"
+        },
+        {
+          "name": "repeat",
+          "displayName": "Repeat",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Repeat alert after each trigger (disable for one-time alert)"
+        },
+        {
+          "name": "title",
+          "displayName": "Alert Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional title for the alert"
+        }
+      ]
+    }
+  }
+}

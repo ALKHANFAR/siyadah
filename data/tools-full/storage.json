@@ -1,0 +1,30 @@
+{
+  "id": "storage",
+  "displayName": "Storage",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "storage_put": {
+      "displayName": "Put",
+      "description": "Store a value",
+      "props": []
+    },
+    "storage_get": {
+      "displayName": "Get",
+      "description": "Retrieve a value",
+      "props": []
+    },
+    "storage_delete": {
+      "displayName": "Delete",
+      "description": "Delete a value",
+      "props": []
+    },
+    "storage_append": {
+      "displayName": "Append",
+      "description": "Append to a value",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

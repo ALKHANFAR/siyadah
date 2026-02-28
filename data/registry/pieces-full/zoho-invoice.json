@@ -1,0 +1,27 @@
+{
+  "id": "zoho-invoice",
+  "package": "@activepieces/piece-zoho-invoice",
+  "display_name": "Region",
+  "display_name_ar": "",
+  "description": "Select your account region",
+  "category": "M_finance",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_invoice",
+      "display_name": "New Invoice",
+      "description": "Trigger when a new invoice is received.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

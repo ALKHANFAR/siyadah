@@ -1,0 +1,40 @@
+{
+  "id": "socialkit",
+  "package": "@activepieces/piece-socialkit",
+  "display_name": "Socialkit",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_youtube_comments",
+      "display_name": "Get YouTube Comments",
+      "description": "Fetch comments from  YouTube video with options to sort and limit results."
+    },
+    {
+      "name": "get_youtube_details",
+      "display_name": "Get YouTube Details",
+      "description": "Get detailed information about any YouTube video including title, description, view count, likes, dislikes, duration, and channel information."
+    },
+    {
+      "name": "get_youtube_summary",
+      "display_name": "Get YouTube Summary",
+      "description": "Generates an AI-powered summary of a YouTube video."
+    },
+    {
+      "name": "get_youtube_transcript",
+      "display_name": "Get YouTube Transcript",
+      "description": "Extract the full transcript with timestamps from any YouTube video that has captions or subtitles available."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

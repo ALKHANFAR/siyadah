@@ -1,0 +1,14 @@
+{
+  "id": "square",
+  "package": "@activepieces/piece-square",
+  "display_name": "Square",
+  "display_name_ar": "Square",
+  "description": "Payment solutions for every business",
+  "category": "F_ecommerce",
+  "auth_type": "oauth2",
+  "actions": [],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/square"
+}

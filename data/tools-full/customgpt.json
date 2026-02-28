@@ -1,0 +1,413 @@
+{
+  "id": "customgpt",
+  "displayName": "CustomGPT",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAgent": {
+      "displayName": "Create Agent",
+      "description": "Create a new CustomGPT agent by importing data from a sitemap or file",
+      "props": [
+        {
+          "name": "project_name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for your agent/project"
+        },
+        {
+          "name": "sitemap_path",
+          "displayName": "Sitemap URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to a sitemap for importing agent knowledge (leave empty if uploading a file)"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "Upload a file (text, audio, or video format) for agent knowledge (leave empty if using sitemap)"
+        }
+      ]
+    },
+    "createConversation": {
+      "displayName": "Create Conversation",
+      "description": "Create a new conversation in a CustomGPT project",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Conversation Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional name for the conversation"
+        }
+      ]
+    },
+    "deleteAgent": {
+      "displayName": "Delete Agent",
+      "description": "Delete a CustomGPT agent",
+      "props": []
+    },
+    "export_conversation": {
+      "displayName": "Export Conversation",
+      "description": "Export a conversation with all messages, authors, feedbacks and metadata",
+      "props": [
+        {
+          "name": "session_id",
+          "displayName": "Session ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The session ID of the conversation to export"
+        }
+      ]
+    },
+    "findAgent": {
+      "displayName": "Find Agent",
+      "description": "Find Agent by name ",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Agent Name Filter",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Filter agents by name (optional)"
+        }
+      ]
+    },
+    "findConversation": {
+      "displayName": "Find Conversation",
+      "description": "List and search conversations for an agent with optional filtering",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Conversation Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter conversations by name (optional)"
+        },
+        {
+          "name": "userFilter",
+          "displayName": "User Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by user who created the conversation (default: all)"
+        },
+        {
+          "name": "lastUpdatedAfter",
+          "displayName": "Last Updated After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only return conversations with messages after this date (optional) e.g. 2025-01-09T18:30:00Z"
+        }
+      ]
+    },
+    "sendMessage": {
+      "displayName": "Send Message",
+      "description": "Send a message to a conversation within an agent",
+      "props": [
+        {
+          "name": "session_id",
+          "displayName": "Session ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The session ID of the conversation"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message/question to send"
+        },
+        {
+          "name": "stream",
+          "displayName": "Enable Streaming",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Stream the response in real-time (default: false)"
+        },
+        {
+          "name": "custom_persona",
+          "displayName": "Custom Persona",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom persona/instructions for the agent (optional)"
+        },
+        {
+          "name": "chatbot_model",
+          "displayName": "Agent Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "AI model to use for the conversation (optional)"
+        },
+        {
+          "name": "response_source",
+          "displayName": "Response Source",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Source for generating responses (default: use only your content)"
+        },
+        {
+          "name": "agent_capability",
+          "displayName": "Agent Capability",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Capability mode for the agent (default: fastest-responses)"
+        },
+        {
+          "name": "lang",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code for the prompt (default: en)"
+        },
+        {
+          "name": "custom_context",
+          "displayName": "Custom Context",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional context for the conversation (optional)"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "File to upload with the message (Max 5MB: pdf, docx, doc, odt, txt, jpg, jpeg, png, webp)"
+        }
+      ]
+    },
+    "update_agent": {
+      "displayName": "Update Agent",
+      "description": "Update an existing agent with specific details",
+      "props": [
+        {
+          "name": "project_name",
+          "displayName": "Agent Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the agent"
+        },
+        {
+          "name": "is_shared",
+          "displayName": "Is Shared",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the agent is public or not"
+        },
+        {
+          "name": "sitemap_path",
+          "displayName": "Sitemap Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the sitemap to crawl"
+        },
+        {
+          "name": "file_data_retension",
+          "displayName": "File Data Retention",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable file data retention"
+        },
+        {
+          "name": "is_ocr_enabled",
+          "displayName": "OCR Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable Optical Character Recognition for images"
+        },
+        {
+          "name": "is_anonymized",
+          "displayName": "Anonymized",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable anonymization of data"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "Upload a file to the agent"
+        },
+        {
+          "name": "are_licenses_allowed",
+          "displayName": "Are Licenses Allowed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether project licenses are allowed"
+        }
+      ]
+    },
+    "update_settings": {
+      "displayName": "Update Agent Settings",
+      "description": "Update agent configuration and behavior settings",
+      "props": [
+        {
+          "name": "default_prompt",
+          "displayName": "Default Prompt",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Default prompt text shown to users (e.g., \"Ask Me Anything ...\")"
+        },
+        {
+          "name": "response_source",
+          "displayName": "Response Source",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Source for generating responses"
+        },
+        {
+          "name": "chat_bot_avatar",
+          "displayName": "Chatbot Avatar",
+          "type": "FILE",
+          "required": false,
+          "description": "Upload avatar image for the chatbot"
+        },
+        {
+          "name": "chat_bot_bg",
+          "displayName": "Chatbot Background",
+          "type": "FILE",
+          "required": false,
+          "description": "Upload background image for the chatbot"
+        },
+        {
+          "name": "chatbot_msg_lang",
+          "displayName": "Chatbot Message Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code for chatbot messages (e.g., \"en\", \"es\", \"ur\")"
+        },
+        {
+          "name": "chatbot_color",
+          "displayName": "Chatbot Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Primary color for chatbot UI (hex color code, e.g., \"#0e57cc\")"
+        },
+        {
+          "name": "chatbot_toolbar_color",
+          "displayName": "Chatbot Toolbar Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Toolbar color for chatbot UI (hex color code)"
+        },
+        {
+          "name": "persona_instructions",
+          "displayName": "Persona Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Custom persona/behavior instructions for the chatbot"
+        },
+        {
+          "name": "citations_answer_source_label_msg",
+          "displayName": "Citations Answer Source Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Label message for citation answer sources"
+        },
+        {
+          "name": "citations_sources_label_msg",
+          "displayName": "Citations Sources Label",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Label message for citation sources"
+        },
+        {
+          "name": "hang_in_there_msg",
+          "displayName": "Hang In There Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Message shown during long processing times"
+        },
+        {
+          "name": "chatbot_siesta_msg",
+          "displayName": "Chatbot Siesta Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Message shown when chatbot is temporarily unavailable"
+        },
+        {
+          "name": "is_loading_indicator_enabled",
+          "displayName": "Enable Loading Indicator",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show loading indicator during responses"
+        },
+        {
+          "name": "enable_citations",
+          "displayName": "Enable Citations",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable citation display in responses"
+        },
+        {
+          "name": "enable_feedbacks",
+          "displayName": "Enable Feedbacks",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable user feedback collection"
+        },
+        {
+          "name": "citations_view_type",
+          "displayName": "Citations View Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How citations should be displayed"
+        },
+        {
+          "name": "no_answer_message",
+          "displayName": "No Answer Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Message shown when no answer is found"
+        },
+        {
+          "name": "ending_message",
+          "displayName": "Ending Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Message shown at the end of conversations"
+        },
+        {
+          "name": "remove_branding",
+          "displayName": "Remove Branding",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Remove CustomGPT branding from the chatbot"
+        },
+        {
+          "name": "enable_recaptcha_for_public_chatbots",
+          "displayName": "Enable reCAPTCHA",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable reCAPTCHA for public chatbots"
+        },
+        {
+          "name": "chatbot_model",
+          "displayName": "Chatbot Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Default AI model for the chatbot"
+        },
+        {
+          "name": "is_selling_enabled",
+          "displayName": "Enable Selling",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable selling features"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_conversation": {
+      "displayName": "New Conversation",
+      "description": "Triggers when a new conversation is created in an agent",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

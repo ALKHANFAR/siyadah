@@ -1,0 +1,33 @@
+{
+  "id": "moveo-ai",
+  "package": "@activepieces/piece-moveo-ai",
+  "display_name": "Moveo",
+  "display_name_ar": "",
+  "description": "Moveo.AI is a conversational AI platform that powers the toughest conversations through GenAI agents, driving efficiency and financial outcomes.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "dialog_expired",
+      "display_name": "Dialog Expired",
+      "description": "Triggers when the dialog expires.",
+      "type": "instant"
+    },
+    {
+      "name": "dialog_insights",
+      "display_name": "Dialog Insights",
+      "description": "Triggers when the dialog insights are available.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

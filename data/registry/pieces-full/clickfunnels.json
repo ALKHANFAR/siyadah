@@ -1,0 +1,99 @@
+{
+  "id": "clickfunnels",
+  "package": "@activepieces/piece-clickfunnels",
+  "display_name": "ClickFunnels",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "applyTagToContact",
+      "display_name": "Apply Tag to Contact",
+      "description": "Apply a tag to a contact if it doesn’t already exist."
+    },
+    {
+      "name": "createOpportunity",
+      "display_name": "Create Opportunity",
+      "description": "Create a new opportunity for a contact."
+    },
+    {
+      "name": "enrollAContactIntoACourse",
+      "display_name": "Enroll a Contact Into a Course",
+      "description": "Create an enrollment for a contact in a course."
+    },
+    {
+      "name": "removeTagFromContact",
+      "display_name": "Remove Tag From Contact",
+      "description": "Remove a specific tag from a contact."
+    },
+    {
+      "name": "searchContacts",
+      "display_name": "Search Contacts",
+      "description": "Look up contacts by ID or email"
+    },
+    {
+      "name": "updateOrCreateContact",
+      "display_name": "Update or Create Contact",
+      "description": "Searches for a contact by email and updates it, or creates a new one if not found."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "contactCompletedCourse",
+      "display_name": "contactCompletedCourse",
+      "description": "Triggers when a contact completes a course.",
+      "type": "instant"
+    },
+    {
+      "name": "contactIdentified",
+      "display_name": "contactIdentified",
+      "description": "Triggers when a new contact is identified by email/phone.",
+      "type": "instant"
+    },
+    {
+      "name": "contactSubmittedForm",
+      "display_name": "contactSubmittedForm",
+      "description": "Triggers each time a contact submits a form (opt-in or order).",
+      "type": "instant"
+    },
+    {
+      "name": "contactSuspendedFromCourse",
+      "display_name": "${MODULE_NAME} From Course",
+      "description": "Triggers when a contact is suspended from a course.",
+      "type": "instant"
+    },
+    {
+      "name": "courseEnrollmentCreatedForContact",
+      "display_name": "${MODULE_NAME} for contact",
+      "description": "Triggers when a course enrollment is created for a contact.",
+      "type": "instant"
+    },
+    {
+      "name": "OneTimeOrderPaid",
+      "display_name": "OneTimeOrderPaid",
+      "description": "Triggers when a customer pays a one-time order.",
+      "type": "instant"
+    },
+    {
+      "name": "scheduledAppointmentEventCreated",
+      "display_name": "${MODULE_NAME} Created",
+      "description": "Triggers when a scheduled appointment event is created.",
+      "type": "instant"
+    },
+    {
+      "name": "subscriptionInvoicePaid",
+      "display_name": "subscriptionInvoicePaid",
+      "description": "Triggers when a subscription invoice is paid.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

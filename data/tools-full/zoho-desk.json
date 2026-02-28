@@ -1,0 +1,166 @@
+{
+  "id": "zoho-desk",
+  "displayName": "Zoho Desk",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_ticket": {
+      "displayName": "Create Ticket",
+      "description": "Creates a new ticket.",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the contact raising the ticket"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Subject of the ticket"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Description of the issue in the ticket"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the contact raising the ticket"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number of the contact raising the ticket"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Status of the ticket"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Priority of the ticket"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Category of the ticket"
+        },
+        {
+          "name": "subCategory",
+          "displayName": "Sub Category",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sub-category of the ticket"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Due date for the ticket (ISO format)"
+        },
+        {
+          "name": "channel",
+          "displayName": "Channel",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Channel through which the ticket is created"
+        },
+        {
+          "name": "assigneeId",
+          "displayName": "Assignee ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the agent to whom the ticket is assigned"
+        },
+        {
+          "name": "productId",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the product to which the ticket belongs"
+        },
+        {
+          "name": "classification",
+          "displayName": "Classification",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Classification of the ticket"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language of the ticket"
+        },
+        {
+          "name": "entitySkills",
+          "displayName": "Entity Skills",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of skill IDs associated with the ticket"
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Custom fields in the ticket"
+        }
+      ]
+    },
+    "find-contact": {
+      "displayName": "Find Contact",
+      "description": "Finds an existing contact by email.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "list_tickets": {
+      "displayName": "List tickets.",
+      "description": "List tickets",
+      "props": [
+        {
+          "name": "include",
+          "displayName": "include",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Additional information related to the tickets."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

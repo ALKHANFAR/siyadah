@@ -1,0 +1,62 @@
+{
+  "id": "kallabot-ai",
+  "package": "@activepieces/piece-kallabot-ai",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "AI-powered voice agents and conversational interfaces.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add-contact-to-list",
+      "display_name": "Add Contacts to List",
+      "description": "Add a contact or multiple contacts to an existing contact list."
+    },
+    {
+      "name": "create-campaign",
+      "display_name": "Create Campaign",
+      "description": "Create a new outbound calling campaign."
+    },
+    {
+      "name": "create-contact-list",
+      "display_name": "Create Contact List",
+      "description": "Create a new contact list."
+    },
+    {
+      "name": "delete-campaign",
+      "display_name": "Delete Campaign",
+      "description": "Delete a campaign with optional contact list deletion."
+    },
+    {
+      "name": "edit-contact-list",
+      "display_name": "Edit Contact List",
+      "description": "Update/replace all contacts in an existing contact list."
+    },
+    {
+      "name": "get-call-details",
+      "display_name": "Get Call Details",
+      "description": "Retrieve details of a specific call by call SID."
+    },
+    {
+      "name": "get-contacts-from-list",
+      "display_name": "Get Contacts from List",
+      "description": "Retrieve all contacts from a specific contact list."
+    },
+    {
+      "name": "make-call",
+      "display_name": "Make Call",
+      "description": "Initiate an outbound call using Kallabot AI agent."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "catch_webhook",
+      "display_name": "Call Events Webhook",
+      "description": "Receives webhook data when call events occur from Kallabot AI agents.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/kallabot-ai"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "greip",
+  "package": "@activepieces/piece-greip",
+  "display_name": "Greip",
+  "display_name_ar": "",
+  "description": "Detect and prevent fraud in your website or app with Greip\\",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "asn_lookup",
+      "display_name": "ASN Lookup",
+      "description": "Look up details of an Autonomous System Number (ASN)"
+    },
+    {
+      "name": "bin_lookup",
+      "display_name": "BIN Lookup",
+      "description": "Look up details of a Bank Identification Number (BIN) or Issuer Identification Number (IIN)"
+    },
+    {
+      "name": "email_validation",
+      "display_name": "Email Validation",
+      "description": "Validate email addresses by checking domain validity, detecting disposable emails, and assessing risk factors"
+    },
+    {
+      "name": "ip_lookup",
+      "display_name": "IP Lookup",
+      "description": "Look up comprehensive information about an IP address including location, ISP, security, and risk factors"
+    },
+    {
+      "name": "phone_validation",
+      "display_name": "Phone Validation",
+      "description": "Validate phone numbers by checking syntax and assessing validity and operational status"
+    },
+    {
+      "name": "profanity_detection",
+      "display_name": "Detect Profanity",
+      "description": "Detect offensive or inappropriate language in text using machine learning"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "fraudulent_payment_detected",
+      "display_name": "Fraudulent Payment Detected",
+      "description": "Triggers when a new fraudulent payment is detected by Greip",
+      "type": "instant"
+    },
+    {
+      "name": "profanity_text_detected",
+      "display_name": "Profanity Text Detected",
+      "description": "Triggers when Greip detects profanity in a specific text",
+      "type": "instant"
+    },
+    {
+      "name": "proxy_connection_detected",
+      "display_name": "Proxy Connection Detected",
+      "description": "Triggers when a new proxy connection is detected",
+      "type": "instant"
+    },
+    {
+      "name": "spam_email_detected",
+      "display_name": "Spam Email Detected",
+      "description": "Triggers when a new email is marked as SPAM by Greip",
+      "type": "instant"
+    },
+    {
+      "name": "spam_phone_detected",
+      "display_name": "Spam Phone Number Detected",
+      "description": "Triggers when a new phone number is marked as SPAM by Greip",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

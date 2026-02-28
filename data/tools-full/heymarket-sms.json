@@ -1,0 +1,249 @@
+{
+  "id": "heymarket-sms",
+  "displayName": "Heymarket SMS",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createOrUpdateContact": {
+      "displayName": "Create or Update Contact",
+      "description": "Create a new contact or update an existing contact by phone number",
+      "props": [
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Phone number in E.164 format without the plus sign (e.g. 14155553434)"
+        },
+        {
+          "name": "first",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "display_name",
+          "displayName": "Display Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Display name of the contact"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address of the contact"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags"
+        },
+        {
+          "name": "tag_id",
+          "displayName": "Tag ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Unique identifier for the tag"
+        },
+        {
+          "name": "is_opted_out",
+          "displayName": "Is Opted Out",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the contact is opted out of messaging"
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Contact ID for updating an existing contact. If not provided, will attempt to create a new contact"
+        },
+        {
+          "name": "overwrite",
+          "displayName": "Overwrite Custom Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "When true, replaces all existing custom fields. When false, merges with existing ones. Note: contact name is always overwritten"
+        }
+      ]
+    },
+    "sendCustomMessage": {
+      "displayName": "Send Custom Message",
+      "description": "Send a custom text message to an individual contact or a list",
+      "props": [
+        {
+          "name": "inbox_id",
+          "displayName": "Inbox ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Unique identifier for the inbox from which the message will be sent"
+        },
+        {
+          "name": "creator_id",
+          "displayName": "Creator ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Unique identifier for the sender (member ID from Get Inboxes)"
+        },
+        {
+          "name": "text",
+          "displayName": "Message Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Custom message text body"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number in E.164 format without the plus sign (e.g. 14155553434). Required if not sending to a list or chat"
+        },
+        {
+          "name": "targets",
+          "displayName": "Group Targets",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of phone numbers in E.164 format without the plus sign for group MMS messages"
+        }
+      ]
+    },
+    "sendTemplateMessage": {
+      "displayName": "Send Template Message",
+      "description": "Send a message using a template to an individual contact or a list",
+      "props": [
+        {
+          "name": "inbox_id",
+          "displayName": "Inbox ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Unique identifier for the inbox from which the message will be sent"
+        },
+        {
+          "name": "creator_id",
+          "displayName": "Creator ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Unique identifier for the sender (member ID from Get Inboxes)"
+        },
+        {
+          "name": "template_id",
+          "displayName": "Template ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Unique identifier for the Heymarket template to send"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number in E.164 format without the plus sign (e.g. 14155553434). Required if not sending to a list"
+        },
+        {
+          "name": "targets",
+          "displayName": "Group Targets",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of phone numbers in E.164 format without the plus sign for group MMS messages"
+        },
+        {
+          "name": "text",
+          "displayName": "Message Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional message text body to override or supplement the template"
+        }
+      ]
+    },
+    "updateList": {
+      "displayName": "Update List",
+      "description": "Update an existing list in your team by adding or removing members, or updating list properties",
+      "props": [
+        {
+          "name": "list_id",
+          "displayName": "List ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Unique identifier for the list to update"
+        },
+        {
+          "name": "title",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Updated name for the list"
+        },
+        {
+          "name": "add_phone",
+          "displayName": "Add Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number in E.164 format without the plus sign to add to the list (e.g. 14155553434)"
+        },
+        {
+          "name": "remove_phone",
+          "displayName": "Remove Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number in E.164 format without the plus sign to remove from the list (e.g. 14155553434)"
+        },
+        {
+          "name": "members",
+          "displayName": "Members",
+          "type": "JSON",
+          "required": false,
+          "description": "Object of list targets. Keys are phone numbers, values are objects with optional first name (f) and last name (l)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "chatStarted": {
+      "displayName": "Conversation Started",
+      "description": "Trigger when a new conversation is started or an existing conversation is updated",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The Heymarket user ID for verification. This is the ID of a team member who has access to the inboxes."
+        },
+        {
+          "name": "inboxId",
+          "displayName": "Inbox IDs",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Heymarket inbox IDs to monitor for new conversations"
+        }
+      ]
+    },
+    "newOrUpdatedContact": {
+      "displayName": "New or Updated Contact",
+      "description": "Trigger when a new contact is created or an existing contact is updated",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

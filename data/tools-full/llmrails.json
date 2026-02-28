@@ -1,0 +1,49 @@
+{
+  "id": "llmrails",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "search": {
+      "displayName": "Datastore search",
+      "description": "Search in datastore",
+      "props": [
+        {
+          "name": "datastoreId",
+          "displayName": "Datastore ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search query"
+        },
+        {
+          "name": "hybrid",
+          "displayName": "Hybrid search",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Hybrid search is combining dense and sparse embeddings."
+        },
+        {
+          "name": "summarize",
+          "displayName": "Summarize",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Summarizes the datastore search results"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,35 @@
+{
+  "id": "drip",
+  "package": "@activepieces/piece-drip",
+  "display_name": "Drip",
+  "display_name_ar": "",
+  "description": "E-commerce CRM for B2B marketers",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_subscriber_to_campaign",
+      "display_name": "Add a subscriber to a campaign",
+      "description": "Add a subscriber to a campaign (Email series)"
+    },
+    {
+      "name": "apply_tag_to_subscriber",
+      "display_name": "Apply a tag to subscriber",
+      "description": "Apply a tag to a subscriber"
+    },
+    {
+      "name": "upsert_subscriber",
+      "display_name": "Create or Update Subscriber",
+      "description": "Create or Update Subscriber"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

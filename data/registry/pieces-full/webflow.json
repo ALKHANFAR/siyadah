@@ -1,0 +1,77 @@
+{
+  "id": "webflow",
+  "package": "@activepieces/piece-webflow",
+  "display_name": "Webflow",
+  "display_name_ar": "",
+  "description": "Design, build, and launch responsive websites visually",
+  "category": "I_content",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_collection_item",
+      "display_name": "Create Collection Item",
+      "description": "Creates new collection item."
+    },
+    {
+      "name": "delete_collection_item",
+      "display_name": "Delete an item in a collection",
+      "description": "Delete collection item"
+    },
+    {
+      "name": "find_collection_item",
+      "display_name": "Find a Collection Item by Field",
+      "description": "Find collection item in a collection by field"
+    },
+    {
+      "name": "find_order",
+      "display_name": "Find an order",
+      "description": "Find order"
+    },
+    {
+      "name": "fulfill_order",
+      "display_name": "Fulfill an order",
+      "description": "Fulfill order"
+    },
+    {
+      "name": "get_collection_item",
+      "display_name": "Get a Collection Item by ID",
+      "description": "Get collection item in a collection by ID"
+    },
+    {
+      "name": "publish_collection_item",
+      "display_name": "Publish a Collection Item",
+      "description": "Publish collection item"
+    },
+    {
+      "name": "refund_order",
+      "display_name": "Refund an order",
+      "description": "Refund order"
+    },
+    {
+      "name": "unfulfill_order",
+      "display_name": "Unfulfill an order",
+      "description": "Unfulfill order"
+    },
+    {
+      "name": "update_collection_item",
+      "display_name": "Update an item in a collection",
+      "description": "Update collection item"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_submission",
+      "display_name": "New Submission",
+      "description": "Triggers when Webflow Site receives a new submission",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

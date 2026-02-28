@@ -1,0 +1,246 @@
+{
+  "id": "beehiiv",
+  "displayName": "Beehiiv",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_subscription_to_automation": {
+      "displayName": "Add Subscription to Automation",
+      "description": "Adds an existing subscription to a specific automation flow.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Subscription Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email address of the subscription. Provide either Email or Subscription ID."
+        },
+        {
+          "name": "double_opt_override",
+          "displayName": "Double Opt-in Override",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Override publication double-opt settings for this subscription (e.g., \"on\")."
+        }
+      ]
+    },
+    "create_subscription": {
+      "displayName": "Create Subscription",
+      "description": "Creates a new subscription.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the new subscription."
+        },
+        {
+          "name": "reactivate_existing",
+          "displayName": "Reactivate Existing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to reactivate the subscription if they have already unsubscribed. Use only if the subscription is knowingly resubscribing."
+        },
+        {
+          "name": "send_welcome_email",
+          "displayName": "Send Welcome Email",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to send the default welcome email to the subscription."
+        },
+        {
+          "name": "utm_source",
+          "displayName": "UTM Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The source of the subscription."
+        },
+        {
+          "name": "utm_medium",
+          "displayName": "UTM Medium",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The medium of the subscription."
+        },
+        {
+          "name": "utm_campaign",
+          "displayName": "UTM Campaign",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The acquisition campaign of the subscription."
+        },
+        {
+          "name": "referring_site",
+          "displayName": "Referring Site",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The website that the subscription was referred from."
+        },
+        {
+          "name": "referral_code",
+          "displayName": "Referral Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A subscription's referral_code to give them credit for the new subscription."
+        },
+        {
+          "name": "tier",
+          "displayName": "Subscription Tier",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The tier for this subscription."
+        },
+        {
+          "name": "stripe_customer_id",
+          "displayName": "Stripe Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The Stripe customer ID for this subscription."
+        },
+        {
+          "name": "double_opt_override",
+          "displayName": "Double Opt-in Override",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Override publication double-opt settings for this subscription."
+        },
+        {
+          "name": "premium_tier_ids",
+          "displayName": "Premium Tier IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The IDs of the premium tiers this subscription is associated with."
+        }
+      ]
+    },
+    "list_automations": {
+      "displayName": "List Automations",
+      "description": "Retrieves a list of automations for a publication.",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "A limit on the number of automations to be returned (1-100, default 10)."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The page number for pagination (default 1)."
+        }
+      ]
+    },
+    "list_posts": {
+      "displayName": "List Posts",
+      "description": "Retrieves all posts belonging to a specific publication.",
+      "props": [
+        {
+          "name": "expand",
+          "displayName": "Expand Results",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Optionally expand the results by adding additional information."
+        },
+        {
+          "name": "audience",
+          "displayName": "Audience",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "platform",
+          "displayName": "Platform",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content_tags",
+          "displayName": "Content Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter posts by content tags. Returns posts with ANY of the specified tags."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of posts to return (1-100, default 10)."
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination (default 1)."
+        }
+      ]
+    },
+    "update_subscription": {
+      "displayName": "Update Subscription",
+      "description": "Update an existing subscription.",
+      "props": [
+        {
+          "name": "tier",
+          "displayName": "Subscription Tier",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Set the tier for this subscription."
+        },
+        {
+          "name": "stripe_customer_id",
+          "displayName": "Stripe Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The Stripe Customer ID of the subscription."
+        },
+        {
+          "name": "unsubscribe",
+          "displayName": "Unsubscribe",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to unsubscribe this subscription from the publication."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "beehiiv_new_post_sent": {
+      "displayName": "New Post Sent",
+      "description": "Triggers when a new post is sent.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "beehiiv_new_subscription_confirmed": {
+      "displayName": "New Subscription Confirmation",
+      "description": "Triggers when a new subscriber confirms their subscription.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "beehiiv_user_unsubscribes": {
+      "displayName": "User Unsubscribes",
+      "description": "Triggers when a user unsubscribes.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

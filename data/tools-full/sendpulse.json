@@ -1,0 +1,134 @@
+{
+  "id": "sendpulse",
+  "displayName": "SendPulse",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "add-subscriber": {
+      "displayName": "Add Subscriber",
+      "description": "Add subscriber to mailing list",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Subscriber email address"
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional subscriber variables (e.g., name, phone)"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tag IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Optional tag IDs to assign"
+        }
+      ]
+    },
+    "change-variable-for-subscriber": {
+      "displayName": "Variable Name",
+      "description": "Select variable to update",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Subscriber email address"
+        },
+        {
+          "name": "variableValue",
+          "displayName": "Variable Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "New value for the variable"
+        }
+      ]
+    },
+    "delete-contact": {
+      "displayName": "Delete Contact",
+      "description": "Permanently delete contact from all mailing lists",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address to delete from all mailing lists"
+        }
+      ]
+    },
+    "unsubscribe-user": {
+      "displayName": "Unsubscribe User",
+      "description": "Remove subscribers from mailing list",
+      "props": [
+        {
+          "name": "emails",
+          "displayName": "Email Addresses",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Email addresses to unsubscribe (max 100)"
+        }
+      ]
+    },
+    "update-subscriber": {
+      "displayName": "Update Subscriber",
+      "description": "Update subscriber details and variables",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the subscriber to update"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New phone number (optional)"
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Subscriber variables to update (e.g., name, custom fields)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_subscriber": {
+      "displayName": "New Subscriber",
+      "description": "Fires when new subscriber is added",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_unsubscriber": {
+      "displayName": "New Unsubscriber",
+      "description": "Fires when subscriber unsubscribes",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updated_subscriber": {
+      "displayName": "Updated Subscriber",
+      "description": "Fires when subscriber details change (polling)",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

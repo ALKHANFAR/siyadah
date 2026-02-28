@@ -1,0 +1,35 @@
+{
+  "id": "mattermost",
+  "displayName": "Workspace URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "send_message": {
+      "displayName": "Send Message",
+      "description": "Send a message to a Mattermost channel",
+      "props": [
+        {
+          "name": "channel_id",
+          "displayName": "Channel ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The channel to send the message to, get that ID by clicking on info near start call butto"
+        },
+        {
+          "name": "text",
+          "displayName": "Message Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text of the message to send"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

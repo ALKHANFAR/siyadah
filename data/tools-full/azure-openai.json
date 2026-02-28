@@ -1,0 +1,79 @@
+{
+  "id": "azure-openai",
+  "displayName": "Azure OpenAI",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "ask_gpt": {
+      "displayName": "Ask GPT",
+      "description": "Ask ChatGPT anything you want!",
+      "props": [
+        {
+          "name": "deploymentId",
+          "displayName": "Deployment Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of your model deployment."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The maximum number of tokens to generate. Requests can use up to 2,048 or 4,096 tokens shared between prompt and completion depending on the model. Don't set the value to maximum and leave some tokens for the input. (One token is roughly 4 characters for normal English text)"
+        },
+        {
+          "name": "topP",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered."
+        },
+        {
+          "name": "frequencyPenalty",
+          "displayName": "Frequency penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+        },
+        {
+          "name": "presencePenalty",
+          "displayName": "Presence penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the mode's likelihood to talk about new topics."
+        },
+        {
+          "name": "memoryKey",
+          "displayName": "Memory Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memory key that will keep the chat history shared across runs and flows. Keep it empty to leave ChatGPT without memory of previous messages."
+        },
+        {
+          "name": "roles",
+          "displayName": "Roles",
+          "type": "JSON",
+          "required": false,
+          "description": "Array of roles to specify more accurate response"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

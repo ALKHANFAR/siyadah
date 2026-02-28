@@ -1,0 +1,16 @@
+{
+  "id": "luxury-presence",
+  "displayName": "Luxury Presence",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {
+    "newLead": {
+      "displayName": "New Lead",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "skyprep",
+  "package": "@activepieces/piece-skyprep",
+  "display_name": "SkyPrep",
+  "display_name_ar": "SkyPrep",
+  "description": " SkyPrep is a powerful Learning Management System (LMS) designed to help businesses and organizations deliver effective training and educational content to their employees and users.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "enrollAUserIntoACource",
+      "display_name": "Enroll a User Into a Course",
+      "description": "Enroll a user into a course by user email or user ID"
+    },
+    {
+      "name": "enrollAUserIntoAUserGroup",
+      "display_name": "Enroll a User Into a User Group",
+      "description": "Enroll a user into a user group by user email or user ID"
+    },
+    {
+      "name": "updateUser",
+      "display_name": "Update User",
+      "description": "Update user information. Omitted parameters will not be updated."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "courceFailed",
+      "display_name": "Course Failed",
+      "description": "Trigger when a user fails a course",
+      "type": "scheduled"
+    },
+    {
+      "name": "courcePassed",
+      "display_name": "Course Passed",
+      "description": "Trigger when a user passes a course",
+      "type": "scheduled"
+    },
+    {
+      "name": "newUser",
+      "display_name": "New User",
+      "description": "Trigger when a new user is created in SkyPrep",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/skyprep"
+}

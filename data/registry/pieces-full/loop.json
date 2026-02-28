@@ -1,0 +1,20 @@
+{
+  "id": "loop",
+  "package": "@activepieces/piece-loop",
+  "display_name": "Loop",
+  "display_name_ar": "حلقة",
+  "description": "Loop over items",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "loop_on_items",
+      "display_name": "Loop on Items",
+      "description": "Iterate over a list of items"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-core"
+}

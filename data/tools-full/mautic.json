@@ -1,0 +1,52 @@
+{
+  "id": "mautic",
+  "displayName": "Mautic",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_mautic_company": {
+      "displayName": "Create Company",
+      "description": "Creates a new company in Mautic CRM",
+      "props": []
+    },
+    "create_mautic_contact": {
+      "displayName": "Create Contact",
+      "description": "Creates a new contact in Mautic CRM",
+      "props": []
+    },
+    "search_mautic_company": {
+      "displayName": "Search Company",
+      "description": "Search for a company in Mautic CRM",
+      "props": []
+    },
+    "search_mautic_contact": {
+      "displayName": "Search Contact",
+      "description": "Search for a contact in Mautic CRM",
+      "props": []
+    },
+    "update_mautic_company": {
+      "displayName": "Update Company With Contact Id",
+      "description": "Update a company in Mautic CRM",
+      "props": []
+    },
+    "update_mautic_contact": {
+      "displayName": "Update Contact With Contact Id",
+      "description": "Update a contact in Mautic CRM",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "lead_post_save_update": {
+      "displayName": "Contact Updated",
+      "description": "Triggers when a contact is updated.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "drupal",
+  "package": "@activepieces/piece-drupal",
+  "display_name": "Drupal",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "drupal-create-entity",
+      "display_name": "Create Entity",
+      "description": "Create a new entity in Drupal with smart field discovery and validation"
+    },
+    {
+      "name": "drupal-delete-entity",
+      "display_name": "Delete Entity",
+      "description": "Delete an entity from Drupal"
+    },
+    {
+      "name": "drupal-get-entity",
+      "display_name": "Get Entity",
+      "description": "Retrieve a single entity by UUID"
+    },
+    {
+      "name": "drupal-list-entities",
+      "display_name": "List Entities",
+      "description": "List entities from Drupal using JSON:API"
+    },
+    {
+      "name": "drupal-call-service",
+      "display_name": "Call Service",
+      "description": "Call a service on the Drupal site"
+    },
+    {
+      "name": "drupal-update-entity",
+      "display_name": "Update Entity",
+      "description": "Update an existing entity in Drupal with smart field discovery and validation"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "drupalPollingId",
+      "display_name": "Polling by ID",
+      "description": "A trigger that polls the Drupal site by ID.",
+      "type": "scheduled"
+    },
+    {
+      "name": "drupalPollingTimestamp",
+      "display_name": "Polling by timestamp",
+      "description": "A trigger that polls the Drupal site by timestamp.",
+      "type": "scheduled"
+    },
+    {
+      "name": "drupalWebhook",
+      "display_name": "Webhook",
+      "description": "A webhook that the Drupal site can call to trigger a flow.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

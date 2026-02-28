@@ -1,0 +1,83 @@
+{
+  "id": "seek-table",
+  "displayName": "SeekTable",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "share_report_email": {
+      "displayName": "Share Report by Email",
+      "description": "Sends report in email body with optional attachments.",
+      "props": [
+        {
+          "name": "reportId",
+          "displayName": "Report",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the report to share"
+        },
+        {
+          "name": "to",
+          "displayName": "Recipient Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the recipient"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email subject line"
+        },
+        {
+          "name": "message",
+          "displayName": "Message (Optional)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional text content included in the email body"
+        },
+        {
+          "name": "include_report_html",
+          "displayName": "Include Report HTML in Email Body",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Place the report HTML directly into the email body"
+        },
+        {
+          "name": "attach_export",
+          "displayName": "Attach Export Files",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select which export formats to attach to the email"
+        },
+        {
+          "name": "report_parameters",
+          "displayName": "Report Parameters (Optional)",
+          "type": "OBJECT",
+          "required": false,
+          "description": "JSON object with report parameters like {\"param_name\": \"value\"}"
+        }
+      ]
+    },
+    "upload_csv": {
+      "displayName": "Upload CSV File",
+      "description": "Uploads a CSV file and creates new or refreshes existing CSV cube.",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_csv_cube": {
+      "displayName": "New CSV Cube",
+      "description": "Triggers when a new CSV cube is added to your SeekTable account.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_report": {
+      "displayName": "New Report",
+      "description": "Triggers when a new report is added to your SeekTable account.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

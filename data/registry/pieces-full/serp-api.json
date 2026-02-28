@@ -1,0 +1,35 @@
+{
+  "id": "serp-api",
+  "package": "@activepieces/piece-serp-api",
+  "display_name": "SerpApi",
+  "display_name_ar": "",
+  "description": "Search Google, YouTube, News, and Trends with powerful filtering and analysis capabilities",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "google_news_search",
+      "display_name": "Google News Search",
+      "description": "Track recent news articles for keywords or brands to monitor media mentions and trending topics."
+    },
+    {
+      "name": "google_search",
+      "display_name": "Google Search",
+      "description": "Retrieves organic search results for specific keywords with advanced filtering options for SEO monitoring and competitor analysis."
+    },
+    {
+      "name": "google_trends_search",
+      "display_name": "Google Trends Search",
+      "description": "Discover trending keywords over time to inform content strategy and market research with geographic insights."
+    },
+    {
+      "name": "youtube_search",
+      "display_name": "YouTube Search",
+      "description": "Retrieve top video content results from YouTube for specific keywords or topics with advanced filtering."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

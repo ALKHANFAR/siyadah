@@ -1,0 +1,51 @@
+{
+  "id": "mind-studio",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "run_workflow": {
+      "displayName": "Run Workflow",
+      "description": "Run a workflow from your MindStudio app and start a thread.",
+      "props": [
+        {
+          "name": "appId",
+          "displayName": "App ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "MindStudio app ID to run."
+        },
+        {
+          "name": "workflow",
+          "displayName": "Workflow",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Workflow name to run (without the .flow extension)."
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "JSON",
+          "required": false,
+          "description": "Key-value variables passed to the app."
+        },
+        {
+          "name": "callbackUrl",
+          "displayName": "Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to receive the execution result asynchronously."
+        },
+        {
+          "name": "includeBillingCost",
+          "displayName": "Include Billing Cost",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return the billing cost in the response."
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

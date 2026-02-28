@@ -1,0 +1,872 @@
+{
+  "id": "capsule-crm",
+  "displayName": "Capsule CRM",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_note_to_entity": {
+      "displayName": "Add Note to Entity",
+      "description": "Add a comment/note to an entity (e.g., contact, opportunity, project).",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Note Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The body of the note."
+        },
+        {
+          "name": "entityType",
+          "displayName": "Entity Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of entity to add the note to."
+        },
+        {
+          "name": "entityId",
+          "displayName": "Entity",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "activityTypeId",
+          "displayName": "Activity Type",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The activity type for this entry. Defaults to \"Note\"."
+        }
+      ]
+    },
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Create a new Person or Organisation in Capsule CRM.",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of contact to create."
+        },
+        {
+          "name": "contactFields",
+          "displayName": "Details",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "about",
+          "displayName": "About",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ownerId",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "teamId",
+          "displayName": "Team",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emailAddresses",
+          "displayName": "Email Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phoneNumbers",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "websites",
+          "displayName": "Websites",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "service",
+          "displayName": "Service",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_opportunity": {
+      "displayName": "Create Opportunity",
+      "description": "Create a new Opportunity in Capsule CRM.",
+      "props": [
+        {
+          "name": "partyId",
+          "displayName": "Party",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A short description of the opportunity."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "More details about the opportunity."
+        },
+        {
+          "name": "milestoneId",
+          "displayName": "Milestone",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The currency for the opportunity value (e.g., USD, GBP)."
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The numerical value of the opportunity."
+        },
+        {
+          "name": "expectedCloseOn",
+          "displayName": "Expected Close Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The expected closing date for the opportunity."
+        },
+        {
+          "name": "probability",
+          "displayName": "Probability",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The probability of winning the opportunity."
+        },
+        {
+          "name": "durationBasis",
+          "displayName": "Duration Basis",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The basis of the duration of the opportunity."
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The duration of the opportunity."
+        },
+        {
+          "name": "ownerId",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The user the opportunity is assigned to."
+        },
+        {
+          "name": "teamId",
+          "displayName": "Team",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The team the opportunity is assigned to."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_project": {
+      "displayName": "Create Project",
+      "description": "Create a new Project in Capsule CRM.",
+      "props": [
+        {
+          "name": "partyId",
+          "displayName": "Party",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The main contact for this project."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of this project."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The description of this project."
+        },
+        {
+          "name": "opportunityId",
+          "displayName": "Opportunity",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "An optional link to the opportunity that this project was created to support."
+        },
+        {
+          "name": "stageId",
+          "displayName": "Stage",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The stage that this project is on."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the project."
+        },
+        {
+          "name": "expectedCloseOn",
+          "displayName": "Expected Close Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The expected close date of this project."
+        },
+        {
+          "name": "ownerId",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The user this project is assigned to."
+        },
+        {
+          "name": "teamId",
+          "displayName": "Team",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The team this project is assigned to."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "An array of tags that are added to this project."
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "An array of custom fields that are defined for this project."
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a new Task in Capsule CRM.",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A short description of the task."
+        },
+        {
+          "name": "dueOn",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The date when this task is due."
+        },
+        {
+          "name": "detail",
+          "displayName": "Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "More details about the task."
+        },
+        {
+          "name": "dueTime",
+          "displayName": "Due Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The time when this task is due (e.g., 18:00:00). Note: The time is in the user's timezone."
+        },
+        {
+          "name": "linkTo",
+          "displayName": "Link To",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The entity this task is linked to. Only one can be selected."
+        },
+        {
+          "name": "linkedEntityId",
+          "displayName": "Linked Entity",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "categoryId",
+          "displayName": "Category",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The category of this task."
+        },
+        {
+          "name": "ownerId",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The user this task is assigned to."
+        }
+      ]
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Find a Person by search criteria.",
+      "props": [
+        {
+          "name": "term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to search for (e.g., a name or email)."
+        }
+      ]
+    },
+    "find_opportunity": {
+      "displayName": "Find Opportunity",
+      "description": "Find an Opportunity by search criteria.",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "JSON",
+          "required": true,
+          "description": "The structured filter query. See the [documentation](https://capsulecrm.com/developer/api-v2/filters/) for examples."
+        }
+      ]
+    },
+    "find_project": {
+      "displayName": "Find Project",
+      "description": "Find a Project by search criteria.",
+      "props": [
+        {
+          "name": "filter",
+          "displayName": "Filter",
+          "type": "JSON",
+          "required": true,
+          "description": "The structured filter query. See the [documentation](https://capsulecrm.com/developer/api-v2/filters/) for examples."
+        }
+      ]
+    },
+    "update_contact": {
+      "displayName": "Update Contact",
+      "description": "Update fields on an existing Person or Organisation.",
+      "props": [
+        {
+          "name": "contactFields",
+          "displayName": "Details",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Update the person's first name."
+        },
+        {
+          "name": "about",
+          "displayName": "About",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Update the biography or description for the contact."
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Check this to delete the address."
+        },
+        {
+          "name": "id",
+          "displayName": "Address",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "zip",
+          "displayName": "Zip",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delete",
+          "displayName": "Delete",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this to delete the address."
+        },
+        {
+          "name": "websites",
+          "displayName": "Websites",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Check this to delete the website."
+        },
+        {
+          "name": "id",
+          "displayName": "Website",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "service",
+          "displayName": "Service",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delete",
+          "displayName": "Delete",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this to delete the website."
+        },
+        {
+          "name": "emailAddresses",
+          "displayName": "Email Addresses",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Check this to delete the email."
+        },
+        {
+          "name": "id",
+          "displayName": "Email Address",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delete",
+          "displayName": "Delete",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this to delete the email."
+        },
+        {
+          "name": "phoneNumbers",
+          "displayName": "Phone Numbers",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Check this to delete the phone number."
+        },
+        {
+          "name": "id",
+          "displayName": "Phone Number",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delete",
+          "displayName": "Delete",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this to delete the phone number."
+        }
+      ]
+    },
+    "update_opportunity": {
+      "displayName": "Update Opportunity",
+      "description": "Update an existing Opportunity in Capsule CRM.",
+      "props": [
+        {
+          "name": "opportunityId",
+          "displayName": "Opportunity",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "milestoneId",
+          "displayName": "Milestone",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "expectedCloseOn",
+          "displayName": "Expected Close Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "probability",
+          "displayName": "Probability",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "durationBasis",
+          "displayName": "Duration Basis",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "duration",
+          "displayName": "Duration",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ownerId",
+          "displayName": "Owner",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "teamId",
+          "displayName": "Team",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Enter a name to create a new tag."
+        },
+        {
+          "name": "id",
+          "displayName": "Tag",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "New Tag Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter a name to create a new tag."
+        },
+        {
+          "name": "delete",
+          "displayName": "Delete",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this to delete the tag."
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Check this to delete the custom field value."
+        },
+        {
+          "name": "definitionId",
+          "displayName": "Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "delete",
+          "displayName": "Delete",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this to delete the custom field value."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_case": {
+      "displayName": "New Case",
+      "description": "Fires when a new case (project) is created in Capsule CRM.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_opportunity": {
+      "displayName": "New Opportunity",
+      "description": "Fires when a new opportunity is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_project": {
+      "displayName": "New Project",
+      "description": "Fires when a project is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Fires when a new task is created.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "autocalls",
+  "package": "@activepieces/piece-autocalls",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Create an API key in your Autocalls account and paste the value here. Get API key here -> https://app.autocalls.ai.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addLead",
+      "display_name": "Add lead to a campaign",
+      "description": "Select a campaign"
+    },
+    {
+      "name": "campaignControl",
+      "display_name": "Start/Stop Campaign",
+      "description": "Select a campaign"
+    },
+    {
+      "name": "deleteLead",
+      "display_name": "Delete Lead",
+      "description": "Select a lead to delete"
+    },
+    {
+      "name": "makePhoneCall",
+      "display_name": "Make Phone Call",
+      "description": "Select an assistant"
+    },
+    {
+      "name": "sendSms",
+      "display_name": "Send SMS to Customer",
+      "description": "Select an SMS capable phone number to send the SMS from"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "getAssistants",
+      "display_name": "Updated Assistant",
+      "description": "Triggers when assistants are fetched or updated in your Autocalls account.",
+      "type": "scheduled"
+    },
+    {
+      "name": "inboundCall",
+      "display_name": "Inbound Call",
+      "description": "Triggers for variables before connecting an inbound call.",
+      "type": "instant"
+    },
+    {
+      "name": "phoneCallEnded",
+      "display_name": "Phone Call Ended",
+      "description": "Triggers when a phone call ends, with extracted variables.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/autocalls"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "flow-helper",
+  "package": "@activepieces/piece-flow-helper",
+  "display_name": "Flow Helper",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "failFlow",
+      "display_name": "Fail Flow",
+      "description": "Fails the flow execution with a custom message."
+    },
+    {
+      "name": "getRunId",
+      "display_name": "Get Run Info",
+      "description": ""
+    },
+    {
+      "name": "stopFlow",
+      "display_name": "Stop Flow",
+      "description": "Stops the flow immediately this step is reached."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

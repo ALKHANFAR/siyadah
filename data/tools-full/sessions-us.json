@@ -1,0 +1,175 @@
+{
+  "id": "sessions-us",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_event": {
+      "displayName": "Create Event",
+      "description": "Quickly create an event.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Event Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the event"
+        },
+        {
+          "name": "startAt",
+          "displayName": "Starts At",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Select a date and time"
+        },
+        {
+          "name": "plannedEnd",
+          "displayName": "Ends At",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Select a date and time"
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The timezone which the session will take place."
+        }
+      ]
+    },
+    "create_session": {
+      "displayName": "Create Session",
+      "description": "Quickly create a session.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Session Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the session"
+        },
+        {
+          "name": "startAt",
+          "displayName": "Starts At",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Select a date and time"
+        },
+        {
+          "name": "plannedEnd",
+          "displayName": "Ends At",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Select a date and time"
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The timezone which the session will take place."
+        }
+      ]
+    },
+    "publish_event": {
+      "displayName": "Publish Event",
+      "description": "Quickly publish an event.",
+      "props": [
+        {
+          "name": "event",
+          "displayName": "Event",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The event you want to publish."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "booking_created": {
+      "displayName": "Booking Created",
+      "description": "Triggered when a new booking is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "booking_ended": {
+      "displayName": "Booking Ended",
+      "description": "Triggered when a booking ends.",
+      "type": "POLLING",
+      "props": []
+    },
+    "booking_started": {
+      "displayName": "Booking Started",
+      "description": "Triggered when a booking starts.",
+      "type": "POLLING",
+      "props": []
+    },
+    "event_created": {
+      "displayName": "Event Created",
+      "description": "Triggered when a new event is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "event_ended": {
+      "displayName": "Event Ended",
+      "description": "Triggered when an event ends.",
+      "type": "POLLING",
+      "props": []
+    },
+    "event_new_registration": {
+      "displayName": "Event New Registration",
+      "description": "Triggered when a new registration for an event occurs.",
+      "type": "POLLING",
+      "props": []
+    },
+    "event_published": {
+      "displayName": "Event Published",
+      "description": "Triggered when an event is published.",
+      "type": "POLLING",
+      "props": []
+    },
+    "event_started": {
+      "displayName": "Event Started",
+      "description": "Triggered when an event starts.",
+      "type": "POLLING",
+      "props": []
+    },
+    "session_created": {
+      "displayName": "Session Created",
+      "description": "Triggered when a new session is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "session_ended": {
+      "displayName": "Session Ended",
+      "description": "Triggered when a session has ended.",
+      "type": "POLLING",
+      "props": []
+    },
+    "session_started": {
+      "displayName": "Session Started",
+      "description": "Triggered when a session starts.",
+      "type": "POLLING",
+      "props": []
+    },
+    "takeaway_ready": {
+      "displayName": "Takeaway Ready",
+      "description": "Triggered when a takeaway becomes available.",
+      "type": "POLLING",
+      "props": []
+    },
+    "transcript_ready": {
+      "displayName": "Transcript Ready",
+      "description": "Triggered when a session has ended.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

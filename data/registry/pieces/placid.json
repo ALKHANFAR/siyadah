@@ -1,0 +1,55 @@
+{
+  "id": "placid",
+  "package": "@activepieces/piece-placid",
+  "display_name": "Placid",
+  "display_name_ar": "Placid",
+  "description": "Creative automation engine that generates dynamic images, PDFs, and videos from templates and data.",
+  "category": "H_marketing",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "convert_file_to_url",
+      "display_name": "Convert File to URL",
+      "description": "Convert uploaded file(s) into media URL(s) consumable by Placid templates."
+    },
+    {
+      "name": "create_image",
+      "display_name": "Create Image",
+      "description": "Generates a dynamic image from a specified template using input data."
+    },
+    {
+      "name": "create_pdf",
+      "display_name": "Create PDF",
+      "description": "Generates a PDF document from a specified template."
+    },
+    {
+      "name": "create_video",
+      "display_name": "Create Video",
+      "description": "Produces a video based on a template."
+    },
+    {
+      "name": "get_image",
+      "display_name": "Get Image",
+      "description": "Retrieves a generated image by its ID."
+    },
+    {
+      "name": "get_pdf",
+      "display_name": "Get PDF",
+      "description": "Retrieves the generated PDF by its ID."
+    },
+    {
+      "name": "get_video",
+      "display_name": "Get Video",
+      "description": "Retrieves the generated video by its ID."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/placid"
+}

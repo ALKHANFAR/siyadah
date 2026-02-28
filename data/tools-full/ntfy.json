@@ -1,0 +1,84 @@
+{
+  "id": "ntfy",
+  "displayName": "Server URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "send_notification": {
+      "displayName": "Send Notification",
+      "description": "Send a notification to ntfy",
+      "props": [
+        {
+          "name": "topic",
+          "displayName": "Topic",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The topic/channel to send the notification to, e.g. test1"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title of the notification"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The priority of the notification (1-5). 1 is lowest priority."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The tags for the notification."
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The absolute URL to your icon, e.g. https://example.com/communityIcon_xnt6chtnr2j21.png"
+        },
+        {
+          "name": "actions",
+          "displayName": "Actions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Add Action buttons to notifications, see https://docs.ntfy.sh/publish/#action-buttons"
+        },
+        {
+          "name": "click",
+          "displayName": "Click",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "You can define which URL to open when a notification is clicked, see https://docs.ntfy.sh/publish/#click-action"
+        },
+        {
+          "name": "delay",
+          "displayName": "Delay",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Let ntfy send messages at a later date, e.g. 'tomorrow, 10am', see https://docs.ntfy.sh/publish/#scheduled-delivery"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

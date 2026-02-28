@@ -1,0 +1,70 @@
+{
+  "id": "digital-ocean",
+  "package": "@activepieces/piece-digital-ocean",
+  "display_name": "DigitalOcean",
+  "display_name_ar": "",
+  "description": "Cloud infrastructure provider for developers.",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_domain",
+      "display_name": "Create Domain",
+      "description": "Add a new domain to your DigitalOcean account."
+    },
+    {
+      "name": "create_droplet",
+      "display_name": "Create Droplet",
+      "description": "Create a new Droplet or multiple Droplets."
+    },
+    {
+      "name": "delete_domain",
+      "display_name": "Delete Domain",
+      "description": "Remove a domain from your DigitalOcean account."
+    },
+    {
+      "name": "delete_droplet",
+      "display_name": "Delete Droplet",
+      "description": "Delete an existing Droplet."
+    },
+    {
+      "name": "get_domain",
+      "display_name": "Get Domain",
+      "description": "Retrieve details about a specific domain."
+    },
+    {
+      "name": "get_droplet",
+      "display_name": "Get Droplet",
+      "description": "Retrieve details about a specific Droplet."
+    },
+    {
+      "name": "list_database_clusters",
+      "display_name": "List Database Clusters",
+      "description": "Retrieve a list of all database clusters in your account."
+    },
+    {
+      "name": "list_database_events",
+      "display_name": "List Database Events",
+      "description": "Retrieve all event logs for a database cluster."
+    },
+    {
+      "name": "list_domains",
+      "display_name": "List All Domains",
+      "description": "Retrieve a list of all domains in your account."
+    },
+    {
+      "name": "list_droplets",
+      "display_name": "List All Droplets",
+      "description": "Retrieve a list of all Droplets in your account."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

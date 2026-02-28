@@ -1,0 +1,35 @@
+{
+  "id": "zoho-crm",
+  "displayName": "Zoho CRM",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "read-file": {
+      "displayName": "Read file",
+      "description": "Download a file content from Zoho CRM. e.g.: a Backup File",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The full URL to use, including the base URL"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Triggers when a new contact is created",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

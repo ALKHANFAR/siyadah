@@ -1,0 +1,49 @@
+{
+  "id": "orimon",
+  "displayName": "Orimon",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "sendMessage": {
+      "displayName": "Send Message",
+      "description": "Send a message to an Orimon chatbot and get a response",
+      "props": [
+        {
+          "name": "tenantId",
+          "displayName": "Tenant ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "To get it: Login to your dashboard and click on the bot configuration page. At the top in the URL bar, copy the value starting after \"tenant/\" to the end."
+        },
+        {
+          "name": "messageText",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send to the chatbot"
+        },
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique identifier for this message"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newLead": {
+      "displayName": "New Lead",
+      "description": "Trigger when a new lead is captured by your Orimon chatbot",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

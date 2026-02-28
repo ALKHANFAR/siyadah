@@ -1,0 +1,25 @@
+{
+  "id": "matomo",
+  "package": "@activepieces/piece-matomo",
+  "display_name": "Matomo",
+  "display_name_ar": "Matomo",
+  "description": "Open source alternative to Google Analytics",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_annotation",
+      "display_name": "Add Annotation",
+      "description": "Add an annotation to a Matomo site"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/matomo"
+}

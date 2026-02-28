@@ -1,0 +1,42 @@
+{
+  "id": "mindee",
+  "displayName": "Api Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "mindee_predict_document": {
+      "displayName": "Extract Document",
+      "description": "Parse details of a document using OCR.",
+      "props": [
+        {
+          "name": "account_name",
+          "displayName": "Account Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Refers to your username or organization name with which you signed up with."
+        },
+        {
+          "name": "api_name",
+          "displayName": "API Name",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Refers to the name of the API your are using."
+        },
+        {
+          "name": "file",
+          "displayName": "File URL",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Remote file URL or Base64 string. We currently support .pdf (slower), .jpg, .png, .webp, .tiff and .heic formats"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

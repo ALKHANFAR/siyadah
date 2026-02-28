@@ -1,0 +1,30 @@
+{
+  "id": "barcode-lookup",
+  "displayName": "Barcode Lookup",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "searchByBarcode": {
+      "displayName": "Search By Barcode",
+      "description": "Search for product information by barcode",
+      "props": [
+        {
+          "name": "barcode",
+          "displayName": "Barcode",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The barcode/UPC/EAN number to search for"
+        },
+        {
+          "name": "formatted",
+          "displayName": "Formatted Output",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return results in a clean, easy to read format"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

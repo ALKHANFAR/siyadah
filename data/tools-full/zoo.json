@@ -1,0 +1,1129 @@
+{
+  "id": "zoo",
+  "displayName": "Zoo",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_async_operation": {
+      "displayName": "Get Async Operation",
+      "description": "Retrieve details of an asynchronous operation",
+      "props": [
+        {
+          "name": "operationId",
+          "displayName": "Operation ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_org_api_call": {
+      "displayName": "Get Organization API Call",
+      "description": "Retrieve details of a specific API call made by your organization",
+      "props": [
+        {
+          "name": "callId",
+          "displayName": "Call ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_user_api_call": {
+      "displayName": "Get User API Call",
+      "description": "Retrieve details of a specific API call made by your user account",
+      "props": [
+        {
+          "name": "callId",
+          "displayName": "Call ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "list_org_api_calls": {
+      "displayName": "List Organization API Calls",
+      "description": "List API calls made by your organization",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "list_user_api_calls": {
+      "displayName": "List User API Calls",
+      "description": "List API calls made by your user account",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "create_api_token": {
+      "displayName": "Create API Token",
+      "description": "Create a new API token for your user account",
+      "props": []
+    },
+    "delete_api_token": {
+      "displayName": "Delete API Token",
+      "description": "Delete an API token from your user account",
+      "props": [
+        {
+          "name": "token",
+          "displayName": "Token",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_api_token": {
+      "displayName": "Get API Token",
+      "description": "Retrieve details of a specific API token",
+      "props": [
+        {
+          "name": "token",
+          "displayName": "Token",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "list_api_tokens": {
+      "displayName": "List API Tokens",
+      "description": "List all API tokens for your user account",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "convert_cad_file": {
+      "displayName": "Convert CAD File",
+      "description": "Convert a CAD file from one format to another",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "CAD File",
+          "type": "File",
+          "required": true
+        },
+        {
+          "name": "sourceFormat",
+          "displayName": "Source Format",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputFormat",
+          "displayName": "Output Format",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "get_center_of_mass": {
+      "displayName": "Get Center of Mass",
+      "description": "Calculate the center of mass of a CAD file",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "CAD File",
+          "type": "File",
+          "required": true
+        }
+      ]
+    },
+    "get_density": {
+      "displayName": "Get Density",
+      "description": "Calculate the density of a CAD file",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "CAD File",
+          "type": "File",
+          "required": true
+        }
+      ]
+    },
+    "get_mass": {
+      "displayName": "Get Mass",
+      "description": "Calculate the mass of a CAD file",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "CAD File",
+          "type": "File",
+          "required": true
+        }
+      ]
+    },
+    "get_surface_area": {
+      "displayName": "Get Surface Area",
+      "description": "Calculate the surface area of a CAD file",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "CAD File",
+          "type": "File",
+          "required": true
+        }
+      ]
+    },
+    "get_volume": {
+      "displayName": "Get Volume",
+      "description": "Calculate the volume of a CAD file",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "CAD File",
+          "type": "File",
+          "required": true
+        }
+      ]
+    },
+    "get_openapi_schema": {
+      "displayName": "Get OpenAPI Schema",
+      "description": "Retrieve the OpenAPI schema for the Zoo API",
+      "props": []
+    },
+    "return_pong": {
+      "displayName": "Return Pong",
+      "description": "Health check endpoint that returns ",
+      "props": []
+    },
+    "generate_cad_model": {
+      "displayName": "Generate CAD Model",
+      "description": "Generate a 3D model from text prompt",
+      "props": [
+        {
+          "name": "outputFormat",
+          "displayName": "Output Format",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputKcl",
+          "displayName": "Include KCL Output",
+          "type": "Checkbox",
+          "required": true
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_cad_model": {
+      "displayName": "Get CAD Model",
+      "description": "Retrieve details of a specific 3D model",
+      "props": [
+        {
+          "name": "modelId",
+          "displayName": "Model ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "give_model_feedback": {
+      "displayName": "Give Model Feedback",
+      "description": "Provide feedback on a generated 3D model",
+      "props": [
+        {
+          "name": "modelId",
+          "displayName": "Model ID",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "feedback",
+          "displayName": "Feedback Type",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "kcl_completions": {
+      "displayName": "KCL Code Completions",
+      "description": "Get code completions for KCL (Kernel Configuration Language)",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LongText",
+          "required": true
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Max Tokens",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "stop",
+          "displayName": "Stop Sequences",
+          "type": "Array",
+          "required": true
+        }
+      ]
+    },
+    "list_cad_models": {
+      "displayName": "List CAD Models",
+      "description": "Retrieve a list of your generated 3D models",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "text_to_cad_iteration": {
+      "displayName": "Iterate CAD Model",
+      "description": "Create a new iteration of an existing 3D model",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "send_modeling_command": {
+      "displayName": "Send Modeling Command",
+      "description": "Send a command to the modeling WebSocket endpoint",
+      "props": [
+        {
+          "name": "command",
+          "displayName": "Command",
+          "type": "Object",
+          "required": true
+        }
+      ]
+    },
+    "add_org_member": {
+      "displayName": "Add Organization Member",
+      "description": "Add a new member to your organization",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "create_org": {
+      "displayName": "Create Organization",
+      "description": "Create a new organization",
+      "props": []
+    },
+    "get_org_member": {
+      "displayName": "Get Organization Member",
+      "description": "Get details of a specific organization member",
+      "props": [
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_org": {
+      "displayName": "Get Organization",
+      "description": "Retrieve details of your organization",
+      "props": []
+    },
+    "list_org_members": {
+      "displayName": "List Organization Members",
+      "description": "List all members of your organization",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "update_org": {
+      "displayName": "Update Organization",
+      "description": "Update your organization details",
+      "props": []
+    },
+    "create_org_payment": {
+      "displayName": "Create Organization Payment Info",
+      "description": "Create payment information for your organization",
+      "props": [
+        {
+          "name": "paymentMethodId",
+          "displayName": "Payment Method ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "create_org_subscription": {
+      "displayName": "Create Organization Subscription",
+      "description": "Create a new subscription for your organization",
+      "props": [
+        {
+          "name": "planId",
+          "displayName": "Plan ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "create_user_payment": {
+      "displayName": "Create User Payment Info",
+      "description": "Create payment information for your user account",
+      "props": [
+        {
+          "name": "paymentMethodId",
+          "displayName": "Payment Method ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "create_user_subscription": {
+      "displayName": "Create User Subscription",
+      "description": "Create a new subscription for your user account",
+      "props": [
+        {
+          "name": "planId",
+          "displayName": "Plan ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "delete_org_payment": {
+      "displayName": "Delete Organization Payment Info",
+      "description": "Delete payment information for your organization",
+      "props": []
+    },
+    "delete_user_payment": {
+      "displayName": "Delete User Payment Info",
+      "description": "Delete payment information for your user account",
+      "props": []
+    },
+    "get_org_balance": {
+      "displayName": "Get Organization Balance",
+      "description": "Retrieve the current balance for your organization",
+      "props": []
+    },
+    "get_org_payment": {
+      "displayName": "Get Organization Payment Info",
+      "description": "Retrieve payment information for your organization",
+      "props": []
+    },
+    "get_org_subscription": {
+      "displayName": "Get Organization Subscription",
+      "description": "Retrieve the current subscription for your organization",
+      "props": []
+    },
+    "get_user_balance": {
+      "displayName": "Get User Balance",
+      "description": "Retrieve the current balance for your user account",
+      "props": []
+    },
+    "get_user_payment": {
+      "displayName": "Get User Payment Info",
+      "description": "Retrieve payment information for your user account",
+      "props": []
+    },
+    "get_user_subscription": {
+      "displayName": "Get User Subscription",
+      "description": "Retrieve the current subscription for your user account",
+      "props": []
+    },
+    "list_org_invoices": {
+      "displayName": "List Organization Invoices",
+      "description": "List all invoices for your organization",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "list_org_payment_methods": {
+      "displayName": "List Organization Payment Methods",
+      "description": "List all payment methods for your organization",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "list_user_invoices": {
+      "displayName": "List User Invoices",
+      "description": "List all invoices for your user account",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "list_user_payment_methods": {
+      "displayName": "List User Payment Methods",
+      "description": "List all payment methods for your user account",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "update_org_payment": {
+      "displayName": "Update Organization Payment Info",
+      "description": "Update payment information for your organization",
+      "props": [
+        {
+          "name": "paymentMethodId",
+          "displayName": "Payment Method ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "update_org_subscription": {
+      "displayName": "Update Organization Subscription",
+      "description": "Update the subscription for your organization",
+      "props": [
+        {
+          "name": "planId",
+          "displayName": "Plan ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "update_user_payment": {
+      "displayName": "Update User Payment Info",
+      "description": "Update payment information for your user account",
+      "props": [
+        {
+          "name": "paymentMethodId",
+          "displayName": "Payment Method ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "update_user_subscription": {
+      "displayName": "Update User Subscription",
+      "description": "Update the subscription for your user account",
+      "props": [
+        {
+          "name": "planId",
+          "displayName": "Plan ID",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "create_service_account": {
+      "displayName": "Create Service Account",
+      "description": "Create a new service account for your organization",
+      "props": []
+    },
+    "delete_service_account": {
+      "displayName": "Delete Service Account",
+      "description": "Delete a service account from your organization",
+      "props": [
+        {
+          "name": "token",
+          "displayName": "Token",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_service_account": {
+      "displayName": "Get Service Account",
+      "description": "Retrieve details of a specific service account",
+      "props": [
+        {
+          "name": "token",
+          "displayName": "Token",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "list_service_accounts": {
+      "displayName": "List Service Accounts",
+      "description": "List all service accounts for your organization",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "create_shortlink": {
+      "displayName": "Create Shortlink",
+      "description": "Create a new shortlink for your user account",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "delete_shortlink": {
+      "displayName": "Delete Shortlink",
+      "description": "Delete an existing shortlink",
+      "props": [
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "list_org_shortlinks": {
+      "displayName": "List Organization Shortlinks",
+      "description": "List all shortlinks for your organization",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "list_user_shortlinks": {
+      "displayName": "List User Shortlinks",
+      "description": "List all shortlinks for your user account",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "Number",
+          "required": true
+        }
+      ]
+    },
+    "update_shortlink": {
+      "displayName": "Update Shortlink",
+      "description": "Update an existing shortlink",
+      "props": [
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "ShortText",
+          "required": true
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "convert_angle": {
+      "displayName": "Convert Angle",
+      "description": "Convert angle measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_area": {
+      "displayName": "Convert Area",
+      "description": "Convert area measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_current": {
+      "displayName": "Convert Current",
+      "description": "Convert electrical current measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_energy": {
+      "displayName": "Convert Energy",
+      "description": "Convert energy measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_force": {
+      "displayName": "Convert Force",
+      "description": "Convert force measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_frequency": {
+      "displayName": "Convert Frequency",
+      "description": "Convert frequency measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_length": {
+      "displayName": "Convert Length",
+      "description": "Convert length measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_mass": {
+      "displayName": "Convert Mass",
+      "description": "Convert mass measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_power": {
+      "displayName": "Convert Power",
+      "description": "Convert power measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_pressure": {
+      "displayName": "Convert Pressure",
+      "description": "Convert pressure measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_temperature": {
+      "displayName": "Convert Temperature",
+      "description": "Convert temperature measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_torque": {
+      "displayName": "Convert Torque",
+      "description": "Convert torque measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "convert_volume": {
+      "displayName": "Convert Volume",
+      "description": "Convert volume measurements between different units",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "Number",
+          "required": true
+        },
+        {
+          "name": "inputUnit",
+          "displayName": "Input Unit",
+          "type": "StaticDropdown",
+          "required": true
+        },
+        {
+          "name": "outputUnit",
+          "displayName": "Output Unit",
+          "type": "StaticDropdown",
+          "required": true
+        }
+      ]
+    },
+    "delete_user": {
+      "displayName": "Delete User",
+      "description": "Delete your user account",
+      "props": []
+    },
+    "get_extended_user": {
+      "displayName": "Get Extended User Info",
+      "description": "Retrieve extended information about your user account",
+      "props": []
+    },
+    "get_oauth2_providers": {
+      "displayName": "Get OAuth2 Providers",
+      "description": "Get the OAuth2 providers available for your user account",
+      "props": []
+    },
+    "get_privacy_settings": {
+      "displayName": "Get Privacy Settings",
+      "description": "Get your user privacy settings",
+      "props": []
+    },
+    "get_user_org": {
+      "displayName": "Get User Organization",
+      "description": "Get the organization associated with your user account",
+      "props": []
+    },
+    "get_user_session": {
+      "displayName": "Get User Session",
+      "description": "Get details about a specific user session",
+      "props": [
+        {
+          "name": "token",
+          "displayName": "Session Token",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    },
+    "get_user": {
+      "displayName": "Get User",
+      "description": "Retrieve your user information",
+      "props": []
+    },
+    "update_privacy_settings": {
+      "displayName": "Update Privacy Settings",
+      "description": "Update your user privacy settings",
+      "props": [
+        {
+          "name": "settings",
+          "displayName": "Privacy Settings",
+          "type": "Object",
+          "required": true
+        }
+      ]
+    },
+    "update_user": {
+      "displayName": "Update User",
+      "description": "Update your user information",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "ShortText",
+          "required": true
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

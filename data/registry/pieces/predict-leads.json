@@ -1,0 +1,45 @@
+{
+  "id": "predict-leads",
+  "package": "@activepieces/piece-predict-leads",
+  "display_name": "PredictLeads",
+  "display_name_ar": "PredictLeads",
+  "description": "Company Intelligence Data Source",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "predict-leads_find_companies",
+      "display_name": "List Companies",
+      "description": "Retrieves all companies."
+    },
+    {
+      "name": "predict-leads_find_connections_by_domain",
+      "display_name": "Get Company Connections",
+      "description": "Retrieves company connections by domain."
+    },
+    {
+      "name": "predict-leads_find_company_job_openings",
+      "display_name": "List Company's Job Openings",
+      "description": "Retrieves job openings by company domain."
+    },
+    {
+      "name": "predict-leads_find_news_by_domain",
+      "display_name": "List Company News Events",
+      "description": "Retrieves news events by company domain"
+    },
+    {
+      "name": "predict-leads_find_technologies_by_domain",
+      "display_name": "List Technologies by domain",
+      "description": "Retrieve technologies used by specific company"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/predict-leads"
+}

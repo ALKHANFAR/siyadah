@@ -1,0 +1,50 @@
+{
+  "id": "valyu",
+  "package": "@activepieces/piece-valyu",
+  "display_name": "Valyu",
+  "display_name_ar": "",
+  "description": "Search the web, research papers, and proprietary datasets with intelligent query processing.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "answer",
+      "display_name": "Answer Query",
+      "description": "Get AI-generated answers using search results. Combines web/proprietary search with AI processing."
+    },
+    {
+      "name": "create_batch",
+      "display_name": "Create Batch",
+      "description": "Create a batch for processing multiple DeepResearch tasks with shared configuration."
+    },
+    {
+      "name": "create_deep_research_task",
+      "display_name": "Create Deep Research Task",
+      "description": "Create an asynchronous deep research task that searches multiple sources and generates detailed reports."
+    },
+    {
+      "name": "extract_content",
+      "display_name": "Extract Content",
+      "description": "Extract clean, structured content from web pages with optional AI-powered summarization."
+    },
+    {
+      "name": "list_datasources",
+      "display_name": "List Datasources",
+      "description": "List all available datasources with metadata, schemas, and pricing. Useful for discovering available data sources."
+    },
+    {
+      "name": "search",
+      "display_name": "Search",
+      "description": "Search the web, research papers, and proprietary datasets to retrieve relevant context."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

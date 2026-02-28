@@ -1,0 +1,25 @@
+{
+  "id": "linkup",
+  "package": "@activepieces/piece-linkup",
+  "display_name": "Linkup",
+  "display_name_ar": "",
+  "description": "Linkup is a web search engine for AI apps. Connect your AI application to the internet and get grounding data to enrich your AI\\",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "fetch",
+      "display_name": "Fetch Webpage",
+      "description": "Fetch a webpage and convert it to markdown format. Optionally render JavaScript, include raw HTML, or extract images."
+    },
+    {
+      "name": "search",
+      "display_name": "Search the Web",
+      "description": "Search the web for relevant content based on a natural language query. Perfect for grounding LLM responses with factual data."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

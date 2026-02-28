@@ -1,0 +1,78 @@
+{
+  "id": "lightfunnels",
+  "package": "@activepieces/piece-lightfunnels",
+  "display_name": "Lightfunnels",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "cancel_order",
+      "display_name": "Cancel Order",
+      "description": "Cancel an order"
+    },
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Create a new customer"
+    },
+    {
+      "name": "create_product",
+      "display_name": "Create Product",
+      "description": "Create a new product"
+    },
+    {
+      "name": "get_customer",
+      "display_name": "Get Customer",
+      "description": "Retrieve a specific customer by ID"
+    },
+    {
+      "name": "get_funnel",
+      "display_name": "Get Funnel",
+      "description": "Retrieve a specific funnel by ID"
+    },
+    {
+      "name": "get_order",
+      "display_name": "Get Order",
+      "description": "Retrieve a specific order by ID"
+    },
+    {
+      "name": "get_product",
+      "display_name": "Get Product",
+      "description": "Retrieve a specific product by ID"
+    },
+    {
+      "name": "list_customers",
+      "display_name": "List Customers",
+      "description": "Retrieve a list of customers"
+    },
+    {
+      "name": "list_orders",
+      "display_name": "List Orders",
+      "description": "Retrieve a list of orders"
+    },
+    {
+      "name": "list_products",
+      "display_name": "List Products",
+      "description": "Retrieve a list of all products"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_lead",
+      "display_name": "New Lead",
+      "description": "Triggers when a new lead subscribes",
+      "type": "instant"
+    },
+    {
+      "name": "new_order",
+      "display_name": "New Order",
+      "description": "Triggers when a new order is created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

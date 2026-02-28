@@ -1,0 +1,63 @@
+{
+  "id": "saleor",
+  "displayName": "Saleor API URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "addOrderNote": {
+      "displayName": "Add Order Note",
+      "description": "Add a note to a Saleor order",
+      "props": [
+        {
+          "name": "orderId",
+          "displayName": "Order ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the order"
+        },
+        {
+          "name": "message",
+          "displayName": "Note Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the note"
+        }
+      ]
+    },
+    "getOrder": {
+      "displayName": "Get an order",
+      "description": "Get an order according to the ID",
+      "props": [
+        {
+          "name": "orderId",
+          "displayName": "The ID of the order",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "rawGraphqlQuery": {
+      "displayName": "Raw GraphQL query",
+      "description": "Perform a raw GraphQL query",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "variables",
+          "displayName": "Parameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

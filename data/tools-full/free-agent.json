@@ -1,0 +1,268 @@
+{
+  "id": "free-agent",
+  "displayName": "FreeAgent",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact in FreeAgent",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name (required if organization name is not specified)"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name (required if organization name is not specified)"
+        },
+        {
+          "name": "organisation_name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Organization name (required if first and last name are not specified)"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address"
+        },
+        {
+          "name": "billing_email",
+          "displayName": "Billing Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Billing email address"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Telephone number"
+        },
+        {
+          "name": "mobile",
+          "displayName": "Mobile",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Mobile number"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First line of the address"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Second line of the address"
+        },
+        {
+          "name": "address3",
+          "displayName": "Address Line 3",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Third line of the address"
+        },
+        {
+          "name": "town",
+          "displayName": "Town",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Town or city"
+        },
+        {
+          "name": "region",
+          "displayName": "Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Region or state"
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Post or ZIP code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country"
+        },
+        {
+          "name": "contact_name_on_invoices",
+          "displayName": "Show Contact Name on Invoices",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Show contact name as well as organization name on invoices"
+        },
+        {
+          "name": "default_payment_terms_in_days",
+          "displayName": "Default Payment Terms (Days)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default payment terms in days"
+        },
+        {
+          "name": "charge_sales_tax",
+          "displayName": "Charge Sales Tax",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle sales tax for this contact"
+        },
+        {
+          "name": "sales_tax_registration_number",
+          "displayName": "Sales Tax Registration Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sales tax registration number if applicable"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Contact status"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Invoice/estimate language"
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a task inside a project",
+      "props": [
+        {
+          "name": "project_id",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the project to create the task in"
+        },
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the task"
+        },
+        {
+          "name": "is_billable",
+          "displayName": "Billable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this task is billable to clients"
+        },
+        {
+          "name": "billing_rate",
+          "displayName": "Billing Rate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The rate at which the project is billed per billing period"
+        },
+        {
+          "name": "billing_period",
+          "displayName": "Billing Period",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The period for billing rate"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the task"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_contact": {
+      "displayName": "Contact Status",
+      "description": "Filter contacts by status",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Contact Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter contacts by status"
+        }
+      ]
+    },
+    "new_invoice": {
+      "displayName": "Invoice Status",
+      "description": "Filter invoices by status",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Invoice Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter invoices by status"
+        },
+        {
+          "name": "include_items",
+          "displayName": "Include Invoice Items",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include invoice items in the response"
+        }
+      ]
+    },
+    "new_task": {
+      "displayName": "Task Status",
+      "description": "Filter tasks by status",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Task Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter tasks by status"
+        }
+      ]
+    },
+    "new_user": {
+      "displayName": "User Type",
+      "description": "Filter users by type",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "view",
+          "displayName": "User Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter users by type"
+        }
+      ]
+    }
+  }
+}

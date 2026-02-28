@@ -1,0 +1,50 @@
+{
+  "id": "mooninvoice",
+  "package": "@activepieces/piece-mooninvoice",
+  "display_name": "Moon Invoice",
+  "display_name_ar": "Moon Invoice",
+  "description": "Moon Invoice integration",
+  "category": "M_finance",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "addNewContact",
+      "display_name": "Add New Contact",
+      "description": "Add a new contact to a company in MoonInvoice"
+    },
+    {
+      "name": "createCreditNote",
+      "display_name": "Create Credit Note",
+      "description": "Create a new credit note in MoonInvoice"
+    },
+    {
+      "name": "createEstimate",
+      "display_name": "Create Estimate",
+      "description": "Create a new estimate in MoonInvoice"
+    },
+    {
+      "name": "createExpense",
+      "display_name": "Create Expense",
+      "description": "Create a new expense in MoonInvoice"
+    },
+    {
+      "name": "createInvoice",
+      "display_name": "Create Invoice",
+      "description": "Create a new invoice in MoonInvoice"
+    },
+    {
+      "name": "createProduct",
+      "display_name": "Create Product",
+      "description": "Create a new product in MoonInvoice"
+    },
+    {
+      "name": "createTask",
+      "display_name": "Create Task",
+      "description": "Create a new task in MoonInvoice"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mooninvoice"
+}

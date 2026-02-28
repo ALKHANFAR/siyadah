@@ -1,0 +1,25 @@
+{
+  "id": "hastewire",
+  "package": "@activepieces/piece-hastewire",
+  "display_name": "Hastewire",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "detect-text",
+      "display_name": "Detect Text",
+      "description": "Analyzes text and returns the likelihood of it being AI-generated or human-written."
+    },
+    {
+      "name": "humanize-text",
+      "display_name": "Humanize Text",
+      "description": "Rephrases a given AI-generated text to be more human like."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,420 @@
+{
+  "id": "smoove",
+  "displayName": "Smoove",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addOrUpdateSubscriber": {
+      "displayName": "Add or Update Subscriber",
+      "description": "Create or update subscriber data, and subscribe/unsubscribe from lists",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The first name of the contact"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the contact"
+        },
+        {
+          "name": "dateOfBirth",
+          "displayName": "Date of Birth",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date of birth of the contact"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The primary phone number of the contact"
+        },
+        {
+          "name": "cellPhone",
+          "displayName": "Cell Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The cell phone number of the contact"
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The street address of the contact"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The city of the contact"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The country of the contact"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The company name of the contact"
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The job title or position of the contact"
+        },
+        {
+          "name": "externalId",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External identifier for the contact (useful for syncing with other systems)"
+        },
+        {
+          "name": "campaignSource",
+          "displayName": "Campaign Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The campaign source that brought this contact"
+        },
+        {
+          "name": "canReceiveEmails",
+          "displayName": "Can Receive Emails",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the contact can receive email communications"
+        },
+        {
+          "name": "canReceiveSmsMessages",
+          "displayName": "Can Receive SMS",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the contact can receive SMS messages"
+        },
+        {
+          "name": "customFields",
+          "displayName": "Custom Fields",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Custom fields data (JSON object with field IDs as keys)"
+        },
+        {
+          "name": "operation",
+          "displayName": "Operation",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the contact operation type"
+        }
+      ]
+    },
+    "createAList": {
+      "displayName": "Create a List",
+      "description": "Create a new mailing list with custom settings and descriptions",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the list to be created"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Internal description of the list for your reference"
+        },
+        {
+          "name": "publicName",
+          "displayName": "Public Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The public-facing name of the list visible to subscribers"
+        },
+        {
+          "name": "publicDescription",
+          "displayName": "Public Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Public description of the list visible to subscribers"
+        },
+        {
+          "name": "isPublic",
+          "displayName": "Is Public",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Make this list publicly visible"
+        },
+        {
+          "name": "allowsUsersToSubscribe",
+          "displayName": "Allow Users to Subscribe",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Allow users to subscribe to this list themselves"
+        },
+        {
+          "name": "allowsUsersToUnsubscribe",
+          "displayName": "Allow Users to Unsubscribe",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Allow users to unsubscribe from this list themselves"
+        },
+        {
+          "name": "isPortal",
+          "displayName": "Is Portal",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Enable portal access for this list"
+        }
+      ]
+    },
+    "findSubscriber": {
+      "displayName": "Find Subscriber",
+      "description": "Search for subscribers by unique identifiers (ID, email, phone, external ID) or name",
+      "props": [
+        {
+          "name": "searchType",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to search for subscribers"
+        },
+        {
+          "name": "id",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique ID of the contact"
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email address of the contact"
+        },
+        {
+          "name": "cellphone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The phone number of the contact (cellphone)"
+        },
+        {
+          "name": "externalId",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The external ID of the contact"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by first name"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by last name"
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields to Return",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to return (e.g., id,email,firstName,lastName). Leave empty for all fields."
+        },
+        {
+          "name": "includeCustomFields",
+          "displayName": "Include Custom Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include custom fields in the response"
+        },
+        {
+          "name": "includeLinkedLists",
+          "displayName": "Include Linked Lists",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include linked lists in the response"
+        },
+        {
+          "name": "skip",
+          "displayName": "Skip Records",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to skip (for pagination, default: 0)"
+        },
+        {
+          "name": "take",
+          "displayName": "Max Records",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of records to return (default: 100, max: 100)"
+        },
+        {
+          "name": "sort",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort the results by a specific field"
+        }
+      ]
+    },
+    "unsubscribe": {
+      "displayName": "Unsubscribe Subscriber",
+      "description": "Unsubscribe a contact from all lists and move them to the \"Unsubscribed\" list",
+      "props": [
+        {
+          "name": "reason",
+          "displayName": "Unsubscribe Reason",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Reason for unsubscribing the contact"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newFormCreated": {
+      "displayName": "New Form Created",
+      "description": "Fires when a new form/landing page is created in your Smoove account",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "formType",
+          "displayName": "Form Type Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by specific form type, or select \"All\" to monitor all form types"
+        }
+      ]
+    },
+    "newLeadSubmitted": {
+      "displayName": "New Lead Submitted",
+      "description": "Fires when a lead submits via form, popup, or mobile campaign",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "monitoringMode",
+          "displayName": "Monitoring Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose whether to monitor all forms or a specific form"
+        },
+        {
+          "name": "includeCustomFields",
+          "displayName": "Include Custom Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include custom field data in the lead submission"
+        },
+        {
+          "name": "includeContactDetails",
+          "displayName": "Include Full Contact Details",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include complete contact information in the submission data"
+        }
+      ]
+    },
+    "newListCreated": {
+      "displayName": "New List Created",
+      "description": "Fires when a new mailing list is created in your Smoove account",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Fields to Include",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to include (e.g., id,name,description,contactsCount). Leave empty for all fields."
+        },
+        {
+          "name": "sortBy",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort the lists for monitoring"
+        },
+        {
+          "name": "maxItems",
+          "displayName": "Max Lists to Monitor",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of lists to check for new additions (1-100)"
+        }
+      ]
+    },
+    "newSubscriber": {
+      "displayName": "New Subscriber",
+      "description": "Fires when a new subscriber is added to your Smoove account",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Fields to Include",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated fields to include (e.g., id,email,firstName,lastName,timestampSignup). Leave empty for default fields."
+        },
+        {
+          "name": "includeCustomFields",
+          "displayName": "Include Custom Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include custom field data in subscriber information"
+        },
+        {
+          "name": "includeLinkedLists",
+          "displayName": "Include Linked Lists",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include list associations in subscriber information"
+        },
+        {
+          "name": "joinSourceFilter",
+          "displayName": "Join Source Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter subscribers by how they joined (leave as \"All\" to monitor all sources)"
+        },
+        {
+          "name": "sortBy",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to sort contacts for monitoring new subscribers"
+        },
+        {
+          "name": "maxItems",
+          "displayName": "Max Items to Check",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of contacts to check for new subscribers (1-100)"
+        }
+      ]
+    }
+  }
+}

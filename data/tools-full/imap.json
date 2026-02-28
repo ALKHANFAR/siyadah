@@ -1,0 +1,91 @@
+{
+  "id": "imap",
+  "displayName": "IMAP",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "copy_email": {
+      "displayName": "Source Folder",
+      "description": "Folder to copy the email from.",
+      "props": [
+        {
+          "name": "uid",
+          "displayName": "Message UID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The UID of the email to copy."
+        }
+      ]
+    },
+    "delete_email": {
+      "displayName": "Parent Folder",
+      "description": "Folder to delete the email from.",
+      "props": [
+        {
+          "name": "uid",
+          "displayName": "Message UID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The UID of the email to delete."
+        },
+        {
+          "name": "permanentDeletionNotice",
+          "displayName": "permanentDeletionNotice",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "mark_email_read": {
+      "displayName": "Parent Folder",
+      "description": "Select the parent folder containing the email.",
+      "props": [
+        {
+          "name": "uid",
+          "displayName": "Message UID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The UID of the email to mark."
+        },
+        {
+          "name": "markAsRead",
+          "displayName": "Mark as Read",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check to mark as read, uncheck to mark as unread."
+        }
+      ]
+    },
+    "move_email": {
+      "displayName": "Source Folder",
+      "description": "Folder to move the email from.",
+      "props": [
+        {
+          "name": "uid",
+          "displayName": "Message UID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The UID of the email to move."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_email": {
+      "displayName": "Mailbox",
+      "description": "Select the mailbox to search.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "filterInstructions",
+          "displayName": "filterInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

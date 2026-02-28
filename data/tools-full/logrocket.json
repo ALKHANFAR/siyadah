@@ -1,0 +1,127 @@
+{
+  "id": "logrocket",
+  "displayName": "LogRocket",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "identifyUser": {
+      "displayName": "Identify User",
+      "description": "Create or update user information and traits in LogRocket to contextualize user behavior.",
+      "props": [
+        {
+          "name": "orgId",
+          "displayName": "Organization ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your LogRocket organization ID (found in Settings > General Settings, or in your App ID before the slash)"
+        },
+        {
+          "name": "appId",
+          "displayName": "App ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your LogRocket app/project ID (found in Settings > General Settings, or in your App ID after the slash)"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier for the user"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user\\"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The user\\"
+        },
+        {
+          "name": "timestamp",
+          "displayName": "Timestamp",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Unix timestamp in milliseconds indicating when this data was collected (optional)"
+        },
+        {
+          "name": "traits",
+          "displayName": "Traits",
+          "type": "OBJECT",
+          "required": false,
+          "description": "User traits as key-value pairs (e.g., {\"plan\": \"free\", \"age\": 43}). Values will be converted to strings."
+        }
+      ]
+    },
+    "requestHighlights": {
+      "displayName": "Request Highlights",
+      "description": "Request session highlights for a user. Results will be sent to the webhook URL when ready.",
+      "props": [
+        {
+          "name": "orgId",
+          "displayName": "Organization ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your LogRocket organization ID (found in Settings > General Settings, or in your App ID before the slash)"
+        },
+        {
+          "name": "projectId",
+          "displayName": "Project ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Your LogRocket project ID (found in Settings > General Settings, or in your App ID after the slash)"
+        },
+        {
+          "name": "userEmail",
+          "displayName": "User Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The email of the user to get highlights for"
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the user from LogRocket.identify() calls"
+        },
+        {
+          "name": "timeRangeStart",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Start of the time range for sessions (optional)"
+        },
+        {
+          "name": "timeRangeEnd",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "End of the time range for sessions (optional)"
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL where highlights results will be posted when ready. You can get this from the \"Highlights Ready\" trigger."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "highlightsReady": {
+      "displayName": "Highlights Ready",
+      "description": "Trigger when session highlights are ready. Use this webhook URL when requesting highlights.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

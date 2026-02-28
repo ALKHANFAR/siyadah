@@ -1,0 +1,9 @@
+{
+  "id": "seven",
+  "displayName": "seven",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {},
+  "triggers": {}
+}

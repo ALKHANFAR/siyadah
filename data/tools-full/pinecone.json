@@ -1,0 +1,521 @@
+{
+  "id": "pinecone",
+  "displayName": "Pinecone",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_index": {
+      "displayName": "Create Index",
+      "description": "Creates a new Pinecone index with custom settings.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Index Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "You must pass a non-empty string for name in order to create an index"
+        },
+        {
+          "name": "dimension",
+          "displayName": "Dimension",
+          "type": "NUMBER",
+          "required": true,
+          "description": "You must pass a positive integer for dimension in order to create an index. For dense indexes, this is required."
+        },
+        {
+          "name": "indexType",
+          "displayName": "Index Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose between serverless or pod-based index deployment"
+        },
+        {
+          "name": "cloud",
+          "displayName": "Cloud Provider",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The public cloud where you would like your index hosted (for serverless)"
+        },
+        {
+          "name": "region",
+          "displayName": "Region",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The region where you would like your index to be created (for serverless)"
+        },
+        {
+          "name": "environment",
+          "displayName": "Environment",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The environment where the index is hosted (for pod-based indexes)"
+        },
+        {
+          "name": "podType",
+          "displayName": "Pod Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of pod to use"
+        },
+        {
+          "name": "replicas",
+          "displayName": "Replicas",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of replicas. Replicas duplicate your index for higher availability and throughput."
+        },
+        {
+          "name": "shards",
+          "displayName": "Shards",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of shards. Shards split your data across multiple pods."
+        },
+        {
+          "name": "pods",
+          "displayName": "Pods",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of pods to be used in the index. This should be equal to shards x replicas."
+        },
+        {
+          "name": "metric",
+          "displayName": "Metric",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The distance metric to use. Defaults to cosine for dense indexes, dotproduct for sparse indexes."
+        },
+        {
+          "name": "vectorType",
+          "displayName": "Vector Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of vectors to store. Dense is default for most use cases."
+        },
+        {
+          "name": "deletionProtection",
+          "displayName": "Deletion Protection",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable deletion protection for the index"
+        },
+        {
+          "name": "waitUntilReady",
+          "displayName": "Wait Until Ready",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait until the index is ready to receive data before completing"
+        },
+        {
+          "name": "suppressConflicts",
+          "displayName": "Suppress Conflicts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Do not throw if you attempt to create an index that already exists"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "JSON",
+          "required": false,
+          "description": "Optional tags for the index (e.g., {\"team\": \"data-science\"})"
+        },
+        {
+          "name": "sourceCollection",
+          "displayName": "Source Collection",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the collection to be used as the source for the index"
+        }
+      ]
+    },
+    "delete_vector": {
+      "displayName": "Delete a Vector",
+      "description": "Delete vectors by ID from a namespace.",
+      "props": [
+        {
+          "name": "indexName",
+          "displayName": "Index Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the index to delete vectors from"
+        },
+        {
+          "name": "indexHost",
+          "displayName": "Index Host",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique host for the index (optional, see Pinecone docs for targeting an index)"
+        },
+        {
+          "name": "namespace",
+          "displayName": "Namespace",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The namespace to delete vectors from (e.g., \"example-namespace\")"
+        },
+        {
+          "name": "deleteMode",
+          "displayName": "Delete Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to delete vectors"
+        },
+        {
+          "name": "id",
+          "displayName": "Vector ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the vector to delete (for single vector deletion)"
+        },
+        {
+          "name": "ids",
+          "displayName": "Vector IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of vector IDs to delete (e.g., [\"id-2\", \"id-3\"])"
+        },
+        {
+          "name": "confirmDeleteAll",
+          "displayName": "Confirm Delete All",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this box to confirm you want to delete ALL vectors in the namespace"
+        },
+        {
+          "name": "filter",
+          "displayName": "Metadata Filter",
+          "type": "JSON",
+          "required": false,
+          "description": "Metadata filter expression to select vectors to delete. Examples:\\n• {\"genre\": {\"$eq\": \"documentary\"}}\\n• {\"year\": {\"$gt\": 2019}}\\n• {\"$and\": [{\"genre\": \"comedy\"}, {\"year\": {\"$gte\": 2020}}]}"
+        }
+      ]
+    },
+    "get_vector": {
+      "displayName": "Get a Vector",
+      "description": "Look up and return vectors by ID from a namespace.",
+      "props": [
+        {
+          "name": "indexName",
+          "displayName": "Index Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the index to fetch vectors from"
+        },
+        {
+          "name": "indexHost",
+          "displayName": "Index Host",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique host for the index (optional, see Pinecone docs for targeting an index)"
+        },
+        {
+          "name": "ids",
+          "displayName": "Vector IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The vector IDs to fetch. Does not accept values containing spaces (e.g., [\"id-1\", \"id-2\"])"
+        },
+        {
+          "name": "namespace",
+          "displayName": "Namespace",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The namespace containing the vectors to fetch (e.g., \"example-namespace\")"
+        }
+      ]
+    },
+    "search_index": {
+      "displayName": "Search Index",
+      "description": "Search indexes by name or list all indexes in your project.",
+      "props": [
+        {
+          "name": "searchMode",
+          "displayName": "Search Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to search for indexes"
+        },
+        {
+          "name": "indexName",
+          "displayName": "Index Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the specific index to search for (when using Find Specific Index mode)"
+        },
+        {
+          "name": "nameFilter",
+          "displayName": "Name Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter indexes by name (partial match, case-insensitive)"
+        }
+      ]
+    },
+    "search_vector": {
+      "displayName": "Search Vectors",
+      "description": "Search a namespace using a query vector to find similar records.",
+      "props": [
+        {
+          "name": "indexName",
+          "displayName": "Index Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the index to search in"
+        },
+        {
+          "name": "indexHost",
+          "displayName": "Index Host",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique host for the index (optional, see Pinecone docs for targeting an index)"
+        },
+        {
+          "name": "topK",
+          "displayName": "Top K",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of results to return for each query (range: 1-10000)"
+        },
+        {
+          "name": "namespace",
+          "displayName": "Namespace",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The namespace to query (e.g., \"example-namespace\")"
+        },
+        {
+          "name": "queryMethod",
+          "displayName": "Query Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to provide the query"
+        },
+        {
+          "name": "vector",
+          "displayName": "Query Vector",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The query vector. This should be the same length as the dimension of the index (e.g., [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8])"
+        },
+        {
+          "name": "id",
+          "displayName": "Query Vector ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique ID of the vector to be used as a query vector (max length: 512)"
+        },
+        {
+          "name": "sparseIndices",
+          "displayName": "Sparse Indices",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of indices for sparse vector data (optional)"
+        },
+        {
+          "name": "sparseValues",
+          "displayName": "Sparse Values",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of sparse values corresponding to indices (must be same length as indices)"
+        },
+        {
+          "name": "filter",
+          "displayName": "Metadata Filter",
+          "type": "JSON",
+          "required": false,
+          "description": "Filter to apply using vector metadata. Examples:\\n• {\"genre\": {\"$eq\": \"documentary\"}}\\n• {\"year\": {\"$gt\": 2019}}\\n• {\"$and\": [{\"genre\": {\"$in\": [\"comedy\", \"drama\"]}}, {\"year\": {\"$gte\": 2020}}]}"
+        },
+        {
+          "name": "includeValues",
+          "displayName": "Include Values",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether vector values are included in the response"
+        },
+        {
+          "name": "includeMetadata",
+          "displayName": "Include Metadata",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether metadata is included in the response"
+        }
+      ]
+    },
+    "update_vector": {
+      "displayName": "Update a Vector",
+      "description": "Updates a vector in a namespace. Overwrites existing values and metadata.",
+      "props": [
+        {
+          "name": "indexName",
+          "displayName": "Index Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the index containing the vector to update"
+        },
+        {
+          "name": "indexHost",
+          "displayName": "Index Host",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique host for the index (optional, see Pinecone docs for targeting an index)"
+        },
+        {
+          "name": "id",
+          "displayName": "Vector ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Vector's unique id (required, string length: 1 - 512)"
+        },
+        {
+          "name": "namespace",
+          "displayName": "Namespace",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The namespace containing the vector to update (e.g., \"example-namespace\")"
+        },
+        {
+          "name": "values",
+          "displayName": "Vector Values",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Vector data to update (e.g., [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8])"
+        },
+        {
+          "name": "sparseIndices",
+          "displayName": "Sparse Indices",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of indices for sparse values (optional)"
+        },
+        {
+          "name": "sparseValues",
+          "displayName": "Sparse Values",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of sparse values corresponding to indices (must be same length as indices)"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Key-value pairs to set for the vector"
+        },
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Metadata field name"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Metadata field value"
+        }
+      ]
+    },
+    "upsert_vector": {
+      "displayName": "Upsert Vector",
+      "description": "Upsert vectors into a namespace. Overwrites existing vectors with the same ID.",
+      "props": [
+        {
+          "name": "indexName",
+          "displayName": "Index Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the index to upsert vectors into"
+        },
+        {
+          "name": "indexHost",
+          "displayName": "Index Host",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique host for the index (optional, see Pinecone docs for targeting an index)"
+        },
+        {
+          "name": "namespace",
+          "displayName": "Namespace",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The namespace where you upsert vectors (e.g., \"example-namespace\")"
+        },
+        {
+          "name": "vectorsInput",
+          "displayName": "Input Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how to provide vector data"
+        },
+        {
+          "name": "id",
+          "displayName": "Vector ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The unique identifier for the vector (e.g., \"vec1\")"
+        },
+        {
+          "name": "values",
+          "displayName": "Vector Values",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of numbers representing the vector (e.g., [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1])"
+        },
+        {
+          "name": "vectors",
+          "displayName": "Vectors",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of vectors to upsert (for multiple vectors input)"
+        },
+        {
+          "name": "id",
+          "displayName": "Vector ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier for this vector"
+        },
+        {
+          "name": "values",
+          "displayName": "Vector Values",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Comma-separated numbers (e.g., 0.1,0.2,0.3,0.4)"
+        },
+        {
+          "name": "metadataKeys",
+          "displayName": "Metadata Keys",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated metadata field names (e.g., genre,year,rating)"
+        },
+        {
+          "name": "metadataValues",
+          "displayName": "Metadata Values",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated metadata values (e.g., comedy,2020,8.5)"
+        },
+        {
+          "name": "sparseIndices",
+          "displayName": "Sparse Indices",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated indices for sparse vector (e.g., 1,312,822)"
+        },
+        {
+          "name": "sparseValues",
+          "displayName": "Sparse Values",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated values for sparse vector (e.g., 0.1,0.2,0.3)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,20 @@
+{
+  "id": "clicksend",
+  "package": "@activepieces/piece-clicksend",
+  "display_name": "Username",
+  "display_name_ar": "",
+  "description": "Your ClickSend username",
+  "category": "G_productivity",
+  "auth_type": "basic_auth",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

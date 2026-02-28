@@ -1,0 +1,401 @@
+{
+  "id": "dropbox",
+  "displayName": "Dropbox",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "copy_dropbox_file": {
+      "displayName": "Copy file",
+      "description": "Copy a file",
+      "props": [
+        {
+          "name": "from_path",
+          "displayName": "From Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The source path of the file (e.g. /folder1/sourcefile.txt)"
+        },
+        {
+          "name": "to_path",
+          "displayName": "To Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The destination path for the copied (e.g. /folder2/destinationfile.txt)"
+        },
+        {
+          "name": "autorename",
+          "displayName": "Auto Rename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If there's a conflict, have the Dropbox server try to autorename the file to avoid conflict."
+        },
+        {
+          "name": "allow_ownership_transfer",
+          "displayName": "Allow Ownership Transfer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allows copy by owner even if it would result in an ownership transfer."
+        }
+      ]
+    },
+    "copy_dropbox_folder": {
+      "displayName": "Copy folder",
+      "description": "Copy a folder",
+      "props": [
+        {
+          "name": "from_path",
+          "displayName": "From Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The source path of the folder (e.g. /folder1/sourceFolder)"
+        },
+        {
+          "name": "to_path",
+          "displayName": "To Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The destination path for the copied folder (e.g. /folder2/destinationFolder)"
+        },
+        {
+          "name": "autorename",
+          "displayName": "Auto Rename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If there's a conflict, have the Dropbox server try to autorename the folder to avoid conflict."
+        },
+        {
+          "name": "allow_ownership_transfer",
+          "displayName": "Allow Ownership Transfer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allows copy by owner even if it would result in an ownership transfer."
+        }
+      ]
+    },
+    "create_new_dropbox_folder": {
+      "displayName": "Create New Folder",
+      "description": "Create a new empty folder",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the new folder e.g. /Homework/math"
+        },
+        {
+          "name": "autorename",
+          "displayName": "Auto Rename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If there's a conflict, have the Dropbox server try to autorename the folder to avoid the conflict. The default for this field is False."
+        }
+      ]
+    },
+    "create_new_dropbox_text_file": {
+      "displayName": "Create New Text File",
+      "description": "Create a new text file from text input",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the new folder e.g. /Homework/math"
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to write into the file."
+        },
+        {
+          "name": "autorename",
+          "displayName": "Autorename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If there's a conflict, have the Dropbox server try to autorename the folder to avoid the conflict. The default for this field is False."
+        },
+        {
+          "name": "mute",
+          "displayName": "Mute",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Normally, users are made aware of any file modifications in their Dropbox account via notifications in the client software. If true, this tells the clients that this modification shouldn't result in a user notification."
+        },
+        {
+          "name": "strict_conflict",
+          "displayName": "Strict conflict",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Be more strict about how each WriteMode detects conflict. For example, always return a conflict error when mode = WriteMode.update and the given \"rev\" doesn\\"
+        }
+      ]
+    },
+    "delete_dropbox_file": {
+      "displayName": "Delete file",
+      "description": "Delete a file",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the file to be deleted (e.g. /folder1/file.txt)"
+        }
+      ]
+    },
+    "delete_dropbox_folder": {
+      "displayName": "Delete folder",
+      "description": "Delete a folder",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the folder to be deleted (e.g. /folder1)"
+        }
+      ]
+    },
+    "downloadFile": {
+      "displayName": "Download File",
+      "description": "Download a File from Dropbox",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the file (e.g. /folder1/file.txt)"
+        }
+      ]
+    },
+    "get_dropbox_file_link": {
+      "displayName": "Get temporary file link",
+      "description": "Get a temporary file link",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the file (e.g. /folder1/file.txt)"
+        }
+      ]
+    },
+    "list_dropbox_folder": {
+      "displayName": "List a folder",
+      "description": "List the contents of a folder",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path of the folder to be listed (e.g. /folder1). Use an empty string for the root folder."
+        },
+        {
+          "name": "recursive",
+          "displayName": "Recursive",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If set to true, the list folder operation will be applied recursively to all subfolders and the response will contain contents of all subfolders."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of results to return (between 1 and 2000). Default is 2000 if not specified."
+        }
+      ]
+    },
+    "move_dropbox_file": {
+      "displayName": "Move file",
+      "description": "Move a file",
+      "props": [
+        {
+          "name": "from_path",
+          "displayName": "From Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The current path of the file (e.g. /folder1/oldfile.txt)"
+        },
+        {
+          "name": "to_path",
+          "displayName": "To Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new path for the file (e.g. /folder2/newfile.txt)"
+        },
+        {
+          "name": "autorename",
+          "displayName": "Auto Rename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If there's a conflict, have the Dropbox server try to autorename the file to avoid conflict."
+        },
+        {
+          "name": "allow_ownership_transfer",
+          "displayName": "Allow Ownership Transfer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allows moves by owner even if it would result in an ownership transfer."
+        }
+      ]
+    },
+    "move_dropbox_folder": {
+      "displayName": "Move folder",
+      "description": "Move a folder",
+      "props": [
+        {
+          "name": "from_path",
+          "displayName": "From Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The current path of the folder (e.g. /folder1/sourceFolder)"
+        },
+        {
+          "name": "to_path",
+          "displayName": "To Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new path for the folder (e.g. /folder2/destinationFolder)"
+        },
+        {
+          "name": "autorename",
+          "displayName": "Auto Rename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If there's a conflict, have the Dropbox server try to autorename the folder to avoid conflict."
+        },
+        {
+          "name": "allow_ownership_transfer",
+          "displayName": "Allow Ownership Transfer",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allows moves by owner even if it would result in an ownership transfer."
+        }
+      ]
+    },
+    "search_dropbox": {
+      "displayName": "Search",
+      "description": "Search for files and folders",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The search string. Must be at least 3 characters."
+        },
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The path to search in. If not specified, the search is performed from the root."
+        },
+        {
+          "name": "max_results",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of search results to return (up to 1000). Default is 100 if not specified."
+        },
+        {
+          "name": "order_by",
+          "displayName": "Order By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Specified property of the order of search results."
+        },
+        {
+          "name": "file_status",
+          "displayName": "File Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Restricts search to the given file status."
+        },
+        {
+          "name": "filename_only",
+          "displayName": "Filename Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Restricts search to only match on filenames."
+        },
+        {
+          "name": "file_extensions",
+          "displayName": "File Extensions",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Restricts search to only the extensions specified (comma-separated)."
+        },
+        {
+          "name": "file_categories",
+          "displayName": "File Categories",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Restricts search to only the file categories specified (comma-separated)."
+        },
+        {
+          "name": "account_id",
+          "displayName": "Account ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Restricts results to the given account id."
+        }
+      ]
+    },
+    "upload_dropbox_file": {
+      "displayName": "Upload file",
+      "description": "Upload a file",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path where the file should be saved (e.g. /folder1/file.txt)"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file URL or base64 to upload"
+        },
+        {
+          "name": "autorename",
+          "displayName": "Auto Rename",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If there's a conflict, as determined by mode, have the Dropbox server try to autorename the file to avoid conflict."
+        },
+        {
+          "name": "mute",
+          "displayName": "Mute",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Normally, users are made aware of any file modifications in their Dropbox account via notifications in the client software. If true, this tells the clients that this modification shouldn't result in a user notification."
+        },
+        {
+          "name": "strict_conflict",
+          "displayName": "Strict conflict",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Be more strict about how each WriteMode detects conflict. For example, always return a conflict error when mode = WriteMode.update and the given \"rev\" doesn\\"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

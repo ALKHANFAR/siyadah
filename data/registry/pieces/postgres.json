@@ -1,0 +1,27 @@
+{
+  "id": "postgres",
+  "package": "@activepieces/piece-postgres",
+  "display_name": "Host",
+  "display_name_ar": "Host",
+  "description": " A string indicating the hostname of the PostgreSQL server to connect to.",
+  "category": "K_dev",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "run-query",
+      "display_name": "Run Query",
+      "description": "Run Query"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-row",
+      "display_name": "New Row",
+      "description": "triggered when a new row is added",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/postgres"
+}

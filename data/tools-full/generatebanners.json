@@ -1,0 +1,37 @@
+{
+  "id": "generatebanners",
+  "displayName": "GenerateBanners",
+  "auth": {
+    "type": "basic_auth"
+  },
+  "actions": {
+    "render_template": {
+      "displayName": "Render Template",
+      "description": "Render a GenerateBanners template",
+      "props": [
+        {
+          "name": "template_id",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "filetype",
+          "displayName": "File type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,364 @@
+{
+  "id": "acuity-scheduling",
+  "displayName": "Acuity Scheduling",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_blocked_time": {
+      "displayName": "Add Blocked Off Time",
+      "description": "Block off a specific time range on a calendar.",
+      "props": [
+        {
+          "name": "start",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The start date and time for the block (ISO 8601 format)."
+        },
+        {
+          "name": "end",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "The end date and time for the block (ISO 8601 format)."
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional notes for the blocked off time."
+        }
+      ]
+    },
+    "create_appointment": {
+      "displayName": "Create Appointment",
+      "description": "Creates a new appointment.",
+      "props": [
+        {
+          "name": "datetime",
+          "displayName": "DateTime",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Date and time of the appointment."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Client's first name."
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Client's last name."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's email address. (Optional if booking as admin)."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's phone number."
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Client's timezone (e.g., America/New_York). Required for accurate availability checking."
+        },
+        {
+          "name": "adminBooking",
+          "displayName": "Book as Admin",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to book as an admin. Disables availability/attribute validations, allows setting notes, and makes Calendar ID required."
+        },
+        {
+          "name": "noEmail",
+          "displayName": "Suppress Confirmation Email/SMS",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, confirmation emails or SMS will not be sent."
+        },
+        {
+          "name": "certificate",
+          "displayName": "Certificate Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Package or coupon certificate code."
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Appointment notes. Only settable if booking as admin."
+        },
+        {
+          "name": "smsOptIn",
+          "displayName": "SMS Opt-In",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Indicates whether the client has explicitly given permission to receive SMS messages."
+        }
+      ]
+    },
+    "create_client": {
+      "displayName": "Create Client",
+      "description": "Creates a new client.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Client's first name."
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Client's last name."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's phone number."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's email address."
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Notes about the client."
+        }
+      ]
+    },
+    "find_appointment": {
+      "displayName": "Find Appointment(s)",
+      "description": "Find appointments based on various criteria, including client information.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "Client First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter appointments by client first name."
+        },
+        {
+          "name": "lastName",
+          "displayName": "Client Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter appointments by client last name."
+        },
+        {
+          "name": "email",
+          "displayName": "Client Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter appointments by client e-mail address."
+        },
+        {
+          "name": "phone",
+          "displayName": "Client Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter appointments by client phone number. URL encode '+' if using country codes (e.g., %2B1234567890)."
+        },
+        {
+          "name": "minDate",
+          "displayName": "Min Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only get appointments on or after this date."
+        },
+        {
+          "name": "maxDate",
+          "displayName": "Max Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only get appointments on or before this date."
+        },
+        {
+          "name": "status",
+          "displayName": "Appointment Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by appointment status."
+        },
+        {
+          "name": "maxResults",
+          "displayName": "Max Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of results to return (default 100)."
+        },
+        {
+          "name": "direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort direction for the results."
+        }
+      ]
+    },
+    "find_client": {
+      "displayName": "Find Client",
+      "description": "Finds client based on seach term.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Filter client list by first name, last name, or phone number."
+        }
+      ]
+    },
+    "reschedule_appointment": {
+      "displayName": "Reschedule Appointment",
+      "description": "Reschedules an existing appointment to a new date/time.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Appointment ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The ID of the appointment to reschedule."
+        },
+        {
+          "name": "datetime",
+          "displayName": "DateTime",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "New Date and time of the appointment."
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Client's timezone (e.g., America/New_York)."
+        },
+        {
+          "name": "adminReschedule",
+          "displayName": "Reschedule as Admin",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to reschedule as an admin. Disables availability validations."
+        },
+        {
+          "name": "noEmail",
+          "displayName": "Suppress Rescheduling Email/SMS",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, rescheduling emails or SMS will not be sent."
+        }
+      ]
+    },
+    "update_client": {
+      "displayName": "Update Client",
+      "description": "Updates an existing client.",
+      "props": [
+        {
+          "name": "currentFirstName",
+          "displayName": "Current First Name (Identifier)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The current first name of the client to update."
+        },
+        {
+          "name": "currentLastName",
+          "displayName": "Current Last Name (Identifier)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The current last name of the client to update."
+        },
+        {
+          "name": "currentPhone",
+          "displayName": "Current Phone (Identifier, Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The current phone number of the client to update. Helps identify the client if names are not unique."
+        },
+        {
+          "name": "newFirstName",
+          "displayName": "New First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's new first name. Leave blank to keep current."
+        },
+        {
+          "name": "newLastName",
+          "displayName": "New Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's new last name. Leave blank to keep current."
+        },
+        {
+          "name": "newEmail",
+          "displayName": "New Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's new email address. Leave blank to keep current."
+        },
+        {
+          "name": "newPhone",
+          "displayName": "New Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Client's new phone number. Leave blank to keep current."
+        },
+        {
+          "name": "newNotes",
+          "displayName": "New Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "New notes about the client. Leave blank to keep current."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "appointment_canceled": {
+      "displayName": "Appointment Canceled",
+      "description": "Triggers when an appointment is canceled.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_appointment": {
+      "displayName": "New Appointment",
+      "description": "Triggers when a new appointment is scheduled.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

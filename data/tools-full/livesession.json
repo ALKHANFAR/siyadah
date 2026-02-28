@@ -1,0 +1,37 @@
+{
+  "id": "livesession",
+  "displayName": "LiveSession",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "sessionEvent": {
+      "displayName": "Session Event",
+      "description": "Triggered when a session event occurs in LiveSession",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "website_id",
+          "displayName": "Website ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The website ID to listen for session events"
+        },
+        {
+          "name": "api_version",
+          "displayName": "API Version",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "API version (e.g., v1.0)"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "id": "instantly-ai",
+  "displayName": "Instantly.ai",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_lead_to_campaign": {
+      "displayName": "Add Lead to Campaign",
+      "description": "Adds a lead to a campaign.",
+      "props": [
+        {
+          "name": "skip_if_in_campaign",
+          "displayName": "Skip if in Campaign",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Skip lead if it exists in the campaign."
+        }
+      ]
+    },
+    "create_campaign": {
+      "displayName": "Create Campaign",
+      "description": "Create a new cold email campaign in Instantly",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Campaign Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the campaign"
+        },
+        {
+          "name": "schedule_time_from",
+          "displayName": "Schedule Time From",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Start time in 24-hour format (e.g., \"09:00\")"
+        },
+        {
+          "name": "schedule_time_to",
+          "displayName": "Schedule Time To",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "End time in 24-hour format (e.g., \"17:00\")"
+        },
+        {
+          "name": "schedule_timezone",
+          "displayName": "Schedule Timezone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Timezone for the schedule i.e. \"America/Dawson\"."
+        },
+        {
+          "name": "weekday_sending",
+          "displayName": "Send on Weekdays",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to send emails Monday-Friday"
+        },
+        {
+          "name": "weekend_sending",
+          "displayName": "Send on Weekends",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to send emails Saturday-Sunday"
+        },
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date to start the campaign"
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Date to end the campaign"
+        },
+        {
+          "name": "pl_value",
+          "displayName": "Positive Lead Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Value of every positive lead"
+        },
+        {
+          "name": "is_evergreen",
+          "displayName": "Is Evergreen",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the campaign is evergreen"
+        },
+        {
+          "name": "email_gap",
+          "displayName": "Email Gap",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Gap between emails in minutes"
+        },
+        {
+          "name": "random_wait_max",
+          "displayName": "Maximum Random Wait Time",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum random wait time in minutes"
+        },
+        {
+          "name": "text_only",
+          "displayName": "Text Only",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the campaign is text-only"
+        },
+        {
+          "name": "daily_limit",
+          "displayName": "Daily Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Daily limit for sending emails"
+        },
+        {
+          "name": "stop_on_reply",
+          "displayName": "Stop on Reply",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to stop campaign on reply"
+        },
+        {
+          "name": "link_tracking",
+          "displayName": "Link Tracking",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to track links in emails"
+        },
+        {
+          "name": "open_tracking",
+          "displayName": "Open Tracking",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to track opens in emails"
+        },
+        {
+          "name": "stop_on_auto_reply",
+          "displayName": "Stop on Auto Reply",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to stop campaign on auto-reply"
+        },
+        {
+          "name": "daily_max_leads",
+          "displayName": "Daily Maximum Leads",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum daily new leads to contact"
+        },
+        {
+          "name": "prioritize_new_leads",
+          "displayName": "Prioritize New Leads",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to prioritize new leads"
+        },
+        {
+          "name": "match_lead_esp",
+          "displayName": "Match Lead ESP",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to match leads by ESP"
+        },
+        {
+          "name": "stop_for_company",
+          "displayName": "Stop for Company",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Stop campaign for the company (domain) when a lead replies"
+        },
+        {
+          "name": "insert_unsubscribe_header",
+          "displayName": "Insert Unsubscribe Header",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Insert unsubscribe header in emails"
+        },
+        {
+          "name": "allow_risky_contacts",
+          "displayName": "Allow Risky Contacts",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow risky contacts"
+        },
+        {
+          "name": "disable_bounce_protect",
+          "displayName": "Disable Bounce Protection",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Disable bounce protection"
+        }
+      ]
+    },
+    "create_lead_list": {
+      "displayName": "Create Lead List",
+      "description": "Creates a new lead list.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "has_enrichment_task",
+          "displayName": "Enable Enrichment",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether this list runs the enrichment process on every added lead or not."
+        }
+      ]
+    },
+    "search_campaigns": {
+      "displayName": "Search Campaigns",
+      "description": "Searchs for campaigns using various filters.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Campaign Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "search_leads": {
+      "displayName": "Search Leads",
+      "description": "Search for leads in Instantly by name or email.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search string to find leads - can be First Name, Last Name, or Email (e.g. \"John Doe\")."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "campaign_status_changed": {
+      "displayName": "Campaign Status Changed",
+      "description": "Triggers when a campaign status changes (completed, paused, etc.).",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "md",
+          "displayName": "md",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_lead_added": {
+      "displayName": "New Lead Added",
+      "description": "Triggers when a new lead is added to a campaign",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

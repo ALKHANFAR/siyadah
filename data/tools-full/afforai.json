@@ -1,0 +1,58 @@
+{
+  "id": "afforai",
+  "displayName": "Afforai",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "afforai_ask_chatbot": {
+      "displayName": "Ask Chatbot",
+      "description": "Gets AI-generated completions for a given chatbot.",
+      "props": [
+        {
+          "name": "sessionID",
+          "displayName": "Chatbot ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "You can find Chatbot ID by clicking settings button under **Actions** for given chatbot."
+        },
+        {
+          "name": "history",
+          "displayName": "Chat History",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The role of the message sender."
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The role of the message sender."
+        },
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the message."
+        },
+        {
+          "name": "powerful",
+          "displayName": "AI should search more deeply for information in the given files ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "google",
+          "displayName": "AI to search for information on Google?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,25 @@
+{
+  "id": "tavily",
+  "package": "@activepieces/piece-tavily",
+  "display_name": "Tavily",
+  "display_name_ar": "Tavily",
+  "description": "Search engine tailored for AI agents.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "extract",
+      "display_name": "Extract Content",
+      "description": "Retrieve raw web content from specified URLs."
+    },
+    {
+      "name": "search",
+      "display_name": "Search",
+      "description": "Search for data based on a query."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/tavily"
+}

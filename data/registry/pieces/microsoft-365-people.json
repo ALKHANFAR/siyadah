@@ -1,0 +1,57 @@
+{
+  "id": "microsoft-365-people",
+  "package": "@activepieces/piece-microsoft-365-people",
+  "display_name": "Microsoft 365 People",
+  "display_name_ar": "Microsoft 365 People",
+  "description": "Manage contacts in Microsoft 365 People",
+  "category": "L_microsoft",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createContactFolder",
+      "display_name": "Create a Contact Folder",
+      "description": "Organize contacts by adding a new contact folder."
+    },
+    {
+      "name": "createContact",
+      "display_name": "Create a Contact",
+      "description": "Create a new contact in People with detailed attributes (email, phone, address, etc.)."
+    },
+    {
+      "name": "deleteContact",
+      "display_name": "Delete a Contact",
+      "description": "Permanently remove a contact."
+    },
+    {
+      "name": "getContactFolder",
+      "display_name": "Get a Contact Folder",
+      "description": "Retrieve metadata (name, ID) of a specified contact folder."
+    },
+    {
+      "name": "searchContacts",
+      "display_name": "Search Contacts",
+      "description": "Find contacts by name, email, or other properties."
+    },
+    {
+      "name": "updateContact",
+      "display_name": "Update a Contact",
+      "description": "Modify fields of an existing contact."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newOrUpdatedContact",
+      "display_name": "New or Updated Contact",
+      "description": "Triggers when a contact is created or updated in Microsoft 365 People.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/microsoft-365-people"
+}

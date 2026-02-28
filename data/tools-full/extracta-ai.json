@@ -1,0 +1,239 @@
+{
+  "id": "extracta-ai",
+  "displayName": "Extracta.ai",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "extract_file_data": {
+      "displayName": "Extract File Data",
+      "description": "Upload a file and immediately receive extracted content",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload for extraction. Supported: PDF, images (JPEG, PNG, TIFF, BMP), Word docs (DOC, DOCX), text files (TXT)"
+        },
+        {
+          "name": "name",
+          "displayName": "Extraction Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A descriptive name for the extraction"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Document's language for accurate extraction. Extracta.ai supports multiple languages with advanced AI algorithms designed to parse linguistic nuances."
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields to Extract",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Define the data fields you want to extract from documents"
+        },
+        {
+          "name": "key",
+          "displayName": "Field Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier for this field (e.g., \"name\", \"email\")"
+        },
+        {
+          "name": "type",
+          "displayName": "Field Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of data to extract"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Describe what this field represents"
+        },
+        {
+          "name": "example",
+          "displayName": "Example (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sample value to help the AI understand the expected format"
+        },
+        {
+          "name": "objectProperties",
+          "displayName": "Object Properties",
+          "type": "JSON",
+          "required": false,
+          "description": "For object types: Define nested fields as an array. Example: [{\"key\":\"name\",\"type\":\"string\",\"description\":\"Full name\",\"example\":\"John Doe\"}]"
+        },
+        {
+          "name": "arrayItemProperties",
+          "displayName": "Array Item Properties",
+          "type": "JSON",
+          "required": false,
+          "description": "For array of objects: Define the structure of each array item as an array. Example: [{\"key\":\"company\",\"type\":\"string\",\"description\":\"Company name\",\"example\":\"Tech Corp\"}]"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "A description for the extraction"
+        },
+        {
+          "name": "hasTable",
+          "displayName": "Has Table",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the document contains tables"
+        },
+        {
+          "name": "hasVisuals",
+          "displayName": "Has Visuals",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the document contains charts, graphs, or diagrams"
+        },
+        {
+          "name": "handwrittenTextRecognition",
+          "displayName": "Handwritten Text Recognition",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to recognize handwritten text"
+        },
+        {
+          "name": "checkboxRecognition",
+          "displayName": "Checkbox Recognition",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to recognize checkboxes and their states"
+        },
+        {
+          "name": "longDocument",
+          "displayName": "Long Document",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable for very large or complex documents"
+        },
+        {
+          "name": "splitPdfPages",
+          "displayName": "Split PDF Pages",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Treat each PDF page as a separate extraction unit"
+        },
+        {
+          "name": "specificPageProcessing",
+          "displayName": "Specific Page Processing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Extract only a specified range of pages"
+        },
+        {
+          "name": "pageFrom",
+          "displayName": "Page From",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Starting page number (required if Specific Page Processing is enabled)"
+        },
+        {
+          "name": "pageTo",
+          "displayName": "Page To",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Ending page number (required if Specific Page Processing is enabled)"
+        }
+      ]
+    },
+    "get_extraction_results": {
+      "displayName": "Get Extraction Results",
+      "description": "Fetches successful data from extraction. Note: The API recommends a 2-second delay between requests to avoid rate-limiting.",
+      "props": [
+        {
+          "name": "extractionId",
+          "displayName": "Extraction ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the extraction"
+        },
+        {
+          "name": "batchId",
+          "displayName": "Batch ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the batch"
+        },
+        {
+          "name": "fileId",
+          "displayName": "File ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the file (optional). If provided, filters results to only that file."
+        }
+      ]
+    },
+    "upload_file": {
+      "displayName": "Upload File",
+      "description": "Uploads document for extraction",
+      "props": [
+        {
+          "name": "extractionId",
+          "displayName": "Extraction ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique identifier for the extraction"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "Document file to upload (PDF, images, etc.)"
+        },
+        {
+          "name": "batchId",
+          "displayName": "Batch ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the batch to add files to (optional). If not provided, a new batch will be created."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "extraction_failed": {
+      "displayName": "Extraction Failed",
+      "description": "Triggers when a document extraction fails.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_document_processed": {
+      "displayName": "New Document Processed",
+      "description": "Triggers when a document extraction is successfully processed.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

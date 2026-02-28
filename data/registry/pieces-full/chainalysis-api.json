@@ -1,0 +1,20 @@
+{
+  "id": "chainalysis-api",
+  "package": "@activepieces/piece-chainalysis-api",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "API Key for Chainalysis Screening API",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "checkAddressSanction",
+      "display_name": "Check Address Sanctions",
+      "description": "Check if an address is sanctioned"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "guidelite",
+  "package": "@activepieces/piece-guidelite",
+  "display_name": "GuideLite",
+  "display_name_ar": "GuideLite",
+  "description": "GuideLite is a platform that helps organizations build and utilize AI assistants",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "sendAPrompt",
+      "display_name": "Send a Prompt",
+      "description": "Send a message to a Guidelite Assistant"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newLeadSubmission",
+      "display_name": "new lead submission",
+      "description": "Trigger when a new lead is captured through the assistant conversation",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/guidelite"
+}

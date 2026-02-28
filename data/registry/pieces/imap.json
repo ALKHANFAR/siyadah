@@ -1,0 +1,42 @@
+{
+  "id": "imap",
+  "package": "@activepieces/piece-imap",
+  "display_name": "IMAP",
+  "display_name_ar": "IMAP",
+  "description": "Receive new email trigger",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "copy_email",
+      "display_name": "Copy Email",
+      "description": "Copy an email to another mailbox"
+    },
+    {
+      "name": "delete_email",
+      "display_name": "Delete Email",
+      "description": "Permanently delete an email"
+    },
+    {
+      "name": "mark_email_read",
+      "display_name": "Mark Email as Read/Unread",
+      "description": "Sets the read status of an email"
+    },
+    {
+      "name": "move_email",
+      "display_name": "Move Email",
+      "description": "Move an email to another mailbox"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_email",
+      "display_name": "New Email",
+      "description": "Trigger when a new email is received",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/imap"
+}

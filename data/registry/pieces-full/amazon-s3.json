@@ -1,0 +1,57 @@
+{
+  "id": "amazon-s3",
+  "package": "@activepieces/piece-amazon-s3",
+  "display_name": "Amazon S3",
+  "display_name_ar": "",
+  "description": "Scalable storage in the cloud",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "decrypt-pgp-file",
+      "display_name": "Decrypt PGP File",
+      "description": "Decrypt a PGP encrypted file from S3 using a private key stored in AWS Secrets Manager"
+    },
+    {
+      "name": "deleteFile",
+      "display_name": "Delete File",
+      "description": "Deletes an existing file."
+    },
+    {
+      "name": "generate-signed-url",
+      "display_name": "Generate signed URL",
+      "description": "Generate a signed URL for a file in a s3 bucket"
+    },
+    {
+      "name": "list-files",
+      "display_name": "List Files",
+      "description": "List all files from an S3 bucket folder/prefix."
+    },
+    {
+      "name": "moveFile",
+      "display_name": "Move File",
+      "description": "Move a File to Another Folder"
+    },
+    {
+      "name": "read-file",
+      "display_name": "Read File",
+      "description": "Read a file from S3 to use it in other steps"
+    },
+    {
+      "name": "upload-file",
+      "display_name": "Upload File",
+      "description": "Upload an File to S3"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_file",
+      "display_name": "New or Updated File",
+      "description": "Triggers when you add or update a file in your bucket. The bucket/folder you choose must not contain more than 10,000 files.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

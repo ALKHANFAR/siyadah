@@ -1,0 +1,20 @@
+{
+  "id": "gistly",
+  "package": "@activepieces/piece-gistly",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "YouTube Transcripts",
+  "category": "K_dev",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_transcript",
+      "display_name": "Get Transcript",
+      "description": "Fetches transcript of a YouTube video."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/gistly"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "sendgrid",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "send_dynamic_template": {
+      "displayName": "Send Dynamic Template",
+      "description": "Send an email using a dynamic template",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Emails of the recipients"
+        },
+        {
+          "name": "from_name",
+          "displayName": "From (Name)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sender name"
+        },
+        {
+          "name": "from",
+          "displayName": "From (Email)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sender email, must be on your SendGrid"
+        },
+        {
+          "name": "template_id",
+          "displayName": "Template Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Dynamic template id"
+        },
+        {
+          "name": "template_data",
+          "displayName": "Template Data",
+          "type": "JSON",
+          "required": true,
+          "description": "Dynamic template data"
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email to receive replies on (defaults to sender)"
+        }
+      ]
+    },
+    "send_email": {
+      "displayName": "Send Email",
+      "description": "Send a text or HTML email",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Emails of the recipients"
+        },
+        {
+          "name": "from",
+          "displayName": "From (Email)",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sender email, must be on your SendGrid"
+        },
+        {
+          "name": "from_name",
+          "displayName": "From (Name)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sender name"
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email to receive replies on (defaults to sender)"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "HTML is only allowed if you selected HTML as type"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

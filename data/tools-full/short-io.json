@@ -1,0 +1,637 @@
+{
+  "id": "short-io",
+  "displayName": "Short.io",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create-country-targeting-rule": {
+      "displayName": "Create Country Targeting Rule",
+      "description": "Set geographic targeting rules for a link with specific destination per country.",
+      "props": [
+        {
+          "name": "country",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ISO 3166-1 alpha-2 country code (e.g., US, GB, CA, IN). Must be exactly 2 characters."
+        },
+        {
+          "name": "originalURL",
+          "displayName": "Country-Specific Redirect URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The destination URL when users from this country access the link. Must be a valid URL."
+        }
+      ]
+    },
+    "create-short-link": {
+      "displayName": "Create Short Link",
+      "description": "Create a new short link with optional parameters (title, UTM tags, expiration, cloaking, etc.)",
+      "props": [
+        {
+          "name": "originalURL",
+          "displayName": "Original URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "cloaking",
+          "displayName": "Enable Cloaking",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "redirectType",
+          "displayName": "Redirect Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The HTTP status code for the redirect. The default is 302 (Found)."
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expiration Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the link will become inactive."
+        },
+        {
+          "name": "expiredURL",
+          "displayName": "Expired Redirect URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags for the link"
+        },
+        {
+          "name": "utmSource",
+          "displayName": "UTM Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmMedium",
+          "displayName": "UTM Medium",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmCampaign",
+          "displayName": "UTM Campaign",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmTerm",
+          "displayName": "UTM Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmContent",
+          "displayName": "UTM Content",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ttl",
+          "displayName": "Time to Live (in seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "⚠️ CAUTION: Link will be PERMANENTLY DELETED after this many seconds. This action cannot be undone. Use with extreme caution."
+        },
+        {
+          "name": "androidURL",
+          "displayName": "Android URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "iphoneURL",
+          "displayName": "iPhone URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "createdAt",
+          "displayName": "Creation Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Overrides the creation time of the link."
+        },
+        {
+          "name": "clicksLimit",
+          "displayName": "Clicks Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Disable link after specified number of clicks (minimum: 1)"
+        },
+        {
+          "name": "passwordContact",
+          "displayName": "Show Contact for Password Recovery",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "skipQS",
+          "displayName": "Skip Query String Merge",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "archived",
+          "displayName": "Archive Link",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "splitURL",
+          "displayName": "Split URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "splitPercent",
+          "displayName": "Split Percent",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Split URL percentage (1-100)"
+        },
+        {
+          "name": "integrationAdroll",
+          "displayName": "Adroll Integration ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "integrationFB",
+          "displayName": "Facebook Integration ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "integrationGA",
+          "displayName": "Google Analytics ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "integrationGTM",
+          "displayName": "Google Tag Manager ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "allowDuplicates",
+          "displayName": "Allow Duplicates",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "path",
+          "displayName": "Path",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Custom path for the short link (optional)."
+        }
+      ]
+    },
+    "delete-short-link": {
+      "displayName": "Delete Short Link",
+      "description": "Permanently delete a short link by its unique link ID.",
+      "props": [
+        {
+          "name": "linkId",
+          "displayName": "Link ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the short link you want to delete (e.g., lnk_61Mb_0dnRUg3vvtmAPZh3dhQh6)"
+        }
+      ]
+    },
+    "get-domain-statistics": {
+      "displayName": "Domain Statistics",
+      "description": "Retrieve usage stats (clicks, conversions) for a domain within a time period.",
+      "props": [
+        {
+          "name": "period",
+          "displayName": "Time Period",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select a predefined time interval or choose \"Custom\" to set specific dates."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Start date for statistics (required when period is \"Custom\")."
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "End date for statistics (required when period is \"Custom\")."
+        },
+        {
+          "name": "tz",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Timezone for statistics (e.g., UTC, America/New_York, Europe/London). Defaults to UTC."
+        },
+        {
+          "name": "clicksChartInterval",
+          "displayName": "Chart Interval",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Granularity for click statistics chart data."
+        }
+      ]
+    },
+    "expire-short-link": {
+      "displayName": "Expire Short Link",
+      "description": "Set an expiration date or click limit to deactivate a short link.",
+      "props": [
+        {
+          "name": "expiresAt",
+          "displayName": "Expiration Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the link will become inactive."
+        },
+        {
+          "name": "clicksLimit",
+          "displayName": "Clicks Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Disable link after specified number of clicks (minimum: 1)"
+        },
+        {
+          "name": "expiredURL",
+          "displayName": "Expired Redirect URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional URL to redirect users when the link has expired."
+        }
+      ]
+    },
+    "get-short-link-info-by-path": {
+      "displayName": "Get Link by Path",
+      "description": "Retrieve detailed information about a short link using its domain and path.",
+      "props": [
+        {
+          "name": "path",
+          "displayName": "Link Path",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The path/slug of the short link (e.g., \"abc123\", \"my-link\"). Do not include domain or slashes."
+        }
+      ]
+    },
+    "get-link-clicks": {
+      "displayName": "Get Link Clicks",
+      "description": "Retrieve click statistics for specific short links by their IDs.",
+      "props": [
+        {
+          "name": "ids",
+          "displayName": "Link IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of link IDs to fetch click statistics for (e.g., lnk_61Mb_0dnRUg3vvtmAPZh3dhQh6)."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Start date for click statistics (optional)."
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "End date for click statistics (optional)."
+        }
+      ]
+    },
+    "list-short-links": {
+      "displayName": "List Links",
+      "description": "Retrieve all links on a domain, with pagination and date-range filters.",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results to return (1-150). Default is 50."
+        },
+        {
+          "name": "idString",
+          "displayName": "Link ID Filter",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by specific link ID (optional)."
+        },
+        {
+          "name": "createdAt",
+          "displayName": "Exact Creation Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by exact creation time (ISO format or timestamp)."
+        },
+        {
+          "name": "beforeDate",
+          "displayName": "Before Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Return links created before this date and time."
+        },
+        {
+          "name": "afterDate",
+          "displayName": "After Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Return links created after this date and time."
+        },
+        {
+          "name": "dateSortOrder",
+          "displayName": "Date Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Order links by creation date."
+        },
+        {
+          "name": "pageToken",
+          "displayName": "Page Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Token for paginated results (get this from previous response)."
+        }
+      ]
+    },
+    "update-short-link": {
+      "displayName": "Update Short Link",
+      "description": "The HTTP status code for the redirect. The default is 302 (Found).",
+      "props": [
+        {
+          "name": "originalURL",
+          "displayName": "Original URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "path",
+          "displayName": "Custom Path (Slug)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "cloaking",
+          "displayName": "Enable Cloaking",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "redirectType",
+          "displayName": "Redirect Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The HTTP status code for the redirect. The default is 302 (Found)."
+        },
+        {
+          "name": "expiresAt",
+          "displayName": "Expiration Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the link will become inactive."
+        },
+        {
+          "name": "expiredURL",
+          "displayName": "Expired Redirect URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags for the link"
+        },
+        {
+          "name": "utmSource",
+          "displayName": "UTM Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmMedium",
+          "displayName": "UTM Medium",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmCampaign",
+          "displayName": "UTM Campaign",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmTerm",
+          "displayName": "UTM Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "utmContent",
+          "displayName": "UTM Content",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ttl",
+          "displayName": "Time to Live (in seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "⚠️ CAUTION: Link will be PERMANENTLY DELETED after this many seconds. This action cannot be undone. Use with extreme caution."
+        },
+        {
+          "name": "androidURL",
+          "displayName": "Android URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "iphoneURL",
+          "displayName": "iPhone URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "createdAt",
+          "displayName": "Creation Time",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Overrides the creation time of the link."
+        },
+        {
+          "name": "clicksLimit",
+          "displayName": "Clicks Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Disable link after specified number of clicks (minimum: 1)"
+        },
+        {
+          "name": "passwordContact",
+          "displayName": "Show Contact for Password Recovery",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "skipQS",
+          "displayName": "Skip Query String Merge",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "archived",
+          "displayName": "Archive Link",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "splitURL",
+          "displayName": "Split URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "splitPercent",
+          "displayName": "Split Percent",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Split URL percentage (1-100)"
+        },
+        {
+          "name": "integrationAdroll",
+          "displayName": "Adroll Integration ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "integrationFB",
+          "displayName": "Facebook Integration ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "integrationGA",
+          "displayName": "Google Analytics ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "integrationGTM",
+          "displayName": "Google Tag Manager ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_link_created": {
+      "displayName": "New Link Created",
+      "description": "Fires when a new short link is created on a domain. Useful to sync newly created links to other systems.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "pollingInterval",
+          "displayName": "Polling Interval",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How often to check for new links. More frequent polling may hit rate limits."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "orimon",
+  "package": "@activepieces/piece-orimon",
+  "display_name": "Orimon",
+  "display_name_ar": "Orimon",
+  "description": "Orimon integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "sendMessage",
+      "display_name": "Send Message",
+      "description": "Send a message to an Orimon chatbot and get a response"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newLead",
+      "display_name": "New Lead",
+      "description": "Trigger when a new lead is captured by your Orimon chatbot",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/orimon"
+}

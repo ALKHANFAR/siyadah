@@ -1,0 +1,98 @@
+{
+  "id": "mollie",
+  "package": "@activepieces/piece-mollie",
+  "display_name": "Mollie",
+  "display_name_ar": "",
+  "description": "Automate Mollie payments, orders, refunds, customers, and invoices. Triggers on payment events and statuses.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_customer",
+      "display_name": "Create Customer",
+      "description": "Creates a new customer in Mollie"
+    },
+    {
+      "name": "create_order",
+      "display_name": "Create Order",
+      "description": "⚠️ We no longer recommend using the Orders API. Please refer to the Payments API instead.\\n\\nCreate a new order in Mollie"
+    },
+    {
+      "name": "create_payment_link",
+      "display_name": "Create Payment Link",
+      "description": "Generate a new payment link targeting a customer, product, or specific amount"
+    },
+    {
+      "name": "create_payment_refund",
+      "display_name": "Create Payment Refund",
+      "description": "Creates refund for payment"
+    },
+    {
+      "name": "create_payment",
+      "display_name": "Create Payment",
+      "description": "Creates a new payment in Mollie"
+    },
+    {
+      "name": "search_customer",
+      "display_name": "Search Customer",
+      "description": "Retrieve a list of all customers"
+    },
+    {
+      "name": "search_order",
+      "display_name": "Search Order",
+      "description": "⚠️ We no longer recommend using the Orders API. Please refer to the Payments API instead.\\n\\nSearches for orders in Mollie"
+    },
+    {
+      "name": "search_payment",
+      "display_name": "Search Payment",
+      "description": "Retrieve all payments created with the current website profile"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_chargeback",
+      "display_name": "New Payment Chargeback",
+      "description": "Fires upon a payment chargeback event",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_customer",
+      "display_name": "New Customer",
+      "description": "Fires when a new customer is created in Mollie",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_invoice",
+      "display_name": "New Invoice",
+      "description": "Fires when a new invoice is generated",
+      "type": "instant"
+    },
+    {
+      "name": "new_order",
+      "display_name": "New Order",
+      "description": "Fires when a new order is created in Mollie",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_payment",
+      "display_name": "New Payment",
+      "description": "Fires when a new payment is created/received",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_refund",
+      "display_name": "New Refund",
+      "description": "Fires when a payment refund is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_settlement",
+      "display_name": "New Settlement",
+      "description": "Fires upon a new settlement event (e.g. payout)",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

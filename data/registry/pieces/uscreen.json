@@ -1,0 +1,61 @@
+{
+  "id": "uscreen",
+  "package": "@activepieces/piece-uscreen",
+  "display_name": "Uscreen",
+  "display_name_ar": "Uscreen",
+  "description": "All-in-one video monetization platform for creating, hosting, and selling online courses, memberships, and video content.",
+  "category": "H_marketing",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "assign_user_access",
+      "display_name": "Assign User Access",
+      "description": "Schedule a time for the action to be performed (ISO 8601 format, e.g., 2024-07-05T13:47:52Z). Leave blank to assign immediately."
+    },
+    {
+      "name": "create_user",
+      "display_name": "Create User",
+      "description": "Creates a new user and optionally sends them a welcome email to your storefront."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "began_to_play_video",
+      "display_name": "Began to Play Video",
+      "description": "Triggers when a user plays a video for the first time.",
+      "type": "instant"
+    },
+    {
+      "name": "canceled_subscription",
+      "display_name": "Canceled Subscription",
+      "description": "Triggers when a subscription is canceled for a user.",
+      "type": "instant"
+    },
+    {
+      "name": "new_user",
+      "display_name": "New User",
+      "description": "Triggers when a new user is added to your storefront.",
+      "type": "instant"
+    },
+    {
+      "name": "paid_order",
+      "display_name": "Paid Order",
+      "description": "Triggers when a payment is processed for subscriptions, bundles, or content.",
+      "type": "instant"
+    },
+    {
+      "name": "user_updated",
+      "display_name": "User Updated",
+      "description": "Triggers when a user’s profile or information is updated.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/uscreen"
+}

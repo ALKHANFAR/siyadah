@@ -1,0 +1,653 @@
+{
+  "id": "kapso",
+  "displayName": "Kapso",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "mark_as_read": {
+      "displayName": "Mark Message as Read",
+      "description": "Mark a WhatsApp message as read.",
+      "props": [
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the message to mark as read."
+        }
+      ]
+    },
+    "request_user_location": {
+      "displayName": "Request User Location",
+      "description": "Send a location request message to a WhatsApp user.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "bodyText",
+          "displayName": "Body Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message body displayed with the location request."
+        }
+      ]
+    },
+    "send_audio": {
+      "displayName": "Send Audio",
+      "description": "Send an audio message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "audioUrl",
+          "displayName": "Audio URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Public URL of the audio file to send."
+        },
+        {
+          "name": "audioId",
+          "displayName": "Audio Media ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Media ID of a previously uploaded audio. Use either URL or Media ID."
+        }
+      ]
+    },
+    "send_buttons": {
+      "displayName": "Send Button Message",
+      "description": "Send an interactive button message via WhatsApp (up to 3 buttons).",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "bodyText",
+          "displayName": "Body Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message body displayed above the buttons."
+        },
+        {
+          "name": "buttons",
+          "displayName": "Buttons",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Up to 3 buttons. Each button needs an ID and a title (max 20 characters)."
+        },
+        {
+          "name": "id",
+          "displayName": "Button ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A unique identifier for this button (returned when the user taps it)."
+        },
+        {
+          "name": "title",
+          "displayName": "Button Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The text displayed on the button (max 20 characters)."
+        },
+        {
+          "name": "footerText",
+          "displayName": "Footer Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional footer text displayed below the buttons."
+        }
+      ]
+    },
+    "send_contact": {
+      "displayName": "Send Contact",
+      "description": "Send a contact card via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "formattedName",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact\\"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact\\"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact\\"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact\\"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact\\"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact\\"
+        }
+      ]
+    },
+    "send_document": {
+      "displayName": "Send Document",
+      "description": "Send a document message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "documentUrl",
+          "displayName": "Document URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Public URL of the document to send."
+        },
+        {
+          "name": "documentId",
+          "displayName": "Document Media ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Media ID of a previously uploaded document. Use either URL or Media ID."
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The filename to display for the document."
+        },
+        {
+          "name": "caption",
+          "displayName": "Caption",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional caption for the document."
+        }
+      ]
+    },
+    "send_image": {
+      "displayName": "Send Image",
+      "description": "Send an image message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Public URL of the image to send."
+        },
+        {
+          "name": "imageId",
+          "displayName": "Image Media ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Media ID of a previously uploaded image. Use either URL or Media ID."
+        },
+        {
+          "name": "caption",
+          "displayName": "Caption",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional caption for the image."
+        }
+      ]
+    },
+    "send_list_message": {
+      "displayName": "Send List Message",
+      "description": "Send an interactive list message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "bodyText",
+          "displayName": "Body Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message body displayed above the list."
+        },
+        {
+          "name": "buttonText",
+          "displayName": "Button Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The text on the button that opens the list (max 20 characters)."
+        },
+        {
+          "name": "sections",
+          "displayName": "Sections",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List sections. Each section contains a title and rows."
+        },
+        {
+          "name": "title",
+          "displayName": "Section Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title of this section."
+        },
+        {
+          "name": "rows",
+          "displayName": "Rows",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON array of row objects. Each row needs: id, title, and optionally description. Example: [{\"id\":\"row_1\",\"title\":\"Option 1\",\"description\":\"First option\"}]"
+        },
+        {
+          "name": "headerText",
+          "displayName": "Header Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional header text."
+        },
+        {
+          "name": "footerText",
+          "displayName": "Footer Text",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional footer text."
+        }
+      ]
+    },
+    "send_location": {
+      "displayName": "Send Location",
+      "description": "Send a location message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "latitude",
+          "displayName": "Latitude",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Latitude of the location."
+        },
+        {
+          "name": "longitude",
+          "displayName": "Longitude",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Longitude of the location."
+        },
+        {
+          "name": "name",
+          "displayName": "Location Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the location."
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Address of the location."
+        }
+      ]
+    },
+    "send_reaction": {
+      "displayName": "Send Reaction",
+      "description": "React to a WhatsApp message with an emoji.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "messageId",
+          "displayName": "Message ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the message to react to."
+        },
+        {
+          "name": "emoji",
+          "displayName": "Emoji",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The emoji to react with (e.g. 👍). Leave empty to remove a reaction."
+        }
+      ]
+    },
+    "send_sticker": {
+      "displayName": "Send Sticker",
+      "description": "Send a sticker message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "stickerUrl",
+          "displayName": "Sticker URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Public URL of the sticker (WebP format)."
+        },
+        {
+          "name": "stickerId",
+          "displayName": "Sticker Media ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Media ID of a previously uploaded sticker. Use either URL or Media ID."
+        }
+      ]
+    },
+    "send_template_message": {
+      "displayName": "Send Template Message",
+      "description": "Send a pre-approved WhatsApp template message.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "headerType",
+          "displayName": "Header Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of header your template uses. Leave as None if no header."
+        },
+        {
+          "name": "headerTextParameters",
+          "displayName": "Header Text Parameters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Text header parameters (only if header type is Text)."
+        },
+        {
+          "name": "parameterName",
+          "displayName": "Parameter Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the header parameter (e.g. sale_name)."
+        },
+        {
+          "name": "text",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to substitute for this parameter."
+        },
+        {
+          "name": "headerMediaUrl",
+          "displayName": "Header Media URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Public URL of the media file for image, video, or document headers."
+        },
+        {
+          "name": "headerMediaFilename",
+          "displayName": "Header Document Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filename for document headers (e.g. invoice.pdf)."
+        },
+        {
+          "name": "headerLocationLatitude",
+          "displayName": "Header Location Latitude",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Latitude for location headers."
+        },
+        {
+          "name": "headerLocationLongitude",
+          "displayName": "Header Location Longitude",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Longitude for location headers."
+        },
+        {
+          "name": "headerLocationName",
+          "displayName": "Header Location Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the location (e.g. Delivery Location)."
+        },
+        {
+          "name": "headerLocationAddress",
+          "displayName": "Header Location Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Address of the location."
+        },
+        {
+          "name": "bodyParameters",
+          "displayName": "Body Parameters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Template body parameters. Each entry needs a parameter name and value."
+        },
+        {
+          "name": "parameterName",
+          "displayName": "Parameter Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the template parameter (e.g. customer_name)."
+        },
+        {
+          "name": "text",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to substitute for this parameter."
+        },
+        {
+          "name": "buttonParameters",
+          "displayName": "Button Parameters",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Template button parameters. Each entry maps to a button by index."
+        },
+        {
+          "name": "subType",
+          "displayName": "Button Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of button."
+        },
+        {
+          "name": "index",
+          "displayName": "Button Index",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Zero-based index of the button (e.g. 0, 1, 2)."
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "For quick_reply: the payload string. For url: the dynamic URL suffix. For otp: the OTP code. Leave empty for flow buttons."
+        },
+        {
+          "name": "flowToken",
+          "displayName": "Flow Token",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Token for flow buttons (e.g. a session identifier)."
+        },
+        {
+          "name": "flowActionData",
+          "displayName": "Flow Action Data",
+          "type": "JSON",
+          "required": false,
+          "description": "JSON object with data to pass to the flow (e.g. {\"customer_id\": \"123\"})."
+        }
+      ]
+    },
+    "send_text_message": {
+      "displayName": "Send Text Message",
+      "description": "Send a text message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "body",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text message to send."
+        },
+        {
+          "name": "previewUrl",
+          "displayName": "Preview URL",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to show a link preview if the message contains a URL."
+        }
+      ]
+    },
+    "send_video": {
+      "displayName": "Send Video",
+      "description": "Send a video message via WhatsApp.",
+      "props": [
+        {
+          "name": "to",
+          "displayName": "Recipient Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The recipient\\"
+        },
+        {
+          "name": "videoUrl",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Public URL of the video to send."
+        },
+        {
+          "name": "videoId",
+          "displayName": "Video Media ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Media ID of a previously uploaded video. Use either URL or Media ID."
+        },
+        {
+          "name": "caption",
+          "displayName": "Caption",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional caption for the video."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "message_status_update": {
+      "displayName": "Message Status Update",
+      "description": "Triggers when a message status changes (sent, delivered, read).",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setup",
+          "displayName": "setup",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "statusFilter",
+          "displayName": "Status Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Only trigger for a specific status. Leave as All to trigger for any status change."
+        }
+      ]
+    },
+    "new_message_received": {
+      "displayName": "New Message Received",
+      "description": "Triggers when a new WhatsApp message is received.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "setup",
+          "displayName": "setup",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

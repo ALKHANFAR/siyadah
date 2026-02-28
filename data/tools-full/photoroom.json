@@ -1,0 +1,30 @@
+{
+  "id": "photoroom",
+  "displayName": "API key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "removeBackground": {
+      "displayName": "Remove background",
+      "description": "Remove the background of the image given as input",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Image file",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "filename",
+          "displayName": "Generated filename",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

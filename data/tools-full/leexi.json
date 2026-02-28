@@ -1,0 +1,35 @@
+{
+  "id": "leexi",
+  "displayName": "Leexi",
+  "auth": {
+    "type": "basic_auth"
+  },
+  "actions": {
+    "get-call": {
+      "displayName": "Get Call",
+      "description": "Gets call details.",
+      "props": [
+        {
+          "name": "callId",
+          "displayName": "Call ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-call-created": {
+      "displayName": "New Call Created",
+      "description": "Triggers when a new call is created.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

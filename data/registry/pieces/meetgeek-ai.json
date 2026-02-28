@@ -1,0 +1,52 @@
+{
+  "id": "meetgeek-ai",
+  "package": "@activepieces/piece-meetgeek-ai",
+  "display_name": "Meetgeek",
+  "display_name_ar": "Meetgeek",
+  "description": "AI-powered meeting assistant that automates note-taking, summarization, and insights generation for your meetings.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "getHighlights",
+      "display_name": "Get Highlights",
+      "description": "Retrieves all highlights for a meeting by meeting ID"
+    },
+    {
+      "name": "getMeetingDetails",
+      "display_name": "Get Meeting Details",
+      "description": "Retrieves meeting details including host, participants, timestamps, and source information"
+    },
+    {
+      "name": "getMeetingsSummaryInsights",
+      "display_name": "Get Meeting Summary & AI Insights",
+      "description": "Retrieves the meeting summary and AI-generated insights"
+    },
+    {
+      "name": "getTeamMeetings",
+      "display_name": "Get Team Meetings",
+      "description": "Retrieves paginated past meetings of a team"
+    },
+    {
+      "name": "getTranscript",
+      "display_name": "Get Transcript",
+      "description": "Retrieves all transcript sentences for a meeting with pagination support"
+    },
+    {
+      "name": "uploadRecording",
+      "display_name": "Upload Recording",
+      "description": "Upload a video or audio file for analysis and receive a notification upon completion via webhook"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newMeeting",
+      "display_name": "New Meeting",
+      "description": "Triggers when a meeting analysis is completed and highlights are available.\n",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/meetgeek-ai"
+}

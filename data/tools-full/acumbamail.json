@@ -1,0 +1,128 @@
+{
+  "id": "acumbamail",
+  "displayName": "Acumbamail",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "acumbamail_add_update_subscriber": {
+      "displayName": "Add/Update Subscriber",
+      "description": "Adds a new subscriber to a subscriber list of your choosing.Can be used to update an existing subscriber too.",
+      "props": [
+        {
+          "name": "update_subscriber",
+          "displayName": "Update Existing Subscriber Data",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Updates the merge fields over the existent ones if the subscriber exists on the subscriber list."
+        },
+        {
+          "name": "double_option",
+          "displayName": "Double Option",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Activates the send of a confirmation email when the subscriber is added."
+        }
+      ]
+    },
+    "acumbamail_create_subscriber_list": {
+      "displayName": "Create Subscriber List",
+      "description": "Creates a new subscriber list.",
+      "props": [
+        {
+          "name": "listname",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "sender_email",
+          "displayName": "Sener Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Sender e-mail shown to the subscribers of the list when e-mail marketing campaigns are sent to them."
+        },
+        {
+          "name": "company",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Company Address",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Company Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "acumbamail_delete_subscriber_list": {
+      "displayName": "Delete Subscriber List",
+      "description": "Deletes an existing subscriber list.",
+      "props": []
+    },
+    "acumbamail_remove_subscriber": {
+      "displayName": "Remove Subscriber",
+      "description": "Removes a subscriber from a list",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "acumbamail_duplicate_template": {
+      "displayName": "Duplicate Template",
+      "description": "Duplicates an existing template to use it on a email marketing campaign shipping.",
+      "props": [
+        {
+          "name": "template_name",
+          "displayName": "New Template Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "acumbamail_search_subscriber": {
+      "displayName": "Search Subscriber",
+      "description": "Returns the subscriber's advanced data in each list to which they belong.",
+      "props": [
+        {
+          "name": "subscriber",
+          "displayName": "Subscriber Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "acumbamail_unsubscribe_subscriber": {
+      "displayName": "Unsuscribe Subscriber",
+      "description": "Unsubscribes an email address from a subscriber list of your choosing.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

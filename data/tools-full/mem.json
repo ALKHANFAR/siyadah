@@ -1,0 +1,82 @@
+{
+  "id": "mem",
+  "displayName": "Mem",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_mem": {
+      "displayName": "Create Mem",
+      "description": "Save any content to Mem.ai for intelligent processing and future reference.",
+      "props": [
+        {
+          "name": "input",
+          "displayName": "Input",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Raw content you want to remember - HTML, emails, transcripts, or simple notes."
+        },
+        {
+          "name": "instructions",
+          "displayName": "Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional guidance on how you want this content processed or remembered."
+        },
+        {
+          "name": "context",
+          "displayName": "Context",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional background information to relate this to your existing knowledge."
+        }
+      ]
+    },
+    "create_note": {
+      "displayName": "Create Note",
+      "description": "Log a plain-text Markdown note into Mem, optionally with formatting, templates, collections, and timestamps.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Markdown-formatted content. First line is treated as the note title."
+        },
+        {
+          "name": "id",
+          "displayName": "Note ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional UUID to assign to the note."
+        },
+        {
+          "name": "add_to_collections",
+          "displayName": "Add to Collections",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Collection titles or IDs to assign this note to. New collections will be created if they don’t exist."
+        }
+      ]
+    },
+    "delete_note": {
+      "displayName": "Delete Note",
+      "description": "Delete a note in Mem by its ID.",
+      "props": [
+        {
+          "name": "note_id",
+          "displayName": "Note ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the note to delete."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

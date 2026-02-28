@@ -1,0 +1,22 @@
+{
+  "id": "rss",
+  "displayName": "RSS Feed",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {},
+  "triggers": {
+    "new-item-list": {
+      "displayName": "New Items in Multiple Feeds",
+      "description": "Runs when a new item is added in one of the RSS feed",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-item": {
+      "displayName": "New Item In Feed",
+      "description": "Runs when a new item is added in the RSS feed",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

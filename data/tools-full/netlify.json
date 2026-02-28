@@ -1,0 +1,140 @@
+{
+  "id": "netlify",
+  "displayName": "Netlify",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "get_site": {
+      "displayName": "Get Site",
+      "description": "Get a specified site. Note: Environment variable keys and values have moved from build_settings.env and repo.env to a new endpoint. Please use getEnvVars to retrieve site environment variables.",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to retrieve information for"
+        }
+      ]
+    },
+    "list_files": {
+      "displayName": "List Files",
+      "description": "Returns a list of all the files in the current deploy.",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to list files for"
+        }
+      ]
+    },
+    "list_site_deploys": {
+      "displayName": "List Site Deploys",
+      "description": "Returns a list of all deploys for a specific site.",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to list deploys for"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination (starts from 1)"
+        },
+        {
+          "name": "perPage",
+          "displayName": "Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of items per page (max 100)"
+        }
+      ]
+    },
+    "start_deploy": {
+      "displayName": "Start Deploy",
+      "description": "Triggers a new build for a site on Netlify. Supports clearing build cache.",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to deploy"
+        },
+        {
+          "name": "clearCache",
+          "displayName": "Clear Build Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to clear the build cache before building"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_deploy_failed": {
+      "displayName": "New Deploy Failed",
+      "description": "Fires when a site deploy fails.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to monitor for failed deploy events"
+        }
+      ]
+    },
+    "new_deploy_started": {
+      "displayName": "New Deploy Started",
+      "description": "Fires immediately when a deploy job starts on your Netlify site.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to monitor for deploy events"
+        }
+      ]
+    },
+    "new_deploy_succeeded": {
+      "displayName": "New Deploy Succeeded",
+      "description": "Fires when a new site version has successfully deployed.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to monitor for successful deploy events"
+        }
+      ]
+    },
+    "new_form_submission": {
+      "displayName": "New Form Submission",
+      "description": "Fires when a Netlify form submission is received.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "siteId",
+          "displayName": "Site",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the site to monitor for form submissions"
+        }
+      ]
+    }
+  }
+}

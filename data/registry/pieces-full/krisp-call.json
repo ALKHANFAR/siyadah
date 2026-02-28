@@ -1,0 +1,42 @@
+{
+  "id": "krisp-call",
+  "package": "@activepieces/piece-krisp-call",
+  "display_name": "KrispCall",
+  "display_name_ar": "",
+  "description": "KrispCall is a cloud telephony system for modern businesses, offering advanced features for high-growth startups and modern enterprises.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addContact",
+      "display_name": "Add Contact",
+      "description": "Add contact in Krispcall"
+    },
+    {
+      "name": "deleteContacts",
+      "display_name": "Delete Contacts",
+      "description": "Delete contacts from krispcall."
+    },
+    {
+      "name": "sendMms",
+      "display_name": "Send MMS",
+      "description": "Send mms in krispcall."
+    },
+    {
+      "name": "sendSms",
+      "display_name": "Send SMS",
+      "description": "Send sms in Krispcall."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newVoicemail",
+      "display_name": "New Voicemail",
+      "description": "Trigger when a new voicemail is received.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

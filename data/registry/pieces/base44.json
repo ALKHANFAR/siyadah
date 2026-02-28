@@ -1,0 +1,37 @@
+{
+  "id": "base44",
+  "package": "@activepieces/piece-base44",
+  "display_name": "Authentication",
+  "display_name_ar": "Authentication",
+  "description": "Your Base44 application ID",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_entity",
+      "display_name": "Create Entity",
+      "description": "Creates an entity (record) in your Base44 app"
+    },
+    {
+      "name": "find_entity",
+      "display_name": "Find Entity Record",
+      "description": "Find a matching entity record in your Base44 app"
+    },
+    {
+      "name": "find_or_create_entity",
+      "display_name": "Find or Create Entity",
+      "description": "Find a matching entity record, or create one if not found"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "entity_event",
+      "display_name": "Entity Event",
+      "description": "Triggers when an entity is created or updated",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/base44"
+}

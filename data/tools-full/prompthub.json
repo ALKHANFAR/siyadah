@@ -1,0 +1,30 @@
+{
+  "id": "prompthub",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_project_head": {
+      "displayName": "Get Project Head",
+      "description": "Get the production-ready version of a PromptHub project (typically the last commit on master/main branch). Useful for integrating prompts into your application.",
+      "props": []
+    },
+    "list_projects": {
+      "displayName": "List Projects",
+      "description": "List PromptHub projects for a team. Returns information about each project\\",
+      "props": []
+    },
+    "run_prompt": {
+      "displayName": "Run Prompt",
+      "description": "Run a PromptHub project with optional variables, branch/hash, and chat payload",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

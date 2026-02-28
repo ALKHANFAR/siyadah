@@ -1,0 +1,65 @@
+{
+  "id": "microsoft-onedrive",
+  "displayName": "Microsoft OneDrive",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "download_file": {
+      "displayName": "Download file",
+      "description": "Download a file from your Microsoft OneDrive",
+      "props": [
+        {
+          "name": "fileId",
+          "displayName": "File ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the file to download"
+        }
+      ]
+    },
+    "list_files": {
+      "displayName": "List Files",
+      "description": "List files in a OneDrive folder",
+      "props": []
+    },
+    "list_folders": {
+      "displayName": "List Folders",
+      "description": "List folders in a OneDrive folder",
+      "props": []
+    },
+    "upload_onedrive_file": {
+      "displayName": "Upload file",
+      "description": "Upload a file to your Microsoft OneDrive with chunked upload if the file is larger than 4MiB",
+      "props": [
+        {
+          "name": "fileName",
+          "displayName": "File name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name the file should be saved as (e.g. file.txt)"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file URL or base64 to upload"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_file": {
+      "displayName": "New File",
+      "description": "Trigger when a new file is uploaded.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

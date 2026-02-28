@@ -1,0 +1,158 @@
+{
+  "id": "slidespeak",
+  "displayName": "SlideSpeak",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create-presentation": {
+      "displayName": "Create Presentation",
+      "description": "Creates a new presentation.",
+      "props": [
+        {
+          "name": "plain_text",
+          "displayName": "Topic",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Topic of presentation."
+        },
+        {
+          "name": "length",
+          "displayName": "Number of Slides",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "document_uuids",
+          "displayName": "Documents",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Uploaded docuemts to use in presentation."
+        },
+        {
+          "name": "template",
+          "displayName": "Dropdown",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "custom_user_instructions",
+          "displayName": "Custom User Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "fetch_images",
+          "displayName": "Fetch Images",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to include stock images."
+        },
+        {
+          "name": "tone",
+          "displayName": "Tone",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The tone to use for the text."
+        },
+        {
+          "name": "verbosity",
+          "displayName": "Verbosity",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How verbose, or long, the text should be."
+        },
+        {
+          "name": "include_cover",
+          "displayName": "include the ‘cover’ slide.",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "include_table_of_contents",
+          "displayName": " include the ‘table of contents’ slides.",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "response_format",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "edit-presentation": {
+      "displayName": "Edit Presentation",
+      "description": "Edits an existing presentation.",
+      "props": [
+        {
+          "name": "pptx_file",
+          "displayName": "Powepoint File (.pptx)",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "config",
+          "displayName": "Config",
+          "type": "JSON",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-task-status": {
+      "displayName": "Get Task Status",
+      "description": "Gets status of task by id.",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "upload-docuemnt": {
+      "displayName": "Upload Document",
+      "description": "Uploads a document file to SlideSpeak.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-presentation": {
+      "displayName": "New Presentation",
+      "description": "Triggers when a new presentation is created.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "asknews",
+  "package": "@activepieces/piece-asknews",
+  "display_name": "AskNews",
+  "display_name_ar": "AskNews",
+  "description": "AskNews piece allows you to search and retrieve enriched real-time and historical news articles using AskNews API.",
+  "category": "F_ecommerce",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "asknewsChatCompletion",
+      "display_name": "Chat Completion",
+      "description": "Get chat completions from a news-infused AI assistant powered by OpenAI API"
+    },
+    {
+      "name": "createANewsletter",
+      "display_name": "Create a Newsletter",
+      "description": "Create an automated newsletter powered by news and AI"
+    },
+    {
+      "name": "generateNewsKnowledgeGraph",
+      "display_name": "Generate News Knowledge Graph",
+      "description": "Build a custom mega-news-knowledge graph with fully disambiguated entities and relationships"
+    },
+    {
+      "name": "getArticleById",
+      "display_name": "Get Article by ID",
+      "description": "Retrieve a single article or multiple articles by their UUID(s)"
+    },
+    {
+      "name": "searchNews",
+      "display_name": "Search News",
+      "description": "Search for enriched real-time news articles from the past 48 hours or historical archive"
+    },
+    {
+      "name": "searchStories",
+      "display_name": "Search Stories (Narrative Clusters)",
+      "description": "Filter and search for top news narratives and story clusters"
+    },
+    {
+      "name": "updateANewsletter",
+      "display_name": "Update a Newsletter",
+      "description": "Update an existing automated newsletter"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "alertForQuery",
+      "display_name": "Alert for Query",
+      "description": "Trigger when a new alert is created for a specific news query",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/asknews"
+}

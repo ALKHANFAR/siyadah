@@ -1,0 +1,57 @@
+{
+  "id": "woocommerce",
+  "package": "@activepieces/piece-woocommerce",
+  "display_name": "WooCommerce",
+  "display_name_ar": "",
+  "description": "E-commerce platform built on WordPress",
+  "category": "F_ecommerce",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "Create Coupon",
+      "display_name": "Create Coupon",
+      "description": "Create a coupon"
+    },
+    {
+      "name": "Create Customer",
+      "display_name": "Create Customer",
+      "description": "Create a Customer"
+    },
+    {
+      "name": "Create Product",
+      "display_name": "Create Product",
+      "description": "Create a Product"
+    },
+    {
+      "name": "Find Coupon",
+      "display_name": "Find Coupon",
+      "description": "Find a Coupon"
+    },
+    {
+      "name": "Find Customer",
+      "display_name": "Find Customer",
+      "description": "Find a Customer"
+    },
+    {
+      "name": "Find Product",
+      "display_name": "Find Product",
+      "description": "Find a Product"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "$woocommerce_trigger_${name}",
+      "display_name": "$woocommerce_trigger_${name}",
+      "description": "",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

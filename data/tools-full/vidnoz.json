@@ -1,0 +1,191 @@
+{
+  "id": "vidnoz",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate_video_with_avatar": {
+      "displayName": "Generate Video with Avatar",
+      "description": "Generate a video from an avatar.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Video Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "aspect",
+          "displayName": "Aspect Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "avatarId",
+          "displayName": "Avatar",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Select the avatar to use."
+        },
+        {
+          "name": "avatarStyle",
+          "displayName": "Avatar Style",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "avatarCircleBgColor",
+          "displayName": "Avatar Circle Background Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "avatarScale",
+          "displayName": "Avatar Scale",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "avatarOffsetX",
+          "displayName": "Avatar Offset X",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "avatarOffsetY",
+          "displayName": "Avatar Offset Y",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "voiceMode",
+          "displayName": "Voice Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "voice",
+          "displayName": "Voice Settings",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Select the voice to use."
+        },
+        {
+          "name": "backgroundMode",
+          "displayName": "Background Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "background",
+          "displayName": "Background Settings",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "generate_video_with_template": {
+      "displayName": "Generate Video with Template",
+      "description": "Generate a video using a template.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Video Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "templateId",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "voices",
+          "displayName": "Voices (Per Scene)",
+          "type": "ARRAY",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "displayName": "Voice Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ttsVoiceId",
+          "displayName": "TTS Voice ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ttsText",
+          "displayName": "TTS Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "fileAssetId",
+          "displayName": "Audio Asset ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "fileUrl",
+          "displayName": "Audio URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "silenceDuration",
+          "displayName": "Silence Duration (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_generated_video": {
+      "displayName": "Limit",
+      "description": "Triggers when a new generated video appears in your Vidnoz account.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Video Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

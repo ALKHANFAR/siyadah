@@ -1,0 +1,89 @@
+{
+  "id": "zoho-campaigns",
+  "package": "@activepieces/piece-zoho-campaigns",
+  "display_name": "Zoho Campaigns",
+  "display_name_ar": "Zoho Campaigns",
+  "description": "Zoho Campaigns is an email marketing platform for managing mailing lists, sending campaigns, tracking engagement, and automating subscriber workflows.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "addContactToMailingList",
+      "display_name": "Add Contact to Mailing List",
+      "description": "Add contacts to your mailing lists."
+    },
+    {
+      "name": "addTagToContact",
+      "display_name": "Add Tag to Contact",
+      "description": "Apply a tag to a contact by email. Creates the tag if it doesn't exist."
+    },
+    {
+      "name": "addUpdateContact",
+      "display_name": "Add/Update Contact",
+      "description": "Add a new contact or update an existing one. Confirmation email sent based on mailing list settings."
+    },
+    {
+      "name": "cloneCampaign",
+      "display_name": "Clone Campaign",
+      "description": "Clone an existing campaign, optionally renaming."
+    },
+    {
+      "name": "createCampaign",
+      "display_name": "Create Campaign",
+      "description": "Create a new campaign with campaign name, subject, topic, sender name/address, and mailing list."
+    },
+    {
+      "name": "findCampaign",
+      "display_name": "Find Campaign",
+      "description": "Locate an existing campaign by campaign name."
+    },
+    {
+      "name": "findContact",
+      "display_name": "Find Contact",
+      "description": "Look up an existing contact by email address."
+    },
+    {
+      "name": "removeTag",
+      "display_name": "Remove Tag",
+      "description": "Remove a tag from a contact."
+    },
+    {
+      "name": "sendCampaign",
+      "display_name": "Send Campaign",
+      "description": "Send a campaign that has been created or cloned."
+    },
+    {
+      "name": "unsubscribeContact",
+      "display_name": "Unsubscribe Contact",
+      "description": "Remove a contact from a mailing list."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newCampaign",
+      "display_name": "New Campaign",
+      "description": "Fires when a new campaign is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newContact",
+      "display_name": "New Contact",
+      "description": "Fires when a new contact is added to a selected mailing list.",
+      "type": "scheduled"
+    },
+    {
+      "name": "unsubscribe",
+      "display_name": "Unsubscribe",
+      "description": "Fires when a contact is removed from a mailing list or unsubscribed.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/zoho-campaigns"
+}

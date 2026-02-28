@@ -1,0 +1,49 @@
+{
+  "id": "brilliant-directories",
+  "displayName": "API Key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_new_user": {
+      "displayName": "Create new User",
+      "description": "Creates a new user in your brilliant directories site",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address for the users account"
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Password for the new user account"
+        },
+        {
+          "name": "subscription",
+          "displayName": "Subscription ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The subscription ID from your website"
+        },
+        {
+          "name": "meta",
+          "displayName": "Meta",
+          "type": "JSON",
+          "required": false,
+          "description": "Additional fields for the new user account"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

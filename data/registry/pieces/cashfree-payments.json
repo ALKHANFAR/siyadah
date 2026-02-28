@@ -1,0 +1,60 @@
+{
+  "id": "cashfree-payments",
+  "package": "@activepieces/piece-cashfree-payments",
+  "display_name": "Cashfree Payments",
+  "display_name_ar": "Cashfree Payments",
+  "description": "Cashfree Payments integration for processing payments, refunds, and managing payment links and cashgrams.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "cancel-payment-link",
+      "display_name": "Cancel Payment Link",
+      "description": "Cancel a payment link in Cashfree Payment Gateway. Only links in ACTIVE status can be cancelled."
+    },
+    {
+      "name": "create-cashgram",
+      "display_name": "Create Cashgram",
+      "description": "Create a Cashgram for instant money transfers using Cashfree"
+    },
+    {
+      "name": "create-order",
+      "display_name": "Create Order",
+      "description": "Creates an order in Cashfree Payment Gateway"
+    },
+    {
+      "name": "create-payment-link",
+      "display_name": "Create Payment Link",
+      "description": "Creates a payment link in Cashfree Payment Gateway"
+    },
+    {
+      "name": "create-refund",
+      "display_name": "Create Refund",
+      "description": "Initiate a refund for a Cashfree order. Refunds can only be initiated within six months of the original transaction."
+    },
+    {
+      "name": "deactivate-cashgram",
+      "display_name": "Deactivate Cashgram",
+      "description": "Deactivate a Cashgram to prevent further redemptions using Cashfree"
+    },
+    {
+      "name": "fetch-payment-link-details",
+      "display_name": "Fetch Payment Link Details",
+      "description": "View all details and status of a payment link in Cashfree Payment Gateway"
+    },
+    {
+      "name": "get-all-refunds-for-order",
+      "display_name": "Get All Refunds for Order",
+      "description": "Fetch all refunds processed against an order in Cashfree Payment Gateway"
+    },
+    {
+      "name": "get-orders-for-payment-link",
+      "display_name": "Get Orders for Payment Link",
+      "description": "View all order details for a payment link in Cashfree Payment Gateway"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/cashfree-payments"
+}

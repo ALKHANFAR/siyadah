@@ -1,0 +1,70 @@
+{
+  "id": "bokio",
+  "package": "@activepieces/piece-bokio",
+  "display_name": "Bokio",
+  "display_name_ar": "",
+  "description": "Bokio is an accounting software platform which offers digital bookkeeping, invoicing, and financial management tools to help simplify accounting processes.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "addLineItemToInvoice",
+      "display_name": "Add line item to invoice",
+      "description": "Adds a line item to an existing draft invoice"
+    },
+    {
+      "name": "createAJournalEntry",
+      "display_name": "Create a journal entry",
+      "description": "Creates a new journal entry in Bokio"
+    },
+    {
+      "name": "createAnItem",
+      "display_name": "Create an item",
+      "description": "Creates a new item in Bokio"
+    },
+    {
+      "name": "createCustomer",
+      "display_name": "Create Customer",
+      "description": "Creates a new customer in Bokio"
+    },
+    {
+      "name": "createInvoice",
+      "display_name": "Create Invoice",
+      "description": "Creates a new draft invoice in Bokio"
+    },
+    {
+      "name": "findCustomer",
+      "display_name": "Find Customer",
+      "description": "Find customers in Bokio by filtering and pagination"
+    },
+    {
+      "name": "getAJournalEntry",
+      "display_name": "Get a journal entry",
+      "description": "Retrieve a specific journal entry by its ID"
+    },
+    {
+      "name": "getAnInvoice",
+      "display_name": "Get an invoice",
+      "description": "Retrieve a specific invoice by its ID"
+    },
+    {
+      "name": "getDraftInvoiceByCustomerName",
+      "display_name": "Get Draft Invoice by Customer Name",
+      "description": "Get all draft invoices for a customer by customer name"
+    },
+    {
+      "name": "updateAnInvoice",
+      "display_name": "Update an invoice",
+      "description": "Updates an existing draft invoice in Bokio"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

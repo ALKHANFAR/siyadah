@@ -1,0 +1,130 @@
+{
+  "id": "oracle-fusion-cloud-erp",
+  "package": "@activepieces/piece-oracle-fusion-cloud-erp",
+  "display_name": "Oracle Fusion Cloud ERP",
+  "display_name_ar": "Oracle Fusion Cloud ERP",
+  "description": "Enterprise resource planning suite covering financials, procurement, project accounting, supply chain, and more.",
+  "category": "M_finance",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_invoice",
+      "display_name": "Create Invoice",
+      "description": "Creates a new payables invoice in Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "find_invoices",
+      "display_name": "Find Invoices",
+      "description": "Search for payables invoices with optional filters."
+    },
+    {
+      "name": "update_invoice",
+      "display_name": "Update Invoice",
+      "description": "Updates an existing payables invoice. Note: Only certain attributes can be updated and cascade defaulting does not apply."
+    },
+    {
+      "name": "cancel_invoice",
+      "display_name": "Cancel Invoice",
+      "description": "Cancels a payables invoice in Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "get_invoice",
+      "display_name": "Get Invoice",
+      "description": "Retrieves details of a specific payables invoice by ID."
+    },
+    {
+      "name": "validate_invoice",
+      "display_name": "Validate Invoice",
+      "description": "Validates a payables invoice in Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "delete_invoice",
+      "display_name": "Delete Invoice",
+      "description": "Deletes a payables invoice from Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "create_payment",
+      "display_name": "Create Payment",
+      "description": "Creates a new manual payment in Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "find_payments",
+      "display_name": "Find Payments",
+      "description": "Search for payments with optional filters."
+    },
+    {
+      "name": "void_payment",
+      "display_name": "Void Payment",
+      "description": "Voids a payment by setting the void date."
+    },
+    {
+      "name": "stop_payment",
+      "display_name": "Stop Payment",
+      "description": "Initiates a stop payment request for a payment."
+    },
+    {
+      "name": "update_payment",
+      "display_name": "Update Payment",
+      "description": "Updates descriptive and global flexfields for a payment."
+    },
+    {
+      "name": "get_payment",
+      "display_name": "Get Payment",
+      "description": "Retrieves details of a specific payment by Check ID."
+    },
+    {
+      "name": "find_receivables_invoices",
+      "display_name": "Find Receivables Invoices",
+      "description": "Search for receivables invoices with optional filters."
+    },
+    {
+      "name": "create_receivables_invoice",
+      "display_name": "Create Receivables Invoice",
+      "description": "Creates a new receivables (AR) invoice in Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "delete_receivables_invoice",
+      "display_name": "Delete Receivables Invoice",
+      "description": "Deletes a receivables invoice from Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "update_receivables_invoice",
+      "display_name": "Update Receivables Invoice",
+      "description": "Updates an existing receivables invoice. Note: Only InvoiceStatus, PaymentTerms, and TransactionDate can be updated."
+    },
+    {
+      "name": "get_receivables_invoice",
+      "display_name": "Get Receivables Invoice",
+      "description": "Retrieves details of a specific receivables invoice by ID."
+    },
+    {
+      "name": "delete_journal_batch",
+      "display_name": "Delete Journal Batch",
+      "description": "Deletes a journal batch from Oracle Fusion Cloud ERP."
+    },
+    {
+      "name": "update_journal_batch",
+      "display_name": "Update Journal Batch",
+      "description": "Updates batch completion status and reversal attributes. Note: Only status and reversal attributes can be updated."
+    },
+    {
+      "name": "find_journal_batches",
+      "display_name": "Find Journal Batches",
+      "description": "Search for journal batches with optional filters."
+    },
+    {
+      "name": "get_journal_batch",
+      "display_name": "Get Journal Batch",
+      "description": "Retrieves details of a specific journal batch by ID."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/oracle-fusion-cloud-erp"
+}

@@ -1,0 +1,1679 @@
+{
+  "id": "teamleader",
+  "displayName": "Teamleader",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "create_company": {
+      "displayName": "Create Company",
+      "description": "Add a new company record",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the company"
+        },
+        {
+          "name": "country_for_business_type",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Two-letter country code (e.g., BE, NL, US) for business type selection"
+        },
+        {
+          "name": "business_type_id",
+          "displayName": "Business Type",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Legal structure of the company"
+        },
+        {
+          "name": "vat_number",
+          "displayName": "VAT Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "VAT/tax identification number"
+        },
+        {
+          "name": "national_identification_number",
+          "displayName": "National ID Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "National identification number"
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses for the company"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "telephones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers for the company"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company website URL"
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Company addresses"
+        },
+        {
+          "name": "type",
+          "displayName": "Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "line_1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Two-letter country code (e.g., BE, US, NL)"
+        },
+        {
+          "name": "area_level_two_id",
+          "displayName": "Area Level Two ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional area identifier"
+        },
+        {
+          "name": "addressee",
+          "displayName": "Addressee",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name/company for this address"
+        },
+        {
+          "name": "iban",
+          "displayName": "IBAN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "International Bank Account Number"
+        },
+        {
+          "name": "bic",
+          "displayName": "BIC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Bank Identifier Code"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code (e.g., en, nl, fr)"
+        },
+        {
+          "name": "responsible_user_id",
+          "displayName": "Responsible User ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the user responsible for this company"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes (supports Markdown)"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Company tags"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values"
+        },
+        {
+          "name": "id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field value (string, number, or boolean)"
+        },
+        {
+          "name": "marketing_mails_consent",
+          "displayName": "Marketing Consent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow marketing emails"
+        },
+        {
+          "name": "preferred_currency",
+          "displayName": "Preferred Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Preferred currency for this company"
+        }
+      ]
+    },
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact record",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "salutation",
+          "displayName": "Salutation",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Salutation (e.g., Mr, Mrs, Dr)"
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses for the contact"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "telephones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers for the contact"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Website URL"
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Contact addresses"
+        },
+        {
+          "name": "type",
+          "displayName": "Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "line_1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Two-letter country code (e.g., BE, US, NL)"
+        },
+        {
+          "name": "area_level_two_id",
+          "displayName": "Area Level Two ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional area identifier"
+        },
+        {
+          "name": "addressee",
+          "displayName": "Addressee",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name/company for this address"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code (e.g., en, nl, fr)"
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Gender of the contact"
+        },
+        {
+          "name": "birthdate",
+          "displayName": "Birth Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Birth date (YYYY-MM-DD format)"
+        },
+        {
+          "name": "iban",
+          "displayName": "IBAN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "International Bank Account Number"
+        },
+        {
+          "name": "bic",
+          "displayName": "BIC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Bank Identifier Code"
+        },
+        {
+          "name": "national_identification_number",
+          "displayName": "National ID Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "National identification number"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes (supports Markdown)"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Contact tags"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values"
+        },
+        {
+          "name": "id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field value (string, number, or boolean)"
+        },
+        {
+          "name": "marketing_mails_consent",
+          "displayName": "Marketing Consent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow marketing emails"
+        }
+      ]
+    },
+    "create_deal": {
+      "displayName": "Create Deal",
+      "description": "Create a new deal/opportunity",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Deal Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Title of the deal"
+        },
+        {
+          "name": "customer_type",
+          "displayName": "Customer Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of customer for this deal"
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the customer (company or contact)"
+        },
+        {
+          "name": "contact_person_id",
+          "displayName": "Contact Person",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact person for this deal (for company customers)"
+        },
+        {
+          "name": "summary",
+          "displayName": "Summary",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information about the deal"
+        },
+        {
+          "name": "source_id",
+          "displayName": "Source",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "How the lead was acquired"
+        },
+        {
+          "name": "department_id",
+          "displayName": "Department",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Department responsible for this deal"
+        },
+        {
+          "name": "responsible_user_id",
+          "displayName": "Responsible User",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "User responsible for this deal"
+        },
+        {
+          "name": "phase_id",
+          "displayName": "Phase",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Deal phase or stage"
+        },
+        {
+          "name": "estimated_value_amount",
+          "displayName": "Estimated Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Deal value amount"
+        },
+        {
+          "name": "estimated_value_currency",
+          "displayName": "Value Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Currency for the estimated value"
+        },
+        {
+          "name": "estimated_probability",
+          "displayName": "Estimated Probability",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Win probability (0-1, e.g., 0.75 for 75%)"
+        },
+        {
+          "name": "estimated_closing_date",
+          "displayName": "Estimated Closing Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Expected deal closing date"
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values"
+        },
+        {
+          "name": "id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field value"
+        }
+      ]
+    },
+    "link_contact_to_company": {
+      "displayName": "Link Contact to Company",
+      "description": "Associate a contact with a company",
+      "props": [
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact to link"
+        },
+        {
+          "name": "company_id",
+          "displayName": "Company",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the company to link to"
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Job title or role (e.g., CEO, Manager)"
+        },
+        {
+          "name": "decision_maker",
+          "displayName": "Decision Maker",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Is this contact a decision maker?"
+        }
+      ]
+    },
+    "search_companies": {
+      "displayName": "Search Companies",
+      "description": "List or filter companies",
+      "props": [
+        {
+          "name": "term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by name, VAT number, emails or telephones"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by email address"
+        },
+        {
+          "name": "vat_number",
+          "displayName": "VAT Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by VAT number"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by company status"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by tag names (comma-separated)"
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only companies updated after this date"
+        },
+        {
+          "name": "sort_field",
+          "displayName": "Sort Field",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to sort by"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort direction"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default: 20)"
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number to retrieve (default: 1)"
+        },
+        {
+          "name": "include_custom_fields",
+          "displayName": "Include Custom Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include custom field data in results"
+        }
+      ]
+    },
+    "search_contacts": {
+      "displayName": "Search Contacts",
+      "description": "List or filter contacts",
+      "props": [
+        {
+          "name": "term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by first name, last name, email or telephone"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by email address"
+        },
+        {
+          "name": "company_id",
+          "displayName": "Company",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter contacts by company"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by contact status"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by tag names (comma-separated)"
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only contacts updated after this date"
+        },
+        {
+          "name": "sort_field",
+          "displayName": "Sort Field",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to sort by"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort direction"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default: 20)"
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number to retrieve (default: 1)"
+        },
+        {
+          "name": "include_custom_fields",
+          "displayName": "Include Custom Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include custom field data in results"
+        }
+      ]
+    },
+    "search_deals": {
+      "displayName": "Search Deals",
+      "description": "List or filter deals",
+      "props": [
+        {
+          "name": "term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by title, reference or customer name"
+        },
+        {
+          "name": "customer_type",
+          "displayName": "Customer Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of customer to filter by"
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter deals by specific customer"
+        },
+        {
+          "name": "phase_id",
+          "displayName": "Deal Phase",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by deal phase or stage"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter by deal status (multiple selection)"
+        },
+        {
+          "name": "responsible_user_id",
+          "displayName": "Responsible User",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by user responsible for deals"
+        },
+        {
+          "name": "estimated_closing_date",
+          "displayName": "Exact Closing Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter by specific estimated closing date"
+        },
+        {
+          "name": "estimated_closing_date_from",
+          "displayName": "Closing Date From",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter deals closing after this date (inclusive)"
+        },
+        {
+          "name": "estimated_closing_date_until",
+          "displayName": "Closing Date Until",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter deals closing before this date (inclusive)"
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only deals updated after this date (inclusive)"
+        },
+        {
+          "name": "created_before",
+          "displayName": "Created Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only deals created before this date (inclusive)"
+        },
+        {
+          "name": "sort_field",
+          "displayName": "Sort Field",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to sort by"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort direction"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default: 20)"
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number to retrieve (default: 1)"
+        },
+        {
+          "name": "include_custom_fields",
+          "displayName": "Include Custom Fields",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include custom field data in results"
+        }
+      ]
+    },
+    "search_invoices": {
+      "displayName": "Search Invoices",
+      "description": "List or filter invoices",
+      "props": [
+        {
+          "name": "term",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by invoice number, purchase order number, payment reference or customer name"
+        },
+        {
+          "name": "invoice_number",
+          "displayName": "Invoice Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by full invoice number (e.g., \"2017 / 5\")"
+        },
+        {
+          "name": "customer_type",
+          "displayName": "Customer Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of customer to filter by"
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter invoices by specific customer"
+        },
+        {
+          "name": "department_id",
+          "displayName": "Department",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by department (company entity)"
+        },
+        {
+          "name": "deal_id",
+          "displayName": "Deal",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by associated deal"
+        },
+        {
+          "name": "project_id",
+          "displayName": "Project",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by associated project"
+        },
+        {
+          "name": "subscription_id",
+          "displayName": "Subscription",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Filter by associated subscription"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter by invoice status (multiple selection)"
+        },
+        {
+          "name": "purchase_order_number",
+          "displayName": "Purchase Order Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by purchase order number"
+        },
+        {
+          "name": "payment_reference",
+          "displayName": "Payment Reference",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by payment reference"
+        },
+        {
+          "name": "invoice_date_after",
+          "displayName": "Invoice Date After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter invoices with date after this date (inclusive)"
+        },
+        {
+          "name": "invoice_date_before",
+          "displayName": "Invoice Date Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter invoices with date before this date (inclusive)"
+        },
+        {
+          "name": "updated_since",
+          "displayName": "Updated Since",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Only invoices updated after this date"
+        },
+        {
+          "name": "sort_field",
+          "displayName": "Sort Field",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Field to sort by"
+        },
+        {
+          "name": "sort_order",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Sort direction"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default: 20)"
+        },
+        {
+          "name": "page_number",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number to retrieve (default: 1)"
+        },
+        {
+          "name": "include_late_fees",
+          "displayName": "Include Late Fee Information",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include late fee and interest calculations in response"
+        }
+      ]
+    },
+    "unlink_contact_from_company": {
+      "displayName": "Unlink Contact from Company",
+      "description": "Remove the association between contact and company",
+      "props": [
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact to unlink"
+        },
+        {
+          "name": "company_id",
+          "displayName": "Company",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the company to unlink from"
+        }
+      ]
+    },
+    "update_company": {
+      "displayName": "Update Company",
+      "description": "Modify company information",
+      "props": [
+        {
+          "name": "company_id",
+          "displayName": "Company",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the company to update"
+        },
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the company"
+        },
+        {
+          "name": "country_for_business_type",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Two-letter country code (e.g., BE, NL, US) for business type selection"
+        },
+        {
+          "name": "business_type_id",
+          "displayName": "Business Type",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Legal structure of the company"
+        },
+        {
+          "name": "vat_number",
+          "displayName": "VAT Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "VAT/tax identification number"
+        },
+        {
+          "name": "national_identification_number",
+          "displayName": "National ID Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "National identification number"
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses (replaces all existing emails)"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "telephones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers (replaces all existing numbers)"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Company website URL"
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Company addresses (replaces all existing addresses)"
+        },
+        {
+          "name": "type",
+          "displayName": "Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "line_1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Two-letter country code (e.g., BE, US, NL)"
+        },
+        {
+          "name": "area_level_two_id",
+          "displayName": "Area Level Two ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional area identifier"
+        },
+        {
+          "name": "addressee",
+          "displayName": "Addressee",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name/company for this address"
+        },
+        {
+          "name": "iban",
+          "displayName": "IBAN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "International Bank Account Number"
+        },
+        {
+          "name": "bic",
+          "displayName": "BIC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Bank Identifier Code"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code (e.g., en, nl, fr)"
+        },
+        {
+          "name": "responsible_user_id",
+          "displayName": "Responsible User ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the user responsible for this company"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes (supports Markdown)"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Company tags (replaces all existing tags)"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values"
+        },
+        {
+          "name": "id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field value (string, number, or boolean)"
+        },
+        {
+          "name": "marketing_mails_consent",
+          "displayName": "Marketing Consent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow marketing emails"
+        },
+        {
+          "name": "preferred_currency",
+          "displayName": "Preferred Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Preferred currency for this company"
+        }
+      ]
+    },
+    "update_contact": {
+      "displayName": "Update Contact",
+      "description": "Modify existing contact data",
+      "props": [
+        {
+          "name": "contact_id",
+          "displayName": "Contact",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the contact to update"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the contact"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the contact"
+        },
+        {
+          "name": "salutation",
+          "displayName": "Salutation",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Salutation (e.g., Mr, Mrs, Dr)"
+        },
+        {
+          "name": "emails",
+          "displayName": "Emails",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses (replaces all existing emails)"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "telephones",
+          "displayName": "Phone Numbers",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Phone numbers (replaces all existing numbers)"
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "website",
+          "displayName": "Website",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Website URL"
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Contact addresses (replaces all existing addresses)"
+        },
+        {
+          "name": "type",
+          "displayName": "Address Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "line_1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Two-letter country code (e.g., BE, US, NL)"
+        },
+        {
+          "name": "area_level_two_id",
+          "displayName": "Area Level Two ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional area identifier"
+        },
+        {
+          "name": "addressee",
+          "displayName": "Addressee",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name/company for this address"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code (e.g., en, nl, fr)"
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Gender of the contact"
+        },
+        {
+          "name": "birthdate",
+          "displayName": "Birth Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Birth date (YYYY-MM-DD format)"
+        },
+        {
+          "name": "iban",
+          "displayName": "IBAN",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "International Bank Account Number"
+        },
+        {
+          "name": "bic",
+          "displayName": "BIC",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Bank Identifier Code"
+        },
+        {
+          "name": "national_identification_number",
+          "displayName": "National ID Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "National identification number"
+        },
+        {
+          "name": "remarks",
+          "displayName": "Remarks",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes (supports Markdown)"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Contact tags (replaces all existing tags)"
+        },
+        {
+          "name": "tag",
+          "displayName": "Tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values"
+        },
+        {
+          "name": "id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field value (string, number, or boolean)"
+        },
+        {
+          "name": "marketing_mails_consent",
+          "displayName": "Marketing Consent",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow marketing emails"
+        }
+      ]
+    },
+    "update_deal": {
+      "displayName": "Update Deal",
+      "description": "Modify deal properties",
+      "props": [
+        {
+          "name": "deal_id",
+          "displayName": "Deal",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the deal to update"
+        },
+        {
+          "name": "title",
+          "displayName": "Deal Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Title of the deal"
+        },
+        {
+          "name": "customer_type",
+          "displayName": "Customer Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of customer for this deal"
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select the customer (company or contact)"
+        },
+        {
+          "name": "contact_person_id",
+          "displayName": "Contact Person",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Contact person for this deal (for company customers)"
+        },
+        {
+          "name": "summary",
+          "displayName": "Summary",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional information about the deal"
+        },
+        {
+          "name": "source_id",
+          "displayName": "Source",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "How the lead was acquired"
+        },
+        {
+          "name": "department_id",
+          "displayName": "Department",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Department responsible for this deal"
+        },
+        {
+          "name": "responsible_user_id",
+          "displayName": "Responsible User",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "User responsible for this deal"
+        },
+        {
+          "name": "estimated_value_amount",
+          "displayName": "Estimated Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Deal value amount"
+        },
+        {
+          "name": "estimated_value_currency",
+          "displayName": "Value Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Currency for the estimated value"
+        },
+        {
+          "name": "estimated_probability",
+          "displayName": "Estimated Probability",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Win probability (0-1, e.g., 0.75 for 75%)"
+        },
+        {
+          "name": "estimated_closing_date",
+          "displayName": "Estimated Closing Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Expected deal closing date"
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Custom field values"
+        },
+        {
+          "name": "id",
+          "displayName": "Field ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Custom field identifier"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Field value"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "deal_accepted": {
+      "displayName": "Deal Won",
+      "description": "Triggers when a deal is won/accepted",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_company": {
+      "displayName": "New Company",
+      "description": "Triggers when a new company is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Triggers when a new contact is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_deal": {
+      "displayName": "New Deal",
+      "description": "Triggers when a new deal is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_invoice": {
+      "displayName": "New Invoice",
+      "description": "Triggers when a new invoice is drafted",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

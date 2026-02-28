@@ -1,0 +1,40 @@
+{
+  "id": "omnihr",
+  "package": "@activepieces/piece-omnihr",
+  "display_name": "Omni HR",
+  "display_name_ar": "",
+  "description": "Smart, all-in-one HR platform for managing employees, time tracking, and HR workflows",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "get_direct_reports",
+      "display_name": "Get Employee Direct Reports",
+      "description": "Retrieves a list of employees who directly report to the specified employee"
+    },
+    {
+      "name": "get_employee_info",
+      "display_name": "Get Employee Details by System ID",
+      "description": "Retrieves detailed employee information using their system ID"
+    },
+    {
+      "name": "get_employee_organizational_chart",
+      "display_name": "Get Employee Organizational Chart",
+      "description": "Retrieves employee organizational relationships including the complete management chain, direct reports, and peers"
+    },
+    {
+      "name": "get_employee_system_id",
+      "display_name": "Get Employee System ID by Email",
+      "description": "Searches for an employee by email and returns their system ID and user ID"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

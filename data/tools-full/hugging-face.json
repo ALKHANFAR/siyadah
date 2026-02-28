@@ -1,0 +1,646 @@
+{
+  "id": "hugging-face",
+  "displayName": "Hugging Face",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "chat_completion": {
+      "displayName": "Chat Completion",
+      "description": "Generate assistant replies using chat-style LLMs - perfect for FAQ bots, support agents, and content generation",
+      "props": [
+        {
+          "name": "useCase",
+          "displayName": "Use Case",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "What type of chat assistant are you building?"
+        },
+        {
+          "name": "model",
+          "displayName": "Chat Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the best model for your use case"
+        },
+        {
+          "name": "conversationMode",
+          "displayName": "Conversation Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How do you want to build the conversation?"
+        },
+        {
+          "name": "userMessage",
+          "displayName": "User Message",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The user message or question to respond to"
+        },
+        {
+          "name": "systemPrompt",
+          "displayName": "System Prompt (Optional)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Instructions for how the assistant should behave"
+        },
+        {
+          "name": "conversationHistory",
+          "displayName": "Conversation History",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Previous messages in the conversation (for multi-turn chat)"
+        },
+        {
+          "name": "template",
+          "displayName": "Response Template",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Pre-built templates for common business scenarios"
+        },
+        {
+          "name": "responseLength",
+          "displayName": "Response Length",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How long should the response be?"
+        },
+        {
+          "name": "customMaxTokens",
+          "displayName": "Custom Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of tokens to generate"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Creativity Level",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How creative should responses be? (0.1 = focused, 1.0 = creative)"
+        },
+        {
+          "name": "topP",
+          "displayName": "Response Variety",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls response diversity (0.1 = focused, 1.0 = varied)"
+        },
+        {
+          "name": "stopSequences",
+          "displayName": "Stop Sequences (Optional)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Text sequences that will stop generation"
+        },
+        {
+          "name": "frequencyPenalty",
+          "displayName": "Repetition Penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Reduce repetitive responses (-2.0 to 2.0)"
+        },
+        {
+          "name": "presencePenalty",
+          "displayName": "Topic Diversity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Encourage diverse topics (-2.0 to 2.0)"
+        },
+        {
+          "name": "useCache",
+          "displayName": "Use Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use cached responses for identical requests"
+        },
+        {
+          "name": "waitForModel",
+          "displayName": "Wait for Model",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for model to load if not immediately available"
+        }
+      ]
+    },
+    "create_image": {
+      "displayName": "Create Image",
+      "description": "Generate stunning images from text prompts using state-of-the-art diffusion models - perfect for marketing, product design, and creative content",
+      "props": [
+        {
+          "name": "useCase",
+          "displayName": "Use Case",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "What type of image generation do you need?"
+        },
+        {
+          "name": "model",
+          "displayName": "Image Generation Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the best model for your use case"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Text Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Describe the image you want to generate. Be specific about style, colors, composition, and details."
+        },
+        {
+          "name": "aspectRatio",
+          "displayName": "Aspect Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Choose the dimensions for your image"
+        },
+        {
+          "name": "customWidth",
+          "displayName": "Custom Width",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Width in pixels (64-1024)"
+        },
+        {
+          "name": "customHeight",
+          "displayName": "Custom Height",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Height in pixels (64-1024)"
+        },
+        {
+          "name": "negativePrompt",
+          "displayName": "Negative Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Describe what you DON'T want in the image (blur, low quality, distorted, etc.)"
+        },
+        {
+          "name": "qualitySettings",
+          "displayName": "Quality vs Speed",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Balance between image quality and generation time"
+        },
+        {
+          "name": "customSteps",
+          "displayName": "Custom Inference Steps",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of denoising steps (1-100)"
+        },
+        {
+          "name": "guidanceScale",
+          "displayName": "Guidance Scale",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How closely to follow the prompt (1-20). Higher values = more prompt adherence but may reduce creativity."
+        },
+        {
+          "name": "seed",
+          "displayName": "Seed (Optional)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Set a seed for reproducible results. Leave empty for random generation."
+        },
+        {
+          "name": "scheduler",
+          "displayName": "Scheduler",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Advanced: Choose the noise scheduler algorithm"
+        }
+      ]
+    },
+    "document_question_answering": {
+      "displayName": "Document Question Answering",
+      "description": "Answer questions from document images using Hugging Face models",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Hugging Face document question answering model"
+        },
+        {
+          "name": "image",
+          "displayName": "Document Image",
+          "type": "FILE",
+          "required": true,
+          "description": "Image of the document to analyze (invoice, contract, etc.)"
+        },
+        {
+          "name": "question",
+          "displayName": "Question",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Question to ask about the document (e.g., 'What is the invoice total?')"
+        },
+        {
+          "name": "top_k",
+          "displayName": "Number of Answers",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of top answers to return"
+        },
+        {
+          "name": "max_answer_len",
+          "displayName": "Max Answer Length",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of predicted answers"
+        },
+        {
+          "name": "handle_impossible_answer",
+          "displayName": "Handle Impossible Answers",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to accept 'impossible' as an answer when no answer is found"
+        },
+        {
+          "name": "lang",
+          "displayName": "OCR Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language to use for OCR text extraction"
+        },
+        {
+          "name": "use_cache",
+          "displayName": "Use Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use cached results if available"
+        },
+        {
+          "name": "wait_for_model",
+          "displayName": "Wait for Model",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for model to load if not ready"
+        }
+      ]
+    },
+    "image_classification": {
+      "displayName": "Image Classification",
+      "description": "Classify images with pre-trained models or custom categories - perfect for content moderation, automated tagging, and smart asset management",
+      "props": [
+        {
+          "name": "classificationMode",
+          "displayName": "Classification Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How do you want to classify your images?"
+        },
+        {
+          "name": "useCase",
+          "displayName": "Use Case",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "What type of image classification do you need?"
+        },
+        {
+          "name": "model",
+          "displayName": "Classification Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the best model for your use case"
+        },
+        {
+          "name": "imageSource",
+          "displayName": "Image Source",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How do you want to provide the image?"
+        },
+        {
+          "name": "imageFile",
+          "displayName": "Image File",
+          "type": "FILE",
+          "required": true,
+          "description": "Upload an image file for classification (JPG, PNG, WebP)"
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "URL of the image to classify"
+        },
+        {
+          "name": "customCategories",
+          "displayName": "Custom Categories",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Enter the categories you want to classify the image into (e.g., \"dog\", \"cat\", \"bird\")"
+        },
+        {
+          "name": "hypothesisTemplate",
+          "displayName": "Classification Template",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Template for classification (advanced). Default: \"This image shows {}\""
+        },
+        {
+          "name": "topK",
+          "displayName": "Number of Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of classification results to return (1-20)"
+        },
+        {
+          "name": "confidenceThreshold",
+          "displayName": "Confidence Threshold",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum confidence score for results (0.0-1.0)"
+        },
+        {
+          "name": "outputFormat",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to structure the classification results"
+        }
+      ]
+    },
+    "language_translation": {
+      "displayName": "Language Translation",
+      "description": "Translate text between languages using specialized Hugging Face translation models",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Translation Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a translation model or search from 7000+ available models"
+        },
+        {
+          "name": "customModel",
+          "displayName": "Or Enter Custom Model ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Alternative: Enter any Hugging Face translation model ID directly (e.g., Helsinki-NLP/opus-mt-ja-en)"
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Translate",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content you want to translate"
+        },
+        {
+          "name": "sourceLanguage",
+          "displayName": "Source Language (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Source language code (e.g., \"en\", \"es\", \"fr\"). Only needed for multilingual models that support multiple language pairs."
+        },
+        {
+          "name": "targetLanguage",
+          "displayName": "Target Language (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Target language code (e.g., \"fr\", \"de\", \"zh\"). Only needed for multilingual models that support multiple language pairs."
+        },
+        {
+          "name": "cleanUpSpaces",
+          "displayName": "Clean Up Extra Spaces",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Remove potential extra spaces in the translation output"
+        },
+        {
+          "name": "maxLength",
+          "displayName": "Max Translation Length",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of the translated text (leave empty for default)"
+        },
+        {
+          "name": "useCache",
+          "displayName": "Use Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use cached results if available for faster responses"
+        },
+        {
+          "name": "waitForModel",
+          "displayName": "Wait for Model",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for model to load if not immediately available"
+        }
+      ]
+    },
+    "object_detection": {
+      "displayName": "Object Detection",
+      "description": "Detect and locate objects in images with precise bounding boxes - perfect for inventory management, content moderation, and automated tagging",
+      "props": [
+        {
+          "name": "useCase",
+          "displayName": "Use Case",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "What type of object detection do you need?"
+        },
+        {
+          "name": "model",
+          "displayName": "Detection Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the best model for your detection task"
+        },
+        {
+          "name": "image",
+          "displayName": "Image to Analyze",
+          "type": "FILE",
+          "required": true,
+          "description": "Upload an image for object detection. Supports JPG, PNG, WebP formats."
+        },
+        {
+          "name": "confidenceThreshold",
+          "displayName": "Confidence Threshold",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum confidence score for detections (0.1-0.9). Higher values = fewer but more accurate detections."
+        },
+        {
+          "name": "maxDetections",
+          "displayName": "Max Detections",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of objects to detect (1-100)"
+        },
+        {
+          "name": "filterSettings",
+          "displayName": "Detection Filter",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle detection results"
+        },
+        {
+          "name": "outputFormat",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to structure the detection results"
+        }
+      ]
+    },
+    "text_classification": {
+      "displayName": "Text Classification",
+      "description": "Classify text into categories using Hugging Face models - includes zero-shot classification for custom categories",
+      "props": [
+        {
+          "name": "classificationMode",
+          "displayName": "Classification Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose your classification approach"
+        },
+        {
+          "name": "zeroShotModel",
+          "displayName": "Zero-Shot Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Model for classifying into your custom categories"
+        },
+        {
+          "name": "customLabels",
+          "displayName": "Custom Categories",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Enter categories separated by commas (e.g., \"customer support, sales inquiry, spam, billing question\")"
+        },
+        {
+          "name": "pretrainedModel",
+          "displayName": "Pre-trained Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Select a specialized pre-trained classification model"
+        },
+        {
+          "name": "searchModel",
+          "displayName": "Search Models",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Search from all available text classification models"
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Classify",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content you want to classify"
+        },
+        {
+          "name": "topK",
+          "displayName": "Number of Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of top predictions to return"
+        },
+        {
+          "name": "functionToApply",
+          "displayName": "Output Function",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to calculate confidence scores"
+        },
+        {
+          "name": "useCache",
+          "displayName": "Use Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use cached results for faster responses"
+        },
+        {
+          "name": "waitForModel",
+          "displayName": "Wait for Model",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for model to load if not immediately available"
+        }
+      ]
+    },
+    "text_summarization": {
+      "displayName": "Text Summarization",
+      "description": "Generate abstractive summaries of long text using Hugging Face models - optimized for business content",
+      "props": [
+        {
+          "name": "contentType",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "What type of content are you summarizing?"
+        },
+        {
+          "name": "model",
+          "displayName": "Summarization Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the best model for your content type"
+        },
+        {
+          "name": "text",
+          "displayName": "Text to Summarize",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The long text content you want to summarize (most models work best with 512-1024 tokens)"
+        },
+        {
+          "name": "summaryLength",
+          "displayName": "Summary Length",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How long should the summary be?"
+        },
+        {
+          "name": "customMinLength",
+          "displayName": "Custom Min Length",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Minimum number of tokens for the summary"
+        },
+        {
+          "name": "customMaxLength",
+          "displayName": "Custom Max Length",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of tokens for the summary"
+        },
+        {
+          "name": "cleanUpSpaces",
+          "displayName": "Clean Up Extra Spaces",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Remove extra spaces and clean up formatting"
+        },
+        {
+          "name": "truncationStrategy",
+          "displayName": "Truncation Strategy",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle text that exceeds model limits"
+        },
+        {
+          "name": "useCache",
+          "displayName": "Use Cache",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use cached results for faster responses"
+        },
+        {
+          "name": "waitForModel",
+          "displayName": "Wait for Model",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for model to load if not immediately available"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

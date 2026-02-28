@@ -1,0 +1,80 @@
+{
+  "id": "kommo",
+  "package": "@activepieces/piece-kommo",
+  "display_name": "Kommo",
+  "display_name_ar": "Kommo",
+  "description": "Kommo integration",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_contact",
+      "display_name": "Create New Contact",
+      "description": "Add a new contact."
+    },
+    {
+      "name": "create_lead",
+      "display_name": "Create New Lead",
+      "description": "Creates a new lead."
+    },
+    {
+      "name": "find_company",
+      "display_name": "Find Company",
+      "description": "Find an existing company."
+    },
+    {
+      "name": "find_contact",
+      "display_name": "Find Contact",
+      "description": "Finds an existing contact."
+    },
+    {
+      "name": "find_lead",
+      "display_name": "Find Lead",
+      "description": "Search query (Searches through the filled fields of the lead)."
+    },
+    {
+      "name": "update_contact",
+      "display_name": "Update Contact",
+      "description": "Updates an existing contact."
+    },
+    {
+      "name": "update_lead",
+      "display_name": "Update Lead",
+      "description": "Update existing lead info."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "lead_status_changed",
+      "display_name": "Lead Status Changed",
+      "description": "Triggers when a lead status is changed.",
+      "type": "instant"
+    },
+    {
+      "name": "new_contact_added",
+      "display_name": "New Contact Added",
+      "description": "Triggers when a new contact is added.",
+      "type": "instant"
+    },
+    {
+      "name": "new_lead_created",
+      "display_name": "New Lead Created",
+      "description": "Triggers when a new lead is created.",
+      "type": "instant"
+    },
+    {
+      "name": "new_task_created",
+      "display_name": "New Task Created",
+      "description": "Triggered when a new task is created.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/kommo"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "twitch",
+  "displayName": "Twitch",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "stream_started": {
+      "displayName": "Streamer Name(s)/URL(s)",
+      "description": "Add the usernames or URLs of the streamers you want to monitor (e.g., loltyler1 or https://twitch.tv/faker).",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "streamers",
+          "displayName": "Streamer Name(s)/URL(s)",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Add the usernames or URLs of the streamers you want to monitor (e.g., loltyler1 or https://twitch.tv/faker)."
+        }
+      ]
+    }
+  }
+}

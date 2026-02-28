@@ -1,0 +1,383 @@
+{
+  "id": "microsoft-todo",
+  "displayName": "Microsoft To Do",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_attachment": {
+      "displayName": "Add an Attachment",
+      "description": "Adds an attachment to a task.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task list that contains the task."
+        },
+        {
+          "name": "task_id",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task to which you are adding the attachment."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to attach (up to 25 MB supported)."
+        },
+        {
+          "name": "filename",
+          "displayName": "Attachment Name (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name to display for the attachment. If left blank, the original filename will be used."
+        }
+      ]
+    },
+    "complete_task": {
+      "displayName": "Complete Task",
+      "description": "Marks a task as completed.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task list containing the task you want to complete."
+        },
+        {
+          "name": "task_id",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The specific task to mark as complete."
+        }
+      ]
+    },
+    "create_task_list": {
+      "displayName": "Create Task List",
+      "description": "Create a new task list.",
+      "props": [
+        {
+          "name": "displayName",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for the new task list."
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Creates a new task.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task list to create the task in."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the task."
+        },
+        {
+          "name": "body_content",
+          "displayName": "Body Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The body or notes for the task."
+        },
+        {
+          "name": "importance",
+          "displayName": "Importance",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The importance of the task."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the task."
+        },
+        {
+          "name": "due_date_time",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reminder_date_time",
+          "displayName": "Reminder Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "start_date_time",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time the task is scheduled to start."
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated categories for the task (e.g., Work, Personal)."
+        }
+      ]
+    },
+    "delete_task": {
+      "displayName": "Delete Task",
+      "description": "Deletes an existing task.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The list containing the task you want to delete."
+        },
+        {
+          "name": "task_id",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The specific task to delete."
+        }
+      ]
+    },
+    "find_task_by_title": {
+      "displayName": "Find Task",
+      "description": "Finds tasks by title.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a specific task list to search within."
+        },
+        {
+          "name": "title",
+          "displayName": "Task Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title (or partial title) of the task to find."
+        },
+        {
+          "name": "match_type",
+          "displayName": "Match Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to match the task title."
+        }
+      ]
+    },
+    "find_task_list_by_name": {
+      "displayName": "Find Task List",
+      "description": "Finds a task list by its name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name (or partial name) of the task list to find."
+        },
+        {
+          "name": "match_type",
+          "displayName": "Match Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to match the list name."
+        }
+      ]
+    },
+    "get_task": {
+      "displayName": "Get Task",
+      "description": "Gets the details of a specific task.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The list containing the task you want to retrieve."
+        },
+        {
+          "name": "task_id",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The specific task to retrieve."
+        }
+      ]
+    },
+    "update_task_list": {
+      "displayName": "Update Task List",
+      "description": "Updates an existing task list.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task list to update."
+        },
+        {
+          "name": "displayName",
+          "displayName": "New Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new name for the task list."
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Update an existing task.",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task list containing the task to update."
+        },
+        {
+          "name": "task_id",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The task to update."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title of the task."
+        },
+        {
+          "name": "body_content",
+          "displayName": "Body Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The body or notes for the task."
+        },
+        {
+          "name": "importance",
+          "displayName": "Importance",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The importance of the task."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the task."
+        },
+        {
+          "name": "due_date_time",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "reminder_date_time",
+          "displayName": "Reminder Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "start_date_time",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time the task is scheduled to start."
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Comma-separated categories for the task (e.g., Work, Personal)."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_list_created": {
+      "displayName": "New List",
+      "description": "Triggers when a new task list is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_task_created": {
+      "displayName": "New Task",
+      "description": "Triggers when a new task is created.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "task_completed": {
+      "displayName": "Task Completed",
+      "description": "Triggers when a task is completed in a specific list.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The list to watch for completed tasks."
+        }
+      ]
+    },
+    "new_or_updated_task": {
+      "displayName": "New or Updated Task",
+      "description": "Triggers when a new task is created or an existing task is updated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "task_list_id",
+          "displayName": "Task List",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

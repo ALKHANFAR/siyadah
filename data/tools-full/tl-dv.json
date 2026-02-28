@@ -1,0 +1,157 @@
+{
+  "id": "tl-dv",
+  "displayName": "tl;dv",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get_highlights": {
+      "displayName": "Get Highlights",
+      "description": "Get meeting highlights (notes) by meeting ID",
+      "props": []
+    },
+    "get_meeting": {
+      "displayName": "Get Meeting",
+      "description": "Get meeting details by ID",
+      "props": []
+    },
+    "get_transcript": {
+      "displayName": "Get Transcript",
+      "description": "Get meeting transcript by meeting ID",
+      "props": []
+    },
+    "list_meetings": {
+      "displayName": "List Meetings",
+      "description": "Search and list meetings",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search for meetings by name or content"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number to return (default: 1)"
+        },
+        {
+          "name": "limit",
+          "displayName": "Results Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default: 50)"
+        },
+        {
+          "name": "from",
+          "displayName": "From Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Search meetings from this date"
+        },
+        {
+          "name": "to",
+          "displayName": "To Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Search meetings up to this date"
+        },
+        {
+          "name": "onlyParticipated",
+          "displayName": "Only Participated",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only return meetings you participated in"
+        },
+        {
+          "name": "meetingType",
+          "displayName": "Meeting Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter by meeting type"
+        }
+      ]
+    },
+    "upload_recording": {
+      "displayName": "Upload Recording",
+      "description": "Import a meeting or recording from a URL",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Meeting Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the meeting or recording"
+        },
+        {
+          "name": "url",
+          "displayName": "Recording URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Publicly accessible URL of the recording. Supported formats: .mp3, .mp4, .wav, .m4a, .mkv, .mov, .avi, .wma, .flac"
+        },
+        {
+          "name": "happenedAt",
+          "displayName": "Meeting Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the meeting occurred. If not provided, the current date will be used."
+        },
+        {
+          "name": "dryRun",
+          "displayName": "Dry Run",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Test the import without persisting to the database"
+        },
+        {
+          "name": "participants",
+          "displayName": "Participants",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Email addresses of meeting participants"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "meeting_ready": {
+      "displayName": "Meeting Ready",
+      "description": "Triggers when a meeting has finished processing and is ready",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "transcript_ready": {
+      "displayName": "Transcript Ready",
+      "description": "Triggers when a meeting transcript has been generated",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

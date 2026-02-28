@@ -1,0 +1,136 @@
+{
+  "id": "actualbudget",
+  "displayName": "Server URL",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "get_accounts": {
+      "displayName": "Get Accounts",
+      "description": "Get your accounts",
+      "props": []
+    },
+    "get_budget": {
+      "displayName": "Get Budget",
+      "description": "Get your monthly budget",
+      "props": [
+        {
+          "name": "month",
+          "displayName": "Month",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The month of the budget you want to get"
+        },
+        {
+          "name": "year",
+          "displayName": "Year",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The year of the budget you want to get"
+        }
+      ]
+    },
+    "get_categories": {
+      "displayName": "Get Categories",
+      "description": "Get your categories",
+      "props": []
+    },
+    "import_transaction": {
+      "displayName": "Import Transaction",
+      "description": "Add a transaction",
+      "props": [
+        {
+          "name": "account_id",
+          "displayName": "Account ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the account you want to import a transaction to"
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Date the transaction took place"
+        },
+        {
+          "name": "payee_name",
+          "displayName": "Payee Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the payee"
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The dollar value of the transaction"
+        },
+        {
+          "name": "category",
+          "displayName": "Category ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the transaction category"
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional notes about the transaction"
+        },
+        {
+          "name": "imported_id",
+          "displayName": "Imported ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique ID given by the bank for importing"
+        },
+        {
+          "name": "transfer_id",
+          "displayName": "Transfer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the transaction in the other account for the transfer"
+        },
+        {
+          "name": "cleared",
+          "displayName": "Cleared",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Flag indicating if the transaction has cleared or not"
+        },
+        {
+          "name": "imported_payee",
+          "displayName": "Imported Payee",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Raw description when importing, representing the original value"
+        }
+      ]
+    },
+    "import_transactions": {
+      "displayName": "Import Transactions",
+      "description": "Import Transactions",
+      "props": [
+        {
+          "name": "account_id",
+          "displayName": "Account ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the account you want to import a transaction to"
+        },
+        {
+          "name": "transactions",
+          "displayName": "Transactions",
+          "type": "JSON",
+          "required": true,
+          "description": "A json array of the transaction object"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,30 @@
+{
+  "id": "smaily",
+  "package": "@activepieces/piece-smaily",
+  "display_name": "Smaily",
+  "display_name_ar": "Smaily",
+  "description": "Smaily integration",
+  "category": "H_marketing",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create-or-update-subscriber",
+      "display_name": "Create or Update Subscriber",
+      "description": "Creates a new subscriber or update an existing subscriber by email."
+    },
+    {
+      "name": "get-subscriber",
+      "display_name": "Get Subscriber",
+      "description": "retrieves detailed subscriber information for a given email address."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/smaily"
+}

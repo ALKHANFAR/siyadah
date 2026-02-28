@@ -1,0 +1,20 @@
+{
+  "id": "binance",
+  "package": "@activepieces/piece-binance",
+  "display_name": "Binance",
+  "display_name_ar": "Binance",
+  "description": "Fetch the price of a crypto pair from Binance",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "fetch_crypto_pair_price",
+      "display_name": "Fetch Pair Price",
+      "description": "Fetch the current price of a pair (e.g. BTC/USDT)"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/binance"
+}

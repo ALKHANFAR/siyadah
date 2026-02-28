@@ -1,0 +1,100 @@
+{
+  "id": "github",
+  "package": "@activepieces/piece-github",
+  "display_name": "GitHub",
+  "display_name_ar": "GitHub",
+  "description": "Developer platform that allows developers to create, store, manage and share their code",
+  "category": "K_dev",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_labels_to_issue",
+      "display_name": "Add Labels to Issue",
+      "description": "Adds labels to an existing issue."
+    },
+    {
+      "name": "create_branch",
+      "display_name": "Create Branch",
+      "description": "Creates a new branch on a repository."
+    },
+    {
+      "name": "createCommentOnAIssue",
+      "display_name": "Create comment on a issue",
+      "description": "Adds a comment to the specified issue (also works with pull requests)"
+    },
+    {
+      "name": "github_create_commit_comment",
+      "display_name": "Create Commit Comment",
+      "description": "Creates a comment on a commit in a GitHub repository"
+    },
+    {
+      "name": "github_create_discussion_comment",
+      "display_name": "Create Discussion Comment",
+      "description": "Creates a comment on a discussion in a GitHub repository"
+    },
+    {
+      "name": "github_create_issue",
+      "display_name": "Create Issue",
+      "description": "Create Issue in GitHub Repository"
+    },
+    {
+      "name": "github_create_pull_request_review_comment",
+      "display_name": "Create Pull Request Review Comment",
+      "description": "Creates a review comment on a pull request in a GitHub repository"
+    },
+    {
+      "name": "delete_branch",
+      "display_name": "Delete Branch",
+      "description": "Deletes a branch from a repository."
+    },
+    {
+      "name": "find_branch",
+      "display_name": "Find Branch",
+      "description": "Finds a branch by name and returns its details."
+    },
+    {
+      "name": "find_issue",
+      "display_name": "Find Issue",
+      "description": "Finds an issue based title."
+    },
+    {
+      "name": "find_user",
+      "display_name": "Find User",
+      "description": "Finds a user by their login name."
+    },
+    {
+      "name": "getIssueInformation",
+      "display_name": "Get issue information",
+      "description": "Grabs information from a specific issue"
+    },
+    {
+      "name": "lockIssue",
+      "display_name": "Lock issue",
+      "description": "Locks the specified issue"
+    },
+    {
+      "name": "rawGraphqlQuery",
+      "display_name": "Raw GraphQL query",
+      "description": "Perform a raw GraphQL query"
+    },
+    {
+      "name": "unlockIssue",
+      "display_name": "Unlock issue",
+      "description": "Unlocks the specified issue"
+    },
+    {
+      "name": "update_issue",
+      "display_name": "Update Issue",
+      "description": "Updates an existing issue."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/github"
+}

@@ -1,0 +1,1860 @@
+{
+  "id": "housecall-pro",
+  "displayName": "Housecall Pro",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_job_attachment": {
+      "displayName": "Add an attachment to a job",
+      "description": "Upload an attachment to a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to add attachment to"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to upload"
+        }
+      ]
+    },
+    "add_job_line_item": {
+      "displayName": "Add a line item to a job",
+      "description": "Add a line item to a job. This is a rate limited request.",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the line item"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The description of the line item"
+        },
+        {
+          "name": "unit_price",
+          "displayName": "Unit Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The unit price of the line item"
+        },
+        {
+          "name": "unit_cost",
+          "displayName": "Unit Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The unit cost of the line item"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of items being sold. This can be a float up to two decimal places"
+        },
+        {
+          "name": "tax_surcharge_type",
+          "displayName": "Tax/Surcharge Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of tax or surcharge"
+        },
+        {
+          "name": "kind",
+          "displayName": "Kind",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The kind of line item"
+        },
+        {
+          "name": "taxable",
+          "displayName": "Taxable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the line item is taxable"
+        },
+        {
+          "name": "service_line_id",
+          "displayName": "Service Line ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the service line"
+        },
+        {
+          "name": "service_line_type",
+          "displayName": "Service Line Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of service line"
+        }
+      ]
+    },
+    "add_job_note": {
+      "displayName": "Add job note",
+      "description": "Add a note to a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the note"
+        }
+      ]
+    },
+    "add_job_tag": {
+      "displayName": "Add job tag",
+      "description": "Add a tag to a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "tag_id",
+          "displayName": "Tag ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the tag to add"
+        }
+      ]
+    },
+    "bulk_update_job_input_materials": {
+      "displayName": "Bulk update a job's input materials",
+      "description": "Bulk update job input materials. If upsert not define for a job input material it will be consider as a new entry.",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "job_input_materials",
+          "displayName": "Job Input Materials",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of job input materials to update"
+        }
+      ]
+    },
+    "bulk_update_job_line_items": {
+      "displayName": "Bulk update a job's line items",
+      "description": "Bulk update job line items. If upsert not define for a line item it will be considered as a new line item for the job.",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "line_items",
+          "displayName": "Line Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of line items to update"
+        },
+        {
+          "name": "append_line_items",
+          "displayName": "Append Line Items",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Append line items to the job"
+        }
+      ]
+    },
+    "convert_lead_to_estimate_or_job": {
+      "displayName": "Convert Lead to Estimate or Job",
+      "description": "Converts a lead into an estimate or job.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Lead ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The type to convert the lead to. Must be either 'estimate' or 'job'"
+        }
+      ]
+    },
+    "create_customer_address": {
+      "displayName": "Create an Address on a Customer",
+      "description": "Creates an address on a customer.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer to add address to"
+        },
+        {
+          "name": "street",
+          "displayName": "Street",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Street address"
+        },
+        {
+          "name": "street_line_2",
+          "displayName": "Street Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional street address line"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "City"
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "State"
+        },
+        {
+          "name": "zip",
+          "displayName": "ZIP",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ZIP code"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Country"
+        },
+        {
+          "name": "latitude",
+          "displayName": "Latitude",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Latitude (one of number)"
+        },
+        {
+          "name": "longitude",
+          "displayName": "Longitude",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Longitude (one of number)"
+        }
+      ]
+    },
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Creates a new customer in Housecall Pro.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "mobile_number",
+          "displayName": "Mobile Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "home_number",
+          "displayName": "Home Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "work_number",
+          "displayName": "Work Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notifications_enabled",
+          "displayName": "Notifications Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Will the customer receive notifications"
+        },
+        {
+          "name": "lead_source",
+          "displayName": "Lead Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags to assign to the customer"
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of address objects"
+        }
+      ]
+    },
+    "create_estimate_option_attachment": {
+      "displayName": "Create estimate option attachment",
+      "description": "Upload an attachment to an estimate option",
+      "props": [
+        {
+          "name": "estimate_id",
+          "displayName": "Estimate ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "option_id",
+          "displayName": "Option ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_estimate_option_link": {
+      "displayName": "Create estimate option link",
+      "description": "Create a new estimate option link",
+      "props": [
+        {
+          "name": "estimate_id",
+          "displayName": "Estimate ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "option_id",
+          "displayName": "Option ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_estimate_option_note": {
+      "displayName": "Create estimate option note",
+      "description": "Create a new estimate option note",
+      "props": [
+        {
+          "name": "estimate_id",
+          "displayName": "Estimate ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "option_id",
+          "displayName": "Option ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_estimate": {
+      "displayName": "Create estimate",
+      "description": "Create an estimate",
+      "props": [
+        {
+          "name": "estimate_number",
+          "displayName": "Estimate Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Unique estimate number. If blank, one will be automatically generated."
+        },
+        {
+          "name": "message",
+          "displayName": "Note Message",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "assigned_employee_ids",
+          "displayName": "Assigned Employee IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address_id",
+          "displayName": "Address ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "JSON",
+          "required": false,
+          "description": "Address object with fields: street, street_line_2, city, state, zip"
+        },
+        {
+          "name": "schedule",
+          "displayName": "Schedule",
+          "type": "JSON",
+          "required": false,
+          "description": "Schedule object with fields: start_time, end_time, arrival_window_in_minutes, notify_customer"
+        },
+        {
+          "name": "estimate_fields",
+          "displayName": "Estimate Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "Estimate fields object with: job_type_id, business_unit_id"
+        },
+        {
+          "name": "options",
+          "displayName": "Options (array of option objects)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Each option object corresponds to an estimate option to create."
+        },
+        {
+          "name": "additional_fields",
+          "displayName": "Additional Fields (advanced)",
+          "type": "JSON",
+          "required": false,
+          "description": "Advanced: provide raw fields merged into the request body."
+        }
+      ]
+    },
+    "create_job_appointment": {
+      "displayName": "Create appointment",
+      "description": "Add an appointment to a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "start_time",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Start time of job appointment in iso8601"
+        },
+        {
+          "name": "end_time",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "End time of job appointment in iso8601"
+        },
+        {
+          "name": "arrival_window_minutes",
+          "displayName": "Arrival Window (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Integer value in minutes of arrival window"
+        },
+        {
+          "name": "dispatched_employees_ids",
+          "displayName": "Dispatched Employees IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of pros ids to be assign in appointment"
+        }
+      ]
+    },
+    "create_job_link": {
+      "displayName": "Create Job Link",
+      "description": "Create a new job link",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the link"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the link"
+        }
+      ]
+    },
+    "create_job": {
+      "displayName": "Create Job",
+      "description": "Creates a job with the ID for an already existing address and customer.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer this job is for"
+        },
+        {
+          "name": "address_id",
+          "displayName": "Address ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the address for this job"
+        },
+        {
+          "name": "invoice_number",
+          "displayName": "Invoice Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Invoice number must be unique across all of a company\\"
+        },
+        {
+          "name": "scheduled_start",
+          "displayName": "Scheduled Start",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Start time of job in ISO8601 format (e.g., 2021-01-14T20:14:00)"
+        },
+        {
+          "name": "scheduled_end",
+          "displayName": "Scheduled End",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "End time of job in ISO8601 format (e.g., 2021-01-14T21:14:00)"
+        },
+        {
+          "name": "arrival_window",
+          "displayName": "Arrival Window (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Integer value in minutes of arrival window"
+        },
+        {
+          "name": "assigned_employee_ids",
+          "displayName": "Assigned Employee IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of employee IDs to assign to the job"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags to assign to the job"
+        },
+        {
+          "name": "lead_source",
+          "displayName": "Lead Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "line_items",
+          "displayName": "Line Items",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of line items for the job"
+        },
+        {
+          "name": "pricing_form",
+          "displayName": "Pricing Form",
+          "type": "JSON",
+          "required": false,
+          "description": "Pricing form object with fields and options (use UUIDs from GET price form endpoint)"
+        },
+        {
+          "name": "job_fields",
+          "displayName": "Job Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "Job fields object (e.g., job_type_id, business_unit_id)"
+        }
+      ]
+    },
+    "create_lead": {
+      "displayName": "Create Lead",
+      "description": "Create a lead with the ID for an already existing customer.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Either the ID of customer required"
+        },
+        {
+          "name": "customer",
+          "displayName": "Customer",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Either the ID of customer required"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notifications_enabled",
+          "displayName": "Notifications Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Will the customer receive notifications"
+        },
+        {
+          "name": "mobile_number",
+          "displayName": "Mobile Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "home_number",
+          "displayName": "Home Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "work_number",
+          "displayName": "Work Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lead_source",
+          "displayName": "Lead Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "assigned_employees",
+          "displayName": "Assigned Employees",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete_estimate_option_note": {
+      "displayName": "Delete estimate option note",
+      "description": "Delete a specific estimate option note",
+      "props": [
+        {
+          "name": "estimate_id",
+          "displayName": "Estimate ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "option_id",
+          "displayName": "Option ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "note_id",
+          "displayName": "Note ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "delete_job_appointment": {
+      "displayName": "Delete appointment",
+      "description": "Delete a job appointment",
+      "props": [
+        {
+          "name": "appointment_id",
+          "displayName": "Appointment ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the appointment"
+        },
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        }
+      ]
+    },
+    "delete_job_line_item": {
+      "displayName": "Delete a single line item for a job",
+      "description": "Delete a specific line item from a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "id",
+          "displayName": "Line Item ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the line item to delete"
+        }
+      ]
+    },
+    "delete_job_note": {
+      "displayName": "Delete job note",
+      "description": "Delete a specific job note",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "note_id",
+          "displayName": "Note ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the note to delete"
+        }
+      ]
+    },
+    "delete_job_schedule": {
+      "displayName": "Delete Job Schedule",
+      "description": "Deletes schedule on a job.",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to delete schedule from."
+        }
+      ]
+    },
+    "dispatch_job_to_employees": {
+      "displayName": "Dispatch job to employees",
+      "description": "Dispatch a job to employees",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to dispatch"
+        },
+        {
+          "name": "dispatched_employees",
+          "displayName": "Dispatched Employees",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of employees with employee_id to dispatch to"
+        }
+      ]
+    },
+    "get_customer_address": {
+      "displayName": "Get a Customer's Address",
+      "description": "Retrieves a customer's address by customer ID and address ID.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer"
+        },
+        {
+          "name": "address_id",
+          "displayName": "Address ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the address"
+        }
+      ]
+    },
+    "get_customer_addresses": {
+      "displayName": "Get All of a Customer's Addresses",
+      "description": "Retrieves all of a customer's addresses.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Paginated page number"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of addresses returned per page"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Address attribute to sort by"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Ascending or descending"
+        }
+      ]
+    },
+    "get_customer": {
+      "displayName": "Get Customer",
+      "description": "Retrieves the customer by ID.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer to retrieve."
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Expand related data"
+        }
+      ]
+    },
+    "get_customers": {
+      "displayName": "Get Customers",
+      "description": "Retrieves a list of customers from Housecall Pro.",
+      "props": [
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for pagination (starts from 1)"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of customers per page (max 100)"
+        },
+        {
+          "name": "q",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search customers by name, email, mobile number, and address"
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Expand related data"
+        },
+        {
+          "name": "location_ids",
+          "displayName": "Location IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "IDs of locations from which to pull customers"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The customer attribute by which to sort the results"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The order of sorting (ascending or descending)"
+        }
+      ]
+    },
+    "get_estimate": {
+      "displayName": "Get estimate by ID",
+      "description": "Retrieve a single estimate by ID",
+      "props": [
+        {
+          "name": "estimate_id",
+          "displayName": "Estimate ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get_estimates": {
+      "displayName": "Get estimates",
+      "description": "Get a list of estimates with filtering and pagination",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter estimates by a single customer ID"
+        },
+        {
+          "name": "employee_ids",
+          "displayName": "Employee IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter estimates by assigned employee IDs"
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Array of strings to expand response body"
+        },
+        {
+          "name": "location_ids",
+          "displayName": "Location IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "IDs of locations to retrieve estimates from"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The paginated page number"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of estimates returned per page"
+        },
+        {
+          "name": "scheduled_end_max",
+          "displayName": "Scheduled End Max",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters estimates with an end time less than or equal to the date sent"
+        },
+        {
+          "name": "scheduled_end_min",
+          "displayName": "Scheduled End Min",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters estimates with an end time greater than or equal to the date sent"
+        },
+        {
+          "name": "scheduled_start_max",
+          "displayName": "Scheduled Start Max",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters estimates with a starting time less than or equal to the date sent"
+        },
+        {
+          "name": "scheduled_start_min",
+          "displayName": "Scheduled Start Min",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters estimates with a starting time greater than or equal to the date sent"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The attribute to sort the results by"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The sorting order"
+        },
+        {
+          "name": "work_status",
+          "displayName": "Work Status",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filters estimates by their work status"
+        }
+      ]
+    },
+    "get_job_appointments": {
+      "displayName": "Get Appointments",
+      "description": "Get all of the appointments for a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        }
+      ]
+    },
+    "get_job_input_materials": {
+      "displayName": "Lists all job input materials for a job",
+      "description": "Retrieve all job input materials for a specific job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        }
+      ]
+    },
+    "get_job_invoices": {
+      "displayName": "Get Job Invoices",
+      "description": "Lists all invoices for a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to retrieve invoices for"
+        }
+      ]
+    },
+    "get_job_line_items": {
+      "displayName": "Lists all line items for a job",
+      "description": "Retrieve all line items for a specific job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        }
+      ]
+    },
+    "get_job": {
+      "displayName": "Get a Job",
+      "description": "Retrieves a single job by ID from Housecall Pro.",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to retrieve"
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Expand related data (attachments, appointments)"
+        }
+      ]
+    },
+    "get_jobs": {
+      "displayName": "Get Jobs",
+      "description": "Retrieve a list of jobs from Housecall Pro.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filters jobs by a single customer ID"
+        },
+        {
+          "name": "employee_ids",
+          "displayName": "Employee IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of employee IDs to filter jobs"
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Array of strings to expand response body"
+        },
+        {
+          "name": "location_ids",
+          "displayName": "Location IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "IDs of locations to retrieve jobs from"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The paginated page number"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of jobs returned per page"
+        },
+        {
+          "name": "scheduled_start_min",
+          "displayName": "Scheduled Start Min",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters jobs with a starting time greater than or equal to the date sent"
+        },
+        {
+          "name": "scheduled_start_max",
+          "displayName": "Scheduled Start Max",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters jobs with a starting time less than or equal to the date sent"
+        },
+        {
+          "name": "scheduled_end_min",
+          "displayName": "Scheduled End Min",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters jobs with an end time greater than or equal to the date sent"
+        },
+        {
+          "name": "scheduled_end_max",
+          "displayName": "Scheduled End Max",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filters jobs with an end time less than or equal to the date sent"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The attribute to sort the results by"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The sorting order"
+        },
+        {
+          "name": "work_status",
+          "displayName": "Work Status",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filters jobs by their work status. If empty, returns jobs from all statuses"
+        }
+      ]
+    },
+    "get_lead": {
+      "displayName": "Get Lead",
+      "description": "Get the lead via ID.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Lead ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get_leads": {
+      "displayName": "Get Leads",
+      "description": "Get a list of leads",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter leads by a single customer ID (String)"
+        },
+        {
+          "name": "employee_ids",
+          "displayName": "Employee IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter leads by a list of employee IDs (String array)"
+        },
+        {
+          "name": "lead_source",
+          "displayName": "Lead Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter leads by a single lead_source"
+        },
+        {
+          "name": "location_ids",
+          "displayName": "Location IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "If a location you want to get from / If a Company-kit header is set, location_ids will be ignored"
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Paginated page number"
+        },
+        {
+          "name": "page_size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of leads returned per page"
+        },
+        {
+          "name": "sort_by",
+          "displayName": "Sort By",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Attribute to sort by"
+        },
+        {
+          "name": "sort_direction",
+          "displayName": "Sort Direction",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Allowed values: asc, desc"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter leads by status"
+        },
+        {
+          "name": "tag_ids",
+          "displayName": "Tag IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Filter leads by a list of tags"
+        }
+      ]
+    },
+    "lock_job": {
+      "displayName": "Lock Job",
+      "description": "Lock the job identified by the given job_id",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to lock"
+        }
+      ]
+    },
+    "lock_jobs": {
+      "displayName": "Lock Jobs",
+      "description": "Lock completed or scheduled jobs by the given time range",
+      "props": [
+        {
+          "name": "starting_at",
+          "displayName": "Starting At",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Lock jobs starting from this date/time"
+        },
+        {
+          "name": "ending_at",
+          "displayName": "Ending At",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Lock jobs until this date/time"
+        }
+      ]
+    },
+    "remove_job_tag": {
+      "displayName": "Remove job tag",
+      "description": "Remove a tag from a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "tag_id",
+          "displayName": "Tag ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the tag to remove"
+        }
+      ]
+    },
+    "update_customer": {
+      "displayName": "Update Customer",
+      "description": "Updates an existing customer in Housecall Pro.",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the customer to update."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "mobile_number",
+          "displayName": "Mobile Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "home_number",
+          "displayName": "Home Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "work_number",
+          "displayName": "Work Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of tags to assign to the customer (replaces existing tags)"
+        },
+        {
+          "name": "notifications_enabled",
+          "displayName": "Notifications Enabled",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Will the customer receive notifications"
+        },
+        {
+          "name": "lead_source",
+          "displayName": "Lead Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "addresses",
+          "displayName": "Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of address objects (if provided, each address must include an id)"
+        }
+      ]
+    },
+    "update_estimate_option_schedule": {
+      "displayName": "Update estimate option schedule",
+      "description": "Update an estimate option's schedule.",
+      "props": [
+        {
+          "name": "estimate_id",
+          "displayName": "Estimate ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "option_id",
+          "displayName": "Option ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "start_time",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "end_time",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "arrival_window_in_minutes",
+          "displayName": "Arrival Window (minutes)",
+          "type": "NUMBER",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify Customer",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "notify_pro",
+          "displayName": "Notify Pro",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dispatched_employees",
+          "displayName": "Dispatched Employees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of objects with employee_id"
+        }
+      ]
+    },
+    "update_job_appointment": {
+      "displayName": "Update Appointment",
+      "description": "Update job appointment",
+      "props": [
+        {
+          "name": "appointment_id",
+          "displayName": "Appointment ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the appointment"
+        },
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "start_time",
+          "displayName": "Start Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Start time of job appointment in iso8601"
+        },
+        {
+          "name": "end_time",
+          "displayName": "End Time",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "End time of job appointment in iso8601"
+        },
+        {
+          "name": "arrival_window_minutes",
+          "displayName": "Arrival Window (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Integer value in minutes of arrival window"
+        },
+        {
+          "name": "dispatched_employees_ids",
+          "displayName": "Dispatched Employees IDs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of pros ids to be assign in appointment"
+        }
+      ]
+    },
+    "update_job_line_item": {
+      "displayName": "Update a single line item for a job",
+      "description": "Update a specific line item for a job",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job"
+        },
+        {
+          "name": "id",
+          "displayName": "Line Item ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the line item"
+        },
+        {
+          "name": "service_line_id",
+          "displayName": "Service Line ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the service line"
+        },
+        {
+          "name": "service_line_type",
+          "displayName": "Service Line Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The type of service line"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the line item"
+        },
+        {
+          "name": "unit_price",
+          "displayName": "Unit Price",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The unit price of the line item"
+        },
+        {
+          "name": "unit_cost",
+          "displayName": "Unit Cost",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The unit cost of the line item"
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The number of items being sold"
+        },
+        {
+          "name": "kind",
+          "displayName": "Kind",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The kind of line item"
+        },
+        {
+          "name": "taxable",
+          "displayName": "Taxable",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the line item is taxable"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The description of the line item"
+        }
+      ]
+    },
+    "update_job_schedule": {
+      "displayName": "Update Job Schedule",
+      "description": "Updates a job's schedule. Jobs with multi days feature containing more than 1 appointment can't be updated through this action.",
+      "props": [
+        {
+          "name": "job_id",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the job to update schedule for"
+        },
+        {
+          "name": "start_time",
+          "displayName": "Start Time",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Start time of job in ISO8601 format (e.g., 2021-01-14T20:14:00)"
+        },
+        {
+          "name": "end_time",
+          "displayName": "End Time",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "End time of job in ISO8601 format (e.g., 2021-01-14T21:14:00)"
+        },
+        {
+          "name": "arrival_window_in_minutes",
+          "displayName": "Arrival Window (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Integer value in minutes of arrival window"
+        },
+        {
+          "name": "notify",
+          "displayName": "Notify",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notify the customer of the update schedule"
+        },
+        {
+          "name": "notify_pro",
+          "displayName": "Notify Pro",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Notify the pros of the update schedule"
+        },
+        {
+          "name": "expand",
+          "displayName": "Expand",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Expand related entities"
+        },
+        {
+          "name": "dispatched_employees",
+          "displayName": "Dispatched Employees",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of employee objects with employee_id"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

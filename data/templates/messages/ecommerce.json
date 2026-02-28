@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "industry": "ecommerce",
+    "industry_ar": "متجر إلكتروني",
+    "version": "1.0.0",
+    "dialect": "saudi",
+    "total_templates": 10,
+    "variable_style": "{{category.variable}}"
+  },
+  "templates": {
+    "welcome": {
+      "id": "ecommerce_welcome",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}} 👋\n\nشكراً لتواصلك مع {{company.company_name}}!\nوصلنا استفسارك وبنرد عليك بأسرع وقت.\n\nتقدر تتصفح منتجاتنا: {{company.website}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.website", "company.signature"],
+      "max_length": 500,
+      "tone": "professional_warm"
+    },
+    "follow_up_day3": {
+      "id": "ecommerce_followup_day3",
+      "channel": "whatsapp",
+      "text": "أهلاً {{customer.name}} 🛍️\n\nحبينا نتأكد إن طلبك وصلك بالسلامة! لو عندك أي ملاحظة أو تحتاج مساعدة، نحن هنا.\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.signature"],
+      "max_length": 500,
+      "tone": "friendly"
+    },
+    "follow_up_day7": {
+      "id": "ecommerce_followup_day7",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nنتمنى إنك استمتعت بتجربة التسوق من {{company.company_name}} 🌟\n\nلو حبيت تطلع على العروض الجديدة: {{company.website}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.website", "company.signature"],
+      "max_length": 500,
+      "tone": "promotional"
+    },
+    "reminder_appointment": {
+      "id": "ecommerce_reminder",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} 📦\n\nتذكير: طلبك رقم {{order.number}} جاهز للاستلام من {{company.company_name}}.\n\nالعنوان: {{company.address}}\nأوقات العمل: {{company.working_hours}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "order.number", "company.company_name", "company.address", "company.working_hours", "company.signature"],
+      "max_length": 500,
+      "tone": "informative"
+    },
+    "complaint_ack": {
+      "id": "ecommerce_complaint_ack",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} وصلنا شكواك ✅\n\nرقم الشكوى: {{complaint.number}}\nnعتذر عن الإزعاج وبنحل الموضوع بأسرع وقت.\n\nللمتابعة: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "complaint.number", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "empathetic"
+    },
+    "invoice_gentle": {
+      "id": "ecommerce_invoice_gentle",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nنود تذكيرك بفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال.\nتاريخ الاستحقاق: {{invoice.due_date}}\n\nرابط الدفع: {{company.payment_link}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "invoice.number", "invoice.amount", "invoice.due_date", "company.payment_link", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "invoice_firm": {
+      "id": "ecommerce_invoice_firm",
+      "channel": "whatsapp",
+      "text": "{{customer.name}}\n\nالفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال متأخرة {{invoice.days_overdue}} يوم.\n\nنرجو السداد لتجنب تأخير الطلبات القادمة.\nللتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "invoice.number", "invoice.amount", "invoice.days_overdue", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "firm"
+    },
+    "review_request": {
+      "id": "ecommerce_review",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} شكراً لطلبك من {{company.company_name}} 🛍️\n\nوش رأيك بالمنتج؟ تقييمك يساعدنا نتحسن ويساعد عملاء ثانيين.\n\nشكراً لثقتك! ⭐\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "warm"
+    },
+    "order_confirmation": {
+      "id": "ecommerce_order_confirm",
+      "channel": "whatsapp",
+      "text": "تم تأكيد طلبك ✅\n\n🛍️ {{company.company_name}}\n📦 رقم الطلب: {{order.number}}\n💰 المبلغ: {{order.amount}} ريال\n\nبنوافيك بتحديثات الشحن.\n\n{{company.signature}}",
+      "variables_used": ["company.company_name", "order.number", "order.amount", "company.signature"],
+      "max_length": 500,
+      "tone": "informative"
+    },
+    "shipping_update": {
+      "id": "ecommerce_shipping",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} 📦\n\nطلبك رقم {{order.number}} في الطريق! التوصيل المتوقع: {{order.delivery_date}}\n\nللاستفسار: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "order.number", "order.delivery_date", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "informative"
+    }
+  }
+}

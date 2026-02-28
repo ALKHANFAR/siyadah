@@ -1,0 +1,53 @@
+{
+  "id": "wufoo",
+  "package": "@activepieces/piece-wufoo",
+  "display_name": "Wufoo",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create-form-entry",
+      "display_name": "Create Form Entry",
+      "description": "Submit a new entry to a Wufoo form with dynamic field selection."
+    },
+    {
+      "name": "find-form",
+      "display_name": "Find Form by Name or Hash",
+      "description": "Get details about a Wufoo form including settings, entry counts, and metadata."
+    },
+    {
+      "name": "find-submission-by-field",
+      "display_name": "Find Submission by Field Value",
+      "description": "Search for form submissions by field value for deduplication and lookup operations."
+    },
+    {
+      "name": "get-entry-details",
+      "display_name": "Get Entry Details",
+      "description": "Get form entries with filtering, sorting, and pagination options."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_form_entry",
+      "display_name": "New Form Entry",
+      "description": "Triggers when someone submits a new entry to your Wufoo form.",
+      "type": "instant"
+    },
+    {
+      "name": "new_form_created",
+      "display_name": "New Form Created",
+      "description": "Triggers when a new form is created in your Wufoo account.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

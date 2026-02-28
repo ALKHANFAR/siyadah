@@ -1,0 +1,45 @@
+{
+  "id": "docsbot",
+  "package": "@activepieces/piece-docsbot",
+  "display_name": "DocsBot",
+  "display_name_ar": "DocsBot",
+  "description": "DocsBot AI allows you to build AI-powered chatbots that pull answers from your existing documentation and content. This integration enables workflows to ask DocsBot questions and update its training sources dynamically.",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "askQuestion",
+      "display_name": "Ask Question",
+      "description": "Ask a question to a specific bot in a specific team."
+    },
+    {
+      "name": "createBot",
+      "display_name": "Create Bot",
+      "description": "Creates a new bot."
+    },
+    {
+      "name": "createSource",
+      "display_name": "Create Source",
+      "description": "Create a new source for a bot."
+    },
+    {
+      "name": "findBot",
+      "display_name": "Find Bot",
+      "description": "Finds bot by name."
+    },
+    {
+      "name": "uploadSourceFile",
+      "display_name": "Upload Source File",
+      "description": "Upload a file to be used as a source."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/docsbot"
+}

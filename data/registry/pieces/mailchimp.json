@@ -1,0 +1,140 @@
+{
+  "id": "mailchimp",
+  "package": "@activepieces/piece-mailchimp",
+  "display_name": "Mailchimp",
+  "display_name_ar": "ميل شيمب",
+  "description": "Mailchimp integration",
+  "category": "H_marketing",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_member_to_list",
+      "display_name": "Add or Update Subscriber",
+      "description": "Add a new subscriber to an audience or update existing subscriber"
+    },
+    {
+      "name": "add_note_to_subscriber",
+      "display_name": "Add Note to Subscriber",
+      "description": "Add a note to a subscriber in your Mailchimp audience."
+    },
+    {
+      "name": "add_subscriber_to_tag",
+      "display_name": "Add Subscriber to Tag",
+      "description": "Add a subscriber to a specific tag in your Mailchimp audience."
+    },
+    {
+      "name": "archive_subscriber",
+      "display_name": "Archive Subscriber",
+      "description": "Archive an existing audience member"
+    },
+    {
+      "name": "create_audience",
+      "display_name": "Create Audience",
+      "description": "Create a new audience (list) in your Mailchimp account"
+    },
+    {
+      "name": "create_campaign",
+      "display_name": "Create Campaign",
+      "description": "Create a new Mailchimp campaign"
+    },
+    {
+      "name": "find_campaign",
+      "display_name": "Find Campaign",
+      "description": "Search all campaigns for the specified query terms"
+    },
+    {
+      "name": "find_customer",
+      "display_name": "Find Customer",
+      "description": "Find a customer by email address in a store"
+    },
+    {
+      "name": "find_subscriber",
+      "display_name": "Find Subscriber",
+      "description": "Search for subscribers across all lists or within a specific list. This action provides comprehensive subscriber information including merge fields, interests, and activity data."
+    },
+    {
+      "name": "find_tag",
+      "display_name": "Find Tag",
+      "description": "Search for tags on a list by name"
+    },
+    {
+      "name": "get_campaign_report",
+      "display_name": "Get Campaign Report",
+      "description": "Get comprehensive report details for a specific sent campaign including opens, clicks, bounces, and performance metrics"
+    },
+    {
+      "name": "remove_subscriber_from_tag",
+      "display_name": "Remove Subscriber from Tag",
+      "description": "Remove a subscriber from a specific tag in your Mailchimp audience."
+    },
+    {
+      "name": "unsubscribe_email",
+      "display_name": "Unsubscribe Email",
+      "description": "Unsubscribe an email address from an audience"
+    },
+    {
+      "name": "update_member_in_list",
+      "display_name": "Update Member in an Audience (List)",
+      "description": "Update a member in an existing Mailchimp audience (list)"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "email_opened",
+      "display_name": "Email Opened",
+      "description": "Fires when a recipient opens a an email in a specific campaign",
+      "type": "instant"
+    },
+    {
+      "name": "link_clicked",
+      "display_name": "Link Clicked",
+      "description": "Fires when a recipient clicks a specified link in a campaign",
+      "type": "instant"
+    },
+    {
+      "name": "new_campaign",
+      "display_name": "New Campaign",
+      "description": "Fires when a new campaign is created or sent",
+      "type": "instant"
+    },
+    {
+      "name": "new_customer",
+      "display_name": "New Customer",
+      "description": "Fires when a new customer is added to a connected store",
+      "type": "instant"
+    },
+    {
+      "name": "new_order",
+      "display_name": "New Order",
+      "description": "Fires when a new order is created in the connected store",
+      "type": "instant"
+    },
+    {
+      "name": "new_segment_tag_subscriber",
+      "display_name": "New Segment Tag Subscriber",
+      "description": "Fires when a subscriber joins a specific segment or tag",
+      "type": "instant"
+    },
+    {
+      "name": "subscribe",
+      "display_name": "Member Subscribed to Audience",
+      "description": "Fires when a new subscriber joins your Mailchimp audience. This trigger captures new subscriptions, opt-ins, and audience growth events with comprehensive subscriber information.",
+      "type": "instant"
+    },
+    {
+      "name": "subscriber_updated",
+      "display_name": "Subscriber Updated",
+      "description": "Fires when a subscriber profile is updated, including changes to merge fields, interests, or contact information. This trigger captures profile updates, new subscriptions, and subscriber modifications.",
+      "type": "instant"
+    },
+    {
+      "name": "unsubscribe",
+      "display_name": "Member Unsubscribed from Audience",
+      "description": "Fires when a subscriber unsubscribes from your Mailchimp audience. This trigger captures unsubscribe events, opt-outs, and audience churn with comprehensive subscriber information for retention analysis.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mailchimp"
+}

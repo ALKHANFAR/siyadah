@@ -1,0 +1,36 @@
+{
+  "id": "tenzo",
+  "displayName": "Tenzo",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {},
+  "triggers": {
+    "new_daily_forecast": {
+      "displayName": "New Daily Forecast",
+      "description": "Triggers when there is a new daily forecast for a selected location.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_summary_payments": {
+      "displayName": "New Summary Payments",
+      "description": "Triggers when there is new daily sales and payments data.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "include_deleted",
+          "displayName": "Include Deleted",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include data that has been deleted"
+        }
+      ]
+    },
+    "new_summary_sales": {
+      "displayName": "New Summary Sales",
+      "description": "Triggers when there is new daily sales data.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

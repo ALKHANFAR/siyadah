@@ -1,0 +1,143 @@
+{
+  "id": "ask-handle",
+  "displayName": "AskHandle",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_lead": {
+      "displayName": "Create Lead",
+      "description": "Create a new lead",
+      "props": [
+        {
+          "name": "nickname",
+          "displayName": "Nickname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Lead nickname"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Lead email"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Lead phone number"
+        },
+        {
+          "name": "device",
+          "displayName": "Device",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Device information"
+        },
+        {
+          "name": "from_page_title",
+          "displayName": "From Page Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Page title where lead originated"
+        },
+        {
+          "name": "referrer",
+          "displayName": "Referrer",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Referrer URL"
+        }
+      ]
+    },
+    "create_message": {
+      "displayName": "Create Message",
+      "description": "Send a message to a room",
+      "props": [
+        {
+          "name": "body",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message content"
+        },
+        {
+          "name": "nickname",
+          "displayName": "Nickname",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sender nickname"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sender email"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Sender phone number"
+        }
+      ]
+    },
+    "list_leads": {
+      "displayName": "List Leads",
+      "description": "Get a list of all leads",
+      "props": [
+        {
+          "name": "start_date",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter leads from this date"
+        },
+        {
+          "name": "end_date",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter leads until this date"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of leads to return"
+        }
+      ]
+    },
+    "list_rooms": {
+      "displayName": "List Rooms",
+      "description": "Get a list of all rooms",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_lead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_message": {
+      "displayName": "New Message",
+      "description": "Triggers when a new message is received",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_room": {
+      "displayName": "New Room",
+      "description": "Triggers when a new room is created",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

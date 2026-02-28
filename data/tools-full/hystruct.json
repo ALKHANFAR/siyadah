@@ -1,0 +1,30 @@
+{
+  "id": "hystruct",
+  "displayName": "Hystruct",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_job": {
+      "displayName": "Create Job",
+      "description": "Create and queue a new job to run for a workflow",
+      "props": [
+        {
+          "name": "workflowId",
+          "displayName": "Workflow ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the workflow to run"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "workflow_event": {
+      "displayName": "Workflow Event",
+      "description": "Triggers when a workflow event occurs (e.g., job completed, data updated)",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "jotform",
+  "displayName": "API Key",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_submission": {
+      "displayName": "New Submission",
+      "description": "Triggers when a new submission is submitted",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

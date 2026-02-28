@@ -1,0 +1,42 @@
+{
+  "id": "delay",
+  "package": "@activepieces/piece-delay",
+  "version": "0.1.0",
+  "category": "A_essential",
+  "auth": {
+    "required": false
+  },
+  "actions": {
+    "delay_for": {
+      "displayName": "Delay For",
+      "description": "Delay for duration",
+      "props": []
+    },
+    "delay_until": {
+      "displayName": "Delay Until",
+      "description": "Delay until time",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "DELAY_TOO_LONG",
+      "cause": "Delay exceeds 30 days",
+      "auto_fix": "Split into multiple shorter delays",
+      "severity": "low"
+    },
+    {
+      "code": "FLOW_EXPIRED",
+      "cause": "Flow was disabled during delay",
+      "auto_fix": "Re-enable and re-trigger",
+      "severity": "medium"
+    }
+  ],
+  "limits": {
+    "max_delay_days": 30
+  },
+  "notes": "Used for follow-up sequences. Flow pauses and resumes. Common: 3 days, 7 days, 14 days.",
+  "displayName": "Delay",
+  "description": "Delay execution"
+}

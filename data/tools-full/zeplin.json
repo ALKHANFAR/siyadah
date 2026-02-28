@@ -1,0 +1,135 @@
+{
+  "id": "zeplin",
+  "displayName": "Zeplin",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createNote": {
+      "displayName": "Create Note",
+      "description": "Create a note on a screen in Zeplin",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Note content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the note"
+        },
+        {
+          "name": "color",
+          "displayName": "Color",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The color of the note"
+        },
+        {
+          "name": "x",
+          "displayName": "X Coordinate",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The x coordinate position of the note on the screen"
+        },
+        {
+          "name": "y",
+          "displayName": "Y Coordinate",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The y coordinate position of the note on the screen"
+        },
+        {
+          "name": "x_start",
+          "displayName": "X Start Coordinate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The starting x coordinate for range selection (optional)"
+        },
+        {
+          "name": "y_start",
+          "displayName": "Y Start Coordinate",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The starting y coordinate for range selection (optional)"
+        }
+      ]
+    },
+    "findProject": {
+      "displayName": "Find Project",
+      "description": "Find a project by name or retrieve all projects",
+      "props": [
+        {
+          "name": "projectName",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional project name to search for (partial match)"
+        }
+      ]
+    },
+    "findScreen": {
+      "displayName": "Find Screen",
+      "description": "Find a screen by name or retrieve all screens in a project",
+      "props": [
+        {
+          "name": "screenName",
+          "displayName": "Screen Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional screen name to search for (partial match)"
+        }
+      ]
+    },
+    "updateProject": {
+      "displayName": "Update Project",
+      "description": "The new name for the project",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Project Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new name for the project"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The new description for the project"
+        }
+      ]
+    },
+    "updateScreen": {
+      "displayName": "Update Screen",
+      "description": "The new description for the screen",
+      "props": [
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The new description for the screen"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newNote": {
+      "displayName": "New Note",
+      "description": "Triggered when a new note is created on a screen",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newScreen": {
+      "displayName": "New Screen",
+      "description": "Triggered when a new screen is created in a project",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

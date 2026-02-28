@@ -1,0 +1,25 @@
+{
+  "id": "kissflow",
+  "package": "@activepieces/piece-kissflow",
+  "display_name": "Kissflow",
+  "display_name_ar": "Kissflow",
+  "description": "Low-code no-code platform",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "downloadAttachmentFromFormField",
+      "display_name": "Download Attachment from Form Field",
+      "description": "Downloads a specific attachment from a form field of your process."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/kissflow"
+}

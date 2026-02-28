@@ -1,0 +1,22 @@
+{
+  "id": "zoho-invoice",
+  "displayName": "Region",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_invoice": {
+      "displayName": "New Invoice",
+      "description": "Trigger when a new invoice is received.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

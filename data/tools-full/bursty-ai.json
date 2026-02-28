@@ -1,0 +1,30 @@
+{
+  "id": "bursty-ai",
+  "displayName": "BurstyAI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "runWorkflow": {
+      "displayName": "Run Workflow",
+      "description": "Run a Bursty AI workflow and optionally wait for and return the results",
+      "props": [
+        {
+          "name": "workflow_id",
+          "displayName": "Workflow ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the Bursty AI workflow to run"
+        },
+        {
+          "name": "get_result",
+          "displayName": "Wait for Result",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Wait for the workflow to complete and return the results (default: false)"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

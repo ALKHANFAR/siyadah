@@ -1,0 +1,35 @@
+{
+  "id": "google-slides",
+  "package": "@activepieces/piece-google-slides",
+  "display_name": "Google Slides",
+  "display_name_ar": "",
+  "description": null,
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "generate_from_template",
+      "display_name": "Generate from template",
+      "description": "Generate a new slide from a template"
+    },
+    {
+      "name": "get_presentation",
+      "display_name": "Get Presentation",
+      "description": "Get all slides from a presentation"
+    },
+    {
+      "name": "refresh_sheets_charts",
+      "display_name": "Refresh Sheets Charts",
+      "description": "Refresh all Google Sheets charts in the presentation"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

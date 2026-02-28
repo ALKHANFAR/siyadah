@@ -1,0 +1,49 @@
+{
+  "id": "robolly",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate_image": {
+      "displayName": "Generate Image",
+      "description": "Generate an image using Robolly",
+      "props": [
+        {
+          "name": "template_id",
+          "displayName": "Template",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select your template. (If you want to use Template ID. Click on the \"(x)\" above this field. Template ID can be found by opening a template and going to “Render”. Being there copy the template ID from the top right.)"
+        },
+        {
+          "name": "format",
+          "displayName": "Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The format of the image to generate."
+        },
+        {
+          "name": "fields",
+          "displayName": "Values",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "The values to apply to the fields in the template."
+        },
+        {
+          "name": "modifications",
+          "displayName": "Extra Modifications",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The extra modifications to apply to the image. See \"Detailed dynamic modifications\" in https://robolly.com/docs/api-reference/"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

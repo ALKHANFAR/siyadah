@@ -1,0 +1,49 @@
+{
+  "id": "linear",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "rawGraphqlQuery": {
+      "displayName": "Raw GraphQL query",
+      "description": "Perform a raw GraphQL query",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Query",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "variables",
+          "displayName": "Parameters",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_issue": {
+      "displayName": "New Issue",
+      "description": "Triggers when Linear receives a new issue",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "removed_issue": {
+      "displayName": "Removed Issue",
+      "description": "Triggers when an existing Linear issue is removed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "updated_issue": {
+      "displayName": "Updated Issue",
+      "description": "Triggers when an existing Linear issue is updated",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "id": "vero",
+  "package": "@activepieces/piece-vero",
+  "display_name": "Vero",
+  "display_name_ar": "",
+  "description": "Vero is an event-based messaging platform. Increase conversions and customer satisfaction by sending more targeted emails.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "aliasAUser",
+      "display_name": "Alias a User",
+      "description": "The old unique identifier of the user"
+    },
+    {
+      "name": "createOrUpdateUser",
+      "display_name": "Create or Update User",
+      "description": "Create a new user profile or update an existing user profile with custom properties"
+    },
+    {
+      "name": "deleteUser",
+      "display_name": "Delete User",
+      "description": "Delete a user and all their properties and activities permanently. This action is irreversible."
+    },
+    {
+      "name": "resubscribeUser",
+      "display_name": "Resubscribe User",
+      "description": "Globally resubscribe a user to all communications"
+    },
+    {
+      "name": "trackEvent",
+      "display_name": "Track Event",
+      "description": "Track a custom event for a user"
+    },
+    {
+      "name": "unsubscribe",
+      "display_name": "Unsubscribe",
+      "description": "Globally unsubscribe a user from all communications"
+    },
+    {
+      "name": "updateUsersTags",
+      "display_name": "Update User Tags",
+      "description": "Add or remove tags from a user profile"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "emailBounced",
+      "display_name": "Email Bounced",
+      "description": "Triggered when an email bounces",
+      "type": "instant"
+    },
+    {
+      "name": "emailClicked",
+      "display_name": "Email Clicked",
+      "description": "Triggered when an email is clicked",
+      "type": "instant"
+    },
+    {
+      "name": "emailComplained",
+      "display_name": "Email Complained",
+      "description": "Triggered when an email is marked as complained",
+      "type": "instant"
+    },
+    {
+      "name": "emailConverted",
+      "display_name": "Email Converted",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "emailDelivered",
+      "display_name": "Email Delivered",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "emailOpened",
+      "display_name": "Email Opened",
+      "description": "Triggered when an email is opened",
+      "type": "instant"
+    },
+    {
+      "name": "emailSent",
+      "display_name": "Email Sent",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "newUser",
+      "display_name": "New User",
+      "description": "Triggered when a new user is created",
+      "type": "instant"
+    },
+    {
+      "name": "resubscribeUser",
+      "display_name": "Resubscribe User",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "unsubscribeUser",
+      "display_name": "Unsubscribe User",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "updateUser",
+      "display_name": "Update User",
+      "description": "",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

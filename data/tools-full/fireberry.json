@@ -1,0 +1,96 @@
+{
+  "id": "fireberry",
+  "displayName": "Fireberry",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_record": {
+      "displayName": "Create Record",
+      "description": "Create a new record in Fireberry.",
+      "props": []
+    },
+    "delete_record": {
+      "displayName": "Records to Delete",
+      "description": "Delete records from Fireberry.",
+      "props": [
+        {
+          "name": "confirmDeletion",
+          "displayName": "Confirm Deletion",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Check this box to confirm you want to permanently delete the selected records. This action cannot be undone."
+        }
+      ]
+    },
+    "find_record": {
+      "displayName": "Fields to Return",
+      "description": "Search for records in Fireberry.",
+      "props": [
+        {
+          "name": "searchQuery",
+          "displayName": "Search Query",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Enter search criteria (e.g., \"accountname=John\" or \"email contains @example.com\"). Leave empty to get all records."
+        },
+        {
+          "name": "sortBy",
+          "displayName": "Sort By Field",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "System name of field to sort by (e.g., \"createdon\", \"accountname\")"
+        },
+        {
+          "name": "sortOrder",
+          "displayName": "Sort Order",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "pageSize",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to return (max 50)"
+        },
+        {
+          "name": "pageNumber",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number to retrieve (max 10)"
+        }
+      ]
+    },
+    "update_record": {
+      "displayName": "Record",
+      "description": "Leave empty to keep current value",
+      "props": []
+    }
+  },
+  "triggers": {
+    "record_created_or_updated": {
+      "displayName": "Record Created or Updated",
+      "description": "Fires when a record is created or updated in Fireberry.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "triggerType",
+          "displayName": "Trigger Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "lookbackMinutes",
+          "displayName": "Lookback Period (minutes)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How far back to look for records on first run (default: 60 minutes)"
+        }
+      ]
+    }
+  }
+}

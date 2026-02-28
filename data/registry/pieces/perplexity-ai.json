@@ -1,0 +1,20 @@
+{
+  "id": "perplexity-ai",
+  "package": "@activepieces/piece-perplexity-ai",
+  "display_name": "Perplexity AI",
+  "display_name_ar": "Perplexity AI",
+  "description": "AI powered search engine",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask-ai",
+      "display_name": "Ask AI",
+      "description": "Enables users to generate prompt completion based on a specified model."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/perplexity-ai"
+}

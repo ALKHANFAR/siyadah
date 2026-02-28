@@ -1,0 +1,560 @@
+{
+  "id": "podio",
+  "displayName": "Podio",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "attach_file": {
+      "displayName": "Attach File",
+      "description": "Upload and attach a file to an item/task/comment.",
+      "props": [
+        {
+          "name": "refType",
+          "displayName": "Attach To",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "What type of object to attach the file to"
+        }
+      ]
+    },
+    "create_comment": {
+      "displayName": "Create Comment",
+      "description": "Post a comment on an item or task.",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Comment On",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "What type of object to comment on"
+        },
+        {
+          "name": "id",
+          "displayName": "Object",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the specific object to comment on"
+        },
+        {
+          "name": "value",
+          "displayName": "Comment Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of your comment"
+        },
+        {
+          "name": "externalId",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional external identifier for the comment"
+        },
+        {
+          "name": "fileIds",
+          "displayName": "Attach Files",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Select files from the space to attach to this comment (enter file IDs from the space)"
+        },
+        {
+          "name": "embedId",
+          "displayName": "Embed ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of a previously created embedded link"
+        },
+        {
+          "name": "embedUrl",
+          "displayName": "Embed URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to embed in the comment"
+        },
+        {
+          "name": "alertInvite",
+          "displayName": "Auto-Invite Mentioned Users",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically invite mentioned users to the workspace if they lack access"
+        }
+      ]
+    },
+    "create_item": {
+      "displayName": "Create Item",
+      "description": "Create a new record in a Podio app with specified field values.",
+      "props": [
+        {
+          "name": "orgId",
+          "displayName": "Organization (Optional)",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select an organization to filter apps by workspace. Leave empty to see all apps."
+        },
+        {
+          "name": "spaceId",
+          "displayName": "Space (Optional)",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Select a workspace to filter apps. Leave empty to see all apps in the organization."
+        },
+        {
+          "name": "externalId",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The external id of the item. This can be used to hold a reference to the item in an external system."
+        },
+        {
+          "name": "appFields",
+          "displayName": "App Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Configure values for the fields in the selected app"
+        },
+        {
+          "name": "legacyFields",
+          "displayName": "Advanced: Custom Fields JSON",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Advanced: Use this for complex field configurations. Format: {\"field_id\": {\"value\": \"content\"}}. Only use if the dynamic fields above don\\"
+        },
+        {
+          "name": "fileIds",
+          "displayName": "File IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Temporary files that have been uploaded and should be attached to this item"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The tags to put on the item"
+        },
+        {
+          "name": "reminder",
+          "displayName": "Reminder",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional reminder on this item. Format: {\"remind_delta\": minutes_before_due_date}"
+        },
+        {
+          "name": "recurrence",
+          "displayName": "Recurrence",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The recurrence for the task, if any. Format: {\"name\": \"weekly|monthly|yearly\", \"config\": {...}, \"step\": 1, \"until\": \"date\"}"
+        },
+        {
+          "name": "linkedAccountId",
+          "displayName": "Linked Account ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The linked account to use for the meeting"
+        },
+        {
+          "name": "ref",
+          "displayName": "Reference",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The reference for the new item, if any. Format: {\"type\": \"item\", \"id\": reference_id}"
+        }
+      ]
+    },
+    "create_status": {
+      "displayName": "Create Status Update",
+      "description": "Add a status to an item or workspace stream.",
+      "props": [
+        {
+          "name": "value",
+          "displayName": "Status Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "What would you like to share?"
+        },
+        {
+          "name": "fileIds",
+          "displayName": "Attach Files",
+          "type": "ARRAY",
+          "required": false,
+          "description": "File IDs to attach to this status update (enter file IDs from the space)"
+        },
+        {
+          "name": "embedId",
+          "displayName": "Embed ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "ID of a previously created embedded link"
+        },
+        {
+          "name": "embedUrl",
+          "displayName": "Embed URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL to embed in the status update"
+        },
+        {
+          "name": "question",
+          "displayName": "Add Poll",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Create a poll with your status. Format: {\"text\": \"Question?\", \"options\": [\"Option 1\", \"Option 2\"]}"
+        },
+        {
+          "name": "alertInvite",
+          "displayName": "Auto-Invite Mentioned Users",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically invite mentioned users to the workspace if they lack access"
+        }
+      ]
+    },
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Add a new task to an item or workspace with due dates, assignees, and attachments.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Task Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The description or text of the task"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional description for the task"
+        },
+        {
+          "name": "private",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the task should be private (only creator, assignee and assignor can see it)"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Due date in local time (date only)"
+        },
+        {
+          "name": "dueTime",
+          "displayName": "Due Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Due time in local time (HH:MM:SS format, e.g., \"14:30:00\")"
+        },
+        {
+          "name": "dueOn",
+          "displayName": "Due Date & Time (UTC)",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Complete due date and time in UTC. Alternative to separate date/time fields."
+        },
+        {
+          "name": "responsible",
+          "displayName": "Responsible Person",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Who is responsible for this task. Can be a user ID (number) or contact identifier object with type and id."
+        },
+        {
+          "name": "fileIds",
+          "displayName": "File IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of file IDs to attach to this task"
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels (Text)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of label names in text form"
+        },
+        {
+          "name": "labelIds",
+          "displayName": "Label IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of label IDs (alternative to text labels)"
+        },
+        {
+          "name": "reminder",
+          "displayName": "Reminder",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Reminder settings. Format: {\"remind_delta\": minutes_before_due_date}"
+        },
+        {
+          "name": "recurrence",
+          "displayName": "Recurrence",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Recurring task settings. Format: {\"name\": \"weekly|monthly|yearly\", \"config\": {...}, \"step\": 1, \"until\": \"date\"}"
+        },
+        {
+          "name": "externalId",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "External system identifier for this task"
+        }
+      ]
+    },
+    "find_item": {
+      "displayName": "Find Item",
+      "description": "Retrieve a single item by ID or field value.",
+      "props": [
+        {
+          "name": "searchType",
+          "displayName": "Search Method",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "How to find the item"
+        },
+        {
+          "name": "itemId",
+          "displayName": "Item ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The specific item ID to retrieve"
+        },
+        {
+          "name": "markAsViewed",
+          "displayName": "Mark as Viewed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark any new notifications on this item as viewed"
+        },
+        {
+          "name": "filters",
+          "displayName": "Search Filters",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Filter criteria as JSON object. Use field external_id as keys."
+        },
+        {
+          "name": "sortBy",
+          "displayName": "Sort By",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Field to sort results by (e.g., \"created_on\", \"last_edit_on\")"
+        },
+        {
+          "name": "sortDesc",
+          "displayName": "Sort Descending",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Sort results in descending order"
+        }
+      ]
+    },
+    "find_task": {
+      "displayName": "Find Task",
+      "description": "Retrieve a task by ID for further updates.",
+      "props": []
+    },
+    "update_item": {
+      "displayName": "Update Item",
+      "description": "Update an existing record in a Podio app with specified field values. Only provided fields will be updated.",
+      "props": [
+        {
+          "name": "appFields",
+          "displayName": "App Fields",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Configure values for the fields you want to update in the selected app"
+        },
+        {
+          "name": "revision",
+          "displayName": "Revision",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The revision of the item that is being updated. Optional for conflict detection."
+        },
+        {
+          "name": "externalId",
+          "displayName": "External ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new external_id of the item"
+        },
+        {
+          "name": "legacyFields",
+          "displayName": "Legacy Fields (Advanced)",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Manual field configuration using field_id or external_id as keys. Use this for advanced scenarios or when dynamic fields are not sufficient."
+        },
+        {
+          "name": "fileIds",
+          "displayName": "File IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The list of attachments"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The list of tags"
+        },
+        {
+          "name": "reminder",
+          "displayName": "Reminder",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional reminder on this item. Format: {\"remind_delta\": minutes_before_due_date}"
+        },
+        {
+          "name": "recurrence",
+          "displayName": "Recurrence",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The recurrence for the task, if any. Format: {\"name\": \"weekly|monthly|yearly\", \"config\": {...}, \"step\": 1, \"until\": \"date\"}"
+        },
+        {
+          "name": "linkedAccountId",
+          "displayName": "Linked Account ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The linked account to use for meetings"
+        },
+        {
+          "name": "ref",
+          "displayName": "Reference",
+          "type": "OBJECT",
+          "required": false,
+          "description": "The reference of the item. Format: {\"type\": \"reference_type\", \"id\": reference_id}"
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Modify an existing task\\",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The updated text (title) for the task"
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The updated description for the task"
+        },
+        {
+          "name": "dueDate",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The new due date for the task (in users timezone)"
+        },
+        {
+          "name": "dueTime",
+          "displayName": "Due Time",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new due time for the task in local timezone (HH:MM:SS format, e.g., \"14:30:00\")"
+        },
+        {
+          "name": "private",
+          "displayName": "Private",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the task should be private (only creator, assignee and assignor can see it)"
+        },
+        {
+          "name": "completed",
+          "displayName": "Completed",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark the task as completed or not completed"
+        },
+        {
+          "name": "responsible",
+          "displayName": "Responsible User ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The user ID of the person responsible for this task"
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The labels for the task. Either a list of label ids or label texts"
+        },
+        {
+          "name": "fileIds",
+          "displayName": "File IDs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "The list of files that should be attached to the task"
+        },
+        {
+          "name": "reminder",
+          "displayName": "Reminder",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Optional reminder on this task. Format: {\"remind_delta\": minutes_before_due_date}. If empty, existing reminder is deleted."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "item_updated": {
+      "displayName": "Item Updated",
+      "description": "Fires when an existing item is updated (excluding comments)",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_activity": {
+      "displayName": "New Status",
+      "description": "Fires when a new status is created in a workspace stream",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_item": {
+      "displayName": "New Item",
+      "description": "Fires when a new item (record/entry) is created in an app",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_app": {
+      "displayName": "New App",
+      "description": "Fires when a new app is created in a workspace",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_task": {
+      "displayName": "New Task",
+      "description": "Fires when a new task is added to any workspace",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "member_added": {
+      "displayName": "Member Added",
+      "description": "Fires when a new member is added to a workspace",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

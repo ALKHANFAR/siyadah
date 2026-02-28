@@ -1,0 +1,15 @@
+{
+  "id": "mempool-space",
+  "displayName": "Mempool",
+  "auth": {
+    "type": "none"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

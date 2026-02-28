@@ -1,0 +1,40 @@
+{
+  "id": "webscraping-ai",
+  "package": "@activepieces/piece-webscraping-ai",
+  "display_name": "WebScraping AI",
+  "display_name_ar": "",
+  "description": "WebScraping AI is a powerful tool that allows you to scrape websites and extract data.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "askAQuestionAboutTheWebPage",
+      "display_name": "Ask a Question About the Web Page",
+      "description": "Gets an answer to a question about a given webpage."
+    },
+    {
+      "name": "extractStructuredData",
+      "display_name": "Extract structured data",
+      "description": "Returns structured data fields extracted from the webpage using an LLM model."
+    },
+    {
+      "name": "getAccountInformation",
+      "display_name": "Get Account Info",
+      "description": "Get account usage information including remaining API credits and concurrent requests."
+    },
+    {
+      "name": "getPageHtml",
+      "display_name": "Get Page HTML",
+      "description": "Retrieves the raw HTML markup of a web page."
+    },
+    {
+      "name": "scrapeWebsiteText",
+      "display_name": "Scrape Website Text",
+      "description": "Returns the visible text content of a webpage specified by the URL."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

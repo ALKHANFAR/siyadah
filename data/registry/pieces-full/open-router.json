@@ -1,0 +1,25 @@
+{
+  "id": "open-router",
+  "package": "@activepieces/piece-open-router",
+  "display_name": "OpenRouter",
+  "display_name_ar": "",
+  "description": "Use any AI model to generate code, text, or images via OpenRouter.ai.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask-lmm",
+      "display_name": "Ask LLM",
+      "description": "Ask any model supported by Open Router."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

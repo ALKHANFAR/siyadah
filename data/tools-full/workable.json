@@ -1,0 +1,185 @@
+{
+  "id": "workable",
+  "displayName": "Workable",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "getCandidate": {
+      "displayName": "Get Candidate",
+      "description": "Gets candidate's information.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Candidate's Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "getJob": {
+      "displayName": "Get Job",
+      "description": "Gets specific job deatils.",
+      "props": [
+        {
+          "name": "shortcode",
+          "displayName": "Shortcode",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Shortcode of specific job"
+        }
+      ]
+    },
+    "getMembers": {
+      "displayName": "Get Members",
+      "description": "Gets members of hiring team.",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Default is 50"
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter for member of specified role"
+        },
+        {
+          "name": "shortcode",
+          "displayName": "Shortcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shortcode of specific job"
+        },
+        {
+          "name": "email",
+          "displayName": "Member's email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter for specific member by email"
+        },
+        {
+          "name": "name",
+          "displayName": "Member's name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter for members of specified name (Exact Match)"
+        }
+      ]
+    },
+    "getStages": {
+      "displayName": "Get Stages",
+      "description": "Gets stages in your recruitment pipeline stages.",
+      "props": [
+        {
+          "name": "shortcode",
+          "displayName": "Shortcode",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Shortcode of specific job"
+        }
+      ]
+    },
+    "moveCandidate": {
+      "displayName": "Move Candidate",
+      "description": "Moves candidate to the specified stage.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Candidate's Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Id of candidate"
+        },
+        {
+          "name": "member_id",
+          "displayName": "Member's Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "This person's Id is used to move the candidate to the next stage"
+        },
+        {
+          "name": "target_stage",
+          "displayName": "Target stage name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Slug of stage target should be moved to"
+        }
+      ]
+    },
+    "rateCandidate": {
+      "displayName": "Rate candidate",
+      "description": "Rates the candidate on workable.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Candidate's Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Id of candidate"
+        },
+        {
+          "name": "member_id",
+          "displayName": "Member's Id",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Id of member that is adding the rating"
+        },
+        {
+          "name": "comment",
+          "displayName": "Comment",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Comment about the scoring of the candidate"
+        },
+        {
+          "name": "scale",
+          "displayName": "Rating scale",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select scale to rate candidate on"
+        },
+        {
+          "name": "grade",
+          "displayName": "Grade",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Thumbs scale: 0-2, Stars scale: 0-4, Numbers scale: 0-9"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newCandidate": {
+      "displayName": "New Candidate",
+      "description": "Triggers when new candidate submits application. Can be filtered by specific job and/or hiring pipeline stage.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "shortcode",
+          "displayName": "Shortcode",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Shortcode of specific job. Leave empty to trigger for all jobs."
+        },
+        {
+          "name": "stage_slug",
+          "displayName": "Stage Slug",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Stage slug to filter by specific hiring pipeline stage (e.g., 'applied', 'phone_screen', 'interview', 'offer'). Leave empty to trigger for all stages."
+        }
+      ]
+    }
+  }
+}

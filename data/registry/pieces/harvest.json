@@ -1,0 +1,70 @@
+{
+  "id": "harvest",
+  "package": "@activepieces/piece-harvest",
+  "display_name": "Harvest",
+  "display_name_ar": "Harvest",
+  "description": "Time Tracking Software with Invoicing",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "get_clients",
+      "display_name": "Get Clients",
+      "description": "Fetches Clients"
+    },
+    {
+      "name": "get_estimates",
+      "display_name": "Get Estimates",
+      "description": "Fetches Estimates"
+    },
+    {
+      "name": "get_expenses",
+      "display_name": "Get Expenses",
+      "description": "Fetches expenses"
+    },
+    {
+      "name": "get_invoices",
+      "display_name": "Get Invoices",
+      "description": "Fetches invoices"
+    },
+    {
+      "name": "get_projects",
+      "display_name": "Get Projects",
+      "description": "Fetches projects"
+    },
+    {
+      "name": "get_roles",
+      "display_name": "Get Roles",
+      "description": "Fetches Roles"
+    },
+    {
+      "name": "get_tasks",
+      "display_name": "Get Tasks",
+      "description": "Fetches Tasks"
+    },
+    {
+      "name": "get_time_entries",
+      "display_name": "Get Time Entries",
+      "description": "Fetches Time Entries"
+    },
+    {
+      "name": "get_users",
+      "display_name": "Get Users",
+      "description": "Fetches Users"
+    },
+    {
+      "name": "reports-uninvoiced",
+      "display_name": "Uninvoiced Report",
+      "description": "Uninvoiced hours and expenses for all billable projects"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/harvest"
+}

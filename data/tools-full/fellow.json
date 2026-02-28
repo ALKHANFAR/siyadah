@@ -1,0 +1,35 @@
+{
+  "id": "fellow",
+  "displayName": "Fellow.ai",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "get-note": {
+      "displayName": "Get AI Note",
+      "description": "Retrieves a note by its ID.",
+      "props": [
+        {
+          "name": "noteId",
+          "displayName": "Note ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-recording": {
+      "displayName": "New Recording",
+      "description": "Triggers when a new recording is created.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

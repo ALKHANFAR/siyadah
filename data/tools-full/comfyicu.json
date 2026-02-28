@@ -1,0 +1,64 @@
+{
+  "id": "comfyicu",
+  "displayName": "Comfy.ICU",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "get-run-output": {
+      "displayName": "Get Run Output",
+      "description": "Retrieves generated images or videos from a completed run.",
+      "props": []
+    },
+    "get-run-status": {
+      "displayName": "Get Run Status",
+      "description": "Retrieves the status of workflow run.",
+      "props": []
+    },
+    "list-workflows": {
+      "displayName": "List Workflows",
+      "description": "Retrieves available workflows for execution.",
+      "props": []
+    },
+    "submit-workflow-run": {
+      "displayName": "Submit Workflow Run",
+      "description": "Execute a workflow with specified prompt.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "JSON",
+          "required": true,
+          "description": "You can get workflow prompt by navigating to History->Select Run -> Copy API Workflow."
+        },
+        {
+          "name": "webhook",
+          "displayName": "Webhook",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Webhook URL to recieve run status."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new-workflow-created": {
+      "displayName": "New Workflow Created",
+      "description": "Triggers when a new workflow is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "run-completed": {
+      "displayName": "Run Completed",
+      "description": "Triggers when a workflow run is successfully completed.",
+      "type": "POLLING",
+      "props": []
+    },
+    "run-failed": {
+      "displayName": "Run Failed",
+      "description": "Triggers when a workflow run is failed.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

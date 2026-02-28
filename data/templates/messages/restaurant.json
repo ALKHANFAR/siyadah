@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "industry": "restaurant",
+    "industry_ar": "مطعم",
+    "version": "1.0.0",
+    "dialect": "saudi",
+    "total_templates": 8,
+    "variable_style": "{{category.variable}}"
+  },
+  "templates": {
+    "welcome": {
+      "id": "restaurant_welcome",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}} 👋\n\nأهلاً فيك في {{company.company_name}}!\nوصلنا طلبك وبنجهزه لك بأسرع وقت 🍽️\n\nللطلبات: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional_warm"
+    },
+    "follow_up_day3": {
+      "id": "restaurant_followup_day3",
+      "channel": "whatsapp",
+      "text": "أهلاً {{customer.name}} 🌟\n\nنتمنى إن تجربتك مع {{company.company_name}} عجبتك! رأيك يهمنا.\n\nشوف قائمتنا الجديدة: {{company.website}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.website", "company.signature"],
+      "max_length": 500,
+      "tone": "friendly"
+    },
+    "follow_up_day7": {
+      "id": "restaurant_followup_day7",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nوحشتنا! 😊 لو تبي تطلب من {{company.company_name}}، نحن جاهزين.\n\nأوقات العمل: {{company.working_hours}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.working_hours", "company.signature"],
+      "max_length": 500,
+      "tone": "warm"
+    },
+    "complaint_ack": {
+      "id": "restaurant_complaint_ack",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} وصلتنا ملاحظتك ✅\n\nنعتذر عن أي تقصير. رقم الشكوى: {{complaint.number}}\nبنتواصل معك خلال ساعات قليلة لحل الموضوع.\n\nرضاك أولويتنا 🙏\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "complaint.number", "company.signature"],
+      "max_length": 500,
+      "tone": "empathetic"
+    },
+    "invoice_gentle": {
+      "id": "restaurant_invoice_gentle",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nتذكير بفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال.\nتاريخ الاستحقاق: {{invoice.due_date}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "invoice.number", "invoice.amount", "invoice.due_date", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "invoice_firm": {
+      "id": "restaurant_invoice_firm",
+      "channel": "whatsapp",
+      "text": "{{customer.name}}\n\nالفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال متأخرة {{invoice.days_overdue}} يوم.\nنرجو السداد. للتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "invoice.number", "invoice.amount", "invoice.days_overdue", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "firm"
+    },
+    "review_request": {
+      "id": "restaurant_review",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} شكراً لزيارتك {{company.company_name}} 🍽️\n\nكيف كانت التجربة؟ تقييمك يساعدنا نقدم لك الأفضل دايم.\n\nشكراً! ⭐\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "warm"
+    },
+    "order_ready": {
+      "id": "restaurant_order_ready",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} 🍽️\n\nطلبك من {{company.company_name}} جاهز!\n\nالعنوان: {{company.address}}\n\nبالعافية! 😊\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.address", "company.signature"],
+      "max_length": 500,
+      "tone": "friendly"
+    }
+  }
+}

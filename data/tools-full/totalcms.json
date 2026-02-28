@@ -1,0 +1,661 @@
+{
+  "id": "totalcms",
+  "displayName": "Total CMS",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "get_blog_post": {
+      "displayName": "Get Blog Post",
+      "description": "Get a blog post from Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to retrieve"
+        },
+        {
+          "name": "permalink",
+          "displayName": "Permalink",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The permalink of the post to retrieve"
+        }
+      ]
+    },
+    "get_content": {
+      "displayName": "Get Content",
+      "description": "Get content from your Total CMS website",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of data to return"
+        },
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to retrieve"
+        }
+      ]
+    },
+    "save_blog_gallery": {
+      "displayName": "Save Blog Post Gallery Image",
+      "description": "Save image to Total CMS blog post gallery",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the blog to save"
+        },
+        {
+          "name": "permalink",
+          "displayName": "Permalink",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The permalink of the blog post to save"
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "The image to save"
+        },
+        {
+          "name": "alt",
+          "displayName": "Alt Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The alt text for the image"
+        },
+        {
+          "name": "quality",
+          "displayName": "Thumbnail Quality",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The quality of the thumbnail"
+        },
+        {
+          "name": "scaleTh",
+          "displayName": "Thumbnail Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the thumbnail"
+        },
+        {
+          "name": "scaleSq",
+          "displayName": "Thumbnail Square Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the square thumbnail"
+        },
+        {
+          "name": "resize",
+          "displayName": "Thumbnail Resize Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when resizing the thumbnail"
+        },
+        {
+          "name": "lcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "pcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "altMeta",
+          "displayName": "Pull Alt Text from Meta Data",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Pull the alt text from the meta data of the image. If set, place placeholder text in the alt text field above."
+        }
+      ]
+    },
+    "save_blog_image": {
+      "displayName": "Save Blog Post Image",
+      "description": "Save image to Total CMS blog post",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to save"
+        },
+        {
+          "name": "permalink",
+          "displayName": "Permalink",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The permalink of the blog post to save"
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "The image to save"
+        },
+        {
+          "name": "alt",
+          "displayName": "Alt Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The alt text for the image"
+        },
+        {
+          "name": "quality",
+          "displayName": "Thumbnail Quality",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The quality of the thumbnail"
+        },
+        {
+          "name": "scaleTh",
+          "displayName": "Thumbnail Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the thumbnail"
+        },
+        {
+          "name": "scaleSq",
+          "displayName": "Thumbnail Square Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the square thumbnail"
+        },
+        {
+          "name": "resize",
+          "displayName": "Thumbnail Resize Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when resizing the thumbnail"
+        },
+        {
+          "name": "lcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "pcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "altMeta",
+          "displayName": "Pull Alt Text from Meta Data",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Pull the alt text from the meta data of the image. If set, place placeholder text in the alt text field above."
+        }
+      ]
+    },
+    "save_blog_post": {
+      "displayName": "Save Blog Post",
+      "description": "Save blog content to Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to save"
+        },
+        {
+          "name": "permalink",
+          "displayName": "Permalink",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The permalink of the blog post. Ensure this is unique or it will overwrite the existing post."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The title of the blog post"
+        },
+        {
+          "name": "timestamp",
+          "displayName": "Date (Unix Timestamp)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The date in unix timestamp format"
+        },
+        {
+          "name": "summary",
+          "displayName": "Summary",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The summary of the blog post"
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The content of the blog post"
+        },
+        {
+          "name": "extra",
+          "displayName": "Extra Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The extra content of the blog post"
+        },
+        {
+          "name": "extra2",
+          "displayName": "Extra Content 2",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The extra content 2 of the blog post"
+        },
+        {
+          "name": "media",
+          "displayName": "Media",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The media of the blog post"
+        },
+        {
+          "name": "rssTitle",
+          "displayName": "RSS Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The RSS title of the blog post"
+        },
+        {
+          "name": "rssDescription",
+          "displayName": "RSS Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The RSS description of the blog post"
+        },
+        {
+          "name": "author",
+          "displayName": "Author",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The author of the blog post"
+        },
+        {
+          "name": "genre",
+          "displayName": "Genre",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The genre of the blog post"
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A comma separated list of categories for the blog post"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A comma separated list of tags for the blog post"
+        },
+        {
+          "name": "labels",
+          "displayName": "Labels",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A comma separated list of labels for the blog post"
+        },
+        {
+          "name": "draft",
+          "displayName": "Draft",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to save as a draft"
+        },
+        {
+          "name": "featured",
+          "displayName": "Featured",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to save as a featured post"
+        },
+        {
+          "name": "archived",
+          "displayName": "Archived",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Set to true to save as an archived post"
+        }
+      ]
+    },
+    "save_date": {
+      "displayName": "Save Date Content",
+      "description": "Save date content to Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to save"
+        },
+        {
+          "name": "timestamp",
+          "displayName": "Unix Timestamp",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The unix timestamp to save"
+        }
+      ]
+    },
+    "save_depot": {
+      "displayName": "Save Depot",
+      "description": "Save file to Total CMS depot",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the depot to save"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to save"
+        }
+      ]
+    },
+    "save_file": {
+      "displayName": "Save File",
+      "description": "Save file to Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the file to save"
+        },
+        {
+          "name": "ext",
+          "displayName": "File Extension",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The file extension of the file"
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "The file to save"
+        }
+      ]
+    },
+    "save_gallery": {
+      "displayName": "Save Gallery Image",
+      "description": "Save image to Total CMS gallery",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the gallery to save"
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "The image to save"
+        },
+        {
+          "name": "alt",
+          "displayName": "Alt Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The alt text for the image"
+        },
+        {
+          "name": "quality",
+          "displayName": "Thumbnail Quality",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The quality of the thumbnail"
+        },
+        {
+          "name": "scaleTh",
+          "displayName": "Thumbnail Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the thumbnail"
+        },
+        {
+          "name": "scaleSq",
+          "displayName": "Thumbnail Square Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the square thumbnail"
+        },
+        {
+          "name": "resize",
+          "displayName": "Thumbnail Resize Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when resizing the thumbnail"
+        },
+        {
+          "name": "lcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "pcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "altMeta",
+          "displayName": "Pull Alt Text from Meta Data",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Pull the alt text from the meta data of the image. If set, place placeholder text in the alt text field above."
+        }
+      ]
+    },
+    "save_image": {
+      "displayName": "Save Image",
+      "description": "Save image to Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to save"
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "The image to save"
+        },
+        {
+          "name": "alt",
+          "displayName": "Alt Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The alt text for the image"
+        },
+        {
+          "name": "ext",
+          "displayName": "Extension",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The extension of the image"
+        },
+        {
+          "name": "quality",
+          "displayName": "Thumbnail Quality",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The quality of the thumbnail"
+        },
+        {
+          "name": "scaleTh",
+          "displayName": "Thumbnail Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the thumbnail"
+        },
+        {
+          "name": "scaleSq",
+          "displayName": "Thumbnail Square Scale",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The scale of the square thumbnail"
+        },
+        {
+          "name": "resize",
+          "displayName": "Thumbnail Resize Method",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when resizing the thumbnail"
+        },
+        {
+          "name": "lcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "pcrop",
+          "displayName": "Thumbnail Landscape Crop",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The method to use when cropping the landscape thumbnail for the square thumbnail"
+        },
+        {
+          "name": "altMeta",
+          "displayName": "Pull Alt Text from Meta Data",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Pull the alt text from the meta data of the image. If set, place placeholder text in the alt text field above."
+        }
+      ]
+    },
+    "save_text": {
+      "displayName": "Save Text Content",
+      "description": "Save text content to Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to save"
+        },
+        {
+          "name": "text",
+          "displayName": "Text Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text content to save"
+        }
+      ]
+    },
+    "save_toggle": {
+      "displayName": "Save Toggle",
+      "description": "Save toggle content to Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to save"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "The status of the toggle. \"true\" is on, \"false\" is off."
+        }
+      ]
+    },
+    "save_video": {
+      "displayName": "Save Video Content",
+      "description": "Save video content to Total CMS",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to save"
+        },
+        {
+          "name": "video",
+          "displayName": "Video URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the video to save"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_blog_post": {
+      "displayName": "New Blog Post",
+      "description": "Triggers when a new blog post is published",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "slug",
+          "displayName": "CMS ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The CMS ID of the content to retrieve"
+        }
+      ]
+    }
+  }
+}

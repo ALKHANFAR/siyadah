@@ -1,0 +1,16 @@
+{
+  "id": "square",
+  "displayName": "Square",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {},
+  "triggers": {
+    "new_order": {
+      "displayName": "New Order",
+      "description": "Triggered when a new order is created",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

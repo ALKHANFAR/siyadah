@@ -1,0 +1,35 @@
+{
+  "id": "easy-peasy-ai",
+  "package": "@activepieces/piece-easy-peasy-ai",
+  "display_name": "Easy-Peasy.AI",
+  "display_name_ar": "Easy-Peasy.AI",
+  "description": "Create professional-quality music in any genre with just a text prompt. From hip-hop to classical, our AI generates custom tracks for your projects in seconds.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "customGeneratorText",
+      "display_name": "Custom Generator (Text)",
+      "description": "Generate custom text for any purpose using the EasyPeasy AI template engine"
+    },
+    {
+      "name": "generateAiImage",
+      "display_name": "Generate AI Image",
+      "description": "Generate AI images based on text prompts using various models and styles"
+    },
+    {
+      "name": "getAiTranscription",
+      "display_name": "Get AI Transcription",
+      "description": "Generate AI transcriptions from audio files with speaker detection and enhanced quality options"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/easy-peasy-ai"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "greenpt",
+  "package": "@activepieces/piece-greenpt",
+  "display_name": "GreenPT",
+  "display_name_ar": "GreenPT",
+  "description": "GreenPT is a green AI and privacy friendly GPT-powered chat platform",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "chatCompletion",
+      "display_name": "Ask GreenPT",
+      "description": ""
+    },
+    {
+      "name": "createEmbeddings",
+      "display_name": "Create Embeddings",
+      "description": "Generate embeddings for text input using GreenPT models for semantic search and similarity matching"
+    },
+    {
+      "name": "transcribeAudio",
+      "display_name": "Transcribe Audio",
+      "description": "Transcribe pre-recorded audio files with speaker diarization and advanced features"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/greenpt"
+}

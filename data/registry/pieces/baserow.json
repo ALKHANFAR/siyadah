@@ -1,0 +1,45 @@
+{
+  "id": "baserow",
+  "package": "@activepieces/piece-baserow",
+  "display_name": "Baserow",
+  "display_name_ar": "Baserow",
+  "description": "Open-source online database tool, alternative to Airtable",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "baserow_create_row",
+      "display_name": "Create Row",
+      "description": "Creates a new row."
+    },
+    {
+      "name": "baserow_delete_row",
+      "display_name": "Delete Row",
+      "description": "Deletes an existing row."
+    },
+    {
+      "name": "baserow_get_row",
+      "display_name": "Get Row",
+      "description": "Fetches a single table row."
+    },
+    {
+      "name": "baserow_list_rows",
+      "display_name": "List Rows",
+      "description": "Finds a page of rows in given table."
+    },
+    {
+      "name": "baserow_update_row",
+      "display_name": "Update Row",
+      "description": "Updates an existing row."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/baserow"
+}

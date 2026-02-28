@@ -1,0 +1,20 @@
+{
+  "id": "hackernews",
+  "package": "@activepieces/piece-hackernews",
+  "display_name": "Hacker News",
+  "display_name_ar": "Hacker News",
+  "description": "A social news website",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "fetch_top_stories",
+      "display_name": "Fetch Top Stories",
+      "description": "Fetch top stories from hackernews"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/hackernews"
+}

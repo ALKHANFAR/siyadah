@@ -1,0 +1,247 @@
+{
+  "id": "emailoctopus",
+  "displayName": "EmailOctopus",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "add_or_update_contact": {
+      "displayName": "Add / Update Contact",
+      "description": "Adds a new contact to a list or updates an existing contact if one exists.",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact's email address."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Tags to associate with the contact. Existing tags will not be removed."
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The status of the contact."
+        }
+      ]
+    },
+    "add_tag_to_contact": {
+      "displayName": "Add Tag to Contact",
+      "description": "Add one or more tags to a contact in a specified list.",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact's email address."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The tags to add to the contact."
+        }
+      ]
+    },
+    "create_list": {
+      "displayName": "Create List",
+      "description": "Creates a new mailing list.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name for the new list."
+        }
+      ]
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Finds a contact by email address within a given list.",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the contact to find."
+        }
+      ]
+    },
+    "remove_tag_from_contact": {
+      "displayName": "Remove Tag from Contact",
+      "description": "Remove one or more tags from a contact in a specified list.",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the contact to modify."
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": true,
+          "description": "The tags to remove from the contact."
+        }
+      ]
+    },
+    "unsubscribe_contact": {
+      "displayName": "Unsubscribe Contact",
+      "description": "Sets a contact\\",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the contact to unsubscribe."
+        }
+      ]
+    },
+    "update_contact_email": {
+      "displayName": "Current Email Address",
+      "description": "Change the email address of a contact in a list.",
+      "props": [
+        {
+          "name": "current_email_address",
+          "displayName": "Current Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The contact's current email address used to find them."
+        },
+        {
+          "name": "new_email_address",
+          "displayName": "New Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new email address for the contact."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "contactUnsubscribes": {
+      "displayName": "Contact Unsubscribes",
+      "description": "Triggers when a contact unsubscribes from a list.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "liveMarkdown",
+          "displayName": "liveMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "instructions",
+          "displayName": "instructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "emailClicked": {
+      "displayName": "Email Clicked",
+      "description": "Triggers when a link inside a specific campaign email is clicked.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "liveMarkdown",
+          "displayName": "liveMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "instructions",
+          "displayName": "instructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "email_bounced": {
+      "displayName": "Email Bounced",
+      "description": "Triggers when an email to a recipient bounces from a specific campaign.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "liveMarkdown",
+          "displayName": "liveMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "instructions",
+          "displayName": "instructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "email_opened": {
+      "displayName": "Email Opened",
+      "description": "Triggers when a recipient opens an email from a specified campaign.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "liveMarkdown",
+          "displayName": "liveMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "instructions",
+          "displayName": "instructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "newContact": {
+      "displayName": "New Contact",
+      "description": "Triggers when a new contact is added to a particular list.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "liveMarkdown",
+          "displayName": "liveMarkdown",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "instructions",
+          "displayName": "instructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

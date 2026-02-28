@@ -1,0 +1,37 @@
+{
+  "id": "copy-ai",
+  "package": "@activepieces/piece-copy-ai",
+  "display_name": "Copy.ai",
+  "display_name_ar": "",
+  "description": "AI-powered content generation and copywriting platform",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "get_workflow_run_outputs",
+      "display_name": "Get Workflow Run Outputs",
+      "description": "Retrieves the outputs of a completed workflow run."
+    },
+    {
+      "name": "get_workflow_run_status",
+      "display_name": "Get Workflow Run Status",
+      "description": "Retrieves the status of a workflow execution."
+    },
+    {
+      "name": "run_workflow",
+      "display_name": "Run Workflow",
+      "description": "Start a Copy.ai workflow execution."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "workflow_run_completed",
+      "display_name": "Workflow Run Completed",
+      "description": "Triggered when a workflow run is completed.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

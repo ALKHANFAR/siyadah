@@ -1,0 +1,75 @@
+{
+  "id": "signrequest",
+  "displayName": "Signrequest",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "send_signrequest": {
+      "displayName": "Send signrequest",
+      "description": "Create a SignRequest via the Signrequest API",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "signers",
+          "displayName": "Signers (JSON array)",
+          "type": "JSON",
+          "required": true,
+          "description": "JSON array of signer objects. Example: [{\"email\":\"john@example.com\",\"name\":\"John Doe\",\"role\":\"signer\"}]"
+        },
+        {
+          "name": "files",
+          "displayName": "Files (JSON array)",
+          "type": "JSON",
+          "required": false,
+          "description": "Optional JSON array describing files to attach. Use the shape expected by the Signrequest API (e.g. [{\"url\":\"https://...\"}])"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "signrequestDeclined": {
+      "displayName": "signrequest declined",
+      "description": "Fires when a SignRequest is declined",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "signrequestReceived": {
+      "displayName": "signrequest received",
+      "description": "Triggers when a SignRequest is received",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "signrequestSigned": {
+      "displayName": "signrequest signed",
+      "description": "Triggers when a SignRequest signer is signed",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

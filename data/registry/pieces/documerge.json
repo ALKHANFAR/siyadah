@@ -1,0 +1,53 @@
+{
+  "id": "documerge",
+  "package": "@activepieces/piece-documerge",
+  "display_name": "DocuMerge",
+  "display_name_ar": "DocuMerge",
+  "description": "Merge and generate documents with dynamic data",
+  "category": "I_content",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "combine_files",
+      "display_name": "Combine Files",
+      "description": "Combine multiple files into a single PDF or DOCX"
+    },
+    {
+      "name": "convert_file_to_pdf",
+      "display_name": "Convert File to PDF",
+      "description": "Convert a given file to PDF"
+    },
+    {
+      "name": "create_data_route_merge",
+      "display_name": "Create Data Route Merge",
+      "description": "Send data to your Data Route URL"
+    },
+    {
+      "name": "create_document_merge",
+      "display_name": "Create Document Merge",
+      "description": "Send data to your Merge URL"
+    },
+    {
+      "name": "split_pdf",
+      "display_name": "Split PDF",
+      "description": "Extract or remove specific pages from a PDF file"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_merged_document",
+      "display_name": "New Merged Document",
+      "description": "Triggers when a merged/populated document is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_merged_route",
+      "display_name": "New Merged Route",
+      "description": "Triggers when a merged/populated route is created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/documerge"
+}

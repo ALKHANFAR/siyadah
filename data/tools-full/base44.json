@@ -1,0 +1,99 @@
+{
+  "id": "base44",
+  "displayName": "Authentication",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_entity": {
+      "displayName": "Create Entity",
+      "description": "Creates an entity (record) in your Base44 app",
+      "props": [
+        {
+          "name": "entityType",
+          "displayName": "Entity Type",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the entity type (e.g. \"Product\", \"User\", \"Order\")"
+        },
+        {
+          "name": "entityData",
+          "displayName": "Entity Data",
+          "type": "JSON",
+          "required": true,
+          "description": "The data to create the entity with"
+        }
+      ]
+    },
+    "find_entity": {
+      "displayName": "Find Entity Record",
+      "description": "Find a matching entity record in your Base44 app",
+      "props": [
+        {
+          "name": "entityType",
+          "displayName": "Entity Type",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the entity type (e.g. \"Product\", \"User\", \"Order\")"
+        },
+        {
+          "name": "searchQuery",
+          "displayName": "Search Query",
+          "type": "JSON",
+          "required": true,
+          "description": "Query to find the entity (e.g. {\"email\": \"john@example.com\"})"
+        }
+      ]
+    },
+    "find_or_create_entity": {
+      "displayName": "Find or Create Entity",
+      "description": "Find a matching entity record, or create one if not found",
+      "props": [
+        {
+          "name": "entityType",
+          "displayName": "Entity Type",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the entity type (e.g. \"Product\", \"User\", \"Order\")"
+        },
+        {
+          "name": "searchQuery",
+          "displayName": "Search Query",
+          "type": "JSON",
+          "required": true,
+          "description": "Query to find the entity (e.g. {\"email\": \"john@example.com\"})"
+        },
+        {
+          "name": "createData",
+          "displayName": "Create Data",
+          "type": "JSON",
+          "required": true,
+          "description": "Data to create the entity with if not found"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "entity_event": {
+      "displayName": "Entity Event",
+      "description": "Triggers when an entity is created or updated",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "entityType",
+          "displayName": "Entity Type",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the entity type (e.g. \"Product\", \"User\", \"Order\")"
+        },
+        {
+          "name": "eventType",
+          "displayName": "Event Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "When to trigger"
+        }
+      ]
+    }
+  }
+}

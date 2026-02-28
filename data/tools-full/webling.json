@@ -1,0 +1,36 @@
+{
+  "id": "webling",
+  "displayName": "Webling",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "EventsById": {
+      "displayName": "Get Events by ID",
+      "description": "Gets event data by a list of event IDs and optional calendar ID to filter.",
+      "props": [
+        {
+          "name": "eventIds",
+          "displayName": "Event ID list",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Comma separated list of event IDs (e.g. '536,525,506,535'). When at least one ID doesn't exist the whole query return a 404 error."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "onEventChanged": {
+      "displayName": "New or Updated Event",
+      "description": "Triggers when an event is added or updated.",
+      "type": "POLLING",
+      "props": []
+    },
+    "onChangedData": {
+      "displayName": "On Changed Data",
+      "description": "Triggers when anything was added, updated or deleted since last request.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

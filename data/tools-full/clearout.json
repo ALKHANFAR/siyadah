@@ -1,0 +1,28 @@
+{
+  "id": "clearout",
+  "displayName": "Clearout",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "instant_verify": {
+      "displayName": "Instant Verify",
+      "description": "Instant Verify an email address",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address to verify"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

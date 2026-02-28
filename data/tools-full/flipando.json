@@ -1,0 +1,87 @@
+{
+  "id": "flipando",
+  "displayName": "Flipando AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "getAllApps": {
+      "displayName": "Get All Apps",
+      "description": "Retrieves all the applications created by the authenticated user.",
+      "props": []
+    },
+    "getTask": {
+      "displayName": "Get Task",
+      "description": "Retrieves the result of a specific Flipando application task by its task ID.",
+      "props": [
+        {
+          "name": "task_id",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "ID of the task to be retrieved."
+        }
+      ]
+    },
+    "runAppGenerator": {
+      "displayName": "Run App Generator",
+      "description": "JSON string of key-value pairs for application input variables.",
+      "props": [
+        {
+          "name": "inputs_data",
+          "displayName": "Inputs Data",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON string of key-value pairs for application input variables."
+        },
+        {
+          "name": "is_new_app_private",
+          "displayName": "Is New App Private",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Whether the new app to be created should be private or public."
+        }
+      ]
+    },
+    "runApp": {
+      "displayName": "Run App",
+      "description": "Triggers the execution of a specific Flipando application by ID, initiating a background job for application completion.",
+      "props": [
+        {
+          "name": "application_id",
+          "displayName": "Application ID",
+          "type": "NUMBER",
+          "required": true,
+          "description": "ID of the application to be completed."
+        },
+        {
+          "name": "inputs_data",
+          "displayName": "Inputs Data",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON string of key-value pairs for application input variables."
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false,
+          "description": "File to be uploaded, if the application requires documents. Supports PDF, DOCX, images, and other document formats."
+        },
+        {
+          "name": "file_description",
+          "displayName": "File Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Description of the file being uploaded. Required when uploading a file."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

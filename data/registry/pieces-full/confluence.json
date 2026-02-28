@@ -1,0 +1,37 @@
+{
+  "id": "confluence",
+  "package": "@activepieces/piece-confluence",
+  "display_name": "Confluence",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create-page-from-template",
+      "display_name": "Create Page from Template",
+      "description": "Creates a new page from a template with the given title and variables."
+    },
+    {
+      "name": "getPageContent",
+      "display_name": "Get Page Content",
+      "description": "Get page content and optionally all its descendants"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new-page",
+      "display_name": "New Page",
+      "description": "Triggers when a new page is created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "stable-diffusion-webui",
+  "package": "@activepieces/piece-stable-diffusion-webui",
+  "display_name": "Stable Dffusion web UI",
+  "display_name_ar": "",
+  "description": "A web interface for Stable Diffusion",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "textToImage",
+      "display_name": "Text to Image",
+      "description": "Refer to API documentation"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

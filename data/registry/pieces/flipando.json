@@ -1,0 +1,40 @@
+{
+  "id": "flipando",
+  "package": "@activepieces/piece-flipando",
+  "display_name": "Flipando AI",
+  "display_name_ar": "Flipando AI",
+  "description": "Autonomous AI Agents Revolutionizing Compliance with Smart, Adaptive Workflows.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "getAllApps",
+      "display_name": "Get All Apps",
+      "description": "Retrieves all the applications created by the authenticated user."
+    },
+    {
+      "name": "getTask",
+      "display_name": "Get Task",
+      "description": "Retrieves the result of a specific Flipando application task by its task ID."
+    },
+    {
+      "name": "runAppGenerator",
+      "display_name": "Run App Generator",
+      "description": "JSON string of key-value pairs for application input variables."
+    },
+    {
+      "name": "runApp",
+      "display_name": "Run App",
+      "description": "Triggers the execution of a specific Flipando application by ID, initiating a background job for application completion."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/flipando"
+}

@@ -1,0 +1,69 @@
+{
+  "id": "zagomail",
+  "package": "@activepieces/piece-zagomail",
+  "display_name": "Zagomail",
+  "display_name_ar": "",
+  "description": "All-in-one email marketing and automation platform",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "createSubscriber",
+      "display_name": "Create Subscriber",
+      "description": "Creates a new subscriber in a list."
+    },
+    {
+      "name": "getCampaignDetails",
+      "display_name": "Get Campaign",
+      "description": "Gets the details of a campaign."
+    },
+    {
+      "name": "getSubscriberDetails",
+      "display_name": "Get Subscriber",
+      "description": "Gets the details of a subscriber."
+    },
+    {
+      "name": "searchSubscriberByEmail",
+      "display_name": "Search Subscriber",
+      "description": "Finds a subscriber by their email address."
+    },
+    {
+      "name": "tagSubscriber",
+      "display_name": "Tag Subscriber",
+      "description": "Adds A Tag to A Subscriber."
+    },
+    {
+      "name": "unsubscribeSubscriber",
+      "display_name": "Unsubscribe Subscriber",
+      "description": "Unsubscribes a subscriber."
+    },
+    {
+      "name": "updateSubscriber",
+      "display_name": "Update Subscriber",
+      "description": "Updates an existing subscriber."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "addedSubscriber",
+      "display_name": "Subscriber Added",
+      "description": "Triggers when subscriber is signed up or confirmed.",
+      "type": "instant"
+    },
+    {
+      "name": "taggedSubscriber",
+      "display_name": "Tagged Subscriber",
+      "description": "Trigers when subscriber is tagged with a tag.",
+      "type": "instant"
+    },
+    {
+      "name": "unsubscribedSubscriber",
+      "display_name": "Unsubscribed Subscriber",
+      "description": "Triggers when subscriber is unsubscribed.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

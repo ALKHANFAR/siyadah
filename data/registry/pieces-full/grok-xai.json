@@ -1,0 +1,40 @@
+{
+  "id": "grok-xai",
+  "package": "@activepieces/piece-grok-xai",
+  "display_name": "Grok by xAI",
+  "display_name_ar": "",
+  "description": "AI chatbot by xAI that answers questions, generates text, extracts data, and provides real-time insights.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask_grok",
+      "display_name": "Ask Grok",
+      "description": "Send prompts to Grok with real-time search, tools, and structured outputs."
+    },
+    {
+      "name": "categorize_text",
+      "display_name": "Categorize Text",
+      "description": "Assign categories to input text based on custom or predefined labels."
+    },
+    {
+      "name": "extract_data_from_text",
+      "display_name": "Extract Data From Text",
+      "description": "Extract structured data fields from unstructured text (e.g., names, addresses, dates)."
+    },
+    {
+      "name": "generate_image",
+      "display_name": "Generate Image",
+      "description": "Create images from text prompts using Grok\\"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

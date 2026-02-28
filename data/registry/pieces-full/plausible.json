@@ -1,0 +1,95 @@
+{
+  "id": "plausible",
+  "package": "@activepieces/piece-plausible",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Privacy-friendly web analytics",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_custom_property",
+      "display_name": "Create Custom Property",
+      "description": "Create a custom property for a site"
+    },
+    {
+      "name": "create_goal",
+      "display_name": "Create Goal",
+      "description": "Find or create a goal for a site"
+    },
+    {
+      "name": "create_shared_link",
+      "display_name": "Create Shared Link",
+      "description": "Find or create a shared link for a site"
+    },
+    {
+      "name": "create_site",
+      "display_name": "Create Site",
+      "description": "Create a new site in your Plausible account"
+    },
+    {
+      "name": "delete_custom_property",
+      "display_name": "Delete Custom Property",
+      "description": "Delete a custom property from a site"
+    },
+    {
+      "name": "delete_goal",
+      "display_name": "Delete Goal",
+      "description": "Delete a goal from a site"
+    },
+    {
+      "name": "delete_site",
+      "display_name": "Delete Site",
+      "description": "Delete a site and all its data from your Plausible account. This action is permanent and may take up to 48 hours to complete."
+    },
+    {
+      "name": "get_site",
+      "display_name": "Get Site",
+      "description": "Get details of a site including tracker script configuration"
+    },
+    {
+      "name": "invite_guest",
+      "display_name": "Invite Guest",
+      "description": "Invite a guest to access a site or find an existing invitation"
+    },
+    {
+      "name": "list_custom_properties",
+      "display_name": "List Custom Properties",
+      "description": "Get a list of custom properties for a site"
+    },
+    {
+      "name": "list_goals",
+      "display_name": "List Goals",
+      "description": "Get a list of goals for a site"
+    },
+    {
+      "name": "list_guests",
+      "display_name": "List Guests",
+      "description": "Get a list of guests for a site"
+    },
+    {
+      "name": "list_sites",
+      "display_name": "List Sites",
+      "description": "Get a list of sites your Plausible account can access"
+    },
+    {
+      "name": "list_teams",
+      "display_name": "List Teams",
+      "description": "Get a list of teams your Plausible account can access"
+    },
+    {
+      "name": "remove_guest",
+      "display_name": "Remove Guest",
+      "description": "Remove a guest or invitation from a site"
+    },
+    {
+      "name": "update_site",
+      "display_name": "Update Site",
+      "description": "Update an existing site in your Plausible account"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

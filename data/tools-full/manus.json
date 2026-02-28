@@ -1,0 +1,157 @@
+{
+  "id": "manus",
+  "displayName": "Manus",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_task": {
+      "displayName": "Create Task",
+      "description": "Create a new task for Manus AI to execute",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The task prompt or instruction for the Manus agent"
+        },
+        {
+          "name": "agentProfile",
+          "displayName": "Agent Profile",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The AI model profile to use for the task"
+        },
+        {
+          "name": "taskMode",
+          "displayName": "Task Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The interaction mode for the task"
+        },
+        {
+          "name": "connectors",
+          "displayName": "Connectors",
+          "type": "ARRAY",
+          "required": false,
+          "description": "List of connector IDs to enable for this task"
+        },
+        {
+          "name": "hideInTaskList",
+          "displayName": "Hide in Task List",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to hide this task from the Manus webapp task list"
+        },
+        {
+          "name": "createShareableLink",
+          "displayName": "Create Shareable Link",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to make the chat publicly accessible to others on the Manus website"
+        },
+        {
+          "name": "taskId",
+          "displayName": "Task ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "For continuing existing tasks (multi-turn conversations)"
+        },
+        {
+          "name": "locale",
+          "displayName": "Locale",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Your default locale that you\\"
+        },
+        {
+          "name": "attachments",
+          "displayName": "Attachments",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of file/image attachments (URLs or base64 data)"
+        }
+      ]
+    },
+    "delete_task": {
+      "displayName": "Delete Task",
+      "description": "Permanently delete a task by its ID. This action cannot be undone.",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the task to delete"
+        }
+      ]
+    },
+    "get_task": {
+      "displayName": "Get Task",
+      "description": "Retrieve detailed information about a specific task by its ID",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the task to retrieve details for"
+        }
+      ]
+    },
+    "update_task": {
+      "displayName": "Update Task",
+      "description": "Update a task\\",
+      "props": [
+        {
+          "name": "taskId",
+          "displayName": "Task",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select the task to update"
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "New title for the task"
+        },
+        {
+          "name": "enableShared",
+          "displayName": "Enable Sharing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to enable public sharing"
+        },
+        {
+          "name": "enableVisibleInTaskList",
+          "displayName": "Visible in Task List",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the task should be visible in the task list"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_task_created": {
+      "displayName": "New Task Created",
+      "description": "Triggers when a new task is successfully created in Manus",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_stopped": {
+      "displayName": "Task Stopped",
+      "description": "Triggers when a task reaches a stopping point - either completion or requiring user input",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

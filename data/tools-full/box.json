@@ -1,0 +1,65 @@
+{
+  "id": "box",
+  "displayName": "Box",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_comment": {
+      "displayName": "New Comment",
+      "description": "Triggers when a comment is created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "File/Folder ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the item to trigger a webhook"
+        },
+        {
+          "name": "type",
+          "displayName": "Item Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of the item to trigger a webhook"
+        }
+      ]
+    },
+    "new_file": {
+      "displayName": "New File",
+      "description": "Triggers when a file is uploaded",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "folder",
+          "displayName": "Folder ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the folder in which file uploads will trigger this webhook"
+        }
+      ]
+    },
+    "new_folder": {
+      "displayName": "New Folder",
+      "description": "Triggers when a folder is created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "folder",
+          "displayName": "Folder ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the folder in which file uploads will trigger this webhook"
+        }
+      ]
+    }
+  }
+}

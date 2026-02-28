@@ -1,0 +1,30 @@
+{
+  "id": "devin",
+  "package": "@activepieces/piece-devin",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Your Devin API key (used in the Authorization header).",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_session",
+      "display_name": "Create Session",
+      "description": "Creates a new Devin session"
+    },
+    {
+      "name": "get_session_details",
+      "display_name": "Get Session Details",
+      "description": "Retrieves details of a specific Devin session"
+    },
+    {
+      "name": "send_message",
+      "display_name": "Send Message",
+      "description": "Sends a message to a Devin session"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

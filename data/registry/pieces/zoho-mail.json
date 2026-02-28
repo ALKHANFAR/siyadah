@@ -1,0 +1,62 @@
+{
+  "id": "zoho-mail",
+  "package": "@activepieces/piece-zoho-mail",
+  "display_name": "Zoho Mail",
+  "display_name_ar": "Zoho Mail",
+  "description": "Zoho Mail is a powerful email service that allows you to manage your email, contacts, and calendars efficiently.",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "archive_email",
+      "display_name": "Archive Email",
+      "description": "Archives an email."
+    },
+    {
+      "name": "get_email_details",
+      "display_name": "Get Email Details",
+      "description": "Retrieves full content and metadata of a specific email."
+    },
+    {
+      "name": "mark_email_as_read",
+      "display_name": "Mark Email as Read",
+      "description": "Marks an email as read."
+    },
+    {
+      "name": "mark_email_as_unread",
+      "display_name": "Mark Emai as Unread",
+      "description": "Marks an email as unread."
+    },
+    {
+      "name": "move_email",
+      "display_name": "Move Email to Folder",
+      "description": "Moves an email to a different folder."
+    },
+    {
+      "name": "send_email",
+      "display_name": "Send Email",
+      "description": "Sends an email."
+    },
+    {
+      "name": "unarchive_email",
+      "display_name": "Unarchive Email",
+      "description": "Unarchives an email."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_email_received",
+      "display_name": "New Email Received",
+      "description": "Triggers when a new email is received in a specified folder (or inbox).",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/zoho-mail"
+}

@@ -1,0 +1,183 @@
+{
+  "id": "clickup",
+  "package": "@activepieces/piece-clickup",
+  "display_name": "ClickUp",
+  "display_name_ar": "كليك أب",
+  "description": "All-in-one productivity platform",
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "get_accessible_custom_fields",
+      "display_name": "Get Accessible Custom Fields",
+      "description": "View the Custom Fields available on tasks in a specific List."
+    },
+    {
+      "name": "set_custom_fields_value",
+      "display_name": "Set Custom Field Value",
+      "description": "Add data to a Custom field on a task."
+    },
+    {
+      "name": "create_folderless_list",
+      "display_name": "Create Folderless List",
+      "description": "Create a new folderless list in a ClickUp workspace and space"
+    },
+    {
+      "name": "get_list",
+      "display_name": "Get List",
+      "description": "Gets a list in a ClickUp"
+    },
+    {
+      "name": "get_space",
+      "display_name": "Get Space",
+      "description": "Gets a space in a ClickUp"
+    },
+    {
+      "name": "get_spaces",
+      "display_name": "Get Spaces",
+      "description": "Gets spaces in a ClickUp workspace"
+    },
+    {
+      "name": "list_workspace_tasks",
+      "display_name": "List Team Tasks",
+      "description": "Retrieves the tasks that meet specific criteria from a Workspace."
+    },
+    {
+      "name": "update_task",
+      "display_name": "Update Task",
+      "description": "Update task in a ClickUp workspace and list"
+    },
+    {
+      "name": "get_list_task",
+      "display_name": "Get Task",
+      "description": "Gets a task in a ClickUp list"
+    },
+    {
+      "name": "create_task",
+      "display_name": "Create Task",
+      "description": "Create a new task in a ClickUp workspace and list"
+    },
+    {
+      "name": "create_task_from_template",
+      "display_name": "Create Task From Template",
+      "description": "Create a new task from Template"
+    },
+    {
+      "name": "get_task_by_name",
+      "display_name": "Get Task by Name",
+      "description": "Fetches a task by name in a ClickUp list"
+    },
+    {
+      "name": "list_workspace_time_entries",
+      "display_name": "List Time Entries",
+      "description": "Retrieves time entries filtered by start and end date."
+    },
+    {
+      "name": "delete_task",
+      "display_name": "Delete Task",
+      "description": "Delete a task in a workspace and list"
+    },
+    {
+      "name": "create_subtask",
+      "display_name": "Create Subtask",
+      "description": "Creates a subtask in ClickUp"
+    },
+    {
+      "name": "create_task_comments",
+      "display_name": "Create Task Comment",
+      "description": "Creates a comment on a task in ClickUp"
+    },
+    {
+      "name": "get_task_comments",
+      "display_name": "Get Task Comments",
+      "description": "Gets comments from a task in ClickUp"
+    },
+    {
+      "name": "update_message",
+      "display_name": "Update Message",
+      "description": "Updates a message in a ClickUp channel"
+    },
+    {
+      "name": "get_channel",
+      "display_name": "Get Channel",
+      "description": "Gets a channel in a ClickUp workspace"
+    },
+    {
+      "name": "create_channel",
+      "display_name": "Create Channel",
+      "description": "Creates a channel in a ClickUp workspace"
+    },
+    {
+      "name": "get_message_replies",
+      "display_name": "Get Message Replies",
+      "description": "Gets the replies of a message in a ClickUp channel"
+    },
+    {
+      "name": "delete_message_reaction",
+      "display_name": "Delete Message Reaction",
+      "description": "Deletes a reaction from a message in a ClickUp channel"
+    },
+    {
+      "name": "create_message",
+      "display_name": "Create Message",
+      "description": "Creates a message in a ClickUp channel"
+    },
+    {
+      "name": "create_message_reply",
+      "display_name": "Create Message Reply",
+      "description": "Creates a reply to a message in a ClickUp channel"
+    },
+    {
+      "name": "create_channel_in_space_folder_list",
+      "display_name": "Create Channel in Space/Folder/List",
+      "description": "Creates a channel in a ClickUp workspace in a space, folder or list"
+    },
+    {
+      "name": "delete_message",
+      "display_name": "Delete Message",
+      "description": "Deletes a message in a ClickUp channel"
+    },
+    {
+      "name": "get_channel_messages",
+      "display_name": "Get Channel Messages",
+      "description": "Gets all messages in a ClickUp channel"
+    },
+    {
+      "name": "create_message_reaction",
+      "display_name": "Create Message Reaction",
+      "description": "Creates a reaction to a message in a ClickUp channel"
+    },
+    {
+      "name": "get_channels",
+      "display_name": "Get Channels",
+      "description": "Gets all channels in a ClickUp workspace"
+    },
+    {
+      "name": "get_message_reactions",
+      "display_name": "Get Message Reactions",
+      "description": "Gets the reactions of a message in a ClickUp channel"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "clickup_trigger_${name}",
+      "display_name": "clickup_trigger_${name}",
+      "description": "",
+      "type": "instant"
+    },
+    {
+      "name": "task_tag_updated",
+      "display_name": "Task Tag Updated",
+      "description": "Triggered when a tag is added or removed or renamed on a task.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/clickup"
+}

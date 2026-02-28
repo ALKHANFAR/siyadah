@@ -1,0 +1,52 @@
+{
+  "id": "bitly",
+  "package": "@activepieces/piece-bitly",
+  "display_name": "Bitly",
+  "display_name_ar": "Bitly",
+  "description": "URL shortening and link management platform with analytics.",
+  "category": "H_marketing",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "archive_bitlink",
+      "display_name": "Archive Bitlink",
+      "description": "Archive a Bitlink to stop redirects."
+    },
+    {
+      "name": "create_bitlink",
+      "display_name": "Create Bitlink",
+      "description": "Shorten a long URL with optional customization."
+    },
+    {
+      "name": "create_qr_code",
+      "display_name": "Create QR Code",
+      "description": "Generate a customized QR code for a Bitlink."
+    },
+    {
+      "name": "get_bitlink_details",
+      "display_name": "Get Bitlink Details",
+      "description": "Retrieve metadata for a Bitlink."
+    },
+    {
+      "name": "update_bitlink",
+      "display_name": "Update Bitlink",
+      "description": "Modify properties of an existing Bitlink."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_bitlink_created",
+      "display_name": "New Bitlink Created",
+      "description": "Fires when a new Bitlink is created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bitly"
+}

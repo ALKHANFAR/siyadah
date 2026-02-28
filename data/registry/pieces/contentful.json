@@ -1,0 +1,35 @@
+{
+  "id": "contentful",
+  "package": "@activepieces/piece-contentful",
+  "display_name": "Contentful",
+  "display_name_ar": "Contentful",
+  "description": "Content infrastructure for digital teams",
+  "category": "H_marketing",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "contentful_record_search",
+      "display_name": "Search Records",
+      "description": "Searches for records of a given Content Model"
+    },
+    {
+      "name": "contentful_record_get",
+      "display_name": "Get Record",
+      "description": "Gets a Contentful record for a given Content Model"
+    },
+    {
+      "name": "contentful_record_create",
+      "display_name": "Create Record",
+      "description": "Creates a new Contentful record for a given Content Model"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/contentful"
+}

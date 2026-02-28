@@ -1,0 +1,63 @@
+{
+  "id": "crisp",
+  "package": "@activepieces/piece-crisp",
+  "display_name": "Crisp",
+  "display_name_ar": "",
+  "description": null,
+  "category": "C_communication",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "add_note",
+      "display_name": "Add Note to Conversation",
+      "description": "Adds an internal note to a conversation."
+    },
+    {
+      "name": "create_conversation",
+      "display_name": "Create Conversation",
+      "description": "Creates a new conversation."
+    },
+    {
+      "name": "create_update_contact",
+      "display_name": "Create/Update Contact",
+      "description": "Creates a new contact or updates an existing contact."
+    },
+    {
+      "name": "find_conversation",
+      "display_name": "Find Conversation",
+      "description": "Searches for conversations matching the specified criteria."
+    },
+    {
+      "name": "find_user_profile",
+      "display_name": "Find User Profile",
+      "description": "Finds a user profile by email address."
+    },
+    {
+      "name": "change_state",
+      "display_name": "Change Conversation State",
+      "description": "Updates the state of a conversation."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_contact",
+      "display_name": "New Contact Created",
+      "description": "Triggers when a new contact is added.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_conversation",
+      "display_name": "New Conversation Created",
+      "description": "Triggers when a new conversation is started.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "cyberark",
+  "package": "@activepieces/piece-cyberark",
+  "display_name": "CyberArk",
+  "display_name_ar": "CyberArk",
+  "description": "Manage users, groups, and access controls in CyberArk Privileged Access Management",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "activate_user",
+      "display_name": "Activate User",
+      "description": "Activates an existing user who was suspended after entering incorrect credentials multiple times"
+    },
+    {
+      "name": "add_member_to_group",
+      "display_name": "Add Member to Group",
+      "description": "Adds a user as a member to an existing Vault group (requires Add/Update users permissions)"
+    },
+    {
+      "name": "change_credentials_bulk",
+      "display_name": "Change Credentials Immediately in Bulk",
+      "description": "Marks multiple accounts for an immediate credentials change by the CPM to a new random value"
+    },
+    {
+      "name": "change_credentials_in_vault_bulk",
+      "display_name": "Change Credentials in the Vault in Bulk",
+      "description": "Sets credentials for multiple accounts and changes them in the Vault. This does not affect credentials on the target device."
+    },
+    {
+      "name": "change_credentials_in_vault",
+      "display_name": "Change Credentials in the Vault",
+      "description": "Sets account credentials and changes them in the Vault. This will not affect credentials on the target device."
+    },
+    {
+      "name": "create_user",
+      "display_name": "Create User",
+      "description": "Creates a new user in the CyberArk Vault"
+    },
+    {
+      "name": "delete_user",
+      "display_name": "Delete User",
+      "description": "Deletes a specific user in the Vault (requires Add/Update Users authorization)"
+    },
+    {
+      "name": "disable_user",
+      "display_name": "Disable User",
+      "description": "Disables a specific user in the Vault"
+    },
+    {
+      "name": "enable_user",
+      "display_name": "Enable User",
+      "description": "Enables a specific user in the Vault"
+    },
+    {
+      "name": "find_user",
+      "display_name": "Find User",
+      "description": "Returns a list of existing users in the Vault based on filter criteria (requires Audit users permissions)"
+    },
+    {
+      "name": "get_password_value",
+      "display_name": "Get Password Value",
+      "description": "Retrieves the password or SSH key of an existing account identified by its Account ID"
+    },
+    {
+      "name": "reconcile_credentials_bulk",
+      "display_name": "Reconcile Credentials in Bulk",
+      "description": "Marks multiple accounts for automatic reconciliation by the CPM"
+    },
+    {
+      "name": "remove_member_from_group",
+      "display_name": "Remove Member from Group",
+      "description": "Removes a specific user from a user group in the Vault"
+    },
+    {
+      "name": "retrieve_private_ssh_key",
+      "display_name": "Retrieve Private SSH Key",
+      "description": "Retrieves a private SSH key file from an existing account identified by its Account ID"
+    },
+    {
+      "name": "set_next_password_bulk",
+      "display_name": "Set Next Password in Bulk",
+      "description": "Sets multiple accounts\\"
+    },
+    {
+      "name": "update_user",
+      "display_name": "Update User",
+      "description": "Updates an existing Vault user (except Master and Batch built-in users)"
+    },
+    {
+      "name": "verify_credentials_bulk",
+      "display_name": "Verify Credentials in Bulk",
+      "description": "Marks multiple accounts for verification by the CPM"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/cyberark"
+}

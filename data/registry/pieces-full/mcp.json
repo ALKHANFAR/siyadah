@@ -1,0 +1,27 @@
+{
+  "id": "mcp",
+  "package": "@activepieces/piece-mcp",
+  "display_name": "MCP",
+  "display_name_ar": "",
+  "description": "Connect to your hosted MCP Server using any MCP client to communicate with tools",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "reply_to_mcp_client",
+      "display_name": "Reply to MCP Client",
+      "description": "Return a response to the MCP client that called the tool."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "mcp_tool",
+      "display_name": "MCP Tool",
+      "description": "Creates a tool that MCP clients can call to execute this flow",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

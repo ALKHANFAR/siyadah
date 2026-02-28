@@ -1,0 +1,438 @@
+{
+  "id": "reachinbox",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addBlocklist": {
+      "displayName": "Add Blocklist",
+      "description": "Add email addresses, domains, and keywords to the blocklist.",
+      "props": [
+        {
+          "name": "emails",
+          "displayName": "Email Addresses",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Enter the email addresses to block (e.g., [\"abc@gmail.com\"])"
+        },
+        {
+          "name": "domains",
+          "displayName": "Domains",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Enter the domains to block (e.g., [\"example.com\"])"
+        },
+        {
+          "name": "keywords",
+          "displayName": "Keywords",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Enter keywords to block (e.g., [\"spam\", \"blacklist\"])"
+        }
+      ]
+    },
+    "addEmail": {
+      "displayName": "Add Email",
+      "description": "Add an email to a specific account.",
+      "props": [
+        {
+          "name": "campaignId",
+          "displayName": "Select Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a campaign from the list or enter the campaign ID manually."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the email address to add to the campaign."
+        }
+      ]
+    },
+    "addLeads": {
+      "displayName": "Add Leads",
+      "description": "Add leads to campaigns dynamically by selecting a campaign, entering lead details, and including custom variables.",
+      "props": [
+        {
+          "name": "campaignId",
+          "displayName": "Select Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a campaign from the list."
+        },
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the email address for the lead"
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the first name for the lead"
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the last name for the lead"
+        },
+        {
+          "name": "customVariables",
+          "displayName": "Custom Variables",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Add custom variables as key-value pairs for the lead."
+        },
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the key for the custom variable"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the value for the custom variable"
+        }
+      ]
+    },
+    "enableWarmup": {
+      "displayName": "Enable Warmup",
+      "description": "Enable warmup for specific email accounts where it is currently disabled.",
+      "props": [
+        {
+          "name": "accountId",
+          "displayName": "Select Email Accounts to Enable Warmup",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose email accounts that have warmup disabled."
+        }
+      ]
+    },
+    "getCampaignAnalytics": {
+      "displayName": "Get Campaign Analytics",
+      "description": "Fetch analytics data for a selected campaign based on a date range.",
+      "props": [
+        {
+          "name": "campaignId",
+          "displayName": "Select Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a campaign from the list or enter the campaign ID manually."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the start date (YYYY-MM-DD). E.g. 2023-10-11"
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the end date (YYYY-MM-DD). E.g. 2023-10-20"
+        }
+      ]
+    },
+    "getSummary": {
+      "displayName": "Get Summary",
+      "description": "Get a summary of campaign analytics within a date range.",
+      "props": [
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the start date (YYYY-MM-DD). E.g. 2023-10-11"
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the end date (YYYY-MM-DD). E.g. 2023-12-20"
+        }
+      ]
+    },
+    "pauseCampaign": {
+      "displayName": "Pause Campaign",
+      "description": "Pause a selected campaign.",
+      "props": [
+        {
+          "name": "campaignId",
+          "displayName": "Select Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a campaign to pause."
+        }
+      ]
+    },
+    "pauseWarmup": {
+      "displayName": "Pause Warmup",
+      "description": "Pause warmup for selected email accounts.",
+      "props": [
+        {
+          "name": "accountId",
+          "displayName": "Select Email Accounts to Pause Warmup",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose email accounts that are currently warming up."
+        }
+      ]
+    },
+    "removeEmail": {
+      "displayName": "Remove Email",
+      "description": "Remove an email account from the system.",
+      "props": [
+        {
+          "name": "accountId",
+          "displayName": "Select Email Account to Remove",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose an email account to remove."
+        }
+      ]
+    },
+    "setSchedule": {
+      "displayName": "Set Schedule",
+      "description": "Update the schedule for a specific Campaign",
+      "props": [
+        {
+          "name": "campaignId",
+          "displayName": "Select Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a campaign from the list or enter the campaign ID manually."
+        },
+        {
+          "name": "scheduleName",
+          "displayName": "Schedule Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the schedule name here (e.g., New schedule)."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Enter the start date (e.g., 2023-08-01T00:00:00.000Z)."
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": true,
+          "description": "Enter the end date (e.g., 2024-08-25T00:00:00.000Z)."
+        },
+        {
+          "name": "startTime",
+          "displayName": "Start Time",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the start time (e.g., 09:00)."
+        },
+        {
+          "name": "endTime",
+          "displayName": "End Time",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the end time (e.g., 12:00)."
+        },
+        {
+          "name": "timezone",
+          "displayName": "Timezone",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the timezone (e.g., America/Detroit)."
+        },
+        {
+          "name": "sunday",
+          "displayName": "Sunday",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Choose \"Yes\" if you want to set a schedule for Sunday."
+        },
+        {
+          "name": "monday",
+          "displayName": "Monday",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Choose \"Yes\" if you want to set a schedule for Monday."
+        },
+        {
+          "name": "tuesday",
+          "displayName": "Tuesday",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Choose \"Yes\" if you want to set a schedule for Tuesday."
+        },
+        {
+          "name": "wednesday",
+          "displayName": "Wednesday",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Choose \"Yes\" if you want to set a schedule for Wednesday."
+        },
+        {
+          "name": "thursday",
+          "displayName": "Thursday",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Choose \"Yes\" if you want to set a schedule for Thursday."
+        },
+        {
+          "name": "friday",
+          "displayName": "Friday",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Choose \"Yes\" if you want to set a schedule for Friday."
+        },
+        {
+          "name": "saturday",
+          "displayName": "Saturday",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Choose \"Yes\" if you want to set a schedule for Saturday."
+        }
+      ]
+    },
+    "startCampaign": {
+      "displayName": "Start Campaign",
+      "description": "Starts a Campaign",
+      "props": [
+        {
+          "name": "campaignId",
+          "displayName": "Select Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a campaign from the list or enter the campaign ID manually."
+        }
+      ]
+    },
+    "updateLead": {
+      "displayName": "Update Lead",
+      "description": "Updates a Lead.",
+      "props": [
+        {
+          "name": "campaignId",
+          "displayName": "Select Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a campaign from the list or enter the campaign ID manually."
+        },
+        {
+          "name": "leadId",
+          "displayName": "Select Lead",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose a lead from the selected campaign."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the new email address for the lead."
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the new first name for the lead."
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Enter the new last name for the lead."
+        },
+        {
+          "name": "customVariables",
+          "displayName": "Custom Variables",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Add custom variables as key-value pairs for the lead."
+        },
+        {
+          "name": "key",
+          "displayName": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the key for the custom variable"
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the value for the custom variable"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "campaignCompleted": {
+      "displayName": "Campaign Completed",
+      "description": "Triggers when a campaign is completed.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "emailBounced": {
+      "displayName": "Email Bounced",
+      "description": "Triggers when an email is bounced.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "emailOpened": {
+      "displayName": "Email Opened",
+      "description": "Triggers when an email is opened.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "emailSent": {
+      "displayName": "Email Sent",
+      "description": "Triggers when an email is successfully sent.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "leadInterested": {
+      "displayName": "Lead Interested",
+      "description": "Triggers when a lead is set to interested.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "leadNotInterested": {
+      "displayName": "Lead Not Interested",
+      "description": "Triggers when a lead is set to not interested.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "replyReceived": {
+      "displayName": "Reply Received",
+      "description": "Triggers when a reply to an email is received.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

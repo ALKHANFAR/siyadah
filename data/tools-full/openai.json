@@ -1,0 +1,350 @@
+{
+  "id": "openai",
+  "displayName": "OpenAI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask_assistant": {
+      "displayName": "Ask Assistant",
+      "description": "Ask a GPT assistant anything you want!",
+      "props": [
+        {
+          "name": "assistant",
+          "displayName": "Assistant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The assistant which will generate the completion."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "memoryKey",
+          "displayName": "Memory Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memory key that will keep the chat history shared across runs and flows. Keep it empty to leave your assistant without memory of previous messages."
+        }
+      ]
+    },
+    "extract-structured-data": {
+      "displayName": "Extract Structured Data from Text",
+      "description": "Returns structured data from provided unstructured text.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "text",
+          "displayName": "Unstructured Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "params",
+          "displayName": "Data Definition",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "propName",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "propDescription",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Brief description of the data, this hints for the AI on what to look for"
+        },
+        {
+          "name": "propDataType",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of parameter."
+        },
+        {
+          "name": "propIsRequired",
+          "displayName": "Fail if Not present?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "generate_image": {
+      "displayName": "Generate Image",
+      "description": "Generate an image using text-to-image models",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the image."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "resolution",
+          "displayName": "Resolution",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The resolution to generate the image in."
+        },
+        {
+          "name": "quality",
+          "displayName": "Quality",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Standard is faster, HD has better details."
+        }
+      ]
+    },
+    "ask_chatgpt": {
+      "displayName": "Ask ChatGPT",
+      "description": "Ask ChatGPT anything you want!",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the completion. Some models are suitable for natural language tasks, others specialize in code."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The maximum number of tokens to generate. Requests can use up to 2,048 or 4,096 tokens shared between prompt and completion depending on the model. Don't set the value to maximum and leave some tokens for the input. (One token is roughly 4 characters for normal English text)"
+        },
+        {
+          "name": "topP",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered."
+        },
+        {
+          "name": "frequencyPenalty",
+          "displayName": "Frequency penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+        },
+        {
+          "name": "presencePenalty",
+          "displayName": "Presence penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the mode's likelihood to talk about new topics."
+        },
+        {
+          "name": "memoryKey",
+          "displayName": "Memory Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A memory key that will keep the chat history shared across runs and flows. Keep it empty to leave ChatGPT without memory of previous messages."
+        },
+        {
+          "name": "roles",
+          "displayName": "Roles",
+          "type": "JSON",
+          "required": false,
+          "description": "Array of roles to specify more accurate response"
+        }
+      ]
+    },
+    "text_to_speech": {
+      "displayName": "Text-to-Speech",
+      "description": "Generate an audio recording from text",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text you want to hear."
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The model which will generate the audio."
+        },
+        {
+          "name": "speed",
+          "displayName": "Speed",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The speed of the audio. Minimum is 0.25 and maximum is 4.00."
+        },
+        {
+          "name": "voice",
+          "displayName": "Voice",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The voice to generate the audio in."
+        },
+        {
+          "name": "format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The format you want the audio file in."
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the output audio file (without extension)."
+        }
+      ]
+    },
+    "transcribe": {
+      "displayName": "Transcribe Audio",
+      "description": "Transcribe audio to text using whisper-1 model",
+      "props": [
+        {
+          "name": "audio",
+          "displayName": "Audio",
+          "type": "FILE",
+          "required": true,
+          "description": "Audio file to transcribe"
+        },
+        {
+          "name": "language",
+          "displayName": "Language of the Audio",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Language of the audio file the default is en (English)."
+        }
+      ]
+    },
+    "translate": {
+      "displayName": "Translate Audio",
+      "description": "Translate audio to text using whisper-1 model",
+      "props": [
+        {
+          "name": "audio",
+          "displayName": "Audio",
+          "type": "FILE",
+          "required": true,
+          "description": "Audio file to translate"
+        }
+      ]
+    },
+    "vision_prompt": {
+      "displayName": "Vision Prompt",
+      "description": "Ask GPT a question about an image",
+      "props": [
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "FILE",
+          "required": true,
+          "description": "The image URL or file you want GPT's vision to read."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Question",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "What do you want ChatGPT to tell you about the image?"
+        },
+        {
+          "name": "detail",
+          "displayName": "Detail",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Control how the model processes the image and generates textual understanding."
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive."
+        },
+        {
+          "name": "maxTokens",
+          "displayName": "Maximum Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The maximum number of tokens to generate. Requests can use up to 2,048 or 4,096 tokens shared between prompt and completion, don't set the value to maximum and leave some tokens for the input. The exact limit varies by model. (One token is roughly 4 characters for normal English text)"
+        },
+        {
+          "name": "topP",
+          "displayName": "Top P",
+          "type": "NUMBER",
+          "required": false,
+          "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered."
+        },
+        {
+          "name": "frequencyPenalty",
+          "displayName": "Frequency penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+        },
+        {
+          "name": "presencePenalty",
+          "displayName": "Presence penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the mode's likelihood to talk about new topics."
+        },
+        {
+          "name": "roles",
+          "displayName": "Roles",
+          "type": "JSON",
+          "required": false,
+          "description": "Array of roles to specify more accurate response"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,223 @@
+{
+  "id": "microsoft-365-planner",
+  "displayName": "Microsoft 365 Planner",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "createBucket": {
+      "displayName": "Create Bucket",
+      "description": "Create a bucket (category) under a plan.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Bucket Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the bucket to be created"
+        }
+      ]
+    },
+    "createPlan": {
+      "displayName": "Create Plan",
+      "description": "Create a new planner plan",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the plan"
+        }
+      ]
+    },
+    "createTask": {
+      "displayName": "Create Task",
+      "description": "Create a new planner task with title, assignments, due date, etc.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the task to be created"
+        },
+        {
+          "name": "assignments",
+          "displayName": "Assignments",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select users to assign the task to. If left empty, the task will be unassigned."
+        },
+        {
+          "name": "dueDateTime",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The due date and time for the task"
+        },
+        {
+          "name": "percentComplete",
+          "displayName": "Percent Complete",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The completion percentage of the task (0-100)"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The priority of the task between 0 and 10, with the increasing value being lower priority (0 has the highest priority and 10 has the lowest priority)."
+        },
+        {
+          "name": "startDateTime",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The start date and time for the task"
+        }
+      ]
+    },
+    "deleteBucket": {
+      "displayName": "Delete Bucket",
+      "description": "Delete an existing bucket.",
+      "props": []
+    },
+    "deleteTask": {
+      "displayName": "Delete Task",
+      "description": "Remove a specific task by ID.",
+      "props": []
+    },
+    "findAPlan": {
+      "displayName": "Find a Plan",
+      "description": "Finds a plan by field.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the plan to search for"
+        }
+      ]
+    },
+    "findTask": {
+      "displayName": "Find Task",
+      "description": "Find task by fields.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the task to search for"
+        }
+      ]
+    },
+    "getABucket": {
+      "displayName": "Get a Bucket",
+      "description": "Retrieve details about a specific bucket.",
+      "props": []
+    },
+    "updateBucket": {
+      "displayName": "Update Bucket",
+      "description": "Modify bucket’s name or properties.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new name of the bucket"
+        }
+      ]
+    },
+    "updatePlan": {
+      "displayName": "Update Plan",
+      "description": "modify metadata of a plan (e.g. title changes).",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The new title of the plan"
+        }
+      ]
+    },
+    "updateTask": {
+      "displayName": "Update Task",
+      "description": "Modify existing task fields: title, due date, assignments, descriptions.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The new title of the task"
+        },
+        {
+          "name": "assignments",
+          "displayName": "Assignments",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Select users to assign the task to. If left empty, the task will be unassigned."
+        },
+        {
+          "name": "dueDateTime",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The due date and time for the task"
+        },
+        {
+          "name": "percentComplete",
+          "displayName": "Percent Complete",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The completion percentage of the task (0-100)"
+        },
+        {
+          "name": "priority",
+          "displayName": "Priority",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The priority of the task between 0 and 10, with the increasing value being lower priority (0 has the highest priority and 10 has the lowest priority)."
+        },
+        {
+          "name": "startDateTime",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The start date and time for the task"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "newPlanCreated": {
+      "displayName": "New Plan Created",
+      "description": "Triggers when a new Plan is created in Microsoft 365 Planner.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newTaskAssignedToUser": {
+      "displayName": "New Task Assigned to User",
+      "description": "Triggers when a Task is assigned to the authenticated user in Microsoft 365 Planner.",
+      "type": "POLLING",
+      "props": []
+    },
+    "newTaskCreated": {
+      "displayName": "New Task Created",
+      "description": "Triggers when a new Task is created in Microsoft 365 Planner.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

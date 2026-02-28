@@ -1,0 +1,501 @@
+{
+  "id": "google-sheets",
+  "displayName": "Google Sheets",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "clear_sheet": {
+      "displayName": "Clear Sheet",
+      "description": "Clears all rows on an existing sheet.",
+      "props": [
+        {
+          "name": "headerRow",
+          "displayName": "Header Row Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the row number where your column headers are located (usually row 1)."
+        }
+      ]
+    },
+    "copy-worksheet": {
+      "displayName": "Copy Worksheet",
+      "description": "Creates a new worksheet by copying an existing one.",
+      "props": []
+    },
+    "create-column": {
+      "displayName": "Create Spreadsheet Column",
+      "description": "Creates a new column in a specific spreadsheet.",
+      "props": [
+        {
+          "name": "columnName",
+          "displayName": "Column Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "columnIndex",
+          "displayName": "Column Index",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The column index starts from 1.For example, if you want to add a column to the third column, enter 3.Ff the input is less than 1 the column will be added after the last current column."
+        }
+      ]
+    },
+    "create-spreadsheet": {
+      "displayName": "Create Spreadsheet",
+      "description": "Creates a blank spreadsheet.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the new spreadsheet."
+        },
+        {
+          "name": "folder",
+          "displayName": "Parent Folder",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "The folder to create the worksheet in.By default, the new worksheet is created in the root folder of drive."
+        }
+      ]
+    },
+    "create-worksheet": {
+      "displayName": "Create Worksheet",
+      "description": "Create a new blank worksheet with a title.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the new worksheet."
+        },
+        {
+          "name": "headers",
+          "displayName": "Headers",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete_row": {
+      "displayName": "Delete Row",
+      "description": "Delete a specific row from the selected sheet.",
+      "props": [
+        {
+          "name": "rowId",
+          "displayName": "Row Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of the row you want to delete."
+        }
+      ]
+    },
+    "delete-worksheet": {
+      "displayName": "Delete Worksheet",
+      "description": "Permanently delete a specific worksheet.",
+      "props": []
+    },
+    "export_sheet": {
+      "displayName": "Export Worksheet",
+      "description": "Download a worksheet as a CSV or TSV file.",
+      "props": [
+        {
+          "name": "format",
+          "displayName": "Export Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the file type to export the sheet as."
+        },
+        {
+          "name": "returnAsText",
+          "displayName": "Return as Text",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Return the exported data as text instead of a file."
+        }
+      ]
+    },
+    "find_row_by_num": {
+      "displayName": "Get Single Row by ID",
+      "description": "Retrieve a specific row using its unique ID.",
+      "props": [
+        {
+          "name": "rowNumber",
+          "displayName": "Row Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the row number you want to retrieve"
+        },
+        {
+          "name": "headerRow",
+          "displayName": "Header Row Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the row number where your column headers are located (usually row 1)."
+        }
+      ]
+    },
+    "find_rows": {
+      "displayName": "Find Rows",
+      "description": "Look up rows in a worksheet based on a column value.",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The value to look for in the selected column. Leave empty to return all rows."
+        },
+        {
+          "name": "matchCase",
+          "displayName": "Exact Match",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Only return rows where the cell value exactly matches the search value."
+        },
+        {
+          "name": "startingRow",
+          "displayName": "Starting Row",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Start searching from this row number."
+        },
+        {
+          "name": "numberOfRows",
+          "displayName": "Number of Rows",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many rows to return. Defaults to 1 if not specified."
+        },
+        {
+          "name": "headerRow",
+          "displayName": "Header Row",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The row number that contains the column names."
+        },
+        {
+          "name": "useHeaderNames",
+          "displayName": "Use Column Names",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Use column names as keys instead of A, B, C."
+        }
+      ]
+    },
+    "find_spreadsheets": {
+      "displayName": "Find Spreadsheet(s)",
+      "description": "Find spreadsheet(s) by name.",
+      "props": [
+        {
+          "name": "spreadsheet_name",
+          "displayName": "Spreadsheet Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the name of the spreadsheet to search for"
+        },
+        {
+          "name": "exact_match",
+          "displayName": "Exact Match",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, only return spreadsheets that exactly match the name. If false, return spreadsheets that contain the name."
+        }
+      ]
+    },
+    "find-worksheet": {
+      "displayName": "Find Worksheet(s)",
+      "description": "Finds a worksheet(s) by title.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "exact_match",
+          "displayName": "Exact Match",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "If true, only return worksheets that exactly match the name. If false, return worksheets that contain the name."
+        }
+      ]
+    },
+    "format-row": {
+      "displayName": "Format Row(s)",
+      "description": "Format one or multiple rows in specific spreadsheet.",
+      "props": [
+        {
+          "name": "startingRow",
+          "displayName": "Starting row",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The first row number where formatting should begin."
+        },
+        {
+          "name": "endingRow",
+          "displayName": "Ending row",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The last row number where formatting should stop (leave empty to format only the starting row)."
+        },
+        {
+          "name": "bgColor",
+          "displayName": "Background Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide a HEX color code (example: #FFD966)"
+        },
+        {
+          "name": "textColor",
+          "displayName": "Text Color",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Provide a HEX color code (example: #FFD966)"
+        },
+        {
+          "name": "bold",
+          "displayName": "Make text bold",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "italic",
+          "displayName": "Make text Italic",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "strikethrough",
+          "displayName": "Make text Strikethrough",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "get-many-rows": {
+      "displayName": "Get All Rows",
+      "description": "Get all the rows from a specific sheet.",
+      "props": []
+    },
+    "get_next_rows": {
+      "displayName": "Get next row(s)",
+      "description": "Get next group of rows from a specifiec workheet",
+      "props": [
+        {
+          "name": "startRow",
+          "displayName": "Start Row",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Which row to start from?"
+        },
+        {
+          "name": "headerRow",
+          "displayName": "Header Row",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Which row contains the headers?"
+        },
+        {
+          "name": "useHeaderNames",
+          "displayName": "Use header names for keys",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Map A/B/C… to the actual column headers (row specified above)."
+        },
+        {
+          "name": "memKey",
+          "displayName": "Memory Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key used to store the current row number in memory"
+        },
+        {
+          "name": "groupSize",
+          "displayName": "Group Size",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The number of rows to get"
+        }
+      ]
+    },
+    "google-sheets-insert-multiple-rows": {
+      "displayName": "Add Multiple Rows",
+      "description": "Add multiple rows of data at once to a specific spreadsheet.",
+      "props": [
+        {
+          "name": "input_type",
+          "displayName": "Rows Data Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the format of the input values to be added into the worksheet."
+        },
+        {
+          "name": "values",
+          "displayName": "Values",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "The values to add."
+        },
+        {
+          "name": "overwrite",
+          "displayName": "Overwrite Existing Data?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable this option to replace all existing data in the sheet with new data from your input. This will clear any extra rows beyond the updated range."
+        },
+        {
+          "name": "check_for_duplicate",
+          "displayName": "Avoid Duplicates?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable this option to check for duplicate values before inserting data into the sheet. Only unique rows will be added based on the selected column."
+        },
+        {
+          "name": "check_for_duplicate_column",
+          "displayName": "Duplicate Value Column",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "The column to check for duplicate values."
+        },
+        {
+          "name": "as_string",
+          "displayName": "As String",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Inserted values that are dates and formulas will be entered as strings and have no effect"
+        },
+        {
+          "name": "headerRow",
+          "displayName": "Header Row Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Enter the row number where your column headers are located (usually row 1)."
+        }
+      ]
+    },
+    "insert_row": {
+      "displayName": "Add Row",
+      "description": "Add a new row of data to a specific spreadsheet.",
+      "props": [
+        {
+          "name": "as_string",
+          "displayName": "As String",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Inserted values that are dates and formulas will be entered strings and have no effect"
+        }
+      ]
+    },
+    "rename-worksheet": {
+      "displayName": "Rename Worksheet",
+      "description": "Rename specific worksheet.",
+      "props": [
+        {
+          "name": "newName",
+          "displayName": "New Sheet Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "update-multiple-rows": {
+      "displayName": "Update Multiple Rows",
+      "description": "Updates multiple rows in a specific spreadsheet.",
+      "props": [
+        {
+          "name": "values",
+          "displayName": "Values",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "The values to update."
+        },
+        {
+          "name": "rowId",
+          "displayName": "Row Id",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The row id to update"
+        },
+        {
+          "name": "as_string",
+          "displayName": "As String",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Inserted values that are dates and formulas will be entered as strings and have no effect"
+        },
+        {
+          "name": "headerRow",
+          "displayName": "Header Row",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Which row contains the headers?"
+        }
+      ]
+    },
+    "update_row": {
+      "displayName": "Update Row",
+      "description": "Update the data in an existing row.",
+      "props": [
+        {
+          "name": "row_id",
+          "displayName": "Row Number",
+          "type": "NUMBER",
+          "required": true,
+          "description": "The row number to update"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "google-sheets-new-or-updated-row": {
+      "displayName": "New or Updated Row",
+      "description": "Triggers when a new row is added or modified in a spreadsheet.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "trigger_column",
+          "displayName": "Trigger Column",
+          "type": "DROPDOWN",
+          "required": false,
+          "description": "Trigger on changes to cells in this column only. \\nSelect **Any Column** if you want the flow to trigger on changes to any cell within the row."
+        }
+      ]
+    },
+    "googlesheets_new_row_added": {
+      "displayName": "New Row Added",
+      "description": "Triggers when a new row is added to bottom of a spreadsheet.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-spreadsheet": {
+      "displayName": "New Spreadsheet",
+      "description": "Triggers when a new spreadsheet is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-worksheet": {
+      "displayName": "New Worksheet",
+      "description": "Triggers when a worksheet is created in a spreadsheet.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "extracta-ai",
+  "package": "@activepieces/piece-extracta-ai",
+  "display_name": "Extracta.ai",
+  "display_name_ar": "Extracta.ai",
+  "description": "An AI document extraction & content analysis platform that transforms unstructured files (PDFs, images, URLs, etc.) into structured data.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "extract_file_data",
+      "display_name": "Extract File Data",
+      "description": "Upload a file and immediately receive extracted content"
+    },
+    {
+      "name": "get_extraction_results",
+      "display_name": "Get Extraction Results",
+      "description": "Fetches successful data from extraction. Note: The API recommends a 2-second delay between requests to avoid rate-limiting."
+    },
+    {
+      "name": "upload_file",
+      "display_name": "Upload File",
+      "description": "Uploads document for extraction"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "extraction_failed",
+      "display_name": "Extraction Failed",
+      "description": "Triggers when a document extraction fails.",
+      "type": "instant"
+    },
+    {
+      "name": "new_document_processed",
+      "display_name": "New Document Processed",
+      "description": "Triggers when a document extraction is successfully processed.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/extracta-ai"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "apollo",
+  "package": "@activepieces/piece-apollo",
+  "display_name": "Apollo",
+  "display_name_ar": "Apollo",
+  "description": "AI sales platform for prospecting, lead gen, and deal automation. Close more deals, faster, with smart data.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "enrichCompany",
+      "display_name": "Enrich Company",
+      "description": ""
+    },
+    {
+      "name": "matchPerson",
+      "display_name": "Match Person",
+      "description": "Enrich a persons details using their email address"
+    },
+    {
+      "name": "newsArticlesSearch",
+      "display_name": "News Articles Search",
+      "description": "Search for news articles related to companies in the Apollo database"
+    },
+    {
+      "name": "organizationJobPostings",
+      "display_name": "Organization Job Postings",
+      "description": "Retrieve current job postings for a company to identify growing headcount areas"
+    },
+    {
+      "name": "organizationSearch",
+      "display_name": "Organization Search",
+      "description": "Search for companies in the Apollo database with various filters"
+    },
+    {
+      "name": "peopleSearch",
+      "display_name": "People Search",
+      "description": "Search for people in the Apollo database (does not return email/phone, use enrichment for that)"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/apollo"
+}

@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "category": "context",
+    "source": "auto_calculated",
+    "description": "Variables computed at runtime - time, date, greeting based on time of day",
+    "version": "1.0.0",
+    "timezone": "Asia/Riyadh"
+  },
+  "variables": {
+    "greeting": {
+      "key": "context.greeting",
+      "type": "string",
+      "source": "computed_from_time",
+      "description_ar": "تحية حسب الوقت",
+      "used_in_flows": ["lead-capture", "customer-journey", "weekly-report", "invoice-collection"],
+      "logic": {
+        "05:00-11:59": "صباح الخير",
+        "12:00-15:59": "مساء الخير",
+        "16:00-20:59": "مساء النور",
+        "21:00-04:59": "مساء الخير"
+      }
+    },
+    "today": {
+      "key": "context.today",
+      "type": "date",
+      "source": "computed",
+      "description_ar": "تاريخ اليوم",
+      "used_in_flows": ["lead-capture", "invoice-collection", "complaint-handling"],
+      "format": "YYYY-MM-DD"
+    },
+    "today_hijri": {
+      "key": "context.today_hijri",
+      "type": "string",
+      "source": "computed",
+      "description_ar": "تاريخ اليوم هجري",
+      "used_in_flows": ["complaint-handling"],
+      "format": "YYYY/MM/DD هـ",
+      "library": "moment-hijri"
+    },
+    "now": {
+      "key": "context.now",
+      "type": "datetime",
+      "source": "computed",
+      "description_ar": "الوقت الحالي",
+      "used_in_flows": ["lead-capture", "complaint-handling"],
+      "format": "YYYY-MM-DD HH:mm:ss",
+      "timezone": "Asia/Riyadh"
+    },
+    "timestamp_short": {
+      "key": "context.timestamp_short",
+      "type": "string",
+      "source": "computed",
+      "description_ar": "وقت مختصر للعرض",
+      "used_in_flows": ["lead-capture"],
+      "format": "HH:mm",
+      "example": "14:30"
+    },
+    "day_of_week": {
+      "key": "context.day_of_week",
+      "type": "string",
+      "source": "computed",
+      "description_ar": "اسم اليوم بالعربي",
+      "used_in_flows": [],
+      "values": ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+    },
+    "is_working_hours": {
+      "key": "context.is_working_hours",
+      "type": "boolean",
+      "source": "computed_from_company_hours",
+      "description_ar": "هل الحين وقت دوام؟",
+      "used_in_flows": [],
+      "logic": "compare context.now against company.working_hours",
+      "default": true
+    },
+    "this_week": {
+      "key": "context.this_week",
+      "type": "object",
+      "source": "computed",
+      "description_ar": "بداية ونهاية الأسبوع الحالي",
+      "used_in_flows": ["weekly-report"],
+      "format": {
+        "start": "YYYY-MM-DD (Sunday)",
+        "end": "YYYY-MM-DD (Saturday)"
+      }
+    }
+  },
+  "computation_code": {
+    "language": "javascript",
+    "description": "Reference implementation for context variable computation",
+    "example": "const moment = require('moment-timezone');\nconst now = moment().tz('Asia/Riyadh');\nconst hour = now.hour();\nconst greeting = hour >= 5 && hour < 12 ? 'صباح الخير' : 'مساء الخير';"
+  }
+}

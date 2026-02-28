@@ -1,0 +1,354 @@
+{
+  "id": "grok-xai",
+  "displayName": "Grok by xAI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "ask_grok": {
+      "displayName": "Ask Grok",
+      "description": "Send prompts to Grok with real-time search, tools, and structured outputs.",
+      "props": [
+        {
+          "name": "messages",
+          "displayName": "Messages",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Conversation messages for multi-turn conversations."
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Message content (text, image URL, or JSON for multimodal)."
+        },
+        {
+          "name": "name",
+          "displayName": "Name (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique identifier for the user."
+        },
+        {
+          "name": "tool_call_id",
+          "displayName": "Tool Call ID (for tool role)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Required when role is \"tool\" - ID from the tool call."
+        },
+        {
+          "name": "quickPrompt",
+          "displayName": "Quick Prompt (Alternative)",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Simple text prompt for single-turn conversations. Ignored if Messages is provided."
+        },
+        {
+          "name": "systemMessage",
+          "displayName": "System Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "System message to set behavior and context."
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Image URL (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Image URL for vision models. Works with quick prompt mode."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Output format for the response."
+        },
+        {
+          "name": "jsonSchema",
+          "displayName": "JSON Schema",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "JSON schema for structured output (when response format is json_schema)."
+        },
+        {
+          "name": "enableRealTimeSearch",
+          "displayName": "Enable Real-Time Search",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow Grok to search the web and X for current information."
+        },
+        {
+          "name": "searchMode",
+          "displayName": "Search Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How to handle real-time data search."
+        },
+        {
+          "name": "maxSearchResults",
+          "displayName": "Max Search Results",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of search results to use (1-30)."
+        },
+        {
+          "name": "searchSources",
+          "displayName": "Search Sources",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Sources to search in."
+        },
+        {
+          "name": "tools",
+          "displayName": "Tools/Functions",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Functions the model can call."
+        },
+        {
+          "name": "name",
+          "displayName": "Function Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the function."
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "What the function does."
+        },
+        {
+          "name": "parameters",
+          "displayName": "Parameters Schema",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "JSON schema defining function parameters."
+        },
+        {
+          "name": "toolChoice",
+          "displayName": "Tool Choice",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How the model should use tools."
+        },
+        {
+          "name": "parallelToolCalls",
+          "displayName": "Parallel Tool Calls",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Allow model to call multiple tools simultaneously."
+        },
+        {
+          "name": "reasoningEffort",
+          "displayName": "Reasoning Effort",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How hard reasoning models should think (not for grok-4)."
+        },
+        {
+          "name": "memoryKey",
+          "displayName": "Memory Key",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Keep conversation history across runs."
+        }
+      ]
+    },
+    "categorize_text": {
+      "displayName": "Categorize Text",
+      "description": "Assign categories to input text based on custom or predefined labels.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Categorize",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text content to categorize."
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Define the categories for classification."
+        },
+        {
+          "name": "name",
+          "displayName": "Category Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Category name (e.g., \"Positive\", \"Urgent\", \"Customer Support\")"
+        },
+        {
+          "name": "description",
+          "displayName": "Category Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "What this category represents"
+        },
+        {
+          "name": "allowMultiple",
+          "displayName": "Allow Multiple Categories",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Text can be assigned to multiple categories."
+        },
+        {
+          "name": "includeConfidence",
+          "displayName": "Include Confidence Scores",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include confidence scores for each category."
+        },
+        {
+          "name": "customInstructions",
+          "displayName": "Custom Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional instructions for categorization."
+        },
+        {
+          "name": "enableContextSearch",
+          "displayName": "Enable Context Search",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Search for additional context to improve categorization."
+        },
+        {
+          "name": "reasoningEffort",
+          "displayName": "Reasoning Effort",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How thoroughly to analyze the text."
+        }
+      ]
+    },
+    "extract_data_from_text": {
+      "displayName": "Extract Data From Text",
+      "description": "Extract structured data fields from unstructured text (e.g., names, addresses, dates).",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Extract From",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Text to extract data from."
+        },
+        {
+          "name": "extractionPrompt",
+          "displayName": "Extraction Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "How to extract the data."
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields to Extract",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Define the structured fields to extract from the text."
+        },
+        {
+          "name": "fieldName",
+          "displayName": "Field Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the field (e.g., \"firstName\", \"email\", \"phoneNumber\")"
+        },
+        {
+          "name": "fieldType",
+          "displayName": "Field Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "fieldDescription",
+          "displayName": "Field Description",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "What this field represents (e.g., \"The person\\"
+        },
+        {
+          "name": "required",
+          "displayName": "Required Field",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Must be present in extracted data."
+        },
+        {
+          "name": "enableContextSearch",
+          "displayName": "Enable Context Search",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Search for additional context to improve extraction."
+        },
+        {
+          "name": "strictExtraction",
+          "displayName": "Strict Extraction",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only extract explicitly present information."
+        },
+        {
+          "name": "reasoningEffort",
+          "displayName": "Reasoning Effort",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "How thoroughly to analyze the text."
+        },
+        {
+          "name": "includeConfidence",
+          "displayName": "Include Confidence Scores",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include confidence scores for extracted fields."
+        }
+      ]
+    },
+    "generate_image": {
+      "displayName": "Generate Image",
+      "description": "Create images from text prompts using Grok\\",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Image Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Detailed description of the image you want to generate."
+        },
+        {
+          "name": "numberOfImages",
+          "displayName": "Number of Images",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of images to generate (1-10)."
+        },
+        {
+          "name": "responseFormat",
+          "displayName": "Response Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the generated images."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

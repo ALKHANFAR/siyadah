@@ -1,0 +1,165 @@
+{
+  "id": "bookedin",
+  "displayName": "Bookedin",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "bulkDeleteLeads": {
+      "displayName": "Bulk Delete Leads",
+      "description": "Delete multiple leads (max 500 per request)",
+      "props": []
+    },
+    "createLead": {
+      "displayName": "Create Lead",
+      "description": "Creates a new lead in Bookedin AI",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "deleteLead": {
+      "displayName": "Delete Lead",
+      "description": "Delete a lead.",
+      "props": []
+    },
+    "getLeadStats": {
+      "displayName": "Get Lead Stats",
+      "description": "Get lead statistics (Hot, Warm, Cold, Objectives Met, Total).",
+      "props": []
+    },
+    "getLead": {
+      "displayName": "Get Lead",
+      "description": "Get a specific lead by ID.",
+      "props": []
+    },
+    "getLeads": {
+      "displayName": "Get Leads",
+      "description": "Get all leads for the current business with pagination metadata.",
+      "props": [
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search text in name, email, or phone number"
+        },
+        {
+          "name": "source",
+          "displayName": "Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by lead source (e.g., \"API\", \"Import\")"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by exact email address"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by phone number"
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of leads to return"
+        },
+        {
+          "name": "skip",
+          "displayName": "Skip",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of leads to skip (pagination)"
+        }
+      ]
+    },
+    "updateLead": {
+      "displayName": "Update Lead",
+      "description": "Update a lead.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone Number",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "handling_status",
+          "displayName": "Handling Status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "update_json",
+          "displayName": "Update Payload (JSON)",
+          "type": "JSON",
+          "required": false,
+          "description": "Optional JSON body for complex updates. Merges with individual fields above."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,60 @@
+{
+  "id": "openai",
+  "package": "@activepieces/piece-openai",
+  "display_name": "OpenAI",
+  "display_name_ar": "أوبن إيه آي",
+  "description": "Use the many tools ChatGPT has to offer.",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "ask_assistant",
+      "display_name": "Ask Assistant",
+      "description": "Ask a GPT assistant anything you want!"
+    },
+    {
+      "name": "extract-structured-data",
+      "display_name": "Extract Structured Data from Text",
+      "description": "Returns structured data from provided unstructured text."
+    },
+    {
+      "name": "generate_image",
+      "display_name": "Generate Image",
+      "description": "Generate an image using text-to-image models"
+    },
+    {
+      "name": "ask_chatgpt",
+      "display_name": "Ask ChatGPT",
+      "description": "Ask ChatGPT anything you want!"
+    },
+    {
+      "name": "text_to_speech",
+      "display_name": "Text-to-Speech",
+      "description": "Generate an audio recording from text"
+    },
+    {
+      "name": "transcribe",
+      "display_name": "Transcribe Audio",
+      "description": "Transcribe audio to text using whisper-1 model"
+    },
+    {
+      "name": "translate",
+      "display_name": "Translate Audio",
+      "description": "Translate audio to text using whisper-1 model"
+    },
+    {
+      "name": "vision_prompt",
+      "display_name": "Vision Prompt",
+      "description": "Ask GPT a question about an image"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/openai"
+}

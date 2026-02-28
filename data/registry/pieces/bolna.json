@@ -1,0 +1,32 @@
+{
+  "id": "bolna",
+  "package": "@activepieces/piece-bolna",
+  "display_name": "Bolna AI",
+  "display_name_ar": "Bolna AI",
+  "description": "Bolna AI integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "makePhoneCall",
+      "display_name": "Make Phone Call",
+      "description": "Initiate an outbound phone call from a Bolna Voice AI agent to a recipient."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "callCompletionReport",
+      "display_name": "Call Completion Report",
+      "description": "Triggers when  Bolna call report  it is completed",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/bolna"
+}

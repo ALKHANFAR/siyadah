@@ -1,0 +1,57 @@
+{
+  "id": "retell-ai",
+  "package": "@activepieces/piece-retell-ai",
+  "display_name": "Retell AI",
+  "display_name_ar": "Retell AI",
+  "description": "Retell AI integration",
+  "category": "C_communication",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "create_phone_number",
+      "display_name": "Create Phone Number",
+      "description": "Buys a new phone number and binds agents."
+    },
+    {
+      "name": "get_agent",
+      "display_name": "Get Agent",
+      "description": "Fetch details of a Retell AI agent by Agent ID."
+    },
+    {
+      "name": "get_call",
+      "display_name": "Get Call",
+      "description": "Retrieve detailed data of a specific call (e.g., transcript), given a Call ID."
+    },
+    {
+      "name": "get_phone_number",
+      "display_name": "Get Phone Number",
+      "description": "Retrieve full details for an existing phone number in Retell AI."
+    },
+    {
+      "name": "get_voice",
+      "display_name": "Get Voice",
+      "description": "Retrieve details for a specific voice model or configuration by ID in Retell AI."
+    },
+    {
+      "name": "make_phone_call",
+      "display_name": "Make Phone Call",
+      "description": "Initiate a new outbound phone call using Retell AI agents."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_call",
+      "display_name": "New Call",
+      "description": "Triggers when a new outgoing or incoming call is created.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/retell-ai"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "trello",
+  "package": "@activepieces/piece-trello",
+  "display_name": "API Key",
+  "display_name_ar": "تريلو",
+  "description": "Trello API Key",
+  "category": "G_productivity",
+  "auth_type": "basic_auth",
+  "actions": [
+    {
+      "name": "add_card_attachment",
+      "display_name": "Add Card Attachment",
+      "description": "Adds an attachment to a card."
+    },
+    {
+      "name": "get_card_attachments",
+      "display_name": "Get All Card Attachments",
+      "description": "Gets all attachments on a card."
+    },
+    {
+      "name": "delete_card_attachment",
+      "display_name": "Delete Card Attachment",
+      "description": "Deletes an attachment from a card."
+    },
+    {
+      "name": "get_card_attachment",
+      "display_name": "Get Card Attachment",
+      "description": "Gets a specific attachment on a card."
+    },
+    {
+      "name": "delete_card",
+      "display_name": "Delete Card",
+      "description": "Deletes an existing card."
+    },
+    {
+      "name": "get_card",
+      "display_name": "Get Card",
+      "description": "Gets a card by ID."
+    },
+    {
+      "name": "update_card",
+      "display_name": "Update Card",
+      "description": "Updates an existing card."
+    },
+    {
+      "name": "create_card",
+      "display_name": "Create Card",
+      "description": "Create a new card in Trello"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "card_moved_to_list",
+      "display_name": "Card Moved to list",
+      "description": "Trigger when a card is moved to the list specified",
+      "type": "instant"
+    },
+    {
+      "name": "deadline",
+      "display_name": "Card Deadline",
+      "description": "Triggers at a specified time before a card deadline.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_card",
+      "display_name": "New Card",
+      "description": "Trigger when a new card is created",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/trello"
+}

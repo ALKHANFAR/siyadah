@@ -1,0 +1,282 @@
+{
+  "id": "dumpling-ai",
+  "displayName": "Dumpling AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "crawl_website": {
+      "displayName": "Crawl Website",
+      "description": "Crawl a website and return structured content from multiple pages.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The website URL to crawl."
+        },
+        {
+          "name": "limit",
+          "displayName": "Page Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of pages to crawl."
+        },
+        {
+          "name": "depth",
+          "displayName": "Crawl Depth",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Depth of crawling (distance between base URL path and sub paths)."
+        },
+        {
+          "name": "format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the output content."
+        }
+      ]
+    },
+    "extract_document": {
+      "displayName": "Extract Document Data",
+      "description": "Extract structured data from documents using vision-capable AI.",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true,
+          "description": "File URL or base64-encoded file."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Extraction Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The prompt describing what data to extract from the document."
+        },
+        {
+          "name": "jsonMode",
+          "displayName": "JSON Mode",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to return the result in JSON format."
+        }
+      ]
+    },
+    "generate_image": {
+      "displayName": "Generate Image",
+      "description": "Generate images based on a text prompt using AI.",
+      "props": [
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The model to use for image generation"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text prompt for image generation"
+        },
+        {
+          "name": "aspect_ratio",
+          "displayName": "Aspect Ratio",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Aspect ratio of the generated image"
+        },
+        {
+          "name": "num_outputs",
+          "displayName": "Number of Images",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of images to generate (1-4)"
+        },
+        {
+          "name": "seed",
+          "displayName": "Seed",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Seed for reproducible results"
+        },
+        {
+          "name": "output_format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of the generated image"
+        }
+      ]
+    },
+    "scrape_website": {
+      "displayName": "Scrape Website",
+      "description": "Scrapes data from a specified URL and format the result.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "format",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The format of the output"
+        },
+        {
+          "name": "cleaned",
+          "displayName": "Clean Output ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the output should be cleaned."
+        },
+        {
+          "name": "renderJs",
+          "displayName": "Render JavaScript ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to render JavaScript before scraping."
+        }
+      ]
+    },
+    "search_news": {
+      "displayName": "Search News",
+      "description": "Search for news articles using Google News.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The search query for Google News."
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Country code for location bias (e.g., \"US\" for United States)."
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific location to focus the search (e.g., \"New York, NY\")."
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code for the search results (e.g., \"en\" for English)."
+        },
+        {
+          "name": "dateRange",
+          "displayName": "Date Range",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter results by date."
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for paginated results."
+        }
+      ]
+    },
+    "web_search": {
+      "displayName": "Web Search",
+      "description": "Search the web and optionally retrieve content from top results.",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Two-letter country code for location bias (e.g., \"US\" for United States)."
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Specific location to focus the search (e.g., \"New York, NY\")."
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Language code for the search results (e.g., \"en\" for English)."
+        },
+        {
+          "name": "dateRange",
+          "displayName": "Date Range",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter results by date."
+        },
+        {
+          "name": "page",
+          "displayName": "Page Number",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Page number for paginated results."
+        },
+        {
+          "name": "scrapeResults",
+          "displayName": "Scrape Results",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to scrape top search results."
+        },
+        {
+          "name": "numResultsToScrape",
+          "displayName": "Number of Results to Scrape",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of top results to scrape (max: 10)."
+        },
+        {
+          "name": "scrapeFormat",
+          "displayName": "Scrape Format",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Format of scraped content"
+        },
+        {
+          "name": "cleanedOutput",
+          "displayName": "Clean Output",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the scraped output should be cleaned."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

@@ -1,0 +1,332 @@
+{
+  "id": "help-scout",
+  "displayName": "Help Scout",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_note": {
+      "displayName": "Add Note",
+      "description": "Adds a note to a conversation.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Note Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create_conversation": {
+      "displayName": "Create Conversation",
+      "description": "Start a new conversation.",
+      "props": [
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "threadType",
+          "displayName": "Thread Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Conversation Status",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "cc",
+          "displayName": "CC",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bcc",
+          "displayName": "BCC",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "imported",
+          "displayName": "Imported",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Adds a new customer to Help Scout.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "photoUrl",
+          "displayName": "Photo URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "jobTitle",
+          "displayName": "Job Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "location",
+          "displayName": "Location",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "background",
+          "displayName": "Background",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "age",
+          "displayName": "Age",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer’s age (string, e.g. \"30-35\")"
+        },
+        {
+          "name": "gender",
+          "displayName": "Gender",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "organization",
+          "displayName": "Organization",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "socialProfiles",
+          "displayName": "Social Profile URLs",
+          "type": "ARRAY",
+          "required": false,
+          "description": "URLs for social profiles (type will be set to \"other\")"
+        }
+      ]
+    },
+    "find_conversation": {
+      "displayName": "Find Conversation",
+      "description": "Finds an existing conversation using provided filter.",
+      "props": [
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "query",
+          "displayName": "Custom Query",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_customer": {
+      "displayName": "Find Customer",
+      "description": "Finds a customer by email.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find_user": {
+      "displayName": "Find User",
+      "description": "Finds a user by email.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "send_reply": {
+      "displayName": "Send Reply",
+      "description": "Sends a reply in an existing conversation.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Reply Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "customerEmail",
+          "displayName": "Customer Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "draft",
+          "displayName": "Draft",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Conversation Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "cc",
+          "displayName": "CC (emails)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bcc",
+          "displayName": "BCC (emails)",
+          "type": "ARRAY",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update_customer_properties": {
+      "displayName": "Update Customer Properties",
+      "description": "Updates customer's properties.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "conversation_assigned": {
+      "displayName": "Conversation Assigned",
+      "description": "Triggers when a conversation is assigned to a user.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversation_created": {
+      "displayName": "Conversation Created",
+      "description": "Triggers when a new conversation is started in a mailbox.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_customer": {
+      "displayName": "New Customer",
+      "description": "Triggers when a new customer is added.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tags_updated": {
+      "displayName": "Tags Updated",
+      "description": "Triggers when tags on a conversation are modified.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

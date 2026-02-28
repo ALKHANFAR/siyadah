@@ -1,0 +1,30 @@
+{
+  "id": "maileroo",
+  "package": "@activepieces/piece-maileroo",
+  "display_name": "Maileroo",
+  "display_name_ar": "Maileroo",
+  "description": "Email Delivery Service with Real-Time Analytics and Reporting",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "sendEmail",
+      "display_name": "Send Email",
+      "description": "Sends an email."
+    },
+    {
+      "name": "sendFromTemplate",
+      "display_name": "Send Email using Template",
+      "description": "Sends an email from an existing template."
+    },
+    {
+      "name": "verifyEmail",
+      "display_name": "Verify Email",
+      "description": "Verifies an email address."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/maileroo"
+}

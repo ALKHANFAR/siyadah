@@ -1,0 +1,111 @@
+{
+  "id": "lemon-squeezy",
+  "package": "@activepieces/piece-lemon-squeezy",
+  "display_name": "Lemon Squeezy",
+  "display_name_ar": "",
+  "description": "Lemon Squeezy is a payment gateway for e-commerce and subscription-based businesses.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "affiliate_activated",
+      "display_name": "Affiliate Activated",
+      "description": "Triggers when an affiliate is activated",
+      "type": "instant"
+    },
+    {
+      "name": "license_key_created",
+      "display_name": "License Key Created",
+      "description": "Triggers when a license key is created from a new order",
+      "type": "instant"
+    },
+    {
+      "name": "license_key_updated",
+      "display_name": "License Key Updated",
+      "description": "Triggers when a license key is updated",
+      "type": "instant"
+    },
+    {
+      "name": "order_created",
+      "display_name": "Order Created",
+      "description": "Triggers when a new order is successfully placed",
+      "type": "instant"
+    },
+    {
+      "name": "order_refunded",
+      "display_name": "Order Refunded",
+      "description": "Triggers when a full or partial refund is made on an order",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_cancelled",
+      "display_name": "Subscription Cancelled",
+      "description": "Triggers when a subscription is cancelled manually by the customer or store owner",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_created",
+      "display_name": "Subscription Created",
+      "description": "Triggers when a new subscription is successfully created",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_expired",
+      "display_name": "Subscription Expired",
+      "description": "Triggers when a subscription has ended after being previously cancelled",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_paused",
+      "display_name": "Subscription Paused",
+      "description": "Triggers when a subscription\\",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_payment_failed",
+      "display_name": "Subscription Payment Failed",
+      "description": "Triggers when a subscription renewal payment fails",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_payment_recovered",
+      "display_name": "Subscription Payment Recovered",
+      "description": "Triggers when a subscription has a successful payment after a failed payment",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_payment_refunded",
+      "display_name": "Subscription Payment Refunded",
+      "description": "Triggers when a subscription payment is refunded",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_payment_success",
+      "display_name": "Subscription Payment Success",
+      "description": "Triggers when a subscription payment is successful",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_resumed",
+      "display_name": "Subscription Resumed",
+      "description": "Triggers when a subscription is resumed after being previously cancelled",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_unpaused",
+      "display_name": "Subscription Unpaused",
+      "description": "Triggers when a subscription\\",
+      "type": "instant"
+    },
+    {
+      "name": "subscription_updated",
+      "display_name": "Subscription Updated",
+      "description": "Triggers when a subscription\\",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

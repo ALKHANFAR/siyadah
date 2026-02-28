@@ -1,0 +1,111 @@
+{
+  "id": "teamleader",
+  "package": "@activepieces/piece-teamleader",
+  "display_name": "Teamleader",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_company",
+      "display_name": "Create Company",
+      "description": "Add a new company record"
+    },
+    {
+      "name": "create_contact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact record"
+    },
+    {
+      "name": "create_deal",
+      "display_name": "Create Deal",
+      "description": "Create a new deal/opportunity"
+    },
+    {
+      "name": "link_contact_to_company",
+      "display_name": "Link Contact to Company",
+      "description": "Associate a contact with a company"
+    },
+    {
+      "name": "search_companies",
+      "display_name": "Search Companies",
+      "description": "List or filter companies"
+    },
+    {
+      "name": "search_contacts",
+      "display_name": "Search Contacts",
+      "description": "List or filter contacts"
+    },
+    {
+      "name": "search_deals",
+      "display_name": "Search Deals",
+      "description": "List or filter deals"
+    },
+    {
+      "name": "search_invoices",
+      "display_name": "Search Invoices",
+      "description": "List or filter invoices"
+    },
+    {
+      "name": "unlink_contact_from_company",
+      "display_name": "Unlink Contact from Company",
+      "description": "Remove the association between contact and company"
+    },
+    {
+      "name": "update_company",
+      "display_name": "Update Company",
+      "description": "Modify company information"
+    },
+    {
+      "name": "update_contact",
+      "display_name": "Update Contact",
+      "description": "Modify existing contact data"
+    },
+    {
+      "name": "update_deal",
+      "display_name": "Update Deal",
+      "description": "Modify deal properties"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "deal_accepted",
+      "display_name": "Deal Won",
+      "description": "Triggers when a deal is won/accepted",
+      "type": "instant"
+    },
+    {
+      "name": "new_company",
+      "display_name": "New Company",
+      "description": "Triggers when a new company is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_contact",
+      "display_name": "New Contact",
+      "description": "Triggers when a new contact is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_deal",
+      "display_name": "New Deal",
+      "description": "Triggers when a new deal is created",
+      "type": "instant"
+    },
+    {
+      "name": "new_invoice",
+      "display_name": "New Invoice",
+      "description": "Triggers when a new invoice is drafted",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

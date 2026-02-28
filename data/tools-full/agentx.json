@@ -1,0 +1,116 @@
+{
+  "id": "agentx",
+  "displayName": "AgentX",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createConversationWithSingleAgent": {
+      "displayName": "Create Conversation With Single Agent",
+      "description": "Create a new conversation with a specific Agent by ID.",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Conversation Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose the type of conversation"
+        }
+      ]
+    },
+    "find_conversation": {
+      "displayName": "Find Conversation",
+      "description": "Looks up an existing conversation by Agent ID (optionally by conversation ID or Name).",
+      "props": [
+        {
+          "name": "conversationId",
+          "displayName": "Conversation ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by exact Conversation ID."
+        },
+        {
+          "name": "conversationName",
+          "displayName": "Conversation Name,tittle or ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search conversation by its name (derived from the first message)."
+        }
+      ]
+    },
+    "find_message": {
+      "displayName": "Find Message",
+      "description": "Searches for a specific message by ID (or searches text within messages) inside a conversation.",
+      "props": [
+        {
+          "name": "searchTerm",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Text to search for in message content. Leave blank if searching by Message ID."
+        }
+      ]
+    },
+    "search_agents": {
+      "displayName": "Search Agents",
+      "description": "Find agents by name or ID using search filters.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Agent Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by agent name (partial matches allowed)."
+        },
+        {
+          "name": "id",
+          "displayName": "Agent ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search by exact Agent ID."
+        }
+      ]
+    },
+    "sendMessageToExistingConversation": {
+      "displayName": "Send Message to Existing Conversation",
+      "description": "Send a message to an existing conversation with an agent.",
+      "props": [
+        {
+          "name": "agentMode",
+          "displayName": "Agent Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Choose how the agent should respond"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message you want to send to the agent."
+        },
+        {
+          "name": "context",
+          "displayName": "Memory Context",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of previous messages to include. 0 = as much as possible, 1 = only last message, etc."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_agent": {
+      "displayName": "New Agent",
+      "description": "Triggers when a new AgentX agent is created.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_conversation": {
+      "displayName": "New Conversation",
+      "description": "Triggers when a new conversation begins with a specific Agent. Only detects conversations created after the trigger is enabled.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

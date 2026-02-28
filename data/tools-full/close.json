@@ -1,0 +1,358 @@
+{
+  "id": "close",
+  "displayName": "Close",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Creates a new contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "officePhone",
+          "displayName": "Office Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "mobilePhone",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "homePhone",
+          "displayName": "Home Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "directPhone",
+          "displayName": "Direct Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "faxPhone",
+          "displayName": "Fax Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "otherPhone",
+          "displayName": "Other Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "officeEmail",
+          "displayName": "Office Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "homeEmail",
+          "displayName": "Home Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "directEmail",
+          "displayName": "Direct Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "otherEmail",
+          "displayName": "Other Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_lead": {
+      "displayName": "Create Lead",
+      "description": "Creates a new lead.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Lead Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the lead/company."
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "contacts",
+          "displayName": "Contacts",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of contact details for this lead"
+        },
+        {
+          "name": "name",
+          "displayName": "Contact Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Contact Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "officePhone",
+          "displayName": "Contact Office Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "mobilePhone",
+          "displayName": "Contact Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "homePhone",
+          "displayName": "Contact Home Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "directPhone",
+          "displayName": "Contact Direct Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "faxPhone",
+          "displayName": "Contact Fax Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "otherPhone",
+          "displayName": "Contact Other Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "officeEmail",
+          "displayName": "Contact Office Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "homeEmail",
+          "displayName": "Contact Home Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "directEmail",
+          "displayName": "Contact Direct Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "otherEmail",
+          "displayName": "Contact Other Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "url",
+          "displayName": "Contact URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create_opportunity": {
+      "displayName": "Create Opportunity",
+      "description": "Create a new opportunity.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Opportunity Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A descriptive name for the opportunity."
+        },
+        {
+          "name": "note",
+          "displayName": "Notes",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional details about the opportunity."
+        },
+        {
+          "name": "confidence",
+          "displayName": "Confidence %",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The probability of winning this opportunity (0-100)."
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "value_period",
+          "displayName": "Value Period",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The period for the opportunity value."
+        },
+        {
+          "name": "contact_id",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the contact associated with this opportunity."
+        }
+      ]
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Search for contacts by name, email, or other criteria with advanced filtering",
+      "props": [
+        {
+          "name": "search_type",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "search_query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "match_type",
+          "displayName": "Match Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_lead": {
+      "displayName": "Find Lead",
+      "description": "Search for leads with advanced filtering options",
+      "props": [
+        {
+          "name": "search_type",
+          "displayName": "Search Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "search_query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "match_type",
+          "displayName": "Match Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_contact_added": {
+      "displayName": "New Contact Added",
+      "description": "Triggers when a new contact is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_lead_created": {
+      "displayName": "New Lead Created",
+      "description": "Triggers when a new lead is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_opportunity_added": {
+      "displayName": "New Opportunity Added",
+      "description": "Triggers when a new opportunity is created.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

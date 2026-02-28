@@ -1,0 +1,35 @@
+{
+  "id": "microsoft-outlook-calendar",
+  "package": "@activepieces/piece-microsoft-outlook-calendar",
+  "display_name": "Microsoft Outlook Calendar",
+  "display_name_ar": "Microsoft Outlook Calendar",
+  "description": "Calendar software by Microsoft",
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_event",
+      "display_name": "Create a new event in a calendar",
+      "description": "Create a new event in a calendar"
+    },
+    {
+      "name": "delete_event",
+      "display_name": "Delete an event in a calendar",
+      "description": "Delete an event in a calendar"
+    },
+    {
+      "name": "list_events",
+      "display_name": "List events in a calendar",
+      "description": "List events in a calendar"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/microsoft-outlook-calendar"
+}

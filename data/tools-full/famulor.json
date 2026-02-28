@@ -1,0 +1,69 @@
+{
+  "id": "famulor",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addLead": {
+      "displayName": "Add Lead to Campaign",
+      "description": "Add a lead to an outbound campaign to be called by an AI assistant.",
+      "props": []
+    },
+    "campaignControl": {
+      "displayName": "Start/Stop Campaign",
+      "description": "Start or stop an outbound calling campaign. Starting requires sufficient leads; stopping cancels ongoing calls.",
+      "props": []
+    },
+    "deleteLead": {
+      "displayName": "Delete Lead",
+      "description": "⚠️ Permanently delete a lead from the system. This action cannot be undone and will abort any ongoing calls.",
+      "props": []
+    },
+    "makePhoneCall": {
+      "displayName": "Make Phone Call",
+      "description": "Initiate an AI-powered phone call to a customer using a selected assistant.",
+      "props": []
+    },
+    "sendSms": {
+      "displayName": "Send SMS",
+      "description": "Send an SMS message using your purchased phone numbers. Costs are automatically deducted from your account.",
+      "props": []
+    }
+  },
+  "triggers": {
+    "getAssistants": {
+      "displayName": "New or Updated Assistant",
+      "description": "Triggers when AI assistants are created or updated in your Famulor account.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Assistant Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Filter assistants by type"
+        },
+        {
+          "name": "per_page",
+          "displayName": "Items Per Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of assistants to fetch per page (1-100, default: 10)"
+        }
+      ]
+    },
+    "inboundCall": {
+      "displayName": "Inbound Assistant",
+      "description": "Select an inbound assistant to receive webhook notifications for",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "phoneCallEnded": {
+      "displayName": "Assistant",
+      "description": "Select an assistant to receive post-call webhook notifications for",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

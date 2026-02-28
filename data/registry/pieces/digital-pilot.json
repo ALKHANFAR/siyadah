@@ -1,0 +1,38 @@
+{
+  "id": "digital-pilot",
+  "package": "@activepieces/piece-digital-pilot",
+  "display_name": "DigitalPilot",
+  "display_name_ar": "DigitalPilot",
+  "description": "DigitalPilot integration",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_target_account",
+      "display_name": "Add Target Account",
+      "description": "Add a target account to a list"
+    },
+    {
+      "name": "remove_target_account",
+      "display_name": "Remove Target Account",
+      "description": "Remove a target account from a list"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_high_intent_visit",
+      "display_name": "New High Intent Visit",
+      "description": "Triggers when a business exhibits high intent behavior on your website",
+      "type": "instant"
+    },
+    {
+      "name": "new_target_account_visit",
+      "display_name": "New Target Account Visit",
+      "description": "Triggers when a business you\\",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/digital-pilot"
+}

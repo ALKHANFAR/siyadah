@@ -1,0 +1,20 @@
+{
+  "id": "vidlab7",
+  "package": "@activepieces/piece-vidlab7",
+  "display_name": "VidLab7",
+  "display_name_ar": "VidLab7",
+  "description": "AI Avatars that pitch, show demos, qualify buyers, follow up, secure meetings and close deals – on autopilot.",
+  "category": "D_ai",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createVideo",
+      "display_name": "Create Video",
+      "description": "Generate a video using a studio avatar"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/vidlab7"
+}

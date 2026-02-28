@@ -1,0 +1,195 @@
+{
+  "id": "autocalls",
+  "displayName": "API Key",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "addLead": {
+      "displayName": "Add lead to a campaign",
+      "description": "Select a campaign",
+      "props": [
+        {
+          "name": "campaign",
+          "displayName": "Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a campaign"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Customer phone number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the phone number of the customer"
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Variables to pass to the assistant"
+        },
+        {
+          "name": "allow_dupplicate",
+          "displayName": "Allow duplicates",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Allow the same phone number to be added to the campaign more than once"
+        },
+        {
+          "name": "num_secondary_contacts",
+          "displayName": "Number of Secondary Contacts",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many secondary contacts do you want to add?"
+        },
+        {
+          "name": "secondary_contacts",
+          "displayName": "Secondary Contacts",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Add secondary contacts for this lead. Each contact can have its own phone number and variables."
+        }
+      ]
+    },
+    "campaignControl": {
+      "displayName": "Start/Stop Campaign",
+      "description": "Select a campaign",
+      "props": [
+        {
+          "name": "campaign",
+          "displayName": "Campaign",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a campaign"
+        },
+        {
+          "name": "action",
+          "displayName": "Action",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select action to perform on the campaign"
+        }
+      ]
+    },
+    "deleteLead": {
+      "displayName": "Delete Lead",
+      "description": "Select a lead to delete",
+      "props": [
+        {
+          "name": "lead",
+          "displayName": "Lead",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select a lead to delete"
+        }
+      ]
+    },
+    "makePhoneCall": {
+      "displayName": "Make Phone Call",
+      "description": "Select an assistant",
+      "props": [
+        {
+          "name": "assistant",
+          "displayName": "Assistant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select an assistant"
+        },
+        {
+          "name": "phone_number",
+          "displayName": "Customer phone number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the phone number of the customer"
+        },
+        {
+          "name": "variables",
+          "displayName": "Variables",
+          "type": "OBJECT",
+          "required": true,
+          "description": "Variables to pass to the assistant"
+        }
+      ]
+    },
+    "sendSms": {
+      "displayName": "Send SMS to Customer",
+      "description": "Select an SMS capable phone number to send the SMS from",
+      "props": [
+        {
+          "name": "from",
+          "displayName": "From phone number",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select an SMS capable phone number to send the SMS from"
+        },
+        {
+          "name": "to",
+          "displayName": "Customer phone number",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the phone number of the customer"
+        },
+        {
+          "name": "body",
+          "displayName": "Text message",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Enter the text message to send to the customer (max 300 characters)"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "getAssistants": {
+      "displayName": "Updated Assistant",
+      "description": "Triggers when assistants are fetched or updated in your Autocalls account.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "start",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter assistants created after this date. Example: 2024-01-15T10:30:00Z"
+        },
+        {
+          "name": "end",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "Filter assistants created before this date. Example: 2024-12-31T23:59:59Z"
+        }
+      ]
+    },
+    "inboundCall": {
+      "displayName": "Inbound Call",
+      "description": "Triggers for variables before connecting an inbound call.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "assistant",
+          "displayName": "Assistant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select an assistant"
+        }
+      ]
+    },
+    "phoneCallEnded": {
+      "displayName": "Phone Call Ended",
+      "description": "Triggers when a phone call ends, with extracted variables.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "assistant",
+          "displayName": "Assistant",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Select an assistant"
+        }
+      ]
+    }
+  }
+}

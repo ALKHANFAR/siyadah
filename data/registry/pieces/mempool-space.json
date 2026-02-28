@@ -1,0 +1,190 @@
+{
+  "id": "mempool-space",
+  "package": "@activepieces/piece-mempool-space",
+  "display_name": "Mempool",
+  "display_name_ar": "Mempool",
+  "description": "The mempool.space website invented the concept of visualizing a Bitcoin node\\",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "get_address_transactions_mempool",
+      "display_name": "Get Address Transactions (Mempool)",
+      "description": "Returns unconfirmed transactions (up to 50)"
+    },
+    {
+      "name": "validate_address",
+      "display_name": "Validate Address",
+      "description": "Validates a Bitcoin address"
+    },
+    {
+      "name": "get_address_details",
+      "display_name": "Get Address Details",
+      "description": "Returns address details including chain and mempool stats"
+    },
+    {
+      "name": "get_address_utxo",
+      "display_name": "Get Address UTXO",
+      "description": "Returns unspent transaction outputs for an address"
+    },
+    {
+      "name": "get_address_transactions",
+      "display_name": "Get Address Transactions",
+      "description": "Returns transaction history (up to 50 mempool + 25 confirmed transactions)"
+    },
+    {
+      "name": "get_address_transactions_chain",
+      "display_name": "Get Address Transactions (Chain)",
+      "description": "Returns confirmed transaction history (25 transactions per page)"
+    },
+    {
+      "name": "get_transaction_rbf_timeline",
+      "display_name": "Get Transaction RBF Timeline",
+      "description": "Get the Replace-By-Fee (RBF) timeline for a transaction"
+    },
+    {
+      "name": "get_transaction_outspends",
+      "display_name": "Get All Transaction Output Spend Statuses",
+      "description": "Get the spending status of all outputs in a transaction"
+    },
+    {
+      "name": "get_transaction_status",
+      "display_name": "Get Transaction Status",
+      "description": "Get the confirmation status of a transaction"
+    },
+    {
+      "name": "get_transaction_outspend",
+      "display_name": "Get Transaction Output Spend Status",
+      "description": "Get the spending status of a specific transaction output"
+    },
+    {
+      "name": "get_transaction_raw",
+      "display_name": "Get Raw Transaction",
+      "description": "Get the raw transaction in hex format"
+    },
+    {
+      "name": "get_transaction_merkleblock_proof",
+      "display_name": "Get Transaction Merkleblock Proof",
+      "description": "Get the merkle block proof for a transaction"
+    },
+    {
+      "name": "post_transaction",
+      "display_name": "Post Transaction",
+      "description": "Submit a raw transaction to the network"
+    },
+    {
+      "name": "get_transaction_hex",
+      "display_name": "Get Transaction Hex",
+      "description": "Get the raw transaction in hex format"
+    },
+    {
+      "name": "get_transaction",
+      "display_name": "Get Transaction",
+      "description": "Retrieve transaction details by transaction ID"
+    },
+    {
+      "name": "get_transaction_times",
+      "display_name": "Get Transaction Times",
+      "description": "Get timing information for a transaction including first seen and block entry times"
+    },
+    {
+      "name": "get_transaction_merkle_proof",
+      "display_name": "Get Transaction Merkle Proof",
+      "description": "Get the merkle proof for a transaction"
+    },
+    {
+      "name": "get_mempool_blocks_fees",
+      "display_name": "Get Mempool Blocks Fees",
+      "description": "Returns current mempool as projected blocks with fee rates and sizes"
+    },
+    {
+      "name": "get_recommended_fees",
+      "display_name": "Get Recommended Fees",
+      "description": "Returns recommended fee rates for different transaction confirmation targets"
+    },
+    {
+      "name": "get_difficulty_adjustment",
+      "display_name": "Get Difficulty Adjustment",
+      "description": "Returns details about Bitcoin difficulty adjustment"
+    },
+    {
+      "name": "get_price",
+      "display_name": "Get Price",
+      "description": "Returns bitcoin latest price in main currencies"
+    },
+    {
+      "name": "get_historical_price",
+      "display_name": "Get Historical Price",
+      "description": "Returns bitcoin historical price in main currencies"
+    },
+    {
+      "name": "get_block_transactions",
+      "display_name": "Get Block Transactions",
+      "description": "Returns a list of transactions in the block (up to 25 transactions)"
+    },
+    {
+      "name": "get_block_transaction_id",
+      "display_name": "Get Block Transaction ID",
+      "description": "Returns the transaction at specified index within the block"
+    },
+    {
+      "name": "get_block",
+      "display_name": "Get Block",
+      "description": "Returns detailed block information"
+    },
+    {
+      "name": "get_block_header",
+      "display_name": "Get Block Header",
+      "description": "Returns the hex-encoded block header"
+    },
+    {
+      "name": "get_block_tip_height",
+      "display_name": "Get Block Tip Height",
+      "description": "Returns the height of the last block"
+    },
+    {
+      "name": "get_block_raw",
+      "display_name": "Get Block Raw",
+      "description": "Returns the raw block representation in binary"
+    },
+    {
+      "name": "get_block_transaction_ids",
+      "display_name": "Get Block Transaction IDs",
+      "description": "Returns a list of all transaction IDs in the block"
+    },
+    {
+      "name": "get_block_height",
+      "display_name": "Get Block Height",
+      "description": "Returns the hash of the block currently at specified height"
+    },
+    {
+      "name": "get_blocks_bulk",
+      "display_name": "Get Blocks (Bulk)",
+      "description": "Returns details on the range of blocks between minHeight and maxHeight, inclusive, up to 10 blocks"
+    },
+    {
+      "name": "get_block_status",
+      "display_name": "Get Block Status",
+      "description": "Returns the confirmation status of a block"
+    },
+    {
+      "name": "get_block_tip_hash",
+      "display_name": "Get Block Tip Hash",
+      "description": "Returns the hash of the last block"
+    },
+    {
+      "name": "get_block_timestamp",
+      "display_name": "Get Block Timestamp",
+      "description": "Returns the height and hash of the block closest to the given timestamp"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mempool-space"
+}

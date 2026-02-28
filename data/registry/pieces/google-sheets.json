@@ -1,0 +1,145 @@
+{
+  "id": "google-sheets",
+  "package": "@activepieces/piece-google-sheets",
+  "display_name": "Google Sheets",
+  "display_name_ar": "جداول بيانات جوجل",
+  "description": "Create, edit, and collaborate on spreadsheets online",
+  "category": "B_google",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "clear_sheet",
+      "display_name": "Clear Sheet",
+      "description": "Clears all rows on an existing sheet."
+    },
+    {
+      "name": "copy-worksheet",
+      "display_name": "Copy Worksheet",
+      "description": "Creates a new worksheet by copying an existing one."
+    },
+    {
+      "name": "create-column",
+      "display_name": "Create Spreadsheet Column",
+      "description": "Creates a new column in a specific spreadsheet."
+    },
+    {
+      "name": "create-spreadsheet",
+      "display_name": "Create Spreadsheet",
+      "description": "Creates a blank spreadsheet."
+    },
+    {
+      "name": "create-worksheet",
+      "display_name": "Create Worksheet",
+      "description": "Create a new blank worksheet with a title."
+    },
+    {
+      "name": "delete_row",
+      "display_name": "Delete Row",
+      "description": "Delete a specific row from the selected sheet."
+    },
+    {
+      "name": "delete-worksheet",
+      "display_name": "Delete Worksheet",
+      "description": "Permanently delete a specific worksheet."
+    },
+    {
+      "name": "export_sheet",
+      "display_name": "Export Worksheet",
+      "description": "Download a worksheet as a CSV or TSV file."
+    },
+    {
+      "name": "find_row_by_num",
+      "display_name": "Get Single Row by ID",
+      "description": "Retrieve a specific row using its unique ID."
+    },
+    {
+      "name": "find_rows",
+      "display_name": "Find Rows",
+      "description": "Look up rows in a worksheet based on a column value."
+    },
+    {
+      "name": "find_spreadsheets",
+      "display_name": "Find Spreadsheet(s)",
+      "description": "Find spreadsheet(s) by name."
+    },
+    {
+      "name": "find-worksheet",
+      "display_name": "Find Worksheet(s)",
+      "description": "Finds a worksheet(s) by title."
+    },
+    {
+      "name": "format-row",
+      "display_name": "Format Row(s)",
+      "description": "Format one or multiple rows in specific spreadsheet."
+    },
+    {
+      "name": "get-many-rows",
+      "display_name": "Get All Rows",
+      "description": "Get all the rows from a specific sheet."
+    },
+    {
+      "name": "get_next_rows",
+      "display_name": "Get next row(s)",
+      "description": "Get next group of rows from a specifiec workheet"
+    },
+    {
+      "name": "google-sheets-insert-multiple-rows",
+      "display_name": "Add Multiple Rows",
+      "description": "Add multiple rows of data at once to a specific spreadsheet."
+    },
+    {
+      "name": "insert_row",
+      "display_name": "Add Row",
+      "description": "Add a new row of data to a specific spreadsheet."
+    },
+    {
+      "name": "rename-worksheet",
+      "display_name": "Rename Worksheet",
+      "description": "Rename specific worksheet."
+    },
+    {
+      "name": "update-multiple-rows",
+      "display_name": "Update Multiple Rows",
+      "description": "Updates multiple rows in a specific spreadsheet."
+    },
+    {
+      "name": "update_row",
+      "display_name": "Update Row",
+      "description": "Update the data in an existing row."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "google-sheets-new-or-updated-row",
+      "display_name": "New or Updated Row",
+      "description": "Triggers when a new row is added or modified in a spreadsheet.",
+      "type": "instant"
+    },
+    {
+      "name": "googlesheets_new_row_added",
+      "display_name": "New Row Added",
+      "description": "Triggers when a new row is added to bottom of a spreadsheet.",
+      "type": "instant"
+    },
+    {
+      "name": "new-spreadsheet",
+      "display_name": "New Spreadsheet",
+      "description": "Triggers when a new spreadsheet is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new-worksheet",
+      "display_name": "New Worksheet",
+      "description": "Triggers when a worksheet is created in a spreadsheet.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-sheets"
+}

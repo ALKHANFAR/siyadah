@@ -1,0 +1,626 @@
+{
+  "id": "mailchimp",
+  "displayName": "Mailchimp",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "add_member_to_list": {
+      "displayName": "Add or Update Subscriber",
+      "description": "Add a new subscriber to an audience or update existing subscriber",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address for the subscriber"
+        },
+        {
+          "name": "status_if_new",
+          "displayName": "Status if New",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Status for new subscribers"
+        },
+        {
+          "name": "email_type",
+          "displayName": "Email Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Type of email this member wants to receive"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Current status of subscriber (for updates)"
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "First name of the subscriber"
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Last name of the subscriber"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Subscriber language (e.g., \"en\", \"es\", \"fr\")"
+        },
+        {
+          "name": "vip",
+          "displayName": "VIP",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "VIP status for subscriber"
+        },
+        {
+          "name": "skip_merge_validation",
+          "displayName": "Skip Merge Validation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Accept member data without merge field values even if required"
+        }
+      ]
+    },
+    "add_note_to_subscriber": {
+      "displayName": "Add Note to Subscriber",
+      "description": "Add a note to a subscriber in your Mailchimp audience.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the subscriber to add a note to"
+        },
+        {
+          "name": "note",
+          "displayName": "Note Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The note content to add to the subscriber"
+        }
+      ]
+    },
+    "add_subscriber_to_tag": {
+      "displayName": "Add Subscriber to Tag",
+      "description": "Add a subscriber to a specific tag in your Mailchimp audience.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the subscriber to add to the tag"
+        },
+        {
+          "name": "tag_name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the tag to add the subscriber to"
+        }
+      ]
+    },
+    "archive_subscriber": {
+      "displayName": "Archive Subscriber",
+      "description": "Archive an existing audience member",
+      "props": [
+        {
+          "name": "subscriber_hash",
+          "displayName": "Subscriber Hash or Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "MD5 hash of the lowercase email address, email address, or contact_id"
+        }
+      ]
+    },
+    "create_audience": {
+      "displayName": "Create Audience",
+      "description": "Create a new audience (list) in your Mailchimp account",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "List Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the list"
+        },
+        {
+          "name": "company",
+          "displayName": "Company",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Company name for list contact information"
+        },
+        {
+          "name": "address1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Street address for list contact information"
+        },
+        {
+          "name": "address2",
+          "displayName": "Address Line 2",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Additional address information (optional)"
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "City for list contact information"
+        },
+        {
+          "name": "state",
+          "displayName": "State/Province",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "State or province for list contact information"
+        },
+        {
+          "name": "zip",
+          "displayName": "ZIP/Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ZIP or postal code for list contact information"
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Country for list contact information"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Phone number for list contact information (optional)"
+        },
+        {
+          "name": "permission_reminder",
+          "displayName": "Permission Reminder",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The permission reminder for the list"
+        },
+        {
+          "name": "from_name",
+          "displayName": "Default From Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Default from name for campaigns"
+        },
+        {
+          "name": "from_email",
+          "displayName": "Default From Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Default from email address for campaigns"
+        },
+        {
+          "name": "subject",
+          "displayName": "Default Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Default subject line for campaigns"
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Default language for campaigns (e.g., \"en\", \"es\", \"fr\")"
+        },
+        {
+          "name": "email_type_option",
+          "displayName": "Email Type Option",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the list supports multiple email formats (HTML/plain text)"
+        },
+        {
+          "name": "use_archive_bar",
+          "displayName": "Use Archive Bar",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether campaigns use the Archive Bar in archives by default"
+        },
+        {
+          "name": "notify_on_subscribe",
+          "displayName": "Notify on Subscribe",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address to send subscribe notifications to (optional)"
+        },
+        {
+          "name": "notify_on_unsubscribe",
+          "displayName": "Notify on Unsubscribe",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Email address to send unsubscribe notifications to (optional)"
+        },
+        {
+          "name": "double_optin",
+          "displayName": "Double Opt-in",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to require subscriber confirmation via email"
+        },
+        {
+          "name": "marketing_permissions",
+          "displayName": "Marketing Permissions",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether the list has marketing permissions (GDPR) enabled"
+        }
+      ]
+    },
+    "create_campaign": {
+      "displayName": "Create Campaign",
+      "description": "Create a new Mailchimp campaign",
+      "props": [
+        {
+          "name": "campaign_type",
+          "displayName": "Campaign Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of campaign to create"
+        },
+        {
+          "name": "subject_line",
+          "displayName": "Subject Line",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The subject line for the campaign"
+        },
+        {
+          "name": "title",
+          "displayName": "Campaign Title",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The title of the campaign"
+        },
+        {
+          "name": "from_name",
+          "displayName": "From Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name that will appear in the \"From\" field"
+        },
+        {
+          "name": "from_email",
+          "displayName": "From Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address that will appear in the \"From\" field"
+        },
+        {
+          "name": "reply_to",
+          "displayName": "Reply To Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address that will receive replies"
+        },
+        {
+          "name": "to_name",
+          "displayName": "To Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name that will appear in the \"To\" field (e.g., *|FNAME|*)"
+        },
+        {
+          "name": "content_type",
+          "displayName": "Content Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How the campaign content is put together"
+        },
+        {
+          "name": "content_url",
+          "displayName": "Content URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The URL where the campaign content is hosted (required if content_type is \"url\")"
+        },
+        {
+          "name": "template_id",
+          "displayName": "Template ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The ID of the template to use (required if content_type is \"template\")"
+        },
+        {
+          "name": "html_content",
+          "displayName": "HTML Content",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The HTML content for the campaign (required if content_type is \"html\")"
+        }
+      ]
+    },
+    "find_campaign": {
+      "displayName": "Find Campaign",
+      "description": "Search all campaigns for the specified query terms",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search Query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Search terms to find campaigns"
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to return"
+        },
+        {
+          "name": "exclude_fields",
+          "displayName": "Exclude Fields",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to exclude"
+        }
+      ]
+    },
+    "find_customer": {
+      "displayName": "Find Customer",
+      "description": "Find a customer by email address in a store",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address to search for"
+        },
+        {
+          "name": "fields",
+          "displayName": "Include Fields",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to return"
+        },
+        {
+          "name": "exclude_fields",
+          "displayName": "Exclude Fields",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to exclude"
+        },
+        {
+          "name": "count",
+          "displayName": "Count",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to return (max 1000)"
+        },
+        {
+          "name": "offset",
+          "displayName": "Offset",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of records to skip for pagination"
+        }
+      ]
+    },
+    "find_subscriber": {
+      "displayName": "Find Subscriber",
+      "description": "Search for subscribers across all lists or within a specific list. This action provides comprehensive subscriber information including merge fields, interests, and activity data.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address of the subscriber to search for"
+        },
+        {
+          "name": "include_fields",
+          "displayName": "Include Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Fields to include in the response (leave empty for all fields). Use dot notation for nested fields (e.g., \"merge_fields.FNAME\")"
+        },
+        {
+          "name": "exclude_fields",
+          "displayName": "Exclude Fields",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Fields to exclude from the response. Use dot notation for nested fields"
+        }
+      ]
+    },
+    "find_tag": {
+      "displayName": "Find Tag",
+      "description": "Search for tags on a list by name",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search query to filter tags (optional - if empty, returns all tags)"
+        }
+      ]
+    },
+    "get_campaign_report": {
+      "displayName": "Get Campaign Report",
+      "description": "Get comprehensive report details for a specific sent campaign including opens, clicks, bounces, and performance metrics",
+      "props": [
+        {
+          "name": "fields",
+          "displayName": "Include Fields",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to return (e.g., \"opens.unique_opens,clicks.click_rate\")"
+        },
+        {
+          "name": "exclude_fields",
+          "displayName": "Exclude Fields",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Comma-separated list of fields to exclude (e.g., \"timeseries,_links\")"
+        }
+      ]
+    },
+    "remove_subscriber_from_tag": {
+      "displayName": "Remove Subscriber from Tag",
+      "description": "Remove a subscriber from a specific tag in your Mailchimp audience.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The email address of the subscriber to remove from the tag"
+        },
+        {
+          "name": "tag_name",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the tag to remove the subscriber from"
+        }
+      ]
+    },
+    "unsubscribe_email": {
+      "displayName": "Unsubscribe Email",
+      "description": "Unsubscribe an email address from an audience",
+      "props": [
+        {
+          "name": "email_address",
+          "displayName": "Email Address",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email address to unsubscribe"
+        },
+        {
+          "name": "skip_merge_validation",
+          "displayName": "Skip Merge Validation",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Accept member data without merge field values even if required"
+        },
+        {
+          "name": "skip_duplicate_check",
+          "displayName": "Skip Duplicate Check",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Ignore duplicates in the request"
+        },
+        {
+          "name": "update_existing",
+          "displayName": "Update Existing",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Change existing members subscription status"
+        }
+      ]
+    },
+    "update_member_in_list": {
+      "displayName": "Update Member in an Audience (List)",
+      "description": "Update a member in an existing Mailchimp audience (list)",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email of the new contact"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "email_opened": {
+      "displayName": "Email Opened",
+      "description": "Fires when a recipient opens a an email in a specific campaign",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "link_clicked": {
+      "displayName": "Link Clicked",
+      "description": "Fires when a recipient clicks a specified link in a campaign",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_campaign": {
+      "displayName": "New Campaign",
+      "description": "Fires when a new campaign is created or sent",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_customer": {
+      "displayName": "New Customer",
+      "description": "Fires when a new customer is added to a connected store",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_order": {
+      "displayName": "New Order",
+      "description": "Fires when a new order is created in the connected store",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new_segment_tag_subscriber": {
+      "displayName": "New Segment Tag Subscriber",
+      "description": "Fires when a subscriber joins a specific segment or tag",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "segment_id",
+          "displayName": "Segment ID (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The specific segment ID to monitor. Leave empty to monitor all segments."
+        },
+        {
+          "name": "tag_name",
+          "displayName": "Tag Name (Optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The specific tag name to monitor. Leave empty to monitor all tags."
+        }
+      ]
+    },
+    "subscribe": {
+      "displayName": "Member Subscribed to Audience",
+      "description": "Fires when a new subscriber joins your Mailchimp audience. This trigger captures new subscriptions, opt-ins, and audience growth events with comprehensive subscriber information.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "subscriber_updated": {
+      "displayName": "Subscriber Updated",
+      "description": "Fires when a subscriber profile is updated, including changes to merge fields, interests, or contact information. This trigger captures profile updates, new subscriptions, and subscriber modifications.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "unsubscribe": {
+      "displayName": "Member Unsubscribed from Audience",
+      "description": "Fires when a subscriber unsubscribes from your Mailchimp audience. This trigger captures unsubscribe events, opt-outs, and audience churn with comprehensive subscriber information for retention analysis.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

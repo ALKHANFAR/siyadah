@@ -1,0 +1,647 @@
+{
+  "id": "intercom",
+  "displayName": "Intercom",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "addNoteToConversation": {
+      "displayName": "Add note to conversation",
+      "description": "Add a note (for other admins) to an existing conversation",
+      "props": [
+        {
+          "name": "body",
+          "displayName": "Message Body",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "add-note-to-user": {
+      "displayName": "Add Note",
+      "description": "Add a note to a user",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Note Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "add-or-remove-tag-on-company": {
+      "displayName": "Add/Remove Tag on Company",
+      "description": "Attach or remove a tag from a specific company.",
+      "props": [
+        {
+          "name": "tagName",
+          "displayName": "Tag Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "untag",
+          "displayName": "Untag ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "add-or-remove-tag-on-contact": {
+      "displayName": "Add/Remove Tag on Contact",
+      "description": "Attach or remove a tag from a specific contact.",
+      "props": [
+        {
+          "name": "untag",
+          "displayName": "Untag ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "add-or-remove-tag-on-conversation": {
+      "displayName": "Add/Remove Tag on Conversation",
+      "description": "Attach or remove a tag from a specific conversation.",
+      "props": [
+        {
+          "name": "untag",
+          "displayName": "Untag ?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-article": {
+      "displayName": "Create Article",
+      "description": "Creates a new article in your Help Center.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Body",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create-conversation": {
+      "displayName": "Create Conversation",
+      "description": "Creates a new conversation from a contact.",
+      "props": [
+        {
+          "name": "contactType",
+          "displayName": "Contact Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "body",
+          "displayName": "Message Body",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create-ticket": {
+      "displayName": "Create Ticket",
+      "description": "Creates a new ticket.",
+      "props": []
+    },
+    "create-or-update-lead": {
+      "displayName": "Create or Update Lead",
+      "description": "Create or update an Intercom lead.If an ID is provided, the lead will be updated.",
+      "props": [
+        {
+          "name": "leadId",
+          "displayName": "Lead ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "unsubscribe",
+          "displayName": "Unsubscribed From Emails",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "createdAt",
+          "displayName": "Created At",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customAttributes",
+          "displayName": "Custom Attributes",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-or-update-user": {
+      "displayName": "Create/Update User",
+      "description": "Update a user within intercom given an email address.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Lookup Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "createdAt",
+          "displayName": "Created At",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customAttributes",
+          "displayName": "Custom Attributes",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "create-user": {
+      "displayName": "Create User",
+      "description": "Creates a new user.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "createdAt",
+          "displayName": "Created At",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "userId",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Full Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customAttributes",
+          "displayName": "Custom Attributes",
+          "type": "OBJECT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find-company": {
+      "displayName": "Find Company",
+      "description": "Finds an existing company.",
+      "props": [
+        {
+          "name": "searchField",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find-conversation": {
+      "displayName": "Find Conversation",
+      "description": "Searches for conversations using various criteria",
+      "props": [
+        {
+          "name": "searchField",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "matchType",
+          "displayName": "Match Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "searchTerm",
+          "displayName": "Search Term",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "updateAfter",
+          "displayName": "Update After",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "updateBefore",
+          "displayName": "Update Before",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find-lead": {
+      "displayName": "Find Lead",
+      "description": "Finds an existing lead.",
+      "props": [
+        {
+          "name": "searchField",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "find-user": {
+      "displayName": "Find User",
+      "description": "Finds an existing user.",
+      "props": [
+        {
+          "name": "searchField",
+          "displayName": "Search Field",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-conversation": {
+      "displayName": "Retrieve a Conversation",
+      "description": "Retrieves a specific conversation by ID.",
+      "props": []
+    },
+    "list-all-tags": {
+      "displayName": "List Tags",
+      "description": "List all tags.",
+      "props": []
+    },
+    "replyToConversation": {
+      "displayName": "Reply to conversation",
+      "description": "Reply (as an admin) to a conversation with a contact",
+      "props": [
+        {
+          "name": "body",
+          "displayName": "Message Body",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "send_message": {
+      "displayName": "Send Message",
+      "description": "Send a message to a contact (only allowed by admins)",
+      "props": [
+        {
+          "name": "message_type",
+          "displayName": "Message Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "email_required_fields",
+          "displayName": "Email Required Fields",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Email title"
+        },
+        {
+          "name": "subject",
+          "displayName": "Subject",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Email title"
+        },
+        {
+          "name": "template",
+          "displayName": "Template",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Style of the email"
+        },
+        {
+          "name": "body",
+          "displayName": "Message Body",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "create_conversation_without_contact_reply",
+          "displayName": "Create Conversation Without Contact Reply",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether a conversation should be opened in the inbox for the message without the contact replying. Defaults to false if not provided."
+        }
+      ]
+    },
+    "update-ticket": {
+      "displayName": "Update Ticket",
+      "description": "Updates an existing ticket.",
+      "props": [
+        {
+          "name": "isOpen",
+          "displayName": "Is Open",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "snoozedTill",
+          "displayName": "Snoozed Until",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "contactReplied": {
+      "displayName": "Contact Replied",
+      "description": "Triggers when a contact replies to a Conversation in Intercom.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "contact-updated": {
+      "displayName": "Updated Contact",
+      "description": "Triggers when a contact is updated.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "conversationAssigned": {
+      "displayName": "Conversation assigned to any Intercom admin",
+      "description": "Triggers when a conversation is assigned to an admin",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationClosed": {
+      "displayName": "Conversation Closed",
+      "description": "Triggers when a conversation is closed.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationPartTagged": {
+      "displayName": "Tag added to a conversation part",
+      "description": "Triggers when a conversation part is tagged.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationRated": {
+      "displayName": "Conversation was rated",
+      "description": "Triggers when a conversation is rated",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationSnoozed": {
+      "displayName": "Conversation snoozed",
+      "description": "Triggers when a conversation is snoozed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "conversationUnsnoozed": {
+      "displayName": "Conversation unsnoozed",
+      "description": "Triggers when a conversation is unsnoozed",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "lead-added-email": {
+      "displayName": "Lead Added Email",
+      "description": "Triggers when a lead enters an email address.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "lead-converted-to-user": {
+      "displayName": "Lead Converted To User",
+      "description": "Triggers when a lead is converted to a user.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-company": {
+      "displayName": "New Company",
+      "description": "Triggers when a new company is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "newConversationFromUser": {
+      "displayName": "New Conversation",
+      "description": "Triggers when a conversation is created by a user or lead (not an admin).",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-lead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-ticket": {
+      "displayName": "New Ticket",
+      "description": "Triggers when a new ticket is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-user": {
+      "displayName": "New User",
+      "description": "Triggers when a new user is created.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "noteAddedToConversation": {
+      "displayName": "Note added to conversation",
+      "description": "Triggers when a note is added to a conversation",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "keyword",
+          "displayName": "Keyword (optional)",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "replyFromAdmin": {
+      "displayName": "Reply from an Intercom admin",
+      "description": "Triggers when a reply is received from an Intercom admin (not a user or lead)",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "replyFromUser": {
+      "displayName": "Reply from a user or lead",
+      "description": "Triggers when a reply is received from a user or lead (not an admin)",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tag-added-to-lead": {
+      "displayName": "Tag Added to Lead",
+      "description": "Triggers when a tag is added to a lead.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "tag-added-to-user": {
+      "displayName": "Tag Added to User",
+      "description": "Triggers when a tag is added to a user.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "id": "hume-ai",
+  "displayName": "Hume AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "analyze_emotions_from_url": {
+      "displayName": "Analyze Emotions from URL",
+      "description": "Start a batch emotion analysis job for media files hosted at URLs",
+      "props": [
+        {
+          "name": "urls",
+          "displayName": "Media URLs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "URLs to media files to analyze (images, videos, audio). Supports up to 100 URLs or archives (.zip, .tar.gz)"
+        },
+        {
+          "name": "models",
+          "displayName": "Models Configuration",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Specify which models to use for inference. Leave empty to run all models."
+        },
+        {
+          "name": "transcription",
+          "displayName": "Include Transcription",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include speech-to-text transcription in the analysis"
+        },
+        {
+          "name": "callbackUrl",
+          "displayName": "Callback URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional webhook URL to receive results when the job completes"
+        },
+        {
+          "name": "notify",
+          "displayName": "Email Notification",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Send email notification upon job completion or failure"
+        }
+      ]
+    },
+    "create_voice": {
+      "displayName": "Create Voice",
+      "description": "Save a custom voice to your account using a TTS generation ID",
+      "props": [
+        {
+          "name": "generationId",
+          "displayName": "Generation ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique ID from a previous TTS generation to save as a custom voice"
+        },
+        {
+          "name": "voiceName",
+          "displayName": "Voice Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A descriptive name for your custom voice"
+        }
+      ]
+    },
+    "delete_voice": {
+      "displayName": "Delete Voice",
+      "description": "Delete a custom voice from your account",
+      "props": [
+        {
+          "name": "voiceName",
+          "displayName": "Voice Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The name of the custom voice to delete"
+        }
+      ]
+    },
+    "generate_speech_from_file": {
+      "displayName": "Generate Speech from File",
+      "description": "Convert audio file to speech using Hume AI\\",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to convert to speech"
+        },
+        {
+          "name": "voiceDescription",
+          "displayName": "Voice Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Natural language description of how the speech should sound (tone, accent, style, etc.). If no voice is specified, this will generate a dynamic voice."
+        },
+        {
+          "name": "format",
+          "displayName": "Audio Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The output audio file format"
+        },
+        {
+          "name": "speed",
+          "displayName": "Speed",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Speed multiplier for the synthesized speech (0.75-1.5 recommended)"
+        },
+        {
+          "name": "contextText",
+          "displayName": "Context Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional context text to influence speech style and prosody consistency"
+        },
+        {
+          "name": "contextDescription",
+          "displayName": "Context Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description for the context text (how it should sound)"
+        },
+        {
+          "name": "trailingSilence",
+          "displayName": "Trailing Silence (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Duration of silence to add at the end of the speech"
+        },
+        {
+          "name": "splitUtterances",
+          "displayName": "Split Utterances",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically split text into natural-sounding speech segments"
+        }
+      ]
+    },
+    "generate_text_to_speech": {
+      "displayName": "Generate Text to Speech",
+      "description": "The text to convert to speech",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to convert to speech"
+        },
+        {
+          "name": "voiceDescription",
+          "displayName": "Voice Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Natural language description of how the speech should sound (tone, accent, style, etc.). If no voice is specified, this will generate a dynamic voice."
+        },
+        {
+          "name": "format",
+          "displayName": "Audio Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The output audio file format"
+        },
+        {
+          "name": "speed",
+          "displayName": "Speed",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Speed multiplier for the synthesized speech (0.75-1.5 recommended)"
+        },
+        {
+          "name": "numGenerations",
+          "displayName": "Number of Generations",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of audio generations to produce (1-5 recommended)"
+        },
+        {
+          "name": "contextText",
+          "displayName": "Context Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional context text to influence speech style and prosody consistency"
+        },
+        {
+          "name": "contextDescription",
+          "displayName": "Context Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Description for the context text (how it should sound)"
+        },
+        {
+          "name": "trailingSilence",
+          "displayName": "Trailing Silence (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Duration of silence to add at the end of the speech"
+        },
+        {
+          "name": "splitUtterances",
+          "displayName": "Split Utterances",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Automatically split text into natural-sounding speech segments"
+        }
+      ]
+    },
+    "get_emotion_results": {
+      "displayName": "Get Emotion Results",
+      "description": "Retrieve emotion analysis predictions from a completed batch job",
+      "props": [
+        {
+          "name": "jobId",
+          "displayName": "Job ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the emotion analysis job to retrieve results for"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_voice": {
+      "displayName": "New Voice",
+      "description": "Triggers when a new voice is created in Hume AI",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

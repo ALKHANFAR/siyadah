@@ -1,0 +1,114 @@
+{
+  "id": "jira-cloud",
+  "package": "@activepieces/piece-jira-cloud",
+  "display_name": "Jira Cloud",
+  "display_name_ar": "",
+  "description": "Issue tracking and project management",
+  "category": "K_dev",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "add_issue_attachment",
+      "display_name": "Add Attachment to Issue",
+      "description": "Adds an attachment to an issue."
+    },
+    {
+      "name": "add_issue_comment",
+      "display_name": "Add Issue Comment",
+      "description": "Adds a comment to an issue."
+    },
+    {
+      "name": "add-watcher-to-issue",
+      "display_name": "Add Watcher to Issue",
+      "description": "Adds a new watcher to an issue."
+    },
+    {
+      "name": "assign_issue",
+      "display_name": "Assign Issue",
+      "description": "Assigns an issue to a user."
+    },
+    {
+      "name": "create_issue",
+      "display_name": "Create Issue",
+      "description": "Creates a new issue in a project."
+    },
+    {
+      "name": "delete_issue_comment",
+      "display_name": "Delete Issue Comment",
+      "description": "Deletes a comment on a specific issue."
+    },
+    {
+      "name": "find-user",
+      "display_name": "Find User",
+      "description": "Finds an existing user."
+    },
+    {
+      "name": "get-issue-attachment",
+      "display_name": "Get Issue Attachment",
+      "description": "Retrieves an attachment from an issue."
+    },
+    {
+      "name": "get_issue",
+      "display_name": "Get Issue",
+      "description": "Get issue data."
+    },
+    {
+      "name": "link-issues",
+      "display_name": "Link Issues",
+      "description": "Creates a link between two issues."
+    },
+    {
+      "name": "list_issue_comments",
+      "display_name": "List Issue Comments",
+      "description": "Returns all comments for an issue."
+    },
+    {
+      "name": "markdownToJiraFormat",
+      "display_name": "Markdown to Jira format",
+      "description": "Convert Markdown-formatted text to Jira's ADF syntax for use in comments and descriptions etc"
+    },
+    {
+      "name": "search_issues",
+      "display_name": "Search Issues",
+      "description": "Search for issues with JQL"
+    },
+    {
+      "name": "update_issue_comment",
+      "display_name": "Update Issue Comment",
+      "description": "Updates a comment to a specific issue."
+    },
+    {
+      "name": "update_issue",
+      "display_name": "Update Issue",
+      "description": "Updates an existing issue."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_issue",
+      "display_name": "New Issue",
+      "description": "Triggers when a new issue is created",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_issue_status",
+      "display_name": "Updated Issue Status",
+      "description": "Triggers when an issue status is updated",
+      "type": "scheduled"
+    },
+    {
+      "name": "updated_issue",
+      "display_name": "Updated Issue",
+      "description": "Triggers when an issue is updated",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

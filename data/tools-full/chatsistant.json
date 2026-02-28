@@ -1,0 +1,49 @@
+{
+  "id": "chatsistant",
+  "displayName": "Chatsistant",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "sendMessage": {
+      "displayName": "Send Message",
+      "description": "Send a message to a chatbot session",
+      "props": [
+        {
+          "name": "chatbot_uuid",
+          "displayName": "Chatbot UUID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The UUID of the chatbot to send the message to"
+        },
+        {
+          "name": "query",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send to the chatbot"
+        },
+        {
+          "name": "session_uuid",
+          "displayName": "Session UUID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The UUID of the session to send the message to"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "formSubmission": {
+      "displayName": "form submission",
+      "description": "Triggered when a form is submitted",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

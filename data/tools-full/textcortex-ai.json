@@ -1,0 +1,588 @@
+{
+  "id": "textcortex-ai",
+  "displayName": "TextCortex AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_code": {
+      "displayName": "Create Code",
+      "description": "Generate code in a specified programming language based on instructions.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Code Instructions",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Describe what you want the code to do (e.g., \"Create a function to sort an array\")"
+        },
+        {
+          "name": "mode",
+          "displayName": "Programming Language",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Select the programming language for code generation"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language model to use"
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of generated code (1-4096 tokens)"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls creativity (0.0-2.0). Higher values = more creative, lower = more focused."
+        },
+        {
+          "name": "n",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many code snippets to generate (1-5)"
+        }
+      ]
+    },
+    "create_email": {
+      "displayName": "Create Email",
+      "description": "Compose an email using context, recipient (\"To\"), and sender (\"From\") metadata.",
+      "props": [
+        {
+          "name": "context",
+          "displayName": "Context",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Context of the email. For example, a summary, or a bullet point list"
+        },
+        {
+          "name": "mode",
+          "displayName": "Email Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The style or tone to be used when writing"
+        },
+        {
+          "name": "to",
+          "displayName": "To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The recipient of the email"
+        },
+        {
+          "name": "from",
+          "displayName": "From",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The sender of the email"
+        },
+        {
+          "name": "instructions",
+          "displayName": "Instructions",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Instructions for the email. Available when mode = reply"
+        },
+        {
+          "name": "received_email",
+          "displayName": "Received Email",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The email that is being replied to. Available when mode = reply"
+        },
+        {
+          "name": "purpose",
+          "displayName": "Purpose",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Purpose of the email. Available when mode = cold"
+        },
+        {
+          "name": "company_details",
+          "displayName": "Company Details",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Details regarding the company. Available when mode = customer_support"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language model to use"
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The formality of the generated text"
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language of the source text"
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language for the email"
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of email (1-4096 tokens)"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls creativity (0.0-2.0). Higher values = more creative, lower = more focused."
+        },
+        {
+          "name": "n",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many email drafts to generate (1-5)"
+        }
+      ]
+    },
+    "create_paraphrase": {
+      "displayName": "Create Paraphrase",
+      "description": "Rewrite text while preserving its meaning.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Paraphrase",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The text to paraphrase"
+        },
+        {
+          "name": "file_id",
+          "displayName": "File ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the file to paraphrase"
+        },
+        {
+          "name": "mode",
+          "displayName": "Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Paraphrase mode"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language model to use"
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The formality of the generated text"
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language of the source text"
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language for the paraphrased text"
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of paraphrased text (1-4096 tokens)"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls creativity (0.0-2.0). Higher values = more creative, lower = more focused."
+        },
+        {
+          "name": "n",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many paraphrases to generate (1-5)"
+        }
+      ]
+    },
+    "create_product_description": {
+      "displayName": "Create Product Description",
+      "description": "Create a product description using details like name, brand, category, features, keywords.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name of the product"
+        },
+        {
+          "name": "description",
+          "displayName": "Product Features",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Features of the product"
+        },
+        {
+          "name": "brand",
+          "displayName": "Brand",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Brand of the product"
+        },
+        {
+          "name": "category",
+          "displayName": "Category",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Category of the product"
+        },
+        {
+          "name": "keywords",
+          "displayName": "Keywords",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Keywords to include in the product description (comma-separated)"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language model to use"
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The formality of the generated text"
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language of the source text"
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language for the product description"
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of product description (1-4096 tokens)"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls creativity (0.0-2.0). Higher values = more creative, lower = more focused."
+        },
+        {
+          "name": "n",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many descriptions to generate (1-5)"
+        }
+      ]
+    },
+    "create_social_media_caption": {
+      "displayName": "Create Social Media Caption",
+      "description": "Generate a caption tailored for a specific social media channel (requires channel and keywords).",
+      "props": [
+        {
+          "name": "context",
+          "displayName": "Post Context",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Describe what you want to post about (e.g., \"Announcing our new product launch with 50% discount\")"
+        },
+        {
+          "name": "mode",
+          "displayName": "Platform",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The platform to generate a post for"
+        },
+        {
+          "name": "keywords",
+          "displayName": "Keywords",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Keywords to be included in the post (comma-separated)"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language model to use"
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The formality of the generated text"
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language of the source text"
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language for the caption"
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of caption (1-4096 tokens)"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls creativity (0.0-2.0). Higher values = more creative, lower = more focused."
+        },
+        {
+          "name": "n",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many captions to generate (1-5)"
+        }
+      ]
+    },
+    "create_summary": {
+      "displayName": "Create Summary",
+      "description": "Summarize input text to concise form.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Summarize",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The text to summarize"
+        },
+        {
+          "name": "file_id",
+          "displayName": "File ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of the file to summarize"
+        },
+        {
+          "name": "mode",
+          "displayName": "Mode",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Summarization mode"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language model to use"
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The formality of the generated text"
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language of the source text"
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language for the summary"
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of summary (1-4096 tokens)"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls creativity (0.0-2.0). Higher values = more creative, lower = more focused."
+        },
+        {
+          "name": "n",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many summaries to generate (1-5)"
+        }
+      ]
+    },
+    "create_translation": {
+      "displayName": "Create Translation",
+      "description": "Translate input text into a target language.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Translate",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The text to translate"
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target Language",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The language to translate to"
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language of the text to translate"
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The formality of the generated text"
+        }
+      ]
+    },
+    "send_prompt": {
+      "displayName": "Send Prompt",
+      "description": "Send a custom prompt to TextCortex AI and generate a completion.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to Complete",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "Enter the beginning of your text and AI will complete it (e.g., \"The benefits of renewable energy are\")"
+        },
+        {
+          "name": "model",
+          "displayName": "Model",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language model to use"
+        },
+        {
+          "name": "formality",
+          "displayName": "Formality",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The formality of the generated text"
+        },
+        {
+          "name": "source_lang",
+          "displayName": "Source Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language of the source text"
+        },
+        {
+          "name": "target_lang",
+          "displayName": "Target Language",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "The language for the generated text"
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum length of generated text (1-4096 tokens)"
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Controls creativity (0.0-2.0). Higher values = more creative, lower = more focused."
+        },
+        {
+          "name": "n",
+          "displayName": "Number of Outputs",
+          "type": "NUMBER",
+          "required": false,
+          "description": "How many completions to generate (1-5)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

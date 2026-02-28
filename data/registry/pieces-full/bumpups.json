@@ -1,0 +1,50 @@
+{
+  "id": "bumpups",
+  "package": "@activepieces/piece-bumpups",
+  "display_name": "Bumpups",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "generateCreatorDescription",
+      "display_name": "Generate Creator Description",
+      "description": "Generates a compelling description for a YouTube video based on its content."
+    },
+    {
+      "name": "generateCreatorHashtags",
+      "display_name": "Generate Creator Hashtags",
+      "description": "Generates relevant hashtags for a YouTube video based on its content."
+    },
+    {
+      "name": "generateCreatorTakeaways",
+      "display_name": "Generate Creator Takeaways",
+      "description": "Generates key takeaways for a YouTube video based on its content."
+    },
+    {
+      "name": "generateCreatorTitles",
+      "display_name": "Generate Creator Titles",
+      "description": "Generates engaging titles for a YouTube video based on its content."
+    },
+    {
+      "name": "generateTimestamps",
+      "display_name": "Generate Timestamps",
+      "description": "Generates detailed timestamps for a YouTube video based on its content."
+    },
+    {
+      "name": "send_chat",
+      "display_name": "Send Chat",
+      "description": "Creates an interactive chat response for a given YouTube video using the bump-1.0 model. Provide the video URL and an optional prompt."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

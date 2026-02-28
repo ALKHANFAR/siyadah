@@ -1,0 +1,25 @@
+{
+  "id": "instagram",
+  "package": "@activepieces/piece-instagram-business",
+  "display_name": "Instagram for Business",
+  "display_name_ar": "انستقرام أعمال",
+  "description": "Grow your business on Instagram",
+  "category": "H_marketing",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "upload_photo",
+      "display_name": "Upload Photo",
+      "description": "Upload a photo to an Instagram Professional Account"
+    },
+    {
+      "name": "upload_reel",
+      "display_name": "Upload Reel",
+      "description": "Upload a reel to an Instagram Professional Account"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/instagram-business"
+}

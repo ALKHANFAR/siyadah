@@ -1,0 +1,619 @@
+{
+  "id": "slack",
+  "displayName": "Slack",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "slack-add-reaction-to-message": {
+      "displayName": "Add Reaction to Message",
+      "description": "Add an emoji reaction to a message.",
+      "props": [
+        {
+          "name": "ts",
+          "displayName": "Message Timestamp",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Please provide the timestamp of the message you wish to react, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option."
+        },
+        {
+          "name": "reaction",
+          "displayName": "Reaction (emoji) name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "e.g.`thumbsup`"
+        }
+      ]
+    },
+    "slack-create-channel": {
+      "displayName": "Create Channel",
+      "description": "Creates a new channel.",
+      "props": [
+        {
+          "name": "channelName",
+          "displayName": "Channel Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "isPrivate",
+          "displayName": "Is Private?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "delete-message": {
+      "displayName": "Delete Message",
+      "description": "Please provide the timestamp of the message you wish to retrieve, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option.",
+      "props": [
+        {
+          "name": "ts",
+          "displayName": "Message Timestamp",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Please provide the timestamp of the message you wish to retrieve, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option."
+        }
+      ]
+    },
+    "slack-find-user-by-email": {
+      "displayName": "Find User by Email",
+      "description": "Finds a user by matching against their email address.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "slack-find-user-by-handle": {
+      "displayName": "Find User by Handle",
+      "description": "Finds a user by matching against their Slack handle.",
+      "props": [
+        {
+          "name": "handle",
+          "displayName": "Handle",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "User handle (display name), without the leading @"
+        }
+      ]
+    },
+    "find-user-by-id": {
+      "displayName": "Find User by ID",
+      "description": "Finds a user by their ID.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "getChannelHistory": {
+      "displayName": "Get channel history",
+      "description": "Retrieve all messages from a specific channel (\"conversation\") between specified timestamps",
+      "props": [
+        {
+          "name": "oldest",
+          "displayName": "Oldest",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only messages after this timestamp will be included in results"
+        },
+        {
+          "name": "latest",
+          "displayName": "Latest",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Only messages before this timestamp will be included in results. Default is the current time"
+        },
+        {
+          "name": "inclusive",
+          "displayName": "Inclusive",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified"
+        },
+        {
+          "name": "includeAllMetadata",
+          "displayName": "Include all metadata",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Return all metadata associated with each message"
+        }
+      ]
+    },
+    "get-file": {
+      "displayName": "Get File",
+      "description": "Return information about a given file ID.",
+      "props": [
+        {
+          "name": "fileId",
+          "displayName": "File ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "You can pass the file ID from the New Message Trigger payload."
+        }
+      ]
+    },
+    "get-message": {
+      "displayName": "Get Message by Timestamp",
+      "description": "Please provide the timestamp of the message you wish to retrieve, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option.",
+      "props": [
+        {
+          "name": "ts",
+          "displayName": "Message Timestamp",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Please provide the timestamp of the message you wish to retrieve, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option."
+        }
+      ]
+    },
+    "invite-user-to-channel": {
+      "displayName": "Invite User to Channel",
+      "description": "Invites an existing User to an existing channel.",
+      "props": []
+    },
+    "listUsers": {
+      "displayName": "List users",
+      "description": "List all users of the workspace",
+      "props": [
+        {
+          "name": "includeBots",
+          "displayName": "Include bots?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "includeDisabled",
+          "displayName": "Include disabled users?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "markdownToSlackFormat": {
+      "displayName": "Markdown to Slack format",
+      "description": "Convert Markdown-formatted text to Slack's pseudo - markdown syntax",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "Markdown text",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "request_action_direct_message": {
+      "displayName": "Request Action from A User",
+      "description": "Send a message to a user and wait until the user selects an action",
+      "props": []
+    },
+    "request_action_message": {
+      "displayName": "Request Action in A Channel",
+      "description": "Send a message in a channel and wait until an action is selected",
+      "props": []
+    },
+    "request_approval_direct_message": {
+      "displayName": "Request Approval from A User",
+      "description": "Send approval message to a user and then wait until the message is approved or disapproved",
+      "props": []
+    },
+    "request_approval_message": {
+      "displayName": "Request Approval in a Channel",
+      "description": "Send approval message to a channel and then wait until the message is approved or disapproved",
+      "props": []
+    },
+    "retrieveThreadMessages": {
+      "displayName": "Retrieve Thread Messages",
+      "description": "Retrieves thread messages by channel and thread timestamp.",
+      "props": [
+        {
+          "name": "threadTs",
+          "displayName": "Thread ts",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide the ts (timestamp) value of the **parent** message to retrieve replies of this message. Do not use the ts value of the reply itself; use its parent instead. For example `1710304378.475129`.Alternatively, you can easily obtain the message link by clicking on the three dots next to the parent message and selecting the `Copy link` option."
+        }
+      ]
+    },
+    "searchMessages": {
+      "displayName": "Search messages",
+      "description": "Searches for messages matching a query",
+      "props": [
+        {
+          "name": "query",
+          "displayName": "Search query",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "send_direct_message": {
+      "displayName": "Send Message To A User",
+      "description": "Send message to a user",
+      "props": [
+        {
+          "name": "unfurlLinks",
+          "displayName": "Unfurl Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable link unfurling for this message"
+        }
+      ]
+    },
+    "send_channel_message": {
+      "displayName": "Send Message To A Channel",
+      "description": "Send message to a channel",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "The text of your message. When using Block Kit blocks, this is used as a fallback for notifications."
+        },
+        {
+          "name": "sendAsBot",
+          "displayName": "Send as a bot?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "file",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "replyBroadcast",
+          "displayName": "Broadcast reply to channel",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "When replying to a thread, also make the message visible to everyone in the channel (only applicable when Thread Timestamp is provided)"
+        },
+        {
+          "name": "unfurlLinks",
+          "displayName": "Unfurl Links",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable link unfurling for this message"
+        }
+      ]
+    },
+    "set-channel-topic": {
+      "displayName": "Set Channel Topic",
+      "description": "Sets the topic on a selected channel.",
+      "props": [
+        {
+          "name": "topic",
+          "displayName": "Topic",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "slack-set-user-status": {
+      "displayName": "Set User Status",
+      "description": "Emoji shortname (standard or custom), e.g. :tada: or :train:",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "emoji",
+          "displayName": "Emoji",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Emoji shortname (standard or custom), e.g. :tada: or :train:"
+        },
+        {
+          "name": "expiration",
+          "displayName": "Expires at",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Unix timestamp - if not set, the status will not expire"
+        }
+      ]
+    },
+    "updateMessage": {
+      "displayName": "Update message",
+      "description": "Update an existing message",
+      "props": [
+        {
+          "name": "ts",
+          "displayName": "Message Timestamp",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Please provide the timestamp of the message you wish to update, such as `1710304378.475129`. Alternatively, you can easily obtain the message link by clicking on the three dots next to the message and selecting the `Copy link` option."
+        },
+        {
+          "name": "text",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The updated text of your message"
+        }
+      ]
+    },
+    "slack-update-profile": {
+      "displayName": "Update Profile",
+      "description": "Update basic profile field such as name or title.",
+      "props": [
+        {
+          "name": "firstName",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "lastName",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Changing a user's email address will send an email to both the old and new addresses, and also post a slackbot message to the user informing them of the change."
+        },
+        {
+          "name": "userId",
+          "displayName": "User",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "ID of user to change. This argument may only be specified by admins on paid teams.You can use **Find User by Email** action to retrieve ID."
+        }
+      ]
+    },
+    "uploadFile": {
+      "displayName": "Upload file",
+      "description": "Upload file without sharing it to a channel or user",
+      "props": [
+        {
+          "name": "file",
+          "displayName": "Attachment",
+          "type": "FILE",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filename",
+          "displayName": "Filename",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "fun": {
+      "displayName": "Channel created",
+      "description": "Triggers when a channel is created",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-command-in-direct-message": {
+      "displayName": "New Command in Direct Message",
+      "description": "Triggers when a specific command is sent to the bot (e.g., @bot command arg1 arg2) via Direct Message.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "commands",
+          "displayName": "Commands",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of valid commands that the bot should respond to (e.g., help, ocr, remind)"
+        },
+        {
+          "name": "ignoreBots",
+          "displayName": "Ignore Bot Messages ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ignoreSelfMessages",
+          "displayName": "Ignore Message from Yourself ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "new_command": {
+      "displayName": "New Command in Channel",
+      "description": "Triggers when a specific command is sent to the bot (e.g., @bot command arg1 arg2)",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "commands",
+          "displayName": "Commands",
+          "type": "ARRAY",
+          "required": true,
+          "description": "List of valid commands that the bot should respond to (e.g., help, ocr, remind)"
+        },
+        {
+          "name": "channels",
+          "displayName": "Channels",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "If no channel is selected, the flow will be triggered for commands in all channels"
+        },
+        {
+          "name": "ignoreBots",
+          "displayName": "Ignore Bot Messages ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "new-direct-message": {
+      "displayName": "New Direct Message",
+      "description": "Triggers when a message was posted in a direct message channel.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "ignoreBots",
+          "displayName": "Ignore Bot Messages ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ignoreSelfMessages",
+          "displayName": "Ignore Message from Yourself ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "new-mention-in-direct-message": {
+      "displayName": "New Mention in Direct Message",
+      "description": "Triggers when a username is mentioned in a direct message channel.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "ignoreBots",
+          "displayName": "Ignore Bot Messages ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "ignoreSelfMessages",
+          "displayName": "Ignore Message from Yourself ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "new_mention": {
+      "displayName": "New Mention in Channel",
+      "description": "Triggers when a username is mentioned.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "channels",
+          "displayName": "Channels",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "If no channel is selected, the flow will be triggered for username mentions in all channels"
+        },
+        {
+          "name": "ignoreBots",
+          "displayName": "Ignore Bot Messages ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "new-message-in-channel": {
+      "displayName": "New Message Posted to Channel",
+      "description": "Triggers when a new message is posted to a specific #channel you choose.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "ignoreBots",
+          "displayName": "Ignore Bot Messages ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "new-message": {
+      "displayName": "New Public Message Posted Anywhere",
+      "description": "Triggers when a new message is posted to any channel.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "ignoreBots",
+          "displayName": "Ignore Bot Messages ?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "new_reaction_added": {
+      "displayName": "New Reaction",
+      "description": "Triggers when a new reaction is added to a message",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "emojis",
+          "displayName": "Emojis (E.g fire, smile)",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Select emojis to trigger on"
+        },
+        {
+          "name": "channels",
+          "displayName": "Channels",
+          "type": "MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "If no channel is selected, the flow will be triggered for reactions in all channels the app has access to"
+        }
+      ]
+    },
+    "new-saved-message": {
+      "displayName": "New Saved Message",
+      "description": "Triggers when you save a message.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "new-team-custom-emoji": {
+      "displayName": "New Team Custom Emoji",
+      "description": "Triggers when a custom emoji has been added to a team.",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "slackbot": {
+      "displayName": "New User",
+      "description": "Triggers when a new user is created / first joins your org.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  }
+}

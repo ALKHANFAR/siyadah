@@ -1,0 +1,45 @@
+{
+  "id": "firecrawl",
+  "package": "@activepieces/piece-firecrawl",
+  "display_name": "Firecrawl",
+  "display_name_ar": "",
+  "description": "Extract structured data from websites using AI with natural language prompts",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "crawlResults",
+      "display_name": "Crawl Results",
+      "description": "Get the results of a crawl job."
+    },
+    {
+      "name": "crawl",
+      "display_name": "Crawl",
+      "description": "Crawl multiple pages from a website based on specified rules and patterns."
+    },
+    {
+      "name": "extract",
+      "display_name": "Extract Structured Data",
+      "description": "Extract structured data from multiple URLs using AI."
+    },
+    {
+      "name": "map",
+      "display_name": "Map Websites",
+      "description": "Input a website and get all the urls on the website."
+    },
+    {
+      "name": "scrape",
+      "display_name": "Scrape Website",
+      "description": "Scrape a website by performing a series of actions like clicking, typing, taking screenshots, and extracting data."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

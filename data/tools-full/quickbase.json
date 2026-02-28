@@ -1,0 +1,73 @@
+{
+  "id": "quickbase",
+  "displayName": "Quickbase",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_record": {
+      "displayName": "Create Record",
+      "description": "Create a new record in a Quickbase table",
+      "props": []
+    },
+    "create_update_records_bulk": {
+      "displayName": "Create / Update Records From Array",
+      "description": "Bulk create or update multiple records based on a merge key",
+      "props": [
+        {
+          "name": "records",
+          "displayName": "Records",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of records to create or update"
+        },
+        {
+          "name": "mergeFieldBehavior",
+          "displayName": "Merge Behavior",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "How to handle existing records when upserting"
+        }
+      ]
+    },
+    "delete_record": {
+      "displayName": "Delete Record",
+      "description": "Delete a record from a Quickbase table",
+      "props": []
+    },
+    "find_or_create_record": {
+      "displayName": "Find or Create Record",
+      "description": "Find an existing record or create a new one if not found",
+      "props": []
+    },
+    "find_record": {
+      "displayName": "Find Record",
+      "description": "Search for records in a Quickbase table using filters",
+      "props": []
+    },
+    "update_record": {
+      "displayName": "Update Record",
+      "description": "Update an existing record in a Quickbase table",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_or_updated_record": {
+      "displayName": "New or Updated Record",
+      "description": "Triggers when a record is created or updated in a Quickbase table",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_record": {
+      "displayName": "New Record",
+      "description": "Triggers when a new record is created in a Quickbase table",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

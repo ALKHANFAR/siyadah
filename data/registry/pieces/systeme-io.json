@@ -1,0 +1,59 @@
+{
+  "id": "systeme-io",
+  "package": "@activepieces/piece-systeme-io",
+  "display_name": "Systeme.io",
+  "display_name_ar": "Systeme.io",
+  "description": "Systeme.io is a CRM platform that allows you to manage your contacts, sales, and marketing campaigns.",
+  "category": "H_marketing",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "addTagToContact",
+      "display_name": "Add Tag to Contact",
+      "description": "Assign a tag to an existing contact - select an existing tag or create a new one"
+    },
+    {
+      "name": "createContact",
+      "display_name": "Create Contact",
+      "description": "Create a new contact with email and contact fields from your Systeme.io account, with optional tags"
+    },
+    {
+      "name": "findContactByEmail",
+      "display_name": "Find Contact by Email",
+      "description": "Locate an existing contact by email address"
+    },
+    {
+      "name": "removeTagFromContact",
+      "display_name": "Remove Tag from Contact",
+      "description": "Remove a tag that is currently assigned to an existing contact"
+    },
+    {
+      "name": "updateContact",
+      "display_name": "Update Contact",
+      "description": "Update fields (name, phone, custom fields) of an existing contact using fields from your Systeme.io account"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newContact",
+      "display_name": "New Contact",
+      "description": "Fires when a new contact is created",
+      "type": "instant"
+    },
+    {
+      "name": "newSale",
+      "display_name": "New Sale",
+      "description": "Fires when a new purchase is made within a funnel",
+      "type": "instant"
+    },
+    {
+      "name": "newTagAddedToContact",
+      "display_name": "New Tag Added to Contact",
+      "description": "Fires when a specific tag is assigned to a contact",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/systeme-io"
+}

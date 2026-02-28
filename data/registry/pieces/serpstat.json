@@ -1,0 +1,30 @@
+{
+  "id": "serpstat",
+  "package": "@activepieces/piece-serpstat",
+  "display_name": "Serpstat",
+  "display_name_ar": "Serpstat",
+  "description": "Serpstat integration",
+  "category": "G_productivity",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "get_keywords",
+      "display_name": "Get Keywords",
+      "description": "Get keywords data from Serpstat > Keyword Analysis."
+    },
+    {
+      "name": "get_suggestions",
+      "display_name": "Get Suggestions",
+      "description": "Get keyword suggestions from Serpstat > Keyword Analysis."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/serpstat"
+}

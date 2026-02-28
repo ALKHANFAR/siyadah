@@ -1,0 +1,52 @@
+{
+  "id": "oracle-database",
+  "package": "@activepieces/piece-oracle-database",
+  "display_name": "Oracle Database",
+  "display_name_ar": "",
+  "description": "Enterprise-grade relational database",
+  "category": "J_database",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "delete_row",
+      "display_name": "Delete Row",
+      "description": "Delete rows from an Oracle table"
+    },
+    {
+      "name": "find_row",
+      "display_name": "Find Row",
+      "description": "Find rows in an Oracle table"
+    },
+    {
+      "name": "insert_row",
+      "display_name": "Insert Row",
+      "description": "Insert a row into an Oracle table"
+    },
+    {
+      "name": "insert_rows",
+      "display_name": "Insert Rows",
+      "description": "Insert multiple rows into an Oracle table"
+    },
+    {
+      "name": "run_custom_sql",
+      "display_name": "Run Custom SQL",
+      "description": "Execute custom SQL or PL/SQL in Oracle"
+    },
+    {
+      "name": "update_row",
+      "display_name": "Update Row",
+      "description": "Update rows in an Oracle table"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_row",
+      "display_name": "New Row",
+      "description": "Triggers when a new row is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

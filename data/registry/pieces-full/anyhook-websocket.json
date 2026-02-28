@@ -1,0 +1,21 @@
+{
+  "id": "anyhook-websocket",
+  "package": "@activepieces/piece-anyhook-websocket",
+  "display_name": "AnyHook Websocket",
+  "display_name_ar": "",
+  "description": "AnyHook Websocket enables real-time communication through AnyHook proxy server by allowing you to subscribe and listen to websocket events",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [],
+  "triggers": [
+    {
+      "name": "websocket_subscription_trigger",
+      "display_name": "New Websocket Subscription Event",
+      "description": "Triggers on a new Websocket subscription event",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "jina-ai",
+  "package": "@activepieces/piece-jina-ai",
+  "display_name": "Jina AI",
+  "display_name_ar": "Jina AI",
+  "description": "AI-powered web content extraction, search, and classification",
+  "category": "D_ai",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "classify_content",
+      "display_name": "Classify Text or Image",
+      "description": "Assign categories to text or images using the Classifier API (zero-shot/few-shot)."
+    },
+    {
+      "name": "deepsearch_query",
+      "display_name": "DeepSearch Query",
+      "description": "Answer complex questions through iterative search, reading, and reasoning with the DeepSearch API."
+    },
+    {
+      "name": "extract_webpage_content",
+      "display_name": "Extract Webpage Content",
+      "description": "Convert a URL into clean, LLM-friendly Markdown using the Reader API."
+    },
+    {
+      "name": "train_custom_classifier",
+      "display_name": "Train Custom Classifier",
+      "description": "Fine-tune a classifier with labeled examples for domain-specific tasks."
+    },
+    {
+      "name": "web_search_summarization",
+      "display_name": "Web Search Summarization",
+      "description": "Perform a web search and retrieve summarized results using the Reader API."
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/jina-ai"
+}

@@ -1,0 +1,94 @@
+{
+  "id": "lokalise",
+  "package": "@activepieces/piece-lokalise",
+  "display_name": "Lokalise",
+  "display_name_ar": "Lokalise",
+  "description": "Lokalise is a collaborative translation platform.",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createComment",
+      "display_name": "Create Comment",
+      "description": "Add comments to a key in your Lokalise project"
+    },
+    {
+      "name": "createKey",
+      "display_name": "Create Key",
+      "description": "Create one or more keys in your Lokalise project"
+    },
+    {
+      "name": "createProject",
+      "display_name": "Create Project",
+      "description": "Create a new project in your Lokalise team"
+    },
+    {
+      "name": "createTask",
+      "display_name": "Create Task",
+      "description": "Create a new task in your Lokalise project"
+    },
+    {
+      "name": "deleteKey",
+      "display_name": "Delete Key",
+      "description": "Delete a key from your Lokalise project (software and marketing projects only)"
+    },
+    {
+      "name": "retrieveAComment",
+      "display_name": "Retrieve a comment",
+      "description": "Retrieve a specific comment on a key in your Lokalise project"
+    },
+    {
+      "name": "retrieveAKey",
+      "display_name": "Retrieve a key",
+      "description": "Retrieve detailed information about a specific key in your Lokalise project"
+    },
+    {
+      "name": "retrieveAProject",
+      "display_name": "Retrieve a project",
+      "description": "Retrieve detailed information about a Lokalise project"
+    },
+    {
+      "name": "retrieveTranslation",
+      "display_name": "Retrieve Translation",
+      "description": "Retrieve a specific translation from your Lokalise project"
+    },
+    {
+      "name": "updateKey",
+      "display_name": "Update Key",
+      "description": "Update properties of a key in your Lokalise project"
+    },
+    {
+      "name": "updateTranslation",
+      "display_name": "Update Translation",
+      "description": "Update a translation in your Lokalise project"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "keyAdded",
+      "display_name": "Key Added",
+      "description": "Trigger when a new key is added to your Lokalise project",
+      "type": "scheduled"
+    },
+    {
+      "name": "keyUpdated",
+      "display_name": "Key Updated",
+      "description": "Trigger when a key is updated in your Lokalise project",
+      "type": "scheduled"
+    },
+    {
+      "name": "translationUpdated",
+      "display_name": "Translation Updated",
+      "description": "Trigger when a translation is updated in your Lokalise project",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/lokalise"
+}

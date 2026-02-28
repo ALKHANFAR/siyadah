@@ -1,0 +1,188 @@
+{
+  "id": "documerge",
+  "displayName": "DocuMerge",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "combine_files": {
+      "displayName": "Combine Files",
+      "description": "Combine multiple files into a single PDF or DOCX",
+      "props": [
+        {
+          "name": "output",
+          "displayName": "Output Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The format of the combined file"
+        },
+        {
+          "name": "files",
+          "displayName": "Files",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Array of file identifiers to combine"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Name for the combined file"
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of a file to include (must be a valid URL)"
+        },
+        {
+          "name": "contents",
+          "displayName": "Contents",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional content to include"
+        }
+      ]
+    },
+    "convert_file_to_pdf": {
+      "displayName": "Convert File to PDF",
+      "description": "Convert a given file to PDF",
+      "props": [
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the file to convert"
+        },
+        {
+          "name": "fileUrl",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the file to convert (must be a valid URL)"
+        },
+        {
+          "name": "contents",
+          "displayName": "Contents",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Additional content to include"
+        }
+      ]
+    },
+    "create_data_route_merge": {
+      "displayName": "Create Data Route Merge",
+      "description": "Send data to your Data Route URL",
+      "props": [
+        {
+          "name": "routeKey",
+          "displayName": "Route Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key of the data route to merge"
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Field data to merge into the document"
+        }
+      ]
+    },
+    "create_document_merge": {
+      "displayName": "Create Document Merge",
+      "description": "Send data to your Merge URL",
+      "props": [
+        {
+          "name": "documentKey",
+          "displayName": "Document Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The key of the document to merge"
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Field data to merge into the document"
+        }
+      ]
+    },
+    "split_pdf": {
+      "displayName": "Split PDF",
+      "description": "Extract or remove specific pages from a PDF file",
+      "props": [
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the PDF file"
+        },
+        {
+          "name": "fileUrl",
+          "displayName": "File URL",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "URL of the PDF file (must be a valid URL)"
+        },
+        {
+          "name": "contents",
+          "displayName": "Contents",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Base64 encoded file contents"
+        },
+        {
+          "name": "extract",
+          "displayName": "Pages to Extract",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Page numbers or ranges to extract (e.g., \"1\", \"2-5\", \"1, 3-5\")"
+        },
+        {
+          "name": "remove",
+          "displayName": "Pages to Remove",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Page numbers or ranges to remove (e.g., \"1\", \"2-5\", \"1, 3-5\")"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "new_merged_document": {
+      "displayName": "New Merged Document",
+      "description": "Triggers when a merged/populated document is created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "new_merged_route": {
+      "displayName": "New Merged Route",
+      "description": "Triggers when a merged/populated route is created",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "webhookInstructions",
+          "displayName": "webhookInstructions",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

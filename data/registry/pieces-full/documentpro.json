@@ -1,0 +1,37 @@
+{
+  "id": "documentpro",
+  "package": "@activepieces/piece-documentpro",
+  "display_name": "DocumentPro",
+  "display_name_ar": "",
+  "description": "DocumentPro is an AI-powered document processing platform that automates data extraction from various document types using advanced machine learning algorithms.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "runExtract",
+      "display_name": "Run Extract",
+      "description": "Run an extract/workflow on an uploaded document"
+    },
+    {
+      "name": "uploadDocument",
+      "display_name": "Upload document",
+      "description": "Uploads a document to a DocumentPro parser"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newDocument",
+      "display_name": "New Document",
+      "description": "Triggers when a new document is uploaded to DocumentPro",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

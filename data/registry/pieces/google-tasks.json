@@ -1,0 +1,32 @@
+{
+  "id": "google-tasks",
+  "package": "@activepieces/piece-google-tasks",
+  "display_name": "Google Tasks",
+  "display_name_ar": "Google Tasks",
+  "description": "Task list management application",
+  "category": "B_google",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "add_task",
+      "display_name": "Add Task",
+      "description": "Add a new task to a specified task list"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_task",
+      "display_name": "New Task",
+      "description": "Triggers when a task is created",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/google-tasks"
+}

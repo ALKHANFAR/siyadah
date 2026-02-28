@@ -1,0 +1,20 @@
+{
+  "id": "code",
+  "package": "@activepieces/piece-code",
+  "display_name": "Code",
+  "display_name_ar": "كود",
+  "description": "Run custom JavaScript code",
+  "category": "A_essential",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "run_code",
+      "display_name": "Run Code",
+      "description": "Execute custom code"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "activepieces-builtin"
+}

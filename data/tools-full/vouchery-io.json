@@ -1,0 +1,173 @@
+{
+  "id": "vouchery-io",
+  "displayName": "Vouchery",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "createAVoucher": {
+      "displayName": "Create a voucher",
+      "description": "Create a new voucher in a campaign",
+      "props": [
+        {
+          "name": "voucherCode",
+          "displayName": "Voucher Code",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The code for the voucher"
+        },
+        {
+          "name": "voucher_valid_until",
+          "displayName": "Expiration Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the voucher expires"
+        },
+        {
+          "name": "customer_identifier",
+          "displayName": "Customer Identifier",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The identifier for the customer"
+        },
+        {
+          "name": "gift_card_value",
+          "displayName": "Gift Card Value",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The value of the gift card"
+        },
+        {
+          "name": "activates_at",
+          "displayName": "Activation Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": "The date and time when the voucher becomes active"
+        }
+      ]
+    },
+    "createCustomer": {
+      "displayName": "Create Customer",
+      "description": "Create a new customer",
+      "props": [
+        {
+          "name": "identifier",
+          "displayName": "Customer Identifier",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Unique customer identifier in your application. Can be hash, id, email or any other unique value"
+        },
+        {
+          "name": "name",
+          "displayName": "Customer Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer full name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Customer email address"
+        },
+        {
+          "name": "birthdate",
+          "displayName": "Birthdate",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Customer birthdate object"
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Array of category objects to determine how customer is related to specific categories"
+        },
+        {
+          "name": "name",
+          "displayName": "Category Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Name of the category"
+        },
+        {
+          "name": "tag",
+          "displayName": "tag",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "tag"
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "OBJECT",
+          "required": false,
+          "description": "Additional metadata for the customer"
+        },
+        {
+          "name": "referrer_code",
+          "displayName": "Referrer Code",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "A referral code from the recommending user"
+        },
+        {
+          "name": "loyalty_points",
+          "displayName": "Loyalty Points",
+          "type": "NUMBER",
+          "required": false,
+          "description": "[DEPRECATED - use grant-points endpoint instead] Number of loyalty points customer will have"
+        }
+      ]
+    },
+    "findVoucher": {
+      "displayName": "Find Voucher",
+      "description": "Find a voucher by campaign metadata. At least one metadata must be provided",
+      "props": [
+        {
+          "name": "purpose",
+          "displayName": "Purpose",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Purpose metadata (multiple values allowed)"
+        },
+        {
+          "name": "team",
+          "displayName": "Team",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Team metadata (multiple values allowed)"
+        },
+        {
+          "name": "channel",
+          "displayName": "Channel",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Channel metadata (multiple values allowed)"
+        },
+        {
+          "name": "medium",
+          "displayName": "Medium",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Medium metadata (multiple values allowed)"
+        },
+        {
+          "name": "customer_identifier",
+          "displayName": "Customer Identifier",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Optional: Assign the found voucher to a customer by providing their identifier"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

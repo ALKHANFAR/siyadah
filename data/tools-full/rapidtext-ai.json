@@ -1,0 +1,71 @@
+{
+  "id": "rapidtext-ai",
+  "displayName": "RapidText AI",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "generate-article": {
+      "displayName": "Generate Article",
+      "description": "Generates an article.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "create-prompt": {
+      "displayName": "Send Prompt",
+      "description": "Send prompt to RapidTextAI.",
+      "props": [
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "max_tokens",
+          "displayName": "Max Tokens",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Sampling temperature between 0 and 2."
+        },
+        {
+          "name": "top_p",
+          "displayName": "Top N",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Nucleus sampling parameter"
+        },
+        {
+          "name": "frequency_penalty",
+          "displayName": "Frequency Penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Penalty for new tokens based on frequency"
+        },
+        {
+          "name": "presence_penalty",
+          "displayName": "Presence Penalty",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Penalty for new tokens based on presence"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

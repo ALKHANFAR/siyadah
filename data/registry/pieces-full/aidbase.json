@@ -1,0 +1,99 @@
+{
+  "id": "aidbase",
+  "package": "@activepieces/piece-aidbase",
+  "display_name": "Aidbase",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "add_faq_item",
+      "display_name": "Add FAQ Item",
+      "description": "Adds a new question/answer item to an existing FAQ; supports categories."
+    },
+    {
+      "name": "add_video",
+      "display_name": "Add Video",
+      "description": "Adds a YouTube video URL as knowledge to the Aidbase knowledge base."
+    },
+    {
+      "name": "add_website",
+      "display_name": "Add Website",
+      "description": "Adds a website URL as a knowledge source for Aidbase."
+    },
+    {
+      "name": "create_chatbot_reply",
+      "display_name": "Create Chatbot Reply",
+      "description": "Generates an AI chatbot reply given a message and optional session context."
+    },
+    {
+      "name": "create_faq",
+      "display_name": "Create FAQ",
+      "description": "Creates a new FAQ entry with title and description."
+    },
+    {
+      "name": "start_training",
+      "display_name": "Start Training",
+      "description": "Starts a training job on an existing knowledge base item (FAQ, website, video, etc.)."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "email_priority_changed",
+      "display_name": "Email Priority Changed",
+      "description": "Fires when an email’s priority is changed.",
+      "type": "instant"
+    },
+    {
+      "name": "email_received",
+      "display_name": "Email Received",
+      "description": "Fires when a new email is received in an Aidbase inbox.",
+      "type": "instant"
+    },
+    {
+      "name": "email_sent",
+      "display_name": "Email Sent",
+      "description": "Fires when an email is sent from Aidbase.",
+      "type": "instant"
+    },
+    {
+      "name": "email_status_changed",
+      "display_name": "Email Status Changed",
+      "description": "Fires when the status of an email changes.",
+      "type": "instant"
+    },
+    {
+      "name": "ticket_created",
+      "display_name": "Ticket Created",
+      "description": "Fires when a new ticket is created in Aidbase.",
+      "type": "instant"
+    },
+    {
+      "name": "ticket_new_comment",
+      "display_name": "Ticket New Comment",
+      "description": "Fires when a new comment is added to an existing ticket.",
+      "type": "instant"
+    },
+    {
+      "name": "ticket_priority_changed",
+      "display_name": "Ticket Priority Changed",
+      "description": "Fires when the priority of an existing ticket changes.",
+      "type": "instant"
+    },
+    {
+      "name": "ticket_status_changed",
+      "display_name": "Ticket Status Changed",
+      "description": "Fires when a ticket’s overall status changes.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

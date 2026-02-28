@@ -1,0 +1,20 @@
+{
+  "id": "instagram-business",
+  "displayName": "Instagram for Business",
+  "auth": {
+    "type": "oauth2"
+  },
+  "actions": {
+    "upload_photo": {
+      "displayName": "Upload Photo",
+      "description": "Upload a photo to an Instagram Professional Account",
+      "props": []
+    },
+    "upload_reel": {
+      "displayName": "Upload Reel",
+      "description": "Upload a reel to an Instagram Professional Account",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

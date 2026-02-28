@@ -1,0 +1,55 @@
+{
+  "id": "cartloom",
+  "package": "@activepieces/piece-cartloom",
+  "display_name": "Cartloom",
+  "display_name_ar": "Cartloom",
+  "description": "Sell products beautifully",
+  "category": "F_ecommerce",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "create_discount",
+      "display_name": "Create Discount",
+      "description": "Create a discount in Cartloom"
+    },
+    {
+      "name": "get_discount",
+      "display_name": "Get Discount",
+      "description": "Get discount info from Cartloom"
+    },
+    {
+      "name": "get_all_discounts",
+      "display_name": "Get All Discounts",
+      "description": "Get a list of discounts from Cartloom"
+    },
+    {
+      "name": "get_order",
+      "display_name": "Get Order",
+      "description": "Get an order from Cartloom"
+    },
+    {
+      "name": "get_orders_by_email",
+      "display_name": "Get Order by Email",
+      "description": "Get a list of orders for an email within a date range"
+    },
+    {
+      "name": "get_orders_by_date",
+      "display_name": "Get Order by Date",
+      "description": "Get a list of orders from Cartloom within a date range"
+    },
+    {
+      "name": "get_products",
+      "display_name": "Get Products",
+      "description": "Get a list of products from Cartloom"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/cartloom"
+}

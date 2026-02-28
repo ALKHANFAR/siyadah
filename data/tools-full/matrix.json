@@ -1,0 +1,35 @@
+{
+  "id": "matrix",
+  "displayName": "Home Server",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "send_message": {
+      "displayName": "Send Message",
+      "description": "Send a message to a room",
+      "props": [
+        {
+          "name": "room_alias",
+          "displayName": "Room Alias",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Copy it from room settings -> advanced -> room addresses -> main address"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message to send (markdown)"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

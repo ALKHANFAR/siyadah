@@ -1,0 +1,45 @@
+{
+  "id": "paywhirl",
+  "package": "@activepieces/piece-paywhirl",
+  "display_name": "Paywhirl",
+  "display_name_ar": "",
+  "description": "PayWhirls intuitive tools make recurring billing easy. Sell subscriptions, pre-orders, payment plans, or whatever billing arrangements you can dream up.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "cancelSubscription",
+      "display_name": "Cancel Subscription",
+      "description": "Subscription ID"
+    },
+    {
+      "name": "createCustomer",
+      "display_name": "Create Customer",
+      "description": "Create a new customer. This is required before binding a customer to a plan via a subscription."
+    },
+    {
+      "name": "getCustomer",
+      "display_name": "Get Customers",
+      "description": "Retrieve a selection of customers. Useful for keeping track of customers in a local database."
+    },
+    {
+      "name": "searchCustomersSubscription",
+      "display_name": "Get Customer Subscriptions",
+      "description": "Get a list of subscriptions associated with a given customer. Useful for determining which services a customer is currently expecting."
+    },
+    {
+      "name": "subscribeCustomer",
+      "display_name": "Subscribe Customer",
+      "description": "Enroll a customer in an existing plan. The customer must have a valid payment method on file."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

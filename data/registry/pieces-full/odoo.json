@@ -1,0 +1,50 @@
+{
+  "id": "odoo",
+  "package": "@activepieces/piece-odoo",
+  "display_name": "Odoo",
+  "display_name_ar": "",
+  "description": "Open source all-in-one management software",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "create_company",
+      "display_name": "Create company",
+      "description": "Create/Update company on Odoo"
+    },
+    {
+      "name": "create_contact",
+      "display_name": "Create contact",
+      "description": "Create/Update contact on Odoo"
+    },
+    {
+      "name": "create_record",
+      "display_name": "Custom Create Record",
+      "description": "Create a new record in the specified model"
+    },
+    {
+      "name": "custom_odoo_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom XML-RPC API call to Odoo"
+    },
+    {
+      "name": "get_contacts",
+      "display_name": "Get contacts",
+      "description": "Get contacts on Odoo"
+    },
+    {
+      "name": "get_records",
+      "display_name": "Custom Search and read records",
+      "description": "Records can be listed and filtered"
+    },
+    {
+      "name": "update_record",
+      "display_name": "Custom Update Record",
+      "description": "Update an existing record in the specified model"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

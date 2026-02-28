@@ -1,0 +1,115 @@
+{
+  "id": "chatbase",
+  "displayName": "Chatbase",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create_chatbot": {
+      "displayName": "Create Chatbot",
+      "description": "Creates a new chatbot.",
+      "props": [
+        {
+          "name": "chatbotName",
+          "displayName": "Chatbot Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "sourceText",
+          "displayName": "Source Text",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Optional text data for training the chatbot."
+        }
+      ]
+    },
+    "list_chatbots": {
+      "displayName": "List All Chatbots",
+      "description": "Retrieves a list of all chatbots.",
+      "props": []
+    },
+    "search_conversations": {
+      "displayName": "Search Conversations by Query",
+      "description": "Searches for conversations from a specific chatbot.",
+      "props": [
+        {
+          "name": "filteredSources",
+          "displayName": "Sources",
+          "type": "STATIC_MULTI_SELECT_DROPDOWN",
+          "required": false,
+          "description": "Filter by one or more conversation sources."
+        },
+        {
+          "name": "startDate",
+          "displayName": "Start Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "endDate",
+          "displayName": "End Date",
+          "type": "DATE_TIME",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Pagination page number (default = 1)"
+        },
+        {
+          "name": "size",
+          "displayName": "Page Size",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Number of results per page (default = 10, max = 100)"
+        }
+      ]
+    },
+    "message_chatbot": {
+      "displayName": "Send Prompt to Chatbot",
+      "description": "Sends a prompt to the chatbot to generate a response.",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "temperature",
+          "displayName": "Temperature",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Higher values = more random output. Between 0 and 1."
+        },
+        {
+          "name": "conversationId",
+          "displayName": "Conversation ID",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Unique ID for saving this conversation in Chatbase dashboard."
+        },
+        {
+          "name": "model",
+          "displayName": "Model (Optional)",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

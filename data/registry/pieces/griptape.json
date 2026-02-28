@@ -1,0 +1,65 @@
+{
+  "id": "griptape",
+  "package": "@activepieces/piece-griptape",
+  "display_name": "Griptape Cloud",
+  "display_name_ar": "Griptape Cloud",
+  "description": "Griptape Cloud integration",
+  "category": "K_dev",
+  "auth_type": "none",
+  "actions": [
+    {
+      "name": "createAssistantRun",
+      "display_name": "Create Assistant Run",
+      "description": "Create a run for an assistant with optional additional resources"
+    },
+    {
+      "name": "createStructureRun",
+      "display_name": "Create Structure Run",
+      "description": "Create a run for a structure and wait for completion"
+    },
+    {
+      "name": "getAssistantRun",
+      "display_name": "Get Assistant Run",
+      "description": "Get details of a specific assistant run"
+    },
+    {
+      "name": "getStructureRun",
+      "display_name": "Get Structure Run",
+      "description": "Get details of a specific structure run"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "assistantRunCompletes",
+      "display_name": "Assistant Run Completes",
+      "description": "Trigger when an assistant run is completed (succeeded, failed, or cancelled)",
+      "type": "scheduled"
+    },
+    {
+      "name": "assistantRunSucceedes",
+      "display_name": "Assistant Run Succeeds",
+      "description": "Trigger when an assistant run succeeds",
+      "type": "scheduled"
+    },
+    {
+      "name": "structureRunCompletes",
+      "display_name": "Structure Run Completes",
+      "description": "",
+      "type": "scheduled"
+    },
+    {
+      "name": "structureRunSucceeds",
+      "display_name": "Structure Run Succeeds",
+      "description": "",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/griptape"
+}

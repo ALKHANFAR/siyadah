@@ -1,0 +1,94 @@
+{
+  "id": "microsoft-outlook",
+  "package": "@activepieces/piece-microsoft-outlook",
+  "display_name": "Microsoft Outlook",
+  "display_name_ar": "",
+  "description": null,
+  "category": "L_microsoft",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "addLabelToEmail",
+      "display_name": "Add Label to Email",
+      "description": "Adds a category (label) to an email message."
+    },
+    {
+      "name": "createDraftEmail",
+      "display_name": "Create Draft Email",
+      "description": "Creates a draft email message."
+    },
+    {
+      "name": "downloadAttachment",
+      "display_name": "Download Attachment",
+      "description": "Download attachments from a specific email message."
+    },
+    {
+      "name": "findEmail",
+      "display_name": "Find Email",
+      "description": "Searches for emails using full-text search."
+    },
+    {
+      "name": "forwardEmail",
+      "display_name": "Forward Email",
+      "description": "Forwards an email message."
+    },
+    {
+      "name": "moveEmailToFolder",
+      "display_name": "Move Email to Folder",
+      "description": "Moves an email message to a specific folder."
+    },
+    {
+      "name": "removeLabelFromEmail",
+      "display_name": "Remove Label from Email",
+      "description": "Removes a category (label) from an email message."
+    },
+    {
+      "name": "reply-email",
+      "display_name": "Reply to Email",
+      "description": "Reply to an outlook email."
+    },
+    {
+      "name": "request_approval_in_mail",
+      "display_name": "Request Approval in Email",
+      "description": "Send approval request email and then wait until the email is approved or disapproved"
+    },
+    {
+      "name": "sendDraftEmail",
+      "display_name": "Send Draft Email",
+      "description": "Sends a draft email message."
+    },
+    {
+      "name": "send-email",
+      "display_name": "Send Email",
+      "description": "Sends an email using Microsoft Outlook."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newAttachment",
+      "display_name": "New Attachment",
+      "description": "Triggers when a new email containing one or more attachments arrives.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newEmailInFolder",
+      "display_name": "New Email in Folder",
+      "description": "Triggers when a new email is delivered into the specified folder.",
+      "type": "scheduled"
+    },
+    {
+      "name": "newEmail",
+      "display_name": "New Email",
+      "description": "Triggers when a new email is received in the inbox.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

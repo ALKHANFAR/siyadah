@@ -1,0 +1,51 @@
+{
+  "id": "quickbooks",
+  "package": "@activepieces/piece-quickbooks",
+  "display_name": "Quickbooks Online",
+  "display_name_ar": "",
+  "description": null,
+  "category": "M_finance",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_customer",
+      "display_name": "New Customer",
+      "description": "Triggers when a new customer is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_deposit",
+      "display_name": "New Deposit",
+      "description": "Triggers when a Deposit is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_expense",
+      "display_name": "New Expense (Purchase)",
+      "description": "Triggers when an Expense (Purchase) is created.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_invoice",
+      "display_name": "New Invoice",
+      "description": "Triggers when an invoice is created .",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_transfer",
+      "display_name": "New Transfer",
+      "description": "Triggers when a Transfer is created.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

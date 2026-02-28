@@ -1,0 +1,45 @@
+{
+  "id": "mysql",
+  "package": "@activepieces/piece-mysql",
+  "display_name": "Host",
+  "display_name_ar": "ماي إس كيو إل",
+  "description": "The hostname or address of the mysql server",
+  "category": "J_database",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "delete_row",
+      "display_name": "Delete Row",
+      "description": "Deletes one or more rows from a table"
+    },
+    {
+      "name": "execute_query",
+      "display_name": "Execute Query",
+      "description": "Executes a query on the mysql database and returns the results"
+    },
+    {
+      "name": "find_rows",
+      "display_name": "Find Rows",
+      "description": "Reads rows from a table"
+    },
+    {
+      "name": "get_tables",
+      "display_name": "Get Tables",
+      "description": "Returns a list of tables in the database"
+    },
+    {
+      "name": "insert_row",
+      "display_name": "Insert Row",
+      "description": "Inserts a new row into a table"
+    },
+    {
+      "name": "update_row",
+      "display_name": "Update Row",
+      "description": "Updates one or more rows in a table"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/mysql"
+}

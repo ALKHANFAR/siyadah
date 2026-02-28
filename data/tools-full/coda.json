@@ -1,0 +1,89 @@
+{
+  "id": "coda",
+  "displayName": "Coda",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "create-row": {
+      "displayName": "Create Row",
+      "description": "Creates a new row in the selected table.",
+      "props": []
+    },
+    "find-row": {
+      "displayName": "Find Row(s)",
+      "description": "Find specific rows in the selected table using a column match search.",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-row": {
+      "displayName": "Get Row",
+      "description": "Retrieves a single row by specified ID.",
+      "props": [
+        {
+          "name": "rowIdOrName",
+          "displayName": "Row ID or Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "get-table": {
+      "displayName": "Get Table",
+      "description": "Get structure and details of a specific table (e.g., columns, schema).",
+      "props": []
+    },
+    "list-tables": {
+      "displayName": "List Table(s)",
+      "description": "List tables in a selected document.",
+      "props": [
+        {
+          "name": "max",
+          "displayName": "Max Tables",
+          "type": "NUMBER",
+          "required": true,
+          "description": "Maximum number of results to return."
+        }
+      ]
+    },
+    "update-row": {
+      "displayName": "Update Row",
+      "description": "Updates an existing row in the selected table.",
+      "props": [
+        {
+          "name": "rowIdOrName",
+          "displayName": "Row ID or Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "upsert-row": {
+      "displayName": "Upsert Row",
+      "description": "Creates a new row or updates an existing one if it matches key columns.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new-row-created": {
+      "displayName": "New Row Created",
+      "description": "Triggers when a new row is added to the selected table.",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

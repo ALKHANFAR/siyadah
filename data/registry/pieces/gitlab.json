@@ -1,0 +1,25 @@
+{
+  "id": "gitlab",
+  "package": "@activepieces/piece-gitlab",
+  "display_name": "GitLab",
+  "display_name_ar": "GitLab",
+  "description": "Collaboration tool for developers",
+  "category": "K_dev",
+  "auth_type": "oauth2",
+  "actions": [
+    {
+      "name": "create_issue",
+      "display_name": "Create Issue",
+      "description": "Create a project issue"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/gitlab"
+}

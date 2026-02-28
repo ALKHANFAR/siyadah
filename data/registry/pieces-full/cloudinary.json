@@ -1,0 +1,53 @@
+{
+  "id": "cloudinary",
+  "package": "@activepieces/piece-cloudinary",
+  "display_name": "Cloudinary",
+  "display_name_ar": "",
+  "description": "Cloudinary is a cloud-based image and video management platform that allows you to upload, store, manage, and deliver your media assets. It provides a range of features for image and video optimization, transformation, and delivery.",
+  "category": "G_productivity",
+  "auth_type": "custom",
+  "actions": [
+    {
+      "name": "createUsageReport",
+      "display_name": "Create Usage Report",
+      "description": "Generate a comprehensive report of account usage and quotas including storage, bandwidth, transformations, requests, and add-on usage."
+    },
+    {
+      "name": "deleteResource",
+      "display_name": "Delete Resource",
+      "description": "Permanently delete images, videos, or files from Cloudinary."
+    },
+    {
+      "name": "findResourceByPublicId",
+      "display_name": "Find Resource by Public ID",
+      "description": "Retrieve details of an asset using its unique public ID."
+    },
+    {
+      "name": "transformResource",
+      "display_name": "Transform Resource",
+      "description": "Apply transformations (resize, crop, watermark, etc.) to an asset and generate a new URL."
+    },
+    {
+      "name": "uploadResource",
+      "display_name": "Upload Resource",
+      "description": "Upload a new image, video, or file to Cloudinary."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_resource",
+      "display_name": "Asset Folder",
+      "description": "The Cloudinary folder to watch for new resources. Leave empty to watch the entire account.",
+      "type": "scheduled"
+    },
+    {
+      "name": "new_tag_added_to_asset",
+      "display_name": "Resource Type",
+      "description": "The type of resources to monitor for tag changes",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

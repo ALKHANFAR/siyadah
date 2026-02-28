@@ -1,0 +1,86 @@
+{
+  "id": "aircall",
+  "package": "@activepieces/piece-aircall",
+  "display_name": "Aircall",
+  "display_name_ar": "",
+  "description": null,
+  "category": "G_productivity",
+  "auth_type": "basic_auth",
+  "actions": [
+    {
+      "name": "commentACall",
+      "display_name": "Comment a Call",
+      "description": "Adds a comment (note) to a specific call."
+    },
+    {
+      "name": "createAContact",
+      "display_name": "Create a Contact",
+      "description": "Creates a new contact."
+    },
+    {
+      "name": "findCalls",
+      "display_name": "Find Call",
+      "description": "Finds specific call based on provided filter."
+    },
+    {
+      "name": "findContact",
+      "display_name": "Find Contact",
+      "description": "Finds contact based on phone or email."
+    },
+    {
+      "name": "getCall",
+      "display_name": "Get Call",
+      "description": "Retrieves details about a specific call."
+    },
+    {
+      "name": "tagACall",
+      "display_name": "Tag a Call",
+      "description": "Add tags to a specific call."
+    },
+    {
+      "name": "updateContact",
+      "display_name": "Update Contact",
+      "description": "Update an existing contact."
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "callEnded",
+      "display_name": "Call Ended",
+      "description": "Triggers when a call ends.",
+      "type": "instant"
+    },
+    {
+      "name": "newContact",
+      "display_name": "New Contact",
+      "description": "Triggers when a new contact is created.",
+      "type": "instant"
+    },
+    {
+      "name": "newNote",
+      "display_name": "New Note",
+      "description": "Triggers when a new note is added to a call.",
+      "type": "instant"
+    },
+    {
+      "name": "newNumberCreated",
+      "display_name": "New Number Created",
+      "description": "Triggers when a new number is created.",
+      "type": "instant"
+    },
+    {
+      "name": "newSms",
+      "display_name": "New SMS",
+      "description": "Triggers when a new SMS message is received.",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

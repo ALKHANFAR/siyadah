@@ -1,0 +1,606 @@
+{
+  "id": "zendesk-sell",
+  "displayName": "Zendesk-sell",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_contact": {
+      "displayName": "Create Contact",
+      "description": "Create a new contact.",
+      "props": [
+        {
+          "name": "is_organization",
+          "displayName": "Is Organization",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": "Check this box if the contact is an organization."
+        },
+        {
+          "name": "name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the organization. Required if \"Is Organization\" is checked."
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The last name of the individual. Required if \"Is Organization\" is not checked."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's primary email address."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's phone number."
+        },
+        {
+          "name": "mobile",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's mobile phone number."
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "JSON",
+          "required": false,
+          "description": "An object containing address details (e.g., {\"line1\": \"2726 Smith Street\", \"city\": \"Hyannis\", \"country\": \"US\"})."
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "A key-value object for any custom fields (e.g., {\"referral_website\": \"http://www.example.com\"})."
+        },
+        {
+          "name": "other_fields",
+          "displayName": "Other Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "Enter additional fields as a JSON object (e.g., {\"title\": \"CEO\", \"website\": \"http://example.com\"})."
+        }
+      ]
+    },
+    "create_deal": {
+      "displayName": "Create Deal",
+      "description": "Create a new deal under an existing contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Deal Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The monetary value of the deal (e.g., 15000)."
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "3-character currency code (e.g., USD)."
+        },
+        {
+          "name": "hot",
+          "displayName": "Hot Deal?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this box to mark the deal as \"hot\"."
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "A key-value object for any custom fields."
+        }
+      ]
+    },
+    "create_lead": {
+      "displayName": "Create Lead",
+      "description": "Create a new lead record.",
+      "props": [
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The lead's last name. Required if Organization Name is empty."
+        },
+        {
+          "name": "organization_name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The lead's organization name. Required if Last Name is empty."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The current status of the lead (e.g., \"New\")."
+        },
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The lead's job title."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The lead's email address."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The lead's phone number."
+        },
+        {
+          "name": "mobile",
+          "displayName": "Mobile Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The lead's mobile phone number."
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "JSON",
+          "required": false,
+          "description": "An object containing address details (e.g., {\"line1\": \"123 Main St\", \"city\": \"Anytown\"})."
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "A key-value object for any custom fields (e.g., {\"known_via\": \"tom\"})."
+        },
+        {
+          "name": "other_fields",
+          "displayName": "Other Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "Enter additional fields as a JSON object (e.g., {\"description\": \"I know him via Tom\", \"website\": \"http://example.com\"})."
+        }
+      ]
+    },
+    "create_note": {
+      "displayName": "Create Note",
+      "description": "Add a note to a deal, lead, or contact.",
+      "props": [
+        {
+          "name": "resource_type",
+          "displayName": "Resource Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "The type of resource to attach the note to."
+        },
+        {
+          "name": "dynamic_resource_id",
+          "displayName": "Resource ID",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Select the specific resource to attach the note to."
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The content of the note."
+        },
+        {
+          "name": "is_important",
+          "displayName": "Important",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Mark the note as important (starred)."
+        },
+        {
+          "name": "type",
+          "displayName": "Visibility",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": "Define the note\\"
+        },
+        {
+          "name": "tags",
+          "displayName": "Tags",
+          "type": "ARRAY",
+          "required": false,
+          "description": "An array of tags to add to the note (e.g., [\"premium\", \"follow-up\"])."
+        }
+      ]
+    },
+    "find_company": {
+      "displayName": "Find Company",
+      "description": "Finds a company (organization contact) by name, email, or phone.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Company Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The exact name of the company to find."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The company's primary email address."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The company's primary phone number."
+        }
+      ]
+    },
+    "find_contact": {
+      "displayName": "Find Contact",
+      "description": "Find a contact by email, name, or other identifier.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by the contact's full name or organization name."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "find_deal": {
+      "displayName": "Find Deal",
+      "description": "Look up a deal by ID or name.",
+      "props": [
+        {
+          "name": "deal_id",
+          "displayName": "Deal ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Find a deal by its unique ID. (Prioritized over Name)"
+        },
+        {
+          "name": "deal_name",
+          "displayName": "Deal Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a deal by its exact name. (Used if Deal ID is not provided)"
+        }
+      ]
+    },
+    "find_lead": {
+      "displayName": "Find Lead",
+      "description": "Find a lead by one or more fields.",
+      "props": [
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "organization_name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Filter by lead status (e.g., \"New\")."
+        }
+      ]
+    },
+    "find_user": {
+      "displayName": "Find User",
+      "description": "Finds a user by ID, email, name, or status.",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Find a user by their unique ID. (Prioritized over other fields)"
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a user by their full name."
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Find a user by their email address."
+        },
+        {
+          "name": "role",
+          "displayName": "Role",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    },
+    "update_contact": {
+      "displayName": "Update Contact",
+      "description": "Update fields of an existing contact.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Organization Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The organization's name (only used for organizational contacts)."
+        },
+        {
+          "name": "first_name",
+          "displayName": "First Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's first name (only used for individual contacts)."
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's last name (only used for individual contacts)."
+        },
+        {
+          "name": "customer_status",
+          "displayName": "Customer Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's primary email address."
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The contact's phone number."
+        },
+        {
+          "name": "address",
+          "displayName": "Address",
+          "type": "JSON",
+          "required": false,
+          "description": "An object containing address details (e.g., {\"line1\": \"2726 Smith Street\", \"city\": \"Hyannis\", \"country\": \"US\"})."
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "A key-value object for any custom fields (e.g., {\"referral_website\": \"http://www.example.com\"})."
+        },
+        {
+          "name": "other_fields",
+          "displayName": "Other Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "Enter additional fields as a JSON object (e.g., {\"title\": \"CEO\", \"website\": \"http://example.com\"})."
+        }
+      ]
+    },
+    "update_deal": {
+      "displayName": "Update Deal",
+      "description": "Update fields of an existing deal.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Deal Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "displayName": "Value (Amount)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "The monetary value of the deal (e.g., 1500)."
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "3-character currency code (e.g., USD)."
+        },
+        {
+          "name": "estimated_close_date",
+          "displayName": "Estimated Close Date",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The expected close date in YYYY-MM-DD format."
+        },
+        {
+          "name": "hot",
+          "displayName": "Hot Deal?",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Check this box to mark the deal as \"hot\"."
+        },
+        {
+          "name": "custom_fields",
+          "displayName": "Custom Fields",
+          "type": "JSON",
+          "required": false,
+          "description": "A key-value object for any custom fields."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "deal_enters_stage": {
+      "displayName": "Deal Enters New Stage",
+      "description": "Fires when a deal transitions into a specified pipeline stage by polling for updates.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_contact": {
+      "displayName": "New Contact",
+      "description": "Fires when a new contact is created in Zendesk Sell (polls for new records).",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_deal": {
+      "displayName": "New Deal",
+      "description": "Fires when a new deal is created (polls for new records).",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_lead": {
+      "displayName": "New Lead",
+      "description": "Fires when a new lead is created (polls for new records).",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_note": {
+      "displayName": "New Note",
+      "description": "Fires when a new note is added to a record (lead, contact, deal) (polls for new records).",
+      "type": "POLLING",
+      "props": []
+    },
+    "updated_contact": {
+      "displayName": "Updated Contact",
+      "description": "Fires when an existing contact is updated (polls for updates).",
+      "type": "POLLING",
+      "props": []
+    },
+    "updated_deal": {
+      "displayName": "Updated Deal",
+      "description": "Fires when an existing deal is modified (polls for updates).",
+      "type": "POLLING",
+      "props": []
+    },
+    "updated_lead": {
+      "displayName": "Updated Lead",
+      "description": "Fires when an existing lead record is updated (polls for updates).",
+      "type": "POLLING",
+      "props": []
+    }
+  }
+}

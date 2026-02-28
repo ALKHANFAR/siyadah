@@ -1,0 +1,14 @@
+{
+  "id": "cal-com",
+  "package": "@activepieces/piece-cal-com",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "API Key provided by cal.com",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/cal-com"
+}

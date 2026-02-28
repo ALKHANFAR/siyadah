@@ -1,0 +1,131 @@
+{
+  "id": "recall-ai",
+  "displayName": "Recall.ai",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "createBot": {
+      "displayName": "create bot",
+      "description": "Creates a new bot that will join a meeting",
+      "props": [
+        {
+          "name": "meeting_url",
+          "displayName": "Meeting URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL of the meeting (e.g., https://zoom.us/j/123?pwd=456)"
+        },
+        {
+          "name": "bot_name",
+          "displayName": "Bot Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The name of the bot that will be displayed in the call (max 100 characters). Defaults to \"Meeting Notetaker\""
+        },
+        {
+          "name": "recording_config",
+          "displayName": "Recording Config",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "output_media",
+          "displayName": "Output Media",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "chat",
+          "displayName": "Chat",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "automatic_leave",
+          "displayName": "Automatic Leave",
+          "type": "JSON",
+          "required": false,
+          "description": "Configure when the bot automatically leaves the meeting"
+        },
+        {
+          "name": "variant",
+          "displayName": "Variant",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "breakout_room",
+          "displayName": "Breakout Room",
+          "type": "JSON",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false,
+          "description": "Custom metadata to attach to the bot"
+        }
+      ]
+    },
+    "retrieveBot": {
+      "displayName": "Retrieve Bot",
+      "description": "Get details about a specific bot instance",
+      "props": [
+        {
+          "name": "bot_id",
+          "displayName": "Bot ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A UUID string identifying the bot"
+        }
+      ]
+    },
+    "sendChatMessage": {
+      "displayName": "Send Chat Message",
+      "description": "Causes the bot to send a message in the meeting chat",
+      "props": [
+        {
+          "name": "bot_id",
+          "displayName": "Bot ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "A UUID string identifying the bot"
+        },
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true,
+          "description": "The message that will be sent (max 4096 characters)"
+        },
+        {
+          "name": "to",
+          "displayName": "Send To",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "The person or group that the message will be sent to. Defaults to \"everyone\". On non-Zoom platforms, only \"everyone\" is supported"
+        },
+        {
+          "name": "pin",
+          "displayName": "Pin Message",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Whether to pin the message in the chat"
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

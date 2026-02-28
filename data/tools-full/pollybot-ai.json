@@ -1,0 +1,202 @@
+{
+  "id": "pollybot-ai",
+  "displayName": "PollyBot AI",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_lead": {
+      "displayName": "Create Lead",
+      "description": "Creates a new lead in your PollyBot chatbot.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Lead's full name"
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Valid email address"
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "source",
+          "displayName": "Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Lead source (e.g., website, referral)"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false,
+          "description": "Custom data as JSON object (e.g., {\"company\": \"Tech Corp\"})"
+        }
+      ]
+    },
+    "delete_lead": {
+      "displayName": "Delete Lead",
+      "description": "Permanently deletes a lead from your PollyBot chatbot.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Lead ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the lead to delete."
+        }
+      ]
+    },
+    "get_Lead": {
+      "displayName": "Get Lead",
+      "description": "Retrieves a specific lead by ID.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Lead ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the lead to retrieve."
+        }
+      ]
+    },
+    "list_leads": {
+      "displayName": "List Leads",
+      "description": "Retrieves a list of leads with filtering.",
+      "props": [
+        {
+          "name": "page",
+          "displayName": "Page",
+          "type": "NUMBER",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Max 100"
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "source",
+          "displayName": "Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "search",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": "Search in name and email fields"
+        }
+      ]
+    },
+    "update_lead": {
+      "displayName": "Update Lead",
+      "description": "Updates an existing lead. Supports partial updates.",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Lead ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The unique identifier of the lead to update."
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "source",
+          "displayName": "Source",
+          "type": "SHORT_TEXT",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false,
+          "description": "Update or add custom data. Metadata is merged with existing data."
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "newLead": {
+      "displayName": "New Lead",
+      "description": "Triggers when a new lead is created in PollyBot AI chatbot.",
+      "type": "WEBHOOK",
+      "props": [
+        {
+          "name": "chatbotid",
+          "displayName": "Chatbot ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The Id of the chatbot to monitor for new leads."
+        },
+        {
+          "name": "instruction",
+          "displayName": "instruction",
+          "type": "MARKDOWN",
+          "required": false,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

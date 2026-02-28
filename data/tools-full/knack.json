@@ -1,0 +1,59 @@
+{
+  "id": "knack",
+  "displayName": "Knack",
+  "auth": {
+    "type": "custom"
+  },
+  "actions": {
+    "create_record": {
+      "displayName": "Create Record",
+      "description": "Creates a new record into a specified object/table.",
+      "props": []
+    },
+    "delete_record": {
+      "displayName": "Delete Record",
+      "description": "Deletes an existing record from a table.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the record to delete."
+        }
+      ]
+    },
+    "find_record": {
+      "displayName": "Find Record",
+      "description": "Finds a single record using field value.",
+      "props": [
+        {
+          "name": "fieldValue",
+          "displayName": "Field Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The value to search for in the specified field."
+        }
+      ]
+    },
+    "update_record": {
+      "displayName": "Update Record",
+      "description": "Updates an existing record.",
+      "props": [
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the record to update."
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

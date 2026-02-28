@@ -1,0 +1,42 @@
+{
+  "id": "wonderchat",
+  "package": "@activepieces/piece-wonderchat",
+  "display_name": "API Key",
+  "display_name_ar": "",
+  "description": "Wonderchat is a no-code chatbot platform that lets you deploy AI-powered chatbots for websites quickly.",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "addPage",
+      "display_name": "Add Page",
+      "description": "Add new pages to your chatbot’s knowledge base."
+    },
+    {
+      "name": "addTag",
+      "display_name": "Add Tag",
+      "description": "Add custom tags to a specific chatlog."
+    },
+    {
+      "name": "askQuestion",
+      "display_name": "Ask Question",
+      "description": "Sends a question to a Wonderchat bot; returns the bot’s answer."
+    },
+    {
+      "name": "removeTag",
+      "display_name": "Remove Tag",
+      "description": "Remove specific tags from a chatlog."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "newUserMessage",
+      "display_name": "New User Message",
+      "description": "Triggers when a new message is sent by a user in a specific chatlog.",
+      "type": "scheduled"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github.com/activepieces/activepieces (community/)"
+}

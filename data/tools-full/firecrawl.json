@@ -1,0 +1,409 @@
+{
+  "id": "firecrawl",
+  "displayName": "Firecrawl",
+  "auth": {
+    "type": "secret_text"
+  },
+  "actions": {
+    "crawlResults": {
+      "displayName": "Crawl Results",
+      "description": "Get the results of a crawl job.",
+      "props": [
+        {
+          "name": "crawlId",
+          "displayName": "Crawl ID",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The ID of the crawl job to check."
+        }
+      ]
+    },
+    "crawl": {
+      "displayName": "Crawl",
+      "description": "Crawl multiple pages from a website based on specified rules and patterns.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The base URL to start crawling from."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Describe what information you want to extract."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of pages to crawl. Default limit is 10."
+        },
+        {
+          "name": "formats",
+          "displayName": "Output Format",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose what format you want your output in."
+        },
+        {
+          "name": "onlyMainContent",
+          "displayName": "Only Main Content",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Only return the main content of the page, excluding headers, navs, footers, etc."
+        },
+        {
+          "name": "extractMode",
+          "displayName": "Schema Mode",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Data schema type."
+        },
+        {
+          "name": "extractSchema",
+          "displayName": "Data Definition",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "JSON Schema",
+          "type": "JSON",
+          "required": true,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "Data Definition",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Brief description of the data, this hints for the AI on what to look for"
+        },
+        {
+          "name": "type",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of parameter."
+        },
+        {
+          "name": "isRequired",
+          "displayName": "Fail if Not present?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in seconds after which the task will be cancelled"
+        },
+        {
+          "name": "useWebhook",
+          "displayName": "Deliver Results to Webhook",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable to send crawl results to a webhook URL."
+        },
+        {
+          "name": "webhookProperties",
+          "displayName": "Webhook Properties",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Properties for webhook configuration."
+        },
+        {
+          "name": "webhookUrl",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The URL to send the webhook to. This will trigger for crawl started (crawl.started), every page crawled (crawl.page) and when the crawl is completed (crawl.completed or crawl.failed)."
+        },
+        {
+          "name": "webhookHeaders",
+          "displayName": "Webhook Headers",
+          "type": "JSON",
+          "required": false,
+          "description": "Headers to send to the webhook URL."
+        },
+        {
+          "name": "webhookMetadata",
+          "displayName": "Webhook Metadata",
+          "type": "JSON",
+          "required": false,
+          "description": "Custom metadata that will be included in all webhook payloads for this crawl."
+        },
+        {
+          "name": "webhookEvents",
+          "displayName": "Webhook Events",
+          "type": "ARRAY",
+          "required": false,
+          "description": "Type of events that should be sent to the webhook URL. (default: all)"
+        }
+      ]
+    },
+    "extract": {
+      "displayName": "Extract Structured Data",
+      "description": "Extract structured data from multiple URLs using AI.",
+      "props": [
+        {
+          "name": "urls",
+          "displayName": "URLs",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Add one or more URLs to extract data from."
+        },
+        {
+          "name": "url",
+          "displayName": "URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Website URL to extract data from"
+        },
+        {
+          "name": "prompt",
+          "displayName": "Extraction Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Describe what information you want to extract."
+        },
+        {
+          "name": "enableWebSearch",
+          "displayName": "Enable Web Search",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable web search to find additional context."
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (seconds)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Timeout in seconds after which the task will be cancelled"
+        },
+        {
+          "name": "schema",
+          "displayName": "Data Definition",
+          "type": "DYNAMIC",
+          "required": true,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "JSON Schema",
+          "type": "JSON",
+          "required": true,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "Data Definition",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Brief description of the data, this hints for the AI on what to look for"
+        },
+        {
+          "name": "type",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of parameter."
+        },
+        {
+          "name": "isRequired",
+          "displayName": "Fail if Not present?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "map": {
+      "displayName": "Map Websites",
+      "description": "Input a website and get all the urls on the website.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Main Website URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The webpage URL to start scraping from."
+        },
+        {
+          "name": "subdomain",
+          "displayName": "Include subdomain",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Include and crawl pages from subdomains of the target website (e.g., blog.example.com, shop.example.com) in addition to the main domain."
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum number of links to return (max: 100,000)"
+        }
+      ]
+    },
+    "scrape": {
+      "displayName": "Scrape Website",
+      "description": "Scrape a website by performing a series of actions like clicking, typing, taking screenshots, and extracting data.",
+      "props": [
+        {
+          "name": "url",
+          "displayName": "Website URL",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "The webpage URL to scrape."
+        },
+        {
+          "name": "timeout",
+          "displayName": "Timeout (ms)",
+          "type": "NUMBER",
+          "required": false,
+          "description": "Maximum time to wait for the page to load (in milliseconds)."
+        },
+        {
+          "name": "useActions",
+          "displayName": "Perform Actions Before Scraping",
+          "type": "CHECKBOX",
+          "required": false,
+          "description": "Enable to perform a sequence of actions on the page before scraping (like clicking buttons, filling forms, etc.). See [Firecrawl Actions Documentation](https://docs.firecrawl.dev/api-reference/endpoint/scrape#body-actions) for details on available actions and their parameters."
+        },
+        {
+          "name": "actionProperties",
+          "displayName": "Action Properties",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Properties for actions that will be performed on the page."
+        },
+        {
+          "name": "actions",
+          "displayName": "Actions",
+          "type": "JSON",
+          "required": false,
+          "description": "Sequence of actions to perform on the page."
+        },
+        {
+          "name": "formats",
+          "displayName": "Output Format",
+          "type": "DROPDOWN",
+          "required": true,
+          "description": "Choose what format you want your output in."
+        },
+        {
+          "name": "extractPrompt",
+          "displayName": "Extraction Prompt",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Prompt for extracting data."
+        },
+        {
+          "name": "prompt",
+          "displayName": "Extraction Prompt",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Describe what information you want to extract."
+        },
+        {
+          "name": "extractMode",
+          "displayName": "Schema Mode",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Data schema type."
+        },
+        {
+          "name": "extractSchema",
+          "displayName": "Data Definition",
+          "type": "DYNAMIC",
+          "required": false,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "JSON Schema",
+          "type": "JSON",
+          "required": true,
+          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step"
+        },
+        {
+          "name": "fields",
+          "displayName": "Data Definition",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Provide the name of the value you want to extract from the unstructured text. The name should be unique and short. "
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false,
+          "description": "Brief description of the data, this hints for the AI on what to look for"
+        },
+        {
+          "name": "type",
+          "displayName": "Data Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true,
+          "description": "Type of parameter."
+        },
+        {
+          "name": "isRequired",
+          "displayName": "Fail if Not present?",
+          "type": "CHECKBOX",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

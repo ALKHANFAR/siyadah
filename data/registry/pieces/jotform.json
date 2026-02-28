@@ -1,0 +1,27 @@
+{
+  "id": "jotform",
+  "package": "@activepieces/piece-jotform",
+  "display_name": "API Key",
+  "display_name_ar": "API Key",
+  "description": "Create online forms and surveys",
+  "category": "G_productivity",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "new_submission",
+      "display_name": "New Submission",
+      "description": "Triggers when a new submission is submitted",
+      "type": "instant"
+    }
+  ],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/jotform"
+}

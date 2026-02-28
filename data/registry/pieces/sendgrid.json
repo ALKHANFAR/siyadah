@@ -1,0 +1,30 @@
+{
+  "id": "sendgrid",
+  "package": "@activepieces/piece-sendgrid",
+  "display_name": "API Key",
+  "display_name_ar": "سيند جريد",
+  "description": "API key acquired from your SendGrid settings",
+  "category": "C_communication",
+  "auth_type": "secret_text",
+  "actions": [
+    {
+      "name": "send_dynamic_template",
+      "display_name": "Send Dynamic Template",
+      "description": "Send an email using a dynamic template"
+    },
+    {
+      "name": "send_email",
+      "display_name": "Send Email",
+      "description": "Send a text or HTML email"
+    },
+    {
+      "name": "custom_api_call",
+      "display_name": "Custom API Call",
+      "description": "Make a custom API call"
+    }
+  ],
+  "triggers": [],
+  "_verified": true,
+  "_verified_date": "2026-02-28",
+  "_source": "github/activepieces/community/sendgrid"
+}
