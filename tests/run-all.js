@@ -1,57 +1,78 @@
 #!/usr/bin/env node
 /**
- * سيادة — تشغيل جميع الاختبارات
- * npm test
+ * npm test — يشغّل كل الاختبارات
  */
 
 const { execSync } = require("child_process");
 const path = require("path");
 
-const TESTS = [
-  { name: "① Registry (السجل)", file: "test-registry.js" },
-  { name: "② Tool Details (تفاصيل الأدوات)", file: "test-tool-details.js" },
-  { name: "③ Flow Templates (قوالب التدفق)", file: "test-flows.js" },
-  { name: "④ Complex Flows (50 تدفق معقد)", file: "test-50-flows.js" },
+const tests = [
+  { name: "Phase 1: Registry (602 أداة)",    file: "test-registry.js" },
+  { name: "Phase 2: Tool Details (30 ملف)",  file: "test-tool-details.js" },
+  { name: "Phase 3: Flow Templates (6 قوالب)", file: "test-flows.js" },
+  { name: "Phase 4: Templates & Vars",       file: "test-templates.js" },
+  { name: "Phase 5: Error Map",              file: "test-errors.js" },
+  { name: "Phase 6: Intent + Tool Selector", file: "test-phase6.js" },
+  { name: "Phase 7: Flow Builder",           file: "test-phase7.js" },
+  { name: "Phase 8: Validator (5 Gates)",    file: "test-phase8.js" },
+  { name: "Phase 9: Full Pipeline E2E",      file: "test-phase9.js" },
+  { name: "Phase 9.5: AP+Security+Infra",   file: "test-phase95.js" },
+  { name: "Phase 10-11: Auth+Billing",       file: "test-phase10-11.js" },
+  { name: "Phase 11.5: Load Test+DevOps",    file: "test-phase115.js" },
+  { name: "Phase 12: Full API+Integration",  file: "test-phase12.js" },
+  { name: "50 Complex Flows",                file: "test-50-flows.js" },
 ];
 
-const testsDir = __dirname;
-let totalPass = 0;
-let totalFail = 0;
-let results = [];
+console.log("═══════════════════════════════════════════════════════════");
+console.log("  سيادة Siyadah — تشغيل كل الاختبارات");
+console.log("═══════════════════════════════════════════════════════════\n");
 
-console.log("\n╔══════════════════════════════════════════════╗");
-console.log("║        سيادة — اختبار شامل للمشروع          ║");
-console.log("╚══════════════════════════════════════════════╝\n");
+let totalPassed = 0;
+let totalFailed = 0;
+let allOk = true;
 
-for (const t of TESTS) {
-  const filePath = path.join(testsDir, t.file);
+for (const t of tests) {
   try {
-    const output = execSync(`node "${filePath}" 2>&1`, { encoding: "utf8" });
-    const pass = (output.match(/✅/g) || []).length;
-    const fail = (output.match(/❌/g) || []).length;
-    totalPass += pass;
-    totalFail += fail;
-    const status = fail === 0 ? "✅" : "❌";
-    results.push({ name: t.name, pass, fail, status });
-    console.log(`${status} ${t.name}: ${pass} نجح${fail > 0 ? ` / ${fail} فشل` : ""}`);
-  } catch (err) {
-    const output = err.stdout || "";
-    const pass = (output.match(/✅/g) || []).length;
-    const fail = (output.match(/❌/g) || []).length;
-    totalPass += pass;
-    totalFail += fail;
-    results.push({ name: t.name, pass, fail, status: "❌" });
-    console.log(`❌ ${t.name}: ${pass} نجح / ${fail || "?"} فشل`);
+    const output = execSync(`node ${path.join(__dirname, t.file)}`, {
+      encoding: "utf8",
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+
+    // Extract result line
+    const match = output.match(/(\d+)\/(\d+)\s*(نجحت|passed)/);
+    if (match) {
+      const [, p, tot] = match;
+      const passed = parseInt(p);
+      const total = parseInt(tot);
+      const failed = total - passed;
+      totalPassed += passed;
+      totalFailed += failed;
+
+      const status = failed === 0 ? "✅" : "❌";
+      console.log(`  ${status} ${t.name.padEnd(35)} ${p}/${tot}`);
+
+      if (failed > 0) allOk = false;
+    } else {
+      console.log(`  ✅ ${t.name.padEnd(35)} OK`);
+    }
+  } catch (e) {
+    allOk = false;
+    const output = e.stdout || "";
+    const match = output.match(/(\d+)\/(\d+)\s*(نجحت|passed)/);
+    if (match) {
+      const [, p, tot] = match;
+      totalPassed += parseInt(p);
+      totalFailed += parseInt(tot) - parseInt(p);
+      console.log(`  ❌ ${t.name.padEnd(35)} ${p}/${tot}`);
+    } else {
+      console.log(`  ❌ ${t.name.padEnd(35)} CRASH`);
+    }
   }
 }
 
-console.log("\n──────────────────────────────────────────────");
-console.log(`المجموع: ${totalPass + totalFail} اختبار — ${totalPass} ✅ نجح / ${totalFail} ❌ فشل`);
+const total = totalPassed + totalFailed;
+console.log("\n═══════════════════════════════════════════════════════════");
+console.log(`  المجموع: ${totalPassed}/${total}${allOk ? " ✅" : " ❌"}`);
+console.log("═══════════════════════════════════════════════════════════");
 
-if (totalFail === 0) {
-  console.log("\n🎉 كل الاختبارات نجحت!\n");
-  process.exit(0);
-} else {
-  console.log("\n⚠️  يوجد اختبارات فاشلة\n");
-  process.exit(1);
-}
+process.exit(allOk ? 0 : 1);

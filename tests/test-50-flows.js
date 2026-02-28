@@ -1,4 +1,3 @@
-const path = require("path");
 /**
  * 50 Complex Flow Builder Tests
  * ─────────────────────────────
@@ -16,12 +15,14 @@ const path = require("path");
  */
 
 const fs = require("fs");
+const path = require("path");
+const __BASE = path.join(__dirname, "..");
 
-const reg = JSON.parse(fs.readFileSync(path.join(__dirname, "../") + "/data/registry/tools-full.json", "utf8"));
+const reg = JSON.parse(fs.readFileSync(`${__BASE}/data/registry/tools-full.json`, "utf8"));
 const pieceMap = {};
 reg.pieces.forEach(p => pieceMap[p.id] = p);
 
-const toolsDir = path.join(__dirname, "../") + "/data/tools-full";
+const toolsDir = `${__BASE}/data/tools-full`;
 
 function getActions(pieceId) {
   const p = pieceMap[pieceId];

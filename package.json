@@ -1,17 +1,19 @@
 {
-  "name": "siyadah",
-  "version": "0.2.0",
-  "description": "سيادة — منصة الأتمتة الذكية للمدراء التنفيذيين",
+  "name": "siyadah-data",
+  "version": "3.0.0",
+  "description": "سيادة — بيانات منصة الأتمتة العربية (602 أداة من ActivePieces)",
   "scripts": {
+    "start": "node server.js",
     "test": "node tests/run-all.js",
     "test:registry": "node tests/test-registry.js",
     "test:details": "node tests/test-tool-details.js",
     "test:flows": "node tests/test-flows.js",
+    "test:templates": "node tests/test-templates.js",
+    "test:errors": "node tests/test-errors.js",
     "test:complex": "node tests/test-50-flows.js",
-    "build:registry": "python3 build-registry.py",
-    "add:piece": "python3 add-piece.py"
+    "build": "python3 build-registry.py",
+    "extract": "python3 extract-all-pieces.py"
   },
-  "keywords": ["automation", "arabic", "activepieces", "ceo", "ai"],
-  "license": "UNLICENSED",
-  "private": true
+  "keywords": ["automation", "activepieces", "arabic", "saas"],
+  "license": "MIT"
 }

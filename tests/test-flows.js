@@ -1,7 +1,8 @@
 const path = require("path");
+const __BASE = path.join(__dirname, "..");
 const fs = require("fs");
-const flowsPath = path.join(__dirname, "../") + "/data/flows";
-const registryPath = path.join(__dirname, "../") + "/data/registry/tools.json";
+const flowsPath = `${__BASE}/data/flows`;
+const registryPath = `${__BASE}/data/registry/tools.json`;
 
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 const regToolIds = new Set(registry.pieces.map(p => p.id));

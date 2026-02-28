@@ -1,7 +1,8 @@
 const path = require("path");
+const __BASE = path.join(__dirname, "..");
 const fs = require("fs");
-const toolsDir = path.join(__dirname, "../") + "/data/tools";
-const registryPath = path.join(__dirname, "../") + "/data/registry/tools.json";
+const toolsDir = `${__BASE}/data/tools`;
+const registryPath = `${__BASE}/data/registry/tools.json`;
 
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 const pieces = registry.pieces;

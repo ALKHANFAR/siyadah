@@ -1,16 +1,17 @@
 const path = require("path");
+const __BASE = path.join(__dirname, "..");
 const fs = require("fs");
 
-const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "../") + "/data/registry/tools.json", "utf8"));
+const registry = JSON.parse(fs.readFileSync(`${__BASE}/data/registry/tools.json`, "utf8"));
 const pieces = registry.pieces;
 const pieceIds = new Set(pieces.map(p => p.id));
 const pieceMap = {};
 pieces.forEach(p => pieceMap[p.id] = p);
 
-const piecesDir = path.join(__dirname, "../") + "/data/registry/pieces";
+const piecesDir = `${__BASE}/data/registry/pieces`;
 const pieceFiles = fs.readdirSync(piecesDir).filter(f => f.endsWith(".json"));
 
-const flowsDir = path.join(__dirname, "../") + "/data/flows";
+const flowsDir = `${__BASE}/data/flows`;
 const flowFiles = fs.existsSync(flowsDir) ? fs.readdirSync(flowsDir).filter(f => f.endsWith(".json")) : [];
 const flows = {};
 flowFiles.forEach(f => {
