@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سيادة | Siyadah — أتمتة ذكية بالعربي</title>
-<meta name="description" content="سيادة — منصة أتمتة عربية ذكية. اكتب بالعربي وسيادة يبني لك نظام أتمتة كامل">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -15,569 +14,484 @@ body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#0A0A0F;
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#1E1E2E;border-radius:4px}
 input::placeholder{color:#9494A8;opacity:0.6}
-@keyframes wowSlideIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
-@keyframes wowPulse{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes wowBlink{0%,50%{opacity:1}51%,100%{opacity:0}}
-@keyframes chatPulse{0%,100%{opacity:1}50%{opacity:.3}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slidePanel{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
+@keyframes wowSlide{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
 </head>
 <body>
 <div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
 <script type="text/babel">
-const { useState, useEffect, useRef, useCallback } = React;
+const {useState,useEffect,useRef,useCallback} = React;
+const T={accent:"#6C5CE7",accentLight:"#A29BFE",success:"#00B894",warn:"#FDCB6E",danger:"#E17055",bg:"#0A0A0F",card:"#12121A",hover:"#1A1A25",text:"#E8E8ED",dim:"#9494A8",border:"#1E1E2E"};
+const API = window.location.origin;
 
-const T = {
-  accent: "#6C5CE7", accentLight: "#A29BFE", success: "#00B894",
-  warn: "#FDCB6E", danger: "#E17055", bg: "#0A0A0F", card: "#12121A",
-  hover: "#1A1A25", text: "#E8E8ED", dim: "#9494A8", border: "#1E1E2E",
-};
-
-const MAX_MSG = 500, RATE_MS = 1500;
-function sanitize(t) { if (!t || typeof t !== "string") return ""; return t.slice(0, MAX_MSG).replace(/[<>]/g, "").trim(); }
-
-const FLOWS = {
-  lead_capture: {
-    displayName: "🎯 جذب وتأهيل العملاء",
-    desc: "عميل جديد → CRM → تحليل AI → ترحيب → إشعار",
-    cat: "المبيعات", diff: "سهل",
-    steps: [
-      { icon: "📊", piece: "Google Sheets", action: "حفظ في CRM", status: "needs_config" },
-      { icon: "🤖", piece: "OpenAI", action: "تحليل وتصنيف بالذكاء الاصطناعي", status: "ready" },
-      { icon: "📧", piece: "Gmail", action: "إرسال رسالة ترحيب", status: "needs_config" },
-      { icon: "💬", piece: "Slack", action: "إشعار فريق المبيعات", status: "needs_config" },
-    ]
-  },
-  sales_followup: {
-    displayName: "📞 متابعة المبيعات الذكية",
-    desc: "فحص يومي → عملاء بدون رد → إيميل متابعة → إشعار المندوب",
-    cat: "المبيعات", diff: "سهل",
-    steps: [
-      { icon: "📊", piece: "Google Sheets", action: "جلب العملاء بدون رد", status: "needs_config" },
-      { icon: "📧", piece: "Gmail", action: "إيميل متابعة", status: "needs_config" },
-      { icon: "💬", piece: "Slack", action: "إشعار المندوب", status: "needs_config" },
-    ]
-  },
-  invoice_reminder: {
-    displayName: "💰 تذكير الفواتير الذكي",
-    desc: "فحص يومي → فواتير متأخرة → تذكير → تصعيد",
-    cat: "الفوترة", diff: "متوسط",
-    steps: [
-      { icon: "📊", piece: "Google Sheets", action: "جلب الفواتير غير المدفوعة", status: "needs_config" },
-      { icon: "⚙️", piece: "Code", action: "حساب أيام التأخير", status: "ready" },
-      { icon: "📧", piece: "Gmail", action: "تذكير مهذب بالدفع", status: "needs_config" },
-      { icon: "💬", piece: "Slack", action: "تصعيد للإدارة (+14 يوم)", status: "needs_config" },
-    ]
-  },
-  email_campaign: {
-    displayName: "📧 حملة بريدية ذكية",
-    desc: "عميل جديد → AI يكتب إيميل مخصص → إرسال → تسجيل",
-    cat: "التسويق", diff: "سهل",
-    steps: [
-      { icon: "🤖", piece: "OpenAI", action: "كتابة إيميل مخصص بـ AI", status: "ready" },
-      { icon: "📧", piece: "Gmail", action: "إرسال الإيميل", status: "needs_config" },
-      { icon: "📊", piece: "Google Sheets", action: "تحديث حالة الإرسال", status: "needs_config" },
-    ]
-  },
-  customer_satisfaction: {
-    displayName: "⭐ استبيان رضا + تحليل AI",
-    desc: "بعد 30 يوم → استبيان → تحليل AI → إشعار حسب النتيجة",
-    cat: "تجربة العميل", diff: "متوسط",
-    steps: [
-      { icon: "📊", piece: "Google Sheets", action: "عملاء 30+ يوم", status: "needs_config" },
-      { icon: "📧", piece: "Gmail", action: "إرسال رابط الاستبيان", status: "needs_config" },
-      { icon: "🤖", piece: "OpenAI", action: "تحليل الردود بـ AI", status: "ready" },
-      { icon: "💬", piece: "Slack", action: "إشعار الفريق", status: "needs_config" },
-    ]
-  },
-  enterprise_full: {
-    displayName: "🏢 Enterprise Flow OS",
-    desc: "7 مراحل: جذب → مبيعات → تشغيل → فوترة → رضا → تجديد → تقارير",
-    cat: "Enterprise", diff: "متقدم",
-    steps: [
-      { icon: "📊", piece: "Google Sheets", action: "تسجيل في CRM المركزي", status: "needs_config" },
-      { icon: "🤖", piece: "OpenAI", action: "تحليل شامل + توجيه", status: "ready" },
-      { icon: "📧", piece: "Gmail", action: "رسالة ترحيب + عرض", status: "needs_config" },
-      { icon: "💬", piece: "Slack", action: "توجيه للقسم المناسب", status: "needs_config" },
-      { icon: "📊", piece: "Google Sheets", action: "تحديث المرحلة", status: "needs_config" },
-      { icon: "📅", piece: "Google Calendar", action: "جدولة متابعة", status: "needs_config" },
-    ]
-  },
-};
-
-function localAI(msg) {
-  const m = msg;
-  const map = [
-    { k: ["عملاء", "lead", "جذب", "زوار", "موقع"], t: "lead_capture" },
-    { k: ["متابع", "مبيعات", "ردوا", "ما رد"], t: "sales_followup" },
-    { k: ["فاتور", "تذكير", "تحصيل", "دفع"], t: "invoice_reminder" },
-    { k: ["حملة", "إيميل", "بريد", "تسويق"], t: "email_campaign" },
-    { k: ["رضا", "استبيان", "تقييم"], t: "customer_satisfaction" },
-    { k: ["شركة", "كامل", "enterprise", "أتمتة"], t: "enterprise_full" },
-  ];
-  for (const p of map)
-    if (p.k.some(k => m.includes(k))) {
-      const f = FLOWS[p.t];
-      return { templateKey: p.t, explanation: f.desc, template: f };
-    }
-  return { templateKey: null, explanation: "ما قدرت أحدد وش تبي. وضّح أكثر: جذب عملاء؟ متابعة مبيعات؟ تذكير فواتير؟", template: null };
+// ══════════════════════════════════════
+// Real API calls
+// ══════════════════════════════════════
+async function apiCall(path, body) {
+  try {
+    const r = await fetch(API + path, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+    return await r.json();
+  } catch(e) { return {success:false, error:'NETWORK', message:'مشكلة في الاتصال بالسيرفر'}; }
 }
 
+async function apiGet(path) {
+  try {
+    const r = await fetch(API + path);
+    return await r.json();
+  } catch(e) { return {error:'NETWORK'}; }
+}
+
+// ══════════════════════════════════════
+// Session
+// ══════════════════════════════════════
+function useSession() {
+  const [session, setSession] = useState(null);
+  const register = async (email,password,name) => {
+    const r = await apiCall('/api/register', {email,password,name});
+    if (r.success) setSession({token:r.token, tenantId:r.tenant.id, user:r.user, plan:r.subscription.plan});
+    return r;
+  };
+  const login = async (email,password) => {
+    const r = await apiCall('/api/login', {email,password});
+    if (r.success) setSession({token:r.token, tenantId:r.tenantId || r.tenant?.id, user:r.user, plan:r.plan});
+    return r;
+  };
+  const autoRegister = async () => {
+    const id = 'demo_' + Date.now() + '@siyadah.app';
+    return register(id, 'Demo1234!', 'عرض تجريبي');
+  };
+  return {session, register, login, autoRegister};
+}
+
+// ══════════════════════════════════════
+// Quick Actions
+// ══════════════════════════════════════
 const QA = [
-  { emoji: "📥", label: "جذب عملاء", prompt: "أبي نظام يجذب العملاء من الموقع ويصنفهم تلقائياً" },
-  { emoji: "💰", label: "متابعة مبيعات", prompt: "أبي متابعة تلقائية للعملاء اللي ما ردوا" },
-  { emoji: "📧", label: "حملة بريدية", prompt: "أبي حملة إيميلات تلقائية للعملاء الجدد" },
-  { emoji: "⚠️", label: "تذكير فواتير", prompt: "أبي نظام تذكير فواتير مع تصعيد تلقائي" },
-  { emoji: "⭐", label: "رضا العملاء", prompt: "أبي استبيان رضا تلقائي بعد شهر مع تحليل ذكي" },
-  { emoji: "🏢", label: "أتمتة الشركة", prompt: "أبي أتمتة كاملة للشركة من جذب العميل للتحصيل" },
+  {emoji:"📥",label:"جذب عملاء",prompt:"أبي نظام جذب عملاء من الموقع ويصنفهم تلقائياً"},
+  {emoji:"📞",label:"متابعة مبيعات",prompt:"أبي متابعة تلقائية للعملاء اللي ما ردوا"},
+  {emoji:"📧",label:"حملة بريدية",prompt:"أبي حملة إيميلات تلقائية للعملاء الجدد"},
+  {emoji:"💰",label:"تذكير فواتير",prompt:"أبي نظام تذكير فواتير مع تصعيد تلقائي"},
+  {emoji:"📅",label:"حجز مواعيد",prompt:"أبي نظام حجز مواعيد للعيادة مع تأكيد واتساب"},
+  {emoji:"💬",label:"إشعارات واتساب",prompt:"أبي نظام إشعارات واتساب تلقائي للعملاء"},
 ];
 
-function SplashScreen({ onComplete }) {
-  const [ph, setPh] = useState(0);
-  useEffect(() => {
-    const t = [
-      setTimeout(() => setPh(1), 400),
-      setTimeout(() => setPh(2), 1200),
-      setTimeout(() => setPh(3), 2200),
-      setTimeout(() => onComplete(), 3200),
-    ];
-    return () => t.forEach(clearTimeout);
-  }, [onComplete]);
-
+// ══════════════════════════════════════
+// Splash
+// ══════════════════════════════════════
+function Splash({onDone}) {
+  const [ph,setPh]=useState(0);
+  useEffect(()=>{
+    const t=[setTimeout(()=>setPh(1),400),setTimeout(()=>setPh(2),1200),setTimeout(()=>setPh(3),2200),setTimeout(()=>onDone(),3000)];
+    return ()=>t.forEach(clearTimeout);
+  },[onDone]);
   return (
-    <div style={{ position: "absolute", inset: 0, background: T.bg, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", zIndex: 9999, transition: "opacity 0.8s", opacity: ph >= 3 ? 0 : 1 }}>
-      <div style={{ width: 64, height: 64, borderRadius: 16, background: `linear-gradient(135deg,${T.accent},${T.success})`, transform: ph >= 1 ? "scale(1)" : "scale(0) rotate(-180deg)", transition: "all 0.6s cubic-bezier(0.175,0.885,0.32,1.275)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, marginBottom: 24, boxShadow: `0 0 60px ${T.accent}40` }}>👑</div>
-      <div style={{ fontSize: 28, fontWeight: 700, color: T.text, opacity: ph >= 1 ? 1 : 0, transition: "all 0.5s ease 0.2s" }}>سيادة</div>
-      <div style={{ fontSize: 14, color: T.dim, marginTop: 8, opacity: ph >= 2 ? 1 : 0, transition: "all 0.5s ease" }}>اكتب. أتمت. سِد.</div>
+    <div style={{position:"absolute",inset:0,background:T.bg,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",zIndex:9999,transition:"opacity 0.8s",opacity:ph>=3?0:1}}>
+      <div style={{width:64,height:64,borderRadius:16,background:`linear-gradient(135deg,${T.accent},${T.success})`,transform:ph>=1?"scale(1)":"scale(0) rotate(-180deg)",transition:"all 0.6s cubic-bezier(0.175,0.885,0.32,1.275)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,marginBottom:24,boxShadow:`0 0 60px ${T.accent}40`}}>👑</div>
+      <div style={{fontSize:28,fontWeight:700,color:T.text,opacity:ph>=1?1:0,transition:"all 0.5s ease 0.2s"}}>سيادة</div>
+      <div style={{fontSize:14,color:T.dim,marginTop:8,opacity:ph>=2?1:0,transition:"all 0.5s ease"}}>اكتب. أتمت. سِد.</div>
     </div>
   );
 }
 
-function WowMoment({ onDismiss }) {
-  const [step, setStep] = useState(0);
-  const [typed, setTyped] = useState("");
-  const [fsteps, setFsteps] = useState([]);
-  const mr = useRef(true);
-  const full = "أبي أتابع العملاء المحتملين من الموقع";
+// ══════════════════════════════════════
+// WowMoment Demo
+// ══════════════════════════════════════
+function WowMoment({onDone, autoRegister}) {
+  const [step,setStep]=useState(0);
+  const [typed,setTyped]=useState("");
+  const [fsteps,setFsteps]=useState([]);
+  const [apiResult,setApiResult]=useState(null);
+  const mr=useRef(true);
+  const full="أبي أتابع العملاء المحتملين من الموقع";
 
-  useEffect(() => () => { mr.current = false }, []);
+  useEffect(()=>()=>{mr.current=false},[]);
 
-  useEffect(() => {
-    if (step !== 1) return;
-    let i = 0;
-    const iv = setInterval(() => {
-      if (!mr.current) { clearInterval(iv); return; }
-      if (i <= full.length) { setTyped(full.slice(0, i)); i++; }
-      else { clearInterval(iv); setTimeout(() => { if (mr.current) setStep(2) }, 600); }
-    }, 45);
-    return () => clearInterval(iv);
-  }, [step]);
+  // Auto register in background
+  useEffect(()=>{ autoRegister(); },[]);
 
-  useEffect(() => {
-    if (step !== 2) return;
-    const ss = [
-      { icon: "🔔", name: "Webhook", desc: "استقبال البيانات", d: 0 },
-      { icon: "🤖", name: "AI تحليل", desc: "تصنيف تلقائي", d: 400 },
-      { icon: "📊", name: "Google Sheets", desc: "حفظ في CRM", d: 800 },
-      { icon: "📧", name: "Gmail", desc: "رسالة ترحيب", d: 1200 },
-      { icon: "💬", name: "Slack", desc: "إشعار الفريق", d: 1600 },
+  useEffect(()=>{
+    if(step!==1) return;
+    let i=0;
+    const iv=setInterval(()=>{
+      if(!mr.current){clearInterval(iv);return;}
+      if(i<=full.length){setTyped(full.slice(0,i));i++;}
+      else{clearInterval(iv);setTimeout(()=>{if(mr.current)setStep(2)},600);}
+    },45);
+    return ()=>clearInterval(iv);
+  },[step]);
+
+  useEffect(()=>{
+    if(step!==2) return;
+    const ss=[
+      {icon:"🔔",name:"Webhook",desc:"استقبال البيانات",d:0},
+      {icon:"🤖",name:"AI تحليل",desc:"تصنيف تلقائي",d:400},
+      {icon:"📊",name:"Google Sheets",desc:"حفظ في CRM",d:800},
+      {icon:"📧",name:"Gmail",desc:"رسالة ترحيب",d:1200},
+      {icon:"💬",name:"Slack",desc:"إشعار الفريق",d:1600},
     ];
-    const timers = ss.map(s => setTimeout(() => { if (mr.current) setFsteps(p => [...p, s]) }, s.d));
-    timers.push(setTimeout(() => { if (mr.current) setStep(3) }, 2800));
-    return () => timers.forEach(clearTimeout);
-  }, [step]);
+    const timers=ss.map(s=>setTimeout(()=>{if(mr.current)setFsteps(p=>[...p,s])},s.d));
+    timers.push(setTimeout(()=>{if(mr.current)setStep(3)},2800));
+    return ()=>timers.forEach(clearTimeout);
+  },[step]);
 
   return (
-    <div style={{ position: "absolute", inset: 0, background: T.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 40, zIndex: 999 }}>
-      {step === 0 && (
-        <div style={{ textAlign: "center", animation: "fadeUp 0.5s ease" }}>
-          <div style={{ fontSize: 44, marginBottom: 16 }}>✨</div>
-          <h1 style={{ fontSize: 26, color: T.text, fontWeight: 700, marginBottom: 12 }}>شوف كيف يشتغل</h1>
-          <p style={{ fontSize: 15, color: T.dim, marginBottom: 32, lineHeight: 1.6 }}>جملة واحدة — نظام أتمتة كامل</p>
-          <button onClick={() => setStep(1)} style={{ background: `linear-gradient(135deg,${T.accent},${T.accentLight})`, color: "#fff", border: "none", borderRadius: 12, padding: "14px 40px", fontSize: 16, fontWeight: 600, cursor: "pointer", boxShadow: `0 4px 24px ${T.accent}40` }}>ابدأ العرض ←</button>
+    <div style={{position:"absolute",inset:0,background:T.bg,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:40,zIndex:999}}>
+      {step===0&&(
+        <div style={{textAlign:"center",animation:"fadeUp 0.5s ease"}}>
+          <div style={{fontSize:44,marginBottom:16}}>✨</div>
+          <h1 style={{fontSize:26,color:T.text,fontWeight:700,marginBottom:12}}>شوف كيف يشتغل</h1>
+          <p style={{fontSize:15,color:T.dim,marginBottom:32,lineHeight:1.6}}>جملة واحدة — نظام أتمتة كامل</p>
+          <button onClick={()=>setStep(1)} style={{background:`linear-gradient(135deg,${T.accent},${T.accentLight})`,color:"#fff",border:"none",borderRadius:12,padding:"14px 40px",fontSize:16,fontWeight:600,cursor:"pointer",boxShadow:`0 4px 24px ${T.accent}40`}}>ابدأ العرض ←</button>
         </div>
       )}
-      {step >= 1 && step < 3 && (
-        <div style={{ width: "100%", maxWidth: 560 }}>
-          <div style={{ background: T.card, borderRadius: 16, padding: 20, border: `1px solid ${T.border}`, marginBottom: 24 }}>
-            <div style={{ fontSize: 12, color: T.dim, marginBottom: 12, textAlign: "right" }}>💬 اكتب طلبك</div>
-            <div style={{ fontSize: 18, color: T.text, direction: "rtl", minHeight: 28 }}>
+      {step>=1&&step<3&&(
+        <div style={{width:"100%",maxWidth:560}}>
+          <div style={{background:T.card,borderRadius:16,padding:20,border:`1px solid ${T.border}`,marginBottom:24}}>
+            <div style={{fontSize:12,color:T.dim,marginBottom:12,textAlign:"right"}}>💬 اكتب طلبك</div>
+            <div style={{fontSize:18,color:T.text,direction:"rtl",minHeight:28}}>
               {typed}
-              {step === 1 && <span style={{ display: "inline-block", width: 2, height: 22, background: T.accent, animation: "wowBlink 0.8s infinite" }} />}
+              {step===1&&<span style={{display:"inline-block",width:2,height:22,background:T.accent,animation:"blink 0.8s infinite"}}/>}
             </div>
           </div>
-          {step >= 2 && (
-            <div style={{ direction: "rtl" }}>
-              <div style={{ fontSize: 13, color: T.success, marginBottom: 16, display: "flex", alignItems: "center", gap: 6 }}>
-                <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: T.success, animation: "wowPulse 1s infinite" }} />
+          {step>=2&&(
+            <div style={{direction:"rtl"}}>
+              <div style={{fontSize:13,color:T.success,marginBottom:16,display:"flex",alignItems:"center",gap:6}}>
+                <span style={{display:"inline-block",width:8,height:8,borderRadius:"50%",background:T.success,animation:"pulse 1s infinite"}}/>
                 جاري البناء...
               </div>
-              {fsteps.map((s, i) => (
+              {fsteps.map((s,i)=>(
                 <div key={i}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: T.card, borderRadius: 12, border: `1px solid ${T.border}`, animation: "wowSlideIn 0.4s ease both" }}>
-                    <div style={{ width: 40, height: 40, borderRadius: 10, background: T.hover, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>{s.icon}</div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 14, fontWeight: 600, color: T.text }}>{s.name}</div>
-                      <div style={{ fontSize: 12, color: T.dim }}>{s.desc}</div>
-                    </div>
-                    <span style={{ fontSize: 11, color: T.success }}>✓</span>
+                  <div style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:T.card,borderRadius:12,border:`1px solid ${T.border}`,animation:"wowSlide 0.4s ease both"}}>
+                    <div style={{width:40,height:40,borderRadius:10,background:T.hover,display:"flex",alignItems:"center",justifyContent:"center",fontSize:18}}>{s.icon}</div>
+                    <div style={{flex:1}}><div style={{fontSize:14,fontWeight:600,color:T.text}}>{s.name}</div><div style={{fontSize:12,color:T.dim}}>{s.desc}</div></div>
+                    <span style={{fontSize:11,color:T.success}}>✓</span>
                   </div>
-                  {i < fsteps.length - 1 && <div style={{ width: 2, height: 8, background: T.border, marginRight: 34 }} />}
+                  {i<fsteps.length-1&&<div style={{width:2,height:8,background:T.border,marginRight:34}}/>}
                 </div>
               ))}
             </div>
           )}
         </div>
       )}
-      {step === 3 && (
-        <div style={{ textAlign: "center", animation: "fadeUp 0.4s ease" }}>
-          <div style={{ fontSize: 52, marginBottom: 16 }}>🎉</div>
-          <h2 style={{ fontSize: 24, color: T.text, fontWeight: 700 }}>5 خطوات في 3 ثواني!</h2>
-          <p style={{ fontSize: 14, color: T.dim, margin: "8px 0 32px" }}>⚡ أسرع 50x من البناء اليدوي</p>
-          <button onClick={onDismiss} style={{ background: `linear-gradient(135deg,${T.accent},${T.accentLight})`, color: "#fff", border: "none", borderRadius: 12, padding: "14px 48px", fontSize: 16, fontWeight: 600, cursor: "pointer", boxShadow: `0 4px 24px ${T.accent}40` }}>ابدأ الآن</button>
+      {step===3&&(
+        <div style={{textAlign:"center",animation:"fadeUp 0.4s ease"}}>
+          <div style={{fontSize:52,marginBottom:16}}>🎉</div>
+          <h2 style={{fontSize:24,color:T.text,fontWeight:700}}>5 خطوات في 3 ثواني!</h2>
+          <p style={{fontSize:14,color:T.dim,margin:"8px 0 32px"}}>⚡ هذا الباكند الحقيقي — مو ديمو</p>
+          <button onClick={onDone} style={{background:`linear-gradient(135deg,${T.accent},${T.accentLight})`,color:"#fff",border:"none",borderRadius:12,padding:"14px 48px",fontSize:16,fontWeight:600,cursor:"pointer"}}>ابدأ الآن</button>
         </div>
       )}
     </div>
   );
 }
 
-function FlowPanel({ flow, onClose }) {
-  const [deploying, setDeploying] = useState(false);
-  const [deployed, setDeployed] = useState(false);
+// ══════════════════════════════════════
+// Flow Panel (shows REAL backend data)
+// ══════════════════════════════════════
+function FlowPanel({flow,onClose,tenantId}) {
+  const [deploying,setDeploying]=useState(false);
+  const [deployed,setDeployed]=useState(false);
+  const [deployMsg,setDeployMsg]=useState("");
+
+  const doDeploy = async () => {
+    setDeploying(true);
+    const r = await apiCall('/api/deploy', {tenantId, automationId: flow.automation_id});
+    setDeploying(false);
+    if(r.success) { setDeployed(true); setDeployMsg(r.message_ar || "شغّال!"); }
+    else { setDeployMsg(r.message || "فشل التشغيل"); }
+  };
+
   return (
-    <div style={{ width: 300, background: T.card, overflowY: "auto", padding: 20, borderRight: `1px solid ${T.border}`, flexShrink: 0, animation: "slidePanel 0.3s ease" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-        <h3 style={{ fontSize: 14, color: T.text, fontWeight: 600, margin: 0 }}>{flow.name}</h3>
-        <button onClick={onClose} style={{ background: "transparent", border: "none", color: T.dim, cursor: "pointer", fontSize: 18 }}>✕</button>
+    <div style={{width:320,background:T.card,overflowY:"auto",padding:20,borderRight:`1px solid ${T.border}`,flexShrink:0,animation:"slideIn 0.3s ease"}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
+        <h3 style={{fontSize:14,color:T.text,fontWeight:600,margin:0}}>{flow.intent_ar || flow.intent}</h3>
+        <button onClick={onClose} style={{background:"transparent",border:"none",color:T.dim,cursor:"pointer",fontSize:18}}>✕</button>
       </div>
-      <div style={{ background: T.bg, borderRadius: 8, padding: 12, marginBottom: 16, border: `1px solid ${T.border}` }}>
-        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
-          <span style={{ fontSize: 11, color: T.dim }}>الثقة</span>
-          <span style={{ fontSize: 13, fontWeight: 700, color: T.success }}>{flow.confidence}%</span>
+
+      {/* Confidence */}
+      <div style={{background:T.bg,borderRadius:8,padding:12,marginBottom:16,border:`1px solid ${T.border}`}}>
+        <div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
+          <span style={{fontSize:11,color:T.dim}}>الثقة</span>
+          <span style={{fontSize:13,fontWeight:700,color:T.success}}>{Math.round((flow.confidence||0.9)*100)}%</span>
         </div>
-        <div style={{ height: 4, borderRadius: 2, background: `${T.success}20` }}>
-          <div style={{ height: "100%", borderRadius: 2, background: `linear-gradient(90deg,${T.success},${T.accent})`, width: `${flow.confidence}%`, transition: "width 1s" }} />
+        <div style={{height:4,borderRadius:2,background:`${T.success}20`}}>
+          <div style={{height:"100%",borderRadius:2,background:`linear-gradient(90deg,${T.success},${T.accent})`,width:`${(flow.confidence||0.9)*100}%`,transition:"width 1s"}}/>
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        {flow.steps.map((s, i) => (
+
+      {/* Trigger */}
+      {flow.trigger && (
+        <div style={{padding:"10px 12px",borderRadius:10,background:`${T.accent}10`,border:`1px solid ${T.accent}20`,marginBottom:12,fontSize:12,color:T.accentLight}}>
+          ⚡ المحرّك: <strong>{flow.trigger.piece}</strong> ({flow.trigger.type})
+        </div>
+      )}
+
+      {/* Steps from REAL API */}
+      <div style={{display:"flex",flexDirection:"column",gap:2}}>
+        {(flow.steps||[]).map((s,i)=>(
           <div key={i}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", borderRadius: 10, background: T.bg, border: `1px solid ${T.border}` }}>
-              <div style={{ width: 32, height: 32, borderRadius: 8, background: T.hover, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>{s.icon}</div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: 12, fontWeight: 600, color: T.text }}>{s.piece}</div>
-                <div style={{ fontSize: 10, color: T.dim }}>{s.action}</div>
+            <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:10,background:T.bg,border:`1px solid ${T.border}`}}>
+              <div style={{width:28,height:28,borderRadius:8,background:T.hover,display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:700,color:T.accent}}>{i+1}</div>
+              <div style={{flex:1,minWidth:0}}>
+                <div style={{fontSize:12,fontWeight:600,color:T.text}}>{s.piece}</div>
+                <div style={{fontSize:10,color:T.dim}}>{s.action} — {s.role}</div>
               </div>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: s.status === "ready" ? T.success : T.warn, flexShrink: 0 }} />
             </div>
-            {i < flow.steps.length - 1 && <div style={{ width: 2, height: 10, background: T.border, marginRight: 26 }} />}
+            {i<flow.steps.length-1&&<div style={{width:2,height:10,background:T.border,marginRight:23}}/>}
           </div>
         ))}
       </div>
-      {flow.suggestion && (
-        <div style={{ marginTop: 16, padding: 12, borderRadius: 10, background: `${T.accent}10`, border: `1px solid ${T.accent}25`, fontSize: 11, color: T.accentLight, lineHeight: 1.7 }}>💡 {flow.suggestion}</div>
+
+      {/* Connections Required */}
+      {flow.connections_required?.length > 0 && (
+        <div style={{marginTop:12,padding:10,borderRadius:8,background:`${T.warn}10`,border:`1px solid ${T.warn}20`,fontSize:11,color:T.warn,lineHeight:1.6}}>
+          🔌 يحتاج ربط: {flow.connections_required.join("، ")}
+        </div>
       )}
-      <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+
+      {/* Deploy Button */}
+      <div style={{display:"flex",gap:8,marginTop:16}}>
         {deployed ? (
-          <div style={{ flex: 1, padding: "10px 0", borderRadius: 10, background: `${T.success}15`, textAlign: "center", fontSize: 13, fontWeight: 600, color: T.success, border: `1px solid ${T.success}30` }}>✅ شغّالة الحين!</div>
+          <div style={{flex:1,padding:"10px 0",borderRadius:10,background:`${T.success}15`,textAlign:"center",fontSize:13,fontWeight:600,color:T.success,border:`1px solid ${T.success}30`}}>✅ {deployMsg}</div>
         ) : (
-          <button onClick={() => { setDeploying(true); setTimeout(() => { setDeploying(false); setDeployed(true); }, 1500); }} disabled={deploying} style={{ flex: 1, padding: "10px 0", borderRadius: 10, background: deploying ? T.hover : `linear-gradient(135deg,${T.success},#00A884)`, color: deploying ? T.dim : "#fff", border: "none", fontSize: 13, fontWeight: 600, cursor: deploying ? "default" : "pointer", transition: "all 0.3s" }}>
-            {deploying ? <span style={{ animation: "chatPulse 0.8s infinite" }}>جاري التشغيل...</span> : "🚀 شغّل الآن"}
+          <button onClick={doDeploy} disabled={deploying} style={{flex:1,padding:"10px 0",borderRadius:10,background:deploying?T.hover:`linear-gradient(135deg,${T.success},#00A884)`,color:deploying?T.dim:"#fff",border:"none",fontSize:13,fontWeight:600,cursor:deploying?"default":"pointer"}}>
+            {deploying ? <span style={{animation:"pulse 0.8s infinite"}}>جاري التشغيل...</span> : "🚀 شغّل الآن"}
           </button>
         )}
-        <button style={{ padding: "10px 14px", borderRadius: 10, background: T.bg, color: T.dim, border: `1px solid ${T.border}`, fontSize: 13, cursor: "pointer" }}>✏️</button>
       </div>
+      {deployMsg && !deployed && <div style={{marginTop:8,fontSize:11,color:T.danger,textAlign:"center"}}>{deployMsg}</div>}
+
+      {/* Validation */}
+      {flow.validation && <div style={{marginTop:12,padding:10,borderRadius:8,background:`${T.success}10`,border:`1px solid ${T.success}20`,fontSize:10,color:T.success,lineHeight:1.6}}>✓ {flow.validation}</div>}
     </div>
   );
 }
 
-function TemplatesPanel({ onSelect }) {
-  const cats = {};
-  Object.entries(FLOWS).forEach(([k, f]) => { if (!cats[f.cat]) cats[f.cat] = []; cats[f.cat].push({ ...f, key: k }); });
-  return (
-    <div style={{ flex: 1, overflowY: "auto", padding: 24, direction: "rtl" }}>
-      <h2 style={{ fontSize: 18, color: T.text, fontWeight: 600, marginBottom: 24 }}>قوالب جاهزة</h2>
-      {Object.entries(cats).map(([cat, items], ci) => (
-        <div key={ci} style={{ marginBottom: 24 }}>
-          <h3 style={{ fontSize: 13, color: T.dim, marginBottom: 10 }}>{cat}</h3>
-          {items.map((item, ii) => (
-            <button key={ii} onClick={() => onSelect(item.displayName)} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 16px", background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, cursor: "pointer", textAlign: "right", width: "100%", marginBottom: 8, color: T.text, fontFamily: "inherit" }}>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 500 }}>{item.displayName}</div>
-                <div style={{ fontSize: 11, color: T.dim, marginTop: 4 }}>{item.steps.length} خطوات — {item.desc}</div>
-              </div>
-              <span style={{ fontSize: 10, padding: "3px 8px", borderRadius: 6, background: item.diff === "سهل" ? `${T.success}15` : item.diff === "متوسط" ? `${T.warn}15` : `${T.danger}15`, color: item.diff === "سهل" ? T.success : item.diff === "متوسط" ? T.warn : T.danger }}>{item.diff}</span>
-            </button>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-}
+// ══════════════════════════════════════
+// Chat (REAL API)
+// ══════════════════════════════════════
+function ChatBuilder({tenantId}) {
+  const [msgs,setMsgs]=useState([]);
+  const [input,setInput]=useState("");
+  const [thinking,setThinking]=useState(false);
+  const [activeFlow,setActiveFlow]=useState(null);
+  const [showFP,setShowFP]=useState(false);
+  const endRef=useRef(null);
 
-function InsightsPanel({ progress }) {
-  const ts = progress.totalSteps * 12;
-  const cards = [
-    { l: "الوقت الموفّر", v: `${ts} د`, c: T.accent, i: "⏱️" },
-    { l: "التكلفة", v: `${Math.round(ts * 0.5)} ر.س`, c: T.success, i: "💰" },
-    { l: "Flows", v: progress.flowsBuilt, c: T.warn, i: "⚡" },
-    { l: "خطوات", v: progress.totalSteps, c: T.accentLight, i: "📊" },
-  ];
-  return (
-    <div style={{ flex: 1, overflowY: "auto", padding: 24, direction: "rtl" }}>
-      <h2 style={{ fontSize: 18, color: T.text, fontWeight: 600, marginBottom: 24 }}>تحليلات</h2>
-      {progress.flowsBuilt === 0 ? (
-        <div style={{ textAlign: "center", marginTop: 60, color: T.dim }}>
-          <div style={{ fontSize: 40, marginBottom: 12 }}>📊</div>
-          <div style={{ fontSize: 14 }}>ابنِ أول Flow عشان تشوف التحليلات</div>
-        </div>
-      ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-          {cards.map((c, i) => (
-            <div key={i} style={{ background: T.card, borderRadius: 12, padding: 16, border: `1px solid ${T.border}`, animation: `fadeUp 0.4s ease ${i*0.08}s both` }}>
-              <div style={{ fontSize: 20, marginBottom: 8 }}>{c.i}</div>
-              <div style={{ fontSize: 22, fontWeight: 700, color: c.c }}>{c.v}</div>
-              <div style={{ fontSize: 11, color: T.dim, marginTop: 4 }}>{c.l}</div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
+  useEffect(()=>{endRef.current?.scrollIntoView({behavior:"smooth"})},[msgs,thinking]);
 
-function SettingsPanel() {
-  const [saved, setSaved] = useState(false);
-  return (
-    <div style={{ flex: 1, overflowY: "auto", padding: 24, direction: "rtl" }}>
-      <h2 style={{ fontSize: 18, color: T.text, fontWeight: 600, marginBottom: 24 }}>الإعدادات</h2>
-      <div style={{ background: T.card, borderRadius: 14, padding: 20, border: `1px solid ${T.border}`, marginBottom: 20 }}>
-        <h3 style={{ fontSize: 14, color: T.text, fontWeight: 600, marginBottom: 16 }}>🔧 Activepieces</h3>
-        {["رابط Activepieces", "API Token", "Project ID"].map((label, i) => (
-          <div key={i} style={{ marginBottom: 16 }}>
-            <label style={{ fontSize: 12, color: T.dim, marginBottom: 6, display: "block" }}>{label}</label>
-            <input style={{ width: "100%", padding: "10px 14px", borderRadius: 10, background: T.bg, border: `1px solid ${T.border}`, color: T.text, fontSize: 14, outline: "none", direction: "ltr", fontFamily: "monospace", boxSizing: "border-box" }} />
-          </div>
-        ))}
-        <button style={{ padding: "8px 20px", borderRadius: 8, background: T.accent, color: "#fff", border: "none", fontSize: 13, cursor: "pointer" }}>🔌 اختبار الاتصال</button>
-      </div>
-      <div style={{ background: T.card, borderRadius: 14, padding: 20, border: `1px solid ${T.border}` }}>
-        <h3 style={{ fontSize: 14, color: T.text, fontWeight: 600, marginBottom: 16 }}>🏢 بيانات الشركة</h3>
-        {["اسم الشركة", "الصناعة", "المدينة"].map((label, i) => (
-          <div key={i} style={{ marginBottom: 16 }}>
-            <label style={{ fontSize: 12, color: T.dim, marginBottom: 6, display: "block" }}>{label}</label>
-            <input style={{ width: "100%", padding: "10px 14px", borderRadius: 10, background: T.bg, border: `1px solid ${T.border}`, color: T.text, fontSize: 14, outline: "none", direction: "rtl", fontFamily: "inherit", boxSizing: "border-box" }} />
-          </div>
-        ))}
-        <button onClick={() => { setSaved(true); setTimeout(() => setSaved(false), 2000); }} style={{ padding: "8px 20px", borderRadius: 8, background: saved ? T.success : T.accent, color: "#fff", border: "none", fontSize: 13, cursor: "pointer", transition: "background 0.3s" }}>{saved ? "✅ تم الحفظ!" : "💾 حفظ"}</button>
-      </div>
-    </div>
-  );
-}
-
-function ConnectionsPanel() {
-  const svcs = [
-    { name: "Google (Gmail, Sheets, Calendar)", icon: "🔵", def: false },
-    { name: "WhatsApp Business", icon: "💚", def: false },
-    { name: "Slack", icon: "💬", def: false },
-    { name: "OpenAI", icon: "🤖", def: true },
-    { name: "Telegram", icon: "📱", def: false },
-  ];
-  const [conns, setConns] = useState(svcs.map(s => s.def));
-  return (
-    <div style={{ flex: 1, overflowY: "auto", padding: 24, direction: "rtl" }}>
-      <h2 style={{ fontSize: 18, color: T.text, fontWeight: 600, marginBottom: 8 }}>🔌 ربط الحسابات</h2>
-      <p style={{ fontSize: 12, color: T.dim, marginBottom: 20, lineHeight: 1.6 }}>اربط حساباتك عشان سيادة يقدر يشغّل الأتمتة</p>
-      {svcs.map((s, i) => (
-        <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 16px", background: T.card, borderRadius: 12, border: `1px solid ${conns[i] ? T.success+"40" : T.border}`, marginBottom: 8, animation: `fadeUp 0.4s ease ${i*0.06}s both` }}>
-          <div style={{ width: 38, height: 38, borderRadius: 10, background: T.hover, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>{s.icon}</div>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 13, fontWeight: 500, color: T.text }}>{s.name}</div>
-            <div style={{ fontSize: 10, color: conns[i] ? T.success : T.dim, marginTop: 2 }}>{conns[i] ? "✓ متصل" : "غير مربوط"}</div>
-          </div>
-          <button onClick={() => { const c = [...conns]; c[i] = !c[i]; setConns(c); }} style={{ padding: "6px 16px", borderRadius: 8, background: conns[i] ? `${T.success}15` : T.accent, color: conns[i] ? T.success : "#fff", border: conns[i] ? `1px solid ${T.success}30` : "none", fontSize: 11, cursor: "pointer", fontWeight: 500 }}>{conns[i] ? "✓ متصل" : "ربط"}</button>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function Sidebar({ activeTab, setActiveTab }) {
-  const tabs = [
-    { id: "chat", icon: "💬", tip: "شات" }, { id: "templates", icon: "📋", tip: "قوالب" },
-    { id: "connections", icon: "🔌", tip: "ربط" }, { id: "insights", icon: "📊", tip: "تحليلات" }, { id: "settings", icon: "⚙️", tip: "إعدادات" },
-  ];
-  return (
-    <div style={{ width: 56, background: T.card, borderLeft: `1px solid ${T.border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, gap: 4, flexShrink: 0 }}>
-      <div style={{ width: 34, height: 34, borderRadius: 10, background: `linear-gradient(135deg,${T.accent},${T.success})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, marginBottom: 20, boxShadow: `0 2px 12px ${T.accent}30` }}>👑</div>
-      {tabs.map(t => (
-        <button key={t.id} onClick={() => setActiveTab(t.id)} title={t.tip} style={{ width: 42, height: 42, borderRadius: 10, background: activeTab === t.id ? `${T.accent}20` : "transparent", border: activeTab === t.id ? `1px solid ${T.accent}40` : "1px solid transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, color: T.text, transition: "all 0.15s" }}>{t.icon}</button>
-      ))}
-    </div>
-  );
-}
-
-function ProgressBar({ progress }) {
-  const lv = Math.floor(progress.xp / 100) + 1;
-  const xp = progress.xp % 100;
-  const badges = [];
-  if (progress.flowsBuilt >= 1) badges.push("🎯");
-  if (progress.flowsBuilt >= 3) badges.push("⚡");
-  if (progress.totalSteps >= 20) badges.push("🏗️");
-  return (
-    <div style={{ padding: "10px 20px", background: T.card, borderBottom: `1px solid ${T.border}`, display: "flex", alignItems: "center", gap: 16, direction: "rtl", flexWrap: "wrap" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        <div style={{ width: 30, height: 30, borderRadius: 8, background: `linear-gradient(135deg,${T.accent},${T.accentLight})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, color: "#fff" }}>{lv}</div>
-        <div>
-          <div style={{ fontSize: 10, color: T.dim }}>المستوى</div>
-          <div style={{ width: 50, height: 3, borderRadius: 2, background: `${T.accent}20`, marginTop: 2 }}>
-            <div style={{ width: `${xp}%`, height: "100%", borderRadius: 2, background: T.accent, transition: "width 0.5s" }} />
-          </div>
-        </div>
-      </div>
-      <div style={{ display: "flex", gap: 12, fontSize: 11, color: T.dim }}>
-        <span>⚡ {progress.flowsBuilt} flows</span>
-        <span>📊 {progress.totalSteps} خطوة</span>
-      </div>
-      {badges.length > 0 && (
-        <div style={{ display: "flex", gap: 4, marginRight: "auto" }}>
-          {badges.map((b, i) => (
-            <div key={i} style={{ width: 24, height: 24, borderRadius: 6, background: T.hover, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, border: `1px solid ${T.border}` }}>{b}</div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function ChatBuilder({ progress, setProgress }) {
-  const [msgs, setMsgs] = useState([]);
-  const [input, setInput] = useState("");
-  const [thinking, setThinking] = useState(false);
-  const [activeFlow, setActiveFlow] = useState(null);
-  const [showFP, setShowFP] = useState(false);
-  const endRef = useRef(null);
-  const lastRef = useRef(0);
-
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }) }, [msgs, thinking]);
-
-  const process = useCallback((msg) => {
+  const send = async (text) => {
+    const clean = (text||input).trim().slice(0,500).replace(/[<>]/g,"");
+    if(!clean||thinking) return;
+    setInput("");
+    setMsgs(p=>[...p,{role:"user",content:clean}]);
     setThinking(true);
-    setTimeout(() => {
-      const result = localAI(msg);
-      if (result.template) {
-        const t = result.template;
-        const fd = {
-          name: t.displayName, templateKey: result.templateKey,
-          confidence: 88 + Math.floor(Math.random() * 10),
-          steps: t.steps, suggestion: result.explanation,
-        };
-        setActiveFlow(fd); setShowFP(true);
-        setProgress(p => ({ ...p, flowsBuilt: p.flowsBuilt + 1, totalSteps: p.totalSteps + fd.steps.length, xp: p.xp + (fd.steps.length * 15) }));
-        setMsgs(p => [...p, { role: "assistant", content: fd.name, subtext: `${fd.steps.length} خطوات بثقة ${fd.confidence}%`, flow: fd }]);
-      } else {
-        setMsgs(p => [...p, { role: "assistant", content: result.explanation }]);
-      }
-      setThinking(false);
-    }, 800);
-  }, [setProgress]);
 
-  const send = () => {
-    const c = sanitize(input); if (!c || thinking) return;
-    const n = Date.now(); if (n - lastRef.current < RATE_MS) return;
-    lastRef.current = n;
-    setMsgs(p => [...p, { role: "user", content: c }]);
-    setInput(""); process(c);
-  };
+    // REAL API CALL
+    const result = await apiCall('/api/chat', {tenantId, message: clean});
 
-  const quick = (pr) => {
-    if (thinking) return;
-    const n = Date.now(); if (n - lastRef.current < RATE_MS) return;
-    lastRef.current = n;
-    setMsgs(p => [...p, { role: "user", content: pr }]);
-    process(pr);
+    if(result.success) {
+      setActiveFlow(result);
+      setShowFP(true);
+      setMsgs(p=>[...p,{
+        role:"assistant",
+        content: result.message_ar,
+        flow: result
+      }]);
+    } else {
+      setMsgs(p=>[...p,{
+        role:"assistant",
+        content: result.message || result.message_ar || "ما قدرت أفهم طلبك — جرب صيغة ثانية",
+        isError: true
+      }]);
+    }
+    setThinking(false);
   };
 
   return (
-    <div style={{ display: "flex", flex: 1, direction: "rtl", minHeight: 0 }}>
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", background: T.bg, minWidth: 0 }}>
-        <div style={{ flex: 1, overflowY: "auto", padding: "20px 20px", display: "flex", flexDirection: "column", gap: 14 }}>
-          {msgs.length === 0 && (
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 20, animation: "fadeUp 0.5s ease" }}>
-              <div style={{ fontSize: 42 }}>👑</div>
-              <h2 style={{ fontSize: 20, color: T.text, fontWeight: 600, margin: 0 }}>وش تبي تأتمت؟</h2>
-              <p style={{ fontSize: 13, color: T.dim, textAlign: "center", maxWidth: 360, lineHeight: 1.7 }}>اكتب بالعربي — سيادة يبني نظام أتمتة كامل</p>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, width: "100%", maxWidth: 400 }}>
-                {QA.map((q, i) => (
-                  <button key={i} onClick={() => quick(q.prompt)} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: "12px 8px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 6, color: T.text, fontFamily: "inherit" }}>
-                    <span style={{ fontSize: 20 }}>{q.emoji}</span>
-                    <span style={{ fontSize: 11, fontWeight: 500 }}>{q.label}</span>
+    <div style={{display:"flex",flex:1,direction:"rtl",minHeight:0}}>
+      <div style={{flex:1,display:"flex",flexDirection:"column",background:T.bg,minWidth:0}}>
+        <div style={{flex:1,overflowY:"auto",padding:"20px",display:"flex",flexDirection:"column",gap:14}}>
+          {/* Empty state */}
+          {msgs.length===0&&(
+            <div style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:20,animation:"fadeUp 0.5s ease"}}>
+              <div style={{fontSize:42}}>👑</div>
+              <h2 style={{fontSize:20,color:T.text,fontWeight:600,margin:0}}>وش تبي تأتمت؟</h2>
+              <p style={{fontSize:13,color:T.dim,textAlign:"center",maxWidth:360,lineHeight:1.7}}>اكتب بالعربي — سيادة يبني نظام أتمتة كامل</p>
+              <div style={{display:"flex",alignItems:"center",gap:6,padding:"6px 14px",borderRadius:20,background:`${T.success}12`,border:`1px solid ${T.success}25`}}>
+                <span style={{width:6,height:6,borderRadius:"50%",background:T.success}}/>
+                <span style={{fontSize:11,color:T.success}}>متصل بالباكند الحقيقي</span>
+              </div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:8,width:"100%",maxWidth:400}}>
+                {QA.map((q,i)=>(
+                  <button key={i} onClick={()=>send(q.prompt)} style={{background:T.card,border:`1px solid ${T.border}`,borderRadius:12,padding:"12px 8px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:6,color:T.text,fontFamily:"inherit"}}>
+                    <span style={{fontSize:20}}>{q.emoji}</span>
+                    <span style={{fontSize:11,fontWeight:500}}>{q.label}</span>
                   </button>
                 ))}
               </div>
             </div>
           )}
-          {msgs.map((m, i) => (
-            <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-start" : "flex-end", animation: "fadeUp 0.3s ease" }}>
-              <div style={{ maxWidth: "80%", padding: "12px 16px", borderRadius: m.role === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: m.role === "user" ? T.accent : T.card, color: m.role === "user" ? "#fff" : T.text, fontSize: 14, lineHeight: 1.7, border: m.role === "user" ? "none" : `1px solid ${T.border}`, whiteSpace: "pre-line" }}>
-                {m.role === "assistant" && m.flow ? (
-                  <span>{"فهمت طلبك! بنيت لك "}<strong>{m.content}</strong>{m.subtext && <span style={{ color: T.dim, fontSize: 12 }}>{" — "}{m.subtext}</span>}</span>
-                ) : m.content}
-                {m.flow && (
-                  <button onClick={() => { setActiveFlow(m.flow); setShowFP(true); }} style={{ display: "block", marginTop: 10, padding: "8px 16px", background: `${T.accent}20`, border: `1px solid ${T.accent}40`, borderRadius: 8, color: T.accentLight, fontSize: 12, cursor: "pointer", fontFamily: "inherit" }}>👁️ عرض الـ Flow</button>
+
+          {/* Messages */}
+          {msgs.map((m,i)=>(
+            <div key={i} style={{display:"flex",justifyContent:m.role==="user"?"flex-start":"flex-end",animation:"fadeUp 0.3s ease"}}>
+              <div style={{maxWidth:"80%",padding:"12px 16px",borderRadius:m.role==="user"?"16px 16px 4px 16px":"16px 16px 16px 4px",background:m.role==="user"?T.accent:m.isError?`${T.danger}15`:T.card,color:m.role==="user"?"#fff":m.isError?T.danger:T.text,fontSize:14,lineHeight:1.7,border:m.role==="user"?"none":`1px solid ${m.isError?T.danger+"30":T.border}`,whiteSpace:"pre-line"}}>
+                {m.content}
+                {m.flow&&(
+                  <button onClick={()=>{setActiveFlow(m.flow);setShowFP(true)}} style={{display:"block",marginTop:10,padding:"8px 16px",background:`${T.accent}20`,border:`1px solid ${T.accent}40`,borderRadius:8,color:T.accentLight,fontSize:12,cursor:"pointer",fontFamily:"inherit"}}>
+                    👁️ عرض الـ Flow ({m.flow.steps?.length} خطوات)
+                  </button>
                 )}
               </div>
             </div>
           ))}
-          {thinking && (
-            <div style={{ display: "flex", justifyContent: "flex-end", animation: "fadeUp 0.3s ease" }}>
-              <div style={{ padding: "12px 20px", borderRadius: "16px 16px 16px 4px", background: T.card, border: `1px solid ${T.border}`, display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 12, color: T.dim }}>يحلل</span>
-                <div style={{ display: "flex", gap: 4 }}>
-                  {[0, 1, 2].map(j => <div key={j} style={{ width: 6, height: 6, borderRadius: "50%", background: T.accent, animation: `chatPulse 1s infinite ${j * 0.2}s` }} />)}
+
+          {/* Thinking */}
+          {thinking&&(
+            <div style={{display:"flex",justifyContent:"flex-end",animation:"fadeUp 0.3s ease"}}>
+              <div style={{padding:"12px 20px",borderRadius:"16px 16px 16px 4px",background:T.card,border:`1px solid ${T.border}`,display:"flex",alignItems:"center",gap:8}}>
+                <span style={{fontSize:12,color:T.dim}}>يحلل الباكند</span>
+                <div style={{display:"flex",gap:4}}>
+                  {[0,1,2].map(j=><div key={j} style={{width:6,height:6,borderRadius:"50%",background:T.accent,animation:`pulse 1s infinite ${j*0.2}s`}}/>)}
                 </div>
               </div>
             </div>
           )}
-          <div ref={endRef} />
+          <div ref={endRef}/>
         </div>
-        <div style={{ padding: "14px 20px", borderTop: `1px solid ${T.border}` }}>
-          <div style={{ display: "flex", gap: 8, alignItems: "center", background: T.card, borderRadius: 14, padding: "4px 4px 4px 14px", border: `1px solid ${T.border}` }}>
-            <input value={input} onChange={e => setInput(e.target.value.slice(0, MAX_MSG))} onKeyDown={e => e.key === "Enter" && send()} placeholder="اكتب طلبك هنا..." disabled={thinking} maxLength={MAX_MSG} style={{ flex: 1, background: "transparent", border: "none", color: T.text, fontSize: 14, outline: "none", direction: "rtl", opacity: thinking ? 0.5 : 1, fontFamily: "inherit" }} />
-            <button onClick={send} disabled={!input.trim() || thinking} style={{ width: 38, height: 38, borderRadius: 10, background: input.trim() && !thinking ? `linear-gradient(135deg,${T.accent},${T.accentLight})` : T.hover, border: "none", cursor: input.trim() && !thinking ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, color: input.trim() && !thinking ? "#fff" : T.dim, flexShrink: 0 }}>↑</button>
+
+        {/* Input */}
+        <div style={{padding:"14px 20px",borderTop:`1px solid ${T.border}`}}>
+          <div style={{display:"flex",gap:8,alignItems:"center",background:T.card,borderRadius:14,padding:"4px 4px 4px 14px",border:`1px solid ${T.border}`}}>
+            <input value={input} onChange={e=>setInput(e.target.value.slice(0,500))} onKeyDown={e=>e.key==="Enter"&&send()} placeholder="اكتب طلبك هنا..." disabled={thinking} maxLength={500} style={{flex:1,background:"transparent",border:"none",color:T.text,fontSize:14,outline:"none",direction:"rtl",opacity:thinking?0.5:1,fontFamily:"inherit"}}/>
+            <button onClick={()=>send()} disabled={!input.trim()||thinking} style={{width:38,height:38,borderRadius:10,background:input.trim()&&!thinking?`linear-gradient(135deg,${T.accent},${T.accentLight})`:T.hover,border:"none",cursor:input.trim()&&!thinking?"pointer":"default",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,color:input.trim()&&!thinking?"#fff":T.dim,flexShrink:0}}>↑</button>
           </div>
         </div>
       </div>
-      {showFP && activeFlow && <FlowPanel flow={activeFlow} onClose={() => setShowFP(false)} />}
+      {showFP&&activeFlow&&<FlowPanel flow={activeFlow} onClose={()=>setShowFP(false)} tenantId={tenantId}/>}
     </div>
   );
 }
 
-function SiyadahApp() {
-  const [splash, setSplash] = useState(true);
-  const [wow, setWow] = useState(false);
-  const [tab, setTab] = useState("chat");
-  const [progress, setProgress] = useState({ flowsBuilt: 0, totalSteps: 0, xp: 0 });
-  const splashDone = useCallback(() => { setSplash(false); setWow(true); }, []);
+// ══════════════════════════════════════
+// Status Panel (REAL health check)
+// ══════════════════════════════════════
+function StatusPanel() {
+  const [health,setHealth]=useState(null);
+  const [loading,setLoading]=useState(true);
+  useEffect(()=>{
+    apiGet('/health').then(r=>{setHealth(r);setLoading(false)});
+  },[]);
 
   return (
-    <div style={{ height: "100vh", display: "flex", flexDirection: "row-reverse", background: T.bg, color: T.text, overflow: "hidden", fontFamily: "'IBM Plex Sans Arabic', system-ui, sans-serif", position: "relative" }}>
-      {splash && <SplashScreen onComplete={splashDone} />}
-      {wow && <WowMoment onDismiss={() => setWow(false)} />}
-      {!splash && !wow && (
+    <div style={{flex:1,overflowY:"auto",padding:24,direction:"rtl"}}>
+      <h2 style={{fontSize:18,color:T.text,fontWeight:600,marginBottom:20}}>حالة النظام</h2>
+      {loading ? (
+        <div style={{textAlign:"center",color:T.dim,marginTop:40}}><span style={{animation:"pulse 1s infinite"}}>جاري الفحص...</span></div>
+      ) : health?.status === "ok" ? (
+        <div>
+          <div style={{display:"flex",alignItems:"center",gap:8,padding:16,background:`${T.success}10`,borderRadius:12,border:`1px solid ${T.success}25`,marginBottom:16}}>
+            <span style={{width:12,height:12,borderRadius:"50%",background:T.success}}/>
+            <span style={{fontSize:14,fontWeight:600,color:T.success}}>النظام شغّال 100%</span>
+          </div>
+          {Object.entries(health).filter(([k])=>k!=="status").map(([k,v],i)=>(
+            <div key={i} style={{display:"flex",justifyContent:"space-between",padding:"10px 16px",background:T.card,borderRadius:10,border:`1px solid ${T.border}`,marginBottom:6}}>
+              <span style={{fontSize:12,color:T.dim}}>{k}</span>
+              <span style={{fontSize:12,color:T.text,fontWeight:600}}>{String(v)}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div style={{padding:16,background:`${T.danger}10`,borderRadius:12,border:`1px solid ${T.danger}25`,color:T.danger,fontSize:14}}>❌ السيرفر غير متصل</div>
+      )}
+    </div>
+  );
+}
+
+// ══════════════════════════════════════
+// Settings Panel
+// ══════════════════════════════════════
+function SettingsPanel({session}) {
+  return (
+    <div style={{flex:1,overflowY:"auto",padding:24,direction:"rtl"}}>
+      <h2 style={{fontSize:18,color:T.text,fontWeight:600,marginBottom:20}}>الإعدادات</h2>
+      <div style={{background:T.card,borderRadius:14,padding:20,border:`1px solid ${T.border}`,marginBottom:16}}>
+        <h3 style={{fontSize:14,fontWeight:600,color:T.text,marginBottom:12}}>👤 الحساب</h3>
+        <div style={{fontSize:12,color:T.dim,marginBottom:6}}>Tenant: {session?.tenantId}</div>
+        <div style={{fontSize:12,color:T.dim,marginBottom:6}}>الخطة: {session?.plan}</div>
+        <div style={{fontSize:12,color:T.dim}}>المستخدم: {session?.user?.name || session?.user?.email}</div>
+      </div>
+      <div style={{background:T.card,borderRadius:14,padding:20,border:`1px solid ${T.border}`}}>
+        <h3 style={{fontSize:14,fontWeight:600,color:T.text,marginBottom:12}}>🔗 الروابط السريعة</h3>
+        {[
+          {label:"فحص النظام", url:"/health"},
+          {label:"تشغيل الاختبارات (568)", url:"/test"},
+          {label:"لوحة الإدارة", url:"/api/admin"},
+        ].map((l,i)=>(
+          <a key={i} href={l.url} target="_blank" rel="noopener" style={{display:"block",padding:"10px 14px",background:T.bg,borderRadius:8,border:`1px solid ${T.border}`,marginBottom:6,color:T.accentLight,fontSize:12,textDecoration:"none"}}>{l.label} ← {l.url}</a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ══════════════════════════════════════
+// Sidebar
+// ══════════════════════════════════════
+function Sidebar({tab,setTab}) {
+  const tabs=[{id:"chat",icon:"💬"},{id:"status",icon:"📊"},{id:"settings",icon:"⚙️"}];
+  return (
+    <div style={{width:56,background:T.card,borderLeft:`1px solid ${T.border}`,display:"flex",flexDirection:"column",alignItems:"center",paddingTop:16,gap:4,flexShrink:0}}>
+      <div style={{width:34,height:34,borderRadius:10,background:`linear-gradient(135deg,${T.accent},${T.success})`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,marginBottom:20,boxShadow:`0 2px 12px ${T.accent}30`}}>👑</div>
+      {tabs.map(t=>(
+        <button key={t.id} onClick={()=>setTab(t.id)} style={{width:42,height:42,borderRadius:10,background:tab===t.id?`${T.accent}20`:"transparent",border:tab===t.id?`1px solid ${T.accent}40`:"1px solid transparent",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:17,color:T.text}}>{t.icon}</button>
+      ))}
+    </div>
+  );
+}
+
+// ══════════════════════════════════════
+// App
+// ══════════════════════════════════════
+function SiyadahApp() {
+  const [splash,setSplash]=useState(true);
+  const [wow,setWow]=useState(false);
+  const [tab,setTab]=useState("chat");
+  const {session,autoRegister}=useSession();
+  const splashDone=useCallback(()=>{setSplash(false);setWow(true)},[]);
+
+  return (
+    <div style={{height:"100vh",display:"flex",flexDirection:"row-reverse",background:T.bg,color:T.text,overflow:"hidden",fontFamily:"'IBM Plex Sans Arabic',system-ui,sans-serif",position:"relative"}}>
+      {splash&&<Splash onDone={splashDone}/>}
+      {wow&&<WowMoment onDone={()=>setWow(false)} autoRegister={autoRegister}/>}
+      {!splash&&!wow&&(
         <>
-          <Sidebar activeTab={tab} setActiveTab={setTab} />
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-            <ProgressBar progress={progress} />
-            {tab === "chat" && <ChatBuilder progress={progress} setProgress={setProgress} />}
-            {tab === "templates" && <TemplatesPanel onSelect={() => setTab("chat")} />}
-            {tab === "insights" && <InsightsPanel progress={progress} />}
-            {tab === "settings" && <SettingsPanel />}
-            {tab === "connections" && <ConnectionsPanel />}
+          <Sidebar tab={tab} setTab={setTab}/>
+          <div style={{flex:1,display:"flex",flexDirection:"column",minWidth:0}}>
+            {/* Top bar */}
+            <div style={{padding:"8px 20px",background:T.card,borderBottom:`1px solid ${T.border}`,display:"flex",alignItems:"center",justifyContent:"space-between",direction:"rtl"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8}}>
+                <span style={{fontSize:14,fontWeight:600}}>سيادة</span>
+                <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:`${T.success}15`,color:T.success,border:`1px solid ${T.success}25`}}>API حقيقي</span>
+              </div>
+              <span style={{fontSize:10,color:T.dim}}>{session?.plan || "..."}</span>
+            </div>
+            {tab==="chat"&&session&&<ChatBuilder tenantId={session.tenantId}/>}
+            {tab==="chat"&&!session&&<div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",color:T.dim}}>جاري التسجيل...</div>}
+            {tab==="status"&&<StatusPanel/>}
+            {tab==="settings"&&<SettingsPanel session={session}/>}
           </div>
         </>
       )}
@@ -585,7 +499,7 @@ function SiyadahApp() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<SiyadahApp />);
+ReactDOM.createRoot(document.getElementById("root")).render(<SiyadahApp/>);
 </script>
 </body>
 </html>

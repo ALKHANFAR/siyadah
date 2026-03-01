@@ -55,6 +55,20 @@ const INTENT_TOOL_MAP = {
     ],
   },
 
+  sales_followup: {
+    trigger: { piece: "schedule", trigger: "cron_expression" },
+    steps: [
+      { piece: "google-sheets", action: "find_rows", role: "find_no_reply" },
+      { piece: "openai", action: "ask_chatgpt", role: "write_followup" },
+      { piece: "gmail", action: "send_email", role: "send_followup" },
+      { piece: "slack", action: "send_channel_message", role: "notify_sales" },
+    ],
+    optional: [
+      { piece: "whatsapp", action: "sendMessage", role: "whatsapp_followup" },
+      { piece: "google-sheets", action: "update_row", role: "update_status" },
+    ],
+  },
+
   appointment_book: {
     trigger: { piece: "webhook", trigger: "catch_webhook" },
     steps: [
