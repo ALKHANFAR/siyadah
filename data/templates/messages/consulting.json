@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "industry": "consulting",
+    "industry_ar": "استشارات",
+    "version": "1.0.0",
+    "dialect": "saudi",
+    "total_templates": 8,
+    "variable_style": "{{category.variable}}"
+  },
+  "templates": {
+    "welcome": {
+      "id": "consulting_welcome",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}} 👋\n\nشكراً لتواصلك مع {{company.company_name}}.\nوصلنا طلبك وبنحدد لك استشاري متخصص.\n\nللاستفسار: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "follow_up_day3": {
+      "id": "consulting_followup_day3",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nنتمنى إن الاستشارة مع {{company.company_name}} كانت مفيدة. لو عندك أسئلة إضافية أو تحتاج جلسة متابعة، نحن جاهزين.\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "follow_up_day7": {
+      "id": "consulting_followup_day7",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nمر أسبوع من جلستك الاستشارية. حبينا نتأكد إنك بدأت بالتطبيق وما عندك أي عوائق.\n\nلو تحتاج دعم إضافي: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "supportive"
+    },
+    "complaint_ack": {
+      "id": "consulting_complaint_ack",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} وصلنا ملاحظتك ✅\n\nرقم الشكوى: {{complaint.number}}\nمدير الحساب بيتواصل معك خلال 24 ساعة.\n\nنقدّر شفافيتك 🙏\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "complaint.number", "company.signature"],
+      "max_length": 500,
+      "tone": "empathetic"
+    },
+    "invoice_gentle": {
+      "id": "consulting_invoice_gentle",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nتذكير بفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال.\nتاريخ الاستحقاق: {{invoice.due_date}}\n\nللتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "invoice.number", "invoice.amount", "invoice.due_date", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "invoice_firm": {
+      "id": "consulting_invoice_firm",
+      "channel": "whatsapp",
+      "text": "{{customer.name}}\n\nالفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال متأخرة {{invoice.days_overdue}} يوم.\n\nنرجو السداد لضمان استمرار الخدمة.\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "invoice.number", "invoice.amount", "invoice.days_overdue", "company.signature"],
+      "max_length": 500,
+      "tone": "firm"
+    },
+    "review_request": {
+      "id": "consulting_review",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} شكراً لثقتك في {{company.company_name}} 📋\n\nرأيك عن الاستشارة يهمنا جداً. كلمتين عن تجربتك تساعدنا نتطور.\n\nشكراً! ⭐\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "appointment_confirmation": {
+      "id": "consulting_appointment_confirm",
+      "channel": "whatsapp",
+      "text": "تم تأكيد موعد الاستشارة ✅\n\n📋 {{company.company_name}}\n📅 {{appointment.date}} - {{appointment.day}}\n⏰ {{appointment.time}}\n📍 {{appointment.location}}\n\nلو تحتاج تعديل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["company.company_name", "appointment.date", "appointment.day", "appointment.time", "appointment.location", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "informative"
+    }
+  }
+}

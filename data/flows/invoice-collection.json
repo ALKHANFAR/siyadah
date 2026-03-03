@@ -1,0 +1,353 @@
+{
+  "_meta": {
+    "id": "invoice-collection",
+    "version": "1.0.0",
+    "display_name": "تحصيل الفواتير",
+    "display_name_en": "Invoice Collection",
+    "description": "فاتورة متأخرة → تذكير تصاعدي: 3 أيام → 7 أيام → 14 يوم → تصعيد",
+    "category": "invoicing",
+    "industries": [
+      "all"
+    ],
+    "estimated_setup_time": "4 min",
+    "user_request_examples": [
+      "أبي أتابع الفواتير المتأخرة",
+      "ذكّر العملاء اللي ما دفعوا",
+      "سو لي نظام تحصيل تلقائي",
+      "أبي أرسل تذكير للفواتير",
+      "فيه عملاء متأخرين بالدفع"
+    ],
+    "intent_keywords": [
+      "فاتورة",
+      "فواتير",
+      "دفع",
+      "تحصيل",
+      "متأخر",
+      "تذكير",
+      "invoice"
+    ]
+  },
+  "trigger": {
+    "tool_id": "schedule",
+    "action": "every_day",
+    "description": "يشتغل كل يوم الساعة 9 صباحاً ويتشيك على الفواتير المتأخرة",
+    "config": {
+      "hour": 9,
+      "minute": 0,
+      "timezone": "Asia/Riyadh"
+    },
+    "alternative_triggers": [
+      "schedule.every_week"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "id": "fetch_overdue",
+      "tool_id": "google-sheets",
+      "action": "find_rows",
+      "description": "جلب الفواتير المتأخرة من الشيت",
+      "config": {
+        "spreadsheet_id": "{{company.invoices_spreadsheet_id}}",
+        "sheet_name": "الفواتير"
+      },
+      "input_mapping": {
+        "column_name": "الحالة",
+        "value": "غير مدفوعة"
+      },
+      "output": {
+        "rows": [],
+        "count": 0
+      },
+      "on_error": {
+        "action": "retry_then_alert",
+        "retry_count": 3,
+        "error_codes": {
+          "SPREADSHEET_NOT_FOUND": "auto_create_spreadsheet"
+        }
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 2,
+      "id": "loop_invoices",
+      "tool_id": "loop",
+      "action": "loop_on_items",
+      "description": "المرور على كل فاتورة متأخرة",
+      "config": {},
+      "input_mapping": {
+        "items": "{{step.fetch_overdue.rows}}"
+      },
+      "contains_steps": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 3,
+      "id": "format_phone",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "تنسيق رقم جوال العميل",
+      "config": {
+        "code": "const phone = (inputs.phone || \"\").replace(/^0/, \"+966\").replace(/^966/, \"+966\"); return { formatted_phone: phone };"
+      },
+      "input_mapping": {
+        "phone": "{{loop.current_item.الجوال}}"
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "formatted_phone": "{{loop.current_item.الجوال}}"
+        }
+      }
+    },
+    {
+      "order": 4,
+      "id": "calculate_days_overdue",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "حساب عدد أيام التأخير",
+      "config": {
+        "code": "const due = new Date(inputs.due_date); const now = new Date(); const days = Math.floor((now - due) / (1000*60*60*24)); return { days_overdue: days, reminder_level: days <= 3 ? 'gentle' : days <= 7 ? 'firm' : days <= 14 ? 'urgent' : 'escalation' };"
+      },
+      "input_mapping": {
+        "due_date": "{{loop.current_item.تاريخ_الاستحقاق}}"
+      },
+      "output": {
+        "days_overdue": 0,
+        "reminder_level": "gentle|firm|urgent|escalation"
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 5,
+      "id": "send_reminder",
+      "tool_id": "whatsapp",
+      "action": "send_message",
+      "description": "إرسال تذكير حسب مستوى التأخير",
+      "config": {},
+      "input_mapping": {
+        "phone_number": "{{loop.current_item.الجوال}}",
+        "message": "{{templates.invoice.{step.calculate_days_overdue.reminder_level}}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{loop.current_item.الاسم}}",
+        "invoice_number": "{{loop.current_item.رقم_الفاتورة}}",
+        "amount": "{{loop.current_item.المبلغ}}",
+        "due_date": "{{loop.current_item.تاريخ_الاستحقاق}}",
+        "days_overdue": "{{step.calculate_days_overdue.days_overdue}}",
+        "company_name": "{{company.company_name}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          },
+          {
+            "tool_id": "twilio",
+            "action": "send_sms",
+            "condition": "always"
+          }
+        ]
+      }
+    },
+    {
+      "order": 6,
+      "id": "update_reminder_count",
+      "tool_id": "google-sheets",
+      "action": "update_row",
+      "description": "تحديث عدد التذكيرات في الشيت",
+      "config": {
+        "spreadsheet_id": "{{company.invoices_spreadsheet_id}}",
+        "sheet_name": "الفواتير"
+      },
+      "input_mapping": {
+        "lookup_column": "رقم_الفاتورة",
+        "lookup_value": "{{loop.current_item.رقم_الفاتورة}}",
+        "values": {
+          "عدد_التذكيرات": "{{loop.current_item.عدد_التذكيرات + 1}}",
+          "آخر_تذكير": "{{context.today}}"
+        }
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 7,
+      "id": "delay_between_messages",
+      "tool_id": "delay",
+      "action": "delay_for",
+      "description": "تأخير بين كل رسالة لمنع الحظر",
+      "config": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 8,
+      "id": "summary_report",
+      "tool_id": "openai",
+      "action": "ask_chatgpt",
+      "description": "ملخص يومي للفواتير المتأخرة",
+      "config": {
+        "model": "gpt-4o-mini",
+        "temperature": 0.2,
+        "prompt": "لخّص هذه الفواتير المتأخرة بشكل مختصر:\n{{step.fetch_overdue.rows}}\n\nاذكر: عدد الفواتير، إجمالي المبالغ، أخطر الحالات. باللغة العربية."
+      },
+      "on_error": {
+        "action": "fallback_rules",
+        "fallback": {
+          "template": "📊 ملخص الفواتير: {{step.fetch_overdue.count}} فاتورة متأخرة"
+        }
+      }
+    },
+    {
+      "order": 9,
+      "id": "notify_owner_summary",
+      "tool_id": "slack",
+      "action": "send_message",
+      "description": "إرسال الملخص لصاحب الشركة",
+      "config": {
+        "channel": "{{company.notification_channel}}"
+      },
+      "input_mapping": {
+        "text": "📊 تقرير الفواتير اليومي\n{{step.summary_report.response}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "telegram",
+            "action": "send_text_message",
+            "condition": "telegram_connected"
+          },
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "to": "{{company.owner_email}}",
+            "condition": "always"
+          }
+        ]
+      }
+    }
+  ],
+  "branches": [
+    {
+      "after_step": "calculate_days_overdue",
+      "condition_field": "reminder_level",
+      "routes": {
+        "escalation": {
+          "additional_steps": [
+            {
+              "id": "escalation_alert",
+              "tool_id": "whatsapp",
+              "action": "send_message",
+              "description": "تصعيد للمدير — فاتورة متأخرة جداً",
+              "input_mapping": {
+                "phone_number": "{{company.owner_phone}}",
+                "message": "⚠️ تصعيد: فاتورة {{loop.current_item.رقم_الفاتورة}} متأخرة {{step.calculate_days_overdue.days_overdue}} يوم — المبلغ: {{loop.current_item.المبلغ}} ريال"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "delays": [],
+  "required_connections": [
+    "google-sheets",
+    "schedule"
+  ],
+  "recommended_connections": [
+    "whatsapp",
+    "openai",
+    "slack",
+    "gmail"
+  ],
+  "minimum_connections": [
+    "google-sheets",
+    "gmail",
+    "schedule"
+  ],
+  "required_variables": {
+    "company": [
+      "company_name",
+      "invoices_spreadsheet_id"
+    ],
+    "trigger": [],
+    "optional": []
+  },
+  "sheets_template": {
+    "name": "الفواتير",
+    "columns": [
+      "رقم_الفاتورة",
+      "الاسم",
+      "الجوال",
+      "الإيميل",
+      "المبلغ",
+      "تاريخ_الاستحقاق",
+      "الحالة",
+      "عدد_التذكيرات",
+      "آخر_تذكير"
+    ]
+  },
+  "industry_variants": {
+    "clinic": {
+      "sheets_extra_columns": [
+        "نوع الخدمة",
+        "التأمين"
+      ],
+      "reminder_tone": "مهذب جداً"
+    },
+    "construction": {
+      "sheets_extra_columns": [
+        "المرحلة",
+        "نوع العقد"
+      ],
+      "reminder_tone": "رسمي"
+    },
+    "consulting": {
+      "sheets_extra_columns": [
+        "المشروع",
+        "ساعات العمل"
+      ],
+      "reminder_tone": "مهني"
+    }
+  },
+  "protection": {
+    "idempotency": "hash(invoice_number + date) — one reminder per invoice per day",
+    "rate_limit": "Max 100 reminders/day per tenant",
+    "data_validation": "Check invoice exists, amount > 0, phone valid",
+    "circuit_breaker": "After 3 WhatsApp failures → switch to email only"
+  },
+  "expected_execution_time": "30-120 seconds (depends on invoice count)",
+  "success_criteria": {
+    "must": [
+      "Overdue invoices identified",
+      "Owner notified with summary"
+    ],
+    "should": [
+      "Reminders sent to customers",
+      "Sheet updated"
+    ],
+    "nice": [
+      "AI summary generated"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "delay",
+  "package": "@activepieces/piece-delay",
+  "display_name": "Delay",
+  "display_name_ar": "Delay",
+  "description": "Use it to delay the execution of the next action",
+  "auth_type": "none",
+  "actions": {
+    "delay": {
+      "display_name": "Delay",
+      "description": "Wait for specified duration",
+      "props": []
+    }
+  },
+  "triggers": {}
+}

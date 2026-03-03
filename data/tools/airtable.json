@@ -1,0 +1,200 @@
+{
+  "id": "airtable",
+  "package": "@activepieces/piece-airtable",
+  "version": "0.5.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key"
+  },
+  "actions": {
+    "airtable_add_comment_to_record": {
+      "displayName": "Add Comment to Record",
+      "description": "Adds a comment to an existing record.",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Comment Text",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "parentCommentId",
+          "displayName": "Parent Comment ID",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "airtable_create_base": {
+      "displayName": "Create Base",
+      "description": "Create a new base with a specified table structure.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Base Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "tables",
+          "displayName": "Tables",
+          "type": "JSON",
+          "required": true
+        }
+      ]
+    },
+    "airtable_create_record": {
+      "displayName": "Create Airtable Record",
+      "description": "Adds a record into an airtable",
+      "props": []
+    },
+    "airtable_create_table": {
+      "displayName": "Create Table",
+      "description": "Create a new table in an existing base.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Table Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "fields",
+          "displayName": "Fields",
+          "type": "JSON",
+          "required": true
+        }
+      ]
+    },
+    "airtable_delete_record": {
+      "displayName": "Delete Airtable Record",
+      "description": "Deletes a record in airtable",
+      "props": []
+    },
+    "airtable_find_base": {
+      "displayName": "Find Base",
+      "description": "Find a base by its name or a keyword.",
+      "props": [
+        {
+          "name": "baseName",
+          "displayName": "Base Name or Keyword",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "airtable_get_record_by_id": {
+      "displayName": "Get Record by ID",
+      "description": "Retrieve a single record from a table by its unique ID.",
+      "props": []
+    },
+    "airtable_find_record": {
+      "displayName": "Find Airtable Record",
+      "description": "Find a record in airtable",
+      "props": [
+        {
+          "name": "searchValue",
+          "displayName": "Search Value",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "airtable_find_table_by_id": {
+      "displayName": "Find Table by ID",
+      "description": "Get a table's details and schema using its ID.",
+      "props": []
+    },
+    "airtable_find_table": {
+      "displayName": "Find Table",
+      "description": "Find a table in a given base by its name.",
+      "props": [
+        {
+          "name": "tableName",
+          "displayName": "Table Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "airtable_get_base_schema": {
+      "displayName": "Get Base Schema",
+      "description": "Retrieve the schema for a specific base, including all its tables and fields.",
+      "props": []
+    },
+    "airtable_update_record": {
+      "displayName": "Update Airtable Record",
+      "description": "Update a record in airtable",
+      "props": []
+    },
+    "airtable_upload_file_to_column": {
+      "displayName": "Upload File to Column",
+      "description": "Uploads a file to attachment type column.",
+      "props": [
+        {
+          "name": "attachment_column",
+          "displayName": "Attachment Column",
+          "type": "DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "recordId",
+          "displayName": "Record ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true
+        },
+        {
+          "name": "file_content_type",
+          "displayName": "File Content Type",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "filename",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "BASE_NOT_FOUND",
+      "cause": "Base deleted or wrong ID",
+      "auto_fix": "Fallback to Google Sheets",
+      "severity": "high"
+    },
+    {
+      "code": "RATE_LIMITED",
+      "cause": "5 requests/second limit",
+      "auto_fix": "Queue with delay",
+      "severity": "medium"
+    }
+  ],
+  "limits": {
+    "api_calls_per_second": 5
+  },
+  "notes": "Sheets alternative for structured data. Less common in MENA.",
+  "displayName": "Airtable",
+  "description": "Airtable"
+}

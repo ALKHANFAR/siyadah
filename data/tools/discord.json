@@ -1,0 +1,309 @@
+{
+  "id": "discord",
+  "package": "@activepieces/piece-discord",
+  "version": "0.3.11",
+  "source": "https://www.activepieces.com/pieces/discord",
+  "npm": "https://www.npmjs.com/package/@activepieces/piece-discord",
+  "github": "packages/pieces/community/discord/src/index.ts",
+  "displayName": "Discord",
+  "description": "Chat and community platform",
+  "logoUrl": "https://cdn.activepieces.com/pieces/discord.png",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "oauth2",
+    "provider": "discord"
+  },
+  "triggers": {
+    "new_member": {
+      "displayName": "New Member",
+      "description": "Triggers when a new member joins a guild",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "guildId",
+          "displayName": "Guild ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "new_message": {
+      "displayName": "New message",
+      "description": "Triggers when a message is sent in a channel",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false
+        }
+      ]
+    }
+  },
+  "actions": {
+    "add_role_to_member": {
+      "displayName": "Add role to member",
+      "description": "Add Guild Member Role",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "ban_guild_member": {
+      "displayName": "Ban guild member",
+      "description": "Bans a guild member",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "ban_reason",
+          "displayName": "Ban Reason",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "create_channel": {
+      "displayName": "Create channel",
+      "description": "create a channel",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "createGuildRole": {
+      "displayName": "Create guild role",
+      "description": "Creates a new role on the specified guild",
+      "props": [
+        {
+          "name": "role_name",
+          "displayName": "Role Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "role_color",
+          "displayName": "Role Color",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "display_separated",
+          "displayName": "Display Separated",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "role_mentionable",
+          "displayName": "Mentionable",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "creation_reason",
+          "displayName": "Creation Reason",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "delete_channel": {
+      "displayName": "Delete channel",
+      "description": "delete a channel",
+      "props": []
+    },
+    "deleteGuildRole": {
+      "displayName": "Delete guild role",
+      "description": "Deletes the specified role from the specified guild",
+      "props": [
+        {
+          "name": "deletion_reason",
+          "displayName": "Deletion reason",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "find_channel": {
+      "displayName": "Find channel",
+      "description": "find a channel by name",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "list_guild_members": {
+      "displayName": "List guild members",
+      "description": "List Guild Members",
+      "props": [
+        {
+          "name": "shortText",
+          "displayName": "Search",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "remove_ban_from_user": {
+      "displayName": "Remove ban from user",
+      "description": "Removes the guild ban from a user",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "unban_reason",
+          "displayName": "Unban Reason",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "remove_member_from_guild": {
+      "displayName": "Remove member from guild",
+      "description": "Remove Guild Member",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "remove_role_from_member": {
+      "displayName": "Remove role from member",
+      "description": "Remove Guild Member Role",
+      "props": [
+        {
+          "name": "user_id",
+          "displayName": "User ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "rename_channel": {
+      "displayName": "Rename channel",
+      "description": "rename a channel",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "request_approval_message": {
+      "displayName": "Request Approval in a Channel",
+      "description": "send a message to a channel asking for approval and wait for a response",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "send_message_webhook": {
+      "displayName": "Send Message Webhook",
+      "description": "Send a discord message via webhook",
+      "props": [
+        {
+          "name": "webhook_url",
+          "displayName": "Webhook URL",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "username",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "content",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "avatar_url",
+          "displayName": "Avatar URL",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "embeds",
+          "displayName": "embeds",
+          "type": "JSON",
+          "required": false
+        },
+        {
+          "name": "tts",
+          "displayName": "Text to speech",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "sendMessageWithBot": {
+      "displayName": "Send Message with Bot",
+      "description": "Send messages via bot to any channel or thread you want, with an optional file attachment.",
+      "props": [
+        {
+          "name": "message",
+          "displayName": "Message",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "files",
+          "displayName": "Attachments",
+          "type": "ARRAY",
+          "required": false
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": false
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  }
+}

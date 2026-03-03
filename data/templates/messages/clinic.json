@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "industry": "clinic",
+    "industry_ar": "عيادة",
+    "version": "1.0.0",
+    "dialect": "saudi",
+    "total_templates": 10,
+    "variable_style": "{{category.variable}}"
+  },
+  "templates": {
+    "welcome": {
+      "id": "clinic_welcome",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}} 👋\n\nشكراً لتواصلك مع {{company.company_name}}.\nوصلنا طلبك وبنتواصل معك في أقرب وقت.\n\nلأي استفسار: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional_warm"
+    },
+    "follow_up_day3": {
+      "id": "clinic_followup_day3",
+      "channel": "whatsapp",
+      "text": "أهلاً {{customer.name}} 🌟\n\nنتمنى إنك بخير. حبينا نتأكد إن كل شي تمام بعد زيارتك لـ {{company.company_name}}.\n\nلو عندك أي سؤال أو تحتاج موعد متابعة، تواصل معنا.\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "caring"
+    },
+    "follow_up_day7": {
+      "id": "clinic_followup_day7",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nمر أسبوع من زيارتك لنا في {{company.company_name}}. نتمنى تكون بصحة وعافية 💚\n\nلو تحتاج حجز موعد متابعة، رد على هالرسالة وبنرتب لك.\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "caring"
+    },
+    "reminder_appointment": {
+      "id": "clinic_reminder_appointment",
+      "channel": "whatsapp",
+      "text": "تذكير: عندك موعد بكرة في {{company.company_name}} 🏥\n\n📅 التاريخ: {{appointment.date}}\n⏰ الوقت: {{appointment.time}}\n\nلو تحتاج تغيير الموعد، تواصل معنا قبل الموعد.\n\n{{company.signature}}",
+      "variables_used": ["company.company_name", "appointment.date", "appointment.time", "company.signature"],
+      "max_length": 500,
+      "tone": "informative"
+    },
+    "reminder_hour_before": {
+      "id": "clinic_reminder_hour",
+      "channel": "whatsapp",
+      "text": "⏰ تذكير: موعدك بعد ساعة في {{company.company_name}}\n\nبانتظارك {{customer.name}}! لو تحتاج مساعدة بالوصول: {{company.address}}\n\n{{company.signature}}",
+      "variables_used": ["company.company_name", "customer.name", "company.address", "company.signature"],
+      "max_length": 500,
+      "tone": "friendly_urgent"
+    },
+    "complaint_ack": {
+      "id": "clinic_complaint_ack",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} وصلنا ملاحظتك ✅\n\nنعتذر عن أي إزعاج. رقم الشكوى: {{complaint.number}}\nفريقنا بيتواصل معك خلال 24 ساعة.\n\nنقدّر ثقتك في {{company.company_name}} 🙏\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "complaint.number", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "empathetic"
+    },
+    "invoice_gentle": {
+      "id": "clinic_invoice_gentle",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nنود تذكيرك بفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال.\nتاريخ الاستحقاق: {{invoice.due_date}}\n\nللاستفسار: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "invoice.number", "invoice.amount", "invoice.due_date", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "invoice_firm": {
+      "id": "clinic_invoice_firm",
+      "channel": "whatsapp",
+      "text": "{{customer.name}}\n\nالفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال متأخرة {{invoice.days_overdue}} يوم.\n\nنرجو السداد في أقرب وقت. للتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "invoice.number", "invoice.amount", "invoice.days_overdue", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "firm"
+    },
+    "review_request": {
+      "id": "clinic_review",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} شكراً لزيارتك {{company.company_name}} 🌟\n\nرأيك يهمنا! لو تقدر تعطينا تقييمك بكلمتين عن تجربتك، بنكون ممتنين.\n\nشكراً لثقتك 🙏\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "warm"
+    },
+    "appointment_confirmation": {
+      "id": "clinic_appointment_confirm",
+      "channel": "whatsapp",
+      "text": "تم تأكيد موعدك ✅\n\n🏥 {{company.company_name}}\n📅 {{appointment.date}} - {{appointment.day}}\n⏰ {{appointment.time}}\n\nلو تحتاج إلغاء أو تعديل، تواصل معنا على {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["company.company_name", "appointment.date", "appointment.day", "appointment.time", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "informative"
+    }
+  }
+}

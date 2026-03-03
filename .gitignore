@@ -1,0 +1,8 @@
+node_modules/
+*.tar.gz
+*.zip
+.DS_Store
+__MACOSX/
+source/
+data/source-extraction.json
+*.bak

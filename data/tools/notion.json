@@ -1,0 +1,195 @@
+{
+  "id": "notion",
+  "package": "@activepieces/piece-notion",
+  "version": "0.5.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "oauth2",
+    "provider": "notion"
+  },
+  "actions": {
+    "add_comment": {
+      "displayName": "Add Comment",
+      "description": "Add a comment to any Notion page to start discussions, provide feedback, or leave notes for team collaboration.",
+      "props": [
+        {
+          "name": "comment_text",
+          "displayName": "Comment Text",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "append_to_page": {
+      "displayName": "Append to Page",
+      "description": "Appends content to the end of a page.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "archive_database_item": {
+      "displayName": "Archive Database Item",
+      "description": "Archive (soft-delete) a database item without permanently removing it. Archived items can be restored later if needed.",
+      "props": []
+    },
+    "create_database_item": {
+      "displayName": "Create Database Item",
+      "description": "Add a new item to a Notion database with custom field values and optional content. Ideal for creating tasks, records, or entries in structured databases.",
+      "props": [
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "createPage": {
+      "displayName": "Create Page",
+      "description": "Create a new Notion page as a sub-page with custom title and content. Perfect for organizing documentation, notes, or creating structured page hierarchies.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "notion-find-database-item": {
+      "displayName": "Find Database Item",
+      "description": "Searches for an item in database by field.",
+      "props": []
+    },
+    "find_page": {
+      "displayName": "Find Page",
+      "description": "Search for Notion pages by title with flexible matching options. Perfect for finding specific pages, building page references, or creating automated workflows based on page discovery.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Page Title",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "exact_match",
+          "displayName": "Exact Match",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "displayName": "Maximum Results",
+          "type": "NUMBER",
+          "required": false
+        }
+      ]
+    },
+    "get_page_comments": {
+      "displayName": "Get Page Comments",
+      "description": "Retrieve all comments from a Notion page, organized by discussion threads. Perfect for tracking feedback, managing reviews, or monitoring page discussions.",
+      "props": []
+    },
+    "getPageOrBlockChildren": {
+      "displayName": "Get block content",
+      "description": "Retrieve the actual content of a page (represented by blocks).",
+      "props": [
+        {
+          "name": "parentId",
+          "displayName": "Page or parent block ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "Markdown",
+          "type": "CHECKBOX",
+          "required": true
+        },
+        {
+          "name": "dynamic",
+          "displayName": "Dynamic properties",
+          "type": "DYNAMIC",
+          "required": true
+        },
+        {
+          "name": "depth",
+          "displayName": "Depth",
+          "type": "NUMBER",
+          "required": true
+        }
+      ]
+    },
+    "restore_database_item": {
+      "displayName": "Restore Database Item",
+      "description": "Restore an archived database item back to active status. Perfect for recovering accidentally archived tasks, projects, or records.",
+      "props": []
+    },
+    "retrieve_database": {
+      "displayName": "Retrieve Database Structure",
+      "description": "Get detailed information about a Notion database including all its properties, field types, and configuration. Perfect for building dynamic forms, validation rules, or understanding database schemas.",
+      "props": []
+    },
+    "update_database_item": {
+      "displayName": "Update Database Item",
+      "description": "Update specific fields in a Notion database item. Perfect for maintaining data, tracking changes, or syncing information across systems.",
+      "props": []
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "new_comment": {
+      "displayName": "New Comment",
+      "description": "Triggers whenever someone adds a new comment to a specific Notion page. Perfect for notifications, review workflows, or automated responses to team feedback.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new_database_item": {
+      "displayName": "New Database Item",
+      "description": "Triggers when an item is added to a database.",
+      "type": "POLLING",
+      "props": []
+    },
+    "updated_database_item": {
+      "displayName": "Updated Database Item",
+      "description": "Triggers when an item is updated in a database.",
+      "type": "POLLING",
+      "props": []
+    },
+    "updated_page": {
+      "displayName": "Updated Page",
+      "description": "Triggers whenever any page in your Notion workspace is modified or updated. Ideal for syncing content changes, backup processes, or notifying teams about documentation updates.",
+      "type": "POLLING",
+      "props": []
+    }
+  },
+  "common_errors": [
+    {
+      "code": "DATABASE_NOT_FOUND",
+      "cause": "Database deleted or not shared with integration",
+      "auto_fix": "Alert user to share database",
+      "severity": "high"
+    }
+  ],
+  "limits": {
+    "api_requests_per_second": 3
+  },
+  "notes": "Growing in MENA tech companies. Complex property types.",
+  "displayName": "Notion"
+}

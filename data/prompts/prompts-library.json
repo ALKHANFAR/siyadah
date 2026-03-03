@@ -1,0 +1,177 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "AI prompt library for all Siyadah automation tasks",
+    "model": "gpt-4o-mini",
+    "language": "arabic",
+    "dialect": "saudi",
+    "total_prompts": 6,
+    "safety_rules": [
+      "All outputs must be in Arabic",
+      "Max 500 characters per message",
+      "Must include company signature",
+      "No banned words (see banned_words)",
+      "Professional tone always",
+      "JSON output must be parseable"
+    ]
+  },
+  "banned_words": ["حرام", "حلال", "سياسة", "دين", "طائفة", "عرق", "غبي", "سيء جداً"],
+  "prompts": {
+    "classify_lead": {
+      "id": "classify_lead",
+      "purpose": "Classify incoming lead as hot/warm/cold with service detection",
+      "used_in_flow": "lead-capture",
+      "model": "gpt-4o-mini",
+      "temperature": 0.1,
+      "max_tokens": 200,
+      "system_prompt": "أنت مساعد ذكي لتصنيف العملاء المحتملين لشركة سعودية. صنّف كل عميل بدقة. رد بـ JSON فقط بدون أي نص إضافي.",
+      "user_prompt_template": "صنّف هذا العميل المحتمل:\n\nالاسم: {{customer.name}}\nالرسالة: {{customer.message}}\nالمصدر: {{customer.source}}\nنوع النشاط: {{company.industry}}\n\nرد بـ JSON بهذا الشكل بالضبط:\n{\"lead_type\": \"hot|warm|cold\", \"priority\": \"high|medium|low\", \"service\": \"الخدمة المطلوبة\", \"reason\": \"سبب التصنيف\"}\n\nقواعد التصنيف:\n- hot (جاد): يبي يشتري/يحجز الحين، عنده نية واضحة\n- warm (مهتم): يسأل عن أسعار/خدمات، يقارن\n- cold (بارد): استفسار عام، ما فيه نية واضحة",
+      "industry_additions": {
+        "clinic": "صنّف حسب: استشارة أولى، متابعة، طوارئ",
+        "ecommerce": "صنّف حسب: شراء فوري، استفسار، مقارنة أسعار",
+        "construction": "صنّف حسب: مشروع جديد، صيانة، استشارة",
+        "restaurant": "صنّف حسب: طلب توصيل، حجز طاولة، استفسار",
+        "consulting": "صنّف حسب: استشارة جديدة، متابعة، استفسار أولي",
+        "training": "صنّف حسب: تسجيل جديد، استفسار عن دورة، طلب شهادة",
+        "general_services": "صنّف حسب: طلب خدمة جديدة، متابعة، استفسار"
+      },
+      "expected_output": {
+        "lead_type": "hot|warm|cold",
+        "priority": "high|medium|low",
+        "service": "string",
+        "reason": "string"
+      },
+      "fallback_on_failure": {
+        "strategy": "keyword_rules",
+        "rules": {
+          "hot_keywords": ["أبي", "أبغى", "حابب", "عاجل", "الحين", "بكم", "أحجز", "أشتري"],
+          "warm_keywords": ["كم", "عندكم", "وش", "ايش", "متى", "أسعار", "مواعيد"],
+          "cold_default": true
+        }
+      },
+      "retry": {
+        "max_attempts": 3,
+        "on_invalid_json": "retry_with_stricter_prompt",
+        "on_rate_limit": "wait_and_retry",
+        "final_fallback": "keyword_rules"
+      }
+    },
+    "classify_complaint": {
+      "id": "classify_complaint",
+      "purpose": "Classify complaint severity, category, and department",
+      "used_in_flow": "complaint-handling",
+      "model": "gpt-4o-mini",
+      "temperature": 0.1,
+      "max_tokens": 300,
+      "system_prompt": "أنت مساعد ذكي لتصنيف شكاوى العملاء لشركة سعودية. صنّف كل شكوى بدقة وحدد الخطورة والقسم المسؤول. رد بـ JSON فقط.",
+      "user_prompt_template": "صنّف هذه الشكوى:\n\nالعميل: {{customer.name}}\nالشكوى: {{trigger.complaint_text}}\nرقم الطلب: {{trigger.order_number}}\nنوع النشاط: {{company.industry}}\n\nرد بـ JSON:\n{\"category\": \"تصنيف الشكوى\", \"severity\": \"low|medium|high|critical\", \"department\": \"القسم المسؤول\", \"suggested_response\": \"رد مقترح للعميل (أقل من 200 حرف)\", \"escalate\": true/false}\n\nقواعد الخطورة:\n- critical: تهديد قانوني، خطر صحي، خسارة مالية كبيرة\n- high: عميل غاضب جداً، مشكلة متكررة، تأخير طويل\n- medium: شكوى عادية، مشكلة محددة\n- low: ملاحظة، اقتراح تحسين",
+      "industry_additions": {
+        "clinic": "الأقسام: الاستقبال، الأطباء، الصيدلية، المختبر، الإدارة",
+        "ecommerce": "الأقسام: الشحن، جودة المنتج، الدفع، خدمة العملاء",
+        "construction": "الأقسام: الجودة، الجدول الزمني، السلامة، المالية",
+        "restaurant": "الأقسام: جودة الطعام، الخدمة، النظافة، التوصيل",
+        "consulting": "الأقسام: جودة الاستشارة، المواعيد، التواصل، الأسعار",
+        "training": "الأقسام: المحتوى، المدرب، القاعة، الشهادات",
+        "general_services": "الأقسام: جودة الخدمة، المواعيد، الأسعار، التواصل"
+      },
+      "expected_output": {
+        "category": "string",
+        "severity": "low|medium|high|critical",
+        "department": "string",
+        "suggested_response": "string",
+        "escalate": "boolean"
+      },
+      "fallback_on_failure": {
+        "strategy": "default_values",
+        "defaults": {
+          "category": "غير مصنف",
+          "severity": "medium",
+          "department": "خدمة العملاء",
+          "suggested_response": "وصلنا شكواك وبنراجعها. شكراً لصبرك.",
+          "escalate": false
+        }
+      }
+    },
+    "weekly_summary": {
+      "id": "weekly_summary",
+      "purpose": "Generate weekly performance summary for business owner",
+      "used_in_flow": "weekly-report",
+      "model": "gpt-4o-mini",
+      "temperature": 0.3,
+      "max_tokens": 400,
+      "system_prompt": "أنت مساعد ذكي يكتب تقارير أسبوعية مختصرة لصاحب شركة سعودية. اكتب بلغة واضحة ومباشرة مع توصيات عملية.",
+      "user_prompt_template": "اكتب تقرير أسبوعي مختصر لصاحب شركة {{company.industry}}:\n\nالعملاء: {{stats.total_leads}} (🔥 جاد: {{stats.hot}} | 🟡 مهتم: {{stats.warm}} | 🔵 بارد: {{stats.cold}})\nالإيرادات: {{stats.total_revenue}} ريال\nفواتير غير مدفوعة: {{stats.unpaid_invoices}}\n\nاكتب التقرير بشكل مختصر مع توصيات عملية. باللغة العربية. لا تزيد عن 200 كلمة.",
+      "expected_output": {
+        "type": "string",
+        "max_words": 200,
+        "must_contain": ["توصية", "ملخص"]
+      },
+      "fallback_on_failure": {
+        "strategy": "template",
+        "template": "📊 تقرير الأسبوع:\n👥 العملاء: {{stats.total_leads}}\n💰 الإيرادات: {{stats.total_revenue}} ريال\n📄 فواتير معلقة: {{stats.unpaid_invoices}}"
+      }
+    },
+    "auto_reply": {
+      "id": "auto_reply",
+      "purpose": "Generate contextual auto-reply for customer messages",
+      "used_in_flow": "complaint-handling",
+      "model": "gpt-4o-mini",
+      "temperature": 0.2,
+      "max_tokens": 200,
+      "system_prompt": "أنت مساعد ذكي يكتب ردود تلقائية باسم شركة سعودية. الرد يكون مختصر، مهذب، وواضح. أقل من 200 حرف.",
+      "user_prompt_template": "اكتب رد مختصر ومهذب على هذه الشكوى:\n\nالشكوى: {{trigger.complaint_text}}\nالتصنيف: {{ai.complaint_category}}\nالخطورة: {{ai.complaint_severity}}\nاسم الشركة: {{company.company_name}}\n\nالرد يكون:\n- أقل من 200 حرف\n- يعتذر بلطف\n- يطمّن العميل\n- يذكر إن الفريق بيتواصل\n- لا يعد بتعويض محدد",
+      "expected_output": {
+        "type": "string",
+        "max_chars": 200
+      },
+      "safety_check": {
+        "must_not_contain": ["تعويض", "مجاناً", "خصم"],
+        "must_contain_intent": ["اعتذار", "متابعة"],
+        "on_fail": "use_template_fallback"
+      },
+      "fallback_on_failure": {
+        "strategy": "template",
+        "template": "وصلنا ملاحظتك ونعتذر عن أي إزعاج. فريقنا بيتواصل معك قريباً. شكراً لصبرك 🙏"
+      }
+    },
+    "invoice_summary": {
+      "id": "invoice_summary",
+      "purpose": "Summarize overdue invoices for daily report",
+      "used_in_flow": "invoice-collection",
+      "model": "gpt-4o-mini",
+      "temperature": 0.2,
+      "max_tokens": 300,
+      "system_prompt": "أنت مساعد ذكي يلخّص الفواتير المتأخرة لصاحب شركة. اكتب بشكل مختصر ومباشر.",
+      "user_prompt_template": "لخّص هذه الفواتير المتأخرة بشكل مختصر:\n{{invoice_data}}\n\nاذكر: عدد الفواتير، إجمالي المبالغ، أخطر الحالات. باللغة العربية.",
+      "expected_output": {
+        "type": "string",
+        "max_words": 100
+      },
+      "fallback_on_failure": {
+        "strategy": "template",
+        "template": "📊 ملخص الفواتير: {{invoice_count}} فاتورة متأخرة"
+      }
+    },
+    "extract_appointment_info": {
+      "id": "extract_appointment_info",
+      "purpose": "Extract structured info from calendar event for appointment flow",
+      "used_in_flow": "appointment-booking",
+      "model": "gpt-4o-mini",
+      "temperature": 0.0,
+      "max_tokens": 200,
+      "system_prompt": "أنت مساعد يستخرج معلومات الموعد من بيانات الحدث. رد بـ JSON فقط.",
+      "user_prompt_template": "استخرج معلومات الموعد:\n\nالعنوان: {{trigger.title}}\nالبداية: {{trigger.start}}\nالحضور: {{trigger.attendees}}\n\nرد بـ JSON:\n{\"customer_name\": \"اسم العميل\", \"email\": \"الإيميل\", \"date_formatted\": \"التاريخ بالعربي\", \"day_name\": \"اسم اليوم\", \"time_formatted\": \"الوقت\"}",
+      "expected_output": {
+        "customer_name": "string",
+        "email": "string",
+        "date_formatted": "string",
+        "day_name": "string",
+        "time_formatted": "string"
+      },
+      "fallback_on_failure": {
+        "strategy": "regex_extraction",
+        "description": "Parse trigger data directly without AI"
+      }
+    }
+  }
+}

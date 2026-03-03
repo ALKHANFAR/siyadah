@@ -1,0 +1,44 @@
+{
+  "id": "storage",
+  "package": "@activepieces/piece-storage",
+  "display_name": "Storage",
+  "display_name_ar": "Storage",
+  "description": "Store and retrieve key-value data",
+  "auth_type": "none",
+  "actions": {
+    "storage_put": {
+      "display_name": "Put",
+      "description": "Store a value",
+      "props": [
+        {
+          "name": "key",
+          "display_name": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Storage key"
+        },
+        {
+          "name": "value",
+          "display_name": "Value",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Value to store"
+        }
+      ]
+    },
+    "storage_get": {
+      "display_name": "Get",
+      "description": "Retrieve a value",
+      "props": [
+        {
+          "name": "key",
+          "display_name": "Key",
+          "type": "SHORT_TEXT",
+          "required": true,
+          "description": "Storage key"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

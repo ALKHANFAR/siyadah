@@ -1,0 +1,34 @@
+{
+  "id": "branch",
+  "package": "@activepieces/piece-branch",
+  "version": "0.3.0",
+  "category": "A_essential",
+  "auth": {
+    "required": false
+  },
+  "actions": {
+    "branch": {
+      "displayName": "Branch",
+      "description": "Route based on conditions",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "INVALID_CONDITION",
+      "cause": "Condition references undefined variable",
+      "auto_fix": "Check variable names against flow data",
+      "severity": "medium"
+    },
+    {
+      "code": "TYPE_MISMATCH",
+      "cause": "Comparing string to number",
+      "auto_fix": "Cast types before comparison",
+      "severity": "low"
+    }
+  ],
+  "limits": null,
+  "notes": "Auto-included in flows with AI classification. Supports nested AND/OR conditions.",
+  "displayName": "Branch"
+}

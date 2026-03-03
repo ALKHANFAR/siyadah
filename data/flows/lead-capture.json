@@ -1,0 +1,397 @@
+{
+  "_meta": {
+    "id": "lead-capture",
+    "version": "1.0.0",
+    "display_name": "جذب العملاء",
+    "display_name_en": "Lead Capture",
+    "description": "عميل جديد تواصل → سجّله → صنّفه → رحّب فيه → نبّهني",
+    "category": "sales",
+    "industries": [
+      "all"
+    ],
+    "estimated_setup_time": "3 min",
+    "user_request_examples": [
+      "أبي لما يجيني عميل جديد أعرف عنه",
+      "أبي أتابع العملاء الجدد",
+      "لما أحد يتواصل معي أبي أرد عليه تلقائي",
+      "أبي نظام يستقبل العملاء ويصنّفهم",
+      "سو لي أتمتة للعملاء الجدد"
+    ],
+    "intent_keywords": [
+      "عميل",
+      "جديد",
+      "يتواصل",
+      "يجي",
+      "lead",
+      "استقبال",
+      "تسجيل"
+    ]
+  },
+  "trigger": {
+    "tool_id": "webhook",
+    "action": "catch_webhook",
+    "description": "يستقبل بيانات العميل من الفورم أو الموقع",
+    "config": {},
+    "expected_output": {
+      "customer_name": "{{body.name}}",
+      "customer_phone": "{{body.phone}}",
+      "customer_email": "{{body.email}}",
+      "customer_message": "{{body.message}}",
+      "customer_source": "{{body.source}}"
+    },
+    "alternative_triggers": [
+      "google-forms.new_form_response",
+      "whatsapp-business.new_message",
+      "facebook-pages.new_lead"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "id": "format_phone",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "تنسيق رقم الجوال للصيغة السعودية",
+      "config": {
+        "code": "const phone = inputs.phone.replace(/^0/, '+966').replace(/^966/, '+966').replace(/^00966/, '+966'); return { formatted_phone: phone, is_valid: /^\\+966[0-9]{9}$/.test(phone) };"
+      },
+      "input_mapping": {
+        "phone": "{{trigger.customer_phone}}"
+      },
+      "output": {
+        "formatted_phone": "+966XXXXXXXXX",
+        "is_valid": true
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "formatted_phone": "{{trigger.customer_phone}}",
+          "is_valid": false
+        }
+      }
+    },
+    {
+      "order": 2,
+      "id": "save_to_sheet",
+      "tool_id": "google-sheets",
+      "action": "insert_row",
+      "description": "حفظ بيانات العميل في جدول البيانات",
+      "config": {
+        "spreadsheet_id": "{{company.leads_spreadsheet_id}}",
+        "sheet_name": "العملاء"
+      },
+      "input_mapping": {
+        "values": {
+          "الاسم": "{{trigger.customer_name}}",
+          "الجوال": "{{step.format_phone.formatted_phone}}",
+          "الإيميل": "{{trigger.customer_email}}",
+          "الرسالة": "{{trigger.customer_message}}",
+          "المصدر": "{{trigger.customer_source}}",
+          "التاريخ": "{{context.today_hijri}}",
+          "النوع": "{{step.classify_lead.lead_type}}",
+          "الحالة": "جديد"
+        }
+      },
+      "output": {
+        "row_number": 0
+      },
+      "on_error": {
+        "action": "retry_then_alert",
+        "retry_count": 3,
+        "error_codes": {
+          "SPREADSHEET_NOT_FOUND": "auto_create_spreadsheet",
+          "COLUMNS_CHANGED": "auto_restore_columns",
+          "QUOTA_EXCEEDED": "queue_and_retry_later"
+        }
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 3,
+      "id": "classify_lead",
+      "tool_id": "openai",
+      "action": "ask_chatgpt",
+      "description": "تصنيف العميل بالذكاء الاصطناعي",
+      "config": {
+        "model": "gpt-4o-mini",
+        "temperature": 0.1,
+        "response_format": "json_object",
+        "system_message": "أنت مساعد تصنيف عملاء. صنّف العميل بناءً على رسالته. رد بـ JSON فقط.",
+        "prompt": "صنّف هذا العميل:\nالاسم: {{trigger.customer_name}}\nالرسالة: {{trigger.customer_message}}\nالمجال: {{company.industry}}\n\nرد بهذا الشكل بالضبط:\n{\"lead_type\": \"hot|warm|cold\", \"service\": \"الخدمة المطلوبة\", \"priority\": \"high|medium|low\", \"suggested_response\": \"رد مقترح قصير\"}"
+      },
+      "input_mapping": {},
+      "output": {
+        "lead_type": "hot|warm|cold",
+        "service": "string",
+        "priority": "high|medium|low",
+        "suggested_response": "string"
+      },
+      "on_error": {
+        "action": "fallback_rules",
+        "fallback": {
+          "rules": [
+            {
+              "if": "message_contains:فيلا|بناء|ميزانية|موعد|عقد|حجز",
+              "then": {
+                "lead_type": "hot",
+                "priority": "high"
+              }
+            },
+            {
+              "if": "message_contains:كم السعر|عندكم|أبي أعرف|وش الخدمات",
+              "then": {
+                "lead_type": "warm",
+                "priority": "medium"
+              }
+            },
+            {
+              "if": "default",
+              "then": {
+                "lead_type": "cold",
+                "priority": "low"
+              }
+            }
+          ],
+          "log": "⚠️ تم التصنيف بالقواعد — AI كان متوقف"
+        }
+      }
+    },
+    {
+      "order": 4,
+      "id": "update_sheet_classification",
+      "tool_id": "google-sheets",
+      "action": "update_row",
+      "description": "تحديث تصنيف العميل في الشيت",
+      "config": {
+        "spreadsheet_id": "{{company.leads_spreadsheet_id}}",
+        "sheet_name": "العملاء",
+        "row_number": "{{step.save_to_sheet.row_number}}"
+      },
+      "input_mapping": {
+        "values": {
+          "النوع": "{{step.classify_lead.lead_type}}",
+          "الخدمة": "{{step.classify_lead.service}}",
+          "الأولوية": "{{step.classify_lead.priority}}"
+        }
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 5,
+      "id": "send_welcome",
+      "tool_id": "whatsapp",
+      "action": "send_message",
+      "description": "رسالة ترحيب للعميل",
+      "config": {},
+      "input_mapping": {
+        "phone_number": "{{step.format_phone.formatted_phone}}",
+        "message": "{{templates.welcome.{company.industry}}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{trigger.customer_name}}",
+        "company_name": "{{company.company_name}}",
+        "greeting": "{{context.greeting}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          },
+          {
+            "tool_id": "twilio",
+            "action": "send_sms",
+            "condition": "always"
+          }
+        ],
+        "error_codes": {
+          "INVALID_PHONE": "auto_fix_phone_format",
+          "NOT_REGISTERED": "fallback_to_sms",
+          "SESSION_EXPIRED": "use_template_message"
+        }
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 6,
+      "id": "notify_owner",
+      "tool_id": "slack",
+      "action": "send_message",
+      "description": "تنبيه صاحب الشركة",
+      "config": {
+        "channel": "{{company.notification_channel}}"
+      },
+      "input_mapping": {
+        "text": "🔔 عميل جديد!\n👤 {{trigger.customer_name}}\n📱 {{step.format_phone.formatted_phone}}\n📝 {{trigger.customer_message}}\n🏷️ التصنيف: {{step.classify_lead.lead_type}}\n⭐ الأولوية: {{step.classify_lead.priority}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "telegram",
+            "action": "send_text_message",
+            "condition": "telegram_connected"
+          },
+          {
+            "tool_id": "whatsapp",
+            "action": "send_message",
+            "to": "{{company.owner_phone}}",
+            "condition": "always"
+          },
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "to": "{{company.owner_email}}",
+            "condition": "always"
+          }
+        ]
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 7,
+      "id": "store_idempotency",
+      "tool_id": "storage",
+      "action": "store_put",
+      "description": "حفظ مفتاح منع التكرار",
+      "config": {},
+      "input_mapping": {
+        "key": "lead_{{step.format_phone.formatted_phone}}_{{context.today}}",
+        "value": {
+          "processed": true,
+          "timestamp": "{{context.now}}"
+        }
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    }
+  ],
+  "branches": [
+    {
+      "after_step": "classify_lead",
+      "condition_field": "lead_type",
+      "routes": {
+        "hot": {
+          "additional_steps": [
+            {
+              "id": "urgent_alert",
+              "tool_id": "whatsapp",
+              "action": "send_message",
+              "description": "تنبيه عاجل للمدير — عميل جاد",
+              "input_mapping": {
+                "phone_number": "{{company.owner_phone}}",
+                "message": "🔥 عميل جاد الحين!\n{{trigger.customer_name}} — {{trigger.customer_message}}\nرد عليه بأسرع وقت"
+              }
+            }
+          ]
+        },
+        "warm": {
+          "additional_steps": []
+        },
+        "cold": {
+          "additional_steps": []
+        }
+      }
+    }
+  ],
+  "delays": [],
+  "required_connections": [
+    "google-sheets"
+  ],
+  "recommended_connections": [
+    "whatsapp",
+    "openai",
+    "slack",
+    "gmail"
+  ],
+  "minimum_connections": [
+    "google-sheets",
+    "gmail"
+  ],
+  "required_variables": {
+    "company": [
+      "company_name",
+      "industry",
+      "leads_spreadsheet_id"
+    ],
+    "trigger": [
+      "customer_name"
+    ],
+    "optional": [
+      "customer_phone",
+      "customer_email",
+      "customer_message",
+      "customer_source"
+    ]
+  },
+  "sheets_template": {
+    "name": "العملاء",
+    "columns": [
+      "الاسم",
+      "الجوال",
+      "الإيميل",
+      "الرسالة",
+      "المصدر",
+      "التاريخ",
+      "النوع",
+      "الخدمة",
+      "الأولوية",
+      "الحالة"
+    ]
+  },
+  "industry_variants": {
+    "clinic": {
+      "sheets_extra_columns": [
+        "نوع الزيارة",
+        "التخصص المطلوب"
+      ],
+      "welcome_template": "templates.welcome.clinic",
+      "classification_prompt_extra": "صنّف حسب: استشارة أولى، متابعة، طوارئ"
+    },
+    "ecommerce": {
+      "sheets_extra_columns": [
+        "المنتج المطلوب",
+        "الميزانية"
+      ],
+      "welcome_template": "templates.welcome.ecommerce",
+      "classification_prompt_extra": "صنّف حسب: شراء فوري، استفسار، مقارنة أسعار"
+    },
+    "construction": {
+      "sheets_extra_columns": [
+        "نوع المشروع",
+        "الموقع",
+        "الميزانية التقريبية"
+      ],
+      "welcome_template": "templates.welcome.construction",
+      "classification_prompt_extra": "صنّف حسب: مشروع جديد، صيانة، استشارة"
+    }
+  },
+  "protection": {
+    "idempotency": "hash(customer_phone + date) — prevents duplicate processing",
+    "rate_limit": "Max 500 leads/hour per tenant",
+    "data_validation": "Phone format check, email format check, required fields check",
+    "circuit_breaker": "After 3 consecutive sheet failures → queue leads → alert admin"
+  },
+  "expected_execution_time": "5-15 seconds",
+  "success_criteria": {
+    "must": [
+      "Data saved to sheet",
+      "Owner notified"
+    ],
+    "should": [
+      "Welcome message sent",
+      "Lead classified"
+    ],
+    "nice": [
+      "Idempotency key stored"
+    ]
+  }
+}

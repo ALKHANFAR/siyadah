@@ -1,0 +1,42 @@
+{
+  "id": "schedule",
+  "package": "@activepieces/piece-schedule",
+  "version": "0.3.0",
+  "source": "https://www.activepieces.com/pieces/schedule",
+  "github": "packages/pieces/community/schedule/src/index.ts",
+  "displayName": "Schedule",
+  "description": "Trigger flows on a schedule",
+  "logoUrl": "https://cdn.activepieces.com/pieces/schedule.png",
+  "category": "A_essential",
+  "auth": {
+    "required": false,
+    "type": "NONE"
+  },
+  "triggers": {
+    "every_hour": {
+      "displayName": "Every Hour",
+      "description": "Run every hour",
+      "type": "POLLING",
+      "props": []
+    },
+    "every_day": {
+      "displayName": "Every Day",
+      "description": "Run every day",
+      "type": "POLLING",
+      "props": []
+    },
+    "every_week": {
+      "displayName": "Every Week",
+      "description": "Run every week",
+      "type": "POLLING",
+      "props": []
+    },
+    "cron_expression": {
+      "displayName": "Cron Expression",
+      "description": "Run on a cron schedule",
+      "type": "POLLING",
+      "props": []
+    }
+  },
+  "actions": {}
+}

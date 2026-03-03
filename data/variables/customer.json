@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "category": "customer",
+    "source": "trigger_data",
+    "description": "Variables extracted from trigger/webhook data - dynamic per execution",
+    "version": "1.0.0"
+  },
+  "variables": {
+    "name": {
+      "key": "customer.name",
+      "type": "string",
+      "required": true,
+      "source": "trigger.body.name | trigger.row.الاسم",
+      "example": "محمد الأحمدي",
+      "description_ar": "اسم العميل",
+      "used_in_flows": ["lead-capture", "customer-journey", "complaint-handling", "appointment-booking", "invoice-collection"],
+      "fallback": "عميلنا الكريم",
+      "validation": "min:2,max:100"
+    },
+    "phone": {
+      "key": "customer.phone",
+      "type": "phone",
+      "required": true,
+      "source": "trigger.body.phone | trigger.row.الجوال",
+      "example": "+966501234567",
+      "description_ar": "جوال العميل",
+      "used_in_flows": ["lead-capture", "customer-journey", "complaint-handling", "appointment-booking", "invoice-collection"],
+      "auto_format": "05XXXXXXXX → +9665XXXXXXXX",
+      "validation": "saudi_phone"
+    },
+    "email": {
+      "key": "customer.email",
+      "type": "email",
+      "required": false,
+      "source": "trigger.body.email | trigger.row.الإيميل",
+      "example": "mohammed@gmail.com",
+      "description_ar": "إيميل العميل",
+      "used_in_flows": ["lead-capture", "complaint-handling", "appointment-booking"],
+      "validation": "email"
+    },
+    "message": {
+      "key": "customer.message",
+      "type": "string",
+      "required": false,
+      "source": "trigger.body.message | trigger.row.الرسالة",
+      "example": "أبي حجز موعد كشف أسنان",
+      "description_ar": "رسالة العميل الأصلية",
+      "used_in_flows": ["lead-capture"],
+      "validation": "max:2000"
+    },
+    "source": {
+      "key": "customer.source",
+      "type": "enum",
+      "required": false,
+      "source": "trigger.body.source | auto_detect",
+      "example": "whatsapp",
+      "description_ar": "مصدر العميل",
+      "used_in_flows": ["lead-capture"],
+      "validation": "enum:website|whatsapp|phone|referral|social|form|manual",
+      "default": "manual"
+    }
+  }
+}

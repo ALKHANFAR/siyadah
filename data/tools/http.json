@@ -1,0 +1,24 @@
+{
+  "id": "http",
+  "package": "@activepieces/piece-http",
+  "version": "0.9.5",
+  "source": "https://www.activepieces.com/pieces/http",
+  "npm": "https://www.npmjs.com/package/@activepieces/piece-http",
+  "github": "packages/pieces/community/http/src/index.ts",
+  "displayName": "HTTP",
+  "description": "Send HTTP requests",
+  "logoUrl": "https://cdn.activepieces.com/pieces/http.png",
+  "category": "A_essential",
+  "auth": {
+    "required": false,
+    "type": "NONE"
+  },
+  "triggers": {},
+  "actions": {
+    "send_request": {
+      "displayName": "Send HTTP Request",
+      "description": "Send an HTTP request",
+      "props": []
+    }
+  }
+}

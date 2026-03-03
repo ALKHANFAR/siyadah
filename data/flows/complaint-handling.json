@@ -1,0 +1,371 @@
+{
+  "_meta": {
+    "id": "complaint-handling",
+    "version": "1.0.0",
+    "display_name": "معالجة الشكاوى",
+    "display_name_en": "Complaint Handling",
+    "description": "شكوى وصلت → صنّفها → رد تلقائي → سجّلها → نبّه المسؤول",
+    "category": "customer_service",
+    "industries": [
+      "all"
+    ],
+    "estimated_setup_time": "3 min",
+    "user_request_examples": [
+      "أبي نظام يستقبل الشكاوى تلقائي",
+      "لما عميل يشتكي أبي أرد عليه فوري",
+      "سو لي أتمتة للشكاوى",
+      "أبي أعرف لما أحد يشتكي وأرد عليه",
+      "أبي نظام شكاوى ذكي"
+    ],
+    "intent_keywords": [
+      "شكوى",
+      "شكاوى",
+      "مشكلة",
+      "يشتكي",
+      "complaint",
+      "خدمة عملاء",
+      "استياء"
+    ]
+  },
+  "trigger": {
+    "tool_id": "webhook",
+    "action": "catch_webhook",
+    "description": "يستقبل الشكوى من الفورم أو البوت",
+    "config": {},
+    "expected_output": {
+      "customer_name": "{{body.name}}",
+      "customer_phone": "{{body.phone}}",
+      "customer_email": "{{body.email}}",
+      "complaint_text": "{{body.complaint}}",
+      "order_number": "{{body.order_number}}"
+    },
+    "alternative_triggers": [
+      "whatsapp-business.new_message",
+      "gmail.new_email",
+      "google-forms.new_form_response"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "id": "format_phone",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "تنسيق رقم الجوال",
+      "config": {
+        "code": "const phone = (inputs.phone || '').replace(/^0/, '+966').replace(/^966/, '+966').replace(/^00966/, '+966'); return { formatted_phone: phone, is_valid: /^\\\\+966[0-9]{9}$/.test(phone) };"
+      },
+      "input_mapping": {
+        "phone": "{{trigger.customer_phone}}"
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "formatted_phone": "{{trigger.customer_phone}}",
+          "is_valid": false
+        }
+      }
+    },
+    {
+      "order": 2,
+      "id": "classify_complaint",
+      "tool_id": "openai",
+      "action": "ask_chatgpt",
+      "description": "تصنيف الشكوى بالذكاء الاصطناعي",
+      "config": {
+        "model": "gpt-4o-mini",
+        "temperature": 0.1,
+        "response_format": "json_object",
+        "system_message": "أنت مساعد تصنيف شكاوى. صنّف الشكوى واقترح رد مناسب. رد بـ JSON فقط.",
+        "prompt": "صنّف هذه الشكوى:\nالعميل: {{trigger.customer_name}}\nالشكوى: {{trigger.complaint_text}}\nرقم الطلب: {{trigger.order_number}}\nمجال الشركة: {{company.industry}}\n\nرد بهذا الشكل بالضبط:\n{\"category\": \"تأخير|جودة|خدمة|فوترة|أخرى\", \"severity\": \"high|medium|low\", \"department\": \"القسم المسؤول\", \"suggested_response\": \"رد مهذب ومحترف للعميل\", \"needs_escalation\": true/false}"
+      },
+      "output": {
+        "category": "string",
+        "severity": "high|medium|low",
+        "department": "string",
+        "suggested_response": "string",
+        "needs_escalation": "boolean"
+      },
+      "on_error": {
+        "action": "fallback_rules",
+        "fallback": {
+          "rules": [
+            {
+              "if": "complaint_contains:عاجل|فوري|خطير|سيء جداً|أسوأ",
+              "then": {
+                "severity": "high",
+                "needs_escalation": true
+              }
+            },
+            {
+              "if": "complaint_contains:تأخير|متأخر|ما وصل",
+              "then": {
+                "category": "تأخير",
+                "severity": "medium"
+              }
+            },
+            {
+              "if": "complaint_contains:جودة|سيء|مكسور|خربان",
+              "then": {
+                "category": "جودة",
+                "severity": "medium"
+              }
+            },
+            {
+              "if": "complaint_contains:فاتورة|مبلغ|خطأ بالحساب",
+              "then": {
+                "category": "فوترة",
+                "severity": "medium"
+              }
+            },
+            {
+              "if": "default",
+              "then": {
+                "category": "أخرى",
+                "severity": "low",
+                "needs_escalation": false
+              }
+            }
+          ],
+          "default_response": "شكراً لتواصلك {{customer_name}}. وصلتنا شكواك وبنرد عليك خلال 24 ساعة.",
+          "log": "⚠️ تم التصنيف بالقواعد — AI كان متوقف"
+        }
+      }
+    },
+    {
+      "order": 3,
+      "id": "save_complaint",
+      "tool_id": "google-sheets",
+      "action": "insert_row",
+      "description": "حفظ الشكوى في السجل",
+      "config": {
+        "spreadsheet_id": "{{company.complaints_spreadsheet_id}}",
+        "sheet_name": "الشكاوى"
+      },
+      "input_mapping": {
+        "values": {
+          "رقم_الشكوى": "CMP-{{context.timestamp_short}}",
+          "التاريخ": "{{context.today}}",
+          "الاسم": "{{trigger.customer_name}}",
+          "الجوال": "{{step.format_phone.formatted_phone}}",
+          "الإيميل": "{{trigger.customer_email}}",
+          "الشكوى": "{{trigger.complaint_text}}",
+          "رقم_الطلب": "{{trigger.order_number}}",
+          "التصنيف": "{{step.classify_complaint.category}}",
+          "الخطورة": "{{step.classify_complaint.severity}}",
+          "القسم": "{{step.classify_complaint.department}}",
+          "الحالة": "جديدة",
+          "المعالج": ""
+        }
+      },
+      "on_error": {
+        "action": "retry_then_alert",
+        "retry_count": 3,
+        "error_codes": {
+          "SPREADSHEET_NOT_FOUND": "auto_create_spreadsheet"
+        }
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 4,
+      "id": "send_acknowledgement",
+      "tool_id": "whatsapp",
+      "action": "send_message",
+      "description": "رد تلقائي يطمّن العميل",
+      "input_mapping": {
+        "phone_number": "{{step.format_phone.formatted_phone}}",
+        "message": "{{step.classify_complaint.suggested_response || templates.complaint.acknowledgement}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{trigger.customer_name}}",
+        "company_name": "{{company.company_name}}",
+        "complaint_number": "CMP-{{context.timestamp_short}}",
+        "greeting": "{{context.greeting}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          },
+          {
+            "tool_id": "twilio",
+            "action": "send_sms",
+            "condition": "always"
+          }
+        ]
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 5,
+      "id": "notify_team",
+      "tool_id": "slack",
+      "action": "send_message",
+      "description": "تنبيه الفريق المسؤول",
+      "input_mapping": {
+        "channel": "{{company.notification_channel}}",
+        "text": "🚨 شكوى جديدة\n📝 رقم: CMP-{{context.timestamp_short}}\n👤 {{trigger.customer_name}}\n📱 {{step.format_phone.formatted_phone}}\n💬 {{trigger.complaint_text}}\n🏷️ التصنيف: {{step.classify_complaint.category}}\n⚠️ الخطورة: {{step.classify_complaint.severity}}\n🏢 القسم: {{step.classify_complaint.department}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "telegram",
+            "action": "send_text_message",
+            "condition": "telegram_connected"
+          },
+          {
+            "tool_id": "whatsapp",
+            "action": "send_message",
+            "to": "{{company.owner_phone}}",
+            "condition": "always"
+          },
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "to": "{{company.owner_email}}",
+            "condition": "always"
+          }
+        ]
+      },
+      "critical": true,
+      "never_skip": true
+    }
+  ],
+  "branches": [
+    {
+      "after_step": "classify_complaint",
+      "condition_field": "severity",
+      "routes": {
+        "high": {
+          "additional_steps": [
+            {
+              "id": "urgent_escalation",
+              "tool_id": "whatsapp",
+              "action": "send_message",
+              "description": "تصعيد عاجل للمدير — شكوى خطيرة",
+              "input_mapping": {
+                "phone_number": "{{company.owner_phone}}",
+                "message": "🔴 شكوى عاجلة!\n👤 {{trigger.customer_name}}\n💬 {{trigger.complaint_text}}\n\nتحتاج رد شخصي منك"
+              }
+            },
+            {
+              "id": "mark_as_escalated",
+              "tool_id": "google-sheets",
+              "action": "update_row",
+              "description": "تحديث حالة الشكوى لـ مصعّدة",
+              "input_mapping": {
+                "spreadsheet_id": "{{company.complaints_spreadsheet_id}}",
+                "sheet_name": "الشكاوى",
+                "lookup_column": "رقم_الشكوى",
+                "lookup_value": "CMP-{{context.timestamp_short}}",
+                "values": {
+                  "الحالة": "مصعّدة",
+                  "المعالج": "المدير"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "delays": [],
+  "required_connections": [
+    "google-sheets"
+  ],
+  "recommended_connections": [
+    "whatsapp",
+    "openai",
+    "slack",
+    "gmail"
+  ],
+  "minimum_connections": [
+    "google-sheets",
+    "gmail"
+  ],
+  "required_variables": {
+    "company": [
+      "company_name",
+      "complaints_spreadsheet_id"
+    ],
+    "trigger": [
+      "customer_name",
+      "complaint_text"
+    ],
+    "optional": [
+      "customer_phone",
+      "customer_email",
+      "order_number"
+    ]
+  },
+  "sheets_template": {
+    "name": "الشكاوى",
+    "columns": [
+      "رقم_الشكوى",
+      "التاريخ",
+      "الاسم",
+      "الجوال",
+      "الإيميل",
+      "الشكوى",
+      "رقم_الطلب",
+      "التصنيف",
+      "الخطورة",
+      "القسم",
+      "الحالة",
+      "المعالج",
+      "تاريخ_الحل"
+    ]
+  },
+  "industry_variants": {
+    "clinic": {
+      "sheets_extra_columns": [
+        "الطبيب",
+        "القسم الطبي"
+      ],
+      "classification_extra": "صنّف: وقت انتظار، جودة علاج، تعامل موظفين، نظافة"
+    },
+    "ecommerce": {
+      "sheets_extra_columns": [
+        "المنتج",
+        "رقم الشحنة"
+      ],
+      "classification_extra": "صنّف: تأخير شحن، منتج تالف، خطأ بالطلب، استرجاع"
+    },
+    "restaurant": {
+      "sheets_extra_columns": [
+        "رقم الطلب",
+        "الفرع"
+      ],
+      "classification_extra": "صنّف: جودة طعام، تأخير، خطأ بالطلب، نظافة"
+    }
+  },
+  "protection": {
+    "idempotency": "hash(customer_phone + complaint_text) — prevent duplicate complaints",
+    "rate_limit": "Max 100 complaints/day per tenant",
+    "data_validation": "Complaint text must be > 10 chars, customer name required",
+    "circuit_breaker": "3 consecutive failures → queue → alert admin",
+    "response_safety": "AI response checked: no offensive language, professional tone, < 300 chars"
+  },
+  "expected_execution_time": "5-10 seconds",
+  "success_criteria": {
+    "must": [
+      "Complaint recorded in sheet",
+      "Customer acknowledged",
+      "Team notified"
+    ],
+    "should": [
+      "Complaint classified",
+      "High severity escalated"
+    ],
+    "nice": [
+      "AI-generated response used"
+    ]
+  }
+}

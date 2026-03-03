@@ -1,0 +1,242 @@
+{
+  "id": "trello",
+  "package": "@activepieces/piece-trello",
+  "version": "0.4.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "api_key",
+      "token"
+    ]
+  },
+  "actions": {
+    "add_card_attachment": {
+      "displayName": "Add Card Attachment",
+      "description": "Adds an attachment to a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "attachment",
+          "displayName": "Attachment File",
+          "type": "FILE",
+          "required": true
+        },
+        {
+          "name": "name",
+          "displayName": "Attachment Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "mime_type",
+          "displayName": "MIME Type",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "set_cover",
+          "displayName": "Set as Cover",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "get_card_attachments": {
+      "displayName": "Get All Card Attachments",
+      "description": "Gets all attachments on a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "delete_card_attachment": {
+      "displayName": "Delete Card Attachment",
+      "description": "Deletes an attachment from a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "attachment_id",
+          "displayName": "Attachment ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_card_attachment": {
+      "displayName": "Get Card Attachment",
+      "description": "Gets a specific attachment on a card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "attachment_id",
+          "displayName": "Attachment ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "delete_card": {
+      "displayName": "Delete Card",
+      "description": "Deletes an existing card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get_card": {
+      "displayName": "Get Card",
+      "description": "Gets a card by ID.",
+      "props": [
+        {
+          "name": "cardId",
+          "displayName": "Card ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "update_card": {
+      "displayName": "Update Card",
+      "description": "Updates an existing card.",
+      "props": [
+        {
+          "name": "card_id",
+          "displayName": "Card ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "name",
+          "displayName": "Card Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "description",
+          "displayName": "Card Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "closed",
+          "displayName": "Archived",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "due",
+          "displayName": "Due Date",
+          "type": "DATE_TIME",
+          "required": false
+        }
+      ]
+    },
+    "create_card": {
+      "displayName": "Create Card",
+      "description": "Create a new card in Trello",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Task Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Task Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "position",
+          "displayName": "Position",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "card_moved_to_list": {
+      "displayName": "Card Moved to list",
+      "description": "Trigger when a card is moved to the list specified",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "deadline": {
+      "displayName": "Card Deadline",
+      "description": "Triggers at a specified time before a card deadline.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "time_unit",
+          "displayName": "Time unit",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "time_before_due",
+          "displayName": "Time before due",
+          "type": "NUMBER",
+          "required": true
+        }
+      ]
+    },
+    "new_card": {
+      "displayName": "New Card",
+      "description": "Trigger when a new card is created",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  },
+  "common_errors": [
+    {
+      "code": "LIST_NOT_FOUND",
+      "cause": "List deleted",
+      "auto_fix": "Use first list on board",
+      "severity": "medium"
+    },
+    {
+      "code": "RATE_LIMITED",
+      "cause": "100 requests per 10 seconds",
+      "auto_fix": "Queue requests",
+      "severity": "low"
+    }
+  ],
+  "limits": {
+    "api_calls_per_10s": 100
+  },
+  "notes": "Simple project management. Good for construction task boards.",
+  "displayName": "API Key"
+}

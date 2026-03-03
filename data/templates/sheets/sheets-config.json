@@ -1,0 +1,95 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "Sheet column definitions per industry per flow type",
+    "industries": 7,
+    "flow_types": 6
+  },
+  "base_sheets": {
+    "leads": {
+      "name_ar": "العملاء",
+      "columns": ["الاسم", "الجوال", "الإيميل", "الرسالة", "المصدر", "التاريخ", "النوع", "الخدمة", "الأولوية", "الحالة"]
+    },
+    "invoices": {
+      "name_ar": "الفواتير",
+      "columns": ["رقم_الفاتورة", "الاسم", "الجوال", "الإيميل", "المبلغ", "تاريخ_الاستحقاق", "الحالة", "عدد_التذكيرات", "آخر_تذكير"]
+    },
+    "complaints": {
+      "name_ar": "الشكاوى",
+      "columns": ["رقم_الشكوى", "التاريخ", "الاسم", "الجوال", "الإيميل", "الشكوى", "رقم_الطلب", "التصنيف", "الخطورة", "القسم", "الحالة", "المعالج", "تاريخ_الحل"]
+    },
+    "appointments": {
+      "name_ar": "المواعيد",
+      "columns": ["الاسم", "الإيميل", "الجوال", "التاريخ", "اليوم", "الوقت", "الحالة", "ملاحظات"]
+    },
+    "customers": {
+      "name_ar": "العملاء",
+      "columns": ["الاسم", "الجوال", "الإيميل", "النوع", "الحالة", "تاريخ_الإكمال"]
+    }
+  },
+  "industry_extensions": {
+    "clinic": {
+      "leads_extra": ["نوع الزيارة", "التخصص المطلوب"],
+      "appointments_extra": ["التخصص", "اسم الطبيب", "نوع الزيارة"],
+      "complaints_extra": ["القسم الطبي"]
+    },
+    "ecommerce": {
+      "leads_extra": ["المنتج المطلوب", "الميزانية"],
+      "invoices_extra": ["رقم_الطلب", "طريقة_الشحن"],
+      "complaints_extra": ["رقم_الطلب", "المنتج"]
+    },
+    "construction": {
+      "leads_extra": ["نوع المشروع", "الموقع", "الميزانية التقريبية"],
+      "invoices_extra": ["اسم_المشروع", "نسبة_الإنجاز"],
+      "complaints_extra": ["اسم_المشروع", "الموقع"]
+    },
+    "restaurant": {
+      "leads_extra": ["نوع الطلب", "عدد الأشخاص"],
+      "invoices_extra": ["نوع_الخدمة"],
+      "complaints_extra": ["رقم_الطلب", "نوع_الشكوى"]
+    },
+    "consulting": {
+      "leads_extra": ["مجال الاستشارة", "حجم الشركة"],
+      "appointments_extra": ["نوع الجلسة", "المستشار"],
+      "complaints_extra": ["نوع_الخدمة"]
+    },
+    "training": {
+      "leads_extra": ["الدورة المطلوبة", "المستوى"],
+      "appointments_extra": ["اسم الدورة", "المدرب", "القاعة"],
+      "complaints_extra": ["اسم_الدورة"]
+    },
+    "general_services": {
+      "leads_extra": ["الخدمة المطلوبة"],
+      "complaints_extra": ["نوع_الخدمة"]
+    }
+  },
+  "column_types": {
+    "الاسم": "text",
+    "الجوال": "phone",
+    "الإيميل": "email",
+    "الرسالة": "text",
+    "المصدر": "enum:website|whatsapp|phone|referral|social",
+    "التاريخ": "date",
+    "النوع": "enum:hot|warm|cold",
+    "الخدمة": "text",
+    "الأولوية": "enum:high|medium|low",
+    "الحالة": "enum:new|in_progress|completed|cancelled",
+    "رقم_الفاتورة": "auto_increment",
+    "المبلغ": "currency_sar",
+    "تاريخ_الاستحقاق": "date",
+    "عدد_التذكيرات": "number",
+    "آخر_تذكير": "date",
+    "رقم_الشكوى": "auto_increment",
+    "الشكوى": "text",
+    "رقم_الطلب": "text",
+    "التصنيف": "text",
+    "الخطورة": "enum:low|medium|high|critical",
+    "القسم": "text",
+    "المعالج": "text",
+    "تاريخ_الحل": "date",
+    "اليوم": "text",
+    "الوقت": "time",
+    "ملاحظات": "text",
+    "تاريخ_الإكمال": "date"
+  }
+}

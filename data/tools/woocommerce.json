@@ -1,0 +1,233 @@
+{
+  "id": "woocommerce",
+  "package": "@activepieces/piece-woocommerce",
+  "version": "0.3.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "store_url",
+      "consumer_key",
+      "consumer_secret"
+    ]
+  },
+  "actions": {
+    "Create Coupon": {
+      "displayName": "Create Coupon",
+      "description": "Create a coupon",
+      "props": [
+        {
+          "name": "code",
+          "displayName": "Coupon code",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "discount_type",
+          "displayName": "Discount type",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true
+        },
+        {
+          "name": "minimum_amount",
+          "displayName": "Minimum amount",
+          "type": "NUMBER",
+          "required": true
+        }
+      ]
+    },
+    "Create Customer": {
+      "displayName": "Create Customer",
+      "description": "Create a Customer",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "first_name",
+          "displayName": "First name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "displayName": "Last name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "username",
+          "displayName": "Username",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "password",
+          "displayName": "Password",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "street_address",
+          "displayName": "Address",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "postcode",
+          "displayName": "Postcode",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "Create Product": {
+      "displayName": "Create Product",
+      "description": "Create a Product",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "regular_price",
+          "displayName": "Regular price",
+          "type": "NUMBER",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "short_description",
+          "displayName": "Short description",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "categories",
+          "displayName": "Categories",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "images",
+          "displayName": "Images",
+          "type": "LONG_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "Find Coupon": {
+      "displayName": "Find Coupon",
+      "description": "Find a Coupon",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Coupon ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "Find Customer": {
+      "displayName": "Find Customer",
+      "description": "Find a Customer",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "Find Product": {
+      "displayName": "Find Product",
+      "description": "Find a Product",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "$woocommerce_trigger_${name}": {
+      "displayName": "$woocommerce_trigger_${name}",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  },
+  "common_errors": [
+    {
+      "code": "AUTH_FAILED",
+      "cause": "Consumer key/secret wrong",
+      "auto_fix": "Verify credentials in WooCommerce settings",
+      "severity": "high"
+    },
+    {
+      "code": "STORE_UNREACHABLE",
+      "cause": "WordPress site down",
+      "auto_fix": "Retry with backoff",
+      "severity": "high"
+    }
+  ],
+  "limits": null,
+  "notes": "WordPress-based ecommerce. Common with smaller stores.",
+  "displayName": "WooCommerce"
+}

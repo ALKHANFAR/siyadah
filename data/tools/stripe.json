@@ -1,0 +1,549 @@
+{
+  "id": "stripe",
+  "package": "@activepieces/piece-stripe",
+  "version": "0.4.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "secret_key"
+    ]
+  },
+  "actions": {
+    "cancel_subscription": {
+      "displayName": "Cancel Subscription",
+      "description": "Cancel an existing subscription, either immediately or at the end of the current billing period.",
+      "props": [
+        {
+          "name": "cancel_at_period_end",
+          "displayName": "Cancel at Period End",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "create_customer": {
+      "displayName": "Create Customer",
+      "description": "Create a customer in stripe",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "line1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "create_invoice": {
+      "displayName": "Create Invoice",
+      "description": "Create an Invoice in stripe",
+      "props": [
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "create_payment_intent": {
+      "displayName": "Create Payment (Payment Intent)",
+      "description": "Creates a new payment intent to start a payment flow.",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "payment_method",
+          "displayName": "Payment Method ID",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "displayName": "Confirm Payment Immediately",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "return_url",
+          "displayName": "Return URL",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "receipt_email",
+          "displayName": "Receipt Email",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "create_payment_link": {
+      "displayName": "Create Payment Link",
+      "description": "Creates a shareable, Stripe-hosted payment link for one-time purchases or subscriptions.",
+      "props": [
+        {
+          "name": "line_items",
+          "displayName": "Line Items",
+          "type": "ARRAY",
+          "required": true
+        },
+        {
+          "name": "price",
+          "displayName": "Price ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": true
+        },
+        {
+          "name": "after_completion_type",
+          "displayName": "After Completion Behavior",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "after_completion_redirect_url",
+          "displayName": "Redirect URL",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "allow_promotion_codes",
+          "displayName": "Allow Promotion Codes",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "billing_address_collection",
+          "displayName": "Billing Address Collection",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false
+        }
+      ]
+    },
+    "create_price": {
+      "displayName": "Create Price",
+      "description": "Create a price (one-time or recurring), associated with a product.",
+      "props": [
+        {
+          "name": "unit_amount",
+          "displayName": "Unit Amount",
+          "type": "NUMBER",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "displayName": "Currency",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "recurring_interval",
+          "displayName": "Billing Interval",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "recurring_interval_count",
+          "displayName": "Interval Count",
+          "type": "NUMBER",
+          "required": false
+        }
+      ]
+    },
+    "create_product": {
+      "displayName": "Create Product",
+      "description": "Create a new product object in Stripe.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Product Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "active",
+          "displayName": "Active",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "images",
+          "displayName": "Image URLs",
+          "type": "ARRAY",
+          "required": false
+        },
+        {
+          "name": "url",
+          "displayName": "Product URL",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false
+        }
+      ]
+    },
+    "create_refund": {
+      "displayName": "Create a Refund",
+      "description": "Create a full or partial refund for a payment.",
+      "props": [
+        {
+          "name": "amount",
+          "displayName": "Amount",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "reason",
+          "displayName": "Reason",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false
+        }
+      ]
+    },
+    "create_subscription": {
+      "displayName": "Create Subscription",
+      "description": "Start a subscription for a customer with specified items/prices.",
+      "props": [
+        {
+          "name": "items",
+          "displayName": "Subscription Items",
+          "type": "ARRAY",
+          "required": true
+        },
+        {
+          "name": "price",
+          "displayName": "Price ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "displayName": "Quantity",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "collection_method",
+          "displayName": "Collection Method",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "days_until_due",
+          "displayName": "Days Until Due",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "trial_period_days",
+          "displayName": "Trial Period (Days)",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "default_payment_method",
+          "displayName": "Default Payment Method ID",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "displayName": "Metadata",
+          "type": "JSON",
+          "required": false
+        }
+      ]
+    },
+    "deactivate_payment_link": {
+      "displayName": "Deactivate Payment Link",
+      "description": "Disable or deactivate a Payment Link so it can no longer be used.",
+      "props": []
+    },
+    "find_invoice": {
+      "displayName": "Find Invoice",
+      "description": "Finds an invoice by its unique ID.",
+      "props": []
+    },
+    "retrieve_customer": {
+      "displayName": "Retrieve Customer",
+      "description": "Retrieve a customer in stripe by id",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "retrieve_invoice": {
+      "displayName": "Retrieve an Invoice",
+      "description": "Retrieves the details of an existing invoice by its ID.",
+      "props": []
+    },
+    "retrieve_payment_intent": {
+      "displayName": "Find Payment (by Payment Intent ID)",
+      "description": "Retrieves the details of a payment by its unique Payment Intent ID.",
+      "props": []
+    },
+    "retrieve_payout": {
+      "displayName": "Retrieve a Payout",
+      "description": "Retrieves the details of an existing payout by its ID.",
+      "props": []
+    },
+    "search_customer": {
+      "displayName": "Search Customer",
+      "description": "Search for a customer in stripe by email",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "search_subscriptions": {
+      "displayName": "Search Subscriptions",
+      "description": "Search for subscriptions by price ID, status, customer ID and other filters, including customer details",
+      "props": [
+        {
+          "name": "price_ids",
+          "displayName": "Price IDs",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "status",
+          "displayName": "Subscription Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "customer_id",
+          "displayName": "Customer ID",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "created_after",
+          "displayName": "Created After",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "created_before",
+          "displayName": "Created Before",
+          "type": "DATE_TIME",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "displayName": "Limit",
+          "type": "NUMBER",
+          "required": false
+        },
+        {
+          "name": "fetch_all",
+          "displayName": "Fetch All Results",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "include_customer_details",
+          "displayName": "Include Customer Details",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "update_customer": {
+      "displayName": "Update Customer",
+      "description": "Modify an existing customer’s details.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "name",
+          "displayName": "Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "phone",
+          "displayName": "Phone",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "line1",
+          "displayName": "Address Line 1",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "postal_code",
+          "displayName": "Postal Code",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "city",
+          "displayName": "City",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "country",
+          "displayName": "Country",
+          "type": "SHORT_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "CARD_DECLINED",
+      "cause": "Customer card declined",
+      "auto_fix": "Notify customer to update payment",
+      "severity": "medium"
+    },
+    {
+      "code": "CUSTOMER_NOT_FOUND",
+      "cause": "Customer ID invalid",
+      "auto_fix": "Create customer first",
+      "severity": "medium"
+    }
+  ],
+  "limits": null,
+  "notes": "Payment processing. Amount in smallest currency unit. Growing in Saudi Arabia. Moyasar alternative via HTTP.",
+  "displayName": "Secret API Key"
+}

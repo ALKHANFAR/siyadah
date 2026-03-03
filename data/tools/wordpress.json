@@ -1,0 +1,208 @@
+{
+  "id": "wordpress",
+  "package": "@activepieces/piece-wordpress",
+  "version": "0.3.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "site_url",
+      "username",
+      "application_password"
+    ]
+  },
+  "actions": {
+    "create_page": {
+      "displayName": "Create Page",
+      "description": "Create new page on WordPress",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "status",
+          "displayName": "Status",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "excerpt",
+          "displayName": "Excerpt",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "comment_status",
+          "displayName": "Enable Comments",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "ping_status",
+          "displayName": "Open to Pinging",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "create_post": {
+      "displayName": "Create Post",
+      "description": "Create new post on WordPress",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "acfFields",
+          "displayName": "Custom ACF fields",
+          "type": "OBJECT",
+          "required": false
+        },
+        {
+          "name": "excerpt",
+          "displayName": "Excerpt",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "comment_status",
+          "displayName": "Enable Comments",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "ping_status",
+          "displayName": "Open to Pinging",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "get_post": {
+      "displayName": "Get Post Details",
+      "description": "Get a post from WordPress",
+      "props": [
+        {
+          "name": "id",
+          "displayName": "Post ID",
+          "type": "NUMBER",
+          "required": true
+        }
+      ]
+    },
+    "update_post": {
+      "displayName": "Update Post",
+      "description": "Update an existing post on WordPress.",
+      "props": [
+        {
+          "name": "title",
+          "displayName": "Title",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "content",
+          "displayName": "Content",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "acfFields",
+          "displayName": "Custom ACF fields",
+          "type": "OBJECT",
+          "required": false
+        },
+        {
+          "name": "excerpt",
+          "displayName": "Excerpt",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "comment_status",
+          "displayName": "Enable Comments",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "ping_status",
+          "displayName": "Open to Pinging",
+          "type": "CHECKBOX",
+          "required": false
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "AUTH_FAILED",
+      "cause": "Application password wrong",
+      "auto_fix": "Verify in WP settings",
+      "severity": "high"
+    }
+  ],
+  "limits": null,
+  "notes": "Content automation for businesses with WordPress sites.",
+  "displayName": "Username"
+}

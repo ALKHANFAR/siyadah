@@ -1,0 +1,19 @@
+{
+  "name": "siyadah-data",
+  "version": "3.0.0",
+  "description": "سيادة — بيانات منصة الأتمتة العربية (602 أداة من ActivePieces)",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/run-all.js",
+    "test:registry": "node tests/test-registry.js",
+    "test:details": "node tests/test-tool-details.js",
+    "test:flows": "node tests/test-flows.js",
+    "test:templates": "node tests/test-templates.js",
+    "test:errors": "node tests/test-errors.js",
+    "test:complex": "node tests/test-50-flows.js",
+    "build": "echo 'No build step needed'",
+    "extract": "echo 'Use build-registry.py locally'"
+  },
+  "keywords": ["automation", "activepieces", "arabic", "saas"],
+  "license": "MIT"
+}

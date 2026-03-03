@@ -1,0 +1,1143 @@
+{
+  "id": "hubspot",
+  "package": "@activepieces/piece-hubspot",
+  "version": "0.5.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "oauth2",
+    "provider": "hubspot"
+  },
+  "actions": {
+    "add_contact_to_list": {
+      "displayName": "Add contact To List",
+      "description": "Add contact to list",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Contact Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "add-contact-to-workflow": {
+      "displayName": "Add Contact to Workflow",
+      "description": "Adds a contact to a specified workflow in your HubSpot account.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Contact's Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create-associations": {
+      "displayName": "Create Associations",
+      "description": "Creates associations between objects",
+      "props": [
+        {
+          "name": "fromObjectId",
+          "displayName": "From Object ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create-blog-post": {
+      "displayName": "Create COS Blog Post",
+      "description": "Creates a blog post in you Hubspot COS blog.",
+      "props": [
+        {
+          "name": "status",
+          "displayName": "Publish This Post?",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "title",
+          "displayName": "Blog Post Title",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "body",
+          "displayName": "Blog Post Content",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "displayName": "Meta Description",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "imageUrl",
+          "displayName": "Featured Image URL",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create-company": {
+      "displayName": "Create Company",
+      "description": "Creates a company in Hubspot.",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "create-contact": {
+      "displayName": "Create Contact",
+      "description": "Creates a contact in Hubspot.",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "create-custome-object": {
+      "displayName": "Create Custom Object",
+      "description": "Creates a custom object in Hubspot.",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "create-deal": {
+      "displayName": "Create Deal",
+      "description": "Creates a new deal in Hubspot.",
+      "props": [
+        {
+          "name": "dealname",
+          "displayName": "Deal Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "create-line-item": {
+      "displayName": "Create Line Item",
+      "description": "Creates a line item in Hubspot.",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "create-or-update-contact": {
+      "displayName": "Create or Update Contact",
+      "description": "Creates a new contact or updates an existing contact based on email address.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Contact Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create-page": {
+      "displayName": "Create Page",
+      "description": "Creates a new landing/site page.",
+      "props": [
+        {
+          "name": "pageTitle",
+          "displayName": "Page Title",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "internalPageName",
+          "displayName": "Internal Page Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "templatePath",
+          "displayName": "Template Path",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "slug",
+          "displayName": "Slug",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "language",
+          "displayName": "Language",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "metaDescription",
+          "displayName": "Meta Description",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "state",
+          "displayName": "State",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        },
+        {
+          "name": "headHtml",
+          "displayName": "Additional Head HTML",
+          "type": "LONG_TEXT",
+          "required": false
+        },
+        {
+          "name": "footerHtml",
+          "displayName": "Additional Footer HTML",
+          "type": "LONG_TEXT",
+          "required": false
+        }
+      ]
+    },
+    "create-product": {
+      "displayName": "Create Product",
+      "description": "Creates a product in Hubspot.",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "create-ticket": {
+      "displayName": "Create Ticket",
+      "description": "Creates a ticket in HubSpot.",
+      "props": [
+        {
+          "name": "ticketName",
+          "displayName": "Ticket Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "delete-page": {
+      "displayName": "Delete Page",
+      "description": "Deletes an existing landing/site page.",
+      "props": [
+        {
+          "name": "pageId",
+          "displayName": "Page ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "find-associations": {
+      "displayName": "Find Associations",
+      "description": "Finds associations between objects",
+      "props": [
+        {
+          "name": "fromObjectId",
+          "displayName": "From Object ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "find-company": {
+      "displayName": "Find Company",
+      "description": "Finds a company by searching.",
+      "props": [
+        {
+          "name": "firstSearchPropertyValue",
+          "displayName": "First search property value",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "secondSearchPropertyValue",
+          "displayName": "Second search property value",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "find-contact": {
+      "displayName": "Find Contact",
+      "description": "Finds a contact by searching.",
+      "props": [
+        {
+          "name": "firstSearchPropertyValue",
+          "displayName": "First search property value",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "secondSearchPropertyValue",
+          "displayName": "Second search property value",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "find-custom-object": {
+      "displayName": "Find Custom Object",
+      "description": "Finds a custom object by searching.",
+      "props": [
+        {
+          "name": "firstSearchPropertyValue",
+          "displayName": "First search property value",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "secondSearchPropertyValue",
+          "displayName": "Second search property value",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "find-deal": {
+      "displayName": "Find Deal",
+      "description": "Finds a deal by searching.",
+      "props": [
+        {
+          "name": "firstSearchPropertyValue",
+          "displayName": "First search property value",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "secondSearchPropertyValue",
+          "displayName": "Second search property value",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "find-line-item": {
+      "displayName": "Find Line Item",
+      "description": "Finds a line item by searching.",
+      "props": [
+        {
+          "name": "firstSearchPropertyValue",
+          "displayName": "First search property value",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "secondSearchPropertyValue",
+          "displayName": "Second search property value",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "find-product": {
+      "displayName": "Find Product",
+      "description": "Finds a product by searching.",
+      "props": [
+        {
+          "name": "firstSearchPropertyValue",
+          "displayName": "First search property value",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "secondSearchPropertyValue",
+          "displayName": "Second search property value",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "Additional properties to retrieve",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "find-ticket": {
+      "displayName": "Find Ticket",
+      "description": "Finds a ticket by searching.",
+      "props": [
+        {
+          "name": "firstSearchPropertyValue",
+          "displayName": "First search property value",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "secondSearchPropertyValue",
+          "displayName": "Second search property value",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "get-company": {
+      "displayName": "Get Company",
+      "description": "Gets a company.",
+      "props": [
+        {
+          "name": "companyId",
+          "displayName": "Company ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "get-contact": {
+      "displayName": "Get Contact",
+      "description": "Gets a contact.",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "get-custom-object": {
+      "displayName": "Get Custom Object",
+      "description": "Gets a custom object.",
+      "props": [
+        {
+          "name": "customObjectId",
+          "displayName": "Custom Object ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "get-deal": {
+      "displayName": "Get Deal",
+      "description": "Gets a deal.",
+      "props": [
+        {
+          "name": "dealId",
+          "displayName": "Deal ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "get-line-item": {
+      "displayName": "Get Line Item",
+      "description": "Gets a line item.",
+      "props": [
+        {
+          "name": "lineItemId",
+          "displayName": "Line Item ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "get-owner-by-email": {
+      "displayName": "Get Owner by Email",
+      "description": "Gets an existing owner by email.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Owner Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get-owner-by-id": {
+      "displayName": "Get Owner by ID",
+      "description": "Gets an existing owner by ID.",
+      "props": [
+        {
+          "name": "ownerId",
+          "displayName": "Owner ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get-page": {
+      "displayName": "Get Page",
+      "description": "Gets landing/site page Details.",
+      "props": [
+        {
+          "name": "pageId",
+          "displayName": "Page ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get-pipeline-stage-details": {
+      "displayName": "Get Pipeline Stage Details",
+      "description": "Finds and retrieves CRM object pipeline stage details.",
+      "props": [
+        {
+          "name": "objectType",
+          "displayName": "Object Type",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "pipelineId",
+          "displayName": "Pipeline ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "stageId",
+          "displayName": "Stage ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "get-product": {
+      "displayName": "Get Product",
+      "description": "Gets a product.",
+      "props": [
+        {
+          "name": "productId",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "Additional properties to retrieve",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "get-ticket": {
+      "displayName": "Get Ticket",
+      "description": "Gets a ticket.",
+      "props": [
+        {
+          "name": "ticketId",
+          "displayName": "Ticket ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "remove-associations": {
+      "displayName": "Remove Associations",
+      "description": "Removes associations between objects",
+      "props": [
+        {
+          "name": "fromObjectId",
+          "displayName": "From Object ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "remove-contact-from-list": {
+      "displayName": "Remove Contact from List",
+      "description": "Remove a contact from a specific list.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Contact Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "remove-email-subscription": {
+      "displayName": "Remove Email Subscription",
+      "description": "Removes email subscription.",
+      "props": [
+        {
+          "name": "email",
+          "displayName": "Email",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "update-company": {
+      "displayName": "Update Company",
+      "description": "Updates a company in Hubspot.",
+      "props": [
+        {
+          "name": "companyId",
+          "displayName": "Company ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "update-contact": {
+      "displayName": "Update Contact",
+      "description": "Updates a contact in Hubspot.",
+      "props": [
+        {
+          "name": "contactId",
+          "displayName": "Contact ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "update-custome-object": {
+      "displayName": "Update Custom Object",
+      "description": "Updates a custom object in Hubspot.",
+      "props": [
+        {
+          "name": "customObjectId",
+          "displayName": "Custom Object ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "update-deal": {
+      "displayName": "Update Deal",
+      "description": "Updates a deal in HubSpot.",
+      "props": [
+        {
+          "name": "dealId",
+          "displayName": "Deal ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "dealname",
+          "displayName": "Deal Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "update-line-item": {
+      "displayName": "Update Line Item",
+      "description": "Updates a line item in Hubspot.",
+      "props": [
+        {
+          "name": "lineItemId",
+          "displayName": "Line Item ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "update-product": {
+      "displayName": "Update Product",
+      "description": "Updates a product in Hubspot.",
+      "props": [
+        {
+          "name": "productId",
+          "displayName": "Product ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "update-ticket": {
+      "displayName": "Update Ticket",
+      "description": "Updates a ticket in HubSpot.",
+      "props": [
+        {
+          "name": "ticketId",
+          "displayName": "Ticket ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "ticketName",
+          "displayName": "Ticket Name",
+          "type": "SHORT_TEXT",
+          "required": false
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "upload-file": {
+      "displayName": "Upload File",
+      "description": "Uploads a file to HubSpot File Manager.",
+      "props": [
+        {
+          "name": "folderId",
+          "displayName": "Folder",
+          "type": "DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "fileName",
+          "displayName": "File Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "accessLevel",
+          "displayName": "Access Level",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "file",
+          "displayName": "File",
+          "type": "FILE",
+          "required": true
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "deal-stage-updated": {
+      "displayName": "Updated Deal Stage",
+      "description": "Triggers when a deal enters a specified stage.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-email-subscriptions-timeline": {
+      "displayName": "New Email Subscriptions Timeline",
+      "description": "Triggers when a new email timeline subscription added for the portal.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-blog-article": {
+      "displayName": "New COS Blog Article",
+      "description": "Triggers when a new article is added to your COS blog.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "articleState",
+          "displayName": "Article State",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "new-company-property-change": {
+      "displayName": "New Company Property Change",
+      "description": "Triggers when a specified property is updated on a company.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-company": {
+      "displayName": "New Company",
+      "description": "Trigger when a new company is added.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-contact-in-list": {
+      "displayName": "New Contact in List",
+      "description": "Triggers when a new contact is added to the specified list.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "listId",
+          "displayName": "Contact List",
+          "type": "DROPDOWN",
+          "required": true
+        },
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-contact-property-change": {
+      "displayName": "New Contact Property Change",
+      "description": "Triggers when a specified property is updated on a contact.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-contact": {
+      "displayName": "New Contact",
+      "description": "Trigger when new contact is available.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-custom-object-property-change": {
+      "displayName": "New Custom Object Property Change",
+      "description": "Triggers when a specified property is updated on a custom object.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-custom-object": {
+      "displayName": "New Custom Object",
+      "description": "Triggers when new custom object is available.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-deal-property-change": {
+      "displayName": "New Deal Property Change",
+      "description": "Triggers when a specified property is updated on a deal.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-deal": {
+      "displayName": "New Deal",
+      "description": "Trigger when a new deal is added.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-email-event": {
+      "displayName": "New Email Event",
+      "description": "Triggers when all,or specific new email event is available.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "eventType",
+          "displayName": "Event Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-engagement": {
+      "displayName": "New Engagement",
+      "description": "Triggers when a new engagement is created.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "eventType",
+          "displayName": "Type",
+          "type": "STATIC_DROPDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-form-submission": {
+      "displayName": "New Form Submission",
+      "description": "Triggers when a form is submitted.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "allowMultipleFiles",
+          "displayName": "Allow Multiple Files",
+          "type": "CHECKBOX",
+          "required": true
+        }
+      ]
+    },
+    "new-line-item": {
+      "displayName": "New Line Item",
+      "description": "Triggers when new line item is available.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-or-updated-company": {
+      "displayName": "Company Recently Created or Updated",
+      "description": "Triggers when a company recently created or updated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-or-updated-contact": {
+      "displayName": "Contact Recently Created or Updated",
+      "description": "Triggers when a contact recently created or updated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-or-updated-line-item": {
+      "displayName": "Line Item Recently Created or Updated",
+      "description": "Triggers when a line item recently created or updated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-or-updated-product": {
+      "displayName": "Product Recently Created or Updated",
+      "description": "Triggers when a product recently created or updated.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "Additional properties to retrieve",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-product": {
+      "displayName": "New Product",
+      "description": "Triggers when new product is available.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "Additional properties to retrieve",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-task": {
+      "displayName": "New Task",
+      "description": "Trigger when a new task is added.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    },
+    "new-ticket-property-change": {
+      "displayName": "New Ticket Property Change",
+      "description": "Triggers when a specified property is updated on a ticket.",
+      "type": "POLLING",
+      "props": []
+    },
+    "new-ticket": {
+      "displayName": "New Ticket",
+      "description": "Trigger when new ticket is available.",
+      "type": "POLLING",
+      "props": [
+        {
+          "name": "markdown",
+          "displayName": "markdown",
+          "type": "MARKDOWN",
+          "required": false
+        }
+      ]
+    }
+  },
+  "common_errors": [
+    {
+      "code": "CONTACT_EXISTS",
+      "cause": "Email already in CRM",
+      "auto_fix": "Update existing contact instead",
+      "severity": "low"
+    },
+    {
+      "code": "AUTH_EXPIRED",
+      "cause": "OAuth expired",
+      "auto_fix": "Refresh token",
+      "severity": "medium"
+    }
+  ],
+  "limits": {
+    "api_calls_per_day": 250000
+  },
+  "notes": "Full CRM. Free tier available. Fallback: Sheets-based CRM.",
+  "displayName": "HubSpot"
+}

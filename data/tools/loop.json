@@ -1,0 +1,24 @@
+{
+  "id": "loop",
+  "package": "@activepieces/piece-loop",
+  "display_name": "Loop",
+  "display_name_ar": "Loop",
+  "description": "Loop over a list of items",
+  "auth_type": "none",
+  "actions": {
+    "loop_on_items": {
+      "display_name": "Loop on Items",
+      "description": "Iterate over items",
+      "props": [
+        {
+          "name": "items",
+          "display_name": "Items",
+          "type": "ARRAY",
+          "required": true,
+          "description": "Items to loop over"
+        }
+      ]
+    }
+  },
+  "triggers": {}
+}

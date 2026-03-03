@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "industry": "general_services",
+    "industry_ar": "خدمات عامة",
+    "version": "1.0.0",
+    "dialect": "saudi",
+    "total_templates": 8,
+    "variable_style": "{{category.variable}}"
+  },
+  "templates": {
+    "welcome": {
+      "id": "general_welcome",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}} 👋\n\nشكراً لتواصلك مع {{company.company_name}}.\nوصلنا طلبك وفريقنا بيتواصل معك قريباً.\n\nللاستفسار: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional_warm"
+    },
+    "follow_up_day3": {
+      "id": "general_followup_day3",
+      "channel": "whatsapp",
+      "text": "أهلاً {{customer.name}} 🌟\n\nحبينا نتأكد إن كل شي تمام. لو تحتاج أي شي إضافي من {{company.company_name}}، تواصل معنا.\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "friendly"
+    },
+    "follow_up_day7": {
+      "id": "general_followup_day7",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nنتمنى إنك راضي عن خدمتنا. لو تحتاج أي مساعدة مستقبلاً، {{company.company_name}} هنا لك.\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "warm"
+    },
+    "complaint_ack": {
+      "id": "general_complaint_ack",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} وصلنا ملاحظتك ✅\n\nرقم الشكوى: {{complaint.number}}\nبنتواصل معك خلال 24 ساعة.\n\nنقدّر وقتك 🙏\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "complaint.number", "company.signature"],
+      "max_length": 500,
+      "tone": "empathetic"
+    },
+    "invoice_gentle": {
+      "id": "general_invoice_gentle",
+      "channel": "whatsapp",
+      "text": "{{context.greeting}} {{customer.name}}\n\nتذكير بفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال.\nتاريخ الاستحقاق: {{invoice.due_date}}\n\nللتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["context.greeting", "customer.name", "invoice.number", "invoice.amount", "invoice.due_date", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "professional"
+    },
+    "invoice_firm": {
+      "id": "general_invoice_firm",
+      "channel": "whatsapp",
+      "text": "{{customer.name}}\n\nالفاتورة رقم {{invoice.number}} بمبلغ {{invoice.amount}} ريال متأخرة {{invoice.days_overdue}} يوم.\n\nنرجو السداد في أقرب وقت.\nللتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "invoice.number", "invoice.amount", "invoice.days_overdue", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "firm"
+    },
+    "review_request": {
+      "id": "general_review",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} شكراً لتعاملك مع {{company.company_name}} 🌟\n\nرأيك يهمنا! كلمتين عن تجربتك تساعدنا نتحسن.\n\nشكراً لثقتك! ⭐\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.signature"],
+      "max_length": 500,
+      "tone": "warm"
+    },
+    "service_complete": {
+      "id": "general_service_complete",
+      "channel": "whatsapp",
+      "text": "{{customer.name}} ✅\n\nتم إنجاز طلبك بنجاح!\n\nلو تحتاج أي خدمة ثانية، {{company.company_name}} دايماً موجودين.\n\nللتواصل: {{company.phone}}\n\n{{company.signature}}",
+      "variables_used": ["customer.name", "company.company_name", "company.phone", "company.signature"],
+      "max_length": 500,
+      "tone": "positive"
+    }
+  }
+}

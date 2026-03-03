@@ -1,0 +1,555 @@
+{
+  "_metadata": {
+    "version": "1.0",
+    "source": "ActivePieces source code analysis (community/)",
+    "created": "2026-02-28",
+    "description": "خريطة الأخطاء — كل خطأ ممكن يصير مع طريقة حله تلقائياً",
+    "total_errors": 25,
+    "total_auto_fixes": 18
+  },
+  "error_categories": {
+    "auth": {
+      "display_name": "أخطاء المصادقة",
+      "display_name_en": "Authentication Errors",
+      "errors": [
+        {
+          "code": "AUTH_TOKEN_EXPIRED",
+          "http_status": 401,
+          "message_en": "OAuth token has expired",
+          "message_ar": "انتهت صلاحية التوكن",
+          "frequency": "high",
+          "affected_auth_types": ["oauth2"],
+          "affected_pieces": ["google-sheets", "gmail", "google-calendar", "google-drive", "google-docs", "hubspot", "slack", "shopify", "notion", "microsoft-outlook", "microsoft-teams"],
+          "auto_fix": {
+            "strategy": "refresh_token",
+            "steps": [
+              "احصل على refresh_token المحفوظ",
+              "أرسل طلب تجديد للـ OAuth provider",
+              "حدّث التوكن في الاتصال",
+              "أعد تشغيل الخطوة"
+            ],
+            "max_retries": 2,
+            "retry_delay_ms": 1000
+          },
+          "user_action": "أعد ربط الحساب من صفحة الاتصالات"
+        },
+        {
+          "code": "AUTH_INVALID_API_KEY",
+          "http_status": 401,
+          "message_en": "Invalid or revoked API key",
+          "message_ar": "مفتاح API غير صالح أو ملغي",
+          "frequency": "medium",
+          "affected_auth_types": ["secret_text"],
+          "affected_pieces": ["openai", "sendgrid", "twilio", "airtable", "telegram-bot", "stripe"],
+          "auto_fix": null,
+          "user_action": "تحقق من مفتاح API وأعد إدخاله — ممكن يكون انحذف أو اتغيّر"
+        },
+        {
+          "code": "AUTH_OAUTH_REVOKED",
+          "http_status": 401,
+          "message_en": "OAuth access has been revoked by user",
+          "message_ar": "المستخدم ألغى صلاحيات الوصول",
+          "frequency": "low",
+          "affected_auth_types": ["oauth2"],
+          "affected_pieces": ["*"],
+          "auto_fix": null,
+          "user_action": "أعد ربط الحساب — المستخدم ألغى الصلاحيات من إعدادات الحساب"
+        },
+        {
+          "code": "AUTH_INSUFFICIENT_SCOPE",
+          "http_status": 403,
+          "message_en": "OAuth token lacks required permissions/scopes",
+          "message_ar": "التوكن ما عنده الصلاحيات المطلوبة",
+          "frequency": "medium",
+          "affected_auth_types": ["oauth2"],
+          "affected_pieces": ["gmail", "google-sheets", "slack", "hubspot", "shopify"],
+          "auto_fix": null,
+          "user_action": "أعد ربط الحساب وتأكد تعطي كل الصلاحيات المطلوبة"
+        }
+      ]
+    },
+    "rate_limit": {
+      "display_name": "حدود الاستخدام",
+      "display_name_en": "Rate Limiting",
+      "errors": [
+        {
+          "code": "RATE_LIMIT_EXCEEDED",
+          "http_status": 429,
+          "message_en": "API rate limit exceeded",
+          "message_ar": "تجاوزت حد الطلبات المسموح",
+          "frequency": "high",
+          "affected_pieces": ["openai", "slack", "hubspot", "shopify", "stripe", "gmail", "google-sheets", "twitter", "discord", "airtable"],
+          "auto_fix": {
+            "strategy": "exponential_backoff",
+            "steps": [
+              "اقرأ Retry-After header إن وُجد",
+              "انتظر (2^retry × 1000)ms",
+              "أعد المحاولة"
+            ],
+            "max_retries": 5,
+            "initial_delay_ms": 1000,
+            "max_delay_ms": 60000
+          },
+          "per_piece_limits": {
+            "openai": "60 RPM (free), 500 RPM (paid)",
+            "slack": "1 message/sec per channel",
+            "hubspot": "100 requests/10sec",
+            "shopify": "2 requests/sec",
+            "google-sheets": "60 requests/min per user",
+            "gmail": "250 messages/day (free)",
+            "airtable": "5 requests/sec",
+            "stripe": "100 requests/sec",
+            "twitter": "50 tweets/24hr",
+            "discord": "50 requests/sec globally"
+          }
+        },
+        {
+          "code": "RATE_LIMIT_DAILY_QUOTA",
+          "http_status": 429,
+          "message_en": "Daily API quota exhausted",
+          "message_ar": "انتهت الحصة اليومية",
+          "frequency": "medium",
+          "affected_pieces": ["gmail", "twitter", "openai"],
+          "auto_fix": {
+            "strategy": "queue_and_retry",
+            "steps": [
+              "احفظ الطلب في قائمة الانتظار",
+              "جدول إعادة المحاولة بعد منتصف الليل UTC",
+              "أشعر المستخدم"
+            ],
+            "max_retries": 1,
+            "retry_delay_ms": null
+          },
+          "user_action": "الحصة اليومية خلصت — الطلبات راح تتنفذ بكرة أو رقّي خطتك"
+        }
+      ]
+    },
+    "not_found": {
+      "display_name": "غير موجود",
+      "display_name_en": "Not Found",
+      "errors": [
+        {
+          "code": "RESOURCE_NOT_FOUND",
+          "http_status": 404,
+          "message_en": "Requested resource does not exist",
+          "message_ar": "المورد المطلوب غير موجود",
+          "frequency": "high",
+          "affected_pieces": ["*"],
+          "auto_fix": {
+            "strategy": "search_alternative",
+            "steps": [
+              "ابحث عن المورد بالاسم بدل ID",
+              "إذا لقيته، استخدم ID الجديد",
+              "إذا ما لقيته، أشعر المستخدم"
+            ],
+            "max_retries": 1
+          },
+          "common_causes": [
+            "ID اتغيّر أو انحذف",
+            "الشيت أو القناة اتسمّت من جديد",
+            "المستخدم حذف المورد يدوياً"
+          ]
+        },
+        {
+          "code": "SPREADSHEET_NOT_FOUND",
+          "http_status": 404,
+          "message_en": "Spreadsheet or worksheet not found",
+          "message_ar": "جدول البيانات أو الصفحة غير موجود",
+          "frequency": "high",
+          "affected_pieces": ["google-sheets"],
+          "auto_fix": {
+            "strategy": "recreate_or_find",
+            "steps": [
+              "ابحث عن الشيت بالاسم: google-sheets.find_spreadsheets",
+              "إذا لقيته، حدّث ID في الإعدادات",
+              "إذا ما لقيته، أنشئ شيت جديد: google-sheets.create-spreadsheet"
+            ],
+            "max_retries": 1
+          }
+        },
+        {
+          "code": "CHANNEL_NOT_FOUND",
+          "http_status": 404,
+          "message_en": "Slack/Discord channel not found",
+          "message_ar": "القناة غير موجودة",
+          "frequency": "medium",
+          "affected_pieces": ["slack", "discord", "microsoft-teams"],
+          "auto_fix": {
+            "strategy": "find_by_name",
+            "steps": [
+              "ابحث عن القناة بالاسم",
+              "إذا لقيتها، حدّث ID",
+              "إذا ما لقيتها، أنشئ قناة جديدة"
+            ],
+            "max_retries": 1
+          }
+        }
+      ]
+    },
+    "validation": {
+      "display_name": "أخطاء التحقق",
+      "display_name_en": "Validation Errors",
+      "errors": [
+        {
+          "code": "MISSING_REQUIRED_FIELD",
+          "http_status": 400,
+          "message_en": "Required field is missing or empty",
+          "message_ar": "حقل مطلوب ناقص أو فارغ",
+          "frequency": "high",
+          "affected_pieces": ["*"],
+          "auto_fix": {
+            "strategy": "fill_defaults",
+            "steps": [
+              "حدد الحقل الناقص من رسالة الخطأ",
+              "ابحث عن قيمة افتراضية في القالب",
+              "إذا ما لقيت، اسأل المستخدم"
+            ],
+            "max_retries": 0
+          }
+        },
+        {
+          "code": "INVALID_EMAIL_FORMAT",
+          "http_status": 400,
+          "message_en": "Email address format is invalid",
+          "message_ar": "صيغة البريد الإلكتروني غير صحيحة",
+          "frequency": "medium",
+          "affected_pieces": ["gmail", "sendgrid", "mailchimp", "hubspot"],
+          "auto_fix": {
+            "strategy": "format_correction",
+            "steps": [
+              "أزل المسافات الزائدة",
+              "تحقق من وجود @ و domain",
+              "إذا ما انصلح، أشعر المستخدم"
+            ],
+            "max_retries": 1
+          }
+        },
+        {
+          "code": "INVALID_PHONE_FORMAT",
+          "http_status": 400,
+          "message_en": "Phone number format is invalid",
+          "message_ar": "صيغة رقم الجوال غير صحيحة",
+          "frequency": "high",
+          "affected_pieces": ["whatsapp", "twilio"],
+          "auto_fix": {
+            "strategy": "phone_normalization",
+            "steps": [
+              "أزل المسافات والأقواس والشرطات",
+              "أضف مفتاح الدولة +966 إذا ما كان موجود",
+              "حوّل 05xxxxxxxx إلى +9665xxxxxxxx",
+              "أعد المحاولة"
+            ],
+            "max_retries": 1,
+            "sa_patterns": {
+              "05xxxxxxxx": "+9665xxxxxxxx",
+              "5xxxxxxxx": "+9665xxxxxxxx",
+              "009665xxxxxxxx": "+9665xxxxxxxx"
+            }
+          }
+        },
+        {
+          "code": "INVALID_DATE_FORMAT",
+          "http_status": 400,
+          "message_en": "Date format is invalid",
+          "message_ar": "صيغة التاريخ غير صحيحة",
+          "frequency": "medium",
+          "affected_pieces": ["google-calendar", "hubspot", "schedule"],
+          "auto_fix": {
+            "strategy": "date_normalization",
+            "steps": [
+              "حاول تحليل التاريخ بعدة صيغ",
+              "حوّل إلى ISO 8601 (YYYY-MM-DDTHH:mm:ss.sssZ)",
+              "خذ timezone السعودية (AST +3) إذا ما كان محدد"
+            ],
+            "max_retries": 1
+          }
+        },
+        {
+          "code": "DUPLICATE_RECORD",
+          "http_status": 409,
+          "message_en": "Record already exists (duplicate)",
+          "message_ar": "السجل موجود مسبقاً (مكرر)",
+          "frequency": "medium",
+          "affected_pieces": ["hubspot", "airtable", "shopify", "mailchimp", "stripe"],
+          "auto_fix": {
+            "strategy": "find_and_update",
+            "steps": [
+              "ابحث عن السجل الموجود",
+              "حدّث السجل بدل ما تنشئ جديد",
+              "سجّل التعارض في الـ log"
+            ],
+            "max_retries": 1
+          }
+        }
+      ]
+    },
+    "connection": {
+      "display_name": "أخطاء الاتصال",
+      "display_name_en": "Connection Errors",
+      "errors": [
+        {
+          "code": "CONNECTION_TIMEOUT",
+          "http_status": null,
+          "message_en": "Connection timed out",
+          "message_ar": "انتهت مهلة الاتصال",
+          "frequency": "medium",
+          "affected_pieces": ["*"],
+          "auto_fix": {
+            "strategy": "retry_with_backoff",
+            "steps": [
+              "انتظر 2 ثانية",
+              "أعد المحاولة مع timeout أطول",
+              "إذا فشل 3 مرات، أشعر المستخدم"
+            ],
+            "max_retries": 3,
+            "initial_delay_ms": 2000
+          }
+        },
+        {
+          "code": "CONNECTION_REFUSED",
+          "http_status": null,
+          "message_en": "Connection refused by server",
+          "message_ar": "السيرفر رفض الاتصال",
+          "frequency": "low",
+          "affected_pieces": ["mysql", "postgres", "supabase", "webhook"],
+          "auto_fix": {
+            "strategy": "retry_limited",
+            "steps": [
+              "تحقق من عنوان السيرفر",
+              "أعد المحاولة بعد 5 ثوان",
+              "إذا فشل، أشعر المستخدم — ممكن السيرفر طايح"
+            ],
+            "max_retries": 2,
+            "retry_delay_ms": 5000
+          },
+          "user_action": "تحقق إن السيرفر شغال وإن العنوان صحيح"
+        },
+        {
+          "code": "SERVICE_UNAVAILABLE",
+          "http_status": 503,
+          "message_en": "Service temporarily unavailable",
+          "message_ar": "الخدمة غير متاحة مؤقتاً",
+          "frequency": "low",
+          "affected_pieces": ["*"],
+          "auto_fix": {
+            "strategy": "retry_with_backoff",
+            "steps": [
+              "انتظر 10 ثوان",
+              "أعد المحاولة",
+              "إذا فشل 3 مرات، جدول إعادة بعد 5 دقائق"
+            ],
+            "max_retries": 3,
+            "initial_delay_ms": 10000
+          }
+        }
+      ]
+    },
+    "permission": {
+      "display_name": "أخطاء الصلاحيات",
+      "display_name_en": "Permission Errors",
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "http_status": 403,
+          "message_en": "Insufficient permissions for this operation",
+          "message_ar": "صلاحيات غير كافية لهذه العملية",
+          "frequency": "high",
+          "affected_pieces": ["google-sheets", "gmail", "google-drive", "slack", "discord", "hubspot"],
+          "auto_fix": null,
+          "user_action": "تأكد إن الحساب المربوط عنده صلاحيات كافية — ممكن تحتاج admin access"
+        },
+        {
+          "code": "SHEET_PROTECTED",
+          "http_status": 403,
+          "message_en": "Spreadsheet or range is protected",
+          "message_ar": "جدول البيانات أو النطاق محمي",
+          "frequency": "medium",
+          "affected_pieces": ["google-sheets"],
+          "auto_fix": null,
+          "user_action": "أزل حماية الشيت أو النطاق من إعدادات Google Sheets"
+        }
+      ]
+    },
+    "flow_engine": {
+      "display_name": "أخطاء محرك التدفق",
+      "display_name_en": "Flow Engine Errors",
+      "errors": [
+        {
+          "code": "FLOW_TIMEOUT",
+          "http_status": null,
+          "message_en": "Flow execution exceeded timeout",
+          "message_ar": "تجاوز التدفق الوقت المسموح",
+          "frequency": "low",
+          "auto_fix": {
+            "strategy": "split_flow",
+            "steps": [
+              "حدد الخطوة البطيئة",
+              "قسّم التدفق إلى أجزاء أصغر",
+              "استخدم webhook بين الأجزاء"
+            ]
+          }
+        },
+        {
+          "code": "STEP_DEPENDENCY_FAILED",
+          "http_status": null,
+          "message_en": "Step depends on output from failed previous step",
+          "message_ar": "الخطوة تعتمد على نتيجة خطوة سابقة فاشلة",
+          "frequency": "medium",
+          "auto_fix": {
+            "strategy": "fallback_value",
+            "steps": [
+              "استخدم القيمة الافتراضية من القالب",
+              "إذا ما كان في قيمة افتراضية، تخطّى الخطوة",
+              "سجّل التخطي في الـ log"
+            ]
+          }
+        },
+        {
+          "code": "INFINITE_LOOP_DETECTED",
+          "http_status": null,
+          "message_en": "Loop iteration limit exceeded",
+          "message_ar": "تجاوز حد التكرار في الحلقة",
+          "frequency": "low",
+          "auto_fix": {
+            "strategy": "break_loop",
+            "steps": [
+              "أوقف الحلقة عند 1000 تكرار",
+              "سجّل العناصر المعالجة",
+              "أشعر المستخدم بعدد العناصر المتبقية"
+            ],
+            "max_iterations": 1000
+          }
+        },
+        {
+          "code": "BRANCH_NO_MATCH",
+          "http_status": null,
+          "message_en": "No branch condition matched",
+          "message_ar": "لا شرط من شروط التفرع تحقق",
+          "frequency": "medium",
+          "auto_fix": {
+            "strategy": "default_branch",
+            "steps": [
+              "نفّذ الفرع الافتراضي (else)",
+              "إذا ما كان في فرع افتراضي، تخطّى",
+              "سجّل القيمة اللي ما تطابقت"
+            ]
+          }
+        }
+      ]
+    },
+    "data": {
+      "display_name": "أخطاء البيانات",
+      "display_name_en": "Data Errors",
+      "errors": [
+        {
+          "code": "PAYLOAD_TOO_LARGE",
+          "http_status": 413,
+          "message_en": "Request payload exceeds size limit",
+          "message_ar": "حجم البيانات تجاوز الحد المسموح",
+          "frequency": "low",
+          "affected_pieces": ["gmail", "slack", "whatsapp", "discord"],
+          "auto_fix": {
+            "strategy": "truncate_or_split",
+            "steps": [
+              "إذا نص: قصّ عند الحد المسموح",
+              "إذا مرفقات: قسّم إلى رسائل متعددة",
+              "أشعر المستخدم بالاقتطاع"
+            ],
+            "size_limits": {
+              "slack_message": "40000 chars",
+              "whatsapp_message": "4096 chars",
+              "gmail_attachment": "25MB",
+              "discord_message": "2000 chars"
+            }
+          }
+        },
+        {
+          "code": "ENCODING_ERROR",
+          "http_status": 400,
+          "message_en": "Character encoding mismatch",
+          "message_ar": "خطأ في ترميز الحروف",
+          "frequency": "medium",
+          "affected_pieces": ["google-sheets", "mysql", "webhook"],
+          "auto_fix": {
+            "strategy": "normalize_encoding",
+            "steps": [
+              "حوّل النص إلى UTF-8",
+              "أزل الحروف غير الصالحة",
+              "أعد المحاولة"
+            ],
+            "max_retries": 1
+          },
+          "common_causes": ["نصوص عربية في API يدعم ASCII فقط", "emoji في حقول ما تدعمها"]
+        }
+      ]
+    }
+  },
+
+  "retry_strategies": {
+    "refresh_token": {
+      "description": "تجديد OAuth token تلقائياً",
+      "applicable_codes": ["AUTH_TOKEN_EXPIRED"],
+      "implementation": "POST to provider's token endpoint with refresh_token"
+    },
+    "exponential_backoff": {
+      "description": "إعادة المحاولة مع تأخير متزايد",
+      "applicable_codes": ["RATE_LIMIT_EXCEEDED", "CONNECTION_TIMEOUT", "SERVICE_UNAVAILABLE"],
+      "formula": "delay = min(initial_delay * 2^attempt, max_delay)",
+      "jitter": true
+    },
+    "find_and_update": {
+      "description": "ابحث عن السجل الموجود وحدّثه بدل الإنشاء",
+      "applicable_codes": ["DUPLICATE_RECORD"]
+    },
+    "phone_normalization": {
+      "description": "تطبيع أرقام الجوال السعودية",
+      "applicable_codes": ["INVALID_PHONE_FORMAT"],
+      "rules": [
+        {"pattern": "^05\\d{8}$", "replace": "+966$0", "note": "05xxxxxxxx → +9665xxxxxxxx"},
+        {"pattern": "^5\\d{8}$", "replace": "+966$0", "note": "5xxxxxxxx → +9665xxxxxxxx"},
+        {"pattern": "^009665\\d{8}$", "replace": "+966$0", "note": "00966 → +966"},
+        {"pattern": "^\\+966", "replace": "keep", "note": "already correct"}
+      ]
+    },
+    "search_alternative": {
+      "description": "ابحث عن المورد بالاسم إذا ID ما شغل",
+      "applicable_codes": ["RESOURCE_NOT_FOUND", "SPREADSHEET_NOT_FOUND", "CHANNEL_NOT_FOUND"]
+    },
+    "default_branch": {
+      "description": "نفّذ الفرع الافتراضي إذا ما كان في تطابق",
+      "applicable_codes": ["BRANCH_NO_MATCH"]
+    },
+    "queue_and_retry": {
+      "description": "احفظ في قائمة الانتظار وأعد لاحقاً",
+      "applicable_codes": ["RATE_LIMIT_DAILY_QUOTA"]
+    }
+  },
+
+  "error_to_user_message": {
+    "AUTH_TOKEN_EXPIRED": "⚠️ انتهت صلاحية الاتصال بـ {piece_name}. جاري التجديد التلقائي...",
+    "AUTH_INVALID_API_KEY": "❌ مفتاح API لـ {piece_name} غير صالح. الرجاء إعادة إدخاله.",
+    "AUTH_OAUTH_REVOKED": "❌ تم إلغاء صلاحيات {piece_name}. الرجاء إعادة الربط.",
+    "AUTH_INSUFFICIENT_SCOPE": "❌ صلاحيات {piece_name} غير كافية. أعد الربط مع كل الصلاحيات.",
+    "RATE_LIMIT_EXCEEDED": "⏳ وصلنا حد الطلبات لـ {piece_name}. ننتظر ونعيد المحاولة...",
+    "RATE_LIMIT_DAILY_QUOTA": "📅 خلصت حصة {piece_name} اليومية. الطلبات راح تتنفذ بكرة.",
+    "RESOURCE_NOT_FOUND": "🔍 ما لقينا المورد المطلوب في {piece_name}. جاري البحث البديل...",
+    "SPREADSHEET_NOT_FOUND": "📄 ما لقينا الشيت. جاري البحث بالاسم أو إنشاء جديد...",
+    "CHANNEL_NOT_FOUND": "💬 ما لقينا القناة. جاري البحث بالاسم...",
+    "MISSING_REQUIRED_FIELD": "📝 حقل مطلوب ناقص: {field_name}. الرجاء تعبئته.",
+    "INVALID_EMAIL_FORMAT": "📧 صيغة الإيميل غير صحيحة. تحقق من العنوان.",
+    "INVALID_PHONE_FORMAT": "📱 صيغة رقم الجوال غير صحيحة. جاري التصحيح التلقائي...",
+    "INVALID_DATE_FORMAT": "📅 صيغة التاريخ غير صحيحة. جاري التحويل...",
+    "DUPLICATE_RECORD": "🔄 السجل موجود مسبقاً. جاري التحديث بدل الإنشاء...",
+    "CONNECTION_TIMEOUT": "⏱️ انتهت مهلة الاتصال. جاري إعادة المحاولة...",
+    "CONNECTION_REFUSED": "🔌 السيرفر رفض الاتصال. تحقق من العنوان والإعدادات.",
+    "SERVICE_UNAVAILABLE": "🔧 الخدمة غير متاحة مؤقتاً. ننتظر ونعيد...",
+    "PERMISSION_DENIED": "🔒 صلاحيات غير كافية لـ {piece_name}.",
+    "SHEET_PROTECTED": "🔒 الشيت محمي. أزل الحماية من إعدادات Google Sheets.",
+    "FLOW_TIMEOUT": "⏱️ التدفق أخذ وقت طويل. جاري التحسين...",
+    "STEP_DEPENDENCY_FAILED": "⚠️ خطوة سابقة فشلت. جاري استخدام القيمة الافتراضية...",
+    "INFINITE_LOOP_DETECTED": "🔄 حلقة لا نهائية! أوقفنا التنفيذ عند {count} تكرار.",
+    "BRANCH_NO_MATCH": "🔀 ما كان في فرع مطابق. جاري تنفيذ الخيار الافتراضي...",
+    "PAYLOAD_TOO_LARGE": "📦 البيانات كبيرة. جاري الاقتطاع أو التقسيم...",
+    "ENCODING_ERROR": "🔤 خطأ ترميز. جاري التحويل إلى UTF-8..."
+  }
+}

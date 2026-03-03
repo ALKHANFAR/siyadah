@@ -1,0 +1,121 @@
+{
+  "id": "google-docs",
+  "package": "@activepieces/piece-google-docs",
+  "version": "0.2.0",
+  "source": "https://www.activepieces.com/pieces/google-docs",
+  "npm": "https://www.npmjs.com/package/@activepieces/piece-google-docs",
+  "github": "packages/pieces/community/google-docs/src/index.ts",
+  "displayName": "Google Docs",
+  "description": "Create and edit documents",
+  "logoUrl": "https://cdn.activepieces.com/pieces/google-docs.png",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "oauth2",
+    "provider": "google"
+  },
+  "triggers": {
+    "new-document": {
+      "displayName": "New Document",
+      "description": "Triggers when a new document is added to a specific folder(optional).",
+      "type": "POLLING",
+      "props": []
+    }
+  },
+  "actions": {
+    "append_text": {
+      "displayName": "Append text to google docs",
+      "description": "Appends text to google docs",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text to append",
+          "type": "LONG_TEXT",
+          "required": true
+        },
+        {
+          "name": "documentId",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "create_document_based_on_template": {
+      "displayName": "Edit template file",
+      "description": "Edit a template file and replace the values with the ones provided",
+      "props": [
+        {
+          "name": "template",
+          "displayName": "Destination File",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "values",
+          "displayName": "Variables",
+          "type": "OBJECT",
+          "required": true
+        },
+        {
+          "name": "images",
+          "displayName": "Images",
+          "type": "OBJECT",
+          "required": true
+        },
+        {
+          "name": "placeholder_format",
+          "displayName": "Placeholder Format",
+          "type": "STATIC_DROPDOWN",
+          "required": true
+        }
+      ]
+    },
+    "create_document": {
+      "displayName": "Create Document",
+      "description": "Create a document on Google Docs",
+      "props": []
+    },
+    "google-docs-find-document": {
+      "displayName": "Find Document",
+      "description": "Search for document by name.",
+      "props": [
+        {
+          "name": "name",
+          "displayName": "Document Name",
+          "type": "SHORT_TEXT",
+          "required": true
+        },
+        {
+          "name": "createIfNotFound",
+          "displayName": "Create a new document if not found?",
+          "type": "CHECKBOX",
+          "required": false
+        },
+        {
+          "name": "newDocumentProps",
+          "displayName": "New Document Properties",
+          "type": "DYNAMIC",
+          "required": false
+        }
+      ]
+    },
+    "read_document": {
+      "displayName": "Read Document",
+      "description": "Read a document from Google Docs",
+      "props": [
+        {
+          "name": "documentId",
+          "displayName": "Document ID",
+          "type": "SHORT_TEXT",
+          "required": true
+        }
+      ]
+    },
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  }
+}

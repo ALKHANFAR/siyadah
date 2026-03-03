@@ -1,0 +1,53 @@
+{
+  "id": "clickup",
+  "package": "@activepieces/piece-clickup",
+  "version": "0.4.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "api_key"
+    ]
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {
+    "clickup_trigger_${name}": {
+      "displayName": "clickup_trigger_${name}",
+      "description": "",
+      "type": "WEBHOOK",
+      "props": []
+    },
+    "task_tag_updated": {
+      "displayName": "Task Tag Updated",
+      "description": "Triggered when a tag is added or removed or renamed on a task.",
+      "type": "WEBHOOK",
+      "props": []
+    }
+  },
+  "common_errors": [
+    {
+      "code": "LIST_NOT_FOUND",
+      "cause": "List deleted",
+      "auto_fix": "Alert user",
+      "severity": "high"
+    },
+    {
+      "code": "RATE_LIMITED",
+      "cause": "100/minute limit",
+      "auto_fix": "Queue with delay",
+      "severity": "low"
+    }
+  ],
+  "limits": {
+    "api_calls_per_minute": 100
+  },
+  "notes": "More powerful than Trello. Growing in MENA business.",
+  "displayName": "ClickUp"
+}

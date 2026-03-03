@@ -1,0 +1,351 @@
+{
+  "_meta": {
+    "id": "appointment-booking",
+    "version": "1.0.0",
+    "display_name": "حجز المواعيد",
+    "display_name_en": "Appointment Booking",
+    "description": "موعد جديد → سجّله → تأكيد للعميل → تذكير قبل يوم → تذكير قبل ساعة",
+    "category": "operations",
+    "industries": [
+      "clinic",
+      "consulting",
+      "training",
+      "general"
+    ],
+    "estimated_setup_time": "3 min",
+    "user_request_examples": [
+      "أبي نظام مواعيد تلقائي",
+      "لما أحد يحجز موعد أبي يوصله تأكيد",
+      "ذكّر العملاء بمواعيدهم",
+      "سو لي أتمتة حجز مواعيد",
+      "أبي تأكيد وتذكير تلقائي للمواعيد"
+    ],
+    "intent_keywords": [
+      "موعد",
+      "حجز",
+      "تأكيد",
+      "تذكير",
+      "مواعيد",
+      "appointment",
+      "booking"
+    ]
+  },
+  "trigger": {
+    "tool_id": "google-calendar",
+    "action": "new_event",
+    "description": "لما ينضاف موعد جديد في التقويم",
+    "config": {
+      "calendar_id": "primary"
+    },
+    "expected_output": {
+      "title": "موعد مع أحمد",
+      "start": "2026-03-01T10:00:00+03:00",
+      "end": "2026-03-01T11:00:00+03:00",
+      "attendees": [
+        {
+          "email": "ahmed@email.com"
+        }
+      ]
+    },
+    "alternative_triggers": [
+      "calendly.new_event",
+      "webhook.catch_webhook",
+      "google-sheets.new_row"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "id": "extract_customer_info",
+      "tool_id": "code",
+      "action": "run_javascript",
+      "description": "استخراج بيانات العميل من الموعد",
+      "config": {
+        "code": "const title = inputs.title || ''; const nameMatch = title.match(/مع\\s+(.+)/); const customer_name = nameMatch ? nameMatch[1] : title; const email = inputs.attendees && inputs.attendees[0] ? inputs.attendees[0].email : ''; const start = new Date(inputs.start); const day = start.toLocaleDateString('ar-SA', {weekday: 'long'}); const time = start.toLocaleTimeString('ar-SA', {hour: '2-digit', minute: '2-digit', hour12: true}); const date = start.toLocaleDateString('ar-SA'); return { customer_name, email, day_name: day, time_formatted: time, date_formatted: date };"
+      },
+      "input_mapping": {
+        "title": "{{trigger.title}}",
+        "attendees": "{{trigger.attendees}}",
+        "start": "{{trigger.start}}"
+      },
+      "on_error": {
+        "action": "continue",
+        "fallback_value": {
+          "customer_name": "العميل",
+          "day_name": "",
+          "time_formatted": "",
+          "date_formatted": ""
+        }
+      }
+    },
+    {
+      "order": 2,
+      "id": "save_to_sheet",
+      "tool_id": "google-sheets",
+      "action": "insert_row",
+      "description": "حفظ الموعد في جدول المواعيد",
+      "config": {
+        "spreadsheet_id": "{{company.appointments_spreadsheet_id}}",
+        "sheet_name": "المواعيد"
+      },
+      "input_mapping": {
+        "values": {
+          "الاسم": "{{step.extract_customer_info.customer_name}}",
+          "الإيميل": "{{step.extract_customer_info.email}}",
+          "التاريخ": "{{step.extract_customer_info.date_formatted}}",
+          "اليوم": "{{step.extract_customer_info.day_name}}",
+          "الوقت": "{{step.extract_customer_info.time_formatted}}",
+          "الحالة": "مؤكد"
+        }
+      },
+      "on_error": {
+        "action": "retry_then_alert",
+        "retry_count": 3,
+        "error_codes": {
+          "SPREADSHEET_NOT_FOUND": "auto_create_spreadsheet"
+        }
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 3,
+      "id": "send_confirmation",
+      "tool_id": "whatsapp",
+      "action": "send_message",
+      "description": "تأكيد الموعد للعميل",
+      "input_mapping": {
+        "phone_number": "{{company.customer_phone_lookup(step.extract_customer_info.email)}}",
+        "message": "{{templates.appointment.confirmation}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{step.extract_customer_info.customer_name}}",
+        "company_name": "{{company.company_name}}",
+        "date": "{{step.extract_customer_info.date_formatted}}",
+        "day": "{{step.extract_customer_info.day_name}}",
+        "time": "{{step.extract_customer_info.time_formatted}}",
+        "location": "{{company.address}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "to": "{{step.extract_customer_info.email}}",
+            "condition": "has_email"
+          }
+        ]
+      },
+      "critical": true,
+      "never_skip": true
+    },
+    {
+      "order": 4,
+      "id": "notify_team",
+      "tool_id": "slack",
+      "action": "send_message",
+      "description": "تنبيه الفريق بالموعد الجديد",
+      "input_mapping": {
+        "channel": "{{company.notification_channel}}",
+        "text": "📅 موعد جديد\n👤 {{step.extract_customer_info.customer_name}}\n🗓️ {{step.extract_customer_info.day_name}} {{step.extract_customer_info.date_formatted}}\n🕐 {{step.extract_customer_info.time_formatted}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "telegram",
+            "action": "send_text_message",
+            "condition": "telegram_connected"
+          },
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "to": "{{company.owner_email}}",
+            "condition": "always"
+          }
+        ]
+      }
+    },
+    {
+      "order": 5,
+      "id": "schedule_day_before_reminder",
+      "tool_id": "delay",
+      "action": "delay_for",
+      "description": "انتظار حتى قبل الموعد بيوم",
+      "config": {
+        "amount": "{{calculated.hours_until_day_before}}",
+        "unit": "hours"
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 6,
+      "id": "send_day_before_reminder",
+      "tool_id": "whatsapp",
+      "action": "send_message",
+      "description": "تذكير قبل الموعد بيوم",
+      "input_mapping": {
+        "phone_number": "{{company.customer_phone_lookup(step.extract_customer_info.email)}}",
+        "message": "{{templates.appointment.reminder_day_before}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{step.extract_customer_info.customer_name}}",
+        "company_name": "{{company.company_name}}",
+        "time": "{{step.extract_customer_info.time_formatted}}",
+        "location": "{{company.address}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          }
+        ]
+      }
+    },
+    {
+      "order": 7,
+      "id": "schedule_hour_before_reminder",
+      "tool_id": "delay",
+      "action": "delay_for",
+      "description": "انتظار حتى قبل الموعد بساعة",
+      "config": {
+        "amount": 23,
+        "unit": "hours"
+      },
+      "on_error": {
+        "action": "log_and_continue"
+      }
+    },
+    {
+      "order": 8,
+      "id": "send_hour_before_reminder",
+      "tool_id": "whatsapp",
+      "action": "send_message",
+      "description": "تذكير قبل الموعد بساعة",
+      "input_mapping": {
+        "phone_number": "{{company.customer_phone_lookup(step.extract_customer_info.email)}}",
+        "message": "{{templates.appointment.reminder_hour_before}}"
+      },
+      "variable_injection": {
+        "customer_name": "{{step.extract_customer_info.customer_name}}",
+        "company_name": "{{company.company_name}}",
+        "time": "{{step.extract_customer_info.time_formatted}}"
+      },
+      "on_error": {
+        "action": "fallback_chain",
+        "chain": [
+          {
+            "tool_id": "gmail",
+            "action": "send_email",
+            "condition": "has_email"
+          }
+        ]
+      }
+    }
+  ],
+  "branches": [],
+  "delays": [
+    {
+      "after_step": "notify_team",
+      "purpose": "Day-before reminder",
+      "dynamic": true
+    },
+    {
+      "after_step": "send_day_before_reminder",
+      "duration": {
+        "amount": 23,
+        "unit": "hours"
+      },
+      "purpose": "Hour-before reminder"
+    }
+  ],
+  "required_connections": [
+    "google-calendar",
+    "google-sheets"
+  ],
+  "recommended_connections": [
+    "whatsapp",
+    "slack",
+    "gmail"
+  ],
+  "minimum_connections": [
+    "google-calendar",
+    "gmail"
+  ],
+  "required_variables": {
+    "company": [
+      "company_name",
+      "appointments_spreadsheet_id"
+    ],
+    "trigger": [
+      "title",
+      "start"
+    ]
+  },
+  "sheets_template": {
+    "name": "المواعيد",
+    "columns": [
+      "الاسم",
+      "الإيميل",
+      "الجوال",
+      "التاريخ",
+      "اليوم",
+      "الوقت",
+      "الحالة",
+      "ملاحظات"
+    ]
+  },
+  "industry_variants": {
+    "clinic": {
+      "sheets_extra_columns": [
+        "التخصص",
+        "نوع الزيارة",
+        "التأمين"
+      ],
+      "reminder_extra": "يرجى إحضار الهوية وبطاقة التأمين",
+      "confirmation_extra": "النوع: {{appointment_type}}"
+    },
+    "consulting": {
+      "sheets_extra_columns": [
+        "المشروع",
+        "مدة الاجتماع"
+      ],
+      "reminder_extra": "يرجى تجهيز الملفات المطلوبة",
+      "confirmation_extra": "الاجتماع عبر: {{meeting_platform}}"
+    },
+    "training": {
+      "sheets_extra_columns": [
+        "الدورة",
+        "عدد المشاركين"
+      ],
+      "reminder_extra": "يرجى تحميل المواد التدريبية مسبقاً"
+    }
+  },
+  "protection": {
+    "idempotency": "hash(calendar_event_id) — one confirmation per event",
+    "rate_limit": "Max 200 appointments/day",
+    "data_validation": "Start time must be in the future, event must have title",
+    "cancellation_handling": "If event deleted → send cancellation message → update sheet"
+  },
+  "expected_execution_time": "5 seconds (confirmation) + delays for reminders",
+  "success_criteria": {
+    "must": [
+      "Appointment recorded in sheet",
+      "Confirmation sent to customer"
+    ],
+    "should": [
+      "Day-before reminder sent",
+      "Hour-before reminder sent"
+    ],
+    "nice": [
+      "Team notified",
+      "Cancellation handled"
+    ]
+  }
+}

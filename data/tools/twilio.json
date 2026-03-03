@@ -1,0 +1,43 @@
+{
+  "id": "twilio",
+  "package": "@activepieces/piece-twilio",
+  "version": "0.3.0",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "api_key",
+    "fields": [
+      "account_sid",
+      "auth_token",
+      "from_number"
+    ]
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  },
+  "triggers": {},
+  "common_errors": [
+    {
+      "code": "INVALID_NUMBER",
+      "cause": "Phone number can't receive SMS",
+      "auto_fix": "Format check + fallback to email",
+      "severity": "medium"
+    },
+    {
+      "code": "INSUFFICIENT_FUNDS",
+      "cause": "Twilio balance low",
+      "auto_fix": "Alert admin, use email fallback",
+      "severity": "high"
+    }
+  ],
+  "limits": {
+    "cost_per_sms_sar": 0.15
+  },
+  "notes": "SMS fallback for WhatsApp. Universal delivery. Higher cost. Good for OTP and urgent alerts.",
+  "displayName": "Account SID",
+  "description": "Cloud communications platform for SMS, Voice & Messaging"
+}

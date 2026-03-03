@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Siyadah Piece Schema",
+  "description": "القالب الرسمي لأي أداة تُضاف للسجل. انسخ هذا القالب واملأ البيانات من المصدر الرسمي.",
+
+  "_template": {
+    "id": "piece-slug",
+    "package": "@activepieces/piece-{name}",
+    "display_name": "Piece Name",
+    "display_name_ar": "اسم الأداة",
+    "description": "Short description from official page",
+    "logo_url": "https://cdn.activepieces.com/pieces/{name}.png",
+    "category": "B_google | C_communication | D_ai | E_crm | F_ecommerce | G_productivity | H_marketing | I_content | J_database | K_dev | L_microsoft | M_finance",
+    "auth_type": "none | oauth2 | secret_text | basic_auth | custom",
+    "_source": "https://www.activepieces.com/pieces/{slug}",
+    "_verified": false,
+    "_verified_date": null,
+    "actions": [
+      {
+        "name": "action_name_from_source",
+        "display_name": "Action Display Name",
+        "description": "Description from official page"
+      }
+    ],
+    "triggers": [
+      {
+        "name": "trigger_name_from_source",
+        "display_name": "Trigger Display Name",
+        "description": "Description from official page",
+        "type": "instant | scheduled"
+      }
+    ]
+  },
+
+  "_rules": {
+    "id": "يجب أن يكون فريد — نفس الـ slug في activepieces.com/pieces/{slug}",
+    "package": "يجب أن يبدأ بـ @activepieces/piece- — نفس الاسم على npmjs.com",
+    "action.name": "⚠️ انسخه بالحرف من المصدر — لا تترجم ولا تعدّل",
+    "trigger.name": "⚠️ انسخه بالحرف من المصدر — لا تترجم ولا تعدّل",
+    "trigger.type": "instant = يشتغل فوري (webhook) | scheduled = يتحقق كل فترة (polling)",
+    "_verified": "false حتى تتحقق من المصدر الرسمي وتكتب _verified_date"
+  },
+
+  "_categories": {
+    "A_essential": "أدوات أساسية داخلية (webhook, schedule, code, branch, loop, delay, http, storage)",
+    "B_google": "منتجات جوجل (sheets, calendar, gmail, docs, forms, drive)",
+    "C_communication": "أدوات تواصل (whatsapp, slack, telegram, twilio, sendgrid, discord, teams)",
+    "D_ai": "ذكاء اصطناعي (openai, anthropic, gemini)",
+    "E_crm": "إدارة علاقات العملاء (hubspot, salesforce, zoho-crm)",
+    "F_ecommerce": "تجارة إلكترونية (stripe, shopify, woocommerce)",
+    "G_productivity": "إنتاجية (notion, airtable, trello, clickup, calendly)",
+    "H_marketing": "تسويق (mailchimp, facebook-pages, instagram, twitter)",
+    "I_content": "محتوى (wordpress, rss)",
+    "J_database": "قواعد بيانات (supabase, mysql)",
+    "K_dev": "أدوات مطورين (jira, github)",
+    "L_microsoft": "منتجات مايكروسوفت (outlook, excel, onedrive, dynamics, power-bi)",
+    "M_finance": "مالية (zoho-invoice, stripe)"
+  }
+}

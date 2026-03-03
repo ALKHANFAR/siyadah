@@ -1,0 +1,32 @@
+{
+  "id": "google-forms",
+  "package": "@activepieces/piece-google-forms",
+  "version": "0.3.13",
+  "source": "https://www.activepieces.com/pieces/google-forms",
+  "npm": "https://www.npmjs.com/package/@activepieces/piece-google-forms",
+  "github": "packages/pieces/community/google-forms/src/index.ts",
+  "displayName": "Google Forms",
+  "description": "Create and manage forms",
+  "logoUrl": "https://cdn.activepieces.com/pieces/google-forms.png",
+  "category": "B_important",
+  "auth": {
+    "required": true,
+    "type": "oauth2",
+    "provider": "google"
+  },
+  "triggers": {
+    "new_response": {
+      "displayName": "New Response",
+      "description": "Triggers when there is new response",
+      "type": "POLLING",
+      "props": []
+    }
+  },
+  "actions": {
+    "custom_api_call": {
+      "displayName": "Custom API Call",
+      "description": "Make a custom API call",
+      "props": []
+    }
+  }
+}
