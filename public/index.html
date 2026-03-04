@@ -466,35 +466,28 @@ function Sidebar({tab,setTab}) {
 // App
 // ══════════════════════════════════════
 function SiyadahApp() {
-  const [splash,setSplash]=useState(true);
-  const [wow,setWow]=useState(false);
   const [tab,setTab]=useState("chat");
   const {session,autoRegister}=useSession();
-  const splashDone=useCallback(()=>{setSplash(false);setWow(true)},[]);
+
+  useEffect(()=>{ autoRegister().catch(()=>{}); },[]);
 
   return (
     <div style={{height:"100vh",display:"flex",flexDirection:"row-reverse",background:T.bg,color:T.text,overflow:"hidden",fontFamily:"'IBM Plex Sans Arabic',system-ui,sans-serif",position:"relative"}}>
-      {splash&&<Splash onDone={splashDone}/>}
-      {wow&&<WowMoment onDone={()=>setWow(false)} autoRegister={autoRegister}/>}
-      {!splash&&!wow&&(
-        <>
-          <Sidebar tab={tab} setTab={setTab}/>
-          <div style={{flex:1,display:"flex",flexDirection:"column",minWidth:0}}>
-            {/* Top bar */}
-            <div style={{padding:"8px 20px",background:T.card,borderBottom:`1px solid ${T.border}`,display:"flex",alignItems:"center",justifyContent:"space-between",direction:"rtl"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8}}>
-                <span style={{fontSize:14,fontWeight:600}}>سيادة</span>
-                <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:`${T.success}15`,color:T.success,border:`1px solid ${T.success}25`}}>API حقيقي</span>
-              </div>
-              <span style={{fontSize:10,color:T.dim}}>{session?.plan || "..."}</span>
-            </div>
-            {tab==="chat"&&session&&<ChatBuilder tenantId={session.tenantId}/>}
-            {tab==="chat"&&!session&&<div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",color:T.dim}}>جاري التسجيل...</div>}
-            {tab==="status"&&<StatusPanel/>}
-            {tab==="settings"&&<SettingsPanel session={session}/>}
+      <Sidebar tab={tab} setTab={setTab}/>
+      <div style={{flex:1,display:"flex",flexDirection:"column",minWidth:0}}>
+        {/* Top bar */}
+        <div style={{padding:"8px 20px",background:T.card,borderBottom:`1px solid ${T.border}`,display:"flex",alignItems:"center",justifyContent:"space-between",direction:"rtl"}}>
+          <div style={{display:"flex",alignItems:"center",gap:8}}>
+            <span style={{fontSize:14,fontWeight:600}}>سيادة</span>
+            <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:`${T.success}15`,color:T.success,border:`1px solid ${T.success}25`}}>API حقيقي</span>
           </div>
-        </>
-      )}
+          <span style={{fontSize:10,color:T.dim}}>{session?.plan || "free"}</span>
+        </div>
+        {tab==="chat"&&session&&<ChatBuilder tenantId={session.tenantId}/>}
+        {tab==="chat"&&!session&&<div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",color:T.dim}}>جاري التسجيل...</div>}
+        {tab==="status"&&<StatusPanel/>}
+        {tab==="settings"&&<SettingsPanel session={session}/>}
+      </div>
     </div>
   );
 }
