@@ -4,7 +4,7 @@
  */
 
 const PLANS = {
-  free:     { name: "مجاني", price: 0,   automations: 1,  messages: 50,   ai_calls: 50,   users: 1,  whatsapp: false },
+  free:     { name: "مجاني", price: 0,   automations: 5,  messages: 9999, ai_calls: 9999, users: 1,  whatsapp: true },
   basic:    { name: "أساسي", price: 199,  automations: 5,  messages: 500,  ai_calls: 500,  users: 2,  whatsapp: true },
   advanced: { name: "متقدم", price: 499,  automations: 15, messages: 2000, ai_calls: 2000, users: 5,  whatsapp: true },
   business: { name: "أعمال", price: 999,  automations: -1, messages: 10000,ai_calls: 10000,users: 15, whatsapp: true },

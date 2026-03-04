@@ -41,7 +41,7 @@ class SiyadahAPI {
   chat(tenantId, message) {
     var start = Date.now();
     var aiCheck = this.billing.useResource(tenantId, "ai_calls");
-    if (!aiCheck.success) return { error: "LIMIT_REACHED", message: aiCheck.message };
+    if (!aiCheck.success) return { success: false, error: "LIMIT_REACHED", message: aiCheck.message, message_ar: "وصلت الحد الأقصى — جرّب تحدّث الصفحة" };
 
     var result = executePipeline(message);
     this.monitor.recordRequest(Date.now() - start, result.success);

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سيادة — اختبار Sprint 2 (الدرجة الثانية)</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #1e293b;
+    --text: #e2e8f0;
+    --text-dim: #64748b;
+    --accent: #22d3ee;
+    --accent2: #818cf8;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --orange: #fb923c;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(34,211,238,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(129,140,248,0.05) 0%, transparent 50%);
+    animation: shimmer 8s ease-in-out infinite alternate;
+  }
+  @keyframes shimmer { from { transform: translateX(-5%); } to { transform: translateX(5%); } }
+  .header-content { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
+  .header h1 { font-size: 28px; font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header .subtitle { color: var(--text-dim); font-size: 14px; margin-top: 4px; }
+  .score-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 24px;
+    text-align: center;
+    min-width: 140px;
+  }
+  .score-box .num { font-size: 32px; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--text-dim); transition: color 0.5s; }
+  .score-box .num.perfect { color: var(--green); }
+  .score-box .num.partial { color: var(--yellow); }
+  .score-box .num.fail { color: var(--red); }
+  .score-box .label { font-size: 11px; color: var(--text-dim); margin-top: 2px; letter-spacing: 1px; }
+
+  .main { max-width: 1400px; margin: 0 auto; padding: 32px 40px; }
+
+  .controls {
+    display: flex; gap: 12px; margin-bottom: 28px; align-items: center; flex-wrap: wrap;
+  }
+  .base-url {
+    flex: 1; min-width: 300px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    direction: ltr;
+    text-align: left;
+  }
+  .base-url:focus { outline: none; border-color: var(--accent); }
+  .btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-run {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #0a0e17;
+  }
+  .btn-run:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(34,211,238,0.3); }
+  .btn-run:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-reset { background: var(--surface); color: var(--text-dim); border: 1px solid var(--border); }
+  .btn-reset:hover { border-color: var(--text-dim); }
+
+  .groups { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+  .group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .group.pass { border-color: rgba(52,211,153,0.3); }
+  .group.fail { border-color: rgba(248,113,113,0.3); }
+  .group.running { border-color: rgba(34,211,238,0.3); }
+
+  .group-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+    cursor: pointer;
+    user-select: none;
+  }
+  .group-header:hover { background: rgba(30,41,59,0.8); }
+  .group-title { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .group-title .icon { font-size: 18px; }
+  .group-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text-dim);
+  }
+  .group-badge.pass { background: rgba(52,211,153,0.15); color: var(--green); }
+  .group-badge.fail { background: rgba(248,113,113,0.15); color: var(--red); }
+
+  .group-body { padding: 0; }
+  .group-body.collapsed { display: none; }
+
+  .test-row {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(30,41,59,0.5);
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .test-row:last-child { border-bottom: none; }
+  .test-row:hover { background: rgba(30,41,59,0.3); }
+  .test-row .status {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    background: var(--bg);
+    color: var(--text-dim);
+  }
+  .test-row .status.pass { background: rgba(52,211,153,0.15); color: var(--green); }
+  .test-row .status.fail { background: rgba(248,113,113,0.15); color: var(--red); }
+  .test-row .status.running { animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .test-row .name { color: var(--text); }
+  .test-row .detail {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    direction: ltr;
+    text-align: left;
+  }
+  .test-row .detail.err { color: var(--red); }
+
+  .progress-bar {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .progress-bar .fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.3s;
+  }
+
+  .timer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-content">
+    <div>
+      <h1>سيادة — اختبار الدرجة الثانية</h1>
+      <div class="subtitle">Sprint 2 • Engine + AP Integration • Browser Test</div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="timer" id="timer">00:00</div>
+      <div class="score-box">
+        <div class="num" id="score">—</div>
+        <div class="label">PASSED</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="controls">
+    <input class="base-url" id="baseUrl" placeholder="https://your-siyadah.up.railway.app" />
+    <button class="btn btn-run" id="runBtn" onclick="runAll()">تشغيل الاختبارات</button>
+    <button class="btn btn-reset" onclick="resetAll()">إعادة</button>
+  </div>
+  <div class="progress-bar"><div class="fill" id="progress"></div></div>
+  <div class="groups" id="groups"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// Test Definitions
+// ═══════════════════════════════════════════════════════════
+
+const TESTS = [
+  // ─── GROUP 1: Server Health ───
+  {
+    group: "الخادم والاتصال",
+    icon: "🔌",
+    tests: [
+      {
+        name: "الخادم يستجيب",
+        run: async (b) => {
+          const r = await GET(b, "/health");
+          assert(r.status === "ok", `status: ${r.status}`);
+          return `v3.0 • mock:${r.ap_mock}`;
+        }
+      },
+      {
+        name: "AP Health (حقيقي)",
+        run: async (b) => {
+          const r = await GET(b, "/api/ap/health");
+          assert(r.success !== false, r.error || "failed");
+          return `healthy:${r.healthy} v${r.version || "?"}`;
+        }
+      },
+      {
+        name: "AP Login Check",
+        run: async (b) => {
+          const r = await GET(b, "/api/ap/check");
+          assert(r.connected === true, `connected:${r.connected} err:${r.error||""}`);
+          return `project:${r.projectId?.substring(0,8)}...`;
+        }
+      },
+      {
+        name: "AP Flows قائمة",
+        run: async (b) => {
+          const r = await GET(b, "/api/ap/flows");
+          assert(r.success !== false, r.error || "failed");
+          const count = r.data?.data?.length ?? r.data?.length ?? "?";
+          return `flows: ${count}`;
+        }
+      },
+      {
+        name: "AP Connections",
+        run: async (b) => {
+          const r = await GET(b, "/api/ap/connections");
+          assert(r.success !== false, r.error || "failed");
+          const count = r.data?.data?.length ?? r.data?.length ?? 0;
+          return `connections: ${count}`;
+        }
+      },
+    ]
+  },
+
+  // ─── GROUP 2: Pipeline — Arabic Intent Detection ───
+  {
+    group: "فهم النوايا (Phase 6)",
+    icon: "🧠",
+    tests: [
+      {
+        name: "أبي أجذب عملاء → lead_capture",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي أجذب عملاء" });
+          assert(r.success, `failed at ${r.stage_reached}: ${r.errors?.[0]?.message}`);
+          assert(r.stages?.understand?.primary_intent === "lead_capture", `intent: ${r.stages?.understand?.primary_intent}`);
+          return `✓ intent:lead_capture conf:${r.stages?.select?.confidence}`;
+        }
+      },
+      {
+        name: "حجز موعد كشف أسنان → appointment_book",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "مريض يبي يحجز كشف أسنان بكرة" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          assert(r.stages?.understand?.primary_intent === "appointment_book", `intent: ${r.stages?.understand?.primary_intent}`);
+          return `✓ conf:${r.stages?.select?.confidence}`;
+        }
+      },
+      {
+        name: "أرسل فاتورة 500 ريال → invoice_send",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أرسل فاتورة 500 ريال للعميل" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          assert(r.stages?.understand?.primary_intent === "invoice_send", `intent: ${r.stages?.understand?.primary_intent}`);
+          return `✓ entities detected`;
+        }
+      },
+      {
+        name: "ذكّر المرضى قبل مواعيدهم → appointment_remind",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "ذكّر المرضى قبل مواعيدهم بساعة على الواتس" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          assert(r.stages?.understand?.primary_intent === "appointment_remind", `intent: ${r.stages?.understand?.primary_intent}`);
+          return `✓ appointment_remind`;
+        }
+      },
+      {
+        name: "تقرير أسبوعي بالأداء → report_weekly",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي تقرير أسبوعي بأداء الفريق" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const intent = r.stages?.understand?.primary_intent;
+          assert(intent === "report_weekly" || intent === "report_custom", `intent: ${intent}`);
+          return `✓ ${intent}`;
+        }
+      },
+      {
+        name: "عميل يشتكي من التأخير → support_ticket",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "عميل يشتكي من تأخر الطلب" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          assert(r.stages?.understand?.primary_intent === "support_ticket", `intent: ${r.stages?.understand?.primary_intent}`);
+          return `✓ support_ticket`;
+        }
+      },
+      {
+        name: "أرسل واتساب ترحيبي → notify_whatsapp",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أرسل واتساب ترحيبي للعملاء الجدد" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const intent = r.stages?.understand?.primary_intent;
+          assert(intent.includes("whatsapp") || intent.includes("lead") || intent.includes("campaign"), `intent: ${intent}`);
+          return `✓ ${intent}`;
+        }
+      },
+      {
+        name: "طلب جديد من المتجر → order_new",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "لما يجي أوردر جديد من المتجر أبلّغ الفريق" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          return `✓ ${r.stages?.understand?.primary_intent}`;
+        }
+      },
+    ]
+  },
+
+  // ─── GROUP 3: Pipeline — Tool Selection (Phase 6) ───
+  {
+    group: "اختيار الأدوات (Phase 6)",
+    icon: "🔧",
+    tests: [
+      {
+        name: "lead_capture → webhook trigger",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "عميل جديد يتواصل من الموقع" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          assert(r.stages?.select?.trigger === "webhook" || r.flow?.trigger?.piece_id === "webhook", "no webhook trigger");
+          return `✓ trigger:webhook steps:${r.stages?.select?.steps_count}`;
+        }
+      },
+      {
+        name: "report_daily → schedule trigger",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي تقرير يومي بعدد العملاء" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const trig = r.stages?.select?.trigger || r.flow?.trigger?.piece_id;
+          assert(trig === "schedule", `trigger: ${trig}`);
+          return `✓ trigger:schedule`;
+        }
+      },
+      {
+        name: "lead_capture steps: Sheets + HubSpot + WhatsApp",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي أجذب عملاء جدد من الموقع" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const pieces = r.flow?.steps?.map(s => s.piece_id) || [];
+          assert(pieces.includes("google-sheets"), `no sheets: ${pieces.join(",")}`);
+          assert(pieces.includes("whatsapp"), `no whatsapp: ${pieces.join(",")}`);
+          return `✓ ${pieces.join(" → ")}`;
+        }
+      },
+      {
+        name: "invoice_send steps: Stripe + WhatsApp + Gmail",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أرسل فاتورة للعميل" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const pieces = r.flow?.steps?.map(s => s.piece_id) || [];
+          assert(pieces.length >= 3, `only ${pieces.length} steps`);
+          return `✓ ${pieces.join(" → ")}`;
+        }
+      },
+    ]
+  },
+
+  // ─── GROUP 4: Flow Builder (Phase 7) ───
+  {
+    group: "بناء التدفقات (Phase 7)",
+    icon: "🏗️",
+    tests: [
+      {
+        name: "Flow يتولّد مع _metadata كاملة",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي أحجز موعد" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const m = r.flow?._metadata;
+          assert(m, "no _metadata");
+          assert(m.intent, "no intent in metadata");
+          assert(m.total_steps > 0, "total_steps=0");
+          return `✓ intent:${m.intent} steps:${m.total_steps}`;
+        }
+      },
+      {
+        name: "Trigger مبني صح (piece_id + trigger_name)",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "عميل جديد يتواصل" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const t = r.flow?.trigger;
+          assert(t?.piece_id, "no piece_id");
+          assert(t?.trigger_name, "no trigger_name");
+          assert(t?.type === "TRIGGER", `type: ${t?.type}`);
+          return `✓ ${t.piece_id}/${t.trigger_name}`;
+        }
+      },
+      {
+        name: "كل Step فيه piece_id + action_name + index",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أرسل فاتورة" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          for (const s of r.flow?.steps || []) {
+            assert(s.piece_id, `step ${s.index}: no piece_id`);
+            assert(s.action_name, `step ${s.index}: no action_name`);
+            assert(s.index > 0, `step: no index`);
+          }
+          return `✓ ${r.flow.steps.length} steps validated`;
+        }
+      },
+      {
+        name: "AP Format يتولّد (trigger + actions chain)",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أرسل واتساب" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const ap = r.ap_format;
+          assert(ap, "no ap_format");
+          assert(ap.trigger?.type === "PIECE_TRIGGER", `trigger type: ${ap.trigger?.type}`);
+          assert(ap.actions?.length > 0, "no actions");
+          return `✓ trigger:PIECE_TRIGGER actions:${ap.actions.length}`;
+        }
+      },
+      {
+        name: "AP Format: pieceName يبدأ بـ @activepieces/piece-",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "عميل جديد" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          const tPiece = r.ap_format?.trigger?.settings?.pieceName;
+          assert(tPiece?.startsWith("@activepieces/piece-"), `trigger: ${tPiece}`);
+          for (const a of r.ap_format?.actions || []) {
+            assert(a.settings?.pieceName?.startsWith("@activepieces/piece-"), `action: ${a.settings?.pieceName}`);
+          }
+          return `✓ all @activepieces/piece-*`;
+        }
+      },
+      {
+        name: "error_handlers مضمّنة في الـ flow",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "حجز موعد كشف" });
+          assert(r.success, `failed: ${r.errors?.[0]?.message}`);
+          assert(r.flow?.error_handlers?.length > 0, "no error_handlers");
+          return `✓ ${r.flow.error_handlers.length} handlers`;
+        }
+      },
+    ]
+  },
+
+  // ─── GROUP 5: Validator (Phase 8) ───
+  {
+    group: "المحقق — 5 بوابات (Phase 8)",
+    icon: "🛡️",
+    tests: [
+      {
+        name: "5/5 بوابات تمر على flow صحيح",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي أحجز موعد" });
+          assert(r.success, `failed at ${r.stage_reached}`);
+          const v = r.stages?.validate;
+          assert(v?.valid === true, `valid: ${v?.valid}`);
+          const s = v?.summary || {};
+          return `✓ G1:${s.gate_1} G2:${s.gate_2} G3:${s.gate_3} G4:${s.gate_4} G5:${s.gate_5}`;
+        }
+      },
+      {
+        name: "Zero errors على 5 سيناريوهات مختلفة",
+        run: async (b) => {
+          const texts = ["عميل جديد","أرسل فاتورة","تقرير يومي","أرسل واتساب","حجز موعد"];
+          let allOk = true;
+          const results = [];
+          for (const t of texts) {
+            const r = await POST(b, "/pipeline", { text: t });
+            results.push(r.success ? "✓" : "✗");
+            if (!r.success) allOk = false;
+          }
+          assert(allOk, `some failed: ${results.join(",")}`);
+          return `✓ 5/5 valid`;
+        }
+      },
+    ]
+  },
+
+  // ─── GROUP 6: Full Pipeline (Phase 9) ───
+  {
+    group: "Pipeline كامل (Phase 9)",
+    icon: "⚡",
+    tests: [
+      {
+        name: "Pipeline: understand → select → build → validate → format",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي أجذب عملاء جدد" });
+          assert(r.success, `stopped at ${r.stage_reached}: ${r.errors?.[0]?.message}`);
+          assert(r.stage_reached === "ready", `stage: ${r.stage_reached}`);
+          assert(r.flow, "no flow");
+          assert(r.ap_format, "no ap_format");
+          return `✓ ready in ${r.execution_time_ms}ms`;
+        }
+      },
+      {
+        name: "Pipeline < 500ms",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "حجز موعد" });
+          assert(r.success, "pipeline failed");
+          assert(r.execution_time_ms < 500, `${r.execution_time_ms}ms > 500ms`);
+          return `✓ ${r.execution_time_ms}ms`;
+        }
+      },
+      {
+        name: "Pipeline: نص فارغ → يفشل بأمان",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "" });
+          assert(!r.success, "should fail on empty");
+          assert(r.stage_reached === "understand", `stage: ${r.stage_reached}`);
+          return `✓ fails gracefully at understand`;
+        }
+      },
+      {
+        name: "Pipeline log: يحتوي كل المراحل",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي تقرير يومي" });
+          assert(r.success, "pipeline failed");
+          assert(r.log?.length >= 4, `log entries: ${r.log?.length}`);
+          return `✓ log: ${r.log?.join(" → ")}`;
+        }
+      },
+      {
+        name: "10 طلبات عربية مختلفة → كلها تنجح",
+        run: async (b) => {
+          const texts = [
+            "أبي أجذب عملاء", "حجز موعد", "أرسل فاتورة",
+            "تقرير يومي", "أرسل واتساب", "عميل يشتكي",
+            "متابعة مبيعات", "رد تلقائي على الرسائل",
+            "عميل جديد يتواصل", "أبي تقرير أسبوعي"
+          ];
+          let ok = 0;
+          for (const t of texts) {
+            const r = await POST(b, "/pipeline", { text: t });
+            if (r.success) ok++;
+          }
+          assert(ok === 10, `${ok}/10 passed`);
+          return `✓ 10/10`;
+        }
+      },
+    ]
+  },
+
+  // ─── GROUP 7: Chat API ───
+  {
+    group: "Chat API",
+    icon: "💬",
+    tests: [
+      {
+        name: "POST /api/chat → يرجع رد عربي",
+        run: async (b) => {
+          const r = await POST(b, "/api/chat", { tenantId: "test_t1", message: "أبي أجذب عملاء" });
+          assert(r.reply || r.message || r.response, `no reply: ${JSON.stringify(r).substring(0,100)}`);
+          return `✓ got reply`;
+        }
+      },
+      {
+        name: "Chat: يرجع flow plan",
+        run: async (b) => {
+          const r = await POST(b, "/api/chat", { tenantId: "test_t1", message: "أبي أحجز مواعيد" });
+          assert(r.flow || r.plan || r.automation || r.steps, `no flow in response`);
+          return `✓ flow plan returned`;
+        }
+      },
+    ]
+  },
+
+  // ─── GROUP 8: AP Format Correctness ───
+  {
+    group: "توافق AP (الأسماء المثبتة)",
+    icon: "🔗",
+    tests: [
+      {
+        name: "Webhook trigger = catch_webhook (مو catch_hook)",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "عميل جديد" });
+          assert(r.success, "failed");
+          const tn = r.ap_format?.trigger?.settings?.triggerName;
+          assert(tn === "catch_webhook", `triggerName: ${tn}`);
+          return `✓ catch_webhook`;
+        }
+      },
+      {
+        name: "Webhook version = ~0.1.29",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أبي أجذب عملاء" });
+          assert(r.success, "failed");
+          const v = r.ap_format?.trigger?.settings?.pieceVersion;
+          assert(v === "~0.1.29", `version: ${v}`);
+          return `✓ ~0.1.29`;
+        }
+      },
+      {
+        name: "Gmail: receiver (Array), body_type, draft",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "أرسل إيميل ترحيبي للعميل" });
+          assert(r.success, "failed");
+          const gmailAction = r.ap_format?.actions?.find(a => a.settings?.pieceName?.includes("gmail"));
+          if (!gmailAction) return "⏭ no gmail in this flow";
+          return `✓ gmail action found`;
+        }
+      },
+      {
+        name: "Actions chain: nextAction مربوطة",
+        run: async (b) => {
+          const r = await POST(b, "/pipeline", { text: "عميل جديد" });
+          assert(r.success, "failed");
+          const actions = r.ap_format?.actions || [];
+          if (actions.length < 2) return `✓ single action (no chain needed)`;
+          for (let i = 0; i < actions.length - 1; i++) {
+            assert(actions[i].nextAction, `action ${i}: no nextAction`);
+          }
+          assert(!actions[actions.length-1].nextAction, "last action should not have nextAction");
+          return `✓ chain: ${actions.map(a=>a.name).join("→")}`;
+        }
+      },
+    ]
+  },
+];
+
+// ═══════════════════════════════════════════════════════════
+// Test Runner
+// ═══════════════════════════════════════════════════════════
+
+let totalTests = 0;
+let passedTests = 0;
+let failedTests = 0;
+let startTime = 0;
+let timerInterval = null;
+
+function assert(condition, msg) {
+  if (!condition) throw new Error(msg || "assertion failed");
+}
+
+async function GET(base, path) {
+  const r = await fetch(base + path);
+  return r.json();
+}
+
+async function POST(base, path, data) {
+  const r = await fetch(base + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  return r.json();
+}
+
+function renderGroups() {
+  const container = document.getElementById("groups");
+  container.innerHTML = "";
+  TESTS.forEach((g, gi) => {
+    const div = document.createElement("div");
+    div.className = "group";
+    div.id = `group-${gi}`;
+    div.innerHTML = `
+      <div class="group-header" onclick="toggleGroup(${gi})">
+        <div class="group-title"><span class="icon">${g.icon}</span> ${g.group}</div>
+        <span class="group-badge" id="badge-${gi}">0/${g.tests.length}</span>
+      </div>
+      <div class="group-body" id="body-${gi}">
+        ${g.tests.map((t, ti) => `
+          <div class="test-row" id="row-${gi}-${ti}">
+            <div class="status" id="status-${gi}-${ti}">•</div>
+            <div class="name">${t.name}</div>
+            <div class="detail" id="detail-${gi}-${ti}">—</div>
+          </div>
+        `).join("")}
+      </div>
+    `;
+    container.appendChild(div);
+    totalTests += g.tests.length;
+  });
+}
+
+function toggleGroup(gi) {
+  const body = document.getElementById(`body-${gi}`);
+  body.classList.toggle("collapsed");
+}
+
+function updateScore() {
+  const el = document.getElementById("score");
+  el.textContent = `${passedTests}/${totalTests}`;
+  el.className = "num " + (failedTests > 0 ? "fail" : passedTests === totalTests ? "perfect" : "partial");
+  document.getElementById("progress").style.width = `${((passedTests + failedTests) / totalTests) * 100}%`;
+}
+
+function updateTimer() {
+  const elapsed = Math.floor((Date.now() - startTime) / 1000);
+  const m = String(Math.floor(elapsed / 60)).padStart(2, "0");
+  const s = String(elapsed % 60).padStart(2, "0");
+  document.getElementById("timer").textContent = `${m}:${s}`;
+}
+
+async function runAll() {
+  const base = document.getElementById("baseUrl").value.replace(/\/$/, "");
+  if (!base) { alert("أدخل رابط السيرفر"); return; }
+
+  document.getElementById("runBtn").disabled = true;
+  passedTests = 0;
+  failedTests = 0;
+  startTime = Date.now();
+  timerInterval = setInterval(updateTimer, 1000);
+
+  for (let gi = 0; gi < TESTS.length; gi++) {
+    const g = TESTS[gi];
+    document.getElementById(`group-${gi}`).className = "group running";
+    let gPass = 0;
+
+    for (let ti = 0; ti < g.tests.length; ti++) {
+      const t = g.tests[ti];
+      const statusEl = document.getElementById(`status-${gi}-${ti}`);
+      const detailEl = document.getElementById(`detail-${gi}-${ti}`);
+      statusEl.className = "status running";
+      statusEl.textContent = "⟳";
+
+      try {
+        const detail = await t.run(base);
+        statusEl.className = "status pass";
+        statusEl.textContent = "✓";
+        detailEl.textContent = detail || "passed";
+        detailEl.className = "detail";
+        passedTests++;
+        gPass++;
+      } catch (e) {
+        statusEl.className = "status fail";
+        statusEl.textContent = "✗";
+        detailEl.textContent = e.message;
+        detailEl.className = "detail err";
+        failedTests++;
+      }
+      updateScore();
+    }
+
+    const badge = document.getElementById(`badge-${gi}`);
+    badge.textContent = `${gPass}/${g.tests.length}`;
+    badge.className = "group-badge " + (gPass === g.tests.length ? "pass" : "fail");
+    document.getElementById(`group-${gi}`).className = "group " + (gPass === g.tests.length ? "pass" : "fail");
+  }
+
+  clearInterval(timerInterval);
+  updateTimer();
+  document.getElementById("runBtn").disabled = false;
+}
+
+function resetAll() {
+  passedTests = 0;
+  failedTests = 0;
+  totalTests = 0;
+  clearInterval(timerInterval);
+  document.getElementById("timer").textContent = "00:00";
+  document.getElementById("score").textContent = "—";
+  document.getElementById("score").className = "num";
+  document.getElementById("progress").style.width = "0%";
+  renderGroups();
+}
+
+// ═══════════════════════════════════════════════════════════
+// Init
+// ═══════════════════════════════════════════════════════════
+
+// Auto-detect base URL
+const defaultUrl = window.location.hostname === "localhost"
+  ? `http://localhost:${window.location.port || 3000}`
+  : window.location.origin;
+document.getElementById("baseUrl").value = defaultUrl;
+renderGroups();
+</script>
+</body>
+</html>

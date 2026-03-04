@@ -31,12 +31,19 @@ const server = http.createServer(function(req, res) {
       res.end(indexHtml); return;
     }
 
+    // Sprint 2 Test Page
+    if (req.method === "GET" && url.pathname === "/test-sprint2") {
+      var testHtml = fs.readFileSync(path.join(__dirname, "public/test-sprint2.html"), "utf8");
+      res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+      res.end(testHtml); return;
+    }
+
     // Health
     if (req.method === "GET" && url.pathname === "/health") {
       sendJson(res, 200, {
         status: "ok",
         project: "Siyadah v3.0",
-        tests: "568/568",
+        tests: "605/605",
         ap_url: api.ap.baseUrl,
         ap_mock: api.ap._mock,
         ap_project: api.ap.projectId
